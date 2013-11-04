@@ -1,0 +1,32 @@
+
+// Header styles
+// -----------------------------------
+#hot-topics {
+  border-bottom: 1px solid @border-color;
+  width: 100%;
+  .container {
+    overflow:hidden;
+    .clearfix();
+    ul {
+      margin: 0;
+      .text-overflow();
+      height: (@line-height-computed * 1.5);
+      > li {
+        &:first-child {
+          .h5();
+          padding-left:0;
+          text-transform:uppercase;
+          font-family: @font-family-treb;
+        }
+        > a {
+          line-height: (@line-height-computed * 1.5);
+          .font-size(12px);
+          font-weight: @font-weight-bold;
+        }
+      }
+    }
+  }
+  @media (max-width:@breakpoint-sm-max) {
+    display: none;
+  }
+}

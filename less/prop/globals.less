@@ -1,0 +1,53 @@
+
+// GLOBAL OVERRIDES
+// -----------------------------------
+html {
+  background: darken(@brand-primary, 20%);
+}
+body {
+  position: relative;
+  z-index: 2;
+  left: 0;
+  padding-top: @navbar-height-max;
+  .transition(left 0.2s ease-in-out);
+  @media (min-width: @breakpoint-md) {
+    padding-top: 0;
+  }
+  &.off-canvas-active {
+    left: 80%;
+    .transition(left 0.2s ease-in-out);
+  }
+}
+a, button {
+  .transition(all 0.2s ease-in);
+  &:hover {
+    .transition(all 0.2s ease-in);
+  }
+}
+h1, h2, h3 {
+  a {
+    color: @text-color;
+  }
+}
+h1 {
+  @media (min-width: @breakpoint-md){
+    .font-size(42px);
+  }
+}
+h2 {
+  @media (min-width: @breakpoint-md){
+    .font-size(34px);
+  }
+}
+h4, h5, h6 {
+  font-family: @font-family-treb;
+  text-transform: uppercase;
+  color: darken(@brand-primary, 10%);
+}
+
+
+@media (min-width: @breakpoint-xl) {
+  html {
+  //font-size:75%;
+  }
+}

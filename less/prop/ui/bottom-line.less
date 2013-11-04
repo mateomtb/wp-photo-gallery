@@ -1,0 +1,26 @@
+// Bottom line
+// ----------------------------------
+#bottom-line {
+  margin-bottom: @line-height-computed;
+  .share-widget {
+    position:absolute;
+    top:14px;
+    right:0;
+  }
+  img {
+    width: 100%!important; // for now!!!
+  }
+}
+.bottomline-body {
+  .make-rows();
+}
+.bottomline-items {
+  @media (min-width: @breakpoint-lg) {
+    margin-right: @right-rail-width + @grid-gutter-width;
+    width: auto;
+  }
+  > li {
+    .make-md-column(4);
+    margin-bottom: @line-height-computed;
+  }
+}
