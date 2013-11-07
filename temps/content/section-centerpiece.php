@@ -1,7 +1,16 @@
 <?php //include('temps/ui/breadcrumbs.php'); ?>
 <div id="top-story">
 	<div class="media single-img">
-		<img src="http://placehold.it/800x600" alt="max 800x600 photo in this space" />
+		<picture>
+			<source srcset="http://placehold.it/320x240 1x, http://placehold.it/320x240&amp;text=2x 2x">
+			<source media="(min-width: 321px)" srcset="http://placehold.it/480x320 1x, http://placehold.it/480x320&amp;text=2x 2x">
+			<source media="(min-width: 481px)" srcset="http://placehold.it/640x480 1x, http://placehold.it/320x240&amp;text=2x 2x">
+			<source media="(min-width: 641px)" srcset="http://placehold.it/800x600 1x, http://placehold.it/800x600&amp;text=2x 2x">
+			<source media="(min-width: 769px)" srcset="http://placehold.it/640x480 1x, http://placehold.it/640x480&amp;text=2x 2x">
+			<source media="(min-width: 960px)" srcset="http://placehold.it/480x320 1x, http://placehold.it/480x320&amp;text=2x 2x">
+			<source media="(min-width: 1029px)" srcset="http://placehold.it/640x480 1x, http://placehold.it/640x480&amp;text=2x 2x">
+			<source media="(min-width: 1241px)" srcset="http://placehold.it/800x600 1x, http://placehold.it/800x600&amp;text=2x 2x">
+		</picture>
 		<!-- add in picture fill here -->
 	</div> <!-- .media -->
 	<h2><a href="">Chairman shocked at United Western closure</a></h2>

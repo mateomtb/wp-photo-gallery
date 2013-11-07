@@ -100,7 +100,7 @@
           color:@gray-dark;
         }  
         &:hover {
-          #gradient > .vertical(@start-color:#e7ecf4; @end-color: #fff);
+          #gradient > .vertical(@start-color:lighten(@brand-primary, 60%); @end-color: #fff);
           text-decoration: none;
           text-indent: 5px;
           color: @gray-dark;
@@ -122,7 +122,7 @@
   }
   .more {
     font-weight: @font-weight-bold;
-    color: @brand-primary;
+    color: @link-color;
   }
 }
 .meta {

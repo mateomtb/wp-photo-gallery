@@ -1,0 +1,32 @@
+// Navigation -- redo of bs navbar
+// ------------------------------------
+
+.menu-toggle {
+  position: relative;
+  float: left;
+  padding: 12px;
+  background: rgba(255,255,255,.1);
+  border-right: @border;
+  cursor: pointer;
+  margin-left: -(@grid-gutter-width / 2);
+  z-index: @zindex-toggle;
+  &:hover {
+    background: rgba(255,255,255,.2);
+  }
+  // Bars
+  .icon-bar {
+    background: #fff;
+    display: block;
+    width: 22px;
+    height: 3px;
+    pointer-events:none;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 4px;
+  }
+  @media (min-width: @grid-float-breakpoint) {
+    display: none;
+  }
+}
+
+

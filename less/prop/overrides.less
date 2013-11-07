@@ -1,0 +1,129 @@
+// Overrides
+// ------------------------------------------
+
+@media (min-width: @breakpoint-md) {
+  .carousel-control {
+    top: 50%;
+    .size(35px, 40px);
+    left: -(@grid-gutter-width / 2);
+    margin-top: -20px;
+    background: @red-dark !important;
+    .border-radius(6px);
+    border: 1px solid #999;
+    line-height:40px;
+    .opacity(1);
+    .glyphicon-chevron-right,
+    .glyphicon-chevron-left {
+       position: static;
+       line-height: 38px;
+     }
+}
+  .carousel-control.right {
+     text-align: center;
+     left: auto;
+     right: -(@grid-gutter-width / 2);
+  }
+  .carousel-control:hover,
+  .carousel-control:focus {
+    color: #fff;
+    background: #484848;
+    .opacity(1);
+    text-decoration: none;
+  }
+}
+
+.carousel {
+  &.multi-pane {
+    text-align: left!important;
+    margin-bottom: @line-height-computed;
+    a {
+       .transition(none);
+    }
+    .slide {
+      figure {
+        .clearfix();
+        margin-bottom: (@line-height-computed / 2);
+        > a {
+          img {
+            border: @border;
+            width: 33.33333%;
+            float: left;
+            margin-right: (@grid-gutter-width / 2);
+          }
+        }
+        h3 {
+          margin: 0;
+        .font-size(18px);
+        }
+      }
+    }
+    .carousel-control {
+      visibility: hidden;
+    }
+    @media (min-width: @breakpoint-md) {
+    &.two-image {
+         figure {
+           width: 50%;
+         }
+       }
+       &.three-image {
+         figure {
+           width: 33.33333%;
+         }
+       }
+       &.four-image {
+         figure {
+           width: 25%;
+         }
+       }
+       .slide {
+         display: table;
+         figure {
+           display: table-cell;
+           border-left: 3px solid #fff;
+           > a {
+             img {
+               width: 100%;  // temp!!!
+                 margin-right:0;
+                 margin-bottom:(@line-height-computed / 2);
+             }
+           }
+           h3 {
+             margin-right: @grid-gutter-width;
+             .font-size(18px);
+           }
+         }
+       }
+    .carousel-control {  // DUPLICATE OF ABOVE????
+      visibility: visible;
+      top: 33.33333%;
+      .size(35px, 40px);
+      left: -(@grid-gutter-width / 2);
+      margin-top: -20px;
+      background: @red-dark;
+      .border-radius(6px);
+      border: 1px solid #999;
+      line-height:40px;
+      .opacity(1);
+      .glyphicon-chevron-right,
+      .glyphicon-chevron-left {
+         position: static;
+         line-height: 38px;
+      }
+    }
+
+    .carousel-control.right {
+       text-align: center;
+      left: auto;
+      right: -(@grid-gutter-width / 2);
+    }
+    .carousel-control:hover,
+    .carousel-control:focus {
+      color: #fff;
+      background: #484848;
+      .opacity(1);
+      text-decoration: none;
+    } 
+    }
+  }
+}

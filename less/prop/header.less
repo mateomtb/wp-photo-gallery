@@ -1,6 +1,110 @@
-
 // Header styles
 // -----------------------------------
+.flag {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: @zindex-navbar;
+  min-height: @navbar-height-max;
+  .clearfix();
+  background: @brand-primary;
+  .branding {
+	width: 150px;
+	line-height: @navbar-height-max;
+    margin: 0 auto;
+  }
+  .section-name {
+    display: none;
+  }
+  .search-bar {
+    float: right;
+    width: 50px;
+  }
+  @media (min-width:@breakpoint-md) {
+    position: relative;
+    z-index: 5;
+    #gradient > .vertical(@start-color:#e4eaf2; @end-color:#ffffff );
+    .section-name {
+      display: block;
+    }
+    .branding {
+	  min-height: none;
+	  max-height: none;
+	  line-height: @line-height-base;
+	  margin: 0;
+	  &.sm {
+		margin-top: 5px;
+	  }
+    }
+    .search-bar {
+      position: absolute;
+      bottom: 10px;
+      right: (@grid-gutter-width / 2);
+      width: 225px;
+    }
+  }
+  @media (max-width:@breakpoint-sm-max) {
+    .search-bar {
+      .input-group {
+        display: none!important;
+      }
+    }
+  }
+}
+
+
+.search-toggle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  .glyphicon {
+    color: #fff;
+    .font-size(18px);
+    pointer-events:none;
+  }
+  &:focus {
+    border: 0;
+  }
+  padding: 10px;
+  background: rgba(255,255,255,.1);
+  border: 0;
+  border-left: @border;
+  cursor: pointer;
+  margin-left: -(@grid-gutter-width / 2);
+  &:hover {
+    background: rgba(255,255,255,.2);
+  }
+  @media (min-width: @grid-float-breakpoint) {
+    display: none;
+  }
+}
+
+
+.home-page .flag > .container {
+  @media (min-width: @breakpoint-md) {
+    padding-top: @grid-gutter-width;
+    padding-bottom: (@grid-gutter-width * .25);
+  }
+}
+.section-name {
+  .font-size(18px);
+  margin: 0;
+  a {
+    color: @brand-primary;
+  }
+  a:hover {
+    text-decoration: none;
+    color: @gray-dark;
+  }
+  @media (min-width: @breakpoint-md) {
+    .font-size(40px);
+  }
+}
+
+
+// Hot topics
+// -----------------------------
 #hot-topics {
   border-bottom: 1px solid @border-color;
   width: 100%;

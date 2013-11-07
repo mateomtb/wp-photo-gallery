@@ -14,6 +14,7 @@ body {
     padding-top: 0;
   }
   &.off-canvas-active {
+    overflow: hidden;
     left: 80%;
     .transition(left 0.2s ease-in-out);
   }
@@ -43,11 +44,4 @@ h4, h5, h6 {
   font-family: @font-family-treb;
   text-transform: uppercase;
   color: darken(@brand-primary, 10%);
-}
-
-
-@media (min-width: @breakpoint-xl) {
-  html {
-  //font-size:75%;
-  }
 }

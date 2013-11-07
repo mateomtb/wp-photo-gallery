@@ -5,24 +5,22 @@
 @border-blue: 1px solid @brand-primary;
 @comment-bug-width: 24px;
 @navbar-height-max: 40px;
+@zindex-toggle: 1040;
 
 
 
-// TODO
+// TODO FOR DEMO
 // -----------------------------------
-// navigation complete :: offcanvas
-
+// navigation :: get subtopics in
+// make search bar actually work
 
 // ISSUES
 // article :: add share tools
-// add picture fill for responsive image handling
-// make search bar actually work
 // add ad map
 // additional header elements
 // ems on margins so that font-size will work
 // way to make colors change perfectly on switching brand primary
 // refactor all css
-
 
 // PAGES TO CREATE STILL
 // style differences (infoboxes/ads-in/etc)
@@ -32,318 +30,14 @@
 // IMPORTS
 // ----------------------------------
 @import "globals.less";
+@import "overrides.less";
 @import "main-classes.less";
 @import "header.less";
 @import "page-home.less";
 @import "page-article.less";
 @import "ui/bottom-line.less";
-//@import "ui/bubble-nav.less";
+@import "ui/nav.less";
 
-
-
-.bubble {
-  position:static;
-/*  .link-list {
-    ul li a:hover { 
-	.text-overflow(); 
-	}
-  }*/
-  .dropdown-menu {
-	background: white;
-	position:relative;
-	width: 100%;
-    .clearfix();
-    top: @navbar-height;
-    margin: 0;  
-    margin-left: -3000px;
-    min-height: 270px;
-    padding: (@grid-gutter-width / 2) 3000px;
-  }
-  .pager {
-    .clearfix();
-    display:none;
-    position:absolute;
-    width: 160px;
-    left: 0;
-    bottom: 8px;
-    margin: 0;
-    .transition(width 0.2s linear);
-    z-index: 2000;
-    li a {
-      border-radius: 0;
-      padding: 2px 5px;
-      font-size: 12px;
-      font-weight: bold;
-      width: 148px;
-      &:hover {
-        background: @brand-primary;
-        color: #fff;
-      }
-    }
-    .prev {
-      float: left;
-      opacity: 0;
-      .transition(opacity 0.1s linear);
-     }
-     .next {
-       float: right;
-     }
-  }
-}
-
-.bubble-content {
-  .clearfix();
-  display: block!important;
-}
-
-.bubble-subtopics,
-.bubble-headlines {
-  .clearfix();
-  float:left;
-}
-
-.visible-pane {
-  .size(160px, 300px); //may be inversed
-  overflow-x: hidden;
-  overflow-y: auto;
-  .transition(all 0.2s linear);
-}
-
-.topic-pane {
-  .transition(left 0.2s linear);
-  li a {
-    display: block;
-    width: 100%;
-    .user-select(none);
-    border-top: 1px solid @border-color;
-    border-bottom: 1px solid #fff;
-    padding: 3px 0!important;
-    &:hover {
-      background: #f1f1f1;
-      color: @text-color;
-      border-top-color: @brand-primary;
-      text-indent: 5px;
-      .text-overflow();
-      text-decoration:none;
-    }
-    &:last-child {
-      border-bottom: 1px solid @border-color;
-    }
-  }
-}
-
-.bubble-headlines {
-  width: 480px;
-  padding: 0 (@grid-gutter-width / 2);
-    .transition(all 0.2s linear);
-  a {
-    padding: 0!important;
-    line-height:0;
-    display: inline;
-}
-  img {
-    display: inline-block;
-    float: left;
-    margin-right: 10px;
-  }
-  h3 {
-    margin:0 0 (@line-height-computed / 3);
-  }
-  p {
-    .font-size(12px);
-    line-height: 1.5;
-  }
-}
-.bubble-ad {
-  .size (300px, 250px);
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.bubble-content.slider-mode {
-  .bubble-editorial-content {
-    overflow: hidden;
-    .size(660px, 320px);
-  }
-  .bubble-overflow,
-  .pane-container {
-    width: 1000%;
-  }
-  .visible-pane {
-    height: 270px;
-    &.active {
-       width: 660px;
-      .transition(all 0.2s linear);
-    }
-  }
-  .topic-pane {
-    .clearfix();
-    height: 270px;
-    overflow: hidden;
-    ul {
-      width: 160px;
-      float: left;
-      margin-right: 10px;
-    }
-    .transition(left 0.2s linear);
-  }
-  .pager {
-    display: block;
-  }
-  .pager.expanded {
-    width: 660px;
-    .transition(width 0.2s linear);
-    .prev {
-      opacity: 1;
-      .transition(opacity 0.2s linear 0.2s);
-    }
-    .next a.inactive {
-      opacity: 0;
-      .transition(opacity 0.2s linear);
-     }
-   }
-}
-
-
-
-// Header styles
-// -----------------------------------
-.flag {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: @zindex-navbar;
-  min-height: @navbar-height-max;
-  .clearfix();
-  background: @brand-primary;
-  .branding {
-	width: 150px;
-	line-height: @navbar-height-max;
-    margin: 0 auto;
-  }
-  .section-name {
-    display: none;
-  }
-  .search-bar {
-    float: right;
-    width: 50px;
-  }
-  @media (min-width:@breakpoint-md) {
-    position: relative;
-    z-index: 5;
-    #gradient > .vertical(@start-color:#e4eaf2; @end-color:#ffffff );
-    .section-name {
-      display: block;
-    }
-    .branding {
-	  min-height: none;
-	  max-height: none;
-	  line-height: @line-height-base;
-	  margin: 0;
-	  &.sm {
-		margin-top: 5px;
-	  }
-    }
-    .search-bar {
-      position: absolute;
-      bottom: 10px;
-      right: (@grid-gutter-width / 2);
-      width: 225px;
-    }
-  }
-  @media (max-width:@breakpoint-sm-max) {
-    .search-bar {
-      .input-group {
-        display: none!important;
-      }
-    }
-  }
-}
-
-
-.search-toggle {
-  position: absolute;
-  right: 0;
-  top: 0;
-  .glyphicon {
-    color: #fff;
-    .font-size(18px);
-    pointer-events:none;
-  }
-  &:focus {
-    border: 0;
-  }
-  padding: 10px;
-  background: rgba(255,255,255,.1);
-  border: 0;
-  border-left: @border;
-  cursor: pointer;
-  margin-left: -(@grid-gutter-width / 2);
-  &:hover {
-    background: rgba(255,255,255,.2);
-  }
-  @media (min-width: @grid-float-breakpoint) {
-    display: none;
-  }
-}
-
-
-.home-page .flag > .container {
-  @media (min-width: @breakpoint-md) {
-    padding-top: @grid-gutter-width;
-    padding-bottom: (@grid-gutter-width * .25);
-  }
-}
-
-.home-page .page-id {
-  width: 100%;
-  margin-right: 300px;
-}
-
-.section-name {
-  .font-size(18px);
-  margin: 0;
-  a:hover {
-    text-decoration: none;
-  }
-  @media (min-width: @breakpoint-md) {
-    .font-size(40px);
-  }
-}
-
-
-
-// Navigation -- redo of bs navbar
-// ------------------------------------
-
-.menu-toggle {
-  position: relative;
-  float: left;
-  padding: 12px;
-  background: rgba(255,255,255,.1);
-  border-right: @border;
-  cursor: pointer;
-  margin-left: -(@grid-gutter-width / 2);
-  &:hover {
-    background: rgba(255,255,255,.2);
-  }
-  // Bars
-  .icon-bar {
-    background: #fff;
-    display: block;
-    width: 22px;
-    height: 3px;
-    pointer-events:none;
-  }
-  .icon-bar + .icon-bar {
-    margin-top: 4px;
-  }
-  @media (min-width: @grid-float-breakpoint) {
-    display: none;
-  }
-}
 
 .navbar {
   position: absolute;
@@ -354,30 +48,43 @@
   overflow: hidden;
   ul {
     > li {
-	  margin: 0 -(@grid-gutter-width / 2);
+      margin: 0 -(@grid-gutter-width / 2);
       &:hover {
-        a { background:rgba(255,255,255,.35) };
-      }
-	  > a {
-	   .text-overflow();
-       display: block;
-       text-decoration: none;
-       padding: @padding-large-vertical @padding-large-horizontal;
-       border-bottom: 1px solid @gray-dark;
-       .caret { border-top-color: #f3f3f3; }
-       @media (max-width: @breakpoint-sm-max) {
-          .caret {
-	        margin-top: 6px;
-            border-bottom: 5px solid transparent;  /* left arrow slant */
-            border-top: 5px solid transparent; /* right arrow slant */
-            border-left: 5px solid #fff; /* bottom, add background color here */
-            border-right: 0 dotter; /* bottom, add background color here */
-            float:right;
-          }
-       }
+        a { 
+          background:rgba(255,255,255,.35) };
+        }
+      > a {
+        .text-overflow();
+        display: block;
+        text-decoration: none;
+        padding: @padding-large-vertical @padding-large-horizontal;
+        border-bottom: 1px solid @gray-dark;
+        .caret { 
+          border-top-color: #f3f3f3; 
+        }
       }
     }
   }
+  @media (max-width: @breakpoint-sm-max) {
+     ul {
+       > li {
+         > a {
+            .caret {
+              margin-top: 6px;
+              border-bottom: 5px solid transparent;  /* left arrow slant */
+              border-top: 5px solid transparent; /* right arrow slant */
+              border-left: 5px solid #fff; /* bottom, add background color here */
+              border-right: 0 dotter; /* bottom, add background color here */
+              float:right;
+            }
+         }
+       }
+     }
+    //dropdown menus into slides!!!!
+
+
+  }
+
   @media (min-width: @grid-float-breakpoint) {
     z-index: @zindex-navbar;
     position: relative;
@@ -385,35 +92,37 @@
     width: auto;
     height: @navbar-height;
     overflow: visible;
-    #gradient > .vertical(@start-color:#5278ae; @end-color:#213046 );
+    #gradient > .vertical(@start-color:@brand-primary; @end-color:darken(@brand-primary, 15%) );
+    .dropdown-menu {
+      margin: 0;
+      padding: 0;
+      top: @navbar-height;
+      border-radius: 0;
+      > li {
+        display: block;
+        width: 100%;
+        &:last-child {
+          > a {
+            border:0;
+          }
+        }
+        > a {
+          border-bottom: @border;
+          width: 100%;
+          &:hover {
+            background: @brand-primary;
+          }
+        }
+      }
+    }
     ul {
       margin-left: -6px;
       > li {
-	    display: inline-block;
+        display: inline-block;
         margin: 0;
         &:hover {
           .dropdown-menu {
-            margin-top: 0;
-            margin-left: 0;
-            border-radius: 0;
             display: block;
-            padding: 0;
-            > li {
-              display: block;
-              width: 100%;
-              &:last-child {
-                > a {
-                  border:0;
-                }
-              }
-              > a {
-                border-bottom: @border;
-                width: 100%;
-                &:hover {
-                  background: @brand-primary;
-                }
-              }
-            }
           }
         }
         > a {
@@ -443,142 +152,208 @@
 }
 
 
+// BUBBLE NAV - only appears for tablets and up
+// ----------------------------------------------
 
-
-
-
-
-// Overrides
-// ------------------------------------------
-
-@media (min-width: @breakpoint-md) {
-  	.carousel-control {
-      top: 50%;
-      .size(35px, 40px);
-      left: -(@grid-gutter-width / 2);
-      margin-top: -20px;
-      background: @red-dark !important;
-      .border-radius(6px);
-      border: 1px solid #999;
-      line-height:40px;
-      .opacity(1);
-      .glyphicon-chevron-right,
-      .glyphicon-chevron-left {
-         position: static;
-         line-height: 38px;
-       }
-	}
-    .carousel-control.right {
-       text-align: center;
-       left: auto;
-       right: -(@grid-gutter-width / 2);
-    }
-    .carousel-control:hover,
-    .carousel-control:focus {
-      color: #fff;
-      background: #484848;
-      .opacity(1);
-      text-decoration: none;
-    }
-}
-
-
-
-.carousel {
-  &.multi-pane {
-    text-align: left!important;
-    margin-bottom: @line-height-computed;
-    a {
-       .transition(none);
-    }
-    .slide {
-      figure {
+@media (min-width: @grid-float-breakpoint) {
+  .bubble {
+    position: static;
+    .dropdown-menu {
+      ul { margin-left: 0; }
+      a { color: @link-color }
+      h3 a { color: @text-color; }
+      width: 100%;
+      min-height: 300px;
+      padding: (@grid-gutter-width / 2) 0;
+      > li.bubble-content {
+        width: 100%;
+        display: block;
+      }
+      .bubble-editorial-content {
         .clearfix();
-        margin-bottom: (@line-height-computed / 2);
-        > a {
-          img {
-            border: @border;
-            width: 33.33333%;
-            float: left;
-            margin-right: (@grid-gutter-width / 2);
+        overflow: hidden;
+        padding: 0 (@grid-gutter-width / 2);
+        //margin-right: 300px;
+      }
+      .bubble-overflow {
+        width: 100%;
+      }
+      .visible-pane {
+        float: left;
+        width: 20%;
+        height: 270px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        .transition(all 0.2s linear);
+      }
+      .topic-pane {
+        .transition(left 0.2s linear);
+        width: 100%;
+        ul > li {
+          display:inline;
+          > a {
+            width: 100%;
+            .user-select(none);
+            border-top: 1px solid @border-color;
+            border-bottom: 1px solid #fff;
+            padding: 3px 0;
+            .transition(all 0.1s ease-in-out);
+            &:hover {
+              background: #f1f1f1;
+              border-top-color: @brand-primary;
+              color: @text-color;
+              text-indent: 5px;
+              .text-overflow();
+              text-decoration: none;
+            }
+            &:last-child {
+              border-bottom: 1px solid @border-color;
+            }
           }
         }
+      }
+      .bubble-headlines {
+        float: left;
+        width: 80%;
+        padding: 0 (@grid-gutter-width / 2);
+        img {
+          display: inline-block;
+          float: left;
+          margin-right: (@grid-gutter-width / 2);
+        }
         h3 {
-          margin: 0;
-        .font-size(18px);
+          margin:0 0 (@line-height-computed / 3);
+        }
+        p {
+          .font-size(12px);
+          line-height: 1.5;
+        }
+      }
+      .link-list {
+        margin-top: @line-height-computed;
+        clear:both;
+        ul {
+          > li {
+            display: block;
+            a:last-child { border-bottom: @border; }
+            > a {
+              .transition(all 0.2s ease-in-out);
+              width: 100%;
+              display: block;
+              padding: @padding-base-horizontal 0;
+              color: @gray;
+              border-top: @border;
+              .text-overflow();
+              strong {
+                color:@gray-dark;
+              }  
+              &:hover {
+                #gradient > .vertical(@start-color:#e7ecf4; @end-color: #fff);
+                text-decoration: none;
+                text-indent: 5px;
+                color: @gray-dark;
+                border-top: @border-blue;
+              }
+            }
+          }
         }
       }
     }
-    .carousel-control {
-      visibility: hidden;
-    }
-    @media (min-width: @breakpoint-md) {
-    &.two-image {
-         figure {
-           width: 50%;
-         }
-       }
-       &.three-image {
-         figure {
-           width: 33.33333%;
-         }
-       }
-       &.four-image {
-         figure {
-           width: 25%;
-         }
-       }
-       .slide {
-         display: table;
-         figure {
-           display: table-cell;
-           border-left: 3px solid #fff;
-           > a {
-             img {
-               width: 100%;  // temp!!!
-                 margin-right:0;
-                 margin-bottom:(@line-height-computed / 2);
-             }
-           }
-           h3 {
-             margin-right: @grid-gutter-width;
-             .font-size(18px);
-           }
-         }
-       }
-    .carousel-control {  // DUPLICATE OF ABOVE????
-      visibility: visible;
-      top: 33.33333%;
-      .size(35px, 40px);
-      left: -(@grid-gutter-width / 2);
-      margin-top: -20px;
-      background: @red-dark;
-      .border-radius(6px);
-      border: 1px solid #999;
-      line-height:40px;
-      .opacity(1);
-      .glyphicon-chevron-right,
-      .glyphicon-chevron-left {
-         position: static;
-         line-height: 38px;
+    .pager {
+      .clearfix();
+      display: none;
+      position: absolute;
+      width: 160px;
+      left: 0;
+      bottom: 8px;
+      margin: 0;
+      .transition(width 0.2s linear);
+      z-index: 2000;
+      li a {
+        border-radius: 0;
+        padding: 2px 5px;
+        font-size: 12px;
+        font-weight: bold;
+        width: 148px;
+        &:hover {
+          background: @brand-primary;
+          color: #fff;
+        }
       }
+      .prev {
+        float: left;
+        opacity: 0;
+        .transition(opacity 0.1s linear);
+       }
+       .next {
+         float: right;
+       }
     }
-
-    .carousel-control.right {
-       text-align: center;
-      left: auto;
-      right: -(@grid-gutter-width / 2);
-    }
-    .carousel-control:hover,
-    .carousel-control:focus {
-      color: #fff;
-      background: #484848;
-      .opacity(1);
-      text-decoration: none;
-    } 
+    .bubble-content.slider-mode {
+      .bubble-editorial-content {
+        overflow: hidden;
+        .size(660px, 320px);
+      }
+      .bubble-overflow,
+      .pane-container {
+        width: 1000%;
+      }
+      .visible-pane {
+        height: 270px;
+        &.active {
+           width: 660px;
+          .transition(all 0.2s linear);
+        }
+      }
+      .topic-pane {
+        .clearfix();
+        height: 270px;
+        overflow: hidden;
+        ul {
+          width: 160px;
+          float: left;
+          margin-right: 10px;
+        }
+        .transition(left 0.2s linear);
+      }
+      .pager {
+        display: block;
+      }
+      .pager.expanded {
+        width: 660px;
+        .transition(width 0.2s linear);
+        .prev {
+          opacity: 1;
+          .transition(opacity 0.2s linear 0.2s);
+        }
+        .next a.inactive {
+          opacity: 0;
+          .transition(opacity 0.2s linear);
+         }
+       }
     }
   }
 }
+
+@media (min-width: @breakpoint-lg) {
+  .bubble {
+    .bubble-editorial-content {
+       margin-right: 300px;
+    }
+  }
+}
+
+.bubble-ad {
+  .size (300px, 250px);
+  display: none;
+  position: absolute;
+  top: (@grid-gutter-width / 2);
+  right: (@grid-gutter-width / 2);
+  @media (min-width: @breakpoint-lg) {
+    display: block;
+  }
+}
+
 
 // SECTION STYLES -- OR NOT??? -- MAYBE ADD TO HOME WITH CLASS NAME????
 

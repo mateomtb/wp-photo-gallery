@@ -35,7 +35,7 @@
 		</div>
 	</div> <!-- .bubble-subtopics -->
 	<div class="bubble-headlines">
-		<a href="#"><img src="assets/afghan.jpg" alt="" /></a>
+		<a href="#"><img src="http://placehold.it/180x120" alt="" /></a>
 		<h3><a href="">U.S. condemns Afghan bodies 'abuse'</a></h3>
 		<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
 		

@@ -40,56 +40,68 @@
 	  <script src="<?php echo JS_DIR; ?>/ie/respond.js"></script>
 	<![endif]-->
 	<script src="<?php echo JS_DIR; ?>/plugins/bootstrap.min.js"></script>
-	
+	<script src="<?php echo JS_DIR; ?>/plugins/picturefill.js"></script>
 	
 	<script>
 	
 	
 	(function() {
       $('document').ready(function(){
-	
-	    // CAROUSELS
+
+        // VARS
+        // ---------------------------------------
+
+        var breakpointMD = 768;
+
+        // CAROUSELS
         // ----------------------------------------
+        if($('.carousel').length) {
+          $('.carousel').carousel();
+        }
 
-		if($('.carousel').length) {
-		     $('.carousel').carousel();
-		}	
-
-	    // MEDIA CENTER CAROUSEL
+        // MEDIA CENTER CAROUSEL
         // ----------------------------------------
+        if($('#media-center-promo').length) {
+          var item = $('#media-center-promo').find('.active'),
+            title = item[1].dataset.title,
+            caption = item[1].dataset.caption;
 
-	    if($('#media-center-promo').length) {
-		  var item = $('#media-center-promo').find('.active'),
-	          title = item[1].dataset.title,
-	          caption = item[1].dataset.caption;
+          $('#media-center-info h2').text(title);
+          $('#media-center-info .excerpt').text(caption);
 
-	      $('#media-center-info h2').text(title);
-	      $('#media-center-info .excerpt').text(caption);
-
-	      // ON SLIDE -- CHANGE CAPTION
+          // ON SLIDE -- CHANGE CAPTION
           // ----------------------------------------
-		  $('#media-center-promo').on('slid.bs.carousel', function () {
-		    item = $(this).find('.active'),
-		    title = item[0].dataset.title,
-		    caption = item[0].dataset.caption;
-	        $('#media-center-info h2').text(title);
-	        $('#media-center-info .excerpt').text(caption);
-		  });	
-	    }
-	
-	    // OFF CANVAS
-	    $('.menu-toggle').on('click', function(){
-		  $('body').toggleClass('off-canvas-active');
-	    });
-	
+          $('#media-center-promo').on('slid.bs.carousel', function () {
+            item = $(this).find('.active'),
+            title = item[0].dataset.title,
+            caption = item[0].dataset.caption;
+            $('#media-center-info h2').text(title);
+            $('#media-center-info .excerpt').text(caption);
+          });
+        }
+
+        // OFF CANVAS
+        // ----------------------------------------
+        $('.menu-toggle').on('click', function(){
+          $('body').toggleClass('off-canvas-active');
+        });
+
         // TOOLTIPS
         // ----------------------------------------
-	    
         $('.share-widget').tooltip({
-	      selector: "[data-toggle=tooltip]",
-	      container: "body"
-	    });
-	
+          selector: "[data-toggle=tooltip]",
+          container: "body"
+        });
+
+        // RESIZE HANDLER
+        // ----------------------------------------
+
+        $(window).resize(function() {
+          if($(window).width() > breakpointMD) {
+            $('body').removeClass('off-canvas-active');
+          }
+        });
+
 	    // left rail shrinking
 			// 	    if($('.home-page').length) {
 			// var $leftRail = $('.left-rail'),
@@ -110,12 +122,7 @@
 			// 		        }
 			// 	        });
 			// 	    }
-	    
-		$(window).resize(function(){
-		    if($(window).width() > breakpointMD) {
-              $('body').removeClass('off-canvas-active');
-		    }
-        });
+
 
 
 

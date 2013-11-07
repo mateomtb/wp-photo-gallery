@@ -8,16 +8,16 @@
               <?php include 'temps/ui/bubble-nav-news.php'; ?>
             </ul>
           </li>
-          <li class="dropdown">
+          <li class="dropdown bubble">
             <a href="#" class="dropdown-toggle">Sports <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <?php //include 'temps/ui/bubble-nav-sports.php'; ?>
+              <?php include 'temps/ui/bubble-nav-sports.php'; ?>
             </ul>
           </li>
-          <li class="dropdown">
+          <li class="dropdown bubble">
             <a href="#" class="dropdown-toggle">Business <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <?php //include 'temps/ui/bubble-nav-business.php'; ?>
+              <?php include 'temps/ui/bubble-nav-business.php'; ?>
             </ul>
           </li>
           <li class="dropdown">
