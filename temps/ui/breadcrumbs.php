@@ -9,7 +9,6 @@
 	<li class="active">Story</li>
 <?php endif; ?>
 </ul>
-
-<?php if($page_type === 'article'): ?>
-<h4 class="section-name visible-sm-down"><a href=""><?php echo $sub_name; ?></a></h4>
+<?php if($page_type == 'article'): ?>
+<h4 class="section-name hidden-md-up"><a href=""><?php echo $sub_name; ?></a></h4>
 <?php endif; ?>

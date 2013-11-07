@@ -6019,9 +6019,6 @@ h6 {
   line-height: 40px;
   margin: 0 auto;
 }
-.flag .section-name {
-  display: none;
-}
 .flag .search-bar {
   float: right;
   width: 50px;
@@ -6117,9 +6114,8 @@ h6 {
   }
 }
 .section-name {
-  font-size: 18px;
-  font-size: 1.8rem;
-  margin: 0;
+  line-height: 1;
+  margin: 0 0 10px 0;
 }
 .section-name a {
   color: #39547a;
@@ -7235,10 +7231,10 @@ figcaption {
   .bubble .bubble-content.slider-mode .pane-container {
     width: 1000%;
   }
-  .bubble .bubble-content.slider-mode .visible-pane {
+  .bubble .bubble-content.slider-mode .conte .visible-pane {
     height: 270px;
   }
-  .bubble .bubble-content.slider-mode .visible-pane.active {
+  .bubble .bubble-content.slider-mode .conte .visible-pane.active {
     width: 660px;
     -webkit-transition: all 0.2s linear;
     transition: all 0.2s linear;
@@ -7317,6 +7313,10 @@ figcaption {
 }
 #second-lead-story {
   margin-bottom: 22px;
+}
+.section-page #content .section-name {
+  font-size: 24px;
+  font-size: 2.4rem;
 }
 @font-face {
   font-family: 'Glyphicons Halflings';

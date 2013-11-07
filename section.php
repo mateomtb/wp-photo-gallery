@@ -2,7 +2,7 @@
 <?php
   $page_type = 'section';
   $master_name = 'business';
-  $master_name = 'business';
+  $sub_name = 'business';
 ?>
 <?php require_once('temps/header.php'); // load in header ?>
 <div class="row">
@@ -10,6 +10,7 @@
     <div id="above-fold" class="row">
       <div class="col md-9 push-3">
         <div class="centerpiece">
+          <h4 class="section-name hidden-md-up"><a href=""><?php echo $sub_name; ?></a></h4>
           <?php include('temps/content/section-centerpiece.php'); ?>
           <?php include('temps/content/secondary-stories.php'); ?>
         </div>

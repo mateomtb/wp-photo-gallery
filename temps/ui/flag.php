@@ -1,6 +1,5 @@
 <div class="flag">
 	<div class="container">
-
       <a class="menu-toggle">
         <span class="icon-bar" aria-hidden="true"></span>
         <span class="icon-bar" aria-hidden="true"></span>
@@ -11,7 +10,7 @@
 		<div class="page-id">
 			<?php if($page_type !== 'home'): ?>
 			<a class="branding sm"><?php include('img/logo.svg');?><span class="sr-only">The Denver Post</span></a>
-			<h4 class="section-name"><a href=""><?php echo (isset($sub_name)) ? $sub_name : $master_name; ?></a></h4>
+			<h4 class="section-name hidden-sm-down"><a href=""><?php echo (isset($sub_name)) ? $sub_name : $master_name; ?></a></h4>
 			<?php else: ?>
 			<a class="branding xl"><?php include('img/logo.svg');?><span class="sr-only">The Denver Post</span></a>
 			<?php endif; ?>

@@ -65,8 +65,6 @@ defined('THUMBNAIL_SIZE') ? null : define("THUMBNAIL_SIZE", 100);
 // current page url
 $this_url = (!empty($_SERVER['HTTPS'])) ? 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 
-$page_name = ''; // current page name (can be appened to title')
-$page_type = ''; // current page type (e.g. 'article', 'home', 'section)
 $current_title = ''; // append this to title on given page
 
 
