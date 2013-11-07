@@ -1,7 +1,7 @@
 <section class="supporting-content" role="complementary">
 	<div class="supporting-media single-img">
 		<figure id="photo-id-goes-here">
-			<img src="<?php echo ASSETS_IMG; ?>/gosling.jpg" alt="">
+			<img src="http://placehold.it/320x240" alt="">
 			<figcaption>This is a picture of Ryan Gosling. He is in no way related to this story. Instead, he is simply a placeholder for this photo position. <span class="photographer">File photo</span></figcaption>
 		</figure>
 	</div>
@@ -23,7 +23,7 @@
 	<div class="supporting-media google-map">
 		<h4>Map</h4>
 		<p><small>Click to enlarge</small></p>
-		<a href="#myModal" role="button" data-toggle="modal"><img src="<?php echo ASSETS_IMG; ?>/test_map.png" alt=""></a>
+		<a href="#myModal" role="button" data-toggle="modal"><img src="http://placehold.it/320x320" alt=""></a>
 	</div>
 	<div id="related-stories" class="link-list no-anim">
 		<h4>Related</h4>

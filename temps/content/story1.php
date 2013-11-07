@@ -43,7 +43,7 @@
 			<source media="(min-width: 321px)" srcset="http://placehold.it/480x320 1x, http://placehold.it/480x320&amp;text=2x 2x">
 			<source media="(min-width: 481px)" srcset="http://placehold.it/320x240 1x, http://placehold.it/320x240&amp;text=2x 2x">
 			<source media="(min-width: 641px)" srcset="http://placehold.it/480x320 1x, http://placehold.it/480x320&amp;text=2x 2x">
-			<source media="(min-width: 1189px)" srcset="http://placehold.it/600x800 1x, http://placehold.it/600x800&amp;text=2x 2x">
+			<source media="(min-width: 1189px)" srcset="http://placehold.it/800x600 1x, http://placehold.it/800x600&amp;text=2x 2x">
 		</picture>
           <figcaption>Flames can be seen on a ridge near Reynolds Park on Foxton Road. The fire, which is being called the Lower North Fork Fire, has burned some 200 acres and reports are saying that some structures have been lost. <span class="photographer">Helen H. Richardson / The Denver Post</span></figcaption>
         </figure>
