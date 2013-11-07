@@ -52,7 +52,7 @@
         // ---------------------------------------
 
         var breakpointMD = 768,
-		    $bigMenu; // this is the navbar for offcanvas layout purposes
+		    $bigMenu = $($('#site-navigation ul')[0]); // this is the navbar for offcanvas layout purposes
 
         // CAROUSELS
         // ----------------------------------------
@@ -94,11 +94,14 @@
           container: "body"
         });
 
-// CHECK CLICK EVENT ON ON CANVAS NAV
-if($(window).width() <= breakpointMD) {
-  $('.dropdown-toggle').on('click', function() {
-	    $bigMenu = $(this).parent().parent();
-		$bigMenu.toggleClass('active');
+        // CHECK CLICK EVENT ON ON CANVAS NAV
+        if($(window).width() <= breakpointMD) {
+          setToggle();
+        }
+
+function setToggle() {
+	$('.dropdown-toggle').on('click', function() {
+		$bigMenu.addClass('active');
 		$('.dropdown-menu').removeClass('active');
 		$(this).parent().find('.dropdown-menu').toggleClass('active');
 		$('.back-toggle').addClass('active');
@@ -124,10 +127,10 @@ if($(window).width() <= breakpointMD) {
 			  $bigMenu.removeClass('active');
 			  $('.dropdown-menu').removeClass('active');
 		    }
-          } else {
-            $('.dropdown-toggle').on('click', function() {
-			});
           }
+        if($(window).width() <= breakpointMD) {
+          setToggle();
+        }
         });
 
 	    // left rail shrinking
