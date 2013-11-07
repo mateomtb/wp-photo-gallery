@@ -85,6 +85,13 @@
         // ----------------------------------------
         $('.menu-toggle').on('click', function(){
           $('body').toggleClass('off-canvas-active');
+		  if($('body').hasClass('off-canvas-active')) {
+
+		  } else {
+			$('.menu-toggle').removeClass('moved');
+		    $('.back-toggle').removeClass('active');
+			$bigMenu.removeClass('active');
+		  }
         });
 
         // TOOLTIPS
