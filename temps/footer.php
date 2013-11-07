@@ -51,7 +51,8 @@
         // VARS
         // ---------------------------------------
 
-        var breakpointMD = 768;
+        var breakpointMD = 768,
+		    $bigMenu; // this is the navbar for offcanvas layout purposes
 
         // CAROUSELS
         // ----------------------------------------
@@ -93,12 +94,39 @@
           container: "body"
         });
 
+// CHECK CLICK EVENT ON ON CANVAS NAV
+if($(window).width() <= breakpointMD) {
+  $('.dropdown-toggle').on('click', function() {
+	    $bigMenu = $(this).parent().parent();
+		$bigMenu.toggleClass('active');
+		$('.dropdown-menu').removeClass('active');
+		$(this).parent().find('.dropdown-menu').toggleClass('active');
+		$('.back-toggle').addClass('active');
+		$('.menu-toggle').addClass('moved');
+		$('.back-toggle').on('click', function(){
+			console.log('click');
+			$('.menu-toggle').removeClass('moved');
+		    $('.back-toggle').removeClass('active');
+			$bigMenu.removeClass('active');
+		});
+	});
+}
+
         // RESIZE HANDLER
         // ----------------------------------------
 
         $(window).resize(function() {
           if($(window).width() > breakpointMD) {
             $('body').removeClass('off-canvas-active');
+            $('.menu-toggle').removeClass('moved');
+		    $('.back-toggle').removeClass('active');
+		    if($bigMenu.hasClass('active')) {
+			  $bigMenu.removeClass('active');
+			  $('.dropdown-menu').removeClass('active');
+		    }
+          } else {
+            $('.dropdown-toggle').on('click', function() {
+			});
           }
         });
 

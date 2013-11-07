@@ -10,6 +10,7 @@
   cursor: pointer;
   margin-left: -(@grid-gutter-width / 2);
   z-index: @zindex-toggle;
+  .transition(@default-trans);
   &:hover {
     background: rgba(255,255,255,.2);
   }
@@ -27,6 +28,8 @@
   @media (min-width: @grid-float-breakpoint) {
     display: none;
   }
+  &.moved {
+    left: 40px;
+    .transition(@default-trans);
+  }
 }
-
-

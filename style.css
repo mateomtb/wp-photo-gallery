@@ -6061,33 +6061,54 @@ h6 {
     display: none!important;
   }
 }
-.search-toggle {
+.search-toggle,
+.back-toggle {
   position: absolute;
-  right: 0;
   top: 0;
+  width: 40px;
+  height: 40px;
   padding: 10px;
   background: rgba(255, 255, 255, 0.1);
   border: 0;
-  border-left: 1px solid #dddddd;
   cursor: pointer;
   margin-left: -15px;
 }
-.search-toggle .glyphicon {
+.search-toggle .glyphicon,
+.back-toggle .glyphicon {
   color: #fff;
   font-size: 18px;
   font-size: 1.8rem;
   pointer-events: none;
 }
-.search-toggle:focus {
+.search-toggle:focus,
+.back-toggle:focus {
   border: 0;
 }
-.search-toggle:hover {
+.search-toggle:hover,
+.back-toggle:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 @media (min-width: 768px) {
-  .search-toggle {
+  .search-toggle,
+  .back-toggle {
     display: none;
   }
+}
+.search-toggle {
+  right: 0;
+  border-left: 1px solid #dddddd;
+}
+.back-toggle {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  left: -40px;
+  border-right: 1px solid #dddddd;
+}
+.back-toggle.active {
+  left: 15px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  z-index: 20000;
 }
 @media (min-width: 768px) {
   .home-page .flag > .container {
@@ -6790,6 +6811,8 @@ figcaption {
   cursor: pointer;
   margin-left: -15px;
   z-index: 1040;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .menu-toggle:hover {
   background: rgba(255, 255, 255, 0.2);
@@ -6808,6 +6831,11 @@ figcaption {
   .menu-toggle {
     display: none;
   }
+}
+.menu-toggle.moved {
+  left: 40px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .navbar {
   position: absolute;
@@ -6836,21 +6864,92 @@ figcaption {
   border-top-color: #f3f3f3;
 }
 @media (max-width: 767px) {
+  .navbar .container {
+    padding: 0;
+  }
+  .navbar ul {
+    width: 100%;
+    -webkit-transition: left 0.2s ease-in-out;
+    transition: left 0.2s ease-in-out;
+  }
+  .navbar ul.active {
+    left: -100%;
+    -webkit-transition: left 0.2s ease-in-out;
+    transition: left 0.2s ease-in-out;
+  }
+  .navbar ul > li {
+    margin: 0;
+  }
+  .navbar ul > li:hover .dropdown-menu > li > a {
+    background: transparent;
+  }
+  .navbar ul > li > a {
+    font-family: "Oxygen", "Trebuchet MS", "Helvetica Neue", Arial, serif;
+    font-size: 16px;
+    font-size: 1.6rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
   .navbar ul > li > a .caret {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    border: 0;
     margin-top: 6px;
-    border-bottom: 5px solid transparent;
-    /* left arrow slant */
-  
-    border-top: 5px solid transparent;
-    /* right arrow slant */
-  
-    border-left: 5px solid #fff;
-    /* bottom, add background color here */
-  
-    border-right: 0 dotter;
-    /* bottom, add background color here */
-  
     float: right;
+  }
+  .navbar ul > li > a .caret:empty {
+    width: 1em;
+  }
+  .navbar ul > li > a .caret:before {
+    content: "\e080";
+  }
+  .navbar ul > li.dropdown {
+    -webkit-transition: left 0.2s ease-in-out;
+    transition: left 0.2s ease-in-out;
+    position: static;
+  }
+  .navbar ul > li.dropdown .dropdown-menu {
+    left: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+    top: 0;
+    float: none;
+    width: 100%;
+    -webkit-transition: left 0.2s ease-in-out;
+    transition: left 0.2s ease-in-out;
+  }
+  .navbar ul > li.dropdown .dropdown-menu > li {
+    margin: 0;
+  }
+  .navbar ul > li.dropdown .dropdown-menu > li > a {
+    color: #fff;
+  }
+  .navbar ul > li.dropdown .dropdown-menu > li > a:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+  .navbar ul > li.dropdown .dropdown-menu.active {
+    display: block;
+  }
+  .navbar ul > li.dropdown.bubble .bubble-headlines,
+  .navbar ul > li.dropdown.bubble .pager {
+    display: none;
+  }
+  .navbar ul > li.dropdown.bubble:hover .dropdown-menu .topic-pane ul li a {
+    background: transparent;
+  }
+  .navbar ul > li.dropdown.bubble .dropdown-menu .topic-pane ul li a:hover {
+    background: rgba(255, 255, 255, 0.35);
   }
 }
 @media (min-width: 768px) {

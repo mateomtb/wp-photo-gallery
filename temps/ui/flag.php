@@ -1,15 +1,16 @@
 <div class="flag">
 	<div class="container">
+
       <a class="menu-toggle">
         <span class="icon-bar" aria-hidden="true"></span>
         <span class="icon-bar" aria-hidden="true"></span>
         <span class="icon-bar" aria-hidden="true"></span>
         <span class="sr-only">Menu</a>
       </a>
+		<button class="back-toggle"><span class="glyphicon glyphicon-chevron-left"><span class="sr-only">Back</span></span></button>
 		<div class="page-id">
 			<?php if($page_type !== 'home'): ?>
 			<a class="branding sm"><?php include('img/logo.svg');?><span class="sr-only">The Denver Post</span></a>
-			<!-- <a class="branding sm visible-md-up"><img src="<?php //echo IMG_DIR;?>/main-logo.svg" alt="" /><span class="sr-only">The Denver Post</span></a> -->
 			<h4 class="section-name"><a href=""><?php echo (isset($sub_name)) ? $sub_name : $master_name; ?></a></h4>
 			<?php else: ?>
 			<a class="branding xl"><?php include('img/logo.svg');?><span class="sr-only">The Denver Post</span></a>
