@@ -19,9 +19,22 @@ defined('DB_NAME')   ? null : define("DB_NAME", '');
 // make this bulletproof
 defined('BASE_URL')  ? null : define("BASE_URL", (!empty($_SERVER['HTTPS'])) ? "https://" . DS . $_SERVER['SERVER_NAME'].$uri[1] : "http://".$_SERVER['SERVER_NAME'] . DS . $uri[1]);
 
-defined('LOCAL_IP')  ? null : define("LOCAL_IP", $_SERVER['SERVER_ADDR']);
-defined('THE_TITLE')  ? null : define("THE_TITLE", '');
+defined('LOCAL_IP')  ? null : define('LOCAL_IP', $_SERVER['SERVER_ADDR']);
+defined('THE_TITLE')  ? null : define('THE_TITLE', '');
+defined('DESCRIPTION') ? null : define('DESCRIPTION', '');
+defined('SITE_NAME')  ? null : define('SITE_NAME', '');
+defined('PROPERTY_NAME') ? null : define('PROPERTY_NAME', '');
+defined('PROPERTY_URL') ? null : define('PROPERTY_URL', '');
+defined('KEYWORDS') ? null : define('KEYWORDS', '');
 
+// SHARING
+defined('FB_APP_ID') ? null : define('FB_APP_ID', '');
+defined('PUBLISHER_URL') ? null : define('PUBLISHER_URL', '');
+defined('TWITTER_HANDLE') ? null : define('TWITTER_HANDLE', '');
+defined('TWITTER_CREATOR') ? null : define('TWITTER_CREATOR', '');
+defined('TWITTER_APP_ID_IPHONE') ? null : define('TWITTER_APP_ID_IPHONE', '');
+defined('TWITTER_APP_ID_IPAD') ? null : define('TWITTER_APP_ID_IPAD', '');
+defined('TWITTER_APP_ID_GOOGLE_PLAY') ? null : define('TWITTER_APP_ID_GOOGLE_PLAY', '');
 
 // DIRECTORIES
 defined('CACHE_DIR') ? null : define('CACHE_DIR', 'cache');
