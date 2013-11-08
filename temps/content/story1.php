@@ -7,16 +7,26 @@
     <div id="main-media" class="single-img"> <!-- other class options here: flex-video, flex-video widescreen, img-gallery-->
 	
       <figure>
-        <!-- <a href=""><img src="<?php //echo ASSETS_IMG; ?>/leadfire.jpg" alt="" /></a> -->
-		<picture>
-			<source srcset="http://placehold.it/320x240 1x, http://placehold.it/320x240&amp;text=2x 2x">
-			<source media="(min-width: 321px)" srcset="http://placehold.it/480x320 1x, http://placehold.it/480x320&amp;text=2x 2x">
-			<source media="(min-width: 481px)" srcset="http://placehold.it/640x480 1x, http://placehold.it/320x240&amp;text=2x 2x">
-			<source media="(min-width: 641px)" srcset="http://placehold.it/800x600 1x, http://placehold.it/800x600&amp;text=2x 2x">
-			<source media="(min-width: 769px)" srcset="http://placehold.it/1000x768 1x, http://placehold.it/1000x768&amp;text=2x 2x">
-			<source media="(min-width: 960px)" srcset="http://placehold.it/800x600 1x, http://placehold.it/800x600&amp;text=2x 2x">
-			<source media="(min-width: 1189px)" srcset="http://placehold.it/1000x750 1x, http://placehold.it/1000x750&amp;text=2x 2x">
-		</picture>
+		<span data-picture data-alt="Image description goes here">
+		    <span data-src="http://placehold.it/320x240"></span>
+			<span data-src="http://placehold.it/640x480" data-media="(min-device-pixel-ratio: 2.0)"></span>
+		    <span data-src="http://placehold.it/480x320" data-media="(min-width: 321px)"></span>
+			<span data-src="http://placehold.it/960x640" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
+		    <span data-src="http://placehold.it/640x480" data-media="(min-width: 481px)"></span>
+			<span data-src="http://placehold.it/1280x960" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
+		    <span data-src="http://placehold.it/800x600" data-media="(min-width: 641px)"></span>
+			<span data-src="http://placehold.it/1600x1200" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>
+		    <span data-src="http://placehold.it/1000x750" data-media="(min-width: 769px)"></span>
+			<span data-src="http://placehold.it/2000x1500" data-media="(min-width: 769px) and (min-device-pixel-ratio: 2.0)"></span>
+		    <span data-src="http://placehold.it/800x600" data-media="(min-width: 960px)"></span>
+			<span data-src="http://placehold.it/1600x1200" data-media="(min-width: 960px) and (min-device-pixel-ratio: 2.0)"></span>
+		    <span data-src="http://placehold.it/1000x750" data-media="(min-width: 1189px)"></span>
+			<span data-src="http://placehold.it/2000x1500" data-media="(min-width: 1189px) and (min-device-pixel-ratio: 2.0)"></span>
+		    <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+		    <noscript>
+		        <img src="http://placehold.it/320x24" alt="Image description goes here">
+		    </noscript>
+		</span>
         <figcaption>Kristen Moeller and husband David Cottrell look through the ruins of their home Thursday. The house was destroyed during the Lower North Fork fire, which also scorched the 37 acres of land around the home. <span class="photographer">Aaron Ontiveroz / The Denver Post</span></figcaption>
       </figure>
 
@@ -37,14 +47,22 @@
       <p>That means as many as 100,000 homeowners may not receive notification if an evacuation is ordered should another wildfire break out.</p>
       <div class="secondary-media single-img">
         <figure>
-          <!-- <a href=""><img src="<?php //echo ASSETS_IMG; ?>/secondphoto.jpg" alt="" /></a> -->
-		<picture>
-			<source srcset="http://placehold.it/320x240 1x, http://placehold.it/320x240&amp;text=2x 2x">
-			<source media="(min-width: 321px)" srcset="http://placehold.it/480x320 1x, http://placehold.it/480x320&amp;text=2x 2x">
-			<source media="(min-width: 481px)" srcset="http://placehold.it/320x240 1x, http://placehold.it/320x240&amp;text=2x 2x">
-			<source media="(min-width: 641px)" srcset="http://placehold.it/480x320 1x, http://placehold.it/480x320&amp;text=2x 2x">
-			<source media="(min-width: 1189px)" srcset="http://placehold.it/800x600 1x, http://placehold.it/800x600&amp;text=2x 2x">
-		</picture>
+		<span data-picture data-alt="Image description goes here">
+		    <span data-src="http://placehold.it/320x240"></span>
+			<span data-src="http://placehold.it/640x480" data-media="(min-device-pixel-ratio: 2.0)"></span>
+		    <span data-src="http://placehold.it/480x320" data-media="(min-width: 321px)"></span>
+			<span data-src="http://placehold.it/960x640" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
+		    <span data-src="http://placehold.it/320x240" data-media="(min-width: 481px)"></span>
+			<span data-src="http://placehold.it/640x480" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
+		    <span data-src="http://placehold.it/480x320" data-media="(min-width: 641px)"></span>
+			<span data-src="http://placehold.it/960x640" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>
+		    <span data-src="http://placehold.it/800x600" data-media="(min-width: 1189px)"></span>
+			<span data-src="http://placehold.it/1600x1200" data-media="(min-width: 1189px) and (min-device-pixel-ratio: 2.0)"></span>
+		    <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+		    <noscript>
+		        <img src="http://placehold.it/320x24" alt="Image description goes here">
+		    </noscript>
+		</span>
           <figcaption>Flames can be seen on a ridge near Reynolds Park on Foxton Road. The fire, which is being called the Lower North Fork Fire, has burned some 200 acres and reports are saying that some structures have been lost. <span class="photographer">Helen H. Richardson / The Denver Post</span></figcaption>
         </figure>
       </div> <!-- #secondary-media -->
