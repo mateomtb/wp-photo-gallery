@@ -6833,6 +6833,11 @@ figcaption {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
+@media (max-width: 767px) {
+  .off-canvas-active .navbar {
+    left: 0;
+  }
+}
 .navbar {
   position: absolute;
   left: -80%;
@@ -6860,6 +6865,9 @@ figcaption {
   border-top-color: #f3f3f3;
 }
 @media (max-width: 767px) {
+  .navbar {
+    position: fixed;
+  }
   .navbar .container {
     padding: 0;
   }

@@ -19,6 +19,13 @@
 @import "ui/bottom-line.less";
 @import "ui/nav.less";
 
+@media (max-width: @breakpoint-sm-max) {
+  .off-canvas-active {
+    .navbar {
+      left: 0;
+    }
+  }
+}
 
 .navbar {
   position: absolute;
@@ -47,6 +54,7 @@
     }
   }
   @media (max-width: @breakpoint-sm-max) {
+  position: fixed;
     .container {
         padding:0;
     }
@@ -118,19 +126,19 @@
               display: none;
             }
             &:hover {
-				.dropdown-menu {
-					.topic-pane ul li a {
-						background:transparent;
-					}
-				}
-            }
-			.dropdown-menu {
-				.topic-pane ul li a {
-					&:hover {
-                        background: rgba(255, 255, 255, 0.35);
-                    }
-				}
-			}
+        .dropdown-menu {
+          .topic-pane ul li a {
+            background:transparent;
+          }
+        }
+      }
+      .dropdown-menu {
+        .topic-pane ul li a {
+          &:hover {
+            background: rgba(255, 255, 255, 0.35);
+          }
+        }
+      }
           }
        }
      }
