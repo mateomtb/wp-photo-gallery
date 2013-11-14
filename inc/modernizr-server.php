@@ -2,7 +2,7 @@
 
 class Modernizr {
   
-  static $modernizr_js = '../js/base/modernizr-2.6.2.js';
+  static $modernizr_js = '../js/lib/modernizr.js';
   static $key = 'Modernizr';
   
   static function boo() {

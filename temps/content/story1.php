@@ -1,4 +1,4 @@
-<article id="main-story" <?php if($supporting_content === true) { echo 'class="has-supporting-content"'; }?>>
+<article id="main-story" <?php if($sidebar) { echo 'class="has-supporting-content"'; }?>>
 	
   <header id="article-top" class="article-header">
     <?php include('temps/ui/breadcrumbs.php'); ?>
@@ -97,7 +97,7 @@
       </div> <!-- .body-copy -->
       <?php include('temps/ui/author.php'); ?>
     </div><!-- .the-article -->
-    <?php if($supporting_content === true) { include('temps/content/supporting-content.php'); }?>
+    <?php if($sidebar) { include('temps/content/supporting-content.php'); }?>
   </section> 
   <footer id="article-footer">
   	  <?php include('temps/ui/recommended.php'); ?>

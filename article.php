@@ -2,7 +2,6 @@
   $page_type = 'article';
   $master_name = 'local news';
   $sub_name = "Denver &amp; The West";
-  $supporting_content = (isset($_REQUEST['sidebar'])) ? true : false;
 
 ?>
 <?php require_once('inc/init.php'); // load in base objects ?>

@@ -46,8 +46,7 @@
     overflow: hidden;
   }
 }
-.right-rail,
-.bottomline-ad {
+.right-rail {
   @media (min-width: @breakpoint-lg) {
     position: absolute;
     top: 0;
@@ -56,10 +55,11 @@
   }
   .ad,
   .widget {
-    width: @right-rail-width;
+    width: @right-rail-width!important;
     margin: 0 auto @grid-gutter-width;
   }
 }
+
 #site-footer {
   .clearfix();
   padding: (@line-height-computed * 2) 0 (@line-height-computed * 4);

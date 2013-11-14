@@ -1,5 +1,5 @@
 <ul>
-  <li class="ad">
+  <li class="ad half-page">
     <img src="http://placehold.it/300x600&amp;text=300x600+ad" alt="300x600 ad">
   </li>
   <li class="widget">
@@ -8,7 +8,7 @@
   <li class="widget">
     <img src="http://placehold.it/300x250&amp;text=300x250+tout" alt="300x250 tout">
   </li>
-  <li class="ad">
+  <li class="ad medium-rectangle">
     <img src="http://placehold.it/300x250&amp;text=300x250+promo" alt="300x250 promo">
   </li>
   <li class="widget">
