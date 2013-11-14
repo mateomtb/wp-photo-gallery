@@ -14,6 +14,7 @@
 	$section_promo = false;
 	$section_promo2 = false;
 	$loggedin = false;
+	$secondstory = false;
 
 	if(isset($_REQUEST['sidebar']) && $_REQUEST['sidebar'] == true) {
 		$sidebar = true;
@@ -60,5 +61,8 @@
 	}
 	if(isset($_REQUEST['loggedin']) && $_REQUEST['loggedin'] == true) {
 		$loggedin = true;
+	}
+	if(isset($_REQUEST['secondstory']) && $_REQUEST['secondstory'] == true) {
+		$secondstory = true;
 	}
 ?>

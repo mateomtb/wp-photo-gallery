@@ -6687,11 +6687,15 @@ h6 {
 .centerpiece {
   margin-bottom: 22px;
 }
-.top-story {
+.lead-story {
   margin-bottom: 22px;
 }
-.top-story .link-list {
+.lead-story .link-list {
   margin-top: 22px;
+}
+.second-lead-story {
+  margin-top: 44px;
+  margin-bottom: 22px;
 }
 .secondary-stories {
   position: relative;
@@ -7574,9 +7578,6 @@ figcaption {
   position: absolute;
   top: 15px;
   right: 15px;
-}
-#second-lead-story {
-  margin-bottom: 22px;
 }
 .section-page #content .section-name {
   font-size: 24px;
