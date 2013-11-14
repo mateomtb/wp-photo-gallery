@@ -16,4 +16,5 @@ ini_set('session.use_trans_sid', '0'); // stops session ID from appearing in lin
 // load core files
 require_once 'config.php';
 require_once 'functions.php';
-//require_once 'modernizr-server.php';
+require_once 'check.php';
+require_once 'modernizr-server.php';

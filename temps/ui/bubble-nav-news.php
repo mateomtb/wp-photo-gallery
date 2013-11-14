@@ -104,7 +104,7 @@
       </div>
     </div> <!-- .bubble-overflow -->
   </div> <!-- .bubble-content-container -->
-  <div class="bubble-ad">
+  <div class="ad medium-rectangle visible-lg-up">
     <img src="http://placehold.it/300x250&amp;text=300x250+navad" alt="300x250 navad">
   </div>
 </li>

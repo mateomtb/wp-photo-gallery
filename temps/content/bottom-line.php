@@ -73,7 +73,7 @@
 			    </li>
 			</ul>
 		</div> <!-- bottomline-list -->
-		<div class="bottomline-ad visible-lg-up">
+		<div class="ad medium-rectangle visible-lg-up">
 			<img src="http://placehold.it/300x250&amp;text=300x250+ad" alt="300x250 ad">
 		</div>
 	</section> <!-- #bottomline-body -->

@@ -46,8 +46,7 @@
     overflow: hidden;
   }
 }
-.right-rail,
-.bottomline-ad {
+.right-rail {
   @media (min-width: @breakpoint-lg) {
     position: absolute;
     top: 0;
@@ -56,10 +55,11 @@
   }
   .ad,
   .widget {
-    width: @right-rail-width;
+    width: @right-rail-width!important;
     margin: 0 auto @grid-gutter-width;
   }
 }
+
 #site-footer {
   .clearfix();
   padding: (@line-height-computed * 2) 0 (@line-height-computed * 4);
@@ -85,11 +85,15 @@
 .centerpiece {
   margin-bottom: @line-height-computed;
 }
-.top-story {
+.lead-story {
   margin-bottom: @line-height-computed;
   .link-list {
     margin-top: @line-height-computed;
   }
+}
+.second-lead-story {
+  margin-top: (@line-height-computed * 2);
+  margin-bottom: @line-height-computed;
 }
 .secondary-stories {
   .make-rows();
@@ -118,7 +122,7 @@
 .poll {
   margin-bottom: @line-height-computed;
   h3 {
-    .font-size(18px);
+    .font-size(15px);
     margin-top:0;
   }
   button {
