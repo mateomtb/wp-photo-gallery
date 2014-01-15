@@ -1,0 +1,49 @@
+//
+// Side Nav -- idea from Foundation & styling 
+// taken from Bootstrap docs
+// --------------------------------------------------
+
+.side-nav {
+  &:extend(.nav all);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  .border-radius(@border-radius-base);
+  background: @gray-lightest;
+  li {
+    &.active > a {
+      font-weight: @font-weight-bold;
+      color: @brand-primary;
+      border-right: 1px solid @brand-primary;
+      &:hover,
+      &:focus {
+        background: @gray-lightest;
+        text-decoration: none;
+        color: @brand-primary;
+      }
+    }
+    a {
+      display: block;
+      color: @gray;
+      &:hover,
+      &:focus {
+        background: lighten(@gray-lighter, 10%);
+        text-decoration: none;
+        color: @gray;
+      }
+    }
+    ul {
+      margin-bottom: 8px;
+      li {
+        a {
+          padding: 3px 0 3px 30px;
+         .font-size(@font-size-small);
+        }
+     }
+    }
+  }
+  li.divider {
+    border-top: 1px solid @border-color;
+    height: 0;
+    padding: 0;
+  }
+}

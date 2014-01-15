@@ -1,0 +1,181 @@
+//
+// Scaffolding
+// --------------------------------------------------
+
+
+// Reset the box-sizing
+
+*,
+*:before,
+*:after {
+  .box-sizing(border-box);
+}
+
+
+// Base settings 
+// -------------
+
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+// Prevents iOS text size adjust after orientation change, without disabling user zoom. (nm v2.1.3)
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+//
+}
+
+// Body reset
+// -----------
+
+body {
+  margin: 0; // removes default margin (nm v2.1.3)
+  font-family: @font-family-base;
+  .font-size(@font-size-base);
+  line-height: @line-height-base;
+  color: @text-color;
+  background-color: @body-bg;
+}
+
+// Links
+
+a {
+  background: transparent; // Remove the gray background color from active links in IE 10. (nm v2.1.3)
+  color: @link-color;
+  text-decoration: none;
+  
+  &:active,
+  &:hover {
+    outline: 0; // Improve readability when focused and also mouse hovered in all browsers. (nm v2.1.3)
+  }
+
+  &:hover,
+  &:focus {
+    color: @link-hover-color;
+    text-decoration: underline;
+  }
+
+  // Focus State (nm v2.1.3)
+  &:focus {
+    .tab-focus();
+  }
+}
+
+
+
+
+// Images
+// -----------
+
+img {
+  border: 0; // (nm v2.1.3)
+  vertical-align: middle;
+  -ms-interpolation-mode: bicubic;
+  //images responsive by default:
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+object,
+embed {
+  max-width: 100%;
+  height: auto; 
+}
+
+// Rounded corners
+.img-rounded {
+  .border-radius(@border-radius-large);
+}
+
+// Image thumbnails
+//
+// Heads up! This is mixin-ed into thumbnails.less for `.thumbnail`.
+.img-thumbnail {
+  padding: @thumbnail-padding;
+  line-height: @line-height-base;
+  background-color: @thumbnail-bg;
+  border: 1px solid @thumbnail-border;
+  .border-radius(@thumbnail-border-radius);
+  .transition(all .2s ease-in-out);
+}
+
+// Perfect circle
+.img-circle {
+  border-radius: 50%; // set radius in percents
+}
+
+// Addresses margin not present in IE 8/9 and Safari 5. (nm v2.1.3)
+figure {
+  margin: 0; 
+}
+
+/* Fix Google Maps canvas
+ *
+ * Wrap your Google Maps embed in a `.google-map-canvas` to reset Strapit's
+ * global `box-sizing` changes.
+ */
+
+.google-map-canvas,
+.google-map-canvas * { 
+  .box-sizing(content-box);
+  max-width: none !important;
+  img {
+    display: inline;
+  }
+}
+
+// No max class to fix other possible elements
+.no-max {
+  max-width: none !important;
+}
+
+
+// Horizontal rules
+// ------------------
+
+hr {
+// Address differences between Firefox and other browsers. (nm v2.1.3)
+  -moz-box-sizing: content-box; 
+  box-sizing: content-box;
+  height: 0;
+  margin-top:    @line-height-computed;
+  margin-bottom: @line-height-computed;
+  border: 0;
+  border-top: 1px solid @hr-border;
+}
+
+// Faded out hr
+hr.soften {
+  height: 1px;
+  margin: @line-height-computed 0;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+}
+
+
+// Only display content to screen readers
+// See: http://a11yproject.com/posts/how-to-hide-content/
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+// Extends the .sr-only class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p
+.sr-only.focusable:active, 
+.sr-only.focusable:focus { 
+  clip: auto; 
+  height: auto; 
+  margin: 0; 
+  overflow: visible; 
+  position: static; 
+  width: auto;
+}

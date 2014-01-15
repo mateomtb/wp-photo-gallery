@@ -1,0 +1,26 @@
+// Block grid
+// From Foundation. Mixin created by Jonathan Boho
+// ----------------------------------------------------
+
+[class*="block-grid-"] {
+  display: block;
+  padding: 0;
+  margin: 0 (@grid-gutter-width / -2);
+  &:extend(.clearfix all);
+  > li {
+    display: inline;
+    max-width: 100%;
+    height: auto;
+    float: left;
+    padding: 0 (@grid-gutter-width / 2) @grid-gutter-width;
+  }
+}
+
+@media only screen {
+  .make-block-grid(@columns: @grid-columns; @class: sm);
+}
+
+@media only screen and (min-width: @breakpoint-md) {
+  .remove-block-grid-clearing();
+  .make-block-grid(@columns: @grid-columns; @class: lg);
+}

@@ -1,0 +1,500 @@
+//
+// Responsive: Utility classes -- mashup of Foundation & Bootstrap
+// ---------------------------------------------------------------
+
+// IE10 in Windows (Phone) 8
+//
+// Support for responsive views via media queries is kind of borked in IE10, for
+// Surface/desktop in split view and for Windows Phone 8. This particular fix
+// must be accompanied by a snippet of JavaScript to sniff the user agent and
+// apply some conditional CSS to *only* the Surface/desktop Windows 8. Look at
+// our Getting Started page for more information on this bug.
+//
+// For more information, see the following:
+//
+// Issue: https://github.com/twbs/bootstrap/issues/10497
+// Docs: http://getbootstrap.com/getting-started/#browsers
+// Source: http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+
+@-ms-viewport {
+  width: device-width;
+}
+
+
+// Hide from screenreaders and browsers
+//
+// Credit: HTML5 Boilerplate
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+// Foundation visiblilty classes with Bootstrap semantics
+// --------------------------------------------------------
+
+// Extra-small displays
+// -------------------------------------------------
+.visible-xs,
+.visible-sm-down,
+.visible-md-down,
+.visible-lg-down {
+  display: inherit !important;
+}
+.visible-sm,
+.visible-sm-up,
+.visible-md,
+.visible-md-up,
+.visible-lg,
+.visible-lg-up,
+.visible-xl {
+  display: none !important;
+}
+.hidden-sm,
+.hidden-sm-up,
+.hidden-md,
+.hidden-md-up,
+.hidden-lg,
+.hidden-lg-up,
+.hidden-xl {
+  display: inherit !important;
+}
+.hidden-xs,
+.hidden-sm-down,
+.hidden-md-down,
+.hidden-lg-down {
+  display: none !important;
+}
+
+// Specific visibility for tables 
+table.visible-xs,
+table.visible-sm-down,
+table.visible-md-down,
+table.visible-lg-down,
+table.hidden-sm,
+table.hidden-sm-up,
+table.hidden-md,
+table.hidden-md-up,
+table.hidden-lg,
+table.hidden-lg-up,
+table.hidden-xl {
+  display: table;
+}
+thead.visible-xs,
+thead.visible-sm-down,
+thead.visible-md-down,
+thead.visible-lg-down,
+thead.hidden-sm,
+thead.hidden-sm-up,
+thead.hidden-md,
+thead.hidden-md-up,
+thead.hidden-lg,
+thead.hidden-lg-up,
+thead.hidden-xl {
+  display: table-header-group !important;
+}
+tbody.visible-xs,
+tbody.visible-sm-down,
+tbody.visible-md-down,
+tbody.visible-lg-down,
+tbody.hidden-sm,
+tbody.hidden-sm-up,
+tbody.hidden-md,
+tbody.hidden-md-up,
+tbody.hidden-lg,
+tbody.hidden-lg-up,
+tbody.hidden-xl {
+  display: table-row-group !important;
+}
+tr.visible-xs,
+tr.visible-sm-down,
+tr.visible-md-down,
+tr.visible-lg-down,
+tr.hidden-sm,
+tr.hidden-sm-up,
+tr.hidden-md,
+tr.hidden-md-up,
+tr.hidden-lg,
+tr.hidden-lg-up,
+tr.hidden-xl {
+  display: table-row !important;
+}
+td.visible-xs,
+td.visible-sm-down,
+td.visible-md-down,
+td.visible-lg-down,
+td.hidden-sm,
+td.hidden-sm-up,
+td.hidden-md,
+td.hidden-md-up,
+td.hidden-lg,
+td.hidden-lg-up,
+td.hidden-xl,
+th.visible-xs,
+th.visible-sm-down,
+th.visible-md-down,
+th.visible-lg-down,
+th.hidden-sm,
+th.hidden-sm-up,
+th.hidden-md,
+th.hidden-md-up,
+th.hidden-lg,
+th.hidden-lg-up,
+th.hidden-xl {
+  display: table-cell !important;
+}
+
+// Small displays
+// -------------------------------------------------
+@media only screen and (min-width: @breakpoint-sm) {
+  .visible-sm,
+  .visible-sm-up {
+    display: inherit !important;
+  }
+
+  .visible-xs {
+    display: none !important;
+  }
+
+  .hidden-xs {
+    display: inherit !important;
+  }
+
+  .hidden-sm,
+  .hidden-sm-up {
+    display: none !important;
+  }
+
+  // Specific visibility for tables
+  table.visible-sm,
+  table.visible-sm-up,
+  table.hidden-sm {
+    display: table;
+  }
+
+  thead.visible-sm,
+  thead.visible-sm-up,
+  thead.hidden-sm {
+    display: table-header-group !important;
+  }
+
+  tbody.visible-sm,
+  tbody.visible-sm-up,
+  tbody.hidden-sm {
+    display: table-row-group !important;
+  }
+
+  tr.visible-sm,
+  tr.visible-sm-up, 
+  tr.hidden-sm {
+    display: table-row !important;
+  }
+
+  td.visible-sm, 
+  td.visible-sm-up, 
+  td.hidden-sm,
+  th.visible-sm,
+  th.visible-sm-up,
+  th.hidden-sm {
+    display: table-cell !important;
+  } 
+}
+
+// Medium displays
+// -------------------------------------------------
+@media only screen and (min-width: @breakpoint-md) {
+  .visible-md,
+  .visible-md-up {
+    display: inherit !important;
+  }
+  .visible-sm,
+  .visible-sm-down {
+    display: none !important;
+  }
+  .hidden-sm,
+  .hidden-sm-down {
+    display: inherit !important;
+  }
+  .hidden-md,
+  .hidden-md-up {
+    display: none !important;
+  }
+
+  // Specific visilbity for tables
+  table.visible-md,
+  table.visible-md-up,
+  table.hidden-sm {
+    display: table;
+  }
+
+  thead.visible-md,
+  thead.visible-md-up,
+  thead.hidden-sm {
+    display: table-header-group !important;
+  }
+
+  tbody.visible-md,
+  tbody.visible-md-up,
+  tbody.hidden-sm {
+    display: table-row-group !important;
+  }
+
+  tr.visible-md,
+  tr.visible-md-up, 
+  tr.hidden-sm {
+    display: table-row !important;
+  }
+
+  td.visible-md, 
+  td.visible-md-up, 
+  td.hidden-sm,
+  th.visible-md,
+  th.visible-md-up,
+  th.hidden-sm {
+    display: table-cell !important;
+  } 
+}
+
+// Large displays
+// -------------------------------------------------
+@media only screen and (min-width: @breakpoint-lg) {
+  .visible-lg,
+  .visible-lg-up {
+    display: inherit !important;
+  }
+  .visible-md,
+  .visible-md-down {
+    display: none !important;
+  }
+  .hidden-md,
+  .hidden-md-down {
+    display: inherit !important;
+  }
+  .hidden-lg,
+  .hidden-lg-up {
+    display: none !important;
+  }
+
+  // Specific visilbity for tables
+  table.visible-lg, table.visible-lg-up, table.hidden-md, table.hidden-md-down {
+    display: table;
+  }
+
+  thead.visible-lg, thead.visible-lg-up, thead.hidden-md, thead.hidden-md-down {
+    display: table-header-group !important;
+  }
+
+  tbody.visible-lg, tbody.visible-lg-up, tbody.hidden-md, tbody.hidden-md-down {
+    display: table-row-group !important;
+  }
+
+  tr.visible-lg, tr.visible-lg-up, tr.hidden-md, tr.hidden-md-down {
+    display: table-row !important;
+  }
+
+  td.visible-lg, td.visible-lg-up, td.hidden-md, td.hidden-md-down,
+  th.visible-lg,
+  th.visible-lg-up,
+  th.hidden-md,
+  th.hidden-md-down {
+    display: table-cell !important;
+  }
+}
+
+// Extra-large displays
+// -------------------------------------------------
+@media only screen and (min-width: @breakpoint-xl) {
+  .visible-xl {
+    display: inherit !important;
+  }
+  .visible-lg,
+  .visible-lg-down {
+    display: none !important;
+  }
+  .hidden-lg,
+  .hidden-lg-down {
+    display: inherit !important;
+  }
+  .hidden-xl {
+    display: none !important;
+  }
+  // Specific visilbity for tables
+  table.visible-xl,
+  table.hidden-lg,
+  table.hidden-lg-down {
+    display: table;
+  }
+  thead.visible-xl,
+  thead.hidden-lg,
+  thead.hidden-lg-down {
+    display: table-header-group !important;
+  }
+
+  tbody.visible-xl, tbody.hidden-lg, tbody.hidden-lg-down {
+    display: table-row-group !important;
+  }
+
+  tr.visible-xl, tr.hidden-lg, tr.hidden-lg-down {
+    display: table-row !important;
+  }
+  td.visible-xl,
+  td.hidden-lg,
+  td.hidden-lg-down,
+  th.visible-xl,
+  th.hidden-lg,
+  th.hidden-lg-down {
+    display: table-cell !important;
+  }
+}
+
+// Orientation targeting 
+// -------------------------------------------------
+.visible-landscape,
+.hidden-portrait {
+  display: inherit !important;
+}
+.hidden-landscape,
+.visible-portrait {
+  display: none !important;
+}
+
+// Specific visilbity for tables 
+table.hidden-landscape,
+table.visible-portrait {
+  display: table;
+}
+thead.hidden-landscape,
+thead.visible-portrait {
+  display: table-header-group !important;
+}
+tbody.hidden-landscape,
+tbody.visible-portrait {
+  display: table-row-group !important;
+}
+tr.hidden-landscape,
+tr.visible-portrait {
+  display: table-row !important;
+}
+td.hidden-landscape,
+td.visible-portrait,
+th.hidden-landscape,
+th.visible-portrait {
+  display: table-cell !important;
+}
+
+@media only screen and (orientation: landscape) {
+  .visible-landscape,
+  .hidden-portrait {
+    display: inherit !important;
+  }
+  .hidden-landscape,
+  .visible-portrait {
+    display: none !important;
+  }
+
+  // Specific visilbity for tables
+  table.visible-landscape,
+  table.hidden-portrait {
+    display: table;
+  }
+  thead.visible-landscape, thead.hidden-portrait {
+    display: table-header-group !important;
+  }
+  tbody.visible-landscape, tbody.hidden-portrait {
+    display: table-row-group !important;
+  }
+
+  tr.visible-landscape, tr.hidden-portrait {
+    display: table-row !important;
+  }
+  td.visible-landscape,
+  td.hidden-portrait,
+  th.visible-landscape,
+  th.hidden-portrait {
+    display: table-cell !important;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  .visible-portrait,
+  .hidden-landscape {
+    display: inherit !important;
+  }
+  .hidden-portrait,
+  .visible-landscape {
+    display: none !important;
+  }
+
+  // Specific visilbity for tables
+  table.visible-portrait, table.hidden-landscape {
+    display: table;
+  }
+  thead.visible-portrait, thead.hidden-landscape {
+    display: table-header-group !important;
+  }
+  tbody.visible-portrait, tbody.hidden-landscape {
+    display: table-row-group !important;
+  }
+  tr.visible-portrait, tr.hidden-landscape {
+    display: table-row !important;
+  }
+  td.visible-portrait, 
+  td.hidden-landscape,
+  th.visible-portrait,
+  th.hidden-landscape {
+    display: table-cell !important;
+  } 
+}
+
+// Touch-enabled device targeting
+// -------------------------------------------------
+.visible-touch {
+  display: none !important;
+}
+.hidden-touch {
+  display: inherit !important;
+}
+.touch .visible-touch {
+  display: inherit !important;
+}
+.touch .hidden-touch {
+  display: none !important;
+}
+
+// Specific visilbity for tables
+table.hidden-touch {
+  display: table;
+}
+.touch table.visible-touch {
+  display: table;
+}
+thead.hidden-touch {
+  display: table-header-group !important;
+}
+.touch thead.visible-touch {
+  display: table-header-group !important;
+}
+tbody.hidden-touch {
+  display: table-row-group !important;
+}
+.touch tbody.visible-touch {
+  display: table-row-group !important;
+}
+tr.hidden-touch {
+  display: table-row !important;
+}
+.touch tr.visible-touch {
+  display: table-row !important;
+}
+td.hidden-touch {
+  display: table-cell !important;
+}
+.touch td.visible-touch {
+  display: table-cell !important;
+}
+th.hidden-touch {
+  display: table-cell !important;
+}
+.touch th.visible-touch {
+  display: table-cell !important;
+}

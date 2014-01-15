@@ -1,0 +1,121 @@
+// Responsive tables
+// --------------------------------------------------
+// Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+// by enabling horizontal scrolling.
+
+.table-responsive {
+  width: 100%;
+  margin-bottom: (@line-height-computed * 0.75);
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  border: 1px solid @table-border-color;
+  -webkit-overflow-scrolling: touch;
+
+  // Tighten up spacing
+  > .table {
+    margin-bottom: 0;
+
+    // Ensure the content doesn't wrap
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  // Special overrides for the bordered tables
+  .table-bordered,
+  .table.bordered {
+    border: 0;
+
+   // Nuke the appropriate borders so that the parent can handle them
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th:first-child,
+        > td:first-child {
+          border-left: 0;
+        }
+        > th:last-child,
+        > td:last-child {
+          border-right: 0;
+        }
+      }
+    }
+    // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+    // chances are there will be only one `tr` in a `thead` and that would
+    // remove the border altogether.
+    > tbody,
+    > tfoot {
+      > tr:last-child {
+        > th,
+        > td {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+// If plugin is present, this solution pins the header column 
+// of the table and let you scroll the rest of the table. 
+// Pro: Easier to read. Con: Requires resp-tables.js to work
+
+.table-responsive.js {
+  overflow-y: visible;
+  overflow-x: visible;
+  .pinned { 
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: @responsive-cell-width;
+    overflow: scroll;
+    overflow-y: hidden;
+    border-right: 1px solid @table-border-color;
+    .table.bordered {
+      td, th {
+        &:first-child {
+          border-right: 0;
+        }
+      }
+    }
+  }
+  .table-wrapper { 
+    overflow: hidden;
+    border-right: 1px solid @table-border-color;
+    // Ensure the content doesn't wrap
+    thead,
+    tbody,
+    tfoot {
+      tr {
+        th,
+        td {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  .scrollable {
+    margin-left: @responsive-cell-width;
+    overflow: scroll;
+    overflow-y: hidden;
+    .table.bordered {
+      td, th {
+        &:nth-child(2) {
+          border-left: 0;
+        }
+      }
+    }
+    td, th {
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+}

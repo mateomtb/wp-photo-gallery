@@ -1,0 +1,38 @@
+// Grid system -- Base Styles
+// --------------------------------------------------
+
+.container {
+  .make-container();
+}
+.row {
+  .make-rows();
+}
+
+// Global column styles
+.col {
+  position: relative;
+  float: left;
+  width: 100%;
+  padding: 0 (@grid-gutter-width / 2); // default
+  min-height: 1px; // Prevent columns from collapsing when empty
+  &.centered {
+    float: none !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &.uncentered {
+    float: left !important;
+    margin-left: 0;
+    margin-right: 0;
+    &.opposite {
+      float: right !important;
+    }
+  }
+  // If you want to float that last column to go to the edge
+  // of the row, you can add the class '.last' to the last column
+  + .col {
+    &.last {
+      float: right!important;
+    }
+  }
+}

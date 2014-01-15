@@ -1,0 +1,63 @@
+//
+// Type - Rare
+// Rare tags that are not normally used but may require support
+// -------------------------------------------------------------------
+
+
+// Prevents sub and sup affecting line-height in all browsers (nm v2.1.3)
+// -------------------------------------------------------------------
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+// Addresses styling not present in IE 8/9. (nm v2.1.2)
+mark {
+  background: #ff0;
+  color: @text-color;
+}
+
+// Abbreviations and acronyms
+abbr[title],
+// Added data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
+abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted @abbr-border-color; // (nm 2.1.3)
+}
+.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+// Quotes 
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019"; // set consistent quote types (nm 2.1.3)
+}
+
+// Addresses
+address {
+  margin-bottom: @line-height-computed;
+  font-style: normal;
+  line-height: @line-height-base;
+}
+
+// Emphasis & misc
+// -------------------------
+
+b              { font-weight: bold; } // Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome. (nm 2.1.3)
+dfn            { font-style: italic; } // Address styling not present in Safari 5 and Chrome. (nm 2.1.3)
+cite           { font-style: normal; } // Undo browser default styling
+samp {
+    font-family: @font-family-monospace; // Font family set oddly in Safari 5 and Chrome. (nm 2.1.3)
+    .font-size(10px);
+}

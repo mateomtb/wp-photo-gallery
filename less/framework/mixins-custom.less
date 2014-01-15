@@ -1,0 +1,176 @@
+//
+// Mixins -- custom file for new and candidate mixins
+// --------------------------------------------------
+
+// Font size rem to px converter: Converts px to rems with px fallback
+// 
+.font-size(@value) {
+  @pxValue: ~`function(){var a='@{value}'.split("px");return parseInt(a[0])+'px'}()`;
+  @remValue: ~`function(){var a='@{value}'.split("px");return parseInt(a[0])/10+'rem'}()`;
+  font-size: ~"@{pxValue}"; 
+  font-size: ~"@{remValue}";
+}
+
+// Callout
+// -------------------------
+.callout-variant(@state; @border; @bg-color; @text-color) {
+  .callout-@{state},
+  .callout.@{state} {
+    border-left-color: @border;
+    background-color: @bg-color;
+    h1, h2, h3, h4, h5, h6,
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+      color: @text-color;
+    }
+  }
+}
+
+// Radius
+// -------------------------
+.radius(@radius) {
+  border-radius: @radius;
+}
+
+// Border radius
+// If the @border-radius-base (or -small or -large) is set to 0, we do not
+// want a bunch of declarations where border-radius:0; everywhere. 
+// Wrapping the bortder-radius property in this mixin prevents that.
+.border-radius(@radius) when (isnumber(@radius)) and not (@radius = 0) {
+  border-radius: @radius;
+}
+
+
+// Centered container element
+// ------------------------------------------
+// Head's up! Make sure maximum width is set later in a media query.
+// IE8 box model will break if min- and max- widths are set on this element.
+.make-container(@class-name: container) {
+  position: relative;
+  padding: 0 (@grid-gutter-width / 2);
+  margin-right: auto;
+  margin-left: auto;
+  .clearfix();
+  // Fix for nested containers
+  .@{class-name} {
+    width: auto !important;
+  }
+}
+
+// Create a row
+.make-rows(@gutter: @grid-gutter-width) {
+  .clearfix();
+  position: relative;
+  width: auto;
+  margin-left:  (@gutter / -2);
+  margin-right: (@gutter / -2);
+}
+
+// Create targeted centered columns
+.make-centered-columns(@class) {
+  .col {
+    .@{class}-centered {
+       float: none !important;
+       margin-left: auto;
+       margin-right: auto;
+     }
+    .@{class}-uncentered  {
+      float: left !important;
+      margin-left: 0;
+      margin-right: 0;
+      &.opposite {
+        float: right !important;
+      }
+    }
+  }
+}
+
+// Grid generator
+// ------------------
+
+.grid-calc(@index, @class, @type) when (@type = width) and (@index > 0) {
+  .@{class}-@{index} {
+    width: round(percentage((@index / @grid-columns)), 5);
+  }
+}
+.grid-calc(@index, @class, @type) when (@type = push) {
+  .@{class}.push-@{index},
+  .@{class}-push-@{index} {
+    left: round(percentage((@index / @grid-columns)), 5);
+  }
+}
+.grid-calc(@index, @class, @type) when (@type = pull) {
+  .@{class}.pull-@{index},
+  .@{class}-pull-@{index} {
+    right: round(percentage((@index / @grid-columns)), 5);
+  }
+}
+.grid-calc(@index, @class, @type) when (@type = offset) {
+  .@{class}.offset-@{index},
+  .@{class}-offset-@{index} {
+    margin-left: round(percentage((@index / @grid-columns)), 5);
+  }
+}
+
+// The loop
+.build-grid(@columns, @class, @type) when (@columns >= 0) {
+  .grid-calc(@columns, @class, @type);
+  // next iteration
+  .build-grid((@columns - 1), @class, @type);
+}
+
+// Build everything at once for each class
+.build-full-grid(@columns, @class) when (@columns >= 0) {
+  .grid-calc(@columns, @class, width);
+  .grid-calc(@columns, @class, offset);
+  .grid-calc(@columns, @class, push);
+  .grid-calc(@columns, @class, pull);
+  // next iteration
+  .build-full-grid((@columns - 1), @class);
+}
+
+.build-static-grid(@index) when (@index >= 0) {
+  .col.st-@{index} {
+    width: round(percentage((@index / @grid-columns)), 5);
+  }
+  .col.offset-@{index} {
+    margin-left: round(percentage((@index / @grid-columns)), 5);
+  }
+  .col.push-@{index} {
+    left: round(percentage((@index / @grid-columns)), 5);
+  }
+  .col.pull-@{index} {
+    right: round(percentage((@index / @grid-columns)), 5);
+  }
+  // next iteration
+  .build-static-grid((@index - 1));
+}
+
+// Block grid mixins
+// ---------------------
+
+.make-block-grid(@columns: @grid-columns; @class: sm) when (@columns > 0) {
+  .@{class}-block-grid-@{columns} {
+    > li {
+      width: round(percentage((1 / @columns)), 5);
+      padding: 0 0.625em 1.25em;
+      &:nth-of-type(n) {
+        clear: none; 
+      }
+      &:nth-of-type(@{columns}n+1) {
+        clear: both; 
+      }
+    }
+  }
+  // next iteration
+  .make-block-grid((@columns - 1), @class);
+}
+
+.remove-block-grid-clearing(@columns: @grid-columns; @class: sm) when (@columns > 0) {
+  .@{class}-block-grid-@{columns} {
+    > li:nth-of-type(@{columns}n+1) {
+      clear: none; 
+    }   
+  }
+  // next iteration
+  .remove-block-grid-clearing((@columns - 1), @class);
+}

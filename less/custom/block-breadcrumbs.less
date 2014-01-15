@@ -1,0 +1,93 @@
+//
+// Block-like breadcrumbs
+// Custom component created by Jonathan Boho for DFM
+// --------------------------------------------------
+
+.breadcrumb-block {
+  padding: 0;
+  margin: 0 0 @line-height-computed; // overide default margin if there
+  list-style: none; // overide default list styles if there
+  background-color: @breadcrumb-bg;
+  > li {
+    .font-size(@font-size-base);
+    margin: 0 4px 0 0;
+    &:before {
+      width: 0;
+      height: 0;
+      border-left: 7px solid #fff;
+      border-top: 18px solid transparent;
+      border-bottom: 18px solid transparent;
+      content: "";
+      position: absolute;
+      top: -8px;
+    }
+    &:after {
+      padding: 0;
+      content: none;
+      border-left: 8px solid @border-color;
+    }
+    a {
+      background: @border-color;
+      line-height: @line-height-computed!important;
+      padding: 10px 14px 10px 20px;
+      .transition(none);
+      &:after {
+        width: 0;
+        height: 0;
+        border-left: 8px solid @border-color;
+        border-top: 18px solid transparent;
+        border-bottom: 18px solid transparent;
+        content: "";
+        position: absolute;
+        right: -8px;
+        top: -6px;
+      }
+      &:hover {
+        background: darken(@border-color, 10%);
+        text-decoration: none;
+        &:after {
+          border-left: 8px solid darken(@border-color, 10%);
+        }
+      }
+    }
+  }
+  > .active {
+    padding: 8px 16px 8px 20px;
+    background-color: @brand-primary;
+    color: #fff;
+    font-weight: @headings-font-weight;
+    &:before {
+      border-left: 7px solid #fff;
+      top: 0;
+      left: 0;
+    }
+    &:after {
+      border: 0
+    }
+  }
+}
+
+.breadcrumb-block-sm,
+.breadcrumb-block.sm {
+  > li {
+    .font-size((@font-size-base - 2));
+    margin: 0 3px 0 0;
+    &:before {
+      border-left: 8px solid #fff;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      top: 0;
+    }
+    a {
+      padding: 4px 10px 5px 16px;
+      &:after {
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        top: 0;
+      }
+    }
+  }
+  > .active {
+    padding: 1px 10px 4px 16px;
+  }
+}

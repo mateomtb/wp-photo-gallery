@@ -1,0 +1,35 @@
+//
+// Callouts -- Custom file dervied from Boostrap docs
+// --------------------------------------------------
+
+.callout {
+  background-color: @callout-default-bg;
+  margin: @line-height-computed 0;
+  padding: (@padding-large-vertical * 2) @padding-large-horizontal;
+  border-left: 3px solid @callout-default-border;
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    color: @text-color;
+    margin-top: 0;
+    margin-bottom: (@line-height-computed / 2);
+  }
+  p {
+    &:last-child {
+     margin-bottom: 0;
+    }
+  }
+  code,
+  .highlight {
+    background-color: #fff;
+  }
+}
+
+// Contextual variations
+.callout-variant(success; @callout-success-border; @callout-success-bg; @callout-success-heading);
+.callout-variant(warning; @callout-warning-border; @callout-warning-bg; @callout-warning-heading);
+.callout-variant(danger; @callout-danger-border; @callout-danger-bg; @callout-danger-heading);
+.callout-variant(info; @callout-info-border; @callout-info-bg; @callout-info-heading);

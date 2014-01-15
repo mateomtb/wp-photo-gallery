@@ -1,0 +1,17 @@
+// Grid system -- Container stops for fluid version
+// --------------------------------------------------
+
+.container {
+  @media (min-width: @breakpoint-md) {
+    width: @container-sm;
+  }
+  @media (min-width: @breakpoint-lg) {
+    width: @container-md;
+  }
+  @media (min-width: @breakpoint-xl) {
+    width: @container-lg;
+  }
+  @media (min-width: (@site-max-width + @grid-gutter-width)) {
+    width: @site-max-width;
+  }
+}

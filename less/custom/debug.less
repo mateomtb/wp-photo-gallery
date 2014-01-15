@@ -1,0 +1,29 @@
+//
+// Debugging tools
+// Custom file created by Jonathan Boho for DFM
+// --------------------------------------------------
+
+// Debug panel
+// Fixed yellow box for which you can append console level debug info.
+// <div class="debug"><code>Your output here</code></div>
+.debug {
+  background: #ff0;
+  .box-sizing(border-box); // just to be sure
+  font: 16px/1em serif;
+  padding: 1em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 2em;
+  z-index: 20000;
+}
+
+// Chrome Frame Prompt
+// need to test this in a browser and make embelishments
+.chromeframe { 
+  margin: 0.2em 0;
+  background: @gray-light;
+  color: @text-color;
+  padding: 0.2em 0;
+}
