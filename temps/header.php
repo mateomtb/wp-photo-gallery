@@ -10,9 +10,8 @@
 	<!-- MODERNIZER -->
 	<script src="<?php echo JS_DIR; ?>/lib/modernizr.js"></script>
 	<!-- STYLESHEETS -->
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,900,700,300' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Oxygen:300,400,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="<?php echo BASE_URL;?>/style.css" media="screen"/>
+	<!-- <link rel="stylesheet" href="<?php echo BASE_URL;?>/css/bartertown.min.css" media="screen"/> -->
+	<link rel="stylesheet" href="<?php echo BASE_URL;?>/style_org.css" media="screen"/>
 </head>
 <body <?php if($page_type === 'home') { echo ' class="home-page"'; }
        else if($page_type === 'section') { echo ' class="section-page"'; }

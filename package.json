@@ -1,0 +1,29 @@
+{
+  "name": "bartertown",
+  "description": "Responsive version of the Bartertown template",
+  "version": "2.0.0",
+  "strapitVersion" : "2.0.3",
+  "homepage": "http://sandbox.digitalfirstmedia.com/btown",
+  "author": "Digital First Media design team",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/dfmlabs/btown"
+  },
+  "bugs": {
+    "url": "http://github.com/dfmlabs/btown/issues"
+  },
+  "devDependencies": {
+    "btoa": "~1.1.1",
+    "grunt": "~0.4.2",
+    "grunt-banner": "~0.2.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-csslint": "~0.2.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-less": "~0.9.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-csscomb": "~2.0.1",
+    "grunt-sed": "~0.1.1",
+    "load-grunt-tasks": "~0.2.1"
+  }
+}
