@@ -87,47 +87,78 @@
 // Grid generator
 // ------------------
 
-.grid-calc(@index, @class, @type) when (@type = width) and (@index > 0) {
+// These four mixins create different parts of the grid
+
+// Column width
+.grid-calc(@index; @columns: @grid-columns; @class; @type) when (@type = width) and (@index > 0) {
   .@{class}-@{index} {
-    width: round(percentage((@index / @grid-columns)), 5);
+    width: round(percentage((@index / @columns)), 5);
   }
 }
-.grid-calc(@index, @class, @type) when (@type = push) {
-  .@{class}.push-@{index},
+
+// Push source ordering
+.grid-calc(@index; @columns: @grid-columns; @class; @type) when (@type = push) {
   .@{class}-push-@{index} {
-    left: round(percentage((@index / @grid-columns)), 5);
+    left: round(percentage((@index / @columns)), 5);
   }
 }
-.grid-calc(@index, @class, @type) when (@type = pull) {
-  .@{class}.pull-@{index},
+
+// Pull source ordering
+.grid-calc(@index; @columns: @grid-columns; @class; @type) when (@type = pull) {
   .@{class}-pull-@{index} {
-    right: round(percentage((@index / @grid-columns)), 5);
+    right: round(percentage((@index / @columns)), 5);
   }
 }
-.grid-calc(@index, @class, @type) when (@type = offset) {
-  .@{class}.offset-@{index},
+
+// Offsets
+.grid-calc(@index; @columns: @grid-columns; @class; @type) when (@type = offset) {
   .@{class}-offset-@{index} {
-    margin-left: round(percentage((@index / @grid-columns)), 5);
+    margin-left: round(percentage((@index / @columns)), 5);
   }
 }
 
-// The loop
-.build-grid(@columns, @class, @type) when (@columns >= 0) {
-  .grid-calc(@columns, @class, @type);
+// THE LOOP 
+// This mixin builds targeted classes one property at a time
+.build-grid(@index; @columns: @grid-columns; @class; @type) when (@index >= 0) {
+  .grid-calc(@index; @columns; @class; @type);
   // next iteration
-  .build-grid((@columns - 1), @class, @type);
+  .build-grid((@index - 1); @columns; @class; @type);
 }
 
-// Build everything at once for each class
-.build-full-grid(@columns, @class) when (@columns >= 0) {
-  .grid-calc(@columns, @class, width);
-  .grid-calc(@columns, @class, offset);
-  .grid-calc(@columns, @class, push);
-  .grid-calc(@columns, @class, pull);
+// Builds global push/pull, for when you don't need or want to source-ordering to a particular class
+.build-source-ordering(@index, @columns: @grid-columns) when (@index >= 0) {
+  .col.push-@{index} {
+    left: round(percentage((@index / @columns)), 5);
+  }
+  .col.pull-@{index} {
+    right: round(percentage((@index / @columns)), 5);
+  }
   // next iteration
-  .build-full-grid((@columns - 1), @class);
+  .build-source-ordering((@index - 1));
 }
 
+// Builds global offsets, for when you don't need or want to target offsets to a particular class
+.build-offsets(@index, @columns: @grid-columns) when (@index >=0) {
+  .col.offset-@{index} {
+    margin-left: round(percentage((@index / @columns)), 5);
+  }
+  // next iteration
+  .build-offsets((@index - 1));
+}
+
+// Full grid
+// Build all targeted properties for a single class
+.build-full-grid(@index; @columns: @grid-columns; @class) when (@index >= 0) {
+  .grid-calc(@index; @columns; @class; @type: width);
+  .grid-calc(@index; @columns; @class; @type: offset);
+  .grid-calc(@index; @columns; @class; @type: push);
+  .grid-calc(@index; @columns; @class; @type: pull);
+  // next iteration
+  .build-full-grid((@index - 1); @columns; @class);
+}
+
+// Static grid
+// Build a special static grid if you don't want a fluid one
 .build-static-grid(@index) when (@index >= 0) {
   .col.st-@{index} {
     width: round(percentage((@index / @grid-columns)), 5);

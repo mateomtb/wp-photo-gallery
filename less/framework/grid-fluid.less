@@ -4,29 +4,30 @@
 
 @media screen and (min-width: @site-min-width) {
   // make xs grid
-  .build-grid(@columns: @grid-columns-xs; @class: xs; width);
+  .build-grid(@grid-columns-xs; @columns: @grid-columns-xs; @class: xs; width);
 }
 
 @media screen and (min-width: @breakpoint-sm) {
   // make sm grid
-  .build-full-grid(@columns: @grid-columns-sm; @class: sm);
+  .build-grid(@grid-columns-sm; @columns: @grid-columns-sm; @class: sm; width);
 }
 
 @media screen and (min-width: @breakpoint-md) {
   // make md grid (default)
-  .build-full-grid(@columns: @grid-columns-md; @class: md);
+  .build-full-grid(@grid-columns-md; @columns: @grid-columns-md; @class: md);
+  .build-source-ordering(@grid-columns);
   .make-centered-columns(md);
 }
 
 @media screen and (min-width: @breakpoint-lg) {
   // make lg grid
-  .build-full-grid(@columns: @grid-columns-lg; @class: lg);
+  .build-full-grid(@grid-columns-lg; @columns: @grid-columns-lg; @class: lg);
   .make-centered-columns(lg);
 }
 
 @media screen and (min-width: @breakpoint-xl) {
   //make xl grid
-  .build-full-grid(@columns: @grid-columns-xl; @class: xl);
+  .build-full-grid(@grid-columns-xl; @columns: @grid-columns-xl; @class: xl);
   .make-centered-columns(xl);
 }
 

@@ -7,11 +7,11 @@
 <div class="row">
   <div class="content-well">
     <div id="above-fold" class="row">
-      <div class="centerpiece col md-9 push-3">
+      <div class="centerpiece col md-9 md-push-3">
         <?php include('temps/content/home-centerpiece.php'); ?>
         <?php include('temps/content/secondary-stories.php'); ?>
       </div>
-      <div class="left-rail col md-3 pull-9">
+      <div class="left-rail col md-3 md-pull-9">
         <?php include('temps/content/story-feed-small.php'); ?>
       </div>
     </div> <!-- #above-fold -->
