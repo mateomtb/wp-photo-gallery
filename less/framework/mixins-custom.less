@@ -160,7 +160,7 @@
 // Static grid
 // Build a special static grid if you don't want a fluid one
 .build-static-grid(@index) when (@index >= 0) {
-  .col.st-@{index} {
+  .col.md-@{index} {
     width: round(percentage((@index / @grid-columns)), 5);
   }
   .col.offset-@{index} {
