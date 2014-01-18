@@ -109,7 +109,11 @@ svg:not(:root) {
     display: block !important;
   }
 }
-*,
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
 *:before,
 *:after {
   -webkit-box-sizing: border-box;
@@ -8666,15 +8670,15 @@ figcaption {
   text-align: left;
   text-indent: -999em;
   background-size: 100%;
-  border-radius: 5px;
+  border-radius: 3px;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .5);
           box-shadow: 0 1px 0 rgba(0, 0, 0, .5);
 }
 .fc-webicon:hover {
-  filter: alpha(opacity=5000);
+  filter: alpha(opacity=50);
   -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, .25);
           box-shadow: 0 2px 0 rgba(0, 0, 0, .25);
-  opacity: 50;
+  opacity: .5;
 }
 .fc-webicon.small {
   width: 20px;
@@ -8685,6 +8689,17 @@ figcaption {
   width: 48px;
   height: 48px;
   border-radius: 6px;
+}
+.fc-webicon.grayscale {
+          filter: grayscale(100%);
+
+  -webkit-filter: grayscale(100%);
+     -moz-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+       -o-filter: grayscale(100%);
+}
+.fc-webicon.square {
+  border-radius: 0!important;
 }
 .no-svg .fc-webicon.aboutme {
   background: url('../img/webicons/fc-webicon-aboutme-m.png');
