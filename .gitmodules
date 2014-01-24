@@ -1,0 +1,3 @@
+[submodule "plugins/timber"]
+	path = plugins/timber
+	url = git@github.com:jarednova/timber.git
