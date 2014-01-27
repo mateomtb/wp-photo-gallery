@@ -12,3 +12,97 @@
 -->
 <script type="text/javascript" src="//www.googletagservices.com/tag/js/gpt.js"></script>
 
+<div id="omniture" style="display:none;">
+    <script language="JavaScript" type="text/javascript">
+        var s_account = "scsun-news";
+
+        //The Spot tracking algorithm
+        var isHome = false; //testing wp functions     
+        var isCategory = false; //testing wp functions     
+        var isSingle = true; //testing wp functions         
+        var isPage = false; //testing wp functions     
+        var singleCategory = ""; //article site section
+        var pgTitle = "Super Bowl Monday";
+        var oChnm = "Blogs";
+        var oRtnm = "Blogs / First-and-Orange";
+        var Pgnm = "";
+        var oSp2nm = ""; //Prop2
+        var oSp3nm = ""; //Prop3
+        var oSp4nm = ""; //Prop4
+        var oSp5nm = ""; //Prop5
+        if (isHome) {
+            oSp2nm = "Blogs / First-and-Orange Home"; //is The Spot home
+            Pgnm = "Blogs / First-and-Orange Home";
+        } else {
+            if (isCategory) {
+                if (singleCategory) {
+                    Pgnm = "Blogs / First-and-Orange " + singleCategory; //section name available
+                    oSp2nm = singleCategory;
+                } else {
+                    Pgnm = "Blogs / First-and-Orange cat undefined"; //cannot be defined
+                    oSp2nm = "cat undefined";
+                }
+            } else {
+                if (isSingle) {
+                    if (isPage) {
+                        Pgnm = "Blogs / First-and-Orange " + pgTitle; //is a static page
+                        oSp2nm = pgTitle;
+                    } else {
+                        Pgnm = "Blogs / First-and-Orange Post: " + pgTitle; //is a post
+                        oSp2nm = "Posts";
+                        oSp5nm = pgTitle;
+                    }
+                }
+            }
+            if (singleCategory) {
+                if (!isCategory) {
+                        Pgnm = "Blogs / First-and-Orange Topics: " + singleCategory;
+                    oSp2nm = "Topics";
+                    oSp3nm = singleCategory;
+                }
+            }
+        }
+        if (oSp2nm == '') {
+            oSp2nm = "?";
+        }
+        if (oSp3nm == '') {
+            oSp3nm = "?";
+        }
+        if (oSp5nm == '') {
+            oSp5nm = "?";
+        }
+        if (Pgnm == '') {
+            Pgnm = "d=g";
+        }
+        var oBrdcm2 = oChnm + "/" + oRtnm; //Prop2
+        var oBrdcm3 = oChnm + "/" + oRtnm + "/" + oSp2nm; //Prop3
+        var oBrdcm4 = oChnm + "/" + oRtnm + "/" + oSp2nm + "/" + oSp3nm; //Prop4
+        var oBrdcm5 = oChnm + "/" + oRtnm + "/" + oSp2nm + "/" + oSp3nm + "/" + oSp5nm; //Prop5
+    </script>
+    <!-- SiteCatalyst code version: H.17. Copyright 1997-2005 Omniture, Inc. More info available at http://www.omniture.com -->
+    <script language="JavaScript" type ="text/javascript" src="http://extras.mnginteractive.com/live/js/omniture/SiteCatalystCode_H_17.js"></script>
+    <script language="JavaScript" type="text/javascript" src="http://extras.mnginteractive.com/live/js/omniture/OmnitureHelper.js"></script>
+    <script language="JavaScript" type="text/javascript">
+        s.pageName = Pgnm;
+        s.channel = oChnm;
+        s.prop1 = "D=g";
+        s.prop2 = oBrdcm2;
+        s.prop3 = oBrdcm3;
+        s.prop4 = oBrdcm4;
+        s.prop5 = oBrdcm5;
+        s.prop9 = getCiQueryString("SOURCE");
+        s.eVar2 = getCiQueryString("SOURCE");
+        s.campaign = getCiQueryString("EADID") + getCiQueryString("CREF");
+        s.events = "event1";
+        s.eVar4 = s.pageName;
+        /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+        var s_code = s.t(); if (s_code) { document.write(s_code); }
+    </script>
+    <script language="JavaScript" type="text/javascript">
+        if (navigator.appVersion.indexOf('MSIE') >= 0) { document.write(unescape('%3C') + '\!-' + '-'); }
+    </script>
+    <noscript>
+        <img src="http://denverpost.112.2O7.net/b/ss/denverpost/1/H.17--NS/0" height="1" width="1" border="0" alt="" />
+    </noscript>
+    <!-- End SiteCatalyst code version: H.17. -->
+</div>
