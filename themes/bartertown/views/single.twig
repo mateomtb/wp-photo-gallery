@@ -11,7 +11,21 @@
                     <li class="active">News</li>
                 </ul>
 				<h1 class="title entry-title cleanprint-title article-h1">{{post.title}}</h1>
-
+<!--
+{{ post|print_r }}
+{{ post.thumbnail|print_r }}
+-->
+{% if post.thumbnail.src %}
+<div id="main-media" class="single-image">
+    <figure>
+<img src="{{ post.thumbnail.src }}" alt="{{ post.thumbnail.caption }}" class="">
+    <figcaption>
+        {{ post.thumbnail.caption }}
+        <span class="photographer"></span>
+    </figcaption>
+    </figure>
+</div>
+{% endif %}
 
                 <section id="body-text" class="shorten">
 				<p class="blog-author byline byline-bar">
