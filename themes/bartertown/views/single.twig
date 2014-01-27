@@ -28,17 +28,17 @@
 {% endif %}
 
                 <section id="body-text" class="shorten">
-				<p class="blog-author byline byline-bar">
-					<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a>
-                </p>
-                <div class="meta">
-                <p class="timestamp">
-                    Published {{ post.display_date }} at {{ post.display_time }}
-				</p>
-                </div>
-				<div class="article-body" id="body-copy">
-					{{post.content}}
-				</div>
+				    <p class="blog-author byline byline-bar">
+					    <span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a>
+                    </p>
+                    <div class="meta">
+                        <p class="timestamp">
+                            Published {{ post.display_date }} at {{ post.display_time }}
+				        </p>
+                    </div>
+				    <div class="article-body" id="body-copy">
+					    {{post.content}}
+				    </div>
                 </section>
 			</section>
 
