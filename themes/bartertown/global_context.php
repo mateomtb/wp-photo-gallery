@@ -4,4 +4,6 @@
     // it takes the chunk after the first '.' in the string.
     $domain_bits = explode('.', $_SERVER['HTTP_HOST']);
 	$context['domain'] = $domain_bits[1];
+	$context['mode'] = 'article';
+	$context['section'] = '';
 
