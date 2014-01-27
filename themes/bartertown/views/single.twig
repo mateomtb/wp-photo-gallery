@@ -12,6 +12,8 @@
                 </ul>
 				<h1 class="title entry-title cleanprint-title article-h1">{{post.title}}</h1>
 
+
+                <section id="body-text" class="shorten">
 				<p class="blog-author byline byline-bar">
 					<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a>
                 </p>
@@ -20,9 +22,7 @@
                     Published {{ post.display_date }} at {{ post.display_time }}
 				</p>
                 </div>
-
-                <section id="body-text" class="shorten">
-				<div class="article-body">
+				<div class="article-body" id="body-copy">
 					{{post.content}}
 				</div>
                 </section>
