@@ -40,8 +40,8 @@
 					    {{post.content}}
 				    </div>
                     <div class="article-categories">
-                        <p>Published in: {{ post.category }}</p>
-                        <p>Published in: {{ post.categories }}</p>
+                        {% if post.categories %}<p>Published in: {% for item in post.categories %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% endfor %}</p>{% endif %}
+                        {% if post.tags %}<p>Tagged: {% for item in post.tags %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% endfor %}</p>{% endif %}
                     </div>
                 </section>
 			</section>
