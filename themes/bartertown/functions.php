@@ -67,3 +67,6 @@ $("#dfmHeader".after("<div id=\"hot-topics\">" + $("#hot-topics-original").html(
 ';
         }
 }
+function register_hot_topics_widget() { register_widget('hot_topics_widget'); }
+add_action('widgits_init', 'register_hot_topics_widget');
+
