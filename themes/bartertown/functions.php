@@ -57,6 +57,13 @@ class hot_topic_widget extends WP_Widget
 ' . $insert_the_items . '
                     </ul>
     </div> <!-- .container-fluid -->
-</div>';
+</div>
+<script type="text/javascript">
+// Move the hot topics to the right place. 
+// We can\'t put them in the right place in the first place because
+// of region portlet limits in NGPS.
+$("#dfmHeader".after("<div id=\"hot-topics\">" + $("#hot-topics-original").html() + "</div>");
+</script>
+';
         }
 }
