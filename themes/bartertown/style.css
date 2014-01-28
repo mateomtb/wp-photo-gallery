@@ -5,3 +5,5 @@
 
 #dfmFooter { clear:both; }
 section.comments { clear:both; }
+section.article-content { margin-top:.75em; }
+section#right-rail { margin-left:15px; border: 1px solid red; }
