@@ -32,3 +32,31 @@
 	function load_scripts(){
 		wp_enqueue_script('jquery');
 	}
+
+
+class hot_topic_widget extends WP_Widget
+{
+    public function __construct()
+    {
+            parent::__construct(
+                'hot_topic_widget'
+                __('Hot Topic Widget', 'hot_topic_widget'),
+                array('description' => __('For managing the Hot Topics bar.', 'hot_topic_widget'), )
+            );
+    }
+
+    public function widget($args, $instance)
+    {
+        // It's a Tout widget, tweaked to be semi-responsive.
+        echo '<div id="hot-topics-original" style="display:none;">
+    <div class="container-fluid">
+        <ul class="inline-list">
+            <li>
+                <h6>Hot Topics:</h6>
+            </li>
+' . $insert_the_items . '
+                    </ul>
+    </div> <!-- .container-fluid -->
+</div>';
+        }
+}
