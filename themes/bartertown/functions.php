@@ -39,7 +39,7 @@ class hot_topic_widget extends WP_Widget
     public function __construct()
     {
             parent::__construct(
-                'hot_topic_widget'
+                'hot_topic_widget',
                 __('Hot Topic Widget', 'hot_topic_widget'),
                 array('description' => __('For managing the Hot Topics bar.', 'hot_topic_widget'), )
             );
