@@ -21,3 +21,70 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <!-- Use Saxo's BT stylesheet because it's more forward-looking than the NGPS BT CSS -->
 <link rel="stylesheet" href="http://local.dailynews.com/common/dfm/assets/css/style.v0.5.7.min.css" media="screen"/>
+
+<script type="text/javascript" src="http://local.{{domain}}.com/common/dfm/assets/js/modernizr.js"></script>
+<script type="text/javascript" src="http://local.{{domain}}.com/common/dfm/assets/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="http://local.{{domain}}.com/common/dfm/assets/js/dfm-core-level1.min.js"></script>
+<script type="text/javascript" src="http://local.{{domain}}.com/common/jquery/jquery-cookie-min.js"></script>
+<script type="text/javascript" src="http://ads.digitalfirstmedia.com/save/jivox/jvx_interstitial.js"></script>
+
+<script type="text/javascript">
+    dfm.api("data","siteId",          "LA");
+    dfm.api("data","siteName",        "LA Daily News");
+    dfm.api("data","siteDomain",      "{{domain}}.com");
+    dfm.api("data","actualDomain",    "www.{{domain}}.com");
+    dfm.api("data","localCommonUrl",  "");
+    dfm.api("data","localAssetsUrl",  "");
+    dfm.api("data","contentId",       "140129737");
+    dfm.api("data","sectionName",     "General news");
+    dfm.api("data","pageId",          "{B2DB5BE6-B751-4899-B5A9-ACDEFF2DB294}");
+    dfm.api("data","pageUrl",         "http://www.{{domain}}.com/general-news/20140123/30-years-ago-the-apple-macintosh-changed-the-world-forever");
+    dfm.api("data","pageVanityUrl",   "http://www.{{domain}}.com/general-news/20140123/30-years-ago-the-apple-macintosh-changed-the-world-forever");
+    dfm.api("data","pageTitle",       "30 years ago, the Apple Macintosh changed the world forever");
+    dfm.api("data","pageType",        "article");
+    dfm.api("data","abstract",        "As a historic moment in Silicon Valley, it&#x2019;s right up there with the coin flip that christened Hewlett-Packard and the Traitorous Eight mutiny that launched Fairchild Semiconductor and the microchip industry:Bow-tied Steve Jobs, standing");
+    dfm.api("data","keywords",        "news, Breaking teaking News, LA Daily News Top Story");
+    dfm.api("data","title",           "30 years ago, the Apple Macintosh changed the world forever");
+    dfm.api("data","sectionId",       "General news");
+    dfm.api("data","slug",            "LDN-Z-MAC");
+    dfm.api("data","NetworkID",       "8013");
+    dfm.api("data","Taxonomy1",       "News");
+    dfm.api("data","Taxonomy2",       "");
+    dfm.api("data","Taxonomy3",       "");
+    dfm.api("data","Taxonomy4",       "");
+    dfm.api("data","kv",              "News");
+    dfm.api("data","omnitureAccount", "LAXNWS");
+/***** JanRain Log in / registration *****/
+    dfm.api("data","engageAppName", "registration.medianewsgroup.com");
+    dfm.api("data","janrain.settings.capture.appUrl", "https://registration.medianewsgroup.com");
+    dfm.api("data","janrain.settings.capture.redirectUri", "http://"+dfm.api("data","actualDomain")+"/apps/pbcs.dll/section?Category=LOGINEDITPROFILE");
+    dfm.api("data","janrain.settings.capture.clientId", "bucute9zewfa6wfcvghbrjtdzt8jw8rs");
+    dfm.api("data","janrain.settings.capture.appId", "wyqba7czvhyxm4kbu4fgxn989s");
+    dfm.api("data","janrain.settings.captureServer", "https://medianewsgroup.janraincapture.com/");
+    dfm.api("data","janrain.settings.appUrl", "https://registration.medianewsgroup.com");
+    dfm.api("data","janrain.settings.capture.backplaneBusName", "dfm");
+/***** AdTags *****/
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+/***** AdTags *****/
+    var firstEmbedAssetContainer = '';
+    var firstEmbedAssetType = '';
+</script>
+<script type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+<script type="text/javascript">
+        googletag.pubads().setTargeting('page',['article']);
+        googletag.pubads().setTargeting('article',['140129737']);
+   googletag.pubads().setTargeting('kv',['News']); 
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().enableSyncRendering();
+        googletag.enableServices();
+        var DFM_ad_loc = dfm.api("data","NetworkID") + '/' + dfm.api("data","siteDomain");
+        if(dfm.api("data","Taxonomy1")!=''){DFM_ad_loc+='/'+dfm.api("data","Taxonomy1");if(dfm.api("data","Taxonomy2")!=''){DFM_ad_loc+='/'+dfm.api("data","Taxonomy2");if(dfm.api("data","Taxonomy3")!=''){DFM_ad_loc+='/'+dfm.api("data","Taxonomy3");if(dfm.api("data","Taxonomy4")!=''){DFM_ad_loc+='/'+dfm.api("data","Taxonomy4");}}}}
+    googletag.defineSlot(DFM_ad_loc,[[1,1]],                                   'DFM-adPos-inter')     .setTargeting('pos',['interstitial'])     .addService(googletag.pubads());
+    googletag.defineSlot(DFM_ad_loc,[[970,30],[970,250]],                      'DFM-adPos-pencil')    .setTargeting('pos',['SBB'])              .addService(googletag.pubads());
+    googletag.defineSlot(DFM_ad_loc,[[970,90],[728,90]],                       'DFM-adPos-leader')    .setTargeting('pos',['top_leaderboard'])  .addService(googletag.pubads());
+    googletag.defineSlot(DFM_ad_loc,[[300,250],[300,600],[300,1050],[160,600]],'DFM-adPos-cube1')     .setTargeting('pos',['Cube1_RRail_ATF'])  .addService(googletag.pubads());
+    googletag.defineSlot(DFM_ad_loc,[[300,250]],                               'DFM-adPos-cube2')     .setTargeting('pos',['Cube2_RRail_mid'])  .addService(googletag.pubads());
+    googletag.defineSlot(DFM_ad_loc,[[300,250]],                               'DFM-adPos-cube3')     .setTargeting('pos',['Cube3_RRail_lower']).addService(googletag.pubads());
+    googletag.defineSlot(DFM_ad_loc,[[300,250]],                               'DFM-adPos-bottomline').setTargeting('pos',['Cube4_BottomLine']) .addService(googletag.pubads());
+</script>

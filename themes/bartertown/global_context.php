@@ -6,4 +6,5 @@
 	$context['domain'] = $domain_bits[1];
 	$context['mode'] = 'article';
 	$context['section'] = '';
+    $context['sidebar'] = Timber::get_sidebar('sidebar.php');
 
