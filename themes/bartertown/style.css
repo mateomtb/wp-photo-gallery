@@ -6,4 +6,5 @@
 #dfmFooter { clear:both; }
 section.comments { clear:both; }
 section.article-content { margin-top:.75em; }
-section#right-rail { margin-left:15px; border: 1px solid red; }
+section#right-rail { margin-top:20px; margin-left:15px; border: 1px solid red; }
+.container-fluid { width:1000px!important; }
