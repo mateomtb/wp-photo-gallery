@@ -33,40 +33,43 @@
 		wp_enqueue_script('jquery');
 	}
 
+register_nav_menus(array('hot-topics' => __( 'Hot Topics' )));
 
-class hot_topic_widget extends WP_Widget
+add_filter('timber_context', 'global_context');
+function global_context($data){
+    // Rudimentary domain chunk. 
+    // Works for domains in the style of "www.domain.com" -- as in, 
+    // it takes the chunk after the first '.' in the string.
+    $domain_bits = explode('.', $_SERVER['HTTP_HOST']);
+	$data['domain'] = $domain_bits[1];
+	$data['mode'] = 'article';
+	$data['section'] = '';
+    $data['sidebar'] = Timber::get_sidebar('sidebar.php');
+
+
+    // Now, in similar fashion, you add a Timber menu and send it along to the context.
+    $data['menu'] = new TimberMenu(); // This is where you can also send a Wordpress menu slug or ID
+    return $data;
+}
+
+/*
+class boilerplate_widget extends WP_Widget
 {
     public function __construct()
     {
             parent::__construct(
-                'hot_topic_widget',
-                __('Hot Topic Widget', 'hot_topic_widget'),
-                array('description' => __('For managing the Hot Topics bar.', 'hot_topic_widget'), )
+                'boilerplate_widget',
+                __('boilerplate Widget', 'boilerplate_widget'),
+                array('description' => __('DESC', 'boilerplate_widget'), )
             );
     }
 
     public function widget($args, $instance)
     {
-        // It's a Tout widget, tweaked to be semi-responsive.
-        echo '<div id="hot-topics-original" style="display:none;">
-    <div class="container-fluid">
-        <ul class="inline-list">
-            <li>
-                <h6>Hot Topics:</h6>
-            </li>
-' . $insert_the_items . '
-                    </ul>
-    </div> <!-- .container-fluid -->
-</div>
-<script type="text/javascript">
-// Move the hot topics to the right place. 
-// We can\'t put them in the right place in the first place because
-// of region portlet limits in NGPS.
-$("#dfmHeader".after("<div id=\"hot-topics\">" + $("#hot-topics-original").html() + "</div>");
-</script>
-';
+        // DESC
+        echo 'MARKUP';
         }
 }
-function register_hot_topics_widget() { register_widget('hot_topics_widget'); }
-add_action('widgits_init', 'register_hot_topics_widget');
-
+function register_boilerplate_widget() { register_widget('boilerplate_widget'); }
+add_action('widgits_init', 'register_boilerplate_widget');
+*/

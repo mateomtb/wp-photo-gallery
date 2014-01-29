@@ -5,21 +5,7 @@
     <body class="{{body_class}}" data-source="base.twig">
         <header class="header" >
             {% include 'body-header.twig' %}
-            {% block header %}
-            <div class="wrapper">
-
-                <nav id="access" class="main-navigation" role="navigation">
-                    <ul>
-                    {% for item in menu.items %}
-                        <li id="menu-item-{{item.ID}}" class="menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}}">
-                            <a href="{{item.link}}">{{item.title}}</a>
-                        </li>
-                    {% endfor %}
-                    </ul>
-                </nav><!-- #access -->
-
-            </div>
-            {% endblock %}
+            {% block header %}{% endblock %}
         </header>
 
 
