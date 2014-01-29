@@ -42,15 +42,60 @@ function global_context($data){
     // it takes the chunk after the first '.' in the string.
     $domain_bits = explode('.', $_SERVER['HTTP_HOST']);
 	$data['domain'] = $domain_bits[1];
-	$data['mode'] = 'article';
+	$data['mode'] = 'section';
+    if ( is_singular() ) $data['mode'] = 'article';
+
 	$data['section'] = '';
     $data['sidebar'] = Timber::get_sidebar('sidebar.php');
-
-
-    // Now, in similar fashion, you add a Timber menu and send it along to the context.
     $data['menu'] = new TimberMenu(); // This is where you can also send a Wordpress menu slug or ID
     return $data;
 }
+
+/**
+ *  remove_widows()
+ *  filter the_title() to remove any chance of a typographic widow
+ *  typographic widows
+ *  @param string $title
+ *  @return string $title;
+ */
+function remove_widows($title)
+{
+ 
+        $title_length = strlen($title);
+
+        if ( strpos($title, 'a href=') > 0 )
+        {
+                // this is a link so
+                // work out where the anchor text starts and ends
+                $start_of_text = strpos($link, '">');
+                $end_of_text = strpos($link, '</a>');
+                $end_of_text = ($title_length -  $end_of_text);
+                $anchor_text = substr($title, $start_of_text, $end_of_text);
+        } 
+        else
+        {
+                $start_of_text = 0;
+                $end_of_text = $title_length;
+                $anchor_text = $title;
+        }
+
+        // convert the title into an array of words
+        $anchor_array = explode(' ', $anchor_text);
+
+        // Provided there's multiple words in the anchor text
+        // then join all words (except the last two) together by a space.
+        // Join the last two with an &nbsp; which is where the
+        // magic happens
+        if ( sizeof($anchor_array) > 1 )
+        {
+                $last_word = array_pop($anchor_array);
+                $title_new = join(' ', $anchor_array) . '&nbsp;' . $last_word;
+                $title = substr_replace($title, $title_new, $start_of_text, $end_of_text);
+        }
+        return $title;
+ 
+} 
+add_filter('the_title', 'remove_widows');
 
 /*
 class boilerplate_widget extends WP_Widget
