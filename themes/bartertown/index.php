@@ -18,7 +18,6 @@ if (!class_exists('Timber')):
 endif;
 $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
-include_once('global_context.php');
 $templates = array('index.twig');
 if (is_home()) array_unshift($templates, 'home.twig');
 Timber::render('index.twig', $context);
