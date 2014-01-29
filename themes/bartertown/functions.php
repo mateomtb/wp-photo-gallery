@@ -85,6 +85,27 @@ function remove_widows($title)
 } 
 add_filter('the_title', 'remove_widows');
 
+// We do this for all the custom posts we need to make this site run.
+if ( file_exists(WP_PLUGIN_DIR . '/easy-custom-fields/easy-custom-fields.php') ):
+
+require_once( WP_PLUGIN_DIR . '/easy-custom-fields/easy-custom-fields.php' );
+$field_data = array (
+        'BylineOverride' => array (             // unique group id
+                'fields' => array(             // array "fields" with field definitions
+                        'Name'  => array(),      // globally unique field id
+                        'Publication'  => array(),
+                ),
+        ),
+        'Sidebar' => array (
+                'fields' => array (
+                        'Title' => array(),
+                        'Markup' => array(),
+                ),
+        ),
+);
+$easy_cf = new Easy_CF($field_data);
+endif;
+
 /*
 class boilerplate_widget extends WP_Widget
 {
