@@ -5,7 +5,6 @@
 	add_theme_support('menus');
 
 	add_filter('get_twig', 'add_to_twig');
-	add_filter('timber_context', 'add_to_context');
 
 	add_action('wp_enqueue_scripts', 'load_scripts');
 
