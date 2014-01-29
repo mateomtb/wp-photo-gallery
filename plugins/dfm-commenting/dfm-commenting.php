@@ -13,7 +13,7 @@
 class options_page {
     function __construct() 
     {
-        $this->slug = 'update-json';
+        $this->slug = '';
         add_action( 'admin_menu', array( $this, 'admin_menu' ) );
     }
     
