@@ -27,6 +27,8 @@
 </div>
 {% endif %}
 
+{# <pre>{{ post|print_r }}</pre> #}
+
                 <section id="body-text" class="shorten">
 				    <p class="blog-author byline byline-bar">
 					    <span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a>
@@ -37,6 +39,13 @@
 				        </p>
                     </div>
 				    <div class="article-body" id="body-copy">
+                        {# SIDEBAR #}
+                        {% if post.Markup %}
+                            <div class="clear factbox span3 pull-right">
+                                {% if post.Title %}<h3>{{post.Title}}</h3>{% endif %}
+                                {{ post.Markup }}
+                            </div> <!-- /sidebar -->
+                        {% endif %}
 					    {{post.content}}
 				    </div>
                     <div class="article-categories">
