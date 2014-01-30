@@ -21,4 +21,10 @@ class options_page {
     {
         add_options_page( 'Page Title','Manage Commenting','manage_options',$this->slug, array( $this, 'settings_page' ) );
     }
+
+    function settings_page () 
+    {
+        echo '<h2>Pick your commenting system here.</h2>';
+    }
 }
+new options_page;
