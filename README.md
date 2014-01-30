@@ -6,4 +6,6 @@ Get a dev environment set up! Yes, you!
 * Do the same for plugins.
 * In your hosts file, point www.scsun-news.com to localhost.
 * Use the apache virtual host file in the dev folder (may need to adjust wordpress directory paths) to point your webserver to that domain.
-* I'll have an wordpress export XML document for you soon.
+* Restart apache. On linux that's ``sudo service apache2 restart``
+* Log into wp-admin and activate all the plugins: http://www.scsun-news.com/wp-admin/plugins.php
+* Go to http://www.scsun-news.com/wp-admin/admin.php?import=wordpress and import the export.xml file at ``dev/export.xml``
