@@ -7262,13 +7262,13 @@ h6 {
   }
 }
 .content-well {
-  padding-right: 30px / 2;
-  padding-left: 30px / 2;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 @media (min-width: 960px) {
   .content-well {
     width: auto;
-    margin-right: 300px + 30px;
+    margin-right: 330px;
   }
 }
 .left-rail {

@@ -27,10 +27,10 @@
 }
 .content-well {
   &:extend(.clearfix all);
-  padding-left: @grid-gutter-width / 2;
-  padding-right: @grid-gutter-width / 2;
+  padding-left: (@grid-gutter-width / 2);
+  padding-right: (@grid-gutter-width / 2);
   @media (min-width: @breakpoint-lg) {
-    margin-right: @right-rail-width + @grid-gutter-width;
+    margin-right: (@right-rail-width + @grid-gutter-width);
     width: auto;
   }
 }
