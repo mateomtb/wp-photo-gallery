@@ -5,12 +5,12 @@
   .carousel-control {
     top: 50%;
     .size(35px, 40px);
-    left: -(@grid-gutter-width / 2);
+    left: (@grid-gutter-width / -2);
     margin-top: -20px;
     background: @red-dark !important;
     .border-radius(6px);
     border: 1px solid #999;
-    line-height:40px;
+    line-height: 40px;
     .opacity(1);
     .glyphicon-chevron-right,
     .glyphicon-chevron-left {
@@ -21,7 +21,7 @@
   .carousel-control.right {
      text-align: center;
      left: auto;
-     right: -(@grid-gutter-width / 2);
+     right: (@grid-gutter-width / -2);
   }
   .carousel-control:hover,
   .carousel-control:focus {
@@ -98,7 +98,7 @@
       visibility: visible;
       top: 33.33333%;
       .size(35px, 40px);
-      left: -(@grid-gutter-width / 2);
+      left: (@grid-gutter-width / -2);
       margin-top: -20px;
       background: @red-dark;
       .border-radius(6px);

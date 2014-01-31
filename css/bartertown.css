@@ -6698,7 +6698,7 @@ h6 {
 @media (min-width: 768px) {
   .carousel-control {
     top: 50%;
-    left: -(30px / 2);
+    left: -15px;
     width: 35px;
     height: 40px;
     margin-top: -20px;
@@ -6715,7 +6715,7 @@ h6 {
     line-height: 38px;
   }
   .carousel-control.right {
-    right: -(30px / 2);
+    right: -15px;
     left: auto;
     text-align: center;
   }
@@ -6798,7 +6798,7 @@ h6 {
   }
   .carousel.multi-pane .carousel-control {
     top: 33.33333%;
-    left: -(30px / 2);
+    left: -15px;
     width: 35px;
     height: 40px;
     margin-top: -20px;
