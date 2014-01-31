@@ -409,12 +409,14 @@ ol li ol {
   list-style: inherit;
 }
 .list-inline,
-.list.inline {
+.list.inline,
+.share-widget {
   padding-left: 0;
   list-style: none;
 }
 .list-inline > li,
-.list.inline > li {
+.list.inline > li,
+.share-widget > li {
   display: inline-block;
   padding-right: 5px;
   padding-left: 5px;
@@ -651,6 +653,8 @@ a.bg-info:hover {
 .panel-body:after,
 .modal-footer:before,
 .modal-footer:after,
+.meta:before,
+.meta:after,
 .flag:before,
 .flag:after,
 #hot-topics .container:before,
@@ -685,6 +689,7 @@ a.bg-info:hover {
 .pager:after,
 .panel-body:after,
 .modal-footer:after,
+.meta:after,
 .flag:after,
 #hot-topics .container:after,
 #site-header:after,
@@ -6854,15 +6859,6 @@ h6 {
   max-width: 150px;
   max-height: 15px;
 }
-.share-widget {
-  padding-left: 0;
-  list-style: none;
-}
-.share-widget > li {
-  display: inline-block;
-  padding-right: 5px;
-  padding-left: 5px;
-}
 .share-widget li {
   padding: 0;
 }
@@ -6919,20 +6915,13 @@ h6 {
   color: #808080;
   border-top: 1px solid #ddd;
 }
-@media (max-width: 959px) {
-  .link-list ul > li > a {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-}
 .link-list ul > li > a strong {
   color: #555;
 }
 .link-list ul > li > a:hover {
+  padding-left: 5px;
   color: #555;
   text-decoration: none;
-  text-indent: 5px;
   background-image: -webkit-linear-gradient(top, #eef2f7 0%, #fff 100%);
   background-image:         linear-gradient(to bottom, #eef2f7 0%, #fff 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffeef2f7', endColorstr='#ffffffff', GradientType=0);
@@ -6940,27 +6929,11 @@ h6 {
   border-top: 1px solid #39547a;
 }
 .link-list.no-anim ul > li > a:hover {
-  text-indent: 0;
+  padding-left: 0;
 }
 .link-list .more {
   font-weight: 700;
   color: #39547a;
-}
-.meta:before,
-.meta:after {
-  display: table;
-  content: " ";
-}
-.meta:after {
-  clear: both;
-}
-.meta:before,
-.meta:after {
-  display: table;
-  content: " ";
-}
-.meta:after {
-  clear: both;
 }
 .meta .timestamp,
 .meta .source {
@@ -6998,18 +6971,26 @@ h6 {
 .story-feed hgroup h3,
 .story-feed hgroup h4,
 .story-feed hgroup h5,
-.story-feed hgroup h6 {
+.story-feed hgroup h6,
+.story-feed hgroup .h1,
+.story-feed hgroup .h2,
+.story-feed hgroup .h3,
+.story-feed hgroup .h4,
+.story-feed hgroup .h5,
+.story-feed hgroup .h6 {
   margin-top: 0;
 }
 .story-feed .topic-header {
   font-size: 24px;
   font-size: 2.4rem;
 }
-.story-feed ul > li h3 {
+.story-feed ul > li h3,
+.story-feed ul > li .h3 {
   margin-top: 0;
 }
 @media (min-width: 768px) {
-  .story-feed.sm h3 {
+  .story-feed.sm h3,
+  .story-feed.sm .h3 {
     font-size: 16px;
     font-size: 1.6rem;
   }
@@ -7018,7 +6999,8 @@ h6 {
   margin-bottom: 22px;
 }
 @media (min-width: 768px) {
-  .story-feed.lg h3 {
+  .story-feed.lg h3,
+  .story-feed.lg .h3 {
     font-size: 21px;
     font-size: 2.1rem;
   }
