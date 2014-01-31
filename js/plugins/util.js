@@ -24,17 +24,17 @@
 // Custom functions
 
 function getCheckedValue(radioObj) {
-  if(!radioObj) { return ""; }
+  if(!radioObj) { return ''; }
   var radioLength = radioObj.length;
   if(radioLength === undefined) {
-    return (radioObj.checked) ? radioObj.value : "";
+    return (radioObj.checked) ? radioObj.value : '';
   }
   for (var i = 0; i < radioLength; i++) {
     if(radioObj[i].checked) {
       return radioObj[i].value;
     }
   }
-  return "";
+  return '';
 }
 function getUrlVars() {
   var vars = {};
@@ -56,7 +56,7 @@ function addCommas(nStr) {
 }
 function formatDate(input) {
   var datePart = input.match(/\d+/g),
-    months = new Array("", "Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec");  
+    months = new Array('', 'Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec');  
     year = datePart[0],
     day = datePart[2],
     month = months[parseInt(datePart[1])];
