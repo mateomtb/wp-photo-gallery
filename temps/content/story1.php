@@ -1,43 +1,41 @@
 <article id="main-story" <?php if($sidebar == 'true') { echo 'class="has-supporting-content"'; }?>>
-	
+    
   <header id="article-top" class="article-header">
     <?php include('temps/ui/breadcrumbs.php'); ?>
     <h1>Colorado wildfire: Many addresses in emergency database wrong</h1>
     <h4 class="subhead">Optional subhead to go into this space right here in this space ok</h4>
     <div id="main-media" class="single-img"> <!-- other class options here: flex-video, flex-video widescreen, img-gallery-->
-	
       <figure>
-		<span data-picture data-alt="Image description goes here">
-		    <span data-src="http://placehold.it/320x240"></span>
-			<span data-src="http://placehold.it/640x480" data-media="(min-device-pixel-ratio: 2.0)"></span>
-		    <span data-src="http://placehold.it/480x320" data-media="(min-width: 321px)"></span>
-			<span data-src="http://placehold.it/960x640" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
-		    <span data-src="http://placehold.it/640x480" data-media="(min-width: 481px)"></span>
-			<span data-src="http://placehold.it/1280x960" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
-		    <span data-src="http://placehold.it/800x600" data-media="(min-width: 641px)"></span>
-			<span data-src="http://placehold.it/1600x1200" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>
-		    <span data-src="http://placehold.it/1000x750" data-media="(min-width: 769px)"></span>
-			<span data-src="http://placehold.it/2000x1500" data-media="(min-width: 769px) and (min-device-pixel-ratio: 2.0)"></span>
-		    <span data-src="http://placehold.it/800x600" data-media="(min-width: 960px)"></span>
-			<span data-src="http://placehold.it/1600x1200" data-media="(min-width: 960px) and (min-device-pixel-ratio: 2.0)"></span>
-		    <span data-src="http://placehold.it/1000x750" data-media="(min-width: 1189px)"></span>
-			<span data-src="http://placehold.it/2000x1500" data-media="(min-width: 1189px) and (min-device-pixel-ratio: 2.0)"></span>
-		    <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
-		    <noscript>
-		        <img src="http://placehold.it/320x24" alt="Image description goes here">
-		    </noscript>
-		</span>
+        <span data-picture data-alt="Image description goes here">
+            <span data-src="http://placehold.it/320x240"></span>
+            <span data-src="http://placehold.it/640x480" data-media="(min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="http://placehold.it/480x320" data-media="(min-width: 321px)"></span>
+            <span data-src="http://placehold.it/960x640" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="http://placehold.it/640x480" data-media="(min-width: 481px)"></span>
+            <span data-src="http://placehold.it/1280x960" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="http://placehold.it/800x600" data-media="(min-width: 641px)"></span>
+            <span data-src="http://placehold.it/1600x1200" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="http://placehold.it/1000x750" data-media="(min-width: 769px)"></span>
+            <span data-src="http://placehold.it/2000x1500" data-media="(min-width: 769px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="http://placehold.it/800x600" data-media="(min-width: 960px)"></span>
+            <span data-src="http://placehold.it/1600x1200" data-media="(min-width: 960px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="http://placehold.it/1000x750" data-media="(min-width: 1189px)"></span>
+            <span data-src="http://placehold.it/2000x1500" data-media="(min-width: 1189px) and (min-device-pixel-ratio: 2.0)"></span>
+            <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+            <noscript>
+                <img src="http://placehold.it/320x24" alt="Image description goes here">
+            </noscript>
+        </span>
         <figcaption>Kristen Moeller and husband David Cottrell look through the ruins of their home Thursday. The house was destroyed during the Lower North Fork fire, which also scorched the 37 acres of land around the home. <span class="photographer">Aaron Ontiveroz / The Denver Post</span></figcaption>
       </figure>
-
     </div> <!-- #main-media -->
   </header>
 
   <section id="article-body">
-	<div class="the-article">
+    <div class="the-article">
       <div class="byline-bar">
-	    <p class="author-name">By <a href="">Kirk Mitchell</a></p>
-	    <p class="property-name">The Denver Post</p>
+        <p class="author-name">By <a href="">Kirk Mitchell</a></p>
+        <p class="property-name">The Denver Post</p>
         <div class="meta">
           <p class="timestamp">Posted <time datetime="2012-03-05T20:53Z">Monday, March 5, 2012 8:53pm MST</time><span class="divider">|</span>Updated 4 hours ago</p>
         </div>
@@ -45,43 +43,49 @@
       <div class="body-copy">
       <p>The addresses of one in six homes in Jefferson and Broomfield counties are entered inconsistently in databases used to warn people when there is an emergency, officials say.</p>
       <p>That means as many as 100,000 homeowners may not receive notification if an evacuation is ordered should another wildfire break out.</p>
+        <?php if($inline_promo == 'true'):?>
+            <?php include('temps/ui/inline-promo.php'); ?>
+        <?php elseif($factbox == 'true'): ?>
+            <?php include('temps/ui/factbox.php'); ?>
+        <?php else: ?>
       <div class="secondary-media single-img">
         <figure>
-		<span data-picture data-alt="Image description goes here">
-		    <span data-src="http://placehold.it/320x240"></span>
-			<span data-src="http://placehold.it/640x480" data-media="(min-device-pixel-ratio: 2.0)"></span>
-		    <span data-src="http://placehold.it/480x320" data-media="(min-width: 321px)"></span>
-			<span data-src="http://placehold.it/960x640" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
-		    <span data-src="http://placehold.it/320x240" data-media="(min-width: 481px)"></span>
-			<span data-src="http://placehold.it/640x480" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
-		    <span data-src="http://placehold.it/480x320" data-media="(min-width: 641px)"></span>
-			<span data-src="http://placehold.it/960x640" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>
-		    <span data-src="http://placehold.it/800x600" data-media="(min-width: 1189px)"></span>
-			<span data-src="http://placehold.it/1600x1200" data-media="(min-width: 1189px) and (min-device-pixel-ratio: 2.0)"></span>
-		    <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
-		    <noscript>
-		        <img src="http://placehold.it/320x24" alt="Image description goes here">
-		    </noscript>
-		</span>
+        <span data-picture data-alt="Image description goes here">
+            <span data-src="http://placehold.it/320x240"></span>
+            <span data-src="http://placehold.it/640x480" data-media="(min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="http://placehold.it/480x320" data-media="(min-width: 321px)"></span>
+            <span data-src="http://placehold.it/960x640" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="http://placehold.it/320x240" data-media="(min-width: 481px)"></span>
+            <span data-src="http://placehold.it/640x480" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="http://placehold.it/480x320" data-media="(min-width: 641px)"></span>
+            <span data-src="http://placehold.it/960x640" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="http://placehold.it/800x600" data-media="(min-width: 1189px)"></span>
+            <span data-src="http://placehold.it/1600x1200" data-media="(min-width: 1189px) and (min-device-pixel-ratio: 2.0)"></span>
+            <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+            <noscript>
+                <img src="http://placehold.it/320x24" alt="Image description goes here">
+            </noscript>
+        </span>
           <figcaption>Flames can be seen on a ridge near Reynolds Park on Foxton Road. The fire, which is being called the Lower North Fork Fire, has burned some 200 acres and reports are saying that some structures have been lost. <span class="photographer">Helen H. Richardson / The Denver Post</span></figcaption>
         </figure>
       </div> <!-- #secondary-media -->
+      <?php endif; ?>      
       <p>The revelation came as Jefferson County officials try to sort out why a woman who died during the Lower North Fork fire — and many others — did not receive notifications to evacuate.</p>
       <p>There were 848 homes in the fire zone, according to a list provided by the Jefferson County Sheriff's Office. Of those, the addresses of 278 were inaccurate, including where Ann Appel, 51, died when fire swept through her home at 14141 Broadview Circle. Her home was incorrectly listed as being in Morrison instead of Littleton.</p>
       <p>"There are 100,000 numbers that are not properly mapped," Jefferson County sheriff's spokeswoman Jacki Kelley said. "We don't know how many of those are in our jurisdiction."</p>
 
       <p>The wildfire destroyed 27 homes and burned 4,140 acres. Sam Lucas, 77, and his wife, Linda, 76, who also were killed during the fire, did receive an emergency notification.</p>
       <p>The first round of evacuation calls, made just after 5 p.m. March 26, went only to people with addresses listed as Littleton, according to minutes of a conference-call meeting among sheriff's officials and FirstCall Network, which provides the notifications.</p>
-	<blockquote>
-	  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-	  <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-	</blockquote>
+    <blockquote>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+    </blockquote>
       <p>Many people far outside the evacuation area, who had signed up to receive messages on their cellphones or by e-mail, were mistakenly ordered to evacuate, and their questions for dispatchers clogged 911 lines.</p>
       <p>Kristen Moeller got a text message on her cellphone but had put the phone down and didn't see the notification. Because her house phone never rang, she said, she didn't feel a sense of urgency to evacuate until white smoke turned into a "dark, ferocious cloud."</p>
       <ul class="list">
-      	<li>This is a list within the story</li>
-      	<li>This is a list within the story</li>
-      	<li>This is a list within the story</li>
+          <li>This is a list within the story</li>
+          <li>This is a list within the story</li>
+          <li>This is a list within the story</li>
       </ul>
       <p>The author and Internet radio host thinks she and four of her friends left the home she shared with her husband, David Cottrell, about 15 minutes before the wildfire reached the house at 18006 Rocky Top Trail. The house burned to the ground. The 37 acres of land around it is scorched, with only a few green pine trees left standing.</p>
       <p>"I think it was a devastating series of systems screwups," she said. "Systems failed; lives were lost."</p>
@@ -104,7 +108,7 @@
     <?php if($sidebar == 'true') { include('temps/content/supporting-content.php'); }?>
   </section> 
   <footer id="article-footer">
-  	  <?php include('temps/ui/recommended.php'); ?>
+        <?php include('temps/ui/recommended.php'); ?>
       <?php include('temps/ui/newstogram.php'); ?>
       <?php include('temps/ui/comments.php'); ?>
   </footer>

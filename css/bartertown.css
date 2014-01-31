@@ -657,6 +657,8 @@ a.bg-info:hover {
 .content-well:after,
 #site-footer:before,
 #site-footer:after,
+.factbox:before,
+.factbox:after,
 .side-nav:before,
 .side-nav:after {
   display: table;
@@ -676,6 +678,7 @@ a.bg-info:hover {
 #site-header:after,
 .content-well:after,
 #site-footer:after,
+.factbox:after,
 .side-nav:after {
   clear: both;
 }
@@ -1216,27 +1219,37 @@ th.hidden-touch {
 .row:after {
   clear: both;
 }
-.col {
+.col,
+.factbox,
+.inline-promo {
   position: relative;
   float: left;
   width: 100%;
   min-height: 1px;
   padding: 0 15px;
 }
-.col.centered {
+.col.centered,
+.factbox.centered,
+.inline-promo.centered {
   float: none !important;
   margin-right: auto;
   margin-left: auto;
 }
-.col.uncentered {
+.col.uncentered,
+.factbox.uncentered,
+.inline-promo.uncentered {
   float: left !important;
   margin-right: 0;
   margin-left: 0;
 }
-.col.uncentered.opposite {
+.col.uncentered.opposite,
+.factbox.uncentered.opposite,
+.inline-promo.uncentered.opposite {
   float: right !important;
 }
-.col + .col.last {
+.col + .col.last,
+.factbox + .factbox.last,
+.inline-promo + .inline-promo.last {
   float: right!important;
 }
 @media screen and (min-width: 320px) {
@@ -1421,95 +1434,153 @@ th.hidden-touch {
   .md-pull-0 {
     right: 0;
   }
-  .col.push-12 {
+  .col.push-12,
+  .factbox.push-12,
+  .inline-promo.push-12 {
     left: 100%;
   }
-  .col.pull-12 {
+  .col.pull-12,
+  .factbox.pull-12,
+  .inline-promo.pull-12 {
     right: 100%;
   }
-  .col.push-11 {
+  .col.push-11,
+  .factbox.push-11,
+  .inline-promo.push-11 {
     left: 91.66667%;
   }
-  .col.pull-11 {
+  .col.pull-11,
+  .factbox.pull-11,
+  .inline-promo.pull-11 {
     right: 91.66667%;
   }
-  .col.push-10 {
+  .col.push-10,
+  .factbox.push-10,
+  .inline-promo.push-10 {
     left: 83.33333%;
   }
-  .col.pull-10 {
+  .col.pull-10,
+  .factbox.pull-10,
+  .inline-promo.pull-10 {
     right: 83.33333%;
   }
-  .col.push-9 {
+  .col.push-9,
+  .factbox.push-9,
+  .inline-promo.push-9 {
     left: 75%;
   }
-  .col.pull-9 {
+  .col.pull-9,
+  .factbox.pull-9,
+  .inline-promo.pull-9 {
     right: 75%;
   }
-  .col.push-8 {
+  .col.push-8,
+  .factbox.push-8,
+  .inline-promo.push-8 {
     left: 66.66667%;
   }
-  .col.pull-8 {
+  .col.pull-8,
+  .factbox.pull-8,
+  .inline-promo.pull-8 {
     right: 66.66667%;
   }
-  .col.push-7 {
+  .col.push-7,
+  .factbox.push-7,
+  .inline-promo.push-7 {
     left: 58.33333%;
   }
-  .col.pull-7 {
+  .col.pull-7,
+  .factbox.pull-7,
+  .inline-promo.pull-7 {
     right: 58.33333%;
   }
-  .col.push-6 {
+  .col.push-6,
+  .factbox.push-6,
+  .inline-promo.push-6 {
     left: 50%;
   }
-  .col.pull-6 {
+  .col.pull-6,
+  .factbox.pull-6,
+  .inline-promo.pull-6 {
     right: 50%;
   }
-  .col.push-5 {
+  .col.push-5,
+  .factbox.push-5,
+  .inline-promo.push-5 {
     left: 41.66667%;
   }
-  .col.pull-5 {
+  .col.pull-5,
+  .factbox.pull-5,
+  .inline-promo.pull-5 {
     right: 41.66667%;
   }
-  .col.push-4 {
+  .col.push-4,
+  .factbox.push-4,
+  .inline-promo.push-4 {
     left: 33.33333%;
   }
-  .col.pull-4 {
+  .col.pull-4,
+  .factbox.pull-4,
+  .inline-promo.pull-4 {
     right: 33.33333%;
   }
-  .col.push-3 {
+  .col.push-3,
+  .factbox.push-3,
+  .inline-promo.push-3 {
     left: 25%;
   }
-  .col.pull-3 {
+  .col.pull-3,
+  .factbox.pull-3,
+  .inline-promo.pull-3 {
     right: 25%;
   }
-  .col.push-2 {
+  .col.push-2,
+  .factbox.push-2,
+  .inline-promo.push-2 {
     left: 16.66667%;
   }
-  .col.pull-2 {
+  .col.pull-2,
+  .factbox.pull-2,
+  .inline-promo.pull-2 {
     right: 16.66667%;
   }
-  .col.push-1 {
+  .col.push-1,
+  .factbox.push-1,
+  .inline-promo.push-1 {
     left: 8.33333%;
   }
-  .col.pull-1 {
+  .col.pull-1,
+  .factbox.pull-1,
+  .inline-promo.pull-1 {
     right: 8.33333%;
   }
-  .col.push-0 {
+  .col.push-0,
+  .factbox.push-0,
+  .inline-promo.push-0 {
     left: 0;
   }
-  .col.pull-0 {
+  .col.pull-0,
+  .factbox.pull-0,
+  .inline-promo.pull-0 {
     right: 0;
   }
-  .col .md-centered {
+  .col .md-centered,
+  .factbox .md-centered,
+  .inline-promo .md-centered {
     float: none !important;
     margin-right: auto;
     margin-left: auto;
   }
-  .col .md-uncentered {
+  .col .md-uncentered,
+  .factbox .md-uncentered,
+  .inline-promo .md-uncentered {
     float: left !important;
     margin-right: 0;
     margin-left: 0;
   }
-  .col .md-uncentered.opposite {
+  .col .md-uncentered.opposite,
+  .factbox .md-uncentered.opposite,
+  .inline-promo .md-uncentered.opposite {
     float: right !important;
   }
 }
@@ -1667,17 +1738,23 @@ th.hidden-touch {
   .lg-pull-0 {
     right: 0;
   }
-  .col .lg-centered {
+  .col .lg-centered,
+  .factbox .lg-centered,
+  .inline-promo .lg-centered {
     float: none !important;
     margin-right: auto;
     margin-left: auto;
   }
-  .col .lg-uncentered {
+  .col .lg-uncentered,
+  .factbox .lg-uncentered,
+  .inline-promo .lg-uncentered {
     float: left !important;
     margin-right: 0;
     margin-left: 0;
   }
-  .col .lg-uncentered.opposite {
+  .col .lg-uncentered.opposite,
+  .factbox .lg-uncentered.opposite,
+  .inline-promo .lg-uncentered.opposite {
     float: right !important;
   }
 }
@@ -1835,17 +1912,23 @@ th.hidden-touch {
   .xl-pull-0 {
     right: 0;
   }
-  .col .xl-centered {
+  .col .xl-centered,
+  .factbox .xl-centered,
+  .inline-promo .xl-centered {
     float: none !important;
     margin-right: auto;
     margin-left: auto;
   }
-  .col .xl-uncentered {
+  .col .xl-uncentered,
+  .factbox .xl-uncentered,
+  .inline-promo .xl-uncentered {
     float: left !important;
     margin-right: 0;
     margin-left: 0;
   }
-  .col .xl-uncentered.opposite {
+  .col .xl-uncentered.opposite,
+  .factbox .xl-uncentered.opposite,
+  .inline-promo .xl-uncentered.opposite {
     float: right !important;
   }
 }
@@ -2260,13 +2343,19 @@ th {
 .table.hover > tbody > tr:hover > th {
   background-color: #c9c9c9;
 }
-table .col {
+table .col,
+table .factbox,
+table .inline-promo {
   position: static;
   display: table-column;
   float: none;
 }
 table td.col,
-table th.col {
+table th.col,
+table td.factbox,
+table th.factbox,
+table td.inline-promo,
+table th.inline-promo {
   position: static;
   display: table-cell;
   float: none;
@@ -3908,7 +3997,9 @@ input[type="button"].btn-block {
   display: table;
   border-collapse: separate;
 }
-.input-group.col {
+.input-group.col,
+.input-group.factbox,
+.input-group.inline-promo {
   float: none;
   padding-right: 0;
   padding-left: 0;
@@ -5234,27 +5325,35 @@ a.thumbnail.active {
   background-image:         linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
 }
 .media,
-.media-body {
+.media-body,
+.inline-promo,
+.inline-promo .promo-body {
   overflow: hidden;
   zoom: 1;
 }
 .media,
-.media .media {
+.media .media,
+.inline-promo,
+.inline-promo .inline-promo {
   margin-top: 15px;
 }
-.media:first-child {
+.media:first-child,
+.inline-promo:first-child {
   margin-top: 0;
 }
 .media-object {
   display: block;
 }
-.media-heading {
+.media-heading,
+.inline-promo .promo-heading {
   margin: 0 0 5px;
 }
-.media > .pull-left {
+.media > .pull-left,
+.inline-promo > .pull-left {
   margin-right: 10px;
 }
-.media > .pull-right {
+.media > .pull-right,
+.inline-promo > .pull-right {
   margin-left: 10px;
 }
 .media-list {
@@ -7334,7 +7433,8 @@ h6 {
 #main-story:after {
   clear: both;
 }
-#main-story .media {
+#main-story .media,
+#main-story .inline-promo {
   padding: 22px 0;
   border-top: 1px solid #ddd;
 }
@@ -8167,6 +8267,109 @@ figcaption {
     font-size: 20px;
     font-size: 2rem;
   }
+}
+.factbox {
+  margin-bottom: 22px;
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+.factbox.pull-right {
+  margin-left: 15px;
+}
+.factbox.pull-left {
+  margin-right: 15px;
+}
+.factbox ul.list {
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+.factbox * {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.factbox h1,
+.factbox h2,
+.factbox h3,
+.factbox h4,
+.factbox h5,
+.factbox h6 {
+  margin-bottom: .5em;
+  font-family: "Oxygen", "Trebuchet MS", "Helvetica Neue", Arial, serif;
+  color: #39547a;
+  text-transform: none;
+}
+.factbox table {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.factbox table thead tr td {
+  font-weight: 500;
+}
+.factbox hr {
+  clear: both;
+  border-width: 2px 0 0 0;
+}
+.factbox .header {
+  padding-bottom: .5em;
+  margin-bottom: .5em;
+  border-bottom: 1px solid #ddd;
+}
+.factbox .source {
+  float: right;
+  font-size: 10px;
+  font-size: 1rem;
+}
+.factbox ul,
+.factbox .list {
+  margin-top: 0;
+}
+.factbox .chatter {
+  font-weight: 700;
+}
+.inline-promo {
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+.inline-promo .promo-image {
+  display: inline-block;
+  float: left;
+  max-width: 30%;
+  margin-right: 10px;
+}
+.inline-promo h4,
+.inline-promo .h4 {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+@media (min-width: 768px) {
+  .inline-promo.pull-right {
+    margin-left: 15px;
+  }
+  .inline-promo.pull-left {
+    margin-right: 15px;
+  }
+  .inline-promo.lg {
+    border: 0;
+  }
+  .inline-promo.lg .promo-image {
+    display: block;
+    float: none!important;
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+    margin-bottom: 11px;
+  }
+  .inline-promo.lg h4,
+  .inline-promo.lg .h4 {
+    font-size: 18px;
+    font-size: 1.8rem;
+  }
+}
+.inline-promo .promo-heading {
+  text-transform: none;
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
