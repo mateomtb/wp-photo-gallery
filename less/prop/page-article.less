@@ -79,6 +79,10 @@ figcaption {
        margin-bottom: 24px;
     }
   }
+  ul.list {
+    margin-top: @line-height-computed;
+    margin-bottom: @line-height-computed;
+  }
   .subhead {
     .font-size(18px);
     margin: @line-height-computed 0;
@@ -149,25 +153,13 @@ figcaption {
 .recommender,
 .ng-recommender,
 .comments {
-  .clearfix();
-  border-top: @border;
+  &:extend(.clearfix all);
+  border-top: @fat-gray-border;
   padding-top: @line-height-computed;
   margin-top: @line-height-computed;
 }
 .recommender {
   .link-list {
     margin-bottom: @line-height-computed;
-  }
-  @media (min-width: @breakpoint-md) {
-	  display: table;
-     .link-list {
-       display:table-cell;
-       padding-right: @grid-gutter-width;
-       width: 33.33333%;
-       margin-bottom: 0;
-     }
-  }
-  div.link-list:last-child {
-    padding-right: 0;
   }
 }

@@ -108,8 +108,8 @@
     <?php if($sidebar == 'true') { include('temps/content/supporting-content.php'); }?>
   </section> 
   <footer id="article-footer">
-        <?php include('temps/ui/recommended.php'); ?>
-      <?php include('temps/ui/newstogram.php'); ?>
+      <?php include('temps/ui/recommended.php'); ?>
+      <?php //include('temps/ui/newstogram.php'); ?>
       <?php include('temps/ui/comments.php'); ?>
   </footer>
 
