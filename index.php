@@ -24,16 +24,22 @@
       </div>
     </div> <!-- #middle-row -->
     <div id="bottom-row">
-	  <div class="col md-12">
+    <div class="col md-12">
         <?php include('temps/content/slider-promo.php'); ?>
-	  </div>
+    </div>
       <div class="col md-6">
-	    <?php include('temps/content/section-promo.php');?>
-	    <?php include('temps/content/section-promo.php');?>
+      <?php 
+        if ($mostpop == 'true'):
+          include('temps/ui/popular-widget.php');
+        else:
+          include('temps/content/section-promo.php');
+        endif;
+      ?>
+      <?php include('temps/content/section-promo.php');?>
       </div>
       <div class="col md-6">
-	    <?php include('temps/content/section-promo.php');?>
-	    <?php include('temps/content/section-promo.php');?>
+      <?php include('temps/content/section-promo.php');?>
+      <?php include('temps/content/section-promo.php');?>
       </div>
     </div><!-- #bottom-row -->
   </div> <!-- .content-well -->

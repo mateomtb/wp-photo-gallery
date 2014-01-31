@@ -6901,11 +6901,17 @@ h6 {
 }
 .topic-header {
   margin: 0 0 22px;
-  font-size: 36px;
-  font-size: 3.6rem;
+  font-size: 24px;
+  font-size: 2.4rem;
   line-height: 1.5;
   border-top: 4px solid #ddd;
   border-bottom: 1px solid #ddd;
+}
+@media (min-width: 768px) {
+  .topic-header {
+    font-size: 32px;
+    font-size: 3.2rem;
+  }
 }
 .section-promo {
   margin-bottom: 22px;
@@ -8096,6 +8102,30 @@ figcaption {
   position: absolute;
   top: 15px;
   right: 15px;
+}
+.popular-widget .topic-header {
+  margin-bottom: 0;
+  border: 0;
+}
+.popular-widget .tab-content {
+  margin-bottom: 22px;
+  overflow: visible !important;
+}
+.popular-widget .tab-pane {
+  padding: 0;
+  border: 0;
+}
+.popular-widget .pills {
+  padding-top: 7.333333333333333px;
+  margin-bottom: 7.333333333333333px;
+  font-size: 10px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-top: 1px solid #ddd;
+}
+.popular-widget .pills > li > a {
+  padding: 4px 5px;
+  border-radius: 2px;
 }
 @font-face {
   font-family: 'Glyphicons Halflings';

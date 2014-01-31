@@ -204,13 +204,15 @@
 	}
 }
 
-
 .topic-header {
-  .font-size(36px);
+  .font-size(24px);
   line-height: 1.5;
   margin: 0 0 @line-height-computed;
   border-top: @fat-gray-border;
   border-bottom: @border;
+  @media(min-width: @breakpoint-md) {
+    .font-size(30px);
+  }
 }
 .section-promo {
   margin-bottom: @line-height-computed;

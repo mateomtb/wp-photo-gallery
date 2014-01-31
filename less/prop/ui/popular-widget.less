@@ -1,0 +1,27 @@
+.popular-widget {
+  .topic-header {
+    border: 0;
+    margin-bottom: 0;
+  }
+  .tab-content {
+    overflow: visible !important;
+    margin-bottom: @line-height-computed;
+  }
+  .tab-pane {
+    padding: 0;
+    border: 0;
+  }
+  .pills {
+    .font-size(10px);
+    text-transform: uppercase;
+    margin-bottom: (@line-height-computed / 3);
+    padding-top: (@line-height-computed / 3);
+    border-top: @border;
+    > li {
+      > a {
+          padding: 4px 5px;
+          .border-radius(2px);
+      }
+    }
+  }
+}
