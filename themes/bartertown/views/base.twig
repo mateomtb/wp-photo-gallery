@@ -12,19 +12,19 @@
 	<div id="content" class="container">
 		<div class="row">
 			<div class="content-well">
-            	<div class="row-fluid">
-            	{% if title %}<h1>{{title}}</h1>{% endif %}
-            	<div class="wrapper {{sidebar_class}}">
-                	{% block content %}Sorry, no content{% endblock %}
-            	</div>
-            	{% if sidebar %}
-                	<aside class="layout-sidebar">
+            			<div class="row-fluid">
+            				{% if title %}<h1>{{title}}</h1>{% endif %}
+            				<div class="wrapper {{sidebar_class}}">
+                			{% block content %}Sorry, no content{% endblock %}
+            				</div>
+            			</div> <!-- class="row-fluid" -->
+                        </div> <!-- class="content-well"> -->
+            		{% if sidebar %}
+                	<div class="right-rail">
                     	{{sidebar}}
                     	{{dynamic_sidebar}}
-                	</aside>
-            	{% endif %}
-            	</div>
-                        </div> <!-- class="content-well"> -->
+                	</div>
+            		{% endif %}
                 </div> <!-- class="row"> -->
 	</div>
 
