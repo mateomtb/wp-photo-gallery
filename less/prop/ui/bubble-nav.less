@@ -16,10 +16,9 @@
         display: block;
       }
       .bubble-editorial-content {
-        .clearfix();
+        &:extend(.clearfix all);
         overflow: hidden;
         padding: 0 (@grid-gutter-width / 2);
-        //margin-right: 300px;
       }
       .bubble-overflow {
         width: 100%;
@@ -106,7 +105,7 @@
       }
     }
     .pager {
-      .clearfix();
+      &:extend(.clearfix all);
       display: none;
       position: absolute;
       width: 160px;
@@ -152,7 +151,7 @@
         }
       }
       .topic-pane {
-        .clearfix();
+        &:extend(.clearfix all);
         height: 270px;
         overflow: hidden;
         ul {
