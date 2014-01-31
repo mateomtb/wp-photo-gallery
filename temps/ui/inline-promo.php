@@ -1,4 +1,4 @@
-<div class="inline-promo lg xs-4 sm-2 md-3 pull-right">
+<div class="inline-promo lg sm-6 md-3 pull-right">
   <a class="promo-image" href="#">
     <img src="assets/images/gosling.jpg" alt="" />
   </a>
