@@ -25,6 +25,8 @@ class options_page {
     function settings_page () 
     {
         echo '<h2>Pick your commenting system here.</h2>';
+        add_option('Facebook', 'facebook');
+        settings_fields( 'commenting-group' );
     }
 }
 new options_page;
