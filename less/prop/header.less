@@ -1,27 +1,24 @@
 // Header styles
 // -----------------------------------
 .flag {
+  &:extend(.clearfix all);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: @zindex-navbar;
   min-height: @navbar-height-max;
-  .clearfix();
   background: @brand-primary;
   .branding {
 	width: 150px;
 	line-height: @navbar-height-max;
     margin: 0 auto;
   }
-  .section-name {
-
-  }
   .search-bar {
     float: right;
     width: 50px;
   }
-  @media (min-width:@breakpoint-md) {
+  @media (min-width: @breakpoint-md) {
     position: relative;
     z-index: 5;
     #gradient > .vertical(@start-color:#e4eaf2; @end-color:#ffffff );
@@ -44,7 +41,7 @@
       width: 225px;
     }
   }
-  @media (max-width:@breakpoint-sm-max) {
+  @media (max-width: @breakpoint-sm-max) {
     .search-bar {
       .input-group {
         display: none!important;
@@ -62,7 +59,7 @@
   .glyphicon {
     color: #fff;
     .font-size(18px);
-    pointer-events:none;
+    pointer-events: none;
   }
   &:focus {
     border: 0;
@@ -71,7 +68,7 @@
   background: rgba(255,255,255,.1);
   border: 0;
   cursor: pointer;
-  margin-left: -(@grid-gutter-width / 2);
+  margin-left: (@grid-gutter-width / -2);
   &:hover {
     background: rgba(255,255,255,.2);
   }
@@ -94,7 +91,6 @@
     z-index: 20000;
   }
 }
-
 
 .home-page .flag > .container {
   @media (min-width: @breakpoint-md) {
@@ -123,18 +119,18 @@
   border-bottom: 1px solid @border-color;
   width: 100%;
   .container {
+    &:extend(.clearfix all);
     overflow:hidden;
-    .clearfix();
     ul {
       margin: 0;
       .text-overflow();
       height: (@line-height-computed * 1.5);
       > li {
         &:first-child {
-          .h5();
           padding-left:0;
           text-transform:uppercase;
           font-family: @font-family-treb;
+          font-weight: @font-weight-heavy;
         }
         > a {
           line-height: (@line-height-computed * 1.5);
@@ -144,7 +140,7 @@
       }
     }
   }
-  @media (max-width:@breakpoint-sm-max) {
+  @media (max-width: @breakpoint-sm-max) {
     display: none;
   }
 }
