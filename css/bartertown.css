@@ -6368,18 +6368,21 @@ button.close {
     bottom: 20px;
   }
 }
-.breadcrumb-block {
+.breadcrumb-block,
+.breadcrumb.block {
   padding: 0;
   margin: 0 0 22px;
   list-style: none;
-  background-color: #f5f5f5;
+  background-color: transparent;
 }
-.breadcrumb-block > li {
+.breadcrumb-block > li,
+.breadcrumb.block > li {
   margin: 0 4px 0 0;
   font-size: 14px;
   font-size: 1.4rem;
 }
-.breadcrumb-block > li:before {
+.breadcrumb-block > li:before,
+.breadcrumb.block > li:before {
   position: absolute;
   top: -8px;
   width: 0;
@@ -6389,19 +6392,22 @@ button.close {
   border-bottom: 18px solid transparent;
   border-left: 7px solid #fff;
 }
-.breadcrumb-block > li:after {
+.breadcrumb-block > li:after,
+.breadcrumb.block > li:after {
   padding: 0;
   content: none;
   border-left: 8px solid #ddd;
 }
-.breadcrumb-block > li a {
+.breadcrumb-block > li a,
+.breadcrumb.block > li a {
   padding: 10px 14px 10px 20px;
   line-height: 22px !important;
   background: #ddd;
   -webkit-transition: none;
           transition: none;
 }
-.breadcrumb-block > li a:after {
+.breadcrumb-block > li a:after,
+.breadcrumb.block > li a:after {
   position: absolute;
   top: -6px;
   right: -8px;
@@ -6412,52 +6418,62 @@ button.close {
   border-bottom: 18px solid transparent;
   border-left: 8px solid #ddd;
 }
-.breadcrumb-block > li a:hover {
+.breadcrumb-block > li a:hover,
+.breadcrumb.block > li a:hover {
   text-decoration: none;
   background: #c4c4c4;
 }
-.breadcrumb-block > li a:hover:after {
+.breadcrumb-block > li a:hover:after,
+.breadcrumb.block > li a:hover:after {
   border-left: 8px solid #c4c4c4;
 }
-.breadcrumb-block > .active {
+.breadcrumb-block > .active,
+.breadcrumb.block > .active {
   padding: 8px 16px 8px 20px;
   font-weight: 700;
   color: #fff;
   background-color: #39547a;
 }
-.breadcrumb-block > .active:before {
+.breadcrumb-block > .active:before,
+.breadcrumb.block > .active:before {
   top: 0;
   left: 0;
   border-left: 7px solid #fff;
 }
-.breadcrumb-block > .active:after {
+.breadcrumb-block > .active:after,
+.breadcrumb.block > .active:after {
   border: 0;
 }
 .breadcrumb-block-sm > li,
-.breadcrumb-block.sm > li {
+.breadcrumb-block.sm > li,
+.breadcrumb.block.sm > li {
   margin: 0 3px 0 0;
   font-size: 12px;
   font-size: 1.2rem;
 }
 .breadcrumb-block-sm > li:before,
-.breadcrumb-block.sm > li:before {
+.breadcrumb-block.sm > li:before,
+.breadcrumb.block.sm > li:before {
   top: 0;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
   border-left: 8px solid #fff;
 }
 .breadcrumb-block-sm > li a,
-.breadcrumb-block.sm > li a {
+.breadcrumb-block.sm > li a,
+.breadcrumb.block.sm > li a {
   padding: 4px 10px 5px 16px;
 }
 .breadcrumb-block-sm > li a:after,
-.breadcrumb-block.sm > li a:after {
+.breadcrumb-block.sm > li a:after,
+.breadcrumb.block.sm > li a:after {
   top: 0;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
 }
 .breadcrumb-block-sm > .active,
-.breadcrumb-block.sm > .active {
+.breadcrumb-block.sm > .active,
+.breadcrumb.block.sm > .active {
   padding: 1px 10px 4px 16px;
 }
 .debug {
