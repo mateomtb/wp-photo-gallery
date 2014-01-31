@@ -1,9 +1,6 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div id="content" class="container">
-		<div class="row">
-			<div class="content-well">
         			<article id="main-story" class="full-story post-{{post.ID}}">
 					<header id="article-top" class="article-header">
 				                <ul class="breadcrumb block small hide-for-phone">
@@ -105,8 +102,5 @@ try{var _recommender = new _rec({apiKey: '{{config.newstogram}}',cssUrl: 'http:/
 
 		</article>
 
-        </div> <!-- id="content" class="container"> -->
-                </div> <!-- class="row"> -->
-                        </div> <!-- class="content-well"> -->
 
 {% endblock %}

@@ -10,7 +10,8 @@
 
 
 	<div id="content" class="container">
-        	<section id="content" role="main" class="content-wrapper container-fluid">
+		<div class="row">
+			<div class="content-well">
             	<div class="row-fluid">
             	{% if title %}<h1>{{title}}</h1>{% endif %}
             	<div class="wrapper {{sidebar_class}}">
@@ -23,7 +24,8 @@
                 	</aside>
             	{% endif %}
             	</div>
-        	</section>
+                        </div> <!-- class="content-well"> -->
+                </div> <!-- class="row"> -->
 	</div>
 
         <footer id="site-footer">
