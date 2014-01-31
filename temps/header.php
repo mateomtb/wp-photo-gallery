@@ -24,6 +24,7 @@
 		<?php include('temps/ui/flag.php'); ?>
 		<?php include('temps/ui/main-nav.php'); ?>
 		<?php include('temps/ui/hot-topics.php'); ?>
+		<?php if($alert == 'true') { include('temps/ui/alerts.php'); }?>
 		<?php if($pencil == 'true' || $allads == 'true') { include('ads/pencil.php'); }?>
 	</header>
 	<div id="content" class="container">
