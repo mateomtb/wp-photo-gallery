@@ -4,8 +4,8 @@
   margin-bottom: @line-height-computed;
   .share-widget {
     position:absolute;
-    top:14px;
-    right:0;
+    top: 14px;
+    right: 0;
   }
   img {
     width: 100%!important; // for now!!!
@@ -21,11 +21,16 @@
 }
 .bottomline-items {
   @media (min-width: @breakpoint-lg) {
-    margin-right: @right-rail-width + @grid-gutter-width;
+    margin-right: (@right-rail-width + @grid-gutter-width);
     width: auto;
   }
+  h3 {
+    @media (max-width: @breakpoint-sm-max) {
+      .font-size(16px);
+    }
+  }
   > li {
-    .make-md-column(4);
+    .make-sm-column(4);
     margin-bottom: @line-height-computed;
   }
 }
