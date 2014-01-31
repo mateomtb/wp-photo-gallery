@@ -15,7 +15,7 @@ Get a dev environment set up! Yes, you!
 
 For reference, here's the history from a recent bt-wp install, warts and all:
 
-``
+```
  1344  git clone https://github.com/dfmedia/bt-wp
  1345  cd bt-wp/
  1346  git submodule init
@@ -47,4 +47,4 @@ For reference, here's the history from a recent bt-wp install, warts and all:
  1372  sudo chmod 0755 wp-content
  1373  sudo chmod 0766 wp-content
  1374  sudo chmod 0777 wp-content
-``
+```
