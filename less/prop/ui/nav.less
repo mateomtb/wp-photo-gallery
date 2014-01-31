@@ -50,6 +50,17 @@
   padding: 0;
   z-index: 0;
   overflow: hidden;
+  // first row override to prevent overflow of elements
+  @media (min-width: @breakpoint-md) and (max-width: @breakpoint-md-max) {
+    .top-level {
+      display: table;
+      > li {
+        > a {
+          display: table-cell!important;
+        }
+      }
+    }
+  }
   ul {
     > li {
       margin: 0 -(@grid-gutter-width / 2);
@@ -70,7 +81,7 @@
     }
   }
   @media (max-width: @breakpoint-sm-max) {
-  position: fixed;
+    position: fixed;
     .container {
         padding:0;
     }

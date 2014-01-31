@@ -7765,6 +7765,14 @@ figcaption {
   padding: 0;
   overflow: hidden;
 }
+@media (min-width: 768px) and (max-width: 959px) {
+  .navbar .top-level {
+    display: table;
+  }
+  .navbar .top-level > li > a {
+    display: table-cell !important;
+  }
+}
 .navbar ul > li {
   margin: 0 -(30px / 2);
 }
