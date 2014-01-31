@@ -1,21 +1,24 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="content-wrapper span4">
-        <article id="main-story" class="full-story post-{{post.ID}}">
-		<!-- <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}"> -->
-			<section class="article-content">
-                <ul class="breadcrumb block small hide-for-phone">
-                    <li><a href="/">Home</a><span class="divider"> â†’</span></li>
-                    <li class="active">{{post.category}}</li>
-                </ul>
+	<div id="content" class="container">
+		<div class="row">
+			<div class="content-well">
+        			<article id="main-story" class="full-story post-{{post.ID}}">
+					<header id="article-top" class="article-header">
+				                <ul class="breadcrumb block small hide-for-phone">
+				                    <li><a href="/">Home</a></li>
+				                    <li class="active">{{post.category}}</li>
+				                </ul>
+
 				<h1 class="title entry-title cleanprint-title article-h1">{{post.title}}</h1>
+
 <!--
 {{ post|print_r }}
 {{ post.thumbnail|print_r }}
 -->
 {% if post.thumbnail.src %}
-<div id="main-media" class="single-image">
+<div id="main-media" class="single-img"> <!-- other class options here: flex-video, flex-video widescreen, img-gallery-->
     <figure>
 <img src="{{ post.thumbnail.src }}" alt="{{ post.thumbnail.caption }}" class="">
     <figcaption>
@@ -27,16 +30,20 @@
 {% endif %}
 
 {# <pre>{{ post|print_r }}</pre> #}
+					</header>
 
-                <section id="body-text" class="shorten">
-				    <p class="blog-author byline byline-bar">
-					    <span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a>
-                    </p>
+
+                <section id="article-body" class="shorten">
+			<div class="the-article">
+				    <div class="blog-author byline byline-bar">
+					    <p class="author-name">By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a></p>
+						<p class="property-name">Source</p>
                     <div class="meta">
                         <p class="timestamp">
-                            Published {{ post.display_date }} at {{ post.display_time }}
+                            Published {{ post.display_date }}
 				        </p>
                     </div>
+					</div> <!-- .byline-bar -->
 				    <div class="article-body" id="body-copy">
                         {# SIDEBAR #}
                         {% if post.Markup %}
@@ -97,6 +104,9 @@ try{var _recommender = new _rec({apiKey: '{{config.newstogram}}',cssUrl: 'http:/
 			</section>
 
 		</article>
-	</div> <!-- /content-wrapper -->
+
+        </div> <!-- id="content" class="container"> -->
+                </div> <!-- class="row"> -->
+                        </div> <!-- class="content-well"> -->
 
 {% endblock %}

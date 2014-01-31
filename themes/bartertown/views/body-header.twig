@@ -1,10 +1,10 @@
 <div id="dfmHeader"><!--Header Goes Here--></div>
 {% if menu %}
-<div id="hot-topics">
-    <div class="container-fluid">
-        <ul class="inline-list">
+<nav id="hot-topics">
+    <div class="container">
+        <ul class="list-inline">
             <li>
-                <h6>Hot Topics:</h6>
+                Hot Topics:
             </li>
 {% for item in menu.get_items %}
             <li id="menu-item-{{item.ID}}" class="menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}}">
@@ -12,8 +12,8 @@
             </li>
 {% endfor %}
                     </ul>
-    </div> <!-- .container-fluid -->
-</div>
+    </div> <!-- .container -->
+</nav>
 {% endif %}
 <script type="text/javascript" src="http://local.denverpost.com/common/dfm/dfm-core.js"></script>
 
