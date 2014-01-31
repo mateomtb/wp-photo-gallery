@@ -34,6 +34,7 @@
 	<!-- JAVASCRIPTS -->
 	
 	<!-- JQUERY: Grab Google CDN's jQuery. fall back to local if necessary -->
+    <script src="<?php echo JS_DIR; ?>/lib/jquery.js"></script>
     <script src="<?php echo JS_DIR; ?>/bartertown.min.js"></script>
 	<!--[if lt IE 9]>
 	  <script src="<?php echo JS_DIR; ?>/ie/selectivizr.js"></script>
