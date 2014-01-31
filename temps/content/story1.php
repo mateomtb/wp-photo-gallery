@@ -72,6 +72,10 @@
 
       <p>The wildfire destroyed 27 homes and burned 4,140 acres. Sam Lucas, 77, and his wife, Linda, 76, who also were killed during the fire, did receive an emergency notification.</p>
       <p>The first round of evacuation calls, made just after 5 p.m. March 26, went only to people with addresses listed as Littleton, according to minutes of a conference-call meeting among sheriff's officials and FirstCall Network, which provides the notifications.</p>
+	<blockquote>
+	  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+	  <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+	</blockquote>
       <p>Many people far outside the evacuation area, who had signed up to receive messages on their cellphones or by e-mail, were mistakenly ordered to evacuate, and their questions for dispatchers clogged 911 lines.</p>
       <p>Kristen Moeller got a text message on her cellphone but had put the phone down and didn't see the notification. Because her house phone never rang, she said, she didn't feel a sense of urgency to evacuate until white smoke turned into a "dark, ferocious cloud."</p>
       <ul class="list">
