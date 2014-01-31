@@ -57,6 +57,7 @@ module.exports = function (grunt) {
       scriptFiles: {
         src: [
           'js/plugins/bootstrap.js',
+          'js/plugins/jquery.hover-intent.js',
           'js/plugins/picturefill.js',
           'js/plugins/fastclick.js',
           'js/plugins/util.js',

@@ -10,6 +10,14 @@ $(document).ready(function() {
     FastClick.attach(document.body);
   } else {
     console.log('not a touch device!!!');
+
+    // Hover intent for navigation
+    var config = {
+      over: function(){$(this).find($('ul.dropdown-menu')).css({'display' : 'block'});},
+      interval: 150,
+      out: function(){$(this).find($('ul.dropdown-menu')).css({'display' : 'none'});}
+    };
+    $('.dropdown').hoverIntent(config);
   }
 
   // VARS
