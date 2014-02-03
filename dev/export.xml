@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress/3.9-alpha" created="2014-01-30 18:55" -->
+<!-- generator="WordPress/3.9-alpha" created="2014-02-03 06:51" -->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -29,16 +29,18 @@
 	<title>Bartertown</title>
 	<link>http://www.scsun-news.com</link>
 	<description>Just another WordPress site</description>
-	<pubDate>Thu, 30 Jan 2014 18:55:15 +0000</pubDate>
+	<pubDate>Mon, 03 Feb 2014 06:51:26 +0000</pubDate>
 	<language>en-US</language>
 	<wp:wxr_version>1.2</wp:wxr_version>
 	<wp:base_site_url>http://www.scsun-news.com</wp:base_site_url>
 	<wp:base_blog_url>http://www.scsun-news.com</wp:base_blog_url>
 
-	<wp:author><wp:author_id>1</wp:author_id><wp:author_login>admin</wp:author_login><wp:author_email>jmurphy@denverpost.com</wp:author_email><wp:author_display_name><![CDATA[admin]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>1</wp:author_id><wp:author_login>admin</wp:author_login><wp:author_email>jmurphy@denverpost.com</wp:author_email><wp:author_display_name><![CDATA[Tim Tebow]]></wp:author_display_name><wp:author_first_name><![CDATA[Tim]]></wp:author_first_name><wp:author_last_name><![CDATA[Tebow]]></wp:author_last_name></wp:author>
 
 	<wp:category><wp:term_id>1</wp:term_id><wp:category_nicename>local-news</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Local News]]></wp:cat_name></wp:category>
 	<wp:category><wp:term_id>15</wp:term_id><wp:category_nicename>sports</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Sports]]></wp:cat_name></wp:category>
+	<wp:category><wp:term_id>19</wp:term_id><wp:category_nicename>crime</wp:category_nicename><wp:category_parent>local-news</wp:category_parent><wp:cat_name><![CDATA[Crime]]></wp:cat_name></wp:category>
+	<wp:category><wp:term_id>18</wp:term_id><wp:category_nicename>football</wp:category_nicename><wp:category_parent>sports</wp:category_parent><wp:cat_name><![CDATA[Football]]></wp:cat_name></wp:category>
 	<wp:term><wp:term_id>16</wp:term_id><wp:term_taxonomy>following_users</wp:term_taxonomy><wp:term_slug>cap-admin</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[admin]]></wp:term_name></wp:term>
 	<wp:term><wp:term_id>3</wp:term_id><wp:term_taxonomy>post_status</wp:term_taxonomy><wp:term_slug>assigned</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[Assigned]]></wp:term_name><wp:term_description><![CDATA[YToyOntzOjExOiJkZXNjcmlwdGlvbiI7czoyOToiUG9zdCBpZGVhIGFzc2lnbmVkIHRvIHdyaXRlci4iO3M6ODoicG9zaXRpb24iO2k6Mjt9]]></wp:term_description></wp:term>
 	<wp:term><wp:term_id>8</wp:term_id><wp:term_taxonomy>ef_editorial_meta</wp:term_taxonomy><wp:term_slug>assignment</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[Assignment]]></wp:term_name><wp:term_description><![CDATA[YTo0OntzOjExOiJkZXNjcmlwdGlvbiI7czoyOToiV2hhdCB0aGUgcG9zdCBuZWVkcyB0byBjb3Zlci4iO3M6ODoicG9zaXRpb24iO2k6MztzOjQ6InR5cGUiO3M6OToicGFyYWdyYXBoIjtzOjg6InZpZXdhYmxlIjtiOjA7fQ==]]></wp:term_description></wp:term>
@@ -104,10 +106,6 @@
 		<category domain="category" nicename="local-news"><![CDATA[Local News]]></category>
 		<wp:postmeta>
 			<wp:meta_key>_edit_last</wp:meta_key>
-			<wp:meta_value><![CDATA[1]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>_encloseme</wp:meta_key>
 			<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:comment>
@@ -442,6 +440,121 @@ As a new WordPress user, you should go to <a href="http://www.scsun-news.com/wp-
 		<wp:postmeta>
 			<wp:meta_key>_wp_rp_related_posts_query_result_cache_6</wp:meta_key>
 			<wp:meta_value><![CDATA[a:2:{i:0;O:8:"stdClass":2:{s:7:"post_id";s:1:"6";s:5:"score";s:17:"2.027325540540822";}i:1;O:8:"stdClass":2:{s:7:"post_id";s:1:"1";s:5:"score";s:18:"0.8109302162163288";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Article, sub-category, two photos</title>
+		<link>http://www.scsun-news.com/?p=18</link>
+		<pubDate>Mon, 03 Feb 2014 04:56:56 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/?p=18</guid>
+		<description></description>
+		<content:encoded><![CDATA[Veterans and friends get ready to watch the Superbowl XLVIII Sunday at the VFW Post 3347 Sunday afternoon. Left to r: Leonard Pritkin, Ray Stryker, Connie Zawacki and David Tercero.
+[caption id="attachment_20" align="alignright" width="199"]<a href="http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg"><img src="http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p2-199x300.jpg" alt="Sky Klaus - For the Sun-News Leonard Pritikin, 95, has been a member of VFW Post 3347 for 71 years. He enjoyed himself during Superbowl Sunday at the VFW Post, which was raising money for veterans and their families, sponsored by the WNMU Veterans club. Pritikin rooted for the Seatle Seahawks." width="199" height="300" class="size-medium wp-image-20" /></a> Sky Klaus - For the Sun-News Leonard Pritikin, 95, has been a member of VFW Post 3347 for 71 years. He enjoyed himself during Superbowl Sunday at the VFW Post, which was raising money for veterans and their families, sponsored by the WNMU Veterans club. Pritikin rooted for the Seatle Seahawks.[/caption]
+
+A friendly rivalry broke out among veterans at the VFW Post before the big game got off the ground. About half the veterans who came to the Superbowl party fundraiser pulled for Denver while the other half pulled for Seattle. The WNMU Veteran's club, which held the Superbowl party for veterans Sunday, hoped to raise a couple hundred dollars to give to needy veterans and their families.]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>18</wp:post_id>
+		<wp:post_date>2014-02-03 04:56:56</wp:post_date>
+		<wp:post_date_gmt>2014-02-03 04:56:56</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>article-sub-category-two-photos</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="author" nicename="cap-admin"><![CDATA[admin]]></category>
+		<category domain="following_users" nicename="cap-admin"><![CDATA[admin]]></category>
+		<category domain="category" nicename="football"><![CDATA[Football]]></category>
+		<category domain="category" nicename="sports"><![CDATA[Sports]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[19]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Name</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Publication</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Title</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Markup</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>20140202__SCS-L-SUPERBOWL-0203~p1</title>
+		<link>http://www.scsun-news.com/?attachment_id=19</link>
+		<pubDate>Mon, 03 Feb 2014 04:47:07 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p1.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[Sky Klaus - For the Sun-News Veterans and friends get ready to watch the Superbowl XLVIII Sunday at the VFW Post 3347 Sunday afternoon. Left to r: Leonard Pritkin, Ray Stryker, Connie Zawacki and David Tercero. A friendly rivalry broke out among veterans at the VFW Post before the big game got off the ground. About half the veterans who came to the Superbowl party fundraiser pulled for Denver while the other half pulled for Seattle. The WNMU Veteran's club, which held the Superbowl party for veterans Sunday, hoped to raise a couple hundred dollars to give to needy veterans and their families.]]></excerpt:encoded>
+		<wp:post_id>19</wp:post_id>
+		<wp:post_date>2014-02-03 04:47:07</wp:post_date>
+		<wp:post_date_gmt>2014-02-03 04:47:07</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>20140202__scs-l-superbowl-0203p1</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>18</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p1.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/20140202__SCS-L-SUPERBOWL-0203p1.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:649;s:6:"height";i:432;s:4:"file";s:44:"2014/02/20140202__SCS-L-SUPERBOWL-0203p1.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p1-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p1-300x199.jpg";s:5:"width";i:300;s:6:"height";i:199;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p1-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p1-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p1-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p1-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>20140202__SCS-L-SUPERBOWL-0203~p2</title>
+		<link>http://www.scsun-news.com/?attachment_id=20</link>
+		<pubDate>Mon, 03 Feb 2014 04:53:41 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[Sky Klaus - For the Sun-News Leonard Pritikin, 95, has been a member of VFW Post 3347 for 71 years. He enjoyed himself during Superbowl Sunday at the VFW Post, which was raising money for veterans and their families, sponsored by the WNMU Veterans club. Pritikin rooted for the Seatle Seahawks.]]></excerpt:encoded>
+		<wp:post_id>20</wp:post_id>
+		<wp:post_date>2014-02-03 04:53:41</wp:post_date>
+		<wp:post_date_gmt>2014-02-03 04:53:41</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>20140202__scs-l-superbowl-0203p2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>18</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:432;s:6:"height";i:649;s:4:"file";s:44:"2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p2-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p2-199x300.jpg";s:5:"width";i:199;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p2-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p2-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p2-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p2-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 </channel>

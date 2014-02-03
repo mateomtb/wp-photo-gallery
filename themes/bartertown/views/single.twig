@@ -59,10 +59,13 @@
                         {% if post.categories %}<p>Published in: {% for item in post.categories %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
                         {% if post.tags %}<p>Tagged: {% for item in post.tags %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% endfor %}</p>{% endif %}
                     </div>
+
 <div id="author" class="media">
-  <a class="pull-left" href="#">
+{% if post.author.user_url %}
+  <a class="pull-left" href="{{post.author.path}}">
     <img class="media-object" src="{{post.author.user_url}}" alt="{{post.author}}" />
   </a>
+{% endif %}
   <div class="media-body">
         <h4 class="media-heading">About the Author, {{post.author}}</h4>
         <p>{{post.author.description}}</p>
