@@ -31,6 +31,8 @@ function global_context($data){
 	$data['domain'] = $domain_bits[1];
 	$data['mode'] = 'section';
     if ( is_singular() ) $data['mode'] = 'article';
+    //if ( is_single() ):
+    //endif;
 
 	$data['section'] = '';
     $data['sidebar'] = Timber::get_sidebar('sidebar.php');
