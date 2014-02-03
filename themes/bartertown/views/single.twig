@@ -3,14 +3,7 @@
 {% block content %}
                     <article id="main-story" class="full-story post-{{post.ID}}">
                     <header id="article-top" class="article-header">
-                        <ul class="breadcrumb block hide-for-phone">
-                            <li><a href="/">Home</a></li>
-                            {% if TimberTerm(post.category.parent).parent %}<li><a href="/{{ TimberTerm(TimberTerm(post.category.parent).parent).slug }}/">{{ TimberTerm(TimberTerm(post.category.parent).parent) }}</a></li>{% endif %}
-                            {% if post.category.parent %}<li><a href="/{{ TimberTerm(post.category.parent).slug }}/">{{ TimberTerm(post.category.parent) }}</a></li>{% endif %}
-                            <li><a href="/{{post.category.slug}}/">{{post.category}}</a></li>
-                            <li class="active">Article</li>
-                        </ul>
-
+                        {% include "breadcrumb.twig" %}
                         <h1 class="title entry-title cleanprint-title article-h1">{{post.title}}</h1>
 
                         {% if post.thumbnail.src %}
