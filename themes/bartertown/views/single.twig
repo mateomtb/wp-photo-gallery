@@ -28,18 +28,18 @@
                     </header>
 
 
-                <section id="article-body" class="shorten">
-            <div class="the-article">
-                    <div class="blog-author byline byline-bar">
-                        <p class="author-name">By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a></p>
-                        <p class="property-name">Source</p>
-                    <div class="meta">
-                        <p class="timestamp">
-                            Published {{ post.display_date }}
-                        </p>
-                    </div>
-                    </div> <!-- .byline-bar -->
-                    <div class="article-body body-copy">
+                    <section id="article-body" class="shorten">
+                        <div class="the-article">
+                        <div class="blog-author byline byline-bar">
+                            <p class="author-name">By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a></p>
+                            <p class="property-name">Source</p>
+                            <div class="meta">
+                                <p class="timestamp">
+                                    Published {{ post.display_date }}
+                                </p>
+                            </div>
+                        </div> <!-- .byline-bar -->
+                        <div class="article-body body-copy">
                         {# SIDEBAR #}
                         {% if post.Markup %}
                             <div class="clear factbox span3 pull-right">
@@ -48,11 +48,11 @@
                             </div> <!-- /sidebar -->
                         {% endif %}
                         {{post.content}}
-                    </div>
-                    <div class="article-categories">
-                        {% if post.categories %}<p>Published in: {% for item in post.categories %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
-                        {% if post.tags %}<p>Tagged: {% for item in post.tags %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% endfor %}</p>{% endif %}
-                    </div>
+                        </div>
+                        <div class="article-categories">
+                            {% if post.categories %}<p>Published in: {% for item in post.categories %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
+                            {% if post.tags %}<p>Tagged: {% for item in post.tags %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% endfor %}</p>{% endif %}
+                        </div>
 
 <div id="author" class="media">
 {% if post.author.user_url %}
