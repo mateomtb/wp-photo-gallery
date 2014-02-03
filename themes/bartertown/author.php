@@ -15,6 +15,6 @@ $data['posts'] = Timber::get_posts();
 
 $author = new TimberUser($wp_query->query_vars['author']);
 $data['author'] = $author;
-$data['title'] = 'Author Archives: ' . $author->name();
+$data['title'] = $author->name() '\'s author archives';
 
 Timber::render(array('author.twig', 'archive.twig'), $data);

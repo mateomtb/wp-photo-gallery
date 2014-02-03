@@ -56,6 +56,22 @@
                         {% if post.categories %}<p>Published in: {% for item in post.categories %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% endfor %}</p>{% endif %}
                         {% if post.tags %}<p>Tagged: {% for item in post.tags %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% endfor %}</p>{% endif %}
                     </div>
+<div id="author" class="media">
+  <a class="pull-left" href="#">
+    <img class="media-object" src="http://placehold.it/120x120" alt="" />
+  </a>
+  <div class="media-body">
+        <h4 class="media-heading">About the Author, {{post.author}}</h4>
+        <p>{{post.author.description}}</p>
+  </div>
+    <div>
+        <ul class="nav pills">
+            <li><a href="{{post.author.path}}">More articles by {{post.author}}</a></li>
+            <li><a href="{{post.author.path}}">Full bio</a></li>
+            <li><a href="#article-top">Back to top</a></li>
+        </ul>
+    </div>
+</div>
                 </section>
 			</section>
 
