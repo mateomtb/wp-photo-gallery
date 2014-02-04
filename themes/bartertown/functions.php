@@ -36,7 +36,8 @@ function global_context($data){
 
 	$data['section'] = '';
     $data['sidebar'] = Timber::get_sidebar('sidebar.php');
-    $data['menu'] = new TimberMenu(); // This is where you can also send a Wordpress menu slug or ID
+    $data['menu_hot'] = new TimberMenu('Hot Topics');
+    $data['menu_main'] = new TimberMenu('Main');
     return $data;
 }
 

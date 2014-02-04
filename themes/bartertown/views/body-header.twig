@@ -104,7 +104,7 @@
     <!-- End SiteCatalyst code version: H.17. -->
 </div>
 <header id="site-header">
-        <div class="flag">
+    <div class="flag">
     <div class="container">
       <a class="menu-toggle">
         <span class="icon-bar" aria-hidden="true"></span>
@@ -136,12 +136,14 @@
     </div> <!-- .container -->
 </div> <!-- .flag -->
 
+{% if menu_main %}
 <nav id="site-navigation" role="navigation" class="navbar">
     <a href="#content" class="sr-only">Skip to Content</a>
     <div class="container">
         <ul class="top-level">
+{% for item in menu_main.get_items %}
             <li class="dropdown bubble">
-                <a href="#" class="dropdown-toggle">News <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle">{{item.title}} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li class="bubble-content">
   <ul class="pager">
@@ -151,18 +153,20 @@
                     </li>
                 </ul>
             </li>
+{% endfor %}
         </ul>
     </div>
 </nav>
+{% endif %}
 
-{% if menu %}
+{% if menu_hot %}
 <nav id="hot-topics">
     <div class="container">
         <ul class="list-inline">
             <li>
                 Hot Topics:
             </li>
-{% for item in menu.get_items %}
+{% for item in menu_hot.get_items %}
             <li id="menu-item-{{item.ID}}" class="menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}}">
                 <a href="{{ item.get_path }}" title="{{ item.title }}">{{ item.title }}</a>
             </li>
