@@ -30,8 +30,8 @@
 <script type="text/javascript" src="http://ads.digitalfirstmedia.com/save/jivox/jvx_interstitial.js"></script>
 
 <script type="text/javascript">
-    dfm.api("data","siteId",          "LA");
-    dfm.api("data","siteName",        "LA Daily News");
+    dfm.api("data","siteId",          "{{bloginfo('name')}}");
+    dfm.api("data","siteName",        "{{bloginfo('name')}}");
     dfm.api("data","siteDomain",      "{{domain}}.com");
     dfm.api("data","actualDomain",    "www.{{domain}}.com");
     dfm.api("data","localCommonUrl",  "");
@@ -41,9 +41,9 @@
     dfm.api("data","pageId",          "{B2DB5BE6-B751-4899-B5A9-ACDEFF2DB294}");
     dfm.api("data","pageUrl",         "http://www.{{domain}}.com/general-news/20140123/30-years-ago-the-apple-macintosh-changed-the-world-forever");
     dfm.api("data","pageVanityUrl",   "http://www.{{domain}}.com/general-news/20140123/30-years-ago-the-apple-macintosh-changed-the-world-forever");
-    dfm.api("data","pageTitle",       "30 years ago, the Apple Macintosh changed the world forever");
+    dfm.api("data","pageTitle",       "{{post.title}}");
     dfm.api("data","pageType",        "article");
-    dfm.api("data","abstract",        "As a historic moment in Silicon Valley, it&#x2019;s right up there with the coin flip that christened Hewlett-Packard and the Traitorous Eight mutiny that launched Fairchild Semiconductor and the microchip industry:Bow-tied Steve Jobs, standing");
+    dfm.api("data","abstract",        "{{post.excerpt}}");
     dfm.api("data","keywords",        "news, Breaking teaking News, LA Daily News Top Story");
     dfm.api("data","title",           "30 years ago, the Apple Macintosh changed the world forever");
     dfm.api("data","sectionId",       "General news");
@@ -54,7 +54,7 @@
     dfm.api("data","Taxonomy3",       "");
     dfm.api("data","Taxonomy4",       "");
     dfm.api("data","kv",              "News");
-    dfm.api("data","omnitureAccount", "LAXNWS");
+    dfm.api("data","omnitureAccount", "{{domain}}");
 /***** JanRain Log in / registration *****/
     dfm.api("data","engageAppName", "registration.medianewsgroup.com");
     dfm.api("data","janrain.settings.capture.appUrl", "https://registration.medianewsgroup.com");
