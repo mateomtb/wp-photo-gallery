@@ -142,24 +142,35 @@
     <div class="container">
         <ul class="top-level">
 {% for item in menu_main.get_items %}
-            <li class="dropdown bubble">
+            <li class="dropdown{% if item.children.0.title == 'bubble' %} bubble{% endif %}">
                 {% if item.url == '#' %}<span class="dropdown-toggle">{{item.title}} <b class="caret"></b></span>
                 {% else %}<a href="{{item.url}}" class="dropdown-toggle">{{item.title}} <b class="caret"></b></a>
                 {% endif %}
                 <ul class="dropdown-menu">
+{% if item.children %}
+{# We have two types of drop-downs: Single-column and bubble-with-ad-and-recent-stories. #}
+{# If we're doing the bubble nav, the first item in the child nav will be named "bubble", #}
+{# and if it has a link the link will be an RSS feed for us to ingest and publish. #}
+{# No RSS feed == use the articles from the parent category. #}
+{% if item.children.0.title != 'bubble' %}
+{% for subitem in item.children %}
+            <li><a href="{{subitem.url}}">{{subitem.title}}</a></li>
+{% endfor %}
+{% else %}
                     <li class="bubble-content">
   <ul class="pager">
     <li class="prev"><a href="#">&#8592; Close</a></li>
     <li class="next"><a href="#">More topics &#8594;</a></li>
   </ul>
-{% if item.children %}
   <div class="bubble-editorial-content">
     <div class="bubble-overflow">
       <div class="bubble-subtopics">
         <div class="visible-pane">
           <ul class="pane-container">
 {% for subitem in item.children %}
+{% if subitem.title != 'bubble' %}
             <li class="topic-pane"><a href="{{subitem.url}}">{{subitem.title}}</a></li>
+{% endif %}
 {% endfor %}
           </ul>
         </div>
@@ -167,6 +178,11 @@
     </div>
   </div>
 <pre style="display:none;">{{ item|print_r }}</pre>
+
+    <div class="ad medium-rectangle visible-lg-up">
+        <img src="http://placehold.it/300x250&amp;text=300x250+navad" alt="300x250 navad">
+    </div>
+{% endif %}
 {% endif %}
                     </li>
                 </ul>
