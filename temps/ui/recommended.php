@@ -1,4 +1,4 @@
-<div id="recommender" class="recommender">
+<div class="recommender">
     <div class="row">
         <div class="link-list col md-4 no-anim">
             <h4>Others also read ...</h4>

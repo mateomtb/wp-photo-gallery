@@ -151,15 +151,28 @@ figcaption {
 // DOWNPAGE
 // --------------------------------------------
 .recommender,
-.ng-recommender,
+#ifrRec,
 .comments {
   &:extend(.clearfix all);
   border-top: @fat-gray-border;
   padding-top: @line-height-computed;
   margin-top: @line-height-computed;
 }
+#ifrRec {
+	min-height: 250px;
+}
 .recommender {
   .link-list {
     margin-bottom: @line-height-computed;
   }
 }
+// Adblade -- based on 600px iframe 
+iframe[name="adblade_ad_iframe"] {
+  display: block;
+  margin: @line-height-computed auto;
+  width: 600px;
+  @media all and (max-width:630px) {
+    display: none;
+  }
+}
+
