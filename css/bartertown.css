@@ -1,6 +1,6 @@
 /*!
  * bartertown v1.1.0
- * Built using Strapit v2.0.3 
+ * Built using Strapit v2.0.4 
  * Homepage: http://sandbox.digitalfirstmedia.com/btown
  * GitHub: http://github.com/dfmlabs/btown
  * Copyright 2014 Digital First Media design team
