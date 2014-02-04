@@ -107,6 +107,7 @@
     <footer id="article-footer">
         <?php include('temps/ui/recommended.php'); ?>
         <?php //include('temps/ui/newstogram.php'); ?>
+        <?php include('temps/ui/adblade.php'); ?>
         <?php include('temps/ui/comments.php'); ?>
     </footer>
 </article>

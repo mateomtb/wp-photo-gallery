@@ -675,8 +675,8 @@ a.bg-info:hover {
 #article-footer:after,
 .recommender:before,
 .recommender:after,
-.ng-recommender:before,
-.ng-recommender:after,
+#ifrRec:before,
+#ifrRec:after,
 .comments:before,
 .comments:after,
 .factbox:before,
@@ -708,7 +708,7 @@ a.bg-info:hover {
 #article-body:after,
 #article-footer:after,
 .recommender:after,
-.ng-recommender:after,
+#ifrRec:after,
 .comments:after,
 .factbox:after,
 .side-nav:after {
@@ -7546,14 +7546,27 @@ figcaption {
   }
 }
 .recommender,
-.ng-recommender,
+#ifrRec,
 .comments {
   padding-top: 22px;
   margin-top: 22px;
   border-top: 4px solid #ddd;
 }
+#ifrRec {
+  min-height: 250px;
+}
 .recommender .link-list {
   margin-bottom: 22px;
+}
+iframe[name="adblade_ad_iframe"] {
+  display: block;
+  width: 600px;
+  margin: 22px auto;
+}
+@media all and (max-width: 630px) {
+  iframe[name="adblade_ad_iframe"] {
+    display: none;
+  }
 }
 .section-page #content .section-name {
   font-size: 24px;

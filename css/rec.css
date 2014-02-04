@@ -1,0 +1,101 @@
+/*http://sandbox.newstogram.com/rmv2/css/recommender_styles-h.css*/
+#bodyRec table {
+	width: 100%;
+	position: relative;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+#bodyRec table tbody,
+#bodyRec table tr,
+#bodyRec table th,
+#bodyRec table td {
+	margin: 0!important;
+	padding: 0!important;
+}
+#leftframe {
+	display: none!important;
+	width: 0;
+	height: 0;
+}
+#rightframe {
+	width: 300px;
+	height: 250px!important;
+}
+#newstogram-recommender-v2 {
+	position: relative;
+	float: left;
+	width: 100%;
+	min-height: 250px;
+	margin-right: 10px;
+	padding: 10px;
+	background-color: #e4ecf2;
+	font-family: Arial, sans-serif;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#newstogram-recommender-v2 * {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#newstogram-recommender-v2 .newstogram-title {
+
+}
+#newstogram-recommender-v2 .newstogram-title .headline {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+#newstogram-recommender-v2 .newstogram-title .logo {
+	float: right;
+}
+#newstogram-recommender-v2 .newstogram-my-headlines {
+	background-color: #fff;
+}
+#newstogram-recommender-v2 .newstogram-my-headlines .newstogram-my-headlines-inner {
+	background-color: #fff;
+}
+#newstogram-recommender-v2 .newstogram-my-headlines .newstogram-my-headlines-inner ul {
+	list-style-image:url(http://static.newstogram.com/rmv2/images/arrow.png);
+}
+#newstogram-recommender-v2 .newstogram-my-headlines .newstogram-my-headlines-inner ul li {
+	line-height: 1.2em;
+	margin-left: 20px;
+}
+#newstogram-recommender-v2 .newstogram-my-headlines .newstogram-my-headlines-inner ul li a {
+	font-size: 0.75em;
+	font-weight: bold;
+	text-decoration: none;
+	color: #313c6a;
+}
+#newstogram-recommender-v2 .newstogram-my-headlines .newstogram-my-headlines-inner ul li a:hover {
+	text-decoration: underline;
+}
+#newstogram-recommender-v2 .newstogram-my-headlines .newstogram-my-headlines-sponsored-link {
+	border: none;
+	width: 100%;
+	border-collapse: collapse;
+}
+#newstogram-recommender-v2 .newstogram-my-headlines .newstogram-my-headlines-sponsored-link .sponsored-link-title {
+	text-align: center;
+	font-size: 0.65em;
+	font-weight: bold;
+	color: #cad0d0;
+}
+#newstogram-recommender-v2 .newstogram-my-headlines .newstogram-my-headlines-sponsored-link .sponsored-link-detail .link {
+	display: block;
+}
+#newstogram-recommender-v2 .newstogram-my-headlines .newstogram-my-headlines-sponsored-link .sponsored-link-detail .link a {
+	font-size: 0.75em;
+	color: #313c6a;
+	text-decoration: none;
+}
+#newstogram-recommender-v2 .newstogram-my-headlines .newstogram-my-headlines-sponsored-link .sponsored-link-detail .source {
+	font-size: 0.55em;
+	color: #cad0d0;
+}
+#newstogram-recommender-v2 .newstogram-bottom-add iframe {
+	overflow: hidden;
+}
