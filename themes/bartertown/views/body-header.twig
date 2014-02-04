@@ -143,7 +143,7 @@
         <ul class="top-level">
 {% for item in menu_main.get_items %}
             <li class="dropdown{% if item.children.0.title == 'bubble' %} bubble{% endif %}">
-                {% if item.url == '#' %}<span class="dropdown-toggle">{{item.title}} <b class="caret"></b></span>
+                {% if item.url == '#' %}<span class="dropdown-toggle">{{item.title}}{% if item.children.0 %} <b class="caret"></b>{% endif %}</span>
                 {% else %}<a href="{{item.url}}" class="dropdown-toggle">{{item.title}} <b class="caret"></b></a>
                 {% endif %}
                 <ul class="dropdown-menu">
