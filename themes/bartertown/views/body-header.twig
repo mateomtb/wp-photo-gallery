@@ -146,11 +146,11 @@
         <ul class="top-level">
 {% for item in menu_main.get_items %}
             <li class="dropdown{% if item.children.0.title == 'bubble' %} bubble{% endif %}">
-                {% if item.url == '#' %}<span class="dropdown-toggle">{{item.title}}{% if item.children.0 %} <b class="caret"></b>{% endif %}</span>
-                {% else %}<a href="{{item.url}}" class="dropdown-toggle">{{item.title}} <b class="caret"></b></a>
+                {% if item.url == '#' %}<span class="dropdown-toggle">{{item.title}}{% if item.children %} <b class="caret"></b>{% endif %}</span>
+                {% else %}<a href="{{item.url}}" class="dropdown-toggle">{{item.title}}{% if item.children %} <b class="caret"></b>{% endif %}</a>
                 {% endif %}
-                <ul class="dropdown-menu">
 {% if item.children %}
+                <ul class="dropdown-menu">
 {# We have two types of drop-downs: Single-column and bubble-with-ad-and-recent-stories. #}
 {# If we're doing the bubble nav, the first item in the child nav will be named "bubble", #}
 {# and if it has a link the link will be an RSS feed for us to ingest and publish. #}
@@ -186,9 +186,9 @@
         <img src="http://placehold.it/300x250&amp;text=300x250+navad" alt="300x250 navad">
     </div>
 {% endif %}
-{% endif %}
                     </li>
                 </ul>
+{% endif %}
             </li>
 {% endfor %}
         </ul>
