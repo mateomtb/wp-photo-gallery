@@ -1,5 +1,5 @@
 /*!
- * bartertown v2.0.0
+ * bartertown v1.0.1
  * Built using Strapit v2.0.3 
  * Homepage: http://sandbox.digitalfirstmedia.com/btown
  * GitHub: http://github.com/dfmlabs/btown
@@ -7627,7 +7627,7 @@ figcaption {
   z-index: 1040;
   float: left;
   padding: 12px;
-  margin-left: -(30px / 2);
+  margin-left: -15px;
   cursor: pointer;
   background: rgba(255, 255, 255, .1);
   border-right: 1px solid #ddd;
@@ -7670,6 +7670,12 @@ figcaption {
   padding: 0;
   overflow: hidden;
 }
+.navbar span.dropdown-toggle {
+  padding: 8px 10px;
+  color: #f3f3f3;
+  cursor: default;
+  border: 0!important;
+}
 @media (min-width: 768px) and (max-width: 959px) {
   .navbar .top-level {
     display: table;
@@ -7679,21 +7685,29 @@ figcaption {
   }
 }
 .navbar ul > li {
-  margin: 0 -(30px / 2);
+  margin: 0 -15px;
 }
-.navbar ul > li:hover a {
+.navbar ul > li:hover a,
+.navbar ul > li:hover span {
   background: rgba(255, 255, 255, .35);
 }
-.navbar ul > li > a {
+.navbar ul > li > a,
+.navbar ul > li span.dropdown-toggle {
   display: block;
   padding: 8px 12px;
   overflow: hidden;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
   border-bottom: 1px solid #555;
 }
-.navbar ul > li > a .caret {
+.navbar ul > li > a .caret,
+.navbar ul > li span.dropdown-toggle .caret {
   border-top-color: #f3f3f3;
 }
 @media (max-width: 767px) {
@@ -7882,22 +7896,6 @@ figcaption {
     padding: 0 15px;
     overflow: hidden;
   }
-  .bubble .dropdown-menu .bubble-editorial-content:before,
-  .bubble .dropdown-menu .bubble-editorial-content:after {
-    display: table;
-    content: " ";
-  }
-  .bubble .dropdown-menu .bubble-editorial-content:after {
-    clear: both;
-  }
-  .bubble .dropdown-menu .bubble-editorial-content:before,
-  .bubble .dropdown-menu .bubble-editorial-content:after {
-    display: table;
-    content: " ";
-  }
-  .bubble .dropdown-menu .bubble-editorial-content:after {
-    clear: both;
-  }
   .bubble .dropdown-menu .bubble-overflow {
     width: 100%;
   }
@@ -8008,22 +8006,6 @@ figcaption {
     -webkit-transition: width .2s linear;
             transition: width .2s linear;
   }
-  .bubble .pager:before,
-  .bubble .pager:after {
-    display: table;
-    content: " ";
-  }
-  .bubble .pager:after {
-    clear: both;
-  }
-  .bubble .pager:before,
-  .bubble .pager:after {
-    display: table;
-    content: " ";
-  }
-  .bubble .pager:after {
-    clear: both;
-  }
   .bubble .pager li a {
     width: 148px;
     padding: 2px 5px;
@@ -8066,22 +8048,6 @@ figcaption {
     overflow: hidden;
     -webkit-transition: left .2s linear;
             transition: left .2s linear;
-  }
-  .bubble .bubble-content.slider-mode .topic-pane:before,
-  .bubble .bubble-content.slider-mode .topic-pane:after {
-    display: table;
-    content: " ";
-  }
-  .bubble .bubble-content.slider-mode .topic-pane:after {
-    clear: both;
-  }
-  .bubble .bubble-content.slider-mode .topic-pane:before,
-  .bubble .bubble-content.slider-mode .topic-pane:after {
-    display: table;
-    content: " ";
-  }
-  .bubble .bubble-content.slider-mode .topic-pane:after {
-    clear: both;
   }
   .bubble .bubble-content.slider-mode .topic-pane ul {
     float: left;
