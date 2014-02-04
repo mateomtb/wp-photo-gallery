@@ -9,43 +9,46 @@
 <script type="text/javascript" src="http://extras.denverpost.com/media/js/blogstheme/jquery-ui-personalized-1.5.2.packed.js"></script>
 -->
 <script type="text/javascript" src="//www.googletagservices.com/tag/js/gpt.js"></script>
-
 <div id="omniture" style="display:none;">
     <script language="JavaScript" type="text/javascript">
-        var s_account = "scsun-news";
+        var s_account = "{{domain}}";
 
-        var isHome = false; //testing wp functions     
-        var isCategory = false; //testing wp functions     
-        var isSingle = true; //testing wp functions         
-        var isPage = false; //testing wp functions     
-        var singleCategory = ""; //article site section
-        var pgTitle = "Super Bowl Monday";
+        var isHome = {% if is_home %}true{% else %}false;{% endif %}
+
+        var isCategory = {% if is_category %}true{% else %}false;{% endif %}
+
+        var isSingle = {% if is_singular %}true{% else %}false;{% endif %}
+
+        var isPage = {% if is_page %}true{% else %}false;{% endif %}
+
+        var singleCategory = "{{single_cat_title}}"; //article site section
+        var pgTitle = "{{post.title}}";
         var oChnm = "Blogs";
-        var oRtnm = "Blogs / First-and-Orange";
+        var oRtnm = "Blogs / {{bloginfo('name')}}";
         var Pgnm = "";
         var oSp2nm = ""; //Prop2
         var oSp3nm = ""; //Prop3
         var oSp4nm = ""; //Prop4
         var oSp5nm = ""; //Prop5
         if (isHome) {
-            oSp2nm = "Blogs / First-and-Orange Home"; //is The Spot home
-            Pgnm = "Blogs / First-and-Orange Home";
+            oSp2nm = "Blogs / {{bloginfo('name')}} Home";
+            Pgnm = "Blogs / {{bloginfo('name')}} Home";
         } else {
             if (isCategory) {
                 if (singleCategory) {
-                    Pgnm = "Blogs / First-and-Orange " + singleCategory; //section name available
+                    Pgnm = "Blogs / {{bloginfo('name')}} " + singleCategory; //section name available
                     oSp2nm = singleCategory;
                 } else {
-                    Pgnm = "Blogs / First-and-Orange cat undefined"; //cannot be defined
+                    Pgnm = "Blogs / {{bloginfo('name')}} cat undefined"; //cannot be defined
                     oSp2nm = "cat undefined";
                 }
             } else {
                 if (isSingle) {
                     if (isPage) {
-                        Pgnm = "Blogs / First-and-Orange " + pgTitle; //is a static page
+                        Pgnm = "Blogs / {{bloginfo('name')}} " + pgTitle; //is a static page
                         oSp2nm = pgTitle;
                     } else {
-                        Pgnm = "Blogs / First-and-Orange Post: " + pgTitle; //is a post
+                        Pgnm = "Blogs / {{bloginfo('name')}} Post: " + pgTitle; //is a post
                         oSp2nm = "Posts";
                         oSp5nm = pgTitle;
                     }
@@ -53,7 +56,7 @@
             }
             if (singleCategory) {
                 if (!isCategory) {
-                        Pgnm = "Blogs / First-and-Orange Topics: " + singleCategory;
+                        Pgnm = "Blogs / {{bloginfo('name')}} Topics: " + singleCategory;
                     oSp2nm = "Topics";
                     oSp3nm = singleCategory;
                 }
