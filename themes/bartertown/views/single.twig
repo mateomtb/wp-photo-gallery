@@ -102,10 +102,6 @@ try{var _recommender = new _rec({apiKey: '{{config.newstogram}}',cssUrl: 'http:/
                         {{ comment_form }}
                     </div>
                     <div class="responses">
-
-                        {% for cmt in post.get_comments() %}
-                            {% include "comment.twig" with {comment:cmt} %}
-                        {% endfor %}
                     </div>
 
             </section>
