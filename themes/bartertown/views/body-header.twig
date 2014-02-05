@@ -146,11 +146,11 @@
         <ul class="top-level">
 {% for item in menu_main.get_items %}
             <li class="dropdown{% if item.children.0.title == 'bubble' %} bubble{% endif %}">
-                {% if item.url == '#' %}<span class="dropdown-toggle">{{item.title}}{% if item.children.0 %} <b class="caret"></b>{% endif %}</span>
-                {% else %}<a href="{{item.url}}" class="dropdown-toggle">{{item.title}} <b class="caret"></b></a>
+                {% if item.url == '#' %}<span class="dropdown-toggle">{{item.title}}{% if item.children %} <b class="caret"></b>{% endif %}</span>
+                {% else %}<a href="{{item.url}}" class="dropdown-toggle">{{item.title}}{% if item.children %} <b class="caret"></b>{% endif %}</a>
                 {% endif %}
-                <ul class="dropdown-menu">
 {% if item.children %}
+                <ul class="dropdown-menu">
 {# We have two types of drop-downs: Single-column and bubble-with-ad-and-recent-stories. #}
 {# If we're doing the bubble nav, the first item in the child nav will be named "bubble", #}
 {# and if it has a link the link will be an RSS feed for us to ingest and publish. #}
@@ -178,6 +178,27 @@
           </ul>
         </div>
       </div>
+    {# We only publish the recent headlines in the bubble if the parent menu #}
+    {# item is a category. #}
+    {% if item.object == 'category' %}
+      <div class="bubble-headlines">
+        {% for post in TimberTerm(item.name).get_posts('numberposts=4') %}
+            {% if loop.first %}
+                {% if post.thumbnail.src %}
+        <a href="{{post.guid}}"><img src="{{post.thumbnail.src}}" width="120" alt="" /></a>
+                {% endif %}
+        <h3><a href="{{post.guid}}">{{post.title}}</a></h3>
+        <p>{{post.excerpt}}</p>
+        <div class="link-list">
+          <ul>
+            {% else %}
+            <li><a href="{{post.guid}}">{{post.title}}</a></li>
+            {% endif %}
+        {% endfor %}
+          </ul>
+        </div> <!-- .link-list -->
+      </div>
+    {% endif %}
     </div>
   </div>
 <pre style="display:none;">{{ item|print_r }}</pre>
@@ -186,9 +207,9 @@
         <img src="http://placehold.it/300x250&amp;text=300x250+navad" alt="300x250 navad">
     </div>
 {% endif %}
-{% endif %}
                     </li>
                 </ul>
+{% endif %}
             </li>
 {% endfor %}
         </ul>

@@ -10,6 +10,8 @@ Get a dev environment set up! Yes, you!
 * Use the apache virtual host file in the dev folder (may need to adjust wordpress directory paths) to point your webserver to that domain. Put that file in your ``/path/to/apache2/sites-enabled/`` .
 * Restart apache. On linux that's ``sudo service apache2 restart``
 * Change the permissions on your wp-content directory. Either change the owner to the same owner of your webserver processes, or run ``sudo chmod 0777 wp-content`` from the wordpress root.
+* Edit your wp-config.php file. It's in the wordpress root. It will ask you for database information...
+* Create a database for your blog. Name it whatever you want. There are many ways to create a database, hopefully you know one.
 * Log into wp-admin and activate all the plugins: http://www.scsun-news.com/wp-admin/plugins.php
 * Go to http://www.scsun-news.com/wp-admin/admin.php?import=wordpress and import the export.xml file at ``dev/export.xml``
 
