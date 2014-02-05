@@ -1,0 +1,8 @@
+<div class="story-feed sm">
+    <h4>In Other News</h4>
+    <ul>
+         {% for post in posts|slice(0, 9) %}
+                {% include 'tease-inothernews.twig' %} 
+         {% endfor %}
+    </ul>
+</div>
