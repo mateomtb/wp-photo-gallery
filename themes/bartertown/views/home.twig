@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="content-well">
+        <div id="above-fold" class="row">
+            <div class="centerpiece col md-9 md-push-3">
+                {% include 'home-centerpiece.twig' %}
+                {% include 'secondary-stories.twig' %}
+            </div>
+            <div class="left-rail col md-3 md-pull-9">
+                {% include 'story-feed-small.twig' %}
+            </div>
+        </div> <!-- #above-fold -->
+        <div id="middle-row">
+            <div class="col md-3">
+                {% include 'poll.twig' %}
+            </div>
+            <div class="col md-9">
+                {% include 'media-center-widget.twig' %}
+            </div>
+        </div> <!-- #middle-row -->
+        <div id="bottom-row">
+        <div class="col md-12">
+                {% include 'slider-promo.twig' %}
+        </div>
+            <div class="col md-6">
+            {% if post.mostpop == true %}
+                    {% include 'popular-widget.twig' %}
+            {% else %}
+                    {% include 'section-promo.twig' %}
+            {% endif %}
+            {% include 'section-promo.twig' %}
+            </div>
+            <div class="col md-6">
+            {% include 'section-promo.twig' %}
+            {% include 'section-promo.twig' %}
+            </div>
+        </div><!-- #bottom-row -->
+    </div> <!-- .content-well -->
+    <div class="right-rail">
+        {% include 'sidebar.twig' %}
+    </div> <!-- .right-rail -->
+</div>
