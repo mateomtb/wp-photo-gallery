@@ -194,14 +194,15 @@
             {% else %}
             <li><a href="{{post.guid}}">{{post.title}}</a></li>
             {% endif %}
-        {% endfor %}
+            {% if loop.last %}
           </ul>
         </div> <!-- .link-list -->
+            {% endif %}
+        {% endfor %}
       </div>
     {% endif %}
     </div>
   </div>
-<pre style="display:none;">{{ item|print_r }}</pre>
 
     <div class="ad medium-rectangle visible-lg-up">
         <img src="http://placehold.it/300x250&amp;text=300x250+navad" alt="300x250 navad">
