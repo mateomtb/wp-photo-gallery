@@ -13,6 +13,7 @@ Get a dev environment set up! Yes, you!
 * Edit your wp-config.php file. It's in the wordpress root. It will ask you for database information...
 * Create a database for your blog. Name it whatever you want. There are many ways to create a database, hopefully you know one.
 * Log into wp-admin and activate all the plugins: http://www.scsun-news.com/wp-admin/plugins.php
+* Also (visit the themes page)[http://www.scsun-news.com/wp-admin/themes.php] and make sure the Bartertown theme is active.
 * Go to http://www.scsun-news.com/wp-admin/admin.php?import=wordpress and import the export.xml file at ``dev/export.xml``
 
 For reference, here's the history from a recent bt-wp install, warts and all:
