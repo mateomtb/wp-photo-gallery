@@ -166,3 +166,12 @@ class boilerplate_widget extends WP_Widget
 function register_boilerplate_widget() { register_widget('boilerplate_widget'); }
 add_action('widgits_init', 'register_boilerplate_widget');
 */
+
+function createWPQueryArray($array) {
+    return array(
+        'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : null),
+        'posts_per_page' => ($array[2] ? $array[2] : null),
+        'meta_key' => ($array[3] ? $array[3] : null),
+        'meta_value' => ($array[4] ? $array[4] : null)
+    );
+}
