@@ -19,5 +19,6 @@ endif;
 $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
 $templates = array('index.twig');
+include get_template_directory() . '/homepage.php';
 if (is_home()) array_unshift($templates, 'home.twig');
 Timber::render('index.twig', $context);
