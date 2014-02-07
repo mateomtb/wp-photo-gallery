@@ -167,7 +167,7 @@ function register_boilerplate_widget() { register_widget('boilerplate_widget'); 
 add_action('widgits_init', 'register_boilerplate_widget');
 */
 
-function queryArray($array) {
+function createWPQueryArray($array) {
     return array(
         'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : null),
         'posts_per_page' => ($array[2] ? $array[2] : null),

@@ -34,7 +34,7 @@ $blogs1;
 $blogs2;
 $blogs3;
 
-// Hot topics
+// Sub topics
 $subTopic1;
 $subTopic2;
 $subTopic3;
@@ -46,20 +46,20 @@ $subTopic4;
 /* Run queries and assign contexts to be used in templates */
 
 // Lead story
-$context['lead_story'] = Timber::get_post(queryArray($leadStory));
+$context['lead_story'] = Timber::get_post(createWPQueryArray($leadStory));
 // Secondary lead story
-$context['secondary_lead_story'] = Timber::get_post(queryArray($secondaryLeadStory));
+$context['secondary_lead_story'] = Timber::get_post(createWPQueryArray($secondaryLeadStory));
 // Related stories (only appear if second lead story does not exist)
-$context['related_stories'] = Timber::get_posts(queryArray($relatedStories));
+$context['related_stories'] = Timber::get_posts(createWPQueryArray($relatedStories));
 $context['related_stories_heading'] = $relatedStories[0];
 // First secondary story
-$context['secondary_story_1'] = Timber::get_post(queryArray($secondaryStories1));
+$context['secondary_story_1'] = Timber::get_post(createWPQueryArray($secondaryStories1));
 $context['secondary_story_1_heading'] = $secondaryStories1[0];
 // Second secondary story
-$context['secondary_story_2'] = Timber::get_post(queryArray($secondaryStories2));
+$context['secondary_story_2'] = Timber::get_post(createWPQueryArray($secondaryStories2));
 $context['secondary_story_2_heading']= $secondaryStories2[1];
 // Third secondary story
-$context['secondary_story_3'] = Timber::get_post(queryArray($secondaryStories3));
+$context['secondary_story_3'] = Timber::get_post(createWPQueryArray($secondaryStories3));
 $context['secondary_story_3_heading'] = $secondaryStories3[1];
 
 
