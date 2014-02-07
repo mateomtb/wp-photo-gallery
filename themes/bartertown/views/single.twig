@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-                    <article id="main-story" class="full-story post-{{post.ID}}">
+                    <article id="main-story" class="full-story post-{{post.ID}}{% if post.Markup %} has-supporting-content{% endif %} ">
                     <header id="article-top" class="article-header">
                         {% include "breadcrumb.twig" %}
                         <h1 class="title entry-title cleanprint-title article-h1">{{post.title}}</h1>
@@ -23,30 +23,18 @@
 
                     <section id="article-body" class="shorten">
                         <div class="the-article">
-                        <div class="blog-author byline byline-bar">
-                            <p class="author-name">By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a></p>
-                            <p class="property-name">Source</p>
-                            <div class="meta">
-                                <p class="timestamp">
-                                    Published {{ post.display_date }}
-                                </p>
+                            <div class="blog-author byline byline-bar">
+                                <p class="author-name">By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a></p>
+                                <p class="property-name">Source</p>
+                                <div class="meta">
+                                    <p class="timestamp">
+                                        Published {{ post.display_date }}
+                                    </p>
+                                </div>
+                            </div> <!-- .byline-bar -->
+                            <div class="article-body body-copy">
+                            {{post.content}}
                             </div>
-                        </div> <!-- .byline-bar -->
-                        <div class="article-body body-copy">
-                        {# SIDEBAR #}
-                        {% if post.Markup %}
-                            <div class="clear factbox span3 pull-right">
-                                {% if post.Title %}<h3>{{post.Title}}</h3>{% endif %}
-                                {{ post.Markup }}
-                            </div> <!-- /sidebar -->
-                        {% endif %}
-                        {{post.content}}
-                        </div>
-                        <div class="article-categories">
-                            {% if post.categories %}<p>Published in: {% for item in post.categories %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
-                            {% if post.tags %}<p>Tagged: {% for item in post.tags %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% endfor %}</p>{% endif %}
-                        </div>
-
 <div id="author" class="media">
 {% if post.author.user_url %}
   <a class="pull-left" href="{{post.author.path}}">
@@ -65,10 +53,23 @@
         </ul>
     </div>
 </div>
+                        </div>
+                        {# SIDEBAR #}
+                        {% if post.Markup %}
+                            <section class="supporting-content" role="complementary">
+                                {% if post.Title %}<h3>{{post.Title}}</h3>{% endif %}
+                                {{ post.Markup }}
+                            </section>
+                        {% endif %}
+                        <div class="article-categories">
+                            {% if post.categories %}<p>Published in: {% for item in post.categories %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
+                            {% if post.tags %}<p>Tagged: {% for item in post.tags %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% endfor %}</p>{% endif %}
+                        </div>
+
                 </section>
             </section>
 
-            <section id="supporting-content">
+            <section id="supporting-content" style="display:none;">
                 <div class="story-links">
                     <ul>
                         <li><i class="icon-comment"></i><a href="#comments">Comments</a></li>
@@ -97,7 +98,7 @@ document.write(unescape("%3Cscript src='" + drJsHost + "static.newstogram.com/rm
 try{var _recommender = new _rec({apiKey: '{{config.newstogram}}',cssUrl: 'http://www.nhregister.com/css/dailyme_styles_h8.css',title: 'Recommended for You',width: '650',height: '275',truncate:'48',limit:'6',openLinksInNewWindow:'1'});_recommender.renderPersonalized();} catch(err) {};
 </script>
 
-                <div class="respond">
+                <div class="respond" id="comments">
                     <h3 class="h2">Comments</h3>
                         {{ comment_form }}
                     </div>
