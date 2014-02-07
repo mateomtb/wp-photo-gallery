@@ -12,6 +12,7 @@ Symlink themes and plugins to wp-content/themes. i.e. if you're in wp-content, `
 * Restart apache. On linux that's ``sudo service apache2 restart``
 * MAC Virtual stuff here
 * MAC MAMP vi /Applications/MAMP/conf/apache/httpd.conf  uncomment the include around line 524
+```
 524 # Virtual hosts
 525 Include /Applications/MAMP/conf/apache/extra/httpd-vhosts.conf
 
@@ -25,6 +26,7 @@ vi /Applications/MAMP/conf/apache/extra/httpd-vhosts.conf  add something like th
     DocumentRoot "/Applications/MAMP/htdocs/btown"
     ServerName www.scsun-news.com
 </VirtualHost>
+```
 * Change the permissions on your wp-content directory. Either change the owner to the same owner of your webserver processes, or run ``sudo chmod 0777 wp-content`` from the wordpress root.
 * Edit your wp-config.php file. It's in the wordpress root. It will ask you for database information...
 * Create a database for your blog. Name it whatever you want. There are many ways to create a database, hopefully you know one.
