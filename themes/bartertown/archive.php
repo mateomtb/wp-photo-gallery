@@ -37,4 +37,20 @@
 
 		$data['posts'] = Timber::get_posts();
 
+$secondaryCats = array ('football','basketball','soccer');
+foreach ($secondaryCats as $secondaryCat){
+	$secondaryQuery = "category_name=" . $secondaryCat . "&posts_per_page=1";
+	$data['secondary'][$secondaryCat] = Timber::get_posts($secondaryQuery);
+}
+$columnists = array ('walters','powers','sansevere');
+foreach ($columnists as $columnist){
+	$columnistQuery = "category_name=" . $columnist . "&posts_per_page=1";
+	$data['columnists'][$columnist] = Timber::get_posts($columnistQuery);
+}
+
+$othernews = array ('local-news','business','entertainment','opinion','lifestyle','weather','world');
+foreach ($othernews as $other){
+	$otherQuery = "category_name=" . $other . "&posts_per_page=1";
+	$data['othernews'][$other] = Timber::get_posts($otherQuery);
+}
 		Timber::render($templates, $data);

@@ -1,11 +1,11 @@
 <div class="story-feed sm" id="columnists">
 	<h4 class="topic-header">Opinion</h4>
-        {% for post in posts|slice(3, 3) %}
+        {% for key, post in columnists %}
 	<figure>
-		<a href="{{post.link}}"><img alt="" src="http://placehold.it/400x300"></a>
+		<a href="{{post.0.link}}"><img alt="" src="http://placehold.it/400x300"></a>
 		<hgroup>
-			<h5><a href="{{post.author.link}}">{{post.author}}</a></h5>
-			<h3><a href="{{post.link}}">{{post.post_title}}</a></h3>
+			<h5><a href="{{post.0.author.link}}">{{post.0.author}}</a></h5>
+			<h3><a href="{{post.0.link}}">{{post.0.post_title}}</a></h3>
 		</hgroup>
 	</figure>
 	{% endfor %}

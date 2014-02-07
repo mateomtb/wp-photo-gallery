@@ -17,8 +17,8 @@
             {% endfor %}
             <!-- .second-lead-story -->
             <ul class="secondary-stories">
-                {% for post in posts|slice(3, 3) %}
-                    {% include 'tease-sectionmostrecentstory.twig' %}
+                {% for key, post in secondary %}
+                    {% include 'tease-sectionsecondarystory.twig' %}                    
                 {% endfor %}
             </ul> <!-- .secondary-stories -->
         </div>
