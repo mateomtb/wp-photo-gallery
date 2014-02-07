@@ -1,3 +1,6 @@
 [submodule "plugins/timber"]
 	path = plugins/timber
 	url = git@github.com:jarednova/timber.git
+[submodule "plugins/sem-author-image"]    
+    path = plugins/sem-author-image
+    url = git@github.com:wp-plugins/sem-author-image.git
