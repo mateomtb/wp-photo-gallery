@@ -29,8 +29,9 @@ Author URI: http://lesterchan.net
 
 
 ### Load WP-Config File If This File Is Called Directly
+echo __FILE__.'<br />';
 if (!function_exists('add_action')) {
-	$wp_root = '../../..';
+	$wp_root = 'localhost/bt';
 	if (file_exists($wp_root.'/wp-load.php')) {
 		require_once($wp_root.'/wp-load.php');
 	} else {
