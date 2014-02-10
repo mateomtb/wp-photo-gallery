@@ -20,11 +20,11 @@
 	/* background-color: #ffffff; */
 }
 .wp-polls, .wp-polls-form {
-	/* background-color: #ffffff; */
+    text-align: left !important;
 }
 .wp-polls ul li, wp-polls-ul li, .wp-polls-ans ul li {
-	text-align: left;
-	background-image: none;
+	width: 133px;
+	background: none;
 	display: block;
 }
 .wp-polls ul, .wp-polls-ul, .wp-polls-ans ul  {
@@ -116,3 +116,15 @@
 	color: #000000;
 	background-color: #FFFFFF;
 }
+
+/** Question font **/
+#polls-2.wp-polls > form > p {    
+    margin-top: 0; 
+    font-size: 18px !important; font-family: "Merriweather", Georgia, "Times New Roman", Times, serif;
+    font-weight: bold;
+    color: inherit;
+    text-rendering: optimizelegibility;
+    margin: 0 0 11px; 
+    text-align: left !important;
+}
+
