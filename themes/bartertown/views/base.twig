@@ -10,7 +10,9 @@
 
 
     <div id="content" class="container">
-    {% if false %}
+    {% if is_home %}
+        {% include 'home.twig' %}
+    {% else %}
         <div class="row">
             <div class="content-well">
                 <div class="row-fluid">
@@ -28,7 +30,7 @@
             {% endif %}
         </div> <!-- class="row"> -->
     {% endif %}
-        {% include 'home.twig' %}
+        
     </div>
 
 
