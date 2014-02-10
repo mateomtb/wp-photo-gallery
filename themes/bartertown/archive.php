@@ -16,25 +16,45 @@
 
 		$templates = array('archive.twig', 'index.twig');
 
-		$data = Timber::get_context();
+		$context = Timber::get_context();
 
-		$data['title'] = 'Archive';
+		$context['title'] = 'Archive';
 		if (is_day()){
-			$data['title'] = 'Archive: '.get_the_date( 'D M Y' );
+			$context['title'] = 'Archive: '.get_the_date( 'D M Y' );
 		} else if (is_month()){
-			$data['title'] = 'Archive: '.get_the_date( 'M Y' );
+			$context['title'] = 'Archive: '.get_the_date( 'M Y' );
 		} else if (is_year()){
-			$data['title'] = 'Archive: '.get_the_date( 'Y' );
+			$context['title'] = 'Archive: '.get_the_date( 'Y' );
 		} else if (is_tag()){
-			$data['title'] = single_tag_title('', false);
+			$context['title'] = single_tag_title('', false);
 		} else if (is_category()){
-			$data['title'] = single_cat_title('', false);
+			$context['title'] = single_cat_title('', false);
 			array_unshift($templates, 'archive-'.get_query_var('cat').'.twig');
 		} else if (is_post_type_archive()){
-			$data['title'] = post_type_archive_title('', false);
+			$context['title'] = post_type_archive_title('', false);
 			array_unshift($templates, 'archive-'.get_post_type().'.twig');
 		}
 
-		$data['posts'] = Timber::get_posts();
+		$context['posts'] = Timber::get_posts();
+		include get_template_directory() . '/homepage.php';
+		
+/*
+$secondaryCats = array ('football','basketball','soccer');
+foreach ($secondaryCats as $secondaryCat){
+	$secondaryQuery = "category_name=" . $secondaryCat . "&posts_per_page=1";
+	$context['secondary'][$secondaryCat] = Timber::get_posts($secondaryQuery);
+}
+$columnists = array ('walters','powers','sansevere');
+foreach ($columnists as $columnist){
+	$columnistQuery = "category_name=" . $columnist . "&posts_per_page=1";
+	$context['columnists'][$columnist] = Timber::get_posts($columnistQuery);
+}
 
-		Timber::render($templates, $data);
+$othernews = array ('local-news','business','entertainment','opinion','lifestyle','weather','world');
+foreach ($othernews as $other){
+	$otherQuery = "category_name=" . $other . "&posts_per_page=1";
+	$context['othernews'][$other] = Timber::get_posts($otherQuery);
+} */
+
+
+		Timber::render($templates, $context);

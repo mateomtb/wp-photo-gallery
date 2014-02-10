@@ -5,22 +5,9 @@
     <div id="above-fold" class="row">
       <div class="col md-9 push-3">
         <div class="centerpiece">
-            {% if title %}<h4 class="section-name hidden-md-up"><a href="">{{title}}</a></h4>{% endif %}
-            <!-- .lead-story -->
-            {% for post in posts|slice(0, 1) %}
-                {% include 'tease-sectionleadstory.twig' %} 
-            {% endfor %}
-            <!-- .lead-story -->
-            <!-- .second-lead-story -->
-            {% for post in posts|slice(1, 1) %}
-                {% include 'tease-sectionsecondstory.twig' %}
-            {% endfor %}
-            <!-- .second-lead-story -->
-            <ul class="secondary-stories">
-                {% for post in posts|slice(3, 3) %}
-                    {% include 'tease-sectionmostrecentstory.twig' %}
-                {% endfor %}
-            </ul> <!-- .secondary-stories -->
+            {% include 'home-centerpiece.twig' %}                       
+            {% include 'secondary-stories.twig' %}                                
+
         </div>
 
         <div id="most-recent-stories" class="story-feed lg">
@@ -33,7 +20,7 @@
         </div> <!-- #most-recent-stories -->
     </div>
     <div class="left-rail col md-3 pull-9">
-        {% include 'inothernews.twig' %}
+        {% include 'story-feed-small.twig' %}
         {% include 'columnists.twig' %}
     </div>
     </div> <!-- #above-fold -->
