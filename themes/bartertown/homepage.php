@@ -89,6 +89,7 @@ foreach($secondaryStories as $story) {
     $context['secondary_stories'][] =  Timber::get_post(createWPQueryArray(array_values($story)));
 }
 // Story feed small
+$context['story_feed_heading'] = $config['story_feed_heading'];
 $context['story_feed'] = array();
 foreach($storyFeeds as $story) {
     $context['story_feed'][] = Timber::get_post(createWPQueryArray(array_values($story)));

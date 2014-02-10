@@ -1,17 +1,13 @@
 <div class="story-feed sm">
-    {% if post.is_home %}
-    <h4>Breaking News</h4>
-    {% else %}
-    <h4>In Other News</h4>
-    {% endif %}
+    <h4>{{story_feed_heading}}</h4>
     <ul>
     {% for post in story_feed %}
         <li>
             <h5><a href="{{post.category.link}}">{{post.category}}</a></h5>
             <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
             <div class="meta">
-                <p class="timestamp">{{post.timeago}}</p>
-                <p class="comment-bug"><span class="glyphicon glyphicon-comment"></span><span class="sr-only">Comments: </span><a href="">{{post.comment_count}}</a></p>
+                <p class="timestamp">{{post.post_date|time_ago}}</p>
+                <p class="comment-bug"><span class="glyphicon glyphicon-comment"></span><span class="sr-only">Comments: </span><a href="{{post.permalink}}">{{post.comment_count}}</a></p>
             </div>
         </li>
     {% endfor %}
