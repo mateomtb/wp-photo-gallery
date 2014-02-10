@@ -13,6 +13,12 @@ $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
 $context['wp_title'] .= ' - ' . $post->title();
-$context['comment_form'] = TimberHelper::get_comment_form();
+
+// Disqus comments
+if ( function_exists('dsq_comments_template') ):
+    $comments_file = TimberHelper::function_wrapper('dsq_comments_template', array("YeS"));
+    $context['comment_form'] = TimberHelper::function_wrapper('comments_template', array($comments_file));
+endif;
+
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');
 Timber::render(array('single-' . $post->ID . '.twig', 'single-' . $post->post_type . '.twig', 'single.twig'), $context);
