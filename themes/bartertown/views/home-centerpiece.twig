@@ -1,41 +1,46 @@
+{% for post in lead_story %} <!-- there is only one of these, but we can keep using post object for clarity-->
 <div class="lead-story">
     <div class="media single-img">
         <span data-picture data-alt="Image description goes here">
-            <span data-src="{{lead_story.thumbnail.src}}"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(640,480)}}" data-media="(min-device-pixel-ratio: 2.0)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(480,320)}}" data-media="(min-width: 321px)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(640,960)}}" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(640,480)}}" data-media="(min-width: 481px)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(1280,960)}}" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(800,600)}}" data-media="(min-width: 641px)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(1600,1200)}}" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(640,480)}}" data-media="(min-width: 769px)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(1280,960)}}" data-media="(min-width: 769px) and (min-device-pixel-ratio: 2.0)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(480,320)}}" data-media="(min-width: 960px)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(960,640)}}" data-media="(min-width: 960px) and (min-device-pixel-ratio: 2.0)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(640,480)}}" data-media="(min-width: 1029px)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(1280,960)}}" data-media="(min-width: 1029px) and (min-device-pixel-ratio: 2.0)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(800,600)}}" data-media="(min-width: 1241px)"></span>
-            <span data-src="{{lead_story.thumbnail.src|resize(1600,1200)}}" data-media="(min-width: 1241px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="{{post.thumbnail.src}}"></span>
+            <span data-src="{{post.thumbnail.src|resize(640,480)}}" data-media="(min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="{{post.thumbnail.src|resize(480,320)}}" data-media="(min-width: 321px)"></span>
+            <span data-src="{{post.thumbnail.src|resize(640,960)}}" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
+            <!-- not sure if we're missing some JS for the actual image tag portion? -->
+            <span data-src="{{post.thumbnail.src|resize(640,480)}}" data-media="(min-width: 481px)"><img src="{{post.thumbnail.src|resize(640,480)}}" alt="{{post.title}}"></span>
+            <span data-src="{{post.thumbnail.src|resize(1280,960)}}" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="{{post.thumbnail.src|resize(800,600)}}" data-media="(min-width: 641px)"></span>
+            <span data-src="{{post.thumbnail.src|resize(1600,1200)}}" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="{{post.thumbnail.src|resize(640,480)}}" data-media="(min-width: 769px)"></span>
+            <span data-src="{{post.thumbnail.src|resize(1280,960)}}" data-media="(min-width: 769px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="{{post.thumbnail.src|resize(480,320)}}" data-media="(min-width: 960px)"></span>
+            <span data-src="{{post.thumbnail.src|resize(960,640)}}" data-media="(min-width: 960px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="{{post.thumbnail.src|resize(640,480)}}" data-media="(min-width: 1029px)"></span>
+            <span data-src="{{post.thumbnail.src|resize(1280,960)}}" data-media="(min-width: 1029px) and (min-device-pixel-ratio: 2.0)"></span>
+            <span data-src="{{post.thumbnail.src|resize(800,600)}}" data-media="(min-width: 1241px)"></span>
+            <span data-src="{{post.thumbnail.src|resize(1600,1200)}}" data-media="(min-width: 1241px) and (min-device-pixel-ratio: 2.0)"></span>
             <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
             <noscript>
-                <img src="{{lead_story.thumbnail.src|resize(320,24)}}" alt="Image description goes here">
+                <img src="{{post.thumbnail.src|resize(320,24)}}" alt="{{post.title}}">
             </noscript>
         </span>
     </div> <!-- .media -->
-    <h2><a href="{{lead_story.permalink}}">{{lead_story.title}}</a></h2>
-    <p class="excerpt">{{lead_story.post_excerpt}}<span class="timestamp">{{lead_story.timeago}}</span></p>
-	{% if secondary_lead_story %}
+    <h2><a href="{{post.permalink}}">{{post.title}}</a></h2>
+    <p class="excerpt">{{post.post_excerpt}}<span class="timestamp">{{post.timeago}}</span></p>
+{% endfor %}
+    {% if secondary_lead_story %}
     </div> <!-- .lead-story -->
+    {% for post in secondary_lead_story %}
     <div class="second-lead-story">
-        <h3><a href="{{secondary_lead_story.permalink}}">{{secondary_lead_story.title}}</a></h3>
-        <p class="excerpt">{{secondary_lead_story.post_excerpt}}</p>
+        <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
+        <p class="excerpt">{{post.post_excerpt}}</p>
         <div class="meta">
-            <p class="source">{{secondary_lead_story.author}}<span class="divider">|</span><time datetime="{{secondary_lead_story.post_date}}" class="timestamp">{{secondary_lead_story.timeago}}</time></p>
-            <p class="comment-bug"><span class="glyphicon glyphicon-comment"></span><span class="sr-only">Comments: </span><a href="">{{secondary_lead_story.comment_count}}</a></p>
+            <p class="source">{{post.author}}<span class="divider">|</span><time datetime="{{post.post_date}}" class="timestamp">{{post.timeago}}</time></p>
+            <p class="comment-bug"><span class="glyphicon glyphicon-comment"></span><span class="sr-only">Comments: </span><a href="">{{post.comment_count}}</a></p>
         </div>
     </div> <!-- .second-lead-story -->
-	{% else %}
+    {% endfor %}
+    {% else %}
     <div class="link-list">
         <h5>{{related_stories_heading}}</h5>
         <ul>
@@ -45,4 +50,4 @@
         </ul>
     </div>
 </div> <!-- .lead-story -->
-	{% endif %}
+    {% endif %}
