@@ -26,7 +26,7 @@
         </span>
     </div> <!-- .media -->
     <h2><a href="{{post.permalink}}">{{post.title}}</a></h2>
-    <p class="excerpt">{{post.post_excerpt}}<span class="timestamp">{{post.timeago}}</span></p>
+    <p class="excerpt">{{post.post_excerpt}}<span class="timestamp">{{post.post_date|time_ago}}</span></p>
 {% endfor %}
     {% if secondary_lead_story|length == 1 %}
     </div> <!-- .lead-story -->
@@ -35,8 +35,8 @@
         <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
         <p class="excerpt">{{post.post_excerpt}}</p>
         <div class="meta">
-            <p class="source">{{post.author}}<span class="divider">|</span><time datetime="{{post.post_date}}" class="timestamp">{{post.timeago}}</time></p>
-            <p class="comment-bug"><span class="glyphicon glyphicon-comment"></span><span class="sr-only">Comments: </span><a href="">{{post.comment_count}}</a></p>
+            <p class="source">{{post.author}}<span class="divider">|</span><time datetime="{{post.post_date}}" class="timestamp">{{post.post_date|time_ago}}</time></p>
+            <p class="comment-bug"><span class="glyphicon glyphicon-comment"></span><span class="sr-only">Comments: </span><a href="{{post.permalink}}">{{post.comment_count}}</a></p>
         </div>
     </div> <!-- .second-lead-story -->
     {% endfor %}
