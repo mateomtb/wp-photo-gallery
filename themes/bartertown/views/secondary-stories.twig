@@ -1,17 +1,9 @@
 <ul class="secondary-stories">
+    {% for post in secondary_stories %}
     <li class="col md-4">
-        <h4><a href="{{secondary_story_1.permalink}}">{{secondary_story_1_heading}}</a></h4>
-        <a href="{{secondary_story_1.permalink}}"><img src="{{secondary_story_1.thumbnail.src|resize(400,300)}}" alt="max 400x300 photo in this space" /></a>
-        <h3><a href="{{secondary_story_1.permalink}}">{{secondary_story_1.title}}</a></h3>
+        <h4><a href="{{post.permalink}}">{{post.category}}</a></h4>
+        <a href="{{post.permalink}}"><img src="{{post.thumbnail.src|resize(400,300)}}" alt="max 400x300 photo in this space" /></a>
+        <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
     </li>
-    <li class="col md-4">
-       	<h4><a href="{{secondary_story_2.permalink}}">{{secondary_story_2_heading}}</a></h4>
-        <a href="{{secondary_story_2.permalink}}"><img src="{{secondary_story_2.thumbnail.src|resize(400,300)}}" alt="max 400x300 photo in this space" /></a>
-        <h3><a href="{{secondary_story_2.permalink}}">{{secondary_story_2.title}}</a></h3>
-    </li>
-    <li class="col md-4">
-        <h4><a href="{{secondary_story_3.permalink}}">{{secondary_story_3_heading}}</a></h4>
-        <a href="{{secondary_story_3.permalink}}"><img src="{{secondary_story_3.thumbnail.src|resize(400,300)}}" alt="max 400x300 photo in this space" /></a>
-        <h3><a href="{{secondary_story_3.permalink}}">{{secondary_story_3.title}}</a></h3>
-    </li>
+    {% endfor %}
 </ul> <!-- .secondary-stories -->

@@ -22,17 +22,23 @@
                 {% include 'slider-promo.twig' %}
         </div>
             <div class="col md-6">
-            {% if post.mostpop == true %}
-                    {% include 'popular-widget.twig' %}
-            {% else %}
-                    {% include 'section-promo.twig' %}
-            {% endif %}
-            {% include 'section-promo.twig' %}
+            {% if most_popular %}
+                {% include 'popular-widget.twig' %}
+                {% include 'section-promo.twig' with {count : 0} %}
             </div>
             <div class="col md-6">
-            {% include 'section-promo.twig' %}
-            {% include 'section-promo.twig' %}
+                {% include 'section-promo.twig' with {count : 1} %}
+                {% include 'section-promo.twig' with {count : 2} %}
             </div>
+            {% else %}
+                {% include 'section-promo.twig' with {count : 0} %}
+                {% include 'section-promo.twig' with {count : 1} %}
+            </div>
+            <div class="col md-6">
+                {% include 'section-promo.twig' with {count : 2} %}
+                {% include 'section-promo.twig' with {count : 3} %}
+            </div>
+            {% endif %}
         </div><!-- #bottom-row -->
     </div> <!-- .content-well -->
     <div class="right-rail">
