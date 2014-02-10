@@ -5,8 +5,8 @@
     <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
     <p class="excerpt">{{post.post_excerpt}}</p>
     <div class="meta">
-        <p class="timestamp">{{post.timeago}}</p>
-        <p class="comment-bug"><span class="glyphicon glyphicon-comment"></span><span class="sr-only">Comments: </span><a href="">{{post.comment_count}}</a></p>
+        <p class="timestamp">{{post.post_date|time_ago}}</p>
+        <p class="comment-bug"><span class="glyphicon glyphicon-comment"></span><span class="sr-only">Comments: </span><a href="{{post.permalink}}">{{post.comment_count}}</a></p>
     </div>
     {% endfor %}
     <div class="link-list">
