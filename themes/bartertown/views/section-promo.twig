@@ -1,5 +1,5 @@
 <div class="section-promo">
-    {% for post in section_promo[count][:1] %}
+    {% for post in section_promos[count][:1] %}
     <h4 class="topic-header">{{post.category.title}}</h4>
     <a href="{{post.permalink}}"><img src="{{post.thumbnail.src|resize(640,480)}}" alt="{{post.title}}"></a>
     <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
@@ -12,7 +12,7 @@
     <div class="link-list">
         <h5>Also</h5>
         <ul>
-            {% for post in section_promo[count][1:] %}
+            {% for post in section_promos[count][1:] %}
             <li><a href="{{post.permalink}}">{{post.title}}</a></li>
             {% endfor %}
         </ul>

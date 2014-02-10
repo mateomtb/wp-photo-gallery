@@ -28,7 +28,7 @@
     <h2><a href="{{post.permalink}}">{{post.title}}</a></h2>
     <p class="excerpt">{{post.post_excerpt}}<span class="timestamp">{{post.timeago}}</span></p>
 {% endfor %}
-    {% if secondary_lead_story %}
+    {% if secondary_lead_story|length == 1 %}
     </div> <!-- .lead-story -->
     {% for post in secondary_lead_story %}
     <div class="second-lead-story">

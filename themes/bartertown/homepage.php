@@ -5,33 +5,39 @@
 /* Set categories and other config for all content on home page */
 
 // All of the configuration could come from a JSON file for each site
+$config = json_decode(file_get_contents(get_template_directory() . '/home_section_json/scsun-home.json'), true);
+
 // Might be a better choice than WP Menus since we will not be overly reliant on a
 // WordPress specific implementation?
 
 
 // array('heading', 'category-slug', number-of-posts, custom-field, custom-field-value);
-// right now heading is sort of useless since we're using the category slug to get the category name
+// Right now heading is sort of useless since we're using the category slug to get the category name
 // where a heading is neeeded. But it's probably good to anticipate custom requests?
 
 // Lead Stories
-$leadStory = array(null, null, 1, 'lead_story', 'yes');
-$secondaryLeadStory = array(null, null, 1, 'secondary_lead_story', 'yes');
-$relatedStories = array('Related Stories', 'news', 4);
+//$leadStory = array(null, null, 1, 'lead_story', 'yes');
+$leadStory = array_values($config['lead_story']);
+//$secondaryLeadStory = array(null, null, 1, 'secondary_lead_story', 'yes');
+$secondaryLeadStory = array_values($config['secondary_lead_story']);
+//$relatedStories = array('Related Stories', 'news', 4);
+$relatedStories = array_values($config['related_stories']);
 
-$secondaryStories1 = array('News', 'news', 1, 'secondary_story', 'yes');
-$secondaryStories2 = array('Sports', 'sports', 1, 'secondary_story', 'yes');
-$secondaryStories3 = array('Entertainment', 'entertainment', 1, 'secondary_story', 'yes');
 
-$secondaryStories = array(
+
+/*$secondaryStories = array(
     array('News', 'news', 1, 'secondary_story', 'yes'),
     array('Sports', 'sports', 1, 'secondary_story', 'yes'),
     array('Entertainment', 'entertainment', 1, 'secondary_story', 'yes')
-);
+);*/
+
+$secondaryStories = array_values($config['secondary_stories']);
+
 
 // Feed stories (In Other News)
-$feedStoryHeading = 'In Other News';
+//$feedStoryHeading = 'In Other News';
 
-$storyFeeds = array(
+/*$storyFeeds = array(
     array('Denver', 'news', 1),
     array('Colorado', 'sports', 1),
     array('Entertainment', 'entertainment', 1),
@@ -41,25 +47,31 @@ $storyFeeds = array(
     //array('Local News', 'news', 1),
     //array('Business', 'news', 1);
     //array('Weather', 'news', 1);
-);
+);*/
+$feedStoryHeading = $config['story_feed_heading'];
+$storyFeeds = array_values($config['story_feed']);
 
 // Sub topics
-$sectionPromos = array(
+/*$sectionPromos = array(
     array('Silver City', 'news', 4),
     array('Silver City', 'sports', 4),
     array('Silver City', 'entertainment', 4),
     array('Silver City', 'news', 4)
-);
+);*/
+
+$sectionPromos = array_values($config['section_promos']);
 
 
 // Blogs
+// Is this content going to come from a widget? 
 $blogs1;
 $blogs2;
 $blogs3;
 
-
-
 /* End config*/
+
+
+
 
 
 /* Run queries and assign contexts to be used in templates */
@@ -74,20 +86,20 @@ $context['related_stories_heading'] = $relatedStories[0];
 // Secondary stories
 $context['secondary_stories'] = array();
 foreach($secondaryStories as $story) {
-    $context['secondary_stories'][] =  Timber::get_post(createWPQueryArray($story));
+    $context['secondary_stories'][] =  Timber::get_post(createWPQueryArray(array_values($story)));
 }
 // Story feed small
 $context['story_feed'] = array();
 foreach($storyFeeds as $story) {
-    $context['story_feed'][] = Timber::get_post(createWPQueryArray($story));
+    $context['story_feed'][] = Timber::get_post(createWPQueryArray(array_values($story)));
     //$context['story_feed_' . feedStoryCount] = Timber::get_post(createWPQueryArray($feedStory1));
     //$context['story_feed_' . feedStoryCount . '_heading'] = $feedStory1[0];
     //++feedStoryCount;
 }
 // Section promos
-$context['section_promo'] = array();
+$context['section_promos'] = array();
 foreach($sectionPromos as $promo) {
-    $context['section_promo'][] = Timber::get_posts(createWPQueryArray($promo));
+    $context['section_promos'][] = Timber::get_posts(createWPQueryArray(array_values($promo)));
 }
 /* End run queries */
 ?>
