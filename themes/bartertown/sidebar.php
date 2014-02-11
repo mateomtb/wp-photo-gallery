@@ -11,6 +11,7 @@ $context = array();
 $context['dynamic_sidebar'] = Timber::get_widgets('dynamic_sidebar');
 Timber::render(array('sidebar.twig'), $context);
 
+//include polls in sidebar
 if (function_exists('vote_poll') && !in_pollarchive()): ?>  
   <li>  
     <h2>Polls</h2>  
