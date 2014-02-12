@@ -5,6 +5,7 @@
                     <header id="article-top" class="article-header">
                         {% include "breadcrumb.twig" %}
                         <h1 class="title entry-title cleanprint-title article-h1">{{post.title}}</h1>
+                        {% if subhead %}<h4 class="subhead">{{subhead}}</h4>{% endif %}
 
                         {% if post.thumbnail.src %}
                         <div id="main-media" class="single-img"> <!-- other class options here: flex-video, flex-video widescreen, img-gallery-->
@@ -17,7 +18,6 @@
                             </figure>
                         </div>
                         {% endif %}
-
                     </header>
 
 
