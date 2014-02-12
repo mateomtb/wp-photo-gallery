@@ -137,10 +137,10 @@ $field_data = array (
         ),
         'Sidebar' => array (
                 'fields' => array (
-                        'Title' => array('label'=>'Sidebar Title'),
-                        'Markup' => array('label'=>'Sidebar Content',
+                        'sidebar_title' => array('label'=>'Sidebar Title'),
+                        'sidebar_markup' => array('label'=>'Sidebar Content',
                                         'type'=>'textarea'),
-                        'Tag' => array('label'=>'Package',
+                        'package' => array('label'=>'Package',
                                         'type'=>'tag_select'),
                 ),
         ),
@@ -153,12 +153,18 @@ if ( !class_exists( "Easy_CF_Field_Tag_Select" ) ) {
 
             $id = ( empty( $this->_field_data['id'] ) ) ? $this->_field_data['id'] :  $this->_field_data['id'];
             $label = ( empty( $this->_field_data['label'] ) ) ? $this->_field_data['id'] :  $this->_field_data['label'];
+            $value = $this->get();
+
             $tags = get_tags();
-            $options = '';
+            $options = '<option value=""></option>';
+            $selected = '';
             foreach ( $tags as $tag ):
                 // We only list tags that have the word "Package" in them.
-                if ( strpos('package', $tag->name) === FALSE ) continue;
-                $options .= '<option value="' . $tag->slug . '">' . $tag->name . '</option>' . "\n";
+                if ( strpos(strtolower($tag->slug), 'package') !== FALSE ):
+                    if ( $tag->slug == $value ) $selected = 'selected';
+                    $options .= '<option value="' . $tag->slug . '" . ' . $selected . '>' . $tag->name . '</option>' . "\n";
+                    $selected = '';
+                endif;
             endforeach;
 
             $hint = ( empty( $this->_field_data['hint'] ) ) ? '' :  '<p><em>' . $this->_field_data['hint'] . '</em></p>';
