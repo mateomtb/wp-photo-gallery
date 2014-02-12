@@ -23,5 +23,9 @@ if ( function_exists('dsq_comments_template') ):
     $context['comment_form'] = TimberHelper::function_wrapper('comments_template', array($comments_file));
 endif;
 
+if ( function_exists('dfm_get_package') ):
+    $context['package'] = TimberHelper::function_wrapper('dfm_get_package');
+endif;
+
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');
 Timber::render(array('single-' . $post->ID . '.twig', 'single-' . $post->post_type . '.twig', 'single.twig'), $context);

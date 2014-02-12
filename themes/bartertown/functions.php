@@ -140,8 +140,6 @@ $field_data = array (
                         'sidebar_title' => array('label'=>'Sidebar Title'),
                         'sidebar_markup' => array('label'=>'Sidebar Content',
                                         'type'=>'textarea'),
-                        'package' => array('label'=>'Package',
-                                        'type'=>'tag_select'),
                 ),
         ),
 );

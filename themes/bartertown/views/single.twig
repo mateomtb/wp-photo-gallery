@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-                    <article id="main-story" class="full-story post-{{post.ID}}{% if post.Markup %} has-supporting-content{% endif %} ">
+                    <article id="main-story" class="full-story post-{{post.ID}}{% if post.sidebar_title or post.sidebar_markup or post.package %} has-supporting-content{% endif %} ">
                     <header id="article-top" class="article-header">
                         {% include "breadcrumb.twig" %}
                         <h1 class="title entry-title cleanprint-title article-h1">{{post.title}}</h1>
@@ -70,6 +70,7 @@
                                 </ul>
                                 {% if post.sidebar_title %}<h3>{{post.sidebar_title}}</h3>{% endif %}
                                 {{ post.sidebar_markup }}
+                    {{package}}
                                 {% if post.package %}
                                 <div id="more-media" class="link-list no-anim">
                                     <h4>More Media</h4>
