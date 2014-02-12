@@ -14,9 +14,12 @@ $post = new TimberPost();
 $context['post'] = $post;
 $context['wp_title'] .= ' - ' . $post->title();
 
+if ( function_exists('the_subheading') )
+    $context['subhead'] = the_subheading();
+
 // Disqus comments
 if ( function_exists('dsq_comments_template') ):
-    $comments_file = TimberHelper::function_wrapper('dsq_comments_template', array("YeS"));
+    $comments_file = TimberHelper::function_wrapper('dsq_comments_template', array('You must have the DISQUS plugin enabled.'));
     $context['comment_form'] = TimberHelper::function_wrapper('comments_template', array($comments_file));
 endif;
 

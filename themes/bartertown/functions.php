@@ -1,6 +1,6 @@
 <?php
 
-	add_theme_support('post-formats');
+	add_theme_support('post-formats', array('aside', 'gallery', 'image', 'video', 'audio', 'link'));
 	add_theme_support('post-thumbnails');
 	add_theme_support('menus');
 
@@ -137,11 +137,71 @@ $field_data = array (
         ),
         'Sidebar' => array (
                 'fields' => array (
-                        'Title' => array(),
-                        'Markup' => array(),
+                        'sidebar_title' => array('label'=>'Sidebar Title'),
+                        'sidebar_markup' => array('label'=>'Sidebar Content',
+                                        'type'=>'textarea'),
+                        'package' => array('label'=>'Package',
+                                        'type'=>'tag_select'),
                 ),
         ),
 );
+if ( !class_exists( "Easy_CF_Field_Tag_Select" ) ) {
+    class Easy_CF_Field_Tag_Select extends Easy_CF_Field {
+        public function print_form() {
+            $class = ( empty( $this->_field_data['class'] ) ) ? $this->_field_data['id'] . '_class' :  $this->_field_data['class'];
+            $input_class = ( empty( $this->_field_data['input_class'] ) ) ? $this->_field_data['id'] . '_input_class' :  $this->_field_data['input_class'];
+
+            $id = ( empty( $this->_field_data['id'] ) ) ? $this->_field_data['id'] :  $this->_field_data['id'];
+            $label = ( empty( $this->_field_data['label'] ) ) ? $this->_field_data['id'] :  $this->_field_data['label'];
+            $value = $this->get();
+
+            $tags = get_tags();
+            $options = '<option value=""></option>';
+            $selected = '';
+            foreach ( $tags as $tag ):
+                // We only list tags that have the word "Package" in them.
+                if ( strpos(strtolower($tag->slug), 'package') !== FALSE ):
+                    if ( $tag->slug == $value ) $selected = 'selected';
+                    $options .= '<option value="' . $tag->slug . '" . ' . $selected . '>' . $tag->name . '</option>' . "\n";
+                    $selected = '';
+                endif;
+            endforeach;
+
+            $hint = ( empty( $this->_field_data['hint'] ) ) ? '' :  '<p><em>' . $this->_field_data['hint'] . '</em></p>';
+
+            $label_format =
+                '<div class="%s">'.
+                '<p><label for="%s"><strong>%s</strong></label></p>'.
+                '<p><select class="%s" style="width: 100%%;" name="%s">%s</select></p>'.
+                '%s'.
+                '</div>';
+            printf( $label_format, $class, $id, $label, $input_class, $id, $options, $hint );
+        }
+    }
+}
+
+
+if ( !class_exists( "Easy_CF_Field_Textarea" ) ) {
+    class Easy_CF_Field_Textarea extends Easy_CF_Field {
+        public function print_form() {
+            $class = ( empty( $this->_field_data['class'] ) ) ? $this->_field_data['id'] . '_class' :  $this->_field_data['class'];
+            $input_class = ( empty( $this->_field_data['input_class'] ) ) ? $this->_field_data['id'] . '_input_class' :  $this->_field_data['input_class'];
+
+            $id = ( empty( $this->_field_data['id'] ) ) ? $this->_field_data['id'] :  $this->_field_data['id'];
+            $label = ( empty( $this->_field_data['label'] ) ) ? $this->_field_data['id'] :  $this->_field_data['label'];
+            $value = $this->get();
+            $hint = ( empty( $this->_field_data['hint'] ) ) ? '' :  '<p><em>' . $this->_field_data['hint'] . '</em></p>';
+
+            $label_format =
+                '<div class="%s">'.
+                '<p><label for="%s"><strong>%s</strong></label></p>'.
+                '<p><textarea class="%s" style="width: 100%%;" type="text" name="%s">%s</textarea></p>'.
+                '%s'.
+                '</div>';
+            printf( $label_format, $class, $id, $label, $input_class, $id, $value, $hint );
+        }
+    }
+}
 $easy_cf = new Easy_CF($field_data);
 endif;
 

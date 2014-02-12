@@ -5,6 +5,7 @@
                     <header id="article-top" class="article-header">
                         {% include "breadcrumb.twig" %}
                         <h1 class="title entry-title cleanprint-title article-h1">{{post.title}}</h1>
+                        {% if subhead %}<h4 class="subhead">{{subhead}}</h4>{% endif %}
 
                         {% if post.thumbnail.src %}
                         <div id="main-media" class="single-img"> <!-- other class options here: flex-video, flex-video widescreen, img-gallery-->
@@ -17,7 +18,6 @@
                             </figure>
                         </div>
                         {% endif %}
-
                     </header>
 
 
@@ -59,7 +59,7 @@
 </div>
                         </div>
                         {# SIDEBAR #}
-                        {% if post.Markup %}
+                        {% if post.sidebar_title or post.package %}
                             <section class="supporting-content" role="complementary">
                                 <ul class="share-tools sm">
                                     <li><span class="glyphicon glyphicon-comment"></span><a href="#comments">Comments</a></li>
@@ -68,8 +68,18 @@
                                     <style>.at300b span{display:none;}</style>
                                     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=mngi"></script>
                                 </ul>
-                                {% if post.Title %}<h3>{{post.Title}}</h3>{% endif %}
-                                {{ post.Markup }}
+                                {% if post.sidebar_title %}<h3>{{post.sidebar_title}}</h3>{% endif %}
+                                {{ post.sidebar_markup }}
+                                {% if post.package %}
+                                <div id="more-media" class="link-list no-anim">
+                                    <h4>More Media</h4>
+                                    <ul>
+                                    {% for post in TimberTerm(post.package).get_posts('numberposts=5') %}
+                                        <li><a href="{{post.url}}">{{post.title}}</a></li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                                {% endif %}
                             </section>
                         {% endif %}
 
