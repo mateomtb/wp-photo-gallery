@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Article Packages
- * Plugin URI: https://github.com/dfmedia/bt-wp-package
+ * Plugin URI: https://github.com/dfmedia/dfm-wp-package
  * Description: Publish hand-curated packages of related articles + media. This is done with tags (anything tagged "package-" is part of a package) and custom fields. The Easy Custom Fields plugin ( http://wordpress.org/plugins/easy-custom-fields/ ) is required.
  * Version: 0.1
- * Author: Digital First Media
- * Author URI: 
+ * Author: Joe Murphy, Digital First Media
+ * Author URI: http://digitalfirstmedia.com/
  * License: Apache-2
  */
 
@@ -58,13 +58,13 @@ if ( !class_exists( "Easy_CF_Field_Tag_Select" ) ) {
 }
 $easy_cf = new Easy_CF($field_data);
 
-function dfm_get_package()
+function dfm_get_package($post_id)
 {
-    // Returns the tag slug of the package
+    // Returns the tag slug of the package for a particular post.
     return "HI";
 }
 
-function dfm_get_package_items()
+function dfm_get_package_items($tag_slug)
 {
     // Returns an array of post objects in the package.
     return "HI";
