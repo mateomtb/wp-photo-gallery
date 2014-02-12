@@ -141,10 +141,40 @@ $field_data = array (
                         'Markup' => array('label'=>'Sidebar Content',
                                         'type'=>'textarea'),
                         'Tag' => array('label'=>'Package',
-                                       ),
+                                        'type'=>'tag_select'),
                 ),
         ),
 );
+if ( !class_exists( "Easy_CF_Field_Tag_Select" ) ) {
+    class Easy_CF_Field_Tag_Select extends Easy_CF_Field {
+        public function print_form() {
+            $class = ( empty( $this->_field_data['class'] ) ) ? $this->_field_data['id'] . '_class' :  $this->_field_data['class'];
+            $input_class = ( empty( $this->_field_data['input_class'] ) ) ? $this->_field_data['id'] . '_input_class' :  $this->_field_data['input_class'];
+
+            $id = ( empty( $this->_field_data['id'] ) ) ? $this->_field_data['id'] :  $this->_field_data['id'];
+            $label = ( empty( $this->_field_data['label'] ) ) ? $this->_field_data['id'] :  $this->_field_data['label'];
+            $tags = get_tags();
+            $options = '';
+            foreach ( $tags as $tag ):
+                // We only list tags that have the word "Package" in them.
+                if ( strpos('package', $tag->name) === FALSE ) continue;
+                $options .= '<option value="' . $tag->slug . '">' . $tag->name . '</option>' . "\n";
+            endforeach;
+
+            $hint = ( empty( $this->_field_data['hint'] ) ) ? '' :  '<p><em>' . $this->_field_data['hint'] . '</em></p>';
+
+            $label_format =
+                '<div class="%s">'.
+                '<p><label for="%s"><strong>%s</strong></label></p>'.
+                '<p><select class="%s" style="width: 100%%;" name="%s">%s</select></p>'.
+                '%s'.
+                '</div>';
+            printf( $label_format, $class, $id, $label, $input_class, $id, $options, $hint );
+        }
+    }
+}
+
+
 if ( !class_exists( "Easy_CF_Field_Textarea" ) ) {
     class Easy_CF_Field_Textarea extends Easy_CF_Field {
         public function print_form() {
