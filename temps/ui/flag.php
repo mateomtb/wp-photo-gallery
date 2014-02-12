@@ -8,11 +8,18 @@
         </a>
         <button class="back-toggle"><span class="glyphicon glyphicon-chevron-left"><span class="sr-only">Back</span></span></button>
         <div class="page-id">
-            <?php if($page_type !== 'home'): ?>
-            <a class="branding sm"><?php include('img/logo.svg');?><span class="sr-only">The Denver Post</span></a>
-            <h4 class="section-name hidden-sm-down"><a href=""><?php echo (isset($sub_name)) ? $sub_name : $master_name; ?></a></h4>
+            <?php if($page_type === 'home'): ?>
+            <h1 class="branding xl"><?php include('img/logo.svg');?><span class="sr-only">The Denver Post</span></h1>
             <?php else: ?>
-            <a class="branding xl"><?php include('img/logo.svg');?><span class="sr-only">The Denver Post</span></a>
+            <a href="index.php" class="branding sm"><?php include('img/logo.svg');?><span class="sr-only">The Denver Post</span></a>
+            <?php if($page_type !== 'article'): 
+            // if it is a section (category.php) page: ?>
+            <h1 class="section-name"><?php echo (isset($sub_name)) ? $sub_name : $master_name; ?></h1>
+            <?php else:
+            // it is an article (single.php or page.php) page
+            ?> 
+            <a href="your/section/url" class="section-name"><?php echo (isset($sub_name)) ? $sub_name : $master_name; ?></a>
+            <?php endif; ?>
             <?php endif; ?>
         </div>
         <!-- <div class="header-tools"> -->
@@ -21,7 +28,7 @@
                 <div class="input-group">
                     <input type="text" name="s" class="form-control">
                     <span class="input-group-btn">
-                        <button class="btn primary" type="button">Go!</button>
+                        <button class="btn primary" type="button"><span class="glyphicon glyphicon-search"><span class="sr-only">Search</span></span></button>
                     </span>
                 </div><!-- /input-group -->
             </form> <!-- #site-search -->

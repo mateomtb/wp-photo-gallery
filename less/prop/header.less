@@ -11,7 +11,6 @@
   background: @brand-primary;
   .branding {
 	width: 150px;
-	line-height: @navbar-height-max;
     margin: 0 auto;
   }
   .search-bar {
@@ -28,7 +27,6 @@
     .branding {
 	  min-height: none;
 	  max-height: none;
-	  line-height: @line-height-base;
 	  margin: 0;
 	  &.sm {
 		margin-top: 5px;
@@ -99,17 +97,18 @@
   }
 }
 .section-name {
+  &:extend(.h4 all);
   line-height: 1;
   margin: 0 0 10px 0;
-  a {
-    color: @brand-primary;
-  }
-  a:hover {
-    text-decoration: none;
-    color: @gray-dark;
-  }
+  color: @brand-primary;
   @media (min-width: @breakpoint-md) {
     .font-size(40px);
+  }
+}
+a.section-name {
+  &:hover {
+    text-decoration: none;
+    color: @gray;
   }
 }
 
