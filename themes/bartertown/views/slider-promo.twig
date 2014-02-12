@@ -1,57 +1,88 @@
 <h4 class="topic-header">Blogs</h4>
+<!-- begin widget -->
 <div id="blogs-promo-slider" class="carousel slide multi-pane three-image" data-interval="false">
-    <!-- Carousel items -->
     <div class="carousel-inner">
-        <div class="active item">
-            <div class="slide">
-                <figure>
-                    <a href=""><img width="200" src="http://placehold.it/400x225" alt="" /></a>
-                    <h3><a href="">Colorado recall: PPP presser pause on poll showing Sen. Giron down by wide margin</a></h3>
-                </figure>
-                <figure>
-                    <a href=""><img width="200" src="http://placehold.it/400x225" alt="" /></a>
-                    <h3><a href="">Washed Out at the Fox Theatre, 9-10-13 Review</a></h3>
-                </figure>
-                <figure>
-                    <a href=""><img width="200" src="http://placehold.it/400x225" alt="" /></a>
-                    <h3><a href="">First day of Avs training camp (Video)</a></h3>
-                </figure>
-            </div><!-- .slide -->
-        </div>
-        <div class="item">
-            <div class="slide">
-                <figure>
-                    <a href=""><img width="200" src="http://placehold.it/400x225" alt="" /></a>
-                    <h3><a href="">Colorado recall: PPP presser pause on poll showing Sen. Giron down by wide margin</a></h3>
-                </figure>
-                <figure>
-                    <a href=""><img width="200" src="http://placehold.it/400x225" alt="" /></a>
-                    <h3><a href="">Washed Out at the Fox Theatre, 9-10-13 Review</a></h3>
-                </figure>
-                <figure>
-                    <a href=""><img width="200" src="http://placehold.it/400x225" alt="" /></a>
-                    <h3><a href="">First day of Avs training camp (Video)</a></h3>
-                </figure>
-            </div><!-- .slide -->
-        </div>
-        <div class="item">
-            <div class="slide">
-                <figure>
-                    <a href=""><img width="200" src="http://placehold.it/400x225" alt="" /></a>
-                    <h3><a href="">Colorado recall: PPP presser pause on poll showing Sen. Giron down by wide margin</a></h3>
-                </figure>
-                <figure>
-                    <a href=""><img width="200" src="http://placehold.it/400x225" alt="" /></a>
-                    <h3><a href="">Washed Out at the Fox Theatre, 9-10-13 Review</a></h3>
-                </figure>
-                <figure>
-                    <a href=""><img width="200" src="http://placehold.it/400x225" alt="" /></a>
-                    <h3><a href="">First day of Avs training camp (Video)</a></h3>
-                </figure>
-            </div><!-- .slide -->
-        </div>
+    <!-- JS will add slides -->
     </div>
-  <!-- Carousel nav -->
-  <a class="carousel-control left" href="#blogs-promo-slider" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-  <a class="carousel-control right" href="#blogs-promo-slider" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    <a class="carousel-control left" href="#blogs-promo-slider" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a class="carousel-control right" href="#blogs-promo-slider" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 </div>
+<script type="text/javascript">
+// Created as javascript in anticipation of portability needs
+// Hopefully we can ensure that Bootstrap Carousel exists wherever we place this
+// once fully widgetized
+// Carousel currently in http://sandbox.digitalfirstmedia.com/btown/js/bartertown.min.js
+// Will move to its own include on Extras when all the details are ironed out
+(function($, jsonpCallback, domain, options){
+    if (typeof $ === 'undefined') {
+        console.log("You need jQuery.");
+        return false;
+    }
+    if (typeof $.fn.carousel !== 'function') {
+        console.log("You need jQuery.fn.carousel. See http://sandbox.digitalfirstmedia.com/btown/");
+        return false;
+    }
+    if (!domain) {
+        return false;
+    }
+    
+    window[jsonpCallback] = function(json){
+        createWidget(json);
+    }
+    
+    // Retrieve JSON and wrapper function
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    // Need to determine if this is standard URL structure for this data
+    // If not, might need to add arbitrary feed URL as arg or part of options object
+    script.src = 'http://extras.denverpost.com/cache/bt-' + domain + '-all-rotator-0.json';
+    document.getElementsByTagName('head')[0].appendChild(script);
+    
+    function createWidget(data){
+        // We need item in 3s
+        var numberOfSlides = Math.floor(data.items.length / 3);
+        var slidesHTML = [];
+        var slideHTMLBegin = '<div class="item"><div class="slide">';
+        var slideHTMLEnd = '</div></div>';
+        
+        // Best way to concat long strings
+        // https://developers.google.com/speed/articles/optimizing-javascript
+        function createSlideInner(item){
+            return [
+            '<figure>', 
+                '<a href="', item.link, '">', 
+                    '<img width="200" src="', item.image, '" alt="" />',
+                '</a>',
+                '<h3>',
+                    '<a href="', item.link, '">', item.title, '</a>', 
+                '</h3>',
+            '</figure>' 
+            ].join('');
+        }
+
+        // A loop to create [numberOfSlides] slides of 3
+        // and add to array of all slide html
+        for (var slide = 0; slide < numberOfSlides; slide++) {
+            var slideHTML = [];
+            for (var i = (slide * 3); i < ((slide * 3) + 3); i++) {
+                slideHTML.push(createSlideInner(data.items[i]));
+            }
+            slidesHTML.push(slideHTMLBegin, slideHTML.join(''), slideHTMLEnd);
+        }
+        // Add slide html, add active item, init carousel
+        $('div#blogs-promo-slider div.carousel-inner').html(slidesHTML.join(''));
+        $('div#blogs-promo-slider div.item:eq(0)').addClass('active');
+        $('div#blogs-promo-slider.carousel').carousel();
+
+        // Why not remove the only global now that we don't need it? 
+        delete window[jsonpCallback];
+    }
+
+})(
+    dfm.$, 
+    'simplepieCallback', 
+    dfm.env.domain || (location.host.match(/([^.]+)\.\w{2,3}(?:\.\w{2})?$/) || [])[1],
+    {}
+);
+</script>
+<!-- end widget -->
