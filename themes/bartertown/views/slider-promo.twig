@@ -73,9 +73,10 @@
         $('div#blogs-promo-slider div.carousel-inner').html(slidesHTML.join(''));
         $('div#blogs-promo-slider div.item:eq(0)').addClass('active');
         $('div#blogs-promo-slider.carousel').carousel();
+
+        // Why not remove the only global now that we don't need it? 
+        delete window[jsonpCallback];
     }
-    // Why not remove the only global now that we don't need it? 
-    delete window[jsonpCallback];
 
 })(
     dfm.$, 
