@@ -1,6 +1,6 @@
 <?php
 
-	add_theme_support('post-formats', array('aside', 'gallery', 'image', 'video', 'audio'));
+	add_theme_support('post-formats', array('aside', 'gallery', 'image', 'video', 'audio', 'link'));
 	add_theme_support('post-thumbnails');
 	add_theme_support('menus');
 
@@ -137,8 +137,11 @@ $field_data = array (
         ),
         'Sidebar' => array (
                 'fields' => array (
-                        'Title' => array(),
-                        'Markup' => array(),
+                        'Title' => array('label'=>'Sidebar Title'),
+                        'Markup' => array('label'=>'Sidebar Content',
+                                        'type'=>'textarea'),
+                        'Tag' => array('label'=>'Package',
+                                       ),
                 ),
         ),
 );
