@@ -145,6 +145,27 @@ $field_data = array (
                 ),
         ),
 );
+if ( !class_exists( "Easy_CF_Field_Textarea" ) ) {
+    class Easy_CF_Field_Textarea extends Easy_CF_Field {
+        public function print_form() {
+            $class = ( empty( $this->_field_data['class'] ) ) ? $this->_field_data['id'] . '_class' :  $this->_field_data['class'];
+            $input_class = ( empty( $this->_field_data['input_class'] ) ) ? $this->_field_data['id'] . '_input_class' :  $this->_field_data['input_class'];
+
+            $id = ( empty( $this->_field_data['id'] ) ) ? $this->_field_data['id'] :  $this->_field_data['id'];
+            $label = ( empty( $this->_field_data['label'] ) ) ? $this->_field_data['id'] :  $this->_field_data['label'];
+            $value = $this->get();
+            $hint = ( empty( $this->_field_data['hint'] ) ) ? '' :  '<p><em>' . $this->_field_data['hint'] . '</em></p>';
+
+            $label_format =
+                '<div class="%s">'.
+                '<p><label for="%s"><strong>%s</strong></label></p>'.
+                '<p><textarea class="%s" style="width: 100%%;" type="text" name="%s">%s</textarea></p>'.
+                '%s'.
+                '</div>';
+            printf( $label_format, $class, $id, $label, $input_class, $id, $value, $hint );
+        }
+    }
+}
 $easy_cf = new Easy_CF($field_data);
 endif;
 
