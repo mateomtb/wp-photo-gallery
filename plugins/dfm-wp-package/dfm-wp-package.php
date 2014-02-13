@@ -11,6 +11,27 @@
 
 // TODOS:
 // * Allow more than one package to be associated to a post.
+/*
+// Usage:
+if ( class_exists('DFMPackage') ):
+    $package = new DFMPackage($post);
+
+    // Returns array:
+    $package_name = $package->get_package();
+
+    // Returns a collection of posts:
+    $posts = $package->get_package_items();
+endif;
+
+
+// Usage (within the Timber templating system):
+if ( class_exists('DFMPackage') ):
+    $package = new DFMPackage($post);
+    $package_name = $package->get_package();
+    $context['package_name'] = $package_name[0];
+    $context['package'] = $package->get_package_items();
+endif;
+*/
 
 if ( !file_exists(WP_PLUGIN_DIR . '/easy-custom-fields/easy-custom-fields.php') ) die("Requires Easy Custom Fields plugin ( http://wordpress.org/plugins/easy-custom-fields/ )");
 
