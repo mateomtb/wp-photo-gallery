@@ -23,11 +23,22 @@ if ( function_exists('dsq_comments_template') ):
     $context['comment_form'] = TimberHelper::function_wrapper('comments_template', array($comments_file));
 endif;
 
-if ( class_exists('DFMPackage') ):
-    $package = new DFMPackage($post);
-    $package_name = $package->get_package();
-    $context['package_name'] = $package_name[0];
-    $context['package'] = $package->get_package_items();
+if ( class_exists('DFMCollection') ):
+    // First we look for any Package collections that exist.
+    $package = new DFMCollection($post);
+    $package_name = $package->get_collection();
+    if ( $package_name != NULL ):
+        $context['package_name'] = $package_name[0];
+        $context['package'] = $package->get_collection_items();
+    endif;
+
+    // Next we look for any Related collections.
+    $collection = new DFMCollection($post, 'related');
+    $collection_name = $collection->get_collection();
+    if ( $collection_name != NULL ):
+        $context['collection_name'] = $collection_name[0];
+        $context['collection'] = $collection->get_collection_items();
+    endif;
 endif;
 
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');
