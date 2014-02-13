@@ -13,7 +13,9 @@
     {% if is_home %}
         {% include 'home.twig' %}
     {% else %}
+    {% if breaking_alert %}
         {% include 'breaking-alert.twig' %}
+    {% endif %}
         <div class="row">
             <div class="content-well">
                 <div class="row-fluid">
