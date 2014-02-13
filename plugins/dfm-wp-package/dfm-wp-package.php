@@ -9,6 +9,9 @@
  * License: Apache-2
  */
 
+// TODOS:
+// * Allow more than one package to be associated to a post.
+
 if ( !file_exists(WP_PLUGIN_DIR . '/easy-custom-fields/easy-custom-fields.php') ) die("Requires Easy Custom Fields plugin ( http://wordpress.org/plugins/easy-custom-fields/ )");
 
 require_once( WP_PLUGIN_DIR . '/easy-custom-fields/easy-custom-fields.php' );
@@ -58,14 +61,44 @@ if ( !class_exists( "Easy_CF_Field_Tag_Select" ) ) {
 }
 $easy_cf = new Easy_CF($field_data);
 
-function dfm_get_package($post_id)
+class DFMPackage
 {
-    // Returns the tag slug of the package for a particular post.
-    return "HI";
-}
+    // We use this class to take a post or a post_id and look up a posts package.
+    // If the package exists return either an array of post objects or an array of post link markup.
 
-function dfm_get_package_items($tag_slug)
-{
-    // Returns an array of post objects in the package.
-    return "HI";
+    var $post;
+
+    function __construct($post)
+    {
+        switch ( gettype($post) ):
+            case 'object':
+                $this->post = $post;
+                break;
+            case 'integer':
+                $this->post = get_post($post);
+                break;
+            case 'string':
+                $this->post = get_post(intval($post));
+                break;
+        endswitch;
+        $this->package=$this->get_package();
+        //echo($this->package);
+    }
+
+    public function get_package($post_id=0)
+    {
+        // Returns the tag slug of the package for a particular post.
+        if ( $post_id == 0 )
+            $post_id = $post->ID;
+
+        $package = get_post_custom_values('package', $post_id);
+        
+        return $package;
+    }
+
+    public function get_package_items($tag_slug)
+    {
+        // Returns an array of post objects in the package.
+        return $items;
+    }
 }
