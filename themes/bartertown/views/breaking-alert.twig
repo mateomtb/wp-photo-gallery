@@ -1,0 +1,27 @@
+<script type="text/javascript">
+
+var breakingStamp = {{breaking_alert.0.post_modified|date("mdYh")}};
+</script>
+
+
+<div id="alerts" class="hideit">
+    <div class="container-fluid">
+        <div class="alert alert-block alert-warning fade in extendfull">
+            <div class="alertNGPS" id="closeAlert">
+                <a class="close" data-dismiss="alert" href="#">×</a>
+                <h4 class="alert-heading">BREAKING NEWS: <a href="{{breaking_alert.0.link}}">{{breaking_alert.0.title}}</a></h4>
+            </div>
+        </div> <!-- .alert -->
+    </div> <!-- .container-fluid -->
+</div> <!-- #alerts -->
+
+
+<script type="text/javascript">
+// If someone hides the alert-bar, it shouldn't display on the next page load.
+var breakingCookie = getCookie("breaking" + breakingStamp);
+if ( breakingCookie == '' ) dfm.$('#alerts').show();
+dfm.$('#closeAlert a').bind('click', function(){ 
+    dfm.$('#alerts').hide();
+    setCookie("breaking" + breakingStamp, "1",10*365,'/',getBaseDomain(),null);
+ });
+</script>

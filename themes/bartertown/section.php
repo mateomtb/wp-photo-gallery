@@ -1,11 +1,11 @@
 <?php
-/** Configure Home Page Queries and Assign to Templating Contexts**/
+/** Configure Section Page Queries and Assign to Templating Contexts**/
 
 
 /* Set categories and other config for all content on home page */
 
 // All of the configuration could come from a JSON file for each site
-$config = json_decode(file_get_contents(get_template_directory() . '/home_section_json/scsun-home.json'), true);
+$config = json_decode(file_get_contents(get_template_directory() . '/home_section_json/scsun-sports.json'), true);
 
 // Might be a better choice than WP Menus since we will not be overly reliant on a
 // WordPress specific implementation?
@@ -16,63 +16,17 @@ $config = json_decode(file_get_contents(get_template_directory() . '/home_sectio
 // where a heading is neeeded. But it's probably good to anticipate custom requests?
 
 // Lead Stories
-//$leadStory = array(null, null, 1, 'lead_story', 'yes');
 $leadStory = array_values($config['lead_story']);
-//$secondaryLeadStory = array(null, null, 1, 'secondary_lead_story', 'yes');
 $secondaryLeadStory = array_values($config['secondary_lead_story']);
-//$relatedStories = array('Related Stories', 'news', 4);
 $relatedStories = array_values($config['related_stories']);
-
-
-
-/*$secondaryStories = array(
-    array('News', 'news', 1, 'secondary_story', 'yes'),
-    array('Sports', 'sports', 1, 'secondary_story', 'yes'),
-    array('Entertainment', 'entertainment', 1, 'secondary_story', 'yes')
-);*/
-
 $secondaryStories = array_values($config['secondary_stories']);
 
-
 // Feed stories (In Other News)
-//$feedStoryHeading = 'In Other News';
-
-/*$storyFeeds = array(
-    array('Denver', 'news', 1),
-    array('Colorado', 'sports', 1),
-    array('Entertainment', 'entertainment', 1),
-    array('Weather', 'weather', 1),
-    array('Businesss', 'business', 1)
-    //array('Broncos', 'sports', 1),
-    //array('Local News', 'news', 1),
-    //array('Business', 'news', 1);
-    //array('Weather', 'news', 1);
-);*/
 $feedStoryHeading = $config['story_feed_heading'];
 $storyFeeds = array_values($config['story_feed']);
-
-// Sub topics
-/*$sectionPromos = array(
-    array('Silver City', 'news', 4),
-    array('Silver City', 'sports', 4),
-    array('Silver City', 'entertainment', 4),
-    array('Silver City', 'news', 4)
-);*/
-
-$sectionPromos = array_values($config['section_promos']);
-
-
-// Blogs
-// Is this content going to come from a widget? 
-$blogs1;
-$blogs2;
-$blogs3;
-
+// Columnists
+$columnists = array_values($config['columnists']);
 /* End config*/
-
-
-
-
 
 /* Run queries and assign contexts to be used in templates */
 
@@ -92,7 +46,6 @@ foreach($secondaryStories as $story) {
     $context['secondary_stories'][] =  Timber::get_post(createWPQueryArray(array_values($story)));
 }
 // Story feed small
-$context['story_feed_heading'] = $config['story_feed_heading'];
 $context['story_feed'] = array();
 foreach($storyFeeds as $story) {
     $context['story_feed'][] = Timber::get_post(createWPQueryArray(array_values($story)));
@@ -101,9 +54,9 @@ foreach($storyFeeds as $story) {
     //++feedStoryCount;
 }
 // Section promos
-$context['section_promos'] = array();
-foreach($sectionPromos as $promo) {
-    $context['section_promos'][] = Timber::get_posts(createWPQueryArray(array_values($promo)));
+$context['columnists'] = array();
+foreach($columnists as $columnist) {
+    $context['columnists'][] = Timber::get_posts(createWPQueryArray(array_values($columnist)));
 }
 /* End run queries */
 ?>
