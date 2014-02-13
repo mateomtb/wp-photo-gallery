@@ -23,8 +23,11 @@ if ( function_exists('dsq_comments_template') ):
     $context['comment_form'] = TimberHelper::function_wrapper('comments_template', array($comments_file));
 endif;
 
-if ( function_exists('dfm_get_package') ):
-    $context['package'] = TimberHelper::function_wrapper('dfm_get_package');
+if ( class_exists('DFMPackage') ):
+    $package = new DFMPackage($post);
+    $package_name = $package->get_package();
+    $context['package_name'] = $package_name[0];
+    $context['package'] = $package->get_package_items();
 endif;
 
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');

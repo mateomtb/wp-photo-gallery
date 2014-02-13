@@ -82,12 +82,12 @@ class DFMPackage
                 break;
         endswitch;
         $this->package=$this->get_package();
-        //echo($this->package);
     }
 
     public function get_package($post_id=0)
     {
         // Returns the tag slug of the package for a particular post.
+        // Takes a parameter, post_id, for manual lookups of post package field.
         if ( $post_id == 0 )
             $post_id = $post->ID;
 
@@ -96,9 +96,17 @@ class DFMPackage
         return $package;
     }
 
-    public function get_package_items($tag_slug)
+    public function get_package_items()
     {
         // Returns an array of post objects in the package.
-        return $items;
+        $args = array(
+            'tag' => $this->package[0],
+            'limit' => 10,
+            );
+        $query = new WP_Query($args);
+        if ( $query->have_posts() )
+            return $query->posts;
+        
+        return false;
     }
 }
