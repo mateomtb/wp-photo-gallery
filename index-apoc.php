@@ -1,11 +1,14 @@
 <?php require_once('inc/init.php'); // load in base objects ?>
 <?php 
-    $page_type = 'home';
-    $master_name = 'home'; 
+	$page_type = 'home';
+	$master_name = 'home'; 
 ?>
 <?php require_once('temps/header.php'); // load in header ?>
 <div class="row">
-    <div class="content-well">
+	<div class="content-well">
+		<div class="takeover">
+			<?php include('temps/content/apoc-home.php'); ?>
+		</div>
         <div id="above-fold" class="row">
             <div class="centerpiece col md-9 md-push-3">
                 <?php include('temps/content/home-centerpiece.php'); ?>
@@ -42,10 +45,10 @@
             <?php include('temps/content/section-promo.php');?>
             </div>
         </div><!-- #bottom-row -->
-    </div> <!-- .content-well -->
-    <div class="right-rail">
-        <?php include('temps/right-rail.php'); ?>
-    </div> <!-- .right-rail -->
+	</div> <!-- .content-well -->
+	<div class="right-rail">
+		<?php include('temps/right-rail.php'); ?>
+	</div> <!-- .right-rail -->
 </div>
 
 <?php include('temps/content/bottom-line.php'); ?>

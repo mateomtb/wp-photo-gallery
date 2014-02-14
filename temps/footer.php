@@ -105,6 +105,10 @@
           setToggle();
         }
 
+        // CHECK RIGHT RAIL HEIGHT
+        // ----------------------------------------
+        setTimeout(checkRightRailHeight, 200);
+
         function setToggle() {
             $('.dropdown-toggle').on('click', function() {
                 $bigMenu.addClass('active');
@@ -181,13 +185,26 @@
             if($bigMenu.hasClass('active')) {
               $bigMenu.removeClass('active');
               $('.dropdown-menu').removeClass('active');
+              checkRightRailHeight();
             }
+          } else {
+           // $('#content .row:first-child').removeAttr('style');
           }
-        if($(window).width() <= breakpointMD) {
-          setToggle();
-        }
+          if($(window).width() <= breakpointMD) {
+            setToggle();
+          }
+          
         });
 
+		function checkRightRailHeight() {
+			console.log('check');
+			var rrH = $('.right-rail').height();
+			var cwH = $('.content-well').height();
+			console.log(rrH);
+			if (rrH > cwH) {
+				$('#content .row:first-child').height(rrH);
+			}
+		}
         // left rail shrinking
             //         if($('.home-page').length) {
             // var $leftRail = $('.left-rail'),

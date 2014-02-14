@@ -717,7 +717,11 @@ a.bg-info:hover {
 .top-bar-toggle:before,
 .top-bar-toggle:after,
 .side-nav:before,
-.side-nav:after {
+.side-nav:after,
+.secondary-stories:before,
+.secondary-stories:after,
+.takeover:before,
+.takeover:after {
   display: table;
   content: " ";
 }
@@ -760,7 +764,9 @@ a.bg-info:hover {
 .current-weather .forecast ul:after,
 .markets-bar:after,
 .top-bar-toggle:after,
-.side-nav:after {
+.side-nav:after,
+.secondary-stories:after,
+.takeover:after {
   clear: both;
 }
 .center-block {
@@ -1262,13 +1268,16 @@ th.hidden-touch {
 .container .container {
   width: auto !important;
 }
-.row {
+.row,
+.secondary-stories,
+.takeover {
   position: relative;
   width: auto;
   margin-right: -15px;
   margin-left: -15px;
 }
 .col,
+.takeover .topper,
 .factbox,
 .inline-promo {
   position: relative;
@@ -6881,18 +6890,21 @@ button.close {
     bottom: 20px;
   }
 }
-.breadcrumb-block {
+.breadcrumb-block,
+.breadcrumb.block {
   padding: 0;
   margin: 0 0 22px;
   list-style: none;
   background-color: #f5f5f5;
 }
-.breadcrumb-block > li {
+.breadcrumb-block > li,
+.breadcrumb.block > li {
   margin: 0 4px 0 0;
   font-size: 14px;
   font-size: 1.4rem;
 }
-.breadcrumb-block > li:before {
+.breadcrumb-block > li:before,
+.breadcrumb.block > li:before {
   position: absolute;
   top: -8px;
   width: 0;
@@ -6902,19 +6914,22 @@ button.close {
   border-bottom: 18px solid transparent;
   border-left: 7px solid #fff;
 }
-.breadcrumb-block > li:after {
+.breadcrumb-block > li:after,
+.breadcrumb.block > li:after {
   padding: 0;
   content: none;
   border-left: 8px solid #ddd;
 }
-.breadcrumb-block > li a {
+.breadcrumb-block > li a,
+.breadcrumb.block > li a {
   padding: 10px 14px 10px 20px;
   line-height: 22px !important;
   background: #ddd;
   -webkit-transition: none;
           transition: none;
 }
-.breadcrumb-block > li a:after {
+.breadcrumb-block > li a:after,
+.breadcrumb.block > li a:after {
   position: absolute;
   top: -6px;
   right: -8px;
@@ -6925,52 +6940,62 @@ button.close {
   border-bottom: 18px solid transparent;
   border-left: 8px solid #ddd;
 }
-.breadcrumb-block > li a:hover {
+.breadcrumb-block > li a:hover,
+.breadcrumb.block > li a:hover {
   text-decoration: none;
   background: #c4c4c4;
 }
-.breadcrumb-block > li a:hover:after {
+.breadcrumb-block > li a:hover:after,
+.breadcrumb.block > li a:hover:after {
   border-left: 8px solid #c4c4c4;
 }
-.breadcrumb-block > .active {
+.breadcrumb-block > .active,
+.breadcrumb.block > .active {
   padding: 8px 16px 8px 20px;
   font-weight: 700;
   color: #fff;
   background-color: #39547a;
 }
-.breadcrumb-block > .active:before {
+.breadcrumb-block > .active:before,
+.breadcrumb.block > .active:before {
   top: 0;
   left: 0;
   border-left: 7px solid #fff;
 }
-.breadcrumb-block > .active:after {
+.breadcrumb-block > .active:after,
+.breadcrumb.block > .active:after {
   border: 0;
 }
 .breadcrumb-block-sm > li,
-.breadcrumb-block.sm > li {
+.breadcrumb-block.sm > li,
+.breadcrumb.block.sm > li {
   margin: 0 3px 0 0;
   font-size: 12px;
   font-size: 1.2rem;
 }
 .breadcrumb-block-sm > li:before,
-.breadcrumb-block.sm > li:before {
+.breadcrumb-block.sm > li:before,
+.breadcrumb.block.sm > li:before {
   top: 0;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
   border-left: 8px solid #fff;
 }
 .breadcrumb-block-sm > li a,
-.breadcrumb-block.sm > li a {
+.breadcrumb-block.sm > li a,
+.breadcrumb.block.sm > li a {
   padding: 4px 10px 5px 16px;
 }
 .breadcrumb-block-sm > li a:after,
-.breadcrumb-block.sm > li a:after {
+.breadcrumb-block.sm > li a:after,
+.breadcrumb.block.sm > li a:after {
   top: 0;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
 }
 .breadcrumb-block-sm > .active,
-.breadcrumb-block.sm > .active {
+.breadcrumb-block.sm > .active,
+.breadcrumb.block.sm > .active {
   padding: 1px 10px 4px 16px;
 }
 .debug {
@@ -7055,6 +7080,15 @@ h6,
   font-family: "Oxygen", "Trebuchet MS", "Helvetica Neue", Arial, serif;
   color: #293c57;
   text-transform: uppercase;
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.section-name {
+  display: block;
 }
 @media (min-width: 768px) {
   .carousel-control {
@@ -7657,12 +7691,6 @@ a.section-name:hover {
   margin-top: 44px;
   margin-bottom: 22px;
 }
-.secondary-stories {
-  position: relative;
-  width: auto;
-  margin-right: -15px;
-  margin-left: -15px;
-}
 .secondary-stories img {
   width: 100%;
 }
@@ -7887,6 +7915,90 @@ iframe[name="adblade_ad_iframe"] {
 .section-page #content .section-name {
   font-size: 24px;
   font-size: 2.4rem;
+}
+.takeover {
+  padding-bottom: 40px;
+}
+.takeover .topic-name {
+  margin: 0;
+}
+.takeover .topper h1,
+.takeover .topper .h1 {
+  margin: 11px 0;
+  font-family: "Oxygen", "Trebuchet MS", "Helvetica Neue", Arial, serif;
+  font-size: 36px;
+  font-size: 3.6rem;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .takeover .topper h1,
+  .takeover .topper .h1 {
+    font-size: 48px;
+    font-size: 4.8rem;
+  }
+}
+@media (min-width: 1200px) {
+  .takeover .topper h1,
+  .takeover .topper .h1 {
+    font-size: 54px;
+    font-size: 5.4rem;
+  }
+}
+.takeover .topper h4,
+.takeover .topper .h4,
+.takeover .topper .section-name {
+  text-align: center;
+}
+.takeover .topper .overline {
+  margin-bottom: 22px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.takeover .topper .overline h4,
+.takeover .topper .overline .h4,
+.takeover .topper .overline .section-name {
+  padding: 6px 0;
+  margin: 0;
+  font-family: "Merriweather", "Rockwell", "Times New Roman", Times, serif;
+  font-size: 18px;
+  font-size: 1.8rem;
+  text-align: center;
+  text-transform: none;
+  border-bottom: 1px solid #ddd;
+}
+.takeover .topper .overline h4:last-child,
+.takeover .topper .overline .h4:last-child,
+.takeover .topper .overline .section-name:last-child {
+  border-bottom: 0;
+}
+.takeover .second-lead-story,
+.takeover .secondary-stories {
+  margin-top: 0;
+  margin-bottom: 44px;
+}
+.takeover .preview {
+  margin-bottom: 22px;
+}
+.takeover .preview h3,
+.takeover .preview .h3 {
+  margin-top: 11px;
+  margin-bottom: 5.5px;
+  font-size: 18px;
+  font-size: 1.8rem;
+}
+.takeover .preview h5,
+.takeover .preview .h5 {
+  margin-bottom: 0;
+}
+.takeover .preview .excerpt {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 .ad {
   position: relative;
