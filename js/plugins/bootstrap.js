@@ -1,5 +1,5 @@
 /*!
- * Strapit Framework v2.0.4 (http://sandbox.digitalfirstmedia.com/strapit/)
+ * Strapit Framework v2.0.5 (http://sandbox.digitalfirstmedia.com/strapit/)
  * 
  * Based on Bootstrap v3.1.0 and Foundation v4.3.1
  * Copyright 2014 Twitter, Inc., ZURB
@@ -8,7 +8,7 @@
  * http://opensource.org/licenses/MIT
  */
 
-if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery") }
+if (typeof jQuery === "undefined") { throw new Error("Bootstrap Javascript requires jQuery") }
 
 /* ========================================================================
  * Bootstrap: transition.js v3.0.3

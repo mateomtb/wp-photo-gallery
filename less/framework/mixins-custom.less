@@ -49,7 +49,6 @@
   padding: 0 (@grid-gutter-width / 2);
   margin-right: auto;
   margin-left: auto;
-  .clearfix();
   // Fix for nested containers
   .@{class-name} {
     width: auto !important;
@@ -58,7 +57,6 @@
 
 // Create a row
 .make-rows(@gutter: @grid-gutter-width) {
-  .clearfix();
   position: relative;
   width: auto;
   margin-left:  (@gutter / -2);
@@ -97,21 +95,21 @@
 }
 
 // Push source ordering
-.grid-calc(@index; @columns: @grid-columns; @class; @type) when (@type = push) {
+.grid-calc(@index; @columns: @grid-columns; @class; @type) when (@type = push) and (@index > 0) {
   .@{class}-push-@{index} {
     left: round(percentage((@index / @columns)), 5);
   }
 }
 
 // Pull source ordering
-.grid-calc(@index; @columns: @grid-columns; @class; @type) when (@type = pull) {
+.grid-calc(@index; @columns: @grid-columns; @class; @type) when (@type = pull) and (@index > 0) {
   .@{class}-pull-@{index} {
     right: round(percentage((@index / @columns)), 5);
   }
 }
 
 // Offsets
-.grid-calc(@index; @columns: @grid-columns; @class; @type) when (@type = offset) {
+.grid-calc(@index; @columns: @grid-columns; @class; @type) when (@type = offset) and (@index >= 0) {
   .@{class}-offset-@{index} {
     margin-left: round(percentage((@index / @columns)), 5);
   }
@@ -119,14 +117,14 @@
 
 // THE LOOP 
 // This mixin builds targeted classes one property at a time
-.build-grid(@index; @columns: @grid-columns; @class; @type) when (@index >= 0) {
+.build-grid(@index; @columns: @grid-columns; @class; @type) when (@index > 0) {
   .grid-calc(@index; @columns; @class; @type);
   // next iteration
   .build-grid((@index - 1); @columns; @class; @type);
 }
 
 // Builds global push/pull, for when you don't need or want to source-ordering to a particular class
-.build-source-ordering(@index, @columns: @grid-columns) when (@index >= 0) {
+.build-source-ordering(@index, @columns: @grid-columns) when (@index > 0) {
   .col.push-@{index} {
     left: round(percentage((@index / @columns)), 5);
   }
@@ -148,18 +146,19 @@
 
 // Full grid
 // Build all targeted properties for a single class
-.build-full-grid(@index; @columns: @grid-columns; @class) when (@index >= 0) {
+.build-full-grid(@index; @columns: @grid-columns; @class) when (@index > 0) {
   .grid-calc(@index; @columns; @class; @type: width);
   .grid-calc(@index; @columns; @class; @type: offset);
   .grid-calc(@index; @columns; @class; @type: push);
   .grid-calc(@index; @columns; @class; @type: pull);
+
   // next iteration
   .build-full-grid((@index - 1); @columns; @class);
 }
 
 // Static grid
 // Build a special static grid if you don't want a fluid one
-.build-static-grid(@index) when (@index >= 0) {
+.build-static-grid(@index) when (@index > 0) {
   .col.md-@{index} {
     width: round(percentage((@index / @grid-columns)), 5);
   }
@@ -174,6 +173,7 @@
   }
   // next iteration
   .build-static-grid((@index - 1));
+
 }
 
 // Block grid mixins

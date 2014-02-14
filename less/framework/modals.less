@@ -120,11 +120,10 @@
 }
 
 // Scale up the modal
-@media screen and (min-width: @breakpoint-md) {
-
+@media (min-width: @breakpoint-md) {
   // Automatically set modal's width for larger viewports
   .modal-dialog {
-    width: 600px;
+    width: @modal-md;
     margin: 30px auto;
   }
   .modal-content {
@@ -133,6 +132,8 @@
 
   // Modal sizes
   .modal-sm { width: @modal-sm; }
-  .modal-lg { width: @modal-lg; }
+}
 
+@media (min-width: @breakpoint-lg) {
+  .modal-lg { width: @modal-lg; }
 }

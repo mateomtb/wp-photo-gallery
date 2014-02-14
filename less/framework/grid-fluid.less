@@ -4,30 +4,49 @@
 
 @media screen and (min-width: @site-min-width) {
   // make xs grid
-  .build-grid(@grid-columns-xs; @columns: @grid-columns-xs; @class: xs; width);
+  .build-full-grid(@grid-columns-xs; @columns: @grid-columns-xs; @class: xs);
+  // zero offset
+  .xs-offset-0 {
+    margin-left: 0;
+  }
 }
 
 @media screen and (min-width: @breakpoint-sm) {
   // make sm grid
-  .build-grid(@grid-columns-sm; @columns: @grid-columns-sm; @class: sm; width);
+  .build-full-grid(@grid-columns-sm; @columns: @grid-columns-sm; @class: sm);
+  // zero offset
+  .sm-offset-0 {
+    margin-left: 0;
+  }
 }
 
 @media screen and (min-width: @breakpoint-md) {
   // make md grid (default)
   .build-full-grid(@grid-columns-md; @columns: @grid-columns-md; @class: md);
-  .build-source-ordering(@grid-columns);
+  // zero offset
+  .md-offset-0 {
+    margin-left: 0;
+  }
   .make-centered-columns(md);
 }
 
 @media screen and (min-width: @breakpoint-lg) {
   // make lg grid
   .build-full-grid(@grid-columns-lg; @columns: @grid-columns-lg; @class: lg);
+  // zero offset
+  .lg-offset-0 {
+    margin-left: 0;
+  }
   .make-centered-columns(lg);
 }
 
 @media screen and (min-width: @breakpoint-xl) {
   //make xl grid
   .build-full-grid(@grid-columns-xl; @columns: @grid-columns-xl; @class: xl);
+  // zero offset
+  .xl-offset-0 {
+    margin-left: 0;
+  }
   .make-centered-columns(xl);
 }
 

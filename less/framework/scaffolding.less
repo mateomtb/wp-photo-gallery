@@ -149,7 +149,8 @@ hr {
 }
 
 // Faded out hr
-hr.soften {
+// Apply to <hr /> for a faded out line on both sides
+.hr-soften {
   height: 1px;
   margin: @line-height-computed 0;
   background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
@@ -157,7 +158,6 @@ hr.soften {
   background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
   background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
 }
-
 
 // Only display content to screen readers
 // See: http://a11yproject.com/posts/how-to-hide-content/

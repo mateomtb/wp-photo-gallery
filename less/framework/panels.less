@@ -18,6 +18,37 @@
   &:extend(.clearfix all);
 }
 
+// Optional heading
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  .border-top-radius((@panel-border-radius - 1));
+
+  > .dropdown .dropdown-toggle {
+    color: inherit;
+  }
+}
+
+// Within heading, strip any `h*` tag of its default margins for spacing.
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: ceil((@font-size-base * 1.125));
+  color: inherit;
+
+  > a {
+    color: inherit;
+  }
+}
+
+// Optional footer (stays gray in every modifier class)
+.panel-footer {
+  padding: 10px 15px;
+  background-color: @panel-footer-bg;
+  border-top: 1px solid @panel-inner-border;
+  .border-bottom-radius((@panel-border-radius - 1));
+}
+
 
 // List groups in panels
 //
@@ -29,6 +60,7 @@
     margin-bottom: 0;
     .list-group-item {
       border-width: 1px 0;
+      border-radius: 0;
       &:first-child {
         border-top: 0;
       }
@@ -65,12 +97,14 @@
 
 .panel {
   > .table,
-  > .table-responsive > .table {
+  > .table-responsive > .table,
+  > .table.responsive > .table {
     margin-bottom: 0;
   }
   // Add border top radius for first one
   > .table:first-child,
-  > .table-responsive:first-child > .table:first-child {
+  > .table-responsive:first-child > .table:first-child,
+  > .table.responsive:first-child > .table:first-child {
     > thead:first-child,
     > tbody:first-child {
       > tr:first-child {
@@ -103,7 +137,8 @@
     }
   }
   > .panel-body + .table,
-  > .panel-body + .table-responsive {
+  > .panel-body + .table-responsive,
+  > .panel-body + .table.responsive {
     border-top: 1px solid @table-border-color;
   }
   > .table > tbody:first-child > tr:first-child th,
@@ -113,7 +148,9 @@
   > .table-bordered,
   > .table.bordered,
   > .table-responsive > .table-bordered,
-  > .table-responsive > .table.bordered {
+  > .table-responsive > .table.bordered,
+  > .table.responsive > .table-bordered,
+  > .table.responsive > .table.bordered {
     border: 0;
     > thead,
     > tbody,
@@ -127,47 +164,32 @@
         > td:last-child {
           border-right: 0;
         }
-
-        &:last-child > th,
-        &:last-child > td {
+      }
+    }
+    > thead,
+    > tbody {
+      > tr:first-child {
+        > td,
+        > th {
           border-bottom: 0;
         }
       }
     }
-    > .table-responsive {
-       border: 0;
-       margin-bottom: 0;
+    > tbody,
+    > tfoot {
+      > tr:last-child {
+        > td,
+        > th {
+          border-bottom: 0;
+        }
+      }
     }
   }
-}
-
-// Optional heading
-.panel-heading {
-  padding: 10px 15px;
-  border-bottom: 1px solid transparent;
-  .border-top-radius((@panel-border-radius - 1));
-  > .dropdown .dropdown-toggle {
-    color: inherit;
+  > .table-responsive,
+  > .table.responsive {
+    border: 0;
+    margin-bottom: 0;
   }
-}
-
-// Within heading, strip any `h*` tag of its default margins for spacing.
-.panel-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  .font-size(ceil((@font-size-base * 1.125)));
-  color: inherit;
-  > a {
-    color: inherit;
-  }
-}
-
-// Optional footer (stays gray in every modifier class)
-.panel-footer {
-  padding: 10px 15px;
-  background-color: @panel-footer-bg;
-  border-top: 1px solid @panel-inner-border;
-  .border-bottom-radius((@panel-border-radius - 1));
 }
 
 
@@ -217,6 +239,10 @@
 .panel.success {
   .panel-variant(@panel-success-border; @panel-success-text; @panel-success-heading-bg; @panel-success-border);
 }
+.panel-info,
+.panel.info {
+  .panel-variant(@panel-info-border; @panel-info-text; @panel-info-heading-bg; @panel-info-border);
+}
 .panel-warning,
 .panel.warning {
   .panel-variant(@panel-warning-border; @panel-warning-text; @panel-warning-heading-bg; @panel-warning-border);
@@ -224,8 +250,4 @@
 .panel-danger,
 .panel.danger {
   .panel-variant(@panel-danger-border; @panel-danger-text; @panel-danger-heading-bg; @panel-danger-border);
-}
-.panel-info,
-.panel.info {
-  .panel-variant(@panel-info-border; @panel-info-text; @panel-info-heading-bg; @panel-info-border);
 }
