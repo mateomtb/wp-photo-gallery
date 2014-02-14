@@ -1,0 +1,293 @@
+.top-bar {
+  &:extend(.clearfix all);
+  background: #fff;
+  border-bottom: 1px solid @border-color;
+  overflow: hidden;
+  //display: none;
+  p {
+    font-family: @font-family-sans-serif;
+    margin: 0;
+  }
+  .container {
+	padding-top: (@line-height-computed / 2);
+	padding-bottom: (@line-height-computed / 2);
+    max-width: 1000px!important;
+  }
+}
+.weather-bar, 
+.traffic-bar, 
+.markets-bar {
+  &:extend(.clearfix all);
+  display: none;
+  &.visible {
+    display: block;
+  }
+}
+
+
+
+
+.traffic-map {
+  float: left;
+  .size(280px, 640px);
+}
+
+
+// WEATHER STYLES
+.weather-bar {
+  &:extend(.clearfix all);
+  div {
+    float: left;
+  }
+}
+.current-weather {
+  &:extend(.clearfix all);
+  width: 850px;
+  .current-temp {
+    width: 20%;
+    img {
+      border: 0;
+      float: left;
+      margin-right: (@line-height-computed / 3);
+      margin-top: (@line-height-computed / 3);
+      width: 40%;
+    }
+
+    hgroup {
+      float: left;
+      text-align: center;
+      h5 {
+        .font-size(60px);
+        font-weight: bold;
+        line-height: 1;
+      }
+      h6 {
+        .font-size(12px);
+      }
+    }
+  }
+  .high-low {
+    padding-top: (@line-height-computed / 1.25);
+    width: 12%;
+    margin: 0 1%;
+    div {
+      &:extend(.clearfix all);
+      width: 100%;
+      &:first-child {
+        border-bottom: 1px solid @gray-lighter;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+      }
+      small {
+        .font-size(10px);
+        line-height: 1;
+        text-align: right;
+        float: left;
+        width: 35%;
+      }
+      .temp {
+        color: @gray;
+        .font-size(25px);
+        font-weight: bold;
+        float: left;
+        width: 65%;
+        text-align: center;
+      }
+    }
+  }
+  .forecast {
+    width: 65%;
+    border-left: 1px solid @border-color;
+    h6 {
+      padding-bottom: (@line-height-computed / 4);
+    }
+    ul {
+      &:extend(.clearfix all);
+      li {
+        width: 17.8%;
+        border-right: 1px solid @border-color;
+        margin-left: 1%;
+        padding-right: 1%;
+        float: left;
+        text-align: center;
+        img {
+          float: left;
+        }
+        p {
+          .font-size(19px);
+          font-weight: bold;
+        }
+        .high-temp {
+          padding-top: 4px;
+          margin-bottom: 2px;
+          .font-size(27px);
+        }
+        .low-temp {
+          color:#59a6d5;
+        }
+      }
+    }
+  }
+}
+
+.topbar-ad {
+  float: right;
+  width: 120px;
+  h6 > a {
+    .font-size(12px);
+  }
+}
+
+/*TRAFFIC STYLES*/
+.traffic-bar {
+
+}
+
+/*MARKETS BAR STYLES*/
+.markets-bar {
+  &:extend(.clearfix all);
+  div {
+    float: left;
+  }
+  .tabs {
+    margin: 12px 0 0 0;
+    border: 0;
+    border-top: 1px solid darken(@border-color, 5%);
+    li {
+      margin: 0;
+      border: 0;
+      a {
+        border: 0;
+        border-radius: 0;
+        margin: 0;
+        border-bottom: 1px solid darken(@border-color, 5%);
+        .font-size(11px);
+        line-height: 1.5;
+        font-family: "Arial", sans-serif;
+        text-transform: uppercase;
+        color: @text-color;
+        &:hover {
+          border-bottom: 1px solid darken(@border-color, 5%);
+          color: @text-color;
+        }
+      }
+    }
+    li.active {
+      a {
+        border: 0;
+        border-bottom: 1px solid darken(@border-color, 5%);
+        font-weight: bold;
+        background: @border-color;
+      }
+      a:before {
+        content:"« ";
+      }
+    }
+  }
+  .chart {
+    .size(160px,620px);
+    img {
+      .size(125px,100%);
+      display: block;
+    }
+    .pills {
+      margin: 2px auto 0;
+      width: 50%;
+      li {
+        a {
+          .font-size(12px);
+          padding: 4px 8px;
+        }
+      }
+    }
+  }
+  .activity {
+    font-weight: bold;
+    margin-left: .5em;
+    .caret {
+      margin-top: .5em;
+    }
+  }
+  .activity.down {
+    color: @brand-danger;
+    .caret{
+      border-top-color: @brand-danger;
+    }
+  }
+  .activity.up {
+    color: @brand-success;
+    .caret {
+      border-bottom: 4px solid @brand-success;
+      border-top-width: 0;
+    }
+  }
+
+}
+
+/*MENU*/
+.top-bar-toggle {
+  &:extend(.clearfix all);
+  #gradient > .vertical(#fefefd, lighten(@gray-lighter, 10%));
+  border: 1px solid @gray-light;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0 0 10px 10px;
+  position: absolute;
+  top: -1px;
+  right: (@grid-gutter-width / 2);
+  li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    &:hover {
+      background: @brand-primary;
+    }
+    a {
+      display: block;
+      float: left;
+      border-right: 1px solid @gray-light;
+      .font-size(12px);
+      font-weight: bold;
+      line-height: 1;
+      padding: 10px 20px 10px 42px;
+      .transition(0);
+      &:hover {
+        .transition(0);
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+  li:first-child > a {
+    border-radius: 0 0 0 10px;
+  }
+  li:last-child > a {
+    border-right: 0;
+    border-radius: 0 0 10px 0;
+  }
+  .weather-toggle a{
+    background: url('../img/limicons/weather_sunny_small.png') no-repeat 10px 4px;
+  }
+  .weather-toggle a:hover,
+  .weather-toggle a.active {
+    border-radius: 0 0 0 10px;
+    background: @brand-primary url('../img/limicons/weather_sunny_small_white.png') no-repeat 10px 4px;
+    color: #fff;
+  }
+  .traffic-toggle a {
+    background: url('../img/limicons/traffic_icon.png') no-repeat 10px 3px;
+  }
+  .traffic-toggle a:hover,
+  .traffic-toggle a.active {
+    background: @brand-primary url('../img/limicons/traffic_icon_white.png') no-repeat 10px 3px;
+    color: #fff;
+  }
+  .markets-toggle a {
+    background: url('../img/limicons/markets_icon.png') no-repeat 10px 4px;
+  }
+  .markets-toggle a:hover,
+  .markets-toggle a.active {
+    border-radius: 0 0 10px 0;
+    background: @brand-primary url('../img/limicons/markets_icon_white.png') no-repeat 10px 4px;
+    color: #fff;
+  }
+}

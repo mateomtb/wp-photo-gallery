@@ -125,8 +125,9 @@
 }
 .poll {
   margin-bottom: @line-height-computed;
-  h3 {
-    .font-size(15px);
+  h3, .h3 {
+    font-family: @font-family-treb;
+    .font-size(14px);
     margin-top:0;
   }
   button {
@@ -137,5 +138,10 @@
 .media-center {
   .media-center-caption {
     margin-bottom: @line-height-computed;
+  }
+  .secondary-stories {
+    h3, .h3 {
+      font-family: @font-family-treb;
+    }
   }
 }

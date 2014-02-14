@@ -20,6 +20,7 @@
     <!--[if lt IE 8]><p class="chromeframe">Your browser is <em>old.</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
     <?php if($leader == 'true' || $allads == 'true') { include('ads/leaderboard-static.php'); } ?>
     <header id="site-header">
+        <?php include('temps/ui/topbar.php'); ?>
         <?php include('temps/ui/flag.php'); ?>
         <?php include('temps/ui/main-nav.php'); ?>
         <?php include('temps/ui/hot-topics.php'); ?>

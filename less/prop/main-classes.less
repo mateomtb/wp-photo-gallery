@@ -5,37 +5,37 @@
   display: block;
   svg {
     fill: #fff;
-	max-width: 150px;
+  max-width: 150px;
     max-height: 15px;
   }
   @media (min-width:@breakpoint-md) {
-	  svg {
-	    fill: #222;
-	  }
-	  &.md {
-		svg {
-			max-width: 200px;
-		    max-height: 20px;
-		}
-	  }
-	  &.lg {
-		svg {
-			max-width: 250px;
-		    max-height: 25px;
-		}
-	  }
-	  &.xl {
-		svg {
-			max-width: 300px;
-		    max-height: 30px;
-		}
-	  }
+    svg {
+      fill: #222;
+    }
+    &.md {
+    svg {
+      max-width: 200px;
+        max-height: 20px;
+    }
+    }
+    &.lg {
+    svg {
+      max-width: 250px;
+        max-height: 25px;
+    }
+    }
+    &.xl {
+    svg {
+      max-width: 300px;
+        max-height: 30px;
+    }
+    }
   }
   &.sm {
-	svg {
-		max-width: 150px;
-	    max-height: 15px;
-	}
+  svg {
+    max-width: 150px;
+      max-height: 15px;
+  }
   }
 }
 .share-widget {
@@ -142,8 +142,11 @@
 }
 .story-feed {
   margin-bottom: @line-height-computed;
-  h4 {
-    margin: 0 0 @line-height-computed;
+  h3, .h3 {
+    font-family: @font-family-treb;
+  }
+  h4, .h4 {
+    margin: 0 0 (@line-height-computed / 2);
   }
   img {
     margin-bottom: (@line-height-computed / 2);
@@ -151,27 +154,29 @@
   figure {
     margin-bottom: @line-height-computed;
   }
-  hgroup {
-    margin-bottom: (@line-height-computed / 2);
-    h1, h2, h3, h4, h5, h6,
-    .h1, .h2, .h3, .h4, .h5, .h6 {
-      margin-top: 0;
-    }
-  }
   .topic-header {
     .font-size(24px);
   }
   ul {
     > li {
+      margin-bottom: (@line-height-computed / 2);
       h3, .h3 {
         margin-top: 0;
+        margin-bottom: (@line-height-computed / 4);
+      }
+      h3 + .meta,
+      .h3 + .meta {
+        margin-bottom: 0;
       }
     }
   }
   &.sm {
     @media (min-width: @breakpoint-md) {
       h3, .h3 {
-        .font-size(16px);
+        .font-size(14px);
+      }
+      h5, .h5 {
+        margin-bottom: 0;
       }
     }
   }
@@ -181,7 +186,7 @@
     }
     @media (min-width:@breakpoint-md) {
       h3, .h3 {
-        .font-size(21px);
+        .font-size(18px);
       }
     }  
   }
@@ -189,17 +194,17 @@
 
 .story-feed.lg,
 .centerpiece{
-	.meta {
-	  border: @border;
-	  border-width: 1px 0;
-	  padding: (@line-height-computed / 4) 0;
-	  p {
-	    margin: 0;
-	  }
-	  .comment-bug a {
-	    top: (@line-height-computed / 4);
-	  }
-	}
+  .meta {
+    border: @border;
+    border-width: 1px 0;
+    padding: (@line-height-computed / 4) 0;
+    p {
+      margin: 0;
+    }
+    .comment-bug a {
+      top: (@line-height-computed / 4);
+    }
+  }
 }
 
 .topic-header {
