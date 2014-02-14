@@ -125,4 +125,11 @@ try{var _recommender = new _rec({apiKey: '{{config.newstogram}}',cssUrl: 'http:/
         </article>
 
 
+{% if menu_action %}
+{% for item in menu_action.get_items %}
+            <li id="menu-item-{{item.ID}}" class="menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}}">
+                <a href="{{ item.get_path }}" title="{{ item.title }}">{{ item.title }}</a>
+            </li>
+{% endfor %}
+{% endif %}
 {% endblock %}

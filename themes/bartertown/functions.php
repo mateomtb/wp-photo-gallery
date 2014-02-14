@@ -67,8 +67,9 @@ function global_context($data){
         // Content vars
         'single_cat_title' => single_cat_title(),
         'sidebar' => Timber::get_sidebar('sidebar.php'),
-        'menu_hot' => new TimberMenu('Hot Topics'),
         'menu_main' => new TimberMenu('Main'),
+        'menu_hot' => new TimberMenu('Hot Topics'),
+        'menu_action' => new TimberMenu('Take Action'),
     );
 
     if ( is_singular() ) $data['mode'] = 'article';
