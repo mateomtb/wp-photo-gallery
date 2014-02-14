@@ -99,6 +99,15 @@
             <footer id="article-footer">
                 <div class="recommender">
                     <div class="row">
+{% if also_read %}
+                        <div class="link-list col md-4 no-anim">
+                            <h4>Others also read...</h4>
+                            <ul>
+                                {{also_read}}
+                            </ul>
+                        </div>
+{% endif %}
+
 {% if menu_action %}
                         <div class="link-list col md-4 no-anim">
                             <h4>Take Action</h4>

@@ -17,6 +17,12 @@ $context['wp_title'] .= ' - ' . $post->title();
 if ( function_exists('the_subheading') )
     $context['subhead'] = the_subheading();
 
+
+if ( function_exists('related_posts') )
+    $context['also_read'] = related_posts(); 
+elseif ( function_exists('wp_related_posts') ) 
+    $context['also_read'] = wp_related_posts();
+
 // Disqus comments
 if ( function_exists('dsq_comments_template') ):
     $comments_file = TimberHelper::function_wrapper('dsq_comments_template', array('You must have the DISQUS plugin enabled.'));
