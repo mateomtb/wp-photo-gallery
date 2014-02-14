@@ -105,21 +105,70 @@
           setToggle();
         }
 
-function setToggle() {
-    $('.dropdown-toggle').on('click', function() {
-        $bigMenu.addClass('active');
-        $('.dropdown-menu').removeClass('active');
-        $(this).parent().find('.dropdown-menu').toggleClass('active');
-        $('.back-toggle').addClass('active');
-        $('.menu-toggle').addClass('moved');
-        $('.back-toggle').on('click', function(){
-            console.log('click');
-            $('.menu-toggle').removeClass('moved');
-            $('.back-toggle').removeClass('active');
-            $bigMenu.removeClass('active');
+        function setToggle() {
+            $('.dropdown-toggle').on('click', function() {
+                $bigMenu.addClass('active');
+                $('.dropdown-menu').removeClass('active');
+                $(this).parent().find('.dropdown-menu').toggleClass('active');
+                $('.back-toggle').addClass('active');
+                $('.menu-toggle').addClass('moved');
+                $('.back-toggle').on('click', function(){
+                    console.log('click');
+                    $('.menu-toggle').removeClass('moved');
+                    $('.back-toggle').removeClass('active');
+                    $bigMenu.removeClass('active');
+                });
+            });
+        }
+
+        // WEATHER/TRAFFIC/MARKETS
+        // this could probably a btn group
+        // ----------------------------------------
+        var weatherToggle = $('.weather-toggle a'),
+            trafficToggle = $('.traffic-toggle a'),
+            marketsToggle = $('.markets-toggle a');
+
+        weatherToggle.click(function(e) {
+          e.preventDefault();
+	      activateTopBar($(this), $('.weather-bar'), $('#topbar').find('.visible'));
+          trafficToggle.removeClass('active');
+          marketsToggle.removeClass('active');
         });
-    });
-}
+
+        trafficToggle.click(function(e){
+          e.preventDefault();
+	      activateTopBar($(this), $('.traffic-bar'), $('#topbar').find('.visible'));
+          weatherToggle.removeClass('active');
+          marketsToggle.removeClass('active');
+        });
+
+        marketsToggle.click(function(e){
+          e.preventDefault();
+	      activateTopBar($(this), $('.markets-bar'), $('#topbar').find('.visible'));
+          trafficToggle.removeClass('active');
+          weatherToggle.removeClass('active');
+        });
+
+	  function activateTopBar($btn, $target, $active) {
+	    if($('#topbar').is(':visible')) {
+	      if($btn.hasClass('active')) {
+	        $('#topbar').slideUp('fast', function(){
+	          $target.removeClass('visible');
+	        });
+	      } else {
+	        $('#topbar').slideUp('fast', function(){
+	          $('#topbar .visible').removeClass('visible');
+	          $target.addClass('visible');
+	          $('#topbar').slideDown('fast');
+	        });
+
+	      }
+	    } else {
+	      $target.addClass('visible');
+	      $('#topbar').slideDown('fast');
+	    }
+	    $btn.toggleClass('active');
+	  }
 
         // RESIZE HANDLER
         // ----------------------------------------

@@ -3,16 +3,31 @@
   background: #fff;
   border-bottom: 1px solid @border-color;
   overflow: hidden;
-  //display: none;
+  display: none;
+  @media (max-width: @breakpoint-sm-max) {
+    display: none!important;
+  }
   p {
     font-family: @font-family-sans-serif;
     margin: 0;
   }
   .container {
-	padding-top: (@line-height-computed / 2);
-	padding-bottom: (@line-height-computed / 2);
+    padding-top: (@line-height-computed / 2);
+    padding-bottom: (@line-height-computed / 2);
     max-width: 1000px!important;
   }
+  .ad {
+    position: absolute;
+    top: 0;
+    right: 0;
+    a {
+      .font-size(12px);
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
 }
 .weather-bar, 
 .traffic-bar, 
@@ -24,119 +39,111 @@
   }
 }
 
-
-
-
 .traffic-map {
+  height: 300px;
+  width: 580px;
   float: left;
-  .size(280px, 640px);
 }
 
 
 // WEATHER STYLES
 .weather-bar {
   &:extend(.clearfix all);
-  div {
-    float: left;
-  }
 }
 .current-weather {
   &:extend(.clearfix all);
-  width: 850px;
-  .current-temp {
-    width: 20%;
-    img {
-      border: 0;
-      float: left;
-      margin-right: (@line-height-computed / 3);
-      margin-top: (@line-height-computed / 3);
-      width: 40%;
+  margin-right: 140px;
+  div {
+    float: left;
+    position: relative;
+  }
+  p {
+    margin: 0;
+    line-height: 1;
+  }
+  .temp {
+    color: @gray;
+    .font-size(25px);
+    font-weight: @font-weight-heavy;
+    &.lg {
+      color: @text-color;
+      .font-size(45px);
     }
+  }
 
-    hgroup {
+  .today-temp {
+    &:extend(.clearfix all);
+    width: 35%;
+    @media (min-width: @breakpoint-lg) {
+      width: 25%;
+    }
+    @media (min-width: @breakpoint-xl) {
+      width: 22%;
+    }
+    padding-right: (@grid-gutter-width / 2);
+  }
+  .current-temp {
+    float: none;
+    text-align: center;
+    height: 77px;
+    img {
       float: left;
-      text-align: center;
-      h5 {
-        .font-size(60px);
-        font-weight: bold;
-        line-height: 1;
-      }
-      h6 {
-        .font-size(12px);
-      }
+    }
+    .right-now {
+      .font-size(12px);
+      padding-top: 10px;
     }
   }
   .high-low {
-    padding-top: (@line-height-computed / 1.25);
-    width: 12%;
-    margin: 0 1%;
-    div {
-      &:extend(.clearfix all);
-      width: 100%;
-      &:first-child {
-        border-bottom: 1px solid @gray-lighter;
-        padding-bottom: 5px;
-        margin-bottom: 5px;
-      }
-      small {
-        .font-size(10px);
-        line-height: 1;
-        text-align: right;
-        float: left;
-        width: 35%;
-      }
-      .temp {
-        color: @gray;
-        .font-size(25px);
-        font-weight: bold;
-        float: left;
-        width: 65%;
-        text-align: center;
-      }
+    li {
+      width: 50%;
+      float: left;
+      text-align: center;
     }
   }
+
   .forecast {
     width: 65%;
+    @media (min-width: @breakpoint-lg) {
+      width: 75%;
+    }
+    @media (min-width: @breakpoint-xl) {
+      width: 78%;
+    }
     border-left: 1px solid @border-color;
-    h6 {
-      padding-bottom: (@line-height-computed / 4);
+    p {
+      .font-size(16px);
     }
     ul {
       &:extend(.clearfix all);
+      font-weight: @font-weight-heavy;
       li {
-        width: 17.8%;
+        width: 20%;
+        padding: 0 5px;
         border-right: 1px solid @border-color;
-        margin-left: 1%;
-        padding-right: 1%;
         float: left;
         text-align: center;
+	    @media (min-width: @breakpoint-lg) {
+	      width: 16.66667%;
+	    }
+	    @media (min-width: @breakpoint-xl) {
+	      width: 14.28571%;
+	    }
         img {
-          float: left;
-        }
-        p {
-          .font-size(19px);
-          font-weight: bold;
+          margin: 0 auto;
         }
         .high-temp {
-          padding-top: 4px;
-          margin-bottom: 2px;
-          .font-size(27px);
+          .font-size(26px);
         }
         .low-temp {
-          color:#59a6d5;
+          .font-size(18px);
+          color: #59a6d5;
         }
       }
     }
   }
 }
 
-.topbar-ad {
-  float: right;
-  width: 120px;
-  h6 > a {
-    .font-size(12px);
-  }
-}
 
 /*TRAFFIC STYLES*/
 .traffic-bar {
@@ -224,7 +231,8 @@
 
 }
 
-/*MENU*/
+// Menu toggle in flag
+
 .top-bar-toggle {
   &:extend(.clearfix all);
   #gradient > .vertical(#fefefd, lighten(@gray-lighter, 10%));
@@ -232,7 +240,7 @@
   border-width: 0 1px 1px 1px;
   border-radius: 0 0 10px 10px;
   position: absolute;
-  top: -1px;
+  top: 0;
   right: (@grid-gutter-width / 2);
   li {
     display: inline;

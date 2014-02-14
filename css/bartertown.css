@@ -704,8 +704,8 @@ a.bg-info:hover {
 .weather-bar:after,
 .current-weather:before,
 .current-weather:after,
-.current-weather .high-low div:before,
-.current-weather .high-low div:after,
+.current-weather .today-temp:before,
+.current-weather .today-temp:after,
 .current-weather .forecast ul:before,
 .current-weather .forecast ul:after,
 .markets-bar:before,
@@ -750,7 +750,7 @@ a.bg-info:hover {
 .markets-bar:after,
 .weather-bar:after,
 .current-weather:after,
-.current-weather .high-low div:after,
+.current-weather .today-temp:after,
 .current-weather .forecast ul:after,
 .markets-bar:after,
 .top-bar-toggle:after,
@@ -8917,9 +8917,15 @@ header.ear-ads .ear-ad-right {
   text-transform: none;
 }
 .top-bar {
+  display: none;
   overflow: hidden;
-  background: #f3f3f3;
+  background: #fff;
   border-bottom: 1px solid #ddd;
+}
+@media (max-width: 767px) {
+  .top-bar {
+    display: none!important;
+  }
 }
 .top-bar p {
   margin: 0;
@@ -8929,6 +8935,18 @@ header.ear-ads .ear-ad-right {
   max-width: 1000px!important;
   padding-top: 11px;
   padding-bottom: 11px;
+}
+.top-bar .ad {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.top-bar .ad a {
+  display: block;
+  width: 100%;
+  font-size: 12px;
+  font-size: 1.2rem;
+  text-align: center;
 }
 .weather-bar,
 .traffic-bar,
@@ -8942,108 +8960,112 @@ header.ear-ads .ear-ad-right {
 }
 .traffic-map {
   float: left;
-  width: 280px;
-  height: 640px;
-}
-.weather-bar div {
-  float: left;
+  width: 580px;
+  height: 300px;
 }
 .current-weather {
-  width: 850px;
+  margin-right: 140px;
+}
+.current-weather div {
+  position: relative;
+  float: left;
+}
+.current-weather p {
+  margin: 0;
+  line-height: 1;
+}
+.current-weather .temp {
+  font-size: 25px;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #808080;
+}
+.current-weather .temp.lg {
+  font-size: 45px;
+  font-size: 4.5rem;
+  color: #222;
+}
+.current-weather .today-temp {
+  width: 35%;
+  padding-right: 15px;
+}
+@media (min-width: 960px) {
+  .current-weather .today-temp {
+    width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .current-weather .today-temp {
+    width: 22%;
+  }
 }
 .current-weather .current-temp {
-  width: 20%;
+  float: none;
+  height: 77px;
+  text-align: center;
 }
 .current-weather .current-temp img {
   float: left;
-  width: 40%;
-  margin-top: 7.333333333333333px;
-  margin-right: 7.333333333333333px;
-  border: 0;
 }
-.current-weather .current-temp hgroup {
-  float: left;
-  text-align: center;
-}
-.current-weather .current-temp hgroup h5 {
-  font-size: 60px;
-  font-size: 6rem;
-  font-weight: bold;
-  line-height: 1;
-}
-.current-weather .current-temp hgroup h6 {
+.current-weather .current-temp .right-now {
+  padding-top: 10px;
   font-size: 12px;
   font-size: 1.2rem;
 }
-.current-weather .high-low {
-  width: 12%;
-  padding-top: 17.6px;
-  margin: 0 1%;
-}
-.current-weather .high-low div {
-  width: 100%;
-}
-.current-weather .high-low div:first-child {
-  padding-bottom: 5px;
-  margin-bottom: 5px;
-  border-bottom: 1px solid #c9c9c9;
-}
-.current-weather .high-low div small {
+.current-weather .high-low li {
   float: left;
-  width: 35%;
-  font-size: 10px;
-  font-size: 1rem;
-  line-height: 1;
-  text-align: right;
-}
-.current-weather .high-low div .temp {
-  float: left;
-  width: 65%;
-  font-size: 25px;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #808080;
+  width: 50%;
   text-align: center;
 }
 .current-weather .forecast {
   width: 65%;
   border-left: 1px solid #ddd;
 }
-.current-weather .forecast h6 {
-  padding-bottom: 5.5px;
+@media (min-width: 960px) {
+  .current-weather .forecast {
+    width: 75%;
+  }
+}
+@media (min-width: 1200px) {
+  .current-weather .forecast {
+    width: 78%;
+  }
+}
+.current-weather .forecast p {
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+.current-weather .forecast ul {
+  font-weight: 900;
 }
 .current-weather .forecast ul li {
   float: left;
-  width: 17.8%;
-  padding-right: 1%;
-  margin-left: 1%;
+  width: 20%;
+  padding: 0 5px;
   text-align: center;
   border-right: 1px solid #ddd;
 }
-.current-weather .forecast ul li img {
-  float: left;
+@media (min-width: 960px) {
+  .current-weather .forecast ul li {
+    width: 16.66667%;
+  }
 }
-.current-weather .forecast ul li p {
-  font-size: 19px;
-  font-size: 1.9rem;
-  font-weight: bold;
+@media (min-width: 1200px) {
+  .current-weather .forecast ul li {
+    width: 14.28571%;
+  }
+}
+.current-weather .forecast ul li img {
+  margin: 0 auto;
 }
 .current-weather .forecast ul li .high-temp {
-  padding-top: 4px;
-  margin-bottom: 2px;
-  font-size: 27px;
-  font-size: 2.7rem;
+  font-size: 26px;
+  font-size: 2.6rem;
 }
 .current-weather .forecast ul li .low-temp {
+  font-size: 18px;
+  font-size: 1.8rem;
   color: #59a6d5;
-}
-.topbar-ad {
-  float: right;
-  width: 120px;
-}
-.topbar-ad h6 > a {
-  font-size: 12px;
-  font-size: 1.2rem;
 }
 /*TRAFFIC STYLES*/
 /*MARKETS BAR STYLES*/
@@ -9122,10 +9144,9 @@ header.ear-ads .ear-ad-right {
   border-top-width: 0;
   border-bottom: 4px solid #59830f;
 }
-/*MENU*/
 .top-bar-toggle {
   position: absolute;
-  top: -1px;
+  top: 0;
   right: 15px;
   background-image: -webkit-linear-gradient(top, #fefefd 0%, #e3e3e3 100%);
   background-image:         linear-gradient(to bottom, #fefefd 0%, #e3e3e3 100%);

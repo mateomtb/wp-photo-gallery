@@ -33,7 +33,7 @@
                 </div><!-- /input-group -->
             </form> <!-- #site-search -->
         <!-- </div> --> <!-- .header-tools -->
-        <ul class="top-bar-toggle">
+        <ul class="top-bar-toggle visible-md-up">
             <li class="weather-toggle"><a href="">Weather</a></li>
             <li class="traffic-toggle"><a href="">Traffic</a></li>
             <li class="markets-toggle"><a href="">Markets</a></li>
