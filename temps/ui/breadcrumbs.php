@@ -1,4 +1,4 @@
-<ul class="breadcrumb block sm visible-md-up">
+<ul class="breadcrumb block sm visible-sm-up">
     <li><a href="index.php">Home</a></li>
 <?php if(!isset($sub_name)): ?>
     <li class="active"><?php echo ucwords($master_name); ?></li>
@@ -9,6 +9,3 @@
     <li class="active">Story</li>
 <?php endif; ?>
 </ul>
-<?php if($page_type == 'article'): ?>
-<h4 class="section-name hidden-md-up"><a href=""><?php echo $sub_name; ?></a></h4>
-<?php endif; ?>

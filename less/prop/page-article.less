@@ -42,8 +42,10 @@ figcaption {
   .font-size(12px);
 }
 .secondary-media {
-  .pull-right();
-  .make-sm-column(6);
+  @media (min-width: @breakpoint-sm) {
+    .pull-right();
+    .make-sm-column(6);
+  }
 }
 .property-name {
   .font-size(12px);

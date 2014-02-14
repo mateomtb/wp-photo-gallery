@@ -7463,9 +7463,6 @@ h6,
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe4eaf2', endColorstr='#ffffffff', GradientType=0);
     background-repeat: repeat-x;
   }
-  .flag .section-name {
-    display: block;
-  }
   .flag .branding {
     min-height: none;
     max-height: none;
@@ -7541,20 +7538,42 @@ h6,
     padding-bottom: 7.5px;
   }
 }
+.page-id {
+  margin: 0 25px;
+}
+@media (min-width: 768px) {
+  .page-id {
+    margin: 0;
+  }
+}
 .section-name {
-  margin: 0 0 10px 0;
-  line-height: 1;
-  color: #39547a;
+  margin: 0;
 }
 @media (min-width: 768px) {
   .section-name {
-    font-size: 40px;
-    font-size: 4rem;
+    font-size: 36px;
+    font-size: 3.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .section-name {
+    font-size: 18px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    text-transform: capitalize;
   }
 }
 a.section-name:hover {
-  color: #808080;
+  color: #fff;
   text-decoration: none;
+}
+@media (min-width: 768px) {
+  a.section-name:hover {
+    color: #808080;
+  }
 }
 #hot-topics {
   width: 100%;
@@ -7773,14 +7792,16 @@ figcaption {
   font-size: 1.2rem;
   font-weight: 300;
 }
-.secondary-media {
-  position: relative;
-  float: right !important;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-}
 @media (min-width: 480px) {
+  .secondary-media {
+    position: relative;
+    float: right !important;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+@media (min-width: 480px) and (min-width: 480px) {
   .secondary-media {
     float: left;
     width: 50%;
@@ -7911,10 +7932,6 @@ iframe[name="adblade_ad_iframe"] {
   iframe[name="adblade_ad_iframe"] {
     display: none;
   }
-}
-.section-page #content .section-name {
-  font-size: 24px;
-  font-size: 2.4rem;
 }
 .takeover {
   padding-bottom: 40px;
@@ -8355,7 +8372,7 @@ header.ear-ads .ear-ad-right {
   position: relative;
   z-index: 1040;
   float: left;
-  padding: 12px;
+  padding: 12px 9px;
   margin-left: -15px;
   cursor: pointer;
   background: rgba(255, 255, 255, .1);

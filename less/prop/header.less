@@ -10,7 +10,7 @@
   min-height: @navbar-height-max;
   background: @brand-primary;
   .branding {
-	width: 150px;
+  width: 150px;
     margin: 0 auto;
   }
   .search-bar {
@@ -21,16 +21,13 @@
     position: relative;
     z-index: 5;
     #gradient > .vertical(@start-color:#e4eaf2; @end-color:#ffffff );
-    .section-name {
-      display: block;
-    }
     .branding {
-	  min-height: none;
-	  max-height: none;
-	  margin: 0;
-	  &.sm {
-		margin-top: 5px;
-	  }
+    min-height: none;
+    max-height: none;
+    margin: 0;
+    &.sm {
+    margin-top: 5px;
+    }
     }
     .search-bar {
       position: absolute;
@@ -96,19 +93,37 @@
     padding-bottom: (@grid-gutter-width * .25);
   }
 }
+
+// Section name in the header
+// ------------------------------
+.page-id {
+  margin: 0 25px;
+  @media (min-width: @breakpoint-md) {
+    margin: 0;
+  }
+}
 .section-name {
   &:extend(.h4 all);
-  line-height: 1;
-  margin: 0 0 10px 0;
-  color: @brand-primary;
-  @media (min-width: @breakpoint-md) {
-    .font-size(40px);
+  margin: 0;
+  @media (min-width: @breakpoint-md) { 
+    .font-size(36px);
+  }
+  @media (max-width: @breakpoint-sm-max) {
+    .font-size(18px);
+    font-weight: @font-weight-base;
+    line-height: @navbar-height-max;
+    text-align: center;
+    text-transform:capitalize;
+    color: #fff;
   }
 }
 a.section-name {
   &:hover {
     text-decoration: none;
-    color: @gray;
+    color: #fff;
+    @media (min-width: @breakpoint-md) {
+      color: @gray;
+    }
   }
 }
 
