@@ -20,7 +20,7 @@
 		wp_enqueue_script('jquery');
 	}
 
-register_nav_menus(array('hot-topics' => __( 'Hot Topics' )));
+register_nav_menus(array('hot-topics' => __( 'Hot Topics' )), array('take-action' => __( 'Take Action' )));
 
 add_filter('timber_context', 'global_context');
 function global_context($data){
