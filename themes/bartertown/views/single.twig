@@ -75,17 +75,17 @@
                                     <h4>More Media</h4>
                                     <ul>
                                     {% for post in TimberTerm(package_name).get_posts('numberposts=5') %}
-                                        <li><a href="{{post.guid}}"><strong>{{function('get_post_format', post.ID)|title}}</strong>: {{post.title}}</a></li>
+                                        <li><a href="{{post.guid}}">{% if function('get_post_format', post.ID) != '' %}<strong>{{function('get_post_format', post.ID)|title}}</strong>: {% endif %}{{post.title}}</a></li>
                                     {% endfor %}
                                     </ul>
                                 </div>
                                 {% endif %}
                                 {% if collection %}
                                 <div id="related-stories" class="link-list no-anim">
-                                    <h4>Related: {{collection_name}}</h4>
+                                    <h4>Related{% if collection_name %}: {{collection_name}}{% endif %}</h4>
                                     <ul>
                                     {% for post in TimberTerm(collection_name).get_posts('numberposts=5') %}
-                                        <li><a href="{{post.guid}}"><strong>{{function('get_post_format', post.ID)|title}}</strong>: {{post.title}}</a></li>
+                                        <li><a href="{{post.guid}}">{{post.title}}</a></li>
                                     {% endfor %}
                                     </ul>
                                 </div>
