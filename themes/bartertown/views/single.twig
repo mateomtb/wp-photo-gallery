@@ -96,6 +96,22 @@
                 </section>
             </section>
 
+            <footer id="article-footer">
+                <div class="recommender">
+                    <div class="row">
+{% if menu_action %}
+                        <div class="link-list col md-4 no-anim">
+                            <h4>Take Action</h4>
+                            <ul>
+{% for item in menu_action.get_items %}
+                                <li><a href="{{ item.get_path }}" title="{{ item.title }}">{{ item.title }}</a></li>
+{% endfor %}
+                            </ul>
+                        </div>
+{% endif %}
+                    </div>
+                </div>
+            </footer>
             <section class="comments">
                 <script type="text/javascript"><!--
   adblade_cid="{{config.adblade}}";
@@ -125,11 +141,4 @@ try{var _recommender = new _rec({apiKey: '{{config.newstogram}}',cssUrl: 'http:/
         </article>
 
 
-{% if menu_action %}
-{% for item in menu_action.get_items %}
-            <li id="menu-item-{{item.ID}}" class="menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}}">
-                <a href="{{ item.get_path }}" title="{{ item.title }}">{{ item.title }}</a>
-            </li>
-{% endfor %}
-{% endif %}
 {% endblock %}

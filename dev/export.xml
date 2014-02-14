@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress/3.9-alpha" created="2014-02-05 23:25" -->
+<!-- generator="WordPress/3.9-alpha" created="2014-02-14 22:49" -->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -29,7 +29,7 @@
 	<title>Bartertown</title>
 	<link>http://www.scsun-news.com</link>
 	<description>Just another WordPress site</description>
-	<pubDate>Wed, 05 Feb 2014 23:25:45 +0000</pubDate>
+	<pubDate>Fri, 14 Feb 2014 22:49:32 +0000</pubDate>
 	<language>en-US</language>
 	<wp:wxr_version>1.2</wp:wxr_version>
 	<wp:base_site_url>http://www.scsun-news.com</wp:base_site_url>
@@ -50,22 +50,15 @@
 	<wp:category><wp:term_id>19</wp:term_id><wp:category_nicename>world</wp:category_nicename><wp:category_parent>local-news</wp:category_parent><wp:cat_name><![CDATA[World]]></wp:cat_name></wp:category>
 	<wp:category><wp:term_id>27</wp:term_id><wp:category_nicename>celebrations</wp:category_nicename><wp:category_parent>lifestyle</wp:category_parent><wp:cat_name><![CDATA[Celebrations]]></wp:cat_name></wp:category>
 	<wp:category><wp:term_id>18</wp:term_id><wp:category_nicename>football</wp:category_nicename><wp:category_parent>sports</wp:category_parent><wp:cat_name><![CDATA[Football]]></wp:cat_name></wp:category>
-	<wp:term><wp:term_id>16</wp:term_id><wp:term_taxonomy>following_users</wp:term_taxonomy><wp:term_slug>cap-admin</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[admin]]></wp:term_name></wp:term>
-	<wp:term><wp:term_id>3</wp:term_id><wp:term_taxonomy>post_status</wp:term_taxonomy><wp:term_slug>assigned</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[Assigned]]></wp:term_name><wp:term_description><![CDATA[YToyOntzOjExOiJkZXNjcmlwdGlvbiI7czoyOToiUG9zdCBpZGVhIGFzc2lnbmVkIHRvIHdyaXRlci4iO3M6ODoicG9zaXRpb24iO2k6Mjt9]]></wp:term_description></wp:term>
-	<wp:term><wp:term_id>8</wp:term_id><wp:term_taxonomy>ef_editorial_meta</wp:term_taxonomy><wp:term_slug>assignment</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[Assignment]]></wp:term_name><wp:term_description><![CDATA[YTo0OntzOjExOiJkZXNjcmlwdGlvbiI7czoyOToiV2hhdCB0aGUgcG9zdCBuZWVkcyB0byBjb3Zlci4iO3M6ODoicG9zaXRpb24iO2k6MztzOjQ6InR5cGUiO3M6OToicGFyYWdyYXBoIjtzOjg6InZpZXdhYmxlIjtiOjA7fQ==]]></wp:term_description></wp:term>
-	<wp:term><wp:term_id>11</wp:term_id><wp:term_taxonomy>ef_usergroup</wp:term_taxonomy><wp:term_slug>ef-usergroup-copy-editors</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[Copy Editors]]></wp:term_name><wp:term_description><![CDATA[YToyOntzOjExOiJkZXNjcmlwdGlvbiI7czozNzoiTWFraW5nIHN1cmUgdGhlIHF1YWxpdHkgaXMgdG9wLW5vdGNoLiI7czo4OiJ1c2VyX2lkcyI7YTowOnt9fQ==]]></wp:term_description></wp:term>
-	<wp:term><wp:term_id>5</wp:term_id><wp:term_taxonomy>post_status</wp:term_taxonomy><wp:term_slug>draft</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[Draft]]></wp:term_name><wp:term_description><![CDATA[YToyOntzOjExOiJkZXNjcmlwdGlvbiI7czo1MzoiUG9zdCBpcyBhIGRyYWZ0OyBub3QgcmVhZHkgZm9yIHJldmlldyBvciBwdWJsaWNhdGlvbi4iO3M6ODoicG9zaXRpb24iO2k6NDt9]]></wp:term_description></wp:term>
-	<wp:term><wp:term_id>7</wp:term_id><wp:term_taxonomy>ef_editorial_meta</wp:term_taxonomy><wp:term_slug>first-draft-date</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[First Draft Date]]></wp:term_name><wp:term_description><![CDATA[YTo0OntzOjExOiJkZXNjcmlwdGlvbiI7czozOToiV2hlbiB0aGUgZmlyc3QgZHJhZnQgbmVlZHMgdG8gYmUgcmVhZHkuIjtzOjg6InBvc2l0aW9uIjtpOjI7czo0OiJ0eXBlIjtzOjQ6ImRhdGUiO3M6ODoidmlld2FibGUiO2I6MDt9]]></wp:term_description></wp:term>
-	<wp:term><wp:term_id>4</wp:term_id><wp:term_taxonomy>post_status</wp:term_taxonomy><wp:term_slug>in-progress</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[In Progress]]></wp:term_name><wp:term_description><![CDATA[YToyOntzOjExOiJkZXNjcmlwdGlvbiI7czozMDoiV3JpdGVyIGlzIHdvcmtpbmcgb24gdGhlIHBvc3QuIjtzOjg6InBvc2l0aW9uIjtpOjM7fQ==]]></wp:term_description></wp:term>
-	<wp:term><wp:term_id>9</wp:term_id><wp:term_taxonomy>ef_editorial_meta</wp:term_taxonomy><wp:term_slug>needs-photo</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[Needs Photo]]></wp:term_name><wp:term_description><![CDATA[YTo0OntzOjExOiJkZXNjcmlwdGlvbiI7czozNToiQ2hlY2tlZCBpZiB0aGlzIHBvc3QgbmVlZHMgYSBwaG90by4iO3M6ODoicG9zaXRpb24iO2k6NDtzOjQ6InR5cGUiO3M6ODoiY2hlY2tib3giO3M6ODoidmlld2FibGUiO2I6MDt9]]></wp:term_description></wp:term>
-	<wp:term><wp:term_id>6</wp:term_id><wp:term_taxonomy>post_status</wp:term_taxonomy><wp:term_slug>pending</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[Pending Review]]></wp:term_name><wp:term_description><![CDATA[YToyOntzOjExOiJkZXNjcmlwdGlvbiI7czozOToiUG9zdCBuZWVkcyB0byBiZSByZXZpZXdlZCBieSBhbiBlZGl0b3IuIjtzOjg6InBvc2l0aW9uIjtpOjU7fQ==]]></wp:term_description></wp:term>
-	<wp:term><wp:term_id>12</wp:term_id><wp:term_taxonomy>ef_usergroup</wp:term_taxonomy><wp:term_slug>ef-usergroup-photographers</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[Photographers]]></wp:term_name><wp:term_description><![CDATA[YToyOntzOjExOiJkZXNjcmlwdGlvbiI7czoyOToiQ2FwdHVyaW5nIHRoZSBzdG9yeSB2aXN1YWxseS4iO3M6ODoidXNlcl9pZHMiO2E6MDp7fX0=]]></wp:term_description></wp:term>
-	<wp:term><wp:term_id>2</wp:term_id><wp:term_taxonomy>post_status</wp:term_taxonomy><wp:term_slug>pitch</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[Pitch]]></wp:term_name><wp:term_description><![CDATA[YToyOntzOjExOiJkZXNjcmlwdGlvbiI7czozODoiSWRlYSBwcm9wb3NlZDsgd2FpdGluZyBmb3IgYWNjZXB0YW5jZS4iO3M6ODoicG9zaXRpb24iO2k6MTt9]]></wp:term_description></wp:term>
-	<wp:term><wp:term_id>13</wp:term_id><wp:term_taxonomy>ef_usergroup</wp:term_taxonomy><wp:term_slug>ef-usergroup-reporters</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[Reporters]]></wp:term_name><wp:term_description><![CDATA[YToyOntzOjExOiJkZXNjcmlwdGlvbiI7czozNDoiT3V0IGluIHRoZSBmaWVsZCwgd3JpdGluZyBzdG9yaWVzLiI7czo4OiJ1c2VyX2lkcyI7YTowOnt9fQ==]]></wp:term_description></wp:term>
-	<wp:term><wp:term_id>14</wp:term_id><wp:term_taxonomy>ef_usergroup</wp:term_taxonomy><wp:term_slug>ef-usergroup-section-editors</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[Section Editors]]></wp:term_name><wp:term_description><![CDATA[YToyOntzOjExOiJkZXNjcmlwdGlvbiI7czozMzoiUHJvdmlkaW5nIGZlZWRiYWNrIGFuZCBkaXJlY3Rpb24uIjtzOjg6InVzZXJfaWRzIjthOjA6e319]]></wp:term_description></wp:term>
-	<wp:term><wp:term_id>10</wp:term_id><wp:term_taxonomy>ef_editorial_meta</wp:term_taxonomy><wp:term_slug>word-count</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[Word Count]]></wp:term_name><wp:term_description><![CDATA[YTo0OntzOjExOiJkZXNjcmlwdGlvbiI7czozMDoiUmVxdWlyZWQgcG9zdCBsZW5ndGggaW4gd29yZHMuIjtzOjg6InBvc2l0aW9uIjtpOjU7czo0OiJ0eXBlIjtzOjY6Im51bWJlciI7czo4OiJ2aWV3YWJsZSI7YjowO30=]]></wp:term_description></wp:term>
+	<wp:tag><wp:term_id>34</wp:term_id><wp:tag_slug>package-test</wp:tag_slug><wp:tag_name><![CDATA[package-Test]]></wp:tag_name></wp:tag>
+	<wp:tag><wp:term_id>30</wp:term_id><wp:tag_slug>package-test-1</wp:tag_slug><wp:tag_name><![CDATA[package-Test 1]]></wp:tag_name></wp:tag>
+	<wp:tag><wp:term_id>31</wp:term_id><wp:tag_slug>whatever</wp:tag_slug><wp:tag_name><![CDATA[whatever]]></wp:tag_name></wp:tag>
+	<wp:tag><wp:term_id>35</wp:term_id><wp:tag_slug>wildfire</wp:tag_slug><wp:tag_name><![CDATA[Wildfire]]></wp:tag_name></wp:tag>
+	<wp:term><wp:term_id>16</wp:term_id><wp:term_taxonomy>author</wp:term_taxonomy><wp:term_slug>cap-admin</wp:term_slug><wp:term_parent></wp:term_parent><wp:term_name><![CDATA[admin]]></wp:term_name><wp:term_description><![CDATA[Tim Tebow Tim Tebow admin 1 jmurphy@denverpost.com]]></wp:term_description></wp:term>
 	<wp:term><wp:term_id>17</wp:term_id><wp:term_taxonomy>nav_menu</wp:term_taxonomy><wp:term_slug>hot-topics</wp:term_slug><wp:term_name><![CDATA[Hot Topics]]></wp:term_name></wp:term>
 	<wp:term><wp:term_id>20</wp:term_id><wp:term_taxonomy>nav_menu</wp:term_taxonomy><wp:term_slug>main</wp:term_slug><wp:term_name><![CDATA[Main]]></wp:term_name></wp:term>
+	<wp:term><wp:term_id>36</wp:term_id><wp:term_taxonomy>nav_menu</wp:term_taxonomy><wp:term_slug>footer</wp:term_slug><wp:term_name><![CDATA[Footer]]></wp:term_name></wp:term>
+	<wp:term><wp:term_id>37</wp:term_id><wp:term_taxonomy>nav_menu</wp:term_taxonomy><wp:term_slug>take-action</wp:term_slug><wp:term_name><![CDATA[Take Action]]></wp:term_name></wp:term>
 
 	<generator>http://wordpress.org/?v=3.9-alpha</generator>
 
@@ -98,6 +91,617 @@
 		<wp:postmeta>
 			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
 			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:649;s:6:"height";i:487;s:4:"file";s:39:"2014/01/20140126__SCS-L-YARN-0127p1.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:4:{s:4:"file";s:39:"20140126__SCS-L-YARN-0127p1-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:39:"20140126__SCS-L-YARN-0127p1-300x225.jpg";s:5:"width";i:300;s:6:"height";i:225;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>20140202__SCS-L-SUPERBOWL-0203~p1</title>
+		<link>http://www.scsun-news.com/?attachment_id=19</link>
+		<pubDate>Mon, 03 Feb 2014 04:47:07 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p1.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[Sky Klaus - For the Sun-News Veterans and friends get ready to watch the Superbowl XLVIII Sunday at the VFW Post 3347 Sunday afternoon. Left to r: Leonard Pritkin, Ray Stryker, Connie Zawacki and David Tercero. A friendly rivalry broke out among veterans at the VFW Post before the big game got off the ground. About half the veterans who came to the Superbowl party fundraiser pulled for Denver while the other half pulled for Seattle. The WNMU Veteran's club, which held the Superbowl party for veterans Sunday, hoped to raise a couple hundred dollars to give to needy veterans and their families.]]></excerpt:encoded>
+		<wp:post_id>19</wp:post_id>
+		<wp:post_date>2014-02-03 04:47:07</wp:post_date>
+		<wp:post_date_gmt>2014-02-03 04:47:07</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>20140202__scs-l-superbowl-0203p1</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>18</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p1.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/20140202__SCS-L-SUPERBOWL-0203p1.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:649;s:6:"height";i:432;s:4:"file";s:44:"2014/02/20140202__SCS-L-SUPERBOWL-0203p1.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p1-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p1-300x199.jpg";s:5:"width";i:300;s:6:"height";i:199;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p1-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p1-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p1-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p1-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>20140202__SCS-L-SUPERBOWL-0203~p2</title>
+		<link>http://www.scsun-news.com/?attachment_id=20</link>
+		<pubDate>Mon, 03 Feb 2014 04:53:41 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[Sky Klaus - For the Sun-News Leonard Pritikin, 95, has been a member of VFW Post 3347 for 71 years. He enjoyed himself during Superbowl Sunday at the VFW Post, which was raising money for veterans and their families, sponsored by the WNMU Veterans club. Pritikin rooted for the Seatle Seahawks.]]></excerpt:encoded>
+		<wp:post_id>20</wp:post_id>
+		<wp:post_date>2014-02-03 04:53:41</wp:post_date>
+		<wp:post_date_gmt>2014-02-03 04:53:41</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>20140202__scs-l-superbowl-0203p2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>18</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:432;s:6:"height";i:649;s:4:"file";s:44:"2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p2-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p2-199x300.jpg";s:5:"width";i:199;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p2-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p2-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p2-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p2-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Local student delivers Gile River petition to Governor Martinez&#039;s office</title>
+		<link>http://www.scsun-news.com/?attachment_id=200</link>
+		<pubDate>Tue, 11 Feb 2014 01:52:48 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p11.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Courtesy photo 
+ Vianca Fernandez and Jose Villegas, two of the six Las Cruces Latino youth who traveled to Sante Fe Monday to speak out about preserving the Gila River met with State Senator William Soules on the floor of NM State Senate.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Courtesy photo 
+ Vianca Fernandez and Jose Villegas, two of the six Las Cruces Latino youth who traveled to Sante Fe Monday to speak out about preserving the Gila River met with State Senator William Soules on the floor of NM State Senate.]]></excerpt:encoded>
+		<wp:post_id>200</wp:post_id>
+		<wp:post_date>2014-02-11 01:52:48</wp:post_date>
+		<wp:post_date_gmt>2014-02-11 01:52:48</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>local-student-delivers-gile-river-petition-to-governor-martinezs-office-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p11.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p11.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:485;s:6:"height";i:649;s:4:"file";s:15:"2014/02/p11.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p11-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p11-224x300.jpg";s:5:"width";i:224;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p11-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p11-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p11-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p11-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Starting 5: How the NBA&#039;s top 5 scorers inflict their damage</title>
+		<link>http://www.scsun-news.com/?attachment_id=203</link>
+		<pubDate>Tue, 11 Feb 2014 17:54:22 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/l1.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>203</wp:post_id>
+		<wp:post_date>2014-02-11 17:54:22</wp:post_date>
+		<wp:post_date_gmt>2014-02-11 17:54:22</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>starting-5-how-the-nbas-top-5-scorers-inflict-their-damage-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/l1.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/l1.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:512;s:6:"height";i:325;s:4:"file";s:14:"2014/02/l1.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:14:"l1-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:14:"l1-300x190.jpg";s:5:"width";i:300;s:6:"height";i:190;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:12:"l1-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:12:"l1-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:12:"l1-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:14:"l1-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:16:"ASSOCIATED PRESS";s:6:"camera";s:0:"";s:7:"caption";s:180:"Los Angeles Clippers' Chris Paul looks on during the second half of an NBA basketball game against the Phoenix Suns on Monday, Dec. 30, 2013, in Los Angeles. (AP Photo/Jae C. Hong)";s:17:"created_timestamp";i:0;s:9:"copyright";s:6:"AP2013";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:10:"Chris Paul";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Herm Edwards: Team that drafts Michael Sam must be prepared</title>
+		<link>http://www.scsun-news.com/?attachment_id=205</link>
+		<pubDate>Tue, 11 Feb 2014 17:54:23 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/l2.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>205</wp:post_id>
+		<wp:post_date>2014-02-11 17:54:23</wp:post_date>
+		<wp:post_date_gmt>2014-02-11 17:54:23</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>herm-edwards-team-that-drafts-michael-sam-must-be-prepared-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/l2.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/l2.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:512;s:6:"height";i:368;s:4:"file";s:14:"2014/02/l2.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:14:"l2-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:14:"l2-300x215.jpg";s:5:"width";i:300;s:6:"height";i:215;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:12:"l2-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:12:"l2-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:12:"l2-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:14:"l2-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:2:"AP";s:6:"camera";s:0:"";s:7:"caption";s:468:"FILE - In this Jan. 3, 2014 file photo, Missouri defensive lineman Michael Sam (52) warms up before the Cotton Bowl NCAA college football game against Oklahoma State, in Arlington, Texas. Michael Sam hopes his ability is all that matters, not his sexual orientation.  Missouri's All-America defensive end came out to the entire country Sunday night, Feb. 9, 2014, and could become the first openly gay player in America's most popular sport. (AP Photo/Tim Sharp, File)";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:11:"Michael Sam";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Mustangs win Cactus Thaw</title>
+		<link>http://www.scsun-news.com/?attachment_id=209</link>
+		<pubDate>Tue, 11 Feb 2014 20:45:01 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p12.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Courtesy Photo 
+ The WNMU men's golf team won the Cactus Thaw on Monday in El Paso, Texas.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Courtesy Photo 
+ The WNMU men's golf team won the Cactus Thaw on Monday in El Paso, Texas.]]></excerpt:encoded>
+		<wp:post_id>209</wp:post_id>
+		<wp:post_date>2014-02-11 20:45:01</wp:post_date>
+		<wp:post_date_gmt>2014-02-11 20:45:01</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>mustangs-win-cactus-thaw-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p12.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p12.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:650;s:6:"height";i:451;s:4:"file";s:15:"2014/02/p12.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p12-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p12-300x208.jpg";s:5:"width";i:300;s:6:"height";i:208;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p12-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p12-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p12-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p12-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Cowboys have just three games remaining on schedule</title>
+		<link>http://www.scsun-news.com/?attachment_id=211</link>
+		<pubDate>Tue, 11 Feb 2014 20:45:06 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p13.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Danny Udero/Sun-News 
+ The Cliff High boys' basketball team will start district play Thursday at home against Animas.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Danny Udero/Sun-News 
+ The Cliff High boys' basketball team will start district play Thursday at home against Animas.]]></excerpt:encoded>
+		<wp:post_id>211</wp:post_id>
+		<wp:post_date>2014-02-11 20:45:06</wp:post_date>
+		<wp:post_date_gmt>2014-02-11 20:45:06</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>cowboys-have-just-three-games-remaining-on-schedule-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p13.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p13.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:650;s:6:"height";i:612;s:4:"file";s:15:"2014/02/p13.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p13-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p13-300x282.jpg";s:5:"width";i:300;s:6:"height";i:282;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p13-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p13-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p13-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p13-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>At these Olympics, U.S. athletes can&#039;t broadcast patriotism</title>
+		<link>http://www.scsun-news.com/?attachment_id=213</link>
+		<pubDate>Tue, 11 Feb 2014 20:45:08 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/ph1.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Americans out and about in the Sochi athletes' village this month (left) and the London Underground in 2012.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Americans out and about in the Sochi athletes' village this month (left) and the London Underground in 2012.]]></excerpt:encoded>
+		<wp:post_id>213</wp:post_id>
+		<wp:post_date>2014-02-11 20:45:08</wp:post_date>
+		<wp:post_date_gmt>2014-02-11 20:45:08</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>at-these-olympics-u-s-athletes-cant-broadcast-patriotism-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/ph1.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/ph1.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:640;s:6:"height";i:258;s:4:"file";s:15:"2014/02/ph1.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"ph1-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"ph1-300x120.jpg";s:5:"width";i:300;s:6:"height";i:120;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"ph1-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"ph1-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"ph1-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"ph1-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Las Cruces Public Schools: Teach your child about healthy relationships</title>
+		<link>http://www.scsun-news.com/?attachment_id=219</link>
+		<pubDate>Wed, 12 Feb 2014 17:39:17 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p14.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>219</wp:post_id>
+		<wp:post_date>2014-02-12 17:39:17</wp:post_date>
+		<wp:post_date_gmt>2014-02-12 17:39:17</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>las-cruces-public-schools-teach-your-child-about-healthy-relationships-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p14.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p14.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:480;s:6:"height";i:640;s:4:"file";s:15:"2014/02/p14.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p14-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p14-225x300.jpg";s:5:"width";i:225;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p14-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p14-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p14-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p14-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>The power of touch: Intimacy has health benefits for all ages</title>
+		<link>http://www.scsun-news.com/?attachment_id=221</link>
+		<pubDate>Wed, 12 Feb 2014 17:39:18 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p15.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Maggie Baber and boyfriend of 2.5 years, Jason Reed, steal a kiss while on an outing on the Mesilla Plaza.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Maggie Baber and boyfriend of 2.5 years, Jason Reed, steal a kiss while on an outing on the Mesilla Plaza.]]></excerpt:encoded>
+		<wp:post_id>221</wp:post_id>
+		<wp:post_date>2014-02-12 17:39:18</wp:post_date>
+		<wp:post_date_gmt>2014-02-12 17:39:18</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>the-power-of-touch-intimacy-has-health-benefits-for-all-ages-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p15.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p15.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:650;s:6:"height";i:427;s:4:"file";s:15:"2014/02/p15.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p15-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p15-300x197.jpg";s:5:"width";i:300;s:6:"height";i:197;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p15-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p15-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p15-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p15-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Froma Harrop: Spark of romance rekindled 70 years after first meeting</title>
+		<link>http://www.scsun-news.com/?attachment_id=224</link>
+		<pubDate>Wed, 12 Feb 2014 17:39:22 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p16.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>224</wp:post_id>
+		<wp:post_date>2014-02-12 17:39:22</wp:post_date>
+		<wp:post_date_gmt>2014-02-12 17:39:22</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>froma-harrop-spark-of-romance-rekindled-70-years-after-first-meeting-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p16.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p16.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:462;s:6:"height";i:650;s:4:"file";s:15:"2014/02/p16.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p16-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p16-213x300.jpg";s:5:"width";i:213;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p16-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p16-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p16-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p16-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Colts get caught in rhythm war but still come out on top</title>
+		<link>http://www.scsun-news.com/?attachment_id=229</link>
+		<pubDate>Wed, 12 Feb 2014 21:05:55 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p17.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Danny Udero/Sun-News 
+ Silver's Jovanni Saavedra is fouled as he takes the ball to the hole Tuesday night.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Danny Udero/Sun-News 
+ Silver's Jovanni Saavedra is fouled as he takes the ball to the hole Tuesday night.]]></excerpt:encoded>
+		<wp:post_id>229</wp:post_id>
+		<wp:post_date>2014-02-12 21:05:55</wp:post_date>
+		<wp:post_date_gmt>2014-02-12 21:05:55</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>colts-get-caught-in-rhythm-war-but-still-come-out-on-top-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p17.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p17.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:499;s:6:"height";i:649;s:4:"file";s:15:"2014/02/p17.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p17-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p17-230x300.jpg";s:5:"width";i:230;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p17-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p17-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p17-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p17-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Tough district outing for Cobre&#039;s boys and girls</title>
+		<link>http://www.scsun-news.com/?attachment_id=231</link>
+		<pubDate>Wed, 12 Feb 2014 21:05:57 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p18.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Danny Udero/Sun-News 
+ Cobre's Alejandro Tovar sets up for a three during Tuesday night's home game against Lordsburg.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Danny Udero/Sun-News 
+ Cobre's Alejandro Tovar sets up for a three during Tuesday night's home game against Lordsburg.]]></excerpt:encoded>
+		<wp:post_id>231</wp:post_id>
+		<wp:post_date>2014-02-12 21:05:57</wp:post_date>
+		<wp:post_date_gmt>2014-02-12 21:05:57</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>tough-district-outing-for-cobres-boys-and-girls-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p18.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p18.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:511;s:6:"height";i:649;s:4:"file";s:15:"2014/02/p18.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p18-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p18-236x300.jpg";s:5:"width";i:236;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p18-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p18-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p18-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p18-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Another shot at birding starts Saturday in Silver City</title>
+		<link>http://www.scsun-news.com/?attachment_id=237</link>
+		<pubDate>Thu, 13 Feb 2014 05:08:34 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p19.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Courtesy photo 
+ The Eurasian-collared dove is one of the more common birds seen around Silver City. SWNM Audubon is encouraging everyone to participate in the Audobon's bird count this weekend. To find out how to identify the birds, visit the Audubon's online bird guide at http&#058;//birds.audubon.org/birdid.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Courtesy photo 
+ The Eurasian-collared dove is one of the more common birds seen around Silver City. SWNM Audubon is encouraging everyone to participate in the Audobon's bird count this weekend. To find out how to identify the birds, visit the Audubon's online bird guide at http&#058;//birds.audubon.org/birdid.]]></excerpt:encoded>
+		<wp:post_id>237</wp:post_id>
+		<wp:post_date>2014-02-13 05:08:34</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 05:08:34</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>another-shot-at-birding-starts-saturday-in-silver-city-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p19.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p19.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:300;s:6:"height";i:240;s:4:"file";s:15:"2014/02/p19.jpg";s:5:"sizes";a:5:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p19-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p19-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p19-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p19-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p19-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:6:"Picasa";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Group in Mimbres Valley plants butterfly bush to remember Alizandra Jasso</title>
+		<link>http://www.scsun-news.com/?attachment_id=239</link>
+		<pubDate>Thu, 13 Feb 2014 05:08:36 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p110.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[By Jessica Tumposky - For the Sun-News 
+ Diana Alcorta, a teacher at San Lorenzo Elementary School and a great-aunt to Alizandra Jasso, helped plant a purple butterfly bush Tuesday at a memorial at the school for the three-year-old who was allegedly killed a year ago by her stepfather.]]></content:encoded>
+		<excerpt:encoded><![CDATA[By Jessica Tumposky - For the Sun-News 
+ Diana Alcorta, a teacher at San Lorenzo Elementary School and a great-aunt to Alizandra Jasso, helped plant a purple butterfly bush Tuesday at a memorial at the school for the three-year-old who was allegedly killed a year ago by her stepfather.]]></excerpt:encoded>
+		<wp:post_id>239</wp:post_id>
+		<wp:post_date>2014-02-13 05:08:36</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 05:08:36</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>group-in-mimbres-valley-plants-butterfly-bush-to-remember-alizandra-jasso-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p110.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p110.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:649;s:6:"height";i:487;s:4:"file";s:16:"2014/02/p110.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p110-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p110-300x225.jpg";s:5:"width";i:300;s:6:"height";i:225;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p110-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p110-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p110-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p110-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Tunes: Flat Blak drives harder rock, classic swagger</title>
+		<link>http://www.scsun-news.com/?attachment_id=244</link>
+		<pubDate>Thu, 13 Feb 2014 07:52:32 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p111.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Photos by Cassie McClure
+The recently formed band Flat Blak consist of Les Skaggs, Travis Manning and Rob Allen. The group will perform at a free concert on Tuesday, at the Rio Grande Theatre.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Photos by Cassie McClure
+The recently formed band Flat Blak consist of Les Skaggs, Travis Manning and Rob Allen. The group will perform at a free concert on Tuesday, at the Rio Grande Theatre.]]></excerpt:encoded>
+		<wp:post_id>244</wp:post_id>
+		<wp:post_date>2014-02-13 07:52:32</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 07:52:32</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>tunes-flat-blak-drives-harder-rock-classic-swagger-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p111.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p111.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:487;s:6:"height";i:649;s:4:"file";s:16:"2014/02/p111.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p111-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p111-225x300.jpg";s:5:"width";i:225;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p111-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p111-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p111-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p111-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Taste: The Main Street Bistro &amp; Ale House</title>
+		<link>http://www.scsun-news.com/?attachment_id=247</link>
+		<pubDate>Thu, 13 Feb 2014 07:52:34 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p112.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Photos by Andi Murphy
+Main Street Bistro's sandwich portion of the menu includes the Reuben with Pomme Frites.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Photos by Andi Murphy
+Main Street Bistro's sandwich portion of the menu includes the Reuben with Pomme Frites.]]></excerpt:encoded>
+		<wp:post_id>247</wp:post_id>
+		<wp:post_date>2014-02-13 07:52:34</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 07:52:34</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>taste-the-main-street-bistro-ale-house-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p112.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p112.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:452;s:6:"height";i:649;s:4:"file";s:16:"2014/02/p112.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p112-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p112-208x300.jpg";s:5:"width";i:208;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p112-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p112-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p112-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p112-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>High Fives 2/13-2/20</title>
+		<link>http://www.scsun-news.com/?attachment_id=251</link>
+		<pubDate>Thu, 13 Feb 2014 07:52:38 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p113.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Getty Images &#8212; Mike Lawrie 
+ Connor Oberst]]></content:encoded>
+		<excerpt:encoded><![CDATA[Getty Images &#8212; Mike Lawrie 
+ Connor Oberst]]></excerpt:encoded>
+		<wp:post_id>251</wp:post_id>
+		<wp:post_date>2014-02-13 07:52:38</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 07:52:38</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>high-fives-213-220-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p113.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p113.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:649;s:6:"height";i:442;s:4:"file";s:16:"2014/02/p113.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p113-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p113-300x204.jpg";s:5:"width";i:300;s:6:"height";i:204;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p113-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p113-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p113-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p113-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Pulse: Five of the most romantic restaurants in the Mesilla Valley</title>
+		<link>http://www.scsun-news.com/?attachment_id=255</link>
+		<pubDate>Thu, 13 Feb 2014 07:52:43 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p31.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Andi Murphy &#8212; Sun-News 
+ Cranberry orange-glazed French cut pork chops from Double Eagle]]></content:encoded>
+		<excerpt:encoded><![CDATA[Andi Murphy &#8212; Sun-News 
+ Cranberry orange-glazed French cut pork chops from Double Eagle]]></excerpt:encoded>
+		<wp:post_id>255</wp:post_id>
+		<wp:post_date>2014-02-13 07:52:43</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 07:52:43</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>pulse-five-of-the-most-romantic-restaurants-in-the-mesilla-valley-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p31.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p31.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:650;s:6:"height";i:439;s:4:"file";s:15:"2014/02/p31.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p31-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p31-300x202.jpg";s:5:"width";i:300;s:6:"height";i:202;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p31-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p31-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p31-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p31-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
@@ -211,65 +815,594 @@
 		</wp:postmeta>
 	</item>
 	<item>
-				<title>20140202__SCS-L-SUPERBOWL-0203~p1</title>
-		<link>http://www.scsun-news.com/?attachment_id=19</link>
-		<pubDate>Mon, 03 Feb 2014 04:47:07 +0000</pubDate>
-		<dc:creator><![CDATA[admin]]></dc:creator>
-		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p1.jpg</guid>
+				<title>Cartoonist Quest: Finding &quot;the cure&quot; at Comic Con</title>
+		<link>http://www.scsun-news.com/?attachment_id=258</link>
+		<pubDate>Thu, 13 Feb 2014 07:52:45 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p114.jpg</guid>
 		<description></description>
-		<content:encoded><![CDATA[]]></content:encoded>
-		<excerpt:encoded><![CDATA[Sky Klaus - For the Sun-News Veterans and friends get ready to watch the Superbowl XLVIII Sunday at the VFW Post 3347 Sunday afternoon. Left to r: Leonard Pritkin, Ray Stryker, Connie Zawacki and David Tercero. A friendly rivalry broke out among veterans at the VFW Post before the big game got off the ground. About half the veterans who came to the Superbowl party fundraiser pulled for Denver while the other half pulled for Seattle. The WNMU Veteran's club, which held the Superbowl party for veterans Sunday, hoped to raise a couple hundred dollars to give to needy veterans and their families.]]></excerpt:encoded>
-		<wp:post_id>19</wp:post_id>
-		<wp:post_date>2014-02-03 04:47:07</wp:post_date>
-		<wp:post_date_gmt>2014-02-03 04:47:07</wp:post_date_gmt>
+		<content:encoded><![CDATA[Jason Salas attended the Albuquerque Comic Con, &#034;It's me with R2-D2 (I'm the one with the glasses, he's the robot on the right). Sometimes a little droid makes for big human interaction.&#034;]]></content:encoded>
+		<excerpt:encoded><![CDATA[Jason Salas attended the Albuquerque Comic Con, &#034;It's me with R2-D2 (I'm the one with the glasses, he's the robot on the right). Sometimes a little droid makes for big human interaction.&#034;]]></excerpt:encoded>
+		<wp:post_id>258</wp:post_id>
+		<wp:post_date>2014-02-13 07:52:45</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 07:52:45</wp:post_date_gmt>
 		<wp:comment_status>open</wp:comment_status>
 		<wp:ping_status>open</wp:ping_status>
-		<wp:post_name>20140202__scs-l-superbowl-0203p1</wp:post_name>
+		<wp:post_name>cartoonist-quest-finding-the-cure-at-comic-con-2</wp:post_name>
 		<wp:status>inherit</wp:status>
-		<wp:post_parent>18</wp:post_parent>
+		<wp:post_parent>0</wp:post_parent>
 		<wp:menu_order>0</wp:menu_order>
 		<wp:post_type>attachment</wp:post_type>
 		<wp:post_password></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p1.jpg</wp:attachment_url>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p114.jpg</wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key>_wp_attached_file</wp:meta_key>
-			<wp:meta_value><![CDATA[2014/02/20140202__SCS-L-SUPERBOWL-0203p1.jpg]]></wp:meta_value>
+			<wp:meta_value><![CDATA[2014/02/p114.jpg]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
-			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:649;s:6:"height";i:432;s:4:"file";s:44:"2014/02/20140202__SCS-L-SUPERBOWL-0203p1.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p1-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p1-300x199.jpg";s:5:"width";i:300;s:6:"height";i:199;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p1-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p1-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p1-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p1-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:556;s:6:"height";i:650;s:4:"file";s:16:"2014/02/p114.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p114-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p114-256x300.jpg";s:5:"width";i:256;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p114-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p114-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p114-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p114-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
-				<title>20140202__SCS-L-SUPERBOWL-0203~p2</title>
-		<link>http://www.scsun-news.com/?attachment_id=20</link>
-		<pubDate>Mon, 03 Feb 2014 04:53:41 +0000</pubDate>
-		<dc:creator><![CDATA[admin]]></dc:creator>
-		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg</guid>
+				<title>Visitors bummed as White Sands Monument remains closed</title>
+		<link>http://www.scsun-news.com/?attachment_id=261</link>
+		<pubDate>Thu, 13 Feb 2014 15:45:30 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/20140211_030807_0212_whitesands11.jpg</guid>
 		<description></description>
-		<content:encoded><![CDATA[]]></content:encoded>
-		<excerpt:encoded><![CDATA[Sky Klaus - For the Sun-News Leonard Pritikin, 95, has been a member of VFW Post 3347 for 71 years. He enjoyed himself during Superbowl Sunday at the VFW Post, which was raising money for veterans and their families, sponsored by the WNMU Veterans club. Pritikin rooted for the Seatle Seahawks.]]></excerpt:encoded>
-		<wp:post_id>20</wp:post_id>
-		<wp:post_date>2014-02-03 04:53:41</wp:post_date>
-		<wp:post_date_gmt>2014-02-03 04:53:41</wp:post_date_gmt>
+		<content:encoded><![CDATA[Patt Wilson and her husband, Peter, of Vancouver, Canada, walk out of the White Sands National Monument visitor center Tuesday after finding out the monument is temporarily closed.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Patt Wilson and her husband, Peter, of Vancouver, Canada, walk out of the White Sands National Monument visitor center Tuesday after finding out the monument is temporarily closed.]]></excerpt:encoded>
+		<wp:post_id>261</wp:post_id>
+		<wp:post_date>2014-02-13 15:45:30</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 15:45:30</wp:post_date_gmt>
 		<wp:comment_status>open</wp:comment_status>
 		<wp:ping_status>open</wp:ping_status>
-		<wp:post_name>20140202__scs-l-superbowl-0203p2</wp:post_name>
+		<wp:post_name>visitors-bummed-as-white-sands-monument-remains-closed-2</wp:post_name>
 		<wp:status>inherit</wp:status>
-		<wp:post_parent>18</wp:post_parent>
+		<wp:post_parent>0</wp:post_parent>
 		<wp:menu_order>0</wp:menu_order>
 		<wp:post_type>attachment</wp:post_type>
 		<wp:post_password></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg</wp:attachment_url>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/20140211_030807_0212_whitesands11.jpg</wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key>_wp_attached_file</wp:meta_key>
-			<wp:meta_value><![CDATA[2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg]]></wp:meta_value>
+			<wp:meta_value><![CDATA[2014/02/20140211_030807_0212_whitesands11.jpg]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
-			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:432;s:6:"height";i:649;s:4:"file";s:44:"2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p2-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p2-199x300.jpg";s:5:"width";i:199;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p2-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p2-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:42:"20140202__SCS-L-SUPERBOWL-0203p2-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:44:"20140202__SCS-L-SUPERBOWL-0203p2-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:1000;s:6:"height";i:637;s:4:"file";s:45:"2014/02/20140211_030807_0212_whitesands11.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:45:"20140211_030807_0212_whitesands11-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:45:"20140211_030807_0212_whitesands11-300x191.jpg";s:5:"width";i:300;s:6:"height";i:191;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:43:"20140211_030807_0212_whitesands11-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:43:"20140211_030807_0212_whitesands11-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:43:"20140211_030807_0212_whitesands11-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:45:"20140211_030807_0212_whitesands11-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";d:6.2999999999999998;s:6:"credit";s:0:"";s:6:"camera";s:11:"NIKON D300S";s:7:"caption";s:299:"Robin Zielinski – Sun-NewsPat Wilson and her husband Peter, of Vancouver, Canada, walk out of the White Sands National Monument visitor center on Tuesday after finding out the monument was closed due to a QF-4 drone aircraft that crashed in the park on Friday morning from Holloman Air Force Base.";s:17:"created_timestamp";i:1392075111;s:9:"copyright";s:0:"";s:12:"focal_length";s:2:"17";s:3:"iso";s:3:"320";s:13:"shutter_speed";s:8:"0.003125";s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Choose an artistic treat for your Valentine today</title>
+		<link>http://www.scsun-news.com/?attachment_id=270</link>
+		<pubDate>Thu, 13 Feb 2014 18:53:04 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p32.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Sandra Craddock offers Valentine's Day bandanas with heart motifs for canine in all shapes and sizes at her booth at the Las Cruces Farmers and Crafts Market.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Sandra Craddock offers Valentine's Day bandanas with heart motifs for canine in all shapes and sizes at her booth at the Las Cruces Farmers and Crafts Market.]]></excerpt:encoded>
+		<wp:post_id>270</wp:post_id>
+		<wp:post_date>2014-02-13 18:53:04</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 18:53:04</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>choose-an-artistic-treat-for-your-valentine-today-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p32.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p32.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:487;s:6:"height";i:649;s:4:"file";s:15:"2014/02/p32.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p32-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p32-225x300.jpg";s:5:"width";i:225;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p32-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p32-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p32-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p32-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>For the Love of Art Month continues with tours, events, day in Mesilla</title>
+		<link>http://www.scsun-news.com/?attachment_id=272</link>
+		<pubDate>Thu, 13 Feb 2014 18:53:05 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p115.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[&#034;Still Life With Poms&#034; by Maria Kruse is among works featured in the ArtForms For the Love of Art Month Members Show continuing through March 1 at the Branigan Cultural Center.]]></content:encoded>
+		<excerpt:encoded><![CDATA[&#034;Still Life With Poms&#034; by Maria Kruse is among works featured in the ArtForms For the Love of Art Month Members Show continuing through March 1 at the Branigan Cultural Center.]]></excerpt:encoded>
+		<wp:post_id>272</wp:post_id>
+		<wp:post_date>2014-02-13 18:53:05</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 18:53:05</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>for-the-love-of-art-month-continues-with-tours-events-day-in-mesilla-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p115.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p115.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:573;s:6:"height";i:649;s:4:"file";s:16:"2014/02/p115.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p115-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p115-264x300.jpg";s:5:"width";i:264;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p115-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p115-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p115-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p115-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Adoptable Animals</title>
+		<link>http://www.scsun-news.com/?attachment_id=274</link>
+		<pubDate>Thu, 13 Feb 2014 18:53:06 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p116.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>274</wp:post_id>
+		<wp:post_date>2014-02-13 18:53:06</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 18:53:06</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>adoptable-animals-3</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p116.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p116.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:649;s:6:"height";i:648;s:4:"file";s:16:"2014/02/p116.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p116-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p116-300x300.jpg";s:5:"width";i:300;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p116-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p116-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p116-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p116-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Travel: Rediscovering Lyndon B. Johnson&#039;s past in Johnson City, Texas</title>
+		<link>http://www.scsun-news.com/?attachment_id=280</link>
+		<pubDate>Thu, 13 Feb 2014 19:57:53 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p33.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Lyndon B. Johnson was always fond of Austin's historic Driskill hotel&#059; today, the downtown Austin property still has a suite named in his and Lady Bird's honor.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Lyndon B. Johnson was always fond of Austin's historic Driskill hotel&#059; today, the downtown Austin property still has a suite named in his and Lady Bird's honor.]]></excerpt:encoded>
+		<wp:post_id>280</wp:post_id>
+		<wp:post_date>2014-02-13 19:57:53</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 19:57:53</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>travel-rediscovering-lyndon-b-johnsons-past-in-johnson-city-texas-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p33.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p33.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:649;s:6:"height";i:427;s:4:"file";s:15:"2014/02/p33.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p33-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p33-300x197.jpg";s:5:"width";i:300;s:6:"height";i:197;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p33-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p33-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p33-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p33-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Reap stellar desserts from the all-too-brief Girl School cookie season</title>
+		<link>http://www.scsun-news.com/?attachment_id=283</link>
+		<pubDate>Thu, 13 Feb 2014 19:57:55 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p21.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Peanut blondies with Peanut Butter Patties are an easy, brownie-like cake, great for packing in lunches.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Peanut blondies with Peanut Butter Patties are an easy, brownie-like cake, great for packing in lunches.]]></excerpt:encoded>
+		<wp:post_id>283</wp:post_id>
+		<wp:post_date>2014-02-13 19:57:55</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 19:57:55</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>reap-stellar-desserts-from-the-all-too-brief-girl-school-cookie-season-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p21.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p21.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:650;s:6:"height";i:432;s:4:"file";s:15:"2014/02/p21.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p21-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p21-300x199.jpg";s:5:"width";i:300;s:6:"height";i:199;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p21-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p21-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p21-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p21-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Artist of the week: Jean Reece Wilkey brings rich and magical insights to her art</title>
+		<link>http://www.scsun-news.com/?attachment_id=286</link>
+		<pubDate>Thu, 13 Feb 2014 19:57:57 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p51.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[A fresh mango, a nest and a mysterious note top a Victorian ceramic piece in Jean Reece Wilkey's oil painting, &#034;Mango on Cherub Vase.&#034;]]></content:encoded>
+		<excerpt:encoded><![CDATA[A fresh mango, a nest and a mysterious note top a Victorian ceramic piece in Jean Reece Wilkey's oil painting, &#034;Mango on Cherub Vase.&#034;]]></excerpt:encoded>
+		<wp:post_id>286</wp:post_id>
+		<wp:post_date>2014-02-13 19:57:57</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 19:57:57</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>artist-of-the-week-jean-reece-wilkey-brings-rich-and-magical-insights-to-her-art-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p51.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p51.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:496;s:6:"height";i:650;s:4:"file";s:15:"2014/02/p51.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p51-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p51-228x300.jpg";s:5:"width";i:228;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p51-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p51-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p51-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p51-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Museum Rocks! gem and mineral show offers fun for rock fans of all ages</title>
+		<link>http://www.scsun-news.com/?attachment_id=289</link>
+		<pubDate>Thu, 13 Feb 2014 19:57:59 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p117.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Young volunteer Alan Omspaugh of El Paso shows off a piece of Dogtooth Calcite as he assists vendors at the first ever The Museum Rocks&#033; Gem &#038; Mineral Show at the New Mexico Farm &#038; Ranch Heritage  Museum. This year's show will be from 9 a.m. to 5 p.m. Saturday Feb. 22 and 10 a.m. to 5 p.m. Feb. 23.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Young volunteer Alan Omspaugh of El Paso shows off a piece of Dogtooth Calcite as he assists vendors at the first ever The Museum Rocks&#033; Gem &#038; Mineral Show at the New Mexico Farm &#038; Ranch Heritage  Museum. This year's show will be from 9 a.m. to 5 p.m. Saturday Feb. 22 and 10 a.m. to 5 p.m. Feb. 23.]]></excerpt:encoded>
+		<wp:post_id>289</wp:post_id>
+		<wp:post_date>2014-02-13 19:57:59</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 19:57:59</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>museum-rocks-gem-and-mineral-show-offers-fun-for-rock-fans-of-all-ages-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p117.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p117.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:472;s:6:"height";i:649;s:4:"file";s:16:"2014/02/p117.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p117-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p117-218x300.jpg";s:5:"width";i:218;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p117-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p117-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p117-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p117-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Sunday SunLife Top Ten</title>
+		<link>http://www.scsun-news.com/?attachment_id=293</link>
+		<pubDate>Thu, 13 Feb 2014 19:58:03 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p118.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>293</wp:post_id>
+		<wp:post_date>2014-02-13 19:58:03</wp:post_date>
+		<wp:post_date_gmt>2014-02-13 19:58:03</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>sunday-sunlife-top-ten-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p118.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p118.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:260;s:6:"height";i:347;s:4:"file";s:16:"2014/02/p118.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p118-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p118-224x300.jpg";s:5:"width";i:224;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p118-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p118-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p118-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p118-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>For the Love of Art Month continues with tours, events, day in Mesilla</title>
+		<link>http://www.scsun-news.com/?attachment_id=303</link>
+		<pubDate>Fri, 14 Feb 2014 16:04:11 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p119.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[&#034;Still Life With Poms&#034; by Maria Kruse is among works featured in the ArtForms For the Love of Art Month Members Show continuing through March 1 at the Branigan Cultural Center.]]></content:encoded>
+		<excerpt:encoded><![CDATA[&#034;Still Life With Poms&#034; by Maria Kruse is among works featured in the ArtForms For the Love of Art Month Members Show continuing through March 1 at the Branigan Cultural Center.]]></excerpt:encoded>
+		<wp:post_id>303</wp:post_id>
+		<wp:post_date>2014-02-14 16:04:11</wp:post_date>
+		<wp:post_date_gmt>2014-02-14 16:04:11</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>for-the-love-of-art-month-continues-with-tours-events-day-in-mesilla-3</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p119.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p119.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:573;s:6:"height";i:649;s:4:"file";s:16:"2014/02/p119.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p119-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p119-264x300.jpg";s:5:"width";i:264;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p119-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p119-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p119-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p119-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Senate committee kills bill to keep Gila River flowing free</title>
+		<link>http://www.scsun-news.com/?attachment_id=312</link>
+		<pubDate>Fri, 14 Feb 2014 16:04:22 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p120.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>312</wp:post_id>
+		<wp:post_date>2014-02-14 16:04:22</wp:post_date>
+		<wp:post_date_gmt>2014-02-14 16:04:22</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>senate-committee-kills-bill-to-keep-gila-river-flowing-free-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p120.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p120.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:649;s:6:"height";i:364;s:4:"file";s:16:"2014/02/p120.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p120-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p120-300x168.jpg";s:5:"width";i:300;s:6:"height";i:168;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p120-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p120-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p120-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p120-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>The Wall Street Journal takes interest in Ft. Bayard</title>
+		<link>http://www.scsun-news.com/?attachment_id=316</link>
+		<pubDate>Fri, 14 Feb 2014 16:04:26 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p22.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[By Susan Dunlap - Sun-News
+Aaron Plump, who now lives in Arizona, was a Chief Petty Officer in the Navy for 22 years. Now Plump and his partner, McCurtis, dress as Buffalo Soldiers to tell a history that is often unknown. Plump and McCurtis visited Ft. Bayard and Ft. Bayard National Cemetery to pay their respects to the Buffalo Soldiers buried there and allow the Wall St. Journal to take photographs Wednesday.]]></content:encoded>
+		<excerpt:encoded><![CDATA[By Susan Dunlap - Sun-News
+Aaron Plump, who now lives in Arizona, was a Chief Petty Officer in the Navy for 22 years. Now Plump and his partner, McCurtis, dress as Buffalo Soldiers to tell a history that is often unknown. Plump and McCurtis visited Ft. Bayard and Ft. Bayard National Cemetery to pay their respects to the Buffalo Soldiers buried there and allow the Wall St. Journal to take photographs Wednesday.]]></excerpt:encoded>
+		<wp:post_id>316</wp:post_id>
+		<wp:post_date>2014-02-14 16:04:26</wp:post_date>
+		<wp:post_date_gmt>2014-02-14 16:04:26</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>the-wall-street-journal-takes-interest-in-ft-bayard-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p22.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p22.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:365;s:6:"height";i:649;s:4:"file";s:15:"2014/02/p22.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:15:"p22-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:15:"p22-168x300.jpg";s:5:"width";i:168;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:13:"p22-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:13:"p22-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:13:"p22-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:15:"p22-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Colts are ready to host district wrestling tournament</title>
+		<link>http://www.scsun-news.com/?attachment_id=319</link>
+		<pubDate>Fri, 14 Feb 2014 16:04:30 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p121.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Danny Udero/Sun-News 
+ Silver's Ramon Rodriguez will battle for the district crown against Jose Delgado of Cobre. The wrestlers are 1-1 against each other this year.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Danny Udero/Sun-News 
+ Silver's Ramon Rodriguez will battle for the district crown against Jose Delgado of Cobre. The wrestlers are 1-1 against each other this year.]]></excerpt:encoded>
+		<wp:post_id>319</wp:post_id>
+		<wp:post_date>2014-02-14 16:04:30</wp:post_date>
+		<wp:post_date_gmt>2014-02-14 16:04:30</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>colts-are-ready-to-host-district-wrestling-tournament-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p121.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p121.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:649;s:6:"height";i:571;s:4:"file";s:16:"2014/02/p121.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p121-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p121-300x263.jpg";s:5:"width";i:300;s:6:"height";i:263;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p121-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p121-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p121-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p121-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Indians are ready to repeat as district champs on the mat</title>
+		<link>http://www.scsun-news.com/?attachment_id=321</link>
+		<pubDate>Fri, 14 Feb 2014 16:04:34 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p122.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Danny Udero/Sun-News 
+ Cobre's Robert Rodriguez will look to sail through the district competition in order to get a shot at getting back into the state finals next week in Rio Rancho]]></content:encoded>
+		<excerpt:encoded><![CDATA[Danny Udero/Sun-News 
+ Cobre's Robert Rodriguez will look to sail through the district competition in order to get a shot at getting back into the state finals next week in Rio Rancho]]></excerpt:encoded>
+		<wp:post_id>321</wp:post_id>
+		<wp:post_date>2014-02-14 16:04:34</wp:post_date>
+		<wp:post_date_gmt>2014-02-14 16:04:34</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>indians-are-ready-to-repeat-as-district-champs-on-the-mat-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p122.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p122.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:649;s:6:"height";i:482;s:4:"file";s:16:"2014/02/p122.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p122-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p122-300x222.jpg";s:5:"width";i:300;s:6:"height";i:222;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p122-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p122-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p122-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p122-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Junior Wrestling Champions</title>
+		<link>http://www.scsun-news.com/?attachment_id=323</link>
+		<pubDate>Fri, 14 Feb 2014 16:04:35 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p123.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[Courtesy Photo]]></content:encoded>
+		<excerpt:encoded><![CDATA[Courtesy Photo]]></excerpt:encoded>
+		<wp:post_id>323</wp:post_id>
+		<wp:post_date>2014-02-14 16:04:35</wp:post_date>
+		<wp:post_date_gmt>2014-02-14 16:04:35</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>junior-wrestling-champions-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p123.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p123.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:248;s:6:"height";i:327;s:4:"file";s:16:"2014/02/p123.jpg";s:5:"sizes";a:6:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p123-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:16:"p123-227x300.jpg";s:5:"width";i:227;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p123-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p123-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p123-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p123-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:6:"Picasa";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Charles Krauthammer: New information now available on Obamacare&#039;s war on jobs</title>
+		<link>http://www.scsun-news.com/?attachment_id=327</link>
+		<pubDate>Fri, 14 Feb 2014 16:04:48 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/wp-content/uploads/2014/02/p124.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>327</wp:post_id>
+		<wp:post_date>2014-02-14 16:04:48</wp:post_date>
+		<wp:post_date_gmt>2014-02-14 16:04:48</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>charles-krauthammer-new-information-now-available-on-obamacares-war-on-jobs-2</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>http://www.scsun-news.com/wp-content/uploads/2014/02/p124.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[2014/02/p124.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"width";i:176;s:6:"height";i:176;s:4:"file";s:16:"2014/02/p124.jpg";s:5:"sizes";a:5:{s:9:"thumbnail";a:4:{s:4:"file";s:16:"p124-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-32";a:4:{s:4:"file";s:14:"p124-32x32.jpg";s:5:"width";i:32;s:6:"height";i:32;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-64";a:4:{s:4:"file";s:14:"p124-64x64.jpg";s:5:"width";i:64;s:6:"height";i:64;s:9:"mime-type";s:10:"image/jpeg";}s:15:"guest-author-96";a:4:{s:4:"file";s:14:"p124-96x96.jpg";s:5:"width";i:96;s:6:"height";i:96;s:9:"mime-type";s:10:"image/jpeg";}s:16:"guest-author-128";a:4:{s:4:"file";s:16:"p124-128x128.jpg";s:5:"width";i:128;s:6:"height";i:128;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Terms of Use</title>
+		<link>http://www.scsun-news.com/?p=569</link>
+		<pubDate>Wed, 30 Nov -0001 00:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/?p=569</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>569</wp:post_id>
+		<wp:post_date>2014-02-14 22:47:34</wp:post_date>
+		<wp:post_date_gmt>0000-00-00 00:00:00</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name></wp:post_name>
+		<wp:status>draft</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>1</wp:menu_order>
+		<wp:post_type>nav_menu_item</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_type</wp:meta_key>
+			<wp:meta_value><![CDATA[custom]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_menu_item_parent</wp:meta_key>
+			<wp:meta_value><![CDATA[0]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object_id</wp:meta_key>
+			<wp:meta_value><![CDATA[569]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object</wp:meta_key>
+			<wp:meta_value><![CDATA[custom]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_target</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_classes</wp:meta_key>
+			<wp:meta_value><![CDATA[a:1:{i:0;s:0:"";}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_xfn</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_url</wp:meta_key>
+			<wp:meta_value><![CDATA[http://#]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_orphaned</wp:meta_key>
+			<wp:meta_value><![CDATA[1392418055]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
@@ -1098,301 +2231,6 @@
 		</wp:postmeta>
 	</item>
 	<item>
-				<title>Article, no frills</title>
-		<link>http://www.scsun-news.com/?p=1</link>
-		<pubDate>Fri, 24 Jan 2014 18:23:13 +0000</pubDate>
-		<dc:creator><![CDATA[admin]]></dc:creator>
-		<guid isPermaLink="false">http://www.scsun-news.com/?p=1</guid>
-		<description></description>
-		<content:encoded><![CDATA[<p>SILVER CITY &gt;&gt; Silver City Police Chief Ed Reynolds and Fire Chief Rudy Bencomo gave presentations at the town council meeting Wednesday about the importance of renewal of the public safety tax on March 4.</p>
-<p>Originally approved by voters in 2004, the public safety tax imposes a one-eighth of 1 percent increase to the municipal infrastructure gross receipts tax in the town.</p>
-<p>"It's not a new tax," Bencomo told the mayor and councilors. "It's a continuation of a tax implemented 10 years ago. And if it doesn't pass, we'll lose half a million dollars."</p>
-<p>The tax was implemented in 2004 for the sole purpose of increasing public safety, but had a 10-year sunset requirement. So, voters must decide in the upcoming election if they want to continue it.</p>
-<p>So far, the tax has paid for the salaries and benefits of four police officers and enabled the Police Department to purchase 17 patrol cars. In addition, the money has enabled the Fire Department to pay the salary and benefits of one fire fighter and purchase a ladder truck. The public safety tax has provided both departments with more than $3 million in the last 10 years.</p>
-<p>Bencomo said that without the money the tax provides, the Silver City Fire Department will lose the fire fighter whose salary is provided by the tax. Bencomo stressed that the Fire Department seeks grant money wherever it can. He mentioned the nearly $60,000 NM State Fire grant the Fire Department received in 2013 to replace bunker gear and the increase in grass and structure fires in the area since 2010.</p><div style="width:336px" class="articleEmbeddedAdBox"><hr class="articleAdRule"/><div class="articleAdHeader">Advertisement</div><div align="center" class="adElement" id="adPosBox"><script type="text/javascript" language="JavaScript">
-        						  yld_mgr.place_ad_here("adPosBox");
-        					  </script></div><hr class="articleAdRule"/></div>
-<p>Reynolds stressed how frugal the Silver City Police Department has been in recent years and how hard the maintenance department has worked to keep the police fleet on the road. Reynolds gave a slide show demonstrating that the Police Department has two 1998 cars with more than 140,000 miles on them. The department has six 2001 vehicles with more than 142,000 miles on them. Reynolds said that according to national standards, a police vehicle is considered outdated once it reaches 75,000 miles. The department currently has 16 such vehicles.</p>
-<p>"In 2005 a fully-equipped unit was approximately $26,000," Reynolds said. "Now the cost is about $30,000."</p>
-<p>He also said the computers police officers use need to be replaced. Maintenance costs have soared due to the age of the department's fleet. And he hopes to move the department into using silent dispatch with new computers. He also said the men and women who join the city's police force are staying, on average, longer than they used to.</p>
-<p>"It was three years," Reynolds said. "Now they're tending to stay with the department for about eight years, which is a good thing."</p>
-<p>Reynolds stressed that if the public safety tax is approved, the city will be able to continue to see the level of service the city's police force already provides. The tax will continue to pay for the salaries and benefits of three Silver City police officers plus enable the department to invest in new patrol cars and equipment.</p>
-<p>The councilors and the mayor expressed support for the public safety tax.</p>
-<p>"If this tax fails, there'll be a new council and they'll be in a budget dilemma," Councilor Mike Morones said. "Cuts will have to be made somewhere."</p>
-<p>Councilor Cynthia Ann Bettison agreed.</p>
-<p>"There are other things that may have to be cut if this tax doesn't pass," Bettison said. "To have that peace of mind that we have fire and police and they have the equipment they need, to me it's a worthwhile tax and I hope we continue it. Otherwise, there'll be difficult decisions ahead."</p>
-<p>Mayor James Marshall said that though he is stepping down as mayor after the March 4 election, the issue is still an important one to him as a Silver City resident.</p>
-<p>"You can't tell a 911 caller, I'm sorry your house is on fire, we don't have the money to send you a truck," Marshall said. "I really don't have a dog in this fight other than that I'm a resident and will remain one after I'm no longer mayor. The tax isn't much, but it's impact is huge."</p>
-<p>The town council voted in December on the ordinance that will allow the public safety tax to go before voters in March. This discussion of the public safety tax at Wednesday evening's council meeting allowed the public to hear about the tax. </p>
-<p>In other business, the council approved an award bid of $340,373 to Diamond Construction for Blackhawk Road gravity sewer improvements and the council approved the list of names of the March 4 election workers.</p>
-<p>"We owe these volunteers a big, big thank you," Marshall said before the council adjourned. "They ensure everyone gets a shot at voting."</p>
-<p class="author-info">Susan Dunlap can be reached at 575-538-5893 ext. 5803.</p>]]></content:encoded>
-		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>1</wp:post_id>
-		<wp:post_date>2014-01-24 18:23:13</wp:post_date>
-		<wp:post_date_gmt>2014-01-24 18:23:13</wp:post_date_gmt>
-		<wp:comment_status>open</wp:comment_status>
-		<wp:ping_status>open</wp:ping_status>
-		<wp:post_name>hello-world</wp:post_name>
-		<wp:status>publish</wp:status>
-		<wp:post_parent>0</wp:post_parent>
-		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type>post</wp:post_type>
-		<wp:post_password></wp:post_password>
-		<wp:is_sticky>0</wp:is_sticky>
-		<category domain="author" nicename="cap-admin"><![CDATA[admin]]></category>
-		<category domain="category" nicename="local-news"><![CDATA[Local News]]></category>
-		<wp:postmeta>
-			<wp:meta_key>_edit_last</wp:meta_key>
-			<wp:meta_value><![CDATA[1]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:comment>
-			<wp:comment_id>1</wp:comment_id>
-			<wp:comment_author><![CDATA[Mr WordPress]]></wp:comment_author>
-			<wp:comment_author_email></wp:comment_author_email>
-			<wp:comment_author_url>http://wordpress.org/</wp:comment_author_url>
-			<wp:comment_author_IP></wp:comment_author_IP>
-			<wp:comment_date>2014-01-24 18:23:13</wp:comment_date>
-			<wp:comment_date_gmt>2014-01-24 18:23:13</wp:comment_date_gmt>
-			<wp:comment_content><![CDATA[Hi, this is a comment.
-To delete a comment, just log in and view the post&#039;s comments. There you will have the option to edit or delete them.]]></wp:comment_content>
-			<wp:comment_approved>1</wp:comment_approved>
-			<wp:comment_type></wp:comment_type>
-			<wp:comment_parent>0</wp:comment_parent>
-			<wp:comment_user_id>0</wp:comment_user_id>
-		</wp:comment>
-	</item>
-	<item>
-				<title>Sample Page</title>
-		<link>http://www.scsun-news.com/?page_id=2</link>
-		<pubDate>Fri, 24 Jan 2014 18:23:13 +0000</pubDate>
-		<dc:creator><![CDATA[admin]]></dc:creator>
-		<guid isPermaLink="false">http://www.scsun-news.com/?page_id=2</guid>
-		<description></description>
-		<content:encoded><![CDATA[This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:
-
-<blockquote>Hi there! I'm a bike messenger by day, aspiring actor by night, and this is my blog. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin' caught in the rain.)</blockquote>
-
-...or something like this:
-
-<blockquote>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</blockquote>
-
-As a new WordPress user, you should go to <a href="http://www.scsun-news.com/wp-admin/">your dashboard</a> to delete this page and create new pages for your content. Have fun!]]></content:encoded>
-		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>2</wp:post_id>
-		<wp:post_date>2014-01-24 18:23:13</wp:post_date>
-		<wp:post_date_gmt>2014-01-24 18:23:13</wp:post_date_gmt>
-		<wp:comment_status>open</wp:comment_status>
-		<wp:ping_status>open</wp:ping_status>
-		<wp:post_name>sample-page</wp:post_name>
-		<wp:status>publish</wp:status>
-		<wp:post_parent>0</wp:post_parent>
-		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type>page</wp:post_type>
-		<wp:post_password></wp:post_password>
-		<wp:is_sticky>0</wp:is_sticky>
-		<wp:postmeta>
-			<wp:meta_key>_wp_page_template</wp:meta_key>
-			<wp:meta_value><![CDATA[default]]></wp:meta_value>
-		</wp:postmeta>
-	</item>
-	<item>
-				<title>Article, large lead photo (i.e. featured image)</title>
-		<link>http://www.scsun-news.com/?p=6</link>
-		<pubDate>Mon, 27 Jan 2014 20:16:14 +0000</pubDate>
-		<dc:creator><![CDATA[admin]]></dc:creator>
-		<guid isPermaLink="false">http://www.scsun-news.com/?p=6</guid>
-		<description></description>
-		<content:encoded><![CDATA[<p>Yada Yada Yarn stopped traffic for about an hour Sunday on Bullard St. to move to their new location at 621 N. Bullard St.</p>
-
-<p>The effort began at noon and a line of knitters stood in the street as they handed baskets of yarn across a human chain to move the goods into their new storefront, now located at the corner of Bullard and Seventh Street next door to Alotta Gelotta. Yada Yada Yarn replaces the t-shirt printing shop. Cars were rerouted by the knitters until the old store stood empty.</p>
-]]></content:encoded>
-		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>6</wp:post_id>
-		<wp:post_date>2014-01-27 20:16:14</wp:post_date>
-		<wp:post_date_gmt>2014-01-27 20:16:14</wp:post_date_gmt>
-		<wp:comment_status>open</wp:comment_status>
-		<wp:ping_status>open</wp:ping_status>
-		<wp:post_name>single-post-large-lead-photo-i-e-featured-image</wp:post_name>
-		<wp:status>publish</wp:status>
-		<wp:post_parent>0</wp:post_parent>
-		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type>post</wp:post_type>
-		<wp:post_password></wp:post_password>
-		<wp:is_sticky>0</wp:is_sticky>
-		<category domain="author" nicename="cap-admin"><![CDATA[admin]]></category>
-		<category domain="category" nicename="local-news"><![CDATA[Local News]]></category>
-		<wp:postmeta>
-			<wp:meta_key>_edit_last</wp:meta_key>
-			<wp:meta_value><![CDATA[1]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>_thumbnail_id</wp:meta_key>
-			<wp:meta_value><![CDATA[7]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>_post_restored_from</wp:meta_key>
-			<wp:meta_value><![CDATA[a:3:{s:20:"restored_revision_id";i:9;s:16:"restored_by_user";i:1;s:13:"restored_time";i:1390922273;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>_wp_rp_related_posts_query_result_cache_expiration</wp:meta_key>
-			<wp:meta_value><![CDATA[1391189132]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>_wp_rp_related_posts_query_result_cache_6</wp:meta_key>
-			<wp:meta_value><![CDATA[a:2:{i:0;O:8:"stdClass":2:{s:7:"post_id";s:1:"1";s:5:"score";s:18:"0.8109302162163288";}i:1;O:8:"stdClass":2:{s:7:"post_id";s:2:"14";s:5:"score";s:1:"0";}}]]></wp:meta_value>
-		</wp:postmeta>
-	</item>
-	<item>
-				<title>Article with sidebar</title>
-		<link>http://www.scsun-news.com/?p=14</link>
-		<pubDate>Wed, 29 Jan 2014 23:10:11 +0000</pubDate>
-		<dc:creator><![CDATA[admin]]></dc:creator>
-		<guid isPermaLink="false">http://www.scsun-news.com/?p=14</guid>
-		<description></description>
-		<content:encoded><![CDATA[<p><b>SILVER CITY &gt;&gt;</b> A unanimous decision Jan. 8 by the Water Quality Control Commission (WQCC) to maintain the so-called Copper Rule will allow Freeport-McMoRan Copper & Gold Inc. to pollute ground water within a nine-square-mile area of the Tyrone Mine, according to Bruce Frederick, staff attorney with the New Mexico Environmental Law Center.</p>
-<p>"The Copper Rule makes a bad situation worse," Frederick said.</p>
-<p>The Copper Rules was passed last year to amend the Water Quality Control Act of 1977, which prohibits groundwater pollution beyond water quality standards. For more than 30 years, this has kept New Mexico's ground water relatively safe to drink. That could soon change, advocates said.</p>
-<p>"The whole state's water is at risk," conservationist group Amigos Bravos Projects Director Rachel Conn said. "Since the Copper Rule's been adopted, the dairy industry and other industries want to have the same ability to change ground water standards."</p>
-<p>The mining and dairy industries began lobbying the New Mexico Legislature a few years ago to revise the rules, according to Conn. Under the Water Quality Control Act, in order to pollute the ground water, each company had to apply for a variance &mdash; a lengthy process with no certainty of success. In addition, every industry had to adhere to the same set of regulations, Conn said. The mining and dairy industries wanted industry-specific regulations and they wanted to streamline the permitting process.</p><div style="width:336px" class="articleEmbeddedAdBox"><hr class="articleAdRule"/><div class="articleAdHeader">Advertisement</div><div align="center" class="adElement" id="adPosBox"><script type="text/javascript" language="JavaScript">
-        						  yld_mgr.place_ad_here("adPosBox");
-        					  </script></div><hr class="articleAdRule"/></div>
-<p>The industry got what it wanted last year when the Copper Rule was adopted. A request to stay the rule was rejected last month.</p>
-<p>Eric Kinneberg, external communications director for Freeport-McMoRan, praised the decision to maintain the Copper Rule, and contended it is more stringent that what was previously in place.</p>
-<p>"Freeport-McMoRan is pleased that the WQCC unanimously denied the request to delay the implementation of the Copper Rules," Kinneberg said through an emailed statement. "The WQCC cleared the way for the New Mexico Environment Department to renew the existing discharge permits. We are prepared to implement the Copper Rules' more stringent water protection requirements and appreciate the predictability and consistency the new rules represent for potential expanded operations."</p>
-<p>Kinneberg denied conservationists' claims that the Copper Rule will allow for greater pollution.</p>
-<p>"The Copper Rules were crafted by the New Mexico Environment Department with input from an advisory committee that considered the views of other government agencies, academics, environmental groups, scientific experts and industry," he said. "The process allowed all viewpoints to be considered and the Environment Department ultimately balanced these differing viewpoints and carefully considered the scientific and technical evidence supplied by the participants in crafting the rule. The Copper Rules establish detailed construction, design, monitoring, and closure requirements for new mining facilities as well as for the expansion of existing facilities, which were not specified by previous regulations or in discharge permits. As a result, the new rules replace an unpredictable system of permitting with consistent, enforceable measures that are expected to reduce impacts to groundwater at all New Mexico copper mining facilities."</p>
-<p>Conn agreed that the group originally formed in 2012 was well balanced, with experts on both sides. But that group was drastically changed before the final rule was adopted, she said.</p>
-<p>"We were really pleasantly surprised," Conn said. "The advisory committee of NMED staff and experts recommended rules that were a step forward."</p>
-<p>But according to Conn, the situation changed while the new rules were still being drafted. </p>
-<p>"The rules were changed and gutted by political appointees in NMED," Conn said. "It became vastly different."</p>
-<p>In April 2013 Ryan Flynn was appointed by Gov. Susana Martinez as the new secretary of NMED, while the Copper Rule was still being drafted. At the time of his appointment, Flynn was acting as legal counsel for NMED. According to the Santa Fe New Mexican, before joining NMED as general legal counsel, Flynn previously worked for Modrall Sperling Law Firm, which represented Freeport before the WQCC, NMED and the courts. </p>
-<p>Jim Winchester, communications director for the NMED & the Energy, Minerals & Natural Resources Department, disagreed with these allegations. In an emailed statement, he said, "Groups opposing the new Copper Rules continue to mislead the public using the same false, inaccurate talking points. Secretary Ryan Flynn proudly worked for several years at Modrall Sperling before joining the New Mexico Environment Department in January of 2011. While at Modrall Sperling, Secretary Flynn never worked on any cases representing Freeport-McMoran. Likewise, he chose to voluntarily recuse himself from any cases involving Modrall Sperling for his first year at the New Mexico Environment Department. Any suggestion that his former employment influenced his role in working with a consortium of regulators, academics and industry groups to come up with new Copper Rules is entirely false. The fact of the matter is that the newly adopted rules are the most environmentally protective rules for the copper mining industry in the country."</p>
-<p>The 12-member WQCC board heard the final draft of the Copper Rule in September 2013. </p>
-<p>"The WQCC has become completely politicized," Conn said. "They serve at the pleasure of the governor."</p>
-<p>Winchester also disagreed with this allegation.</p>
-<p>"From the perspective of NMED, any suggestion that the Water Quality Commission did not fairly deliberate on the adoption of the new rule or stay motion is completely false," he said. "The Commission listened and considered testimony from environmental experts, academics, industry representatives, environmental advocacy groups for several weeks before adopting the new rules. The new rules are over 40 pages long and provide greater protection for the state's ground water resources than the prior system, which allowed extensive contamination at mine sites around the state. Opponents of the new rules are seeking to defend a broken system that was already ruled illegal by the New Mexico Court of Appeals."</p>
-<p>But according to Conn, the one dissenting vote on the WQCC, Doug Bland, who voted against the Copper Rule, resigned from the committee a month after the rules were voted for in September. </p>
-<p>"Doug Bland no longer serves, but he was the commissioner who knew the most about mining. He was the former head of the mining minerals department," Conn said. </p>
-<p>Frederick said conservationist groups had no hope of the WQCC overturning the rule it had just voted for, but to take the matter to the NM Court of Appeals, they had no choice but to go back to the WQCC first to apply for a motion to stay the rule. </p>
-<p>"Now we're free to file the same motion to stay the Copper Rule in the Court of Appeals," Frederick said. "We're confidant the courts are an unbiased decision maker."</p>
-<p>However, the judicial process will take two to three years, he said. </p>
-<p>"This is the kind of pollution that lasts forever, the source is there forever," Frederick said. "Hundreds of years of perpetual pollution."</p>
-<p>Freeport has 17 of 25 permits that are up for the repermitting process, according to Allyson Siwik, executive director of Gila Resources Information Project.</p>
-<p>"This represents a rollback in how the state manages ground water," Siwik said of the permitting process.</p>
-<p>Those 17 permits will be reviewed under the new Copper Rule.</p>
-<p>"The Copper Rule allows pollution," Frederick said. "It legitimizes all the pollution that's already there." </p>
-<p>According to Conn, the Copper Rule allows so-called sacrifice zones under certain areas. Ground water pollution is now allowed as long as Freeport pumps in more ground water to keep the polluted ground water contained.</p>
-<p>"This will lead to perpetual pumping," Conn said.</p>
-<p>Once the pumped ground water is brought into contact with the polluted ground water, the water that is pumped becomes polluted, too.</p>
-<p>"This is bad in terms of how it effects the water supply, in terms of both supply and quality," Frederick said. "It's a race to the bottom, all those straws sucking from the same source, now the mine will be a huge straw. In an arid state, polluting thousands of acre-feet of good fresh water, there's a better way to do it."</p>
-<p>According to Frederick, there is another issue at stake. The Copper Rule allows for something called financial assurance for the mining industry.</p>
-<p>"If they go bankrupt, the state can take over," Frederick said. </p>
-<p>According to Frederick, the Tyrone mine is expected to be depleted of mineral deposits within a couple of decades. This could cause the mine to shut down permanently.</p>
-<p>"When the reserves end, there's no reason for them to exist any further," Frederick said. "They're a profit-driving force."</p>
-<p>If the state is forced to take over the cleanup, that means taxpayers will ultimately get handed the bill.</p>
-<p>"It really is impossible to clean that up, once it's been polluted," Frederick said. "All you can do is just contain it. But instead of doing it with walls and dams, they're doing it with pumps."</p>
-<p class="author-info">Susan Dunlap can be reached at 575-538-5893 ext. 5803.</p>]]></content:encoded>
-		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>14</wp:post_id>
-		<wp:post_date>2014-01-29 23:10:11</wp:post_date>
-		<wp:post_date_gmt>2014-01-29 23:10:11</wp:post_date_gmt>
-		<wp:comment_status>open</wp:comment_status>
-		<wp:ping_status>open</wp:ping_status>
-		<wp:post_name>article-with-sidebar</wp:post_name>
-		<wp:status>publish</wp:status>
-		<wp:post_parent>0</wp:post_parent>
-		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type>post</wp:post_type>
-		<wp:post_password></wp:post_password>
-		<wp:is_sticky>0</wp:is_sticky>
-		<category domain="author" nicename="cap-admin"><![CDATA[admin]]></category>
-		<category domain="following_users" nicename="cap-admin"><![CDATA[admin]]></category>
-		<category domain="category" nicename="local-news"><![CDATA[Local News]]></category>
-		<category domain="category" nicename="sports"><![CDATA[Sports]]></category>
-		<wp:postmeta>
-			<wp:meta_key>_edit_last</wp:meta_key>
-			<wp:meta_value><![CDATA[1]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>Name</wp:meta_key>
-			<wp:meta_value><![CDATA[]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>Publication</wp:meta_key>
-			<wp:meta_value><![CDATA[]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>Title</wp:meta_key>
-			<wp:meta_value><![CDATA[KEY MOMENTS FOR MAC DESKTOPS]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>Markup</wp:meta_key>
-			<wp:meta_value><![CDATA[<p><strong>1984: </strong>Macintosh 128K</p><p><strong>Price:</strong> $2,495</p><p><strong>CPU speed:</strong> 8 MHz</p><p>The first, inspired by Lisa, with an all-in-one design that includes built-in monitor, 3.5&#x201d; disk drive and a mouse. It was unveiled by Jobs Jan. 24, 1984, at Flint Center in Cupertino.</p><p><strong>1993: </strong>Macintosh Color Classic</p><p><strong>Price:</strong> $1,390</p><p><strong>CPU speed: </strong>16 MHz</p><p>First Macintosh with a built-in color display &#x2014; but the last with the iconic box shape of the classic Mac.</p><p><strong>1998: </strong>iMac</p><p><strong>Price:</strong> $1,299</p><p><strong>CPU speed:</strong> 233 MHz</p><p>Back in charge at Apple, Steve Jobs began streamlining Apple&#x2019;s bloated product lines. He recharged the Mac faithful with the colorful and bullet-shaped iMac, the machine destined to become the digital hub for iPhoto, iTunes and the rest of our iLives.</p><p><strong>2002: </strong>iMac G4</p><p><strong>Price:</strong> $1,299 (15-inch)</p><p><strong>CPU speed: </strong>700/800 MHz</p><p>The first major design overhaul of the iMac, the new computer replaced bulky CRT screens with flat-panel monitors.</p><p><strong>2005:</strong><strong> </strong>iMac</p><p><strong>Price:</strong><strong> </strong>$1,199 (20-inch)</p><p><strong>CPU speed:</strong> 2.4 GHz</p><p>Introduced in 2004, with a smaller footprint than previous models, it was upgraded in 2005 by a switch from IBM/Motorola&#x2019;s Power PC chip to Intel chips.</p><p><strong>Price:</strong><strong> </strong>$1,299 (21.5-inch)</p><p><strong>CPU speed: </strong>2.7 GHz</p><p>Apple continues to improve screen resolution and boost processor speeds in the line that launched 30 years ago with the boxy Macintosh.</p><p>Sources: Apple, San Jose Mercury News archive</p>]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>_wp_rp_related_posts_query_result_cache_expiration</wp:meta_key>
-			<wp:meta_value><![CDATA[1391123478]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>_wp_rp_related_posts_query_result_cache_6</wp:meta_key>
-			<wp:meta_value><![CDATA[a:2:{i:0;O:8:"stdClass":2:{s:7:"post_id";s:1:"6";s:5:"score";s:17:"2.027325540540822";}i:1;O:8:"stdClass":2:{s:7:"post_id";s:1:"1";s:5:"score";s:18:"0.8109302162163288";}}]]></wp:meta_value>
-		</wp:postmeta>
-	</item>
-	<item>
-				<title>Article, sub-category, two photos</title>
-		<link>http://www.scsun-news.com/?p=18</link>
-		<pubDate>Mon, 03 Feb 2014 04:56:56 +0000</pubDate>
-		<dc:creator><![CDATA[admin]]></dc:creator>
-		<guid isPermaLink="false">http://www.scsun-news.com/?p=18</guid>
-		<description></description>
-		<content:encoded><![CDATA[Veterans and friends get ready to watch the Superbowl XLVIII Sunday at the VFW Post 3347 Sunday afternoon. Left to r: Leonard Pritkin, Ray Stryker, Connie Zawacki and David Tercero.
-[caption id="attachment_20" align="alignright" width="199"]<a href="http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg"><img src="http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p2-199x300.jpg" alt="Sky Klaus - For the Sun-News Leonard Pritikin, 95, has been a member of VFW Post 3347 for 71 years. He enjoyed himself during Superbowl Sunday at the VFW Post, which was raising money for veterans and their families, sponsored by the WNMU Veterans club. Pritikin rooted for the Seatle Seahawks." width="199" height="300" class="size-medium wp-image-20" /></a> Sky Klaus - For the Sun-News Leonard Pritikin, 95, has been a member of VFW Post 3347 for 71 years. He enjoyed himself during Superbowl Sunday at the VFW Post, which was raising money for veterans and their families, sponsored by the WNMU Veterans club. Pritikin rooted for the Seatle Seahawks.[/caption]
-
-A friendly rivalry broke out among veterans at the VFW Post before the big game got off the ground. About half the veterans who came to the Superbowl party fundraiser pulled for Denver while the other half pulled for Seattle. The WNMU Veteran's club, which held the Superbowl party for veterans Sunday, hoped to raise a couple hundred dollars to give to needy veterans and their families.]]></content:encoded>
-		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>18</wp:post_id>
-		<wp:post_date>2014-02-03 04:56:56</wp:post_date>
-		<wp:post_date_gmt>2014-02-03 04:56:56</wp:post_date_gmt>
-		<wp:comment_status>open</wp:comment_status>
-		<wp:ping_status>open</wp:ping_status>
-		<wp:post_name>article-sub-category-two-photos</wp:post_name>
-		<wp:status>publish</wp:status>
-		<wp:post_parent>0</wp:post_parent>
-		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type>post</wp:post_type>
-		<wp:post_password></wp:post_password>
-		<wp:is_sticky>0</wp:is_sticky>
-		<category domain="author" nicename="cap-admin"><![CDATA[admin]]></category>
-		<category domain="following_users" nicename="cap-admin"><![CDATA[admin]]></category>
-		<category domain="category" nicename="football"><![CDATA[Football]]></category>
-		<category domain="category" nicename="sports"><![CDATA[Sports]]></category>
-		<wp:postmeta>
-			<wp:meta_key>_edit_last</wp:meta_key>
-			<wp:meta_value><![CDATA[1]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>_thumbnail_id</wp:meta_key>
-			<wp:meta_value><![CDATA[19]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>Name</wp:meta_key>
-			<wp:meta_value><![CDATA[]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>Publication</wp:meta_key>
-			<wp:meta_value><![CDATA[]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>Title</wp:meta_key>
-			<wp:meta_value><![CDATA[]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>Markup</wp:meta_key>
-			<wp:meta_value><![CDATA[]]></wp:meta_value>
-		</wp:postmeta>
-	</item>
-	<item>
 				<title></title>
 		<link>http://www.scsun-news.com/?p=39</link>
 		<pubDate>Wed, 30 Nov -0001 00:00:00 +0000</pubDate>
@@ -1668,6 +2506,336 @@ A friendly rivalry broke out among veterans at the VFW Post before the big game 
 		</wp:postmeta>
 	</item>
 	<item>
+				<title>Article, no frills</title>
+		<link>http://www.scsun-news.com/?p=1</link>
+		<pubDate>Fri, 24 Jan 2014 18:23:13 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/?p=1</guid>
+		<description></description>
+		<content:encoded><![CDATA[<p>SILVER CITY &gt;&gt; Silver City Police Chief Ed Reynolds and Fire Chief Rudy Bencomo gave presentations at the town council meeting Wednesday about the importance of renewal of the public safety tax on March 4.</p>
+<p>Originally approved by voters in 2004, the public safety tax imposes a one-eighth of 1 percent increase to the municipal infrastructure gross receipts tax in the town.</p>
+<p>"It's not a new tax," Bencomo told the mayor and councilors. "It's a continuation of a tax implemented 10 years ago. And if it doesn't pass, we'll lose half a million dollars."</p>
+<p>The tax was implemented in 2004 for the sole purpose of increasing public safety, but had a 10-year sunset requirement. So, voters must decide in the upcoming election if they want to continue it.</p>
+<p>So far, the tax has paid for the salaries and benefits of four police officers and enabled the Police Department to purchase 17 patrol cars. In addition, the money has enabled the Fire Department to pay the salary and benefits of one fire fighter and purchase a ladder truck. The public safety tax has provided both departments with more than $3 million in the last 10 years.</p>
+<p>Bencomo said that without the money the tax provides, the Silver City Fire Department will lose the fire fighter whose salary is provided by the tax. Bencomo stressed that the Fire Department seeks grant money wherever it can. He mentioned the nearly $60,000 NM State Fire grant the Fire Department received in 2013 to replace bunker gear and the increase in grass and structure fires in the area since 2010.</p><div style="width:336px" class="articleEmbeddedAdBox"><hr class="articleAdRule"/><div class="articleAdHeader">Advertisement</div><div align="center" class="adElement" id="adPosBox"><script type="text/javascript" language="JavaScript">
+        						  yld_mgr.place_ad_here("adPosBox");
+        					  </script></div><hr class="articleAdRule"/></div>
+<p>Reynolds stressed how frugal the Silver City Police Department has been in recent years and how hard the maintenance department has worked to keep the police fleet on the road. Reynolds gave a slide show demonstrating that the Police Department has two 1998 cars with more than 140,000 miles on them. The department has six 2001 vehicles with more than 142,000 miles on them. Reynolds said that according to national standards, a police vehicle is considered outdated once it reaches 75,000 miles. The department currently has 16 such vehicles.</p>
+<p>"In 2005 a fully-equipped unit was approximately $26,000," Reynolds said. "Now the cost is about $30,000."</p>
+<p>He also said the computers police officers use need to be replaced. Maintenance costs have soared due to the age of the department's fleet. And he hopes to move the department into using silent dispatch with new computers. He also said the men and women who join the city's police force are staying, on average, longer than they used to.</p>
+<p>"It was three years," Reynolds said. "Now they're tending to stay with the department for about eight years, which is a good thing."</p>
+<p>Reynolds stressed that if the public safety tax is approved, the city will be able to continue to see the level of service the city's police force already provides. The tax will continue to pay for the salaries and benefits of three Silver City police officers plus enable the department to invest in new patrol cars and equipment.</p>
+<p>The councilors and the mayor expressed support for the public safety tax.</p>
+<p>"If this tax fails, there'll be a new council and they'll be in a budget dilemma," Councilor Mike Morones said. "Cuts will have to be made somewhere."</p>
+<p>Councilor Cynthia Ann Bettison agreed.</p>
+<p>"There are other things that may have to be cut if this tax doesn't pass," Bettison said. "To have that peace of mind that we have fire and police and they have the equipment they need, to me it's a worthwhile tax and I hope we continue it. Otherwise, there'll be difficult decisions ahead."</p>
+<p>Mayor James Marshall said that though he is stepping down as mayor after the March 4 election, the issue is still an important one to him as a Silver City resident.</p>
+<p>"You can't tell a 911 caller, I'm sorry your house is on fire, we don't have the money to send you a truck," Marshall said. "I really don't have a dog in this fight other than that I'm a resident and will remain one after I'm no longer mayor. The tax isn't much, but it's impact is huge."</p>
+<p>The town council voted in December on the ordinance that will allow the public safety tax to go before voters in March. This discussion of the public safety tax at Wednesday evening's council meeting allowed the public to hear about the tax. </p>
+<p>In other business, the council approved an award bid of $340,373 to Diamond Construction for Blackhawk Road gravity sewer improvements and the council approved the list of names of the March 4 election workers.</p>
+<p>"We owe these volunteers a big, big thank you," Marshall said before the council adjourned. "They ensure everyone gets a shot at voting."</p>
+<p class="author-info">Susan Dunlap can be reached at 575-538-5893 ext. 5803.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>1</wp:post_id>
+		<wp:post_date>2014-01-24 18:23:13</wp:post_date>
+		<wp:post_date_gmt>2014-01-24 18:23:13</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>hello-world</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="author" nicename="cap-admin"><![CDATA[admin]]></category>
+		<category domain="category" nicename="local-news"><![CDATA[Local News]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:comment>
+			<wp:comment_id>1</wp:comment_id>
+			<wp:comment_author><![CDATA[Mr WordPress]]></wp:comment_author>
+			<wp:comment_author_email></wp:comment_author_email>
+			<wp:comment_author_url>http://wordpress.org/</wp:comment_author_url>
+			<wp:comment_author_IP></wp:comment_author_IP>
+			<wp:comment_date>2014-01-24 18:23:13</wp:comment_date>
+			<wp:comment_date_gmt>2014-01-24 18:23:13</wp:comment_date_gmt>
+			<wp:comment_content><![CDATA[Hi, this is a comment.
+To delete a comment, just log in and view the post&#039;s comments. There you will have the option to edit or delete them.]]></wp:comment_content>
+			<wp:comment_approved>1</wp:comment_approved>
+			<wp:comment_type></wp:comment_type>
+			<wp:comment_parent>0</wp:comment_parent>
+			<wp:comment_user_id>0</wp:comment_user_id>
+		</wp:comment>
+	</item>
+	<item>
+				<title>Terms of Use</title>
+		<link>http://www.scsun-news.com/?page_id=2</link>
+		<pubDate>Fri, 24 Jan 2014 18:23:13 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/?page_id=2</guid>
+		<description></description>
+		<content:encoded><![CDATA[This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:
+
+<blockquote>Hi there! I'm a bike messenger by day, aspiring actor by night, and this is my blog. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin' caught in the rain.)</blockquote>
+
+...or something like this:
+
+<blockquote>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</blockquote>
+
+As a new WordPress user, you should go to <a href="http://www.scsun-news.com/wp-admin/">your dashboard</a> to delete this page and create new pages for your content. Have fun!]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2</wp:post_id>
+		<wp:post_date>2014-01-24 18:23:13</wp:post_date>
+		<wp:post_date_gmt>2014-01-24 18:23:13</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>sample-page</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="author" nicename="cap-admin"><![CDATA[admin]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[default]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>package</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>related</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Name</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Publication</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>sidebar_title</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>sidebar_markup</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Article, large lead photo (i.e. featured image)</title>
+		<link>http://www.scsun-news.com/?p=6</link>
+		<pubDate>Mon, 27 Jan 2014 20:16:14 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/?p=6</guid>
+		<description></description>
+		<content:encoded><![CDATA[<p>Yada Yada Yarn stopped traffic for about an hour Sunday on Bullard St. to move to their new location at 621 N. Bullard St.</p>
+
+<p>The effort began at noon and a line of knitters stood in the street as they handed baskets of yarn across a human chain to move the goods into their new storefront, now located at the corner of Bullard and Seventh Street next door to Alotta Gelotta. Yada Yada Yarn replaces the t-shirt printing shop. Cars were rerouted by the knitters until the old store stood empty.</p>
+]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>6</wp:post_id>
+		<wp:post_date>2014-01-27 20:16:14</wp:post_date>
+		<wp:post_date_gmt>2014-01-27 20:16:14</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>single-post-large-lead-photo-i-e-featured-image</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="author" nicename="cap-admin"><![CDATA[admin]]></category>
+		<category domain="category" nicename="local-news"><![CDATA[Local News]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[7]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_post_restored_from</wp:meta_key>
+			<wp:meta_value><![CDATA[a:3:{s:20:"restored_revision_id";i:9;s:16:"restored_by_user";i:1;s:13:"restored_time";i:1390922273;}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_rp_related_posts_query_result_cache_expiration</wp:meta_key>
+			<wp:meta_value><![CDATA[1391189132]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_rp_related_posts_query_result_cache_6</wp:meta_key>
+			<wp:meta_value><![CDATA[a:2:{i:0;O:8:"stdClass":2:{s:7:"post_id";s:1:"1";s:5:"score";s:18:"0.8109302162163288";}i:1;O:8:"stdClass":2:{s:7:"post_id";s:2:"14";s:5:"score";s:1:"0";}}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Article with sidebar</title>
+		<link>http://www.scsun-news.com/?p=14</link>
+		<pubDate>Wed, 29 Jan 2014 23:10:11 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/?p=14</guid>
+		<description></description>
+		<content:encoded><![CDATA[<p><b>SILVER CITY &gt;&gt;</b> A unanimous decision Jan. 8 by the Water Quality Control Commission (WQCC) to maintain the so-called Copper Rule will allow Freeport-McMoRan Copper & Gold Inc. to pollute ground water within a nine-square-mile area of the Tyrone Mine, according to Bruce Frederick, staff attorney with the New Mexico Environmental Law Center.</p>
+<p>"The Copper Rule makes a bad situation worse," Frederick said.</p>
+<p>The Copper Rules was passed last year to amend the Water Quality Control Act of 1977, which prohibits groundwater pollution beyond water quality standards. For more than 30 years, this has kept New Mexico's ground water relatively safe to drink. That could soon change, advocates said.</p>
+<p>"The whole state's water is at risk," conservationist group Amigos Bravos Projects Director Rachel Conn said. "Since the Copper Rule's been adopted, the dairy industry and other industries want to have the same ability to change ground water standards."</p>
+<p>The mining and dairy industries began lobbying the New Mexico Legislature a few years ago to revise the rules, according to Conn. Under the Water Quality Control Act, in order to pollute the ground water, each company had to apply for a variance &mdash; a lengthy process with no certainty of success. In addition, every industry had to adhere to the same set of regulations, Conn said. The mining and dairy industries wanted industry-specific regulations and they wanted to streamline the permitting process.</p><div style="width:336px" class="articleEmbeddedAdBox"><hr class="articleAdRule"/><div class="articleAdHeader">Advertisement</div><div align="center" class="adElement" id="adPosBox"><script type="text/javascript" language="JavaScript">
+        						  yld_mgr.place_ad_here("adPosBox");
+        					  </script></div><hr class="articleAdRule"/></div>
+<p>The industry got what it wanted last year when the Copper Rule was adopted. A request to stay the rule was rejected last month.</p>
+<p>Eric Kinneberg, external communications director for Freeport-McMoRan, praised the decision to maintain the Copper Rule, and contended it is more stringent that what was previously in place.</p>
+<p>"Freeport-McMoRan is pleased that the WQCC unanimously denied the request to delay the implementation of the Copper Rules," Kinneberg said through an emailed statement. "The WQCC cleared the way for the New Mexico Environment Department to renew the existing discharge permits. We are prepared to implement the Copper Rules' more stringent water protection requirements and appreciate the predictability and consistency the new rules represent for potential expanded operations."</p>
+<p>Kinneberg denied conservationists' claims that the Copper Rule will allow for greater pollution.</p>
+<p>"The Copper Rules were crafted by the New Mexico Environment Department with input from an advisory committee that considered the views of other government agencies, academics, environmental groups, scientific experts and industry," he said. "The process allowed all viewpoints to be considered and the Environment Department ultimately balanced these differing viewpoints and carefully considered the scientific and technical evidence supplied by the participants in crafting the rule. The Copper Rules establish detailed construction, design, monitoring, and closure requirements for new mining facilities as well as for the expansion of existing facilities, which were not specified by previous regulations or in discharge permits. As a result, the new rules replace an unpredictable system of permitting with consistent, enforceable measures that are expected to reduce impacts to groundwater at all New Mexico copper mining facilities."</p>
+<p>Conn agreed that the group originally formed in 2012 was well balanced, with experts on both sides. But that group was drastically changed before the final rule was adopted, she said.</p>
+<p>"We were really pleasantly surprised," Conn said. "The advisory committee of NMED staff and experts recommended rules that were a step forward."</p>
+<p>But according to Conn, the situation changed while the new rules were still being drafted. </p>
+<p>"The rules were changed and gutted by political appointees in NMED," Conn said. "It became vastly different."</p>
+<p>In April 2013 Ryan Flynn was appointed by Gov. Susana Martinez as the new secretary of NMED, while the Copper Rule was still being drafted. At the time of his appointment, Flynn was acting as legal counsel for NMED. According to the Santa Fe New Mexican, before joining NMED as general legal counsel, Flynn previously worked for Modrall Sperling Law Firm, which represented Freeport before the WQCC, NMED and the courts. </p>
+<p>Jim Winchester, communications director for the NMED & the Energy, Minerals & Natural Resources Department, disagreed with these allegations. In an emailed statement, he said, "Groups opposing the new Copper Rules continue to mislead the public using the same false, inaccurate talking points. Secretary Ryan Flynn proudly worked for several years at Modrall Sperling before joining the New Mexico Environment Department in January of 2011. While at Modrall Sperling, Secretary Flynn never worked on any cases representing Freeport-McMoran. Likewise, he chose to voluntarily recuse himself from any cases involving Modrall Sperling for his first year at the New Mexico Environment Department. Any suggestion that his former employment influenced his role in working with a consortium of regulators, academics and industry groups to come up with new Copper Rules is entirely false. The fact of the matter is that the newly adopted rules are the most environmentally protective rules for the copper mining industry in the country."</p>
+<p>The 12-member WQCC board heard the final draft of the Copper Rule in September 2013. </p>
+<p>"The WQCC has become completely politicized," Conn said. "They serve at the pleasure of the governor."</p>
+<p>Winchester also disagreed with this allegation.</p>
+<p>"From the perspective of NMED, any suggestion that the Water Quality Commission did not fairly deliberate on the adoption of the new rule or stay motion is completely false," he said. "The Commission listened and considered testimony from environmental experts, academics, industry representatives, environmental advocacy groups for several weeks before adopting the new rules. The new rules are over 40 pages long and provide greater protection for the state's ground water resources than the prior system, which allowed extensive contamination at mine sites around the state. Opponents of the new rules are seeking to defend a broken system that was already ruled illegal by the New Mexico Court of Appeals."</p>
+<p>But according to Conn, the one dissenting vote on the WQCC, Doug Bland, who voted against the Copper Rule, resigned from the committee a month after the rules were voted for in September. </p>
+<p>"Doug Bland no longer serves, but he was the commissioner who knew the most about mining. He was the former head of the mining minerals department," Conn said. </p>
+<p>Frederick said conservationist groups had no hope of the WQCC overturning the rule it had just voted for, but to take the matter to the NM Court of Appeals, they had no choice but to go back to the WQCC first to apply for a motion to stay the rule. </p>
+<p>"Now we're free to file the same motion to stay the Copper Rule in the Court of Appeals," Frederick said. "We're confidant the courts are an unbiased decision maker."</p>
+<p>However, the judicial process will take two to three years, he said. </p>
+<p>"This is the kind of pollution that lasts forever, the source is there forever," Frederick said. "Hundreds of years of perpetual pollution."</p>
+<p>Freeport has 17 of 25 permits that are up for the repermitting process, according to Allyson Siwik, executive director of Gila Resources Information Project.</p>
+<p>"This represents a rollback in how the state manages ground water," Siwik said of the permitting process.</p>
+<p>Those 17 permits will be reviewed under the new Copper Rule.</p>
+<p>"The Copper Rule allows pollution," Frederick said. "It legitimizes all the pollution that's already there." </p>
+<p>According to Conn, the Copper Rule allows so-called sacrifice zones under certain areas. Ground water pollution is now allowed as long as Freeport pumps in more ground water to keep the polluted ground water contained.</p>
+<p>"This will lead to perpetual pumping," Conn said.</p>
+<p>Once the pumped ground water is brought into contact with the polluted ground water, the water that is pumped becomes polluted, too.</p>
+<p>"This is bad in terms of how it effects the water supply, in terms of both supply and quality," Frederick said. "It's a race to the bottom, all those straws sucking from the same source, now the mine will be a huge straw. In an arid state, polluting thousands of acre-feet of good fresh water, there's a better way to do it."</p>
+<p>According to Frederick, there is another issue at stake. The Copper Rule allows for something called financial assurance for the mining industry.</p>
+<p>"If they go bankrupt, the state can take over," Frederick said. </p>
+<p>According to Frederick, the Tyrone mine is expected to be depleted of mineral deposits within a couple of decades. This could cause the mine to shut down permanently.</p>
+<p>"When the reserves end, there's no reason for them to exist any further," Frederick said. "They're a profit-driving force."</p>
+<p>If the state is forced to take over the cleanup, that means taxpayers will ultimately get handed the bill.</p>
+<p>"It really is impossible to clean that up, once it's been polluted," Frederick said. "All you can do is just contain it. But instead of doing it with walls and dams, they're doing it with pumps."</p>
+<p class="author-info">Susan Dunlap can be reached at 575-538-5893 ext. 5803.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>14</wp:post_id>
+		<wp:post_date>2014-01-29 23:10:11</wp:post_date>
+		<wp:post_date_gmt>2014-01-29 23:10:11</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>article-with-sidebar</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="author" nicename="cap-admin"><![CDATA[admin]]></category>
+		<category domain="category" nicename="local-news"><![CDATA[Local News]]></category>
+		<category domain="category" nicename="sports"><![CDATA[Sports]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Name</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Publication</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Title</wp:meta_key>
+			<wp:meta_value><![CDATA[KEY MOMENTS FOR MAC DESKTOPS]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Markup</wp:meta_key>
+			<wp:meta_value><![CDATA[<p><strong>1984: </strong>Macintosh 128K</p><p><strong>Price:</strong> $2,495</p><p><strong>CPU speed:</strong> 8 MHz</p><p>The first, inspired by Lisa, with an all-in-one design that includes built-in monitor, 3.5&#x201d; disk drive and a mouse. It was unveiled by Jobs Jan. 24, 1984, at Flint Center in Cupertino.</p><p><strong>1993: </strong>Macintosh Color Classic</p><p><strong>Price:</strong> $1,390</p><p><strong>CPU speed: </strong>16 MHz</p><p>First Macintosh with a built-in color display &#x2014; but the last with the iconic box shape of the classic Mac.</p><p><strong>1998: </strong>iMac</p><p><strong>Price:</strong> $1,299</p><p><strong>CPU speed:</strong> 233 MHz</p><p>Back in charge at Apple, Steve Jobs began streamlining Apple&#x2019;s bloated product lines. He recharged the Mac faithful with the colorful and bullet-shaped iMac, the machine destined to become the digital hub for iPhoto, iTunes and the rest of our iLives.</p><p><strong>2002: </strong>iMac G4</p><p><strong>Price:</strong> $1,299 (15-inch)</p><p><strong>CPU speed: </strong>700/800 MHz</p><p>The first major design overhaul of the iMac, the new computer replaced bulky CRT screens with flat-panel monitors.</p><p><strong>2005:</strong><strong> </strong>iMac</p><p><strong>Price:</strong><strong> </strong>$1,199 (20-inch)</p><p><strong>CPU speed:</strong> 2.4 GHz</p><p>Introduced in 2004, with a smaller footprint than previous models, it was upgraded in 2005 by a switch from IBM/Motorola&#x2019;s Power PC chip to Intel chips.</p><p><strong>Price:</strong><strong> </strong>$1,299 (21.5-inch)</p><p><strong>CPU speed: </strong>2.7 GHz</p><p>Apple continues to improve screen resolution and boost processor speeds in the line that launched 30 years ago with the boxy Macintosh.</p><p>Sources: Apple, San Jose Mercury News archive</p>]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_rp_related_posts_query_result_cache_expiration</wp:meta_key>
+			<wp:meta_value><![CDATA[1391123478]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_rp_related_posts_query_result_cache_6</wp:meta_key>
+			<wp:meta_value><![CDATA[a:2:{i:0;O:8:"stdClass":2:{s:7:"post_id";s:1:"6";s:5:"score";s:17:"2.027325540540822";}i:1;O:8:"stdClass":2:{s:7:"post_id";s:1:"1";s:5:"score";s:18:"0.8109302162163288";}}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>dsq_thread_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2257858899]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Article, sub-category, two photos</title>
+		<link>http://www.scsun-news.com/?p=18</link>
+		<pubDate>Mon, 03 Feb 2014 04:56:56 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/?p=18</guid>
+		<description></description>
+		<content:encoded><![CDATA[Veterans and friends get ready to watch the Superbowl XLVIII Sunday at the VFW Post 3347 Sunday afternoon. Left to r: Leonard Pritkin, Ray Stryker, Connie Zawacki and David Tercero.
+[caption id="attachment_20" align="alignright" width="199"]<a href="http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p2.jpg"><img src="http://www.scsun-news.com/wp-content/uploads/2014/02/20140202__SCS-L-SUPERBOWL-0203p2-199x300.jpg" alt="Sky Klaus - For the Sun-News Leonard Pritikin, 95, has been a member of VFW Post 3347 for 71 years. He enjoyed himself during Superbowl Sunday at the VFW Post, which was raising money for veterans and their families, sponsored by the WNMU Veterans club. Pritikin rooted for the Seatle Seahawks." width="199" height="300" class="size-medium wp-image-20" /></a> Sky Klaus - For the Sun-News Leonard Pritikin, 95, has been a member of VFW Post 3347 for 71 years. He enjoyed himself during Superbowl Sunday at the VFW Post, which was raising money for veterans and their families, sponsored by the WNMU Veterans club. Pritikin rooted for the Seatle Seahawks.[/caption]
+
+A friendly rivalry broke out among veterans at the VFW Post before the big game got off the ground. About half the veterans who came to the Superbowl party fundraiser pulled for Denver while the other half pulled for Seattle. The WNMU Veteran's club, which held the Superbowl party for veterans Sunday, hoped to raise a couple hundred dollars to give to needy veterans and their families.]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>18</wp:post_id>
+		<wp:post_date>2014-02-03 04:56:56</wp:post_date>
+		<wp:post_date_gmt>2014-02-03 04:56:56</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>article-sub-category-two-photos</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="author" nicename="cap-admin"><![CDATA[admin]]></category>
+		<category domain="category" nicename="football"><![CDATA[Football]]></category>
+		<category domain="category" nicename="sports"><![CDATA[Sports]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[19]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Name</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Publication</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Title</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>Markup</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>dsq_thread_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2248707382]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
 				<title></title>
 		<link>http://www.scsun-news.com/?p=44</link>
 		<pubDate>Wed, 30 Nov -0001 00:00:00 +0000</pubDate>
@@ -1814,6 +2982,226 @@ A friendly rivalry broke out among veterans at the VFW Post before the big game 
 		<wp:postmeta>
 			<wp:meta_key>_menu_item_object</wp:meta_key>
 			<wp:meta_value><![CDATA[category]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_target</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_classes</wp:meta_key>
+			<wp:meta_value><![CDATA[a:1:{i:0;s:0:"";}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_xfn</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_url</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Got a tip?</title>
+		<link>http://www.scsun-news.com/?p=335</link>
+		<pubDate>Fri, 14 Feb 2014 22:25:23 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/?p=335</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>335</wp:post_id>
+		<wp:post_date>2014-02-14 22:25:23</wp:post_date>
+		<wp:post_date_gmt>2014-02-14 22:25:23</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>got-a-tip</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>1</wp:menu_order>
+		<wp:post_type>nav_menu_item</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="nav_menu" nicename="take-action"><![CDATA[Take Action]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_type</wp:meta_key>
+			<wp:meta_value><![CDATA[custom]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_menu_item_parent</wp:meta_key>
+			<wp:meta_value><![CDATA[0]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object_id</wp:meta_key>
+			<wp:meta_value><![CDATA[335]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object</wp:meta_key>
+			<wp:meta_value><![CDATA[custom]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_target</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_classes</wp:meta_key>
+			<wp:meta_value><![CDATA[a:1:{i:0;s:0:"";}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_xfn</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_url</wp:meta_key>
+			<wp:meta_value><![CDATA[mailto:]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Send us your photos</title>
+		<link>http://www.scsun-news.com/?p=336</link>
+		<pubDate>Fri, 14 Feb 2014 22:25:23 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/?p=336</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>336</wp:post_id>
+		<wp:post_date>2014-02-14 22:25:23</wp:post_date>
+		<wp:post_date_gmt>2014-02-14 22:25:23</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>send-us-your-photos</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>2</wp:menu_order>
+		<wp:post_type>nav_menu_item</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="nav_menu" nicename="take-action"><![CDATA[Take Action]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_type</wp:meta_key>
+			<wp:meta_value><![CDATA[custom]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_menu_item_parent</wp:meta_key>
+			<wp:meta_value><![CDATA[0]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object_id</wp:meta_key>
+			<wp:meta_value><![CDATA[336]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object</wp:meta_key>
+			<wp:meta_value><![CDATA[custom]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_target</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_classes</wp:meta_key>
+			<wp:meta_value><![CDATA[a:1:{i:0;s:0:"";}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_xfn</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_url</wp:meta_key>
+			<wp:meta_value><![CDATA[mailto:]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title>Have a correction?</title>
+		<link>http://www.scsun-news.com/?p=337</link>
+		<pubDate>Fri, 14 Feb 2014 22:25:24 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/?p=337</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>337</wp:post_id>
+		<wp:post_date>2014-02-14 22:25:24</wp:post_date>
+		<wp:post_date_gmt>2014-02-14 22:25:24</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>have-a-correction</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>3</wp:menu_order>
+		<wp:post_type>nav_menu_item</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="nav_menu" nicename="take-action"><![CDATA[Take Action]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_type</wp:meta_key>
+			<wp:meta_value><![CDATA[custom]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_menu_item_parent</wp:meta_key>
+			<wp:meta_value><![CDATA[0]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object_id</wp:meta_key>
+			<wp:meta_value><![CDATA[337]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object</wp:meta_key>
+			<wp:meta_value><![CDATA[custom]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_target</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_classes</wp:meta_key>
+			<wp:meta_value><![CDATA[a:1:{i:0;s:0:"";}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_xfn</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_url</wp:meta_key>
+			<wp:meta_value><![CDATA[mailto:]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+				<title></title>
+		<link>http://www.scsun-news.com/?p=571</link>
+		<pubDate>Fri, 14 Feb 2014 22:49:26 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://www.scsun-news.com/?p=571</guid>
+		<description></description>
+		<content:encoded><![CDATA[ ]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>571</wp:post_id>
+		<wp:post_date>2014-02-14 22:49:26</wp:post_date>
+		<wp:post_date_gmt>2014-02-14 22:49:26</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>571</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>1</wp:menu_order>
+		<wp:post_type>nav_menu_item</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="nav_menu" nicename="footer"><![CDATA[Footer]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_type</wp:meta_key>
+			<wp:meta_value><![CDATA[post_type]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_menu_item_parent</wp:meta_key>
+			<wp:meta_value><![CDATA[0]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object</wp:meta_key>
+			<wp:meta_value><![CDATA[page]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>_menu_item_target</wp:meta_key>
