@@ -7,8 +7,8 @@
     <?php include('temps/meta/app.php'); ?>
     <?php include('temps/meta/facebook.php'); ?>
     <?php include('temps/meta/twitter.php'); ?>
-    <!-- MODERNIZER 
-    <script src="<?php echo JS_DIR; ?>/lib/modernizr.js"></script> -->
+    <!-- MODERNIZER -->
+    <script src="<?php echo JS_DIR; ?>/lib/modernizr.js"></script>
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="<?php echo BASE_URL;?>/css/bartertown.min.css" media="screen"/> 
