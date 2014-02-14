@@ -5,39 +5,41 @@
   display: block;
   svg {
     fill: #fff;
-  max-width: 150px;
+    max-width: 150px;
     max-height: 15px;
   }
   @media (min-width:@breakpoint-md) {
+    .font-size(@font-size-base);
     svg {
       fill: #222;
     }
     &.md {
-    svg {
-      max-width: 200px;
+      svg {
+        max-width: 200px;
         max-height: 20px;
-    }
+      }
     }
     &.lg {
-    svg {
-      max-width: 250px;
+      svg {
+        max-width: 250px;
         max-height: 25px;
-    }
+      }
     }
     &.xl {
-    svg {
-      max-width: 300px;
-        max-height: 30px;
-    }
+      svg {
+        max-width: 275px;
+        max-height: 28px;
+      }
     }
   }
   &.sm {
-  svg {
-    max-width: 150px;
+    svg {
+      max-width: 150px;
       max-height: 15px;
-  }
+    }
   }
 }
+
 .share-widget {
   &:extend(.list-inline all);
   li {

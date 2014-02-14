@@ -7236,6 +7236,10 @@ h6,
   fill: #fff;
 }
 @media (min-width: 768px) {
+  .branding {
+    font-size: 14px;
+    font-size: 1.4rem;
+  }
   .branding svg {
     fill: #222;
   }
@@ -7248,8 +7252,8 @@ h6,
     max-height: 25px;
   }
   .branding.xl svg {
-    max-width: 300px;
-    max-height: 30px;
+    max-width: 275px;
+    max-height: 28px;
   }
 }
 .branding.sm svg {
