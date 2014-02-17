@@ -42,7 +42,7 @@
 <div id="author" class="media">
 {% if post.author.user_url %}
   <a class="pull-left" href="{{post.author.path}}">
-    <img class="media-object" src="{{post.author.user_url}}" alt="{{post.author}}" />
+    <img class="media-object" src="{{function('content_url')}}/authors/{{post.author.author_image}}" alt="{{post.author}}" />
   </a>
 {% endif %}
   <div class="media-body">
