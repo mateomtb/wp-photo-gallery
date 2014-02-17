@@ -11,7 +11,7 @@
 -->
 <script type="text/javascript" src="//www.googletagservices.com/tag/js/gpt.js"></script>
 <div id="omniture" style="display:none;">
-    <script language="JavaScript" type="text/javascript">
+    <script type="text/javascript">
         var s_account = "{{domain}}";
 
         var isHome = {% if is_home %}true{% else %}false;{% endif %}
@@ -81,9 +81,9 @@
         var oBrdcm5 = oChnm + "/" + oRtnm + "/" + oSp2nm + "/" + oSp3nm + "/" + oSp5nm; //Prop5
     </script>
     <!-- SiteCatalyst code version: H.17. Copyright 1997-2005 Omniture, Inc. More info available at http://www.omniture.com -->
-    <script language="JavaScript" type ="text/javascript" src="http://extras.mnginteractive.com/live/js/omniture/SiteCatalystCode_H_17.js"></script>
-    <script language="JavaScript" type="text/javascript" src="http://extras.mnginteractive.com/live/js/omniture/OmnitureHelper.js"></script>
-    <script language="JavaScript" type="text/javascript">
+    <script type="text/javascript" src="http://extras.mnginteractive.com/live/js/omniture/SiteCatalystCode_H_17.js"></script>
+    <script type="text/javascript" src="http://extras.mnginteractive.com/live/js/omniture/OmnitureHelper.js"></script>
+    <script type="text/javascript">
         s.pageName = Pgnm;
         s.channel = oChnm;
         s.prop1 = "D=g";
@@ -99,7 +99,7 @@
         /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
         var s_code = s.t(); if (s_code) { document.write(s_code); }
     </script>
-    <script language="JavaScript" type="text/javascript">
+    <script type="text/javascript">
         if (navigator.appVersion.indexOf('MSIE') >= 0) { document.write(unescape('%3C') + '\!-' + '-'); }
     </script>
     <noscript>
@@ -132,11 +132,11 @@
                 </div><!-- /input-group -->
             </form> <!-- #site-search -->
         <!-- </div> --> <!-- .header-tools -->
-        <!-- <ul class="top-bar-toggle list-inline">
+        <ul class="top-bar-toggle list-inline">
             <li><a href="">Weather</a></li>
             <li><a href="">Traffic</a></li>
             <li><a href="">Markets</a></li>
-        </ul> -->
+        </ul> 
     </div> <!-- .container -->
 </div> <!-- .flag -->
 
