@@ -26,11 +26,10 @@
                             <div class="blog-author byline byline-bar">
                                 <p class="author-name">By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a></p>
                                 <p class="property-name">Source</p>
-{{post|print_r}}
                                 <div class="meta">
                                     <p class="timestamp">
                                         Published {{ post.display_date }}
-{% if post.post_date != post.post_modified %} | <span title="Updated at {{ post.post_modified|date("F jS \\a\\t g:ia") }}">Last updated at {{ post.post_modified }}</span>{% endif %}
+{% if post.post_date != post.post_modified %} | <span title="Updated at {{ post.post_modified|date("F jS \\a\\t g:ia") }}">Last updated {{ post.post_modified|date("F jS \\a\\t g:ia") }}</span>{% endif %}
                                     </p>
                                 </div>
                             </div> <!-- .byline-bar -->
