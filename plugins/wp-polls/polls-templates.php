@@ -2,8 +2,8 @@
 /*
 +----------------------------------------------------------------+
 |																							|
-|	WordPress 2.7 Plugin: WP-Polls 2.40										|
-|	Copyright (c) 2008 Lester "GaMerZ" Chan									|
+|	WordPress Plugin: WP-Polls										|
+|	Copyright (c) 2012 Lester "GaMerZ" Chan									|
 |																							|
 |	File Written By:																	|
 |	- Lester "GaMerZ" Chan															|
@@ -22,16 +22,15 @@ if(!current_user_can('manage_polls')) {
 	die('Access Denied');
 }
 
-
 ### Variables Variables Variables
 $base_name = plugin_basename('wp-polls/polls-templates.php');
 $base_page = 'admin.php?page='.$base_name;
-$id = intval($_GET['id']);
-
+$id = (isset($_GET['id']) ? intval($_GET['id']) : 0);
 
 ### If Form Is Submitted
-if($_POST['Submit']) {	
-	$poll_template_voteheader =trim($_POST['poll_template_voteheader']);
+if( isset($_POST['Submit']) && $_POST['Submit'] ) {
+	check_admin_referer('wp-polls_templates');
+	$poll_template_voteheader = trim($_POST['poll_template_voteheader']);
 	$poll_template_votebody = trim($_POST['poll_template_votebody']);
 	$poll_template_votefooter = trim($_POST['poll_template_votefooter']);
 	$poll_template_resultheader = trim($_POST['poll_template_resultheader']);
@@ -146,12 +145,13 @@ if($_POST['Submit']) {
 				default_template = "<?php _e('An error has occurred when processing your poll.', 'wp-polls'); ?>";
 				break;
 		}
-		document.getElementById("poll_template_" + template).value = default_template;
+		jQuery("#poll_template_" + template).val(default_template);
 	}
 /* ]]> */
 </script>
 <?php if(!empty($text)) { echo '<!-- Last Action --><div id="message" class="updated fade"><p>'.$text.'</p></div>'; } ?>
-<form id="poll_options_form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>"> 
+<form id="poll_template_form" method="post" action="<?php echo admin_url('admin.php?page='.plugin_basename(__FILE__)); ?>">
+<?php wp_nonce_field('wp-polls_templates'); ?>
 <div class="wrap">
 	<div id="icon-wp-polls" class="icon32"><br /></div>
 	<h2><?php _e('Poll Templates', 'wp-polls'); ?></h2>	
@@ -341,6 +341,7 @@ if($_POST['Submit']) {
 			<td width="30%" valign="top">
 				<strong><?php _e('Result Body:', 'wp-polls'); ?></strong><br /><?php _e('Displayed When The User HAS NOT Voted', 'wp-polls'); ?><br /><br />
 				<?php _e('Allowed Variables:', 'wp-polls'); ?><br />
+				<p style="margin: 2px 0">- %POLL_ID%</p>
 				<p style="margin: 2px 0">- %POLL_ANSWER_ID%</p>
 				<p style="margin: 2px 0">- %POLL_ANSWER%</p>
 				<p style="margin: 2px 0">- %POLL_ANSWER_TEXT%</p>
@@ -355,6 +356,7 @@ if($_POST['Submit']) {
 			<td width="30%" valign="top">
 				<strong><?php _e('Result Body:', 'wp-polls'); ?></strong><br /><?php _e('Displayed When The User HAS Voted', 'wp-polls'); ?><br /><br />
 				<?php _e('Allowed Variables:', 'wp-polls'); ?><br />
+				<p style="margin: 2px 0">- %POLL_ID%</p>
 				<p style="margin: 2px 0">- %POLL_ANSWER_ID%</p>
 				<p style="margin: 2px 0">- %POLL_ANSWER%</p>
 				<p style="margin: 2px 0">- %POLL_ANSWER_TEXT%</p>
@@ -490,7 +492,7 @@ if($_POST['Submit']) {
 		</tr>
 	</table>
 	<p class="submit">
-		<input type="submit" name="Submit" class="button" value="<?php _e('Save Changes', 'wp-polls'); ?>" />
+		<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save Changes', 'wp-polls'); ?>" />
 	</p>
 </div> 
 </form> 
