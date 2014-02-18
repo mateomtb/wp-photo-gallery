@@ -9,7 +9,11 @@ section.article-content { margin-top:.75em; }
 section#right-rail { margin-top:20px; margin-left:15px; border: 1px solid red; }
 .container-fluid { width:1000px!important; }
 */
-
+/** Header **/
+/* Header Tabs (not working just yet) */
+.top-bar-toggle .weather-toggle a { background-image: url(http://local.medianewsgroup.com/common/dfm/assets/img/weather_sunny_small.png); }
+.top-bar-toggle .traffic-toggle a { background-image: url(http://local.medianewsgroup.com/common/dfm/assets/img/traffic_icon.png); }
+.top-bar-toggle .markets-toggle a { background-image: url(http://local.medianewsgroup.com/common/dfm/assets/img/markets_icon.png) !important; }
 
 /** WP-Poll specific **/
 #polls-2 > p, #polls-2-ans p { text-align: left !important; }

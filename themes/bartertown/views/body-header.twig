@@ -12,7 +12,7 @@
 <script type="text/javascript" src="//www.googletagservices.com/tag/js/gpt.js"></script>
 <div id="omniture" style="display:none;">
     <script type="text/javascript">
-        var s_account = "{{domain}}";
+        var s_account = "{{dfm.omniture_account}}";
 
         var isHome = {% if is_home %}true{% else %}false;{% endif %}
 
@@ -132,7 +132,7 @@
                 </div><!-- /input-group -->
             </form> <!-- #site-search -->
         <!-- </div> --> <!-- .header-tools -->
-        <ul class="top-bar-toggle list-inline">
+        <ul class="top-bar-toggle list-inline" style="display:none;">
             <li><a href="">Weather</a></li>
             <li><a href="">Traffic</a></li>
             <li><a href="">Markets</a></li>
