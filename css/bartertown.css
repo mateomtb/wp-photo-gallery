@@ -8694,7 +8694,9 @@ header.ear-ads .ear-ad-right {
   .navbar ul {
     margin-left: -10px;
   }
-  .navbar ul > li > a {
+  .navbar ul > li > a,
+  .navbar ul > li > span,
+  .navbar ul > li > .dropdown-toggle {
     font-size: 14px;
     font-size: 1.4rem;
     padding: 8px 10px;
