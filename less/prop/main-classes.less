@@ -1,6 +1,8 @@
 // Global classes
 // ------------------------------------
 
+// Site branding
+// ---------------------------
 .branding {
   display: block;
   svg {
@@ -38,6 +40,10 @@
   }
   }
 }
+
+// Social sharing tools
+// ---------------------------
+
 .share-widget {
   &:extend(.list-inline all);
   li {
@@ -47,9 +53,95 @@
     margin-bottom:0;
   }
 }
+.share-toolbar {
+	&:extend(.clearfix all);
+	margin-bottom: @line-height-computed;
+	li {
+		display: inline;
+		float: left;
+		.square(32px);
+		margin-right: .3em;
+		a {
+			display: block;
+			.square(32px);
+			.font-size(20px);
+			line-height: 32px;
+			text-align: center;
+			background: @gray-lighter;
+			.border-radius(@border-radius-base);
+			&:hover {
+				.opacity(.7);
+				text-decoration: none;
+			}
+		}
+	}
+	&.vertical {
+		margin: 0;
+		width: 32px;
+		li {
+			margin: 0;
+			margin-top: -1px;
+			display: block;
+			float: none;
+			a {
+				border-radius: 0;
+				border: 1px solid @gray;
+			}
+		}
+	}
+}
+.share-modal {
+	ul {
+		width: 100%;
+		li {
+			border-bottom: @border;
+			a {
+				display: block;
+				.user-select(none);
+				height: 32px;
+				padding-left: 10px;
+				background: @gray-lightest;
+				.font-size(16px);
+				line-height: 32px;
+				font-family: @font-family-treb;
+				font-weight: @font-weight-heavy;
+				color: @text-color;
+				&:hover {
+					.opacity(.5);
+					text-decoration: none;
+				}
+				span {
+					float: right;
+					margin-bottom: 0!important;
+				}
+			}
+		}
+	}
+}
+
+// Meta and referral classes
+// ---------------------------
 .excerpt {
   font-family: @font-family-serif;
   .font-size(16px);
+}
+.meta {
+  &:extend(.clearfix all);
+  .timestamp,
+  .source {
+    float: left;
+  }
+  .source {
+    font-family: @font-family-sans-serif;
+    font-weight: @font-weight-light;
+    .font-size(12px);
+    .timestamp {
+      float: none;
+    }
+  }
+  .comment-bug {
+    float: right;
+  }
 }
 .timestamp {
   font-family: @font-family-sans-serif;
@@ -82,25 +174,29 @@
     }
   }
 }
+
+// Lists of links
+// --------------------------
 .link-list {
+  font-family: @font-family-treb;
+  font-weight: @font-weight-heavy;
   ul {
     border-bottom: @border;
     > li {
       > a {
         display: block;
         padding: @padding-base-horizontal 0;
-        .font-size(13px);
         line-height: 1.4;
-        color: @gray;
+        color: @gray-dark;
         border-top: @border;
+        &:hover,
         strong {
-          color: @gray-dark;
+          color: @gray-darker;
         }  
         &:hover {
           #gradient > .vertical(@start-color:lighten(@brand-primary, 60%); @end-color: #fff);
           text-decoration: none;
           padding-left: 5px;
-          color: @gray-dark;
           border-top: @border-blue;
         }
       }
@@ -122,24 +218,7 @@
     color: @link-color;
   }
 }
-.meta {
-  &:extend(.clearfix all);
-  .timestamp,
-  .source {
-    float: left;
-  }
-  .source {
-    font-family: @font-family-sans-serif;
-    font-weight: @font-weight-light;
-    .font-size(12px);
-    .timestamp {
-      float: none;
-    }
-  }
-  .comment-bug {
-    float: right;
-  }
-}
+
 .story-feed {
   margin-bottom: @line-height-computed;
   h3, .h3 {
@@ -191,7 +270,6 @@
     }  
   }
 }
-
 .story-feed.lg,
 .centerpiece{
   .meta {

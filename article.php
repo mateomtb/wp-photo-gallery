@@ -8,6 +8,7 @@
 
 <div class="row">
 	<div class="content-well">
+		<?php include('temps/ui/sharebar-vertical.php'); ?>
 		<?php include('temps/content/story1.php'); ?>
 	</div> <!-- .content-well -->
 	<div class="right-rail">

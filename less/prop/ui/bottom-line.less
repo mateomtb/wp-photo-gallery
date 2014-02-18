@@ -4,7 +4,7 @@
   margin-bottom: @line-height-computed;
   .share-widget {
     position:absolute;
-    top: 14px;
+    top: 10px;
     right: 0;
   }
   img {
@@ -24,11 +24,10 @@
     margin-right: (@right-rail-width + @grid-gutter-width);
     width: auto;
   }
-  h3 {
+  h3, .h3 {
+    margin-top: (@line-height-computed / 2);
     font-family: @font-family-treb;
-    @media (max-width: @breakpoint-sm-max) {
-      .font-size(16px);
-    }
+    .font-size(16px);
   }
   > li {
     .make-sm-column(4);

@@ -93,6 +93,7 @@
           }
         });
 
+
         // TOOLTIPS
         // ----------------------------------------
         $('.share-widget').tooltip({
@@ -101,6 +102,7 @@
         });
 
         // CHECK CLICK EVENT ON ON CANVAS NAV
+        // ----------------------------------------
         if($(window).width() <= breakpointMD) {
           setToggle();
         }

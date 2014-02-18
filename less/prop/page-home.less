@@ -15,7 +15,7 @@
 }
 #middle-row,
 #bottom-row {
-  .make-rows();
+  &:extend(.row all);
   margin-bottom: @line-height-computed;
   .poll, .media-center {
     border-top: @fat-gray-border;
@@ -81,9 +81,6 @@
 
 
 
-
-
-
 // UI
 // ------------------------------------
 .centerpiece {
@@ -104,7 +101,7 @@
   img {
     width: 100%; //temp!!!!
   }
-  h3 {
+  h3, .h3 {
     margin-top: (@line-height-computed / 2);
   }
   li {
@@ -115,7 +112,7 @@
     }
   }
   @media (min-width:@breakpoint-md) {
-    h3 {
+    h3, .h3 {
       .font-size(18px);
     }
     li {
@@ -136,6 +133,7 @@
   }
 }
 .media-center {
+  margin-bottom: @line-height-computed;
   .media-center-caption {
     margin-bottom: @line-height-computed;
   }
