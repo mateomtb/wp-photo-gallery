@@ -31,6 +31,8 @@ $field_data = array (
 if ( !class_exists( "Easy_CF_Field_Poll_Select" ) ) {
     class Easy_CF_Field_Poll_Select extends Easy_CF_Field {
         public function print_form() {
+            global $wpdb;
+            $wpdb->pollsq = $wpdb->prefix.'pollsq';
             $class = ( empty( $this->_field_data['class'] ) ) ? $this->_field_data['id'] . '_class' :  $this->_field_data['class'];
             $input_class = ( empty( $this->_field_data['input_class'] ) ) ? $this->_field_data['id'] . '_input_class' :  $this->_field_data['input_class'];
 
@@ -38,18 +40,21 @@ if ( !class_exists( "Easy_CF_Field_Poll_Select" ) ) {
             $label = ( empty( $this->_field_data['label'] ) ) ? $this->_field_data['id'] :  $this->_field_data['label'];
             $value = $this->get();
 
-            //$polls = get_tags();
-            $options = '<option value=""></option>';
-            $selected = '';
+            $polls = $wpdb->get_results("SELECT pollq_id, pollq_question FROM $wpdb->pollsq ORDER BY pollq_id DESC");
 
-            foreach ( $tags as $tag ):
-                // We only list tags that have the word "Collection" in them.
-                if ( strpos(strtolower($tag->slug), 'package') !== $truefalse ):
-                    if ( $tag->slug == $value ) $selected = 'selected';
-                    $options .= '<option value="' . $tag->slug . '" . ' . $selected . '>' . $tag->name . '</option>' . "\n";
-                    $selected = '';
+            $options = '<option value=""></option>';
+
+            if ( isset($polls) && $polls != '' ):
+            foreach ( $polls as $poll ):
+                $pollq_question = stripslashes($poll->pollq_question);
+                $pollq_id = intval($poll->pollq_id);
+                if ($pollq_id == $value):
+                    $options .= "<option value=\"$pollq_id\" selected=\"selected\">$pollq_question</option>\n";
+                else:
+                    $options .= "<option value=\"$pollq_id\">$pollq_question</option>\n";
                 endif;
             endforeach;
+            endif;
 
             $hint = ( empty( $this->_field_data['hint'] ) ) ? '' :  '<p><em>' . $this->_field_data['hint'] . '</em></p>';
 
@@ -64,7 +69,7 @@ if ( !class_exists( "Easy_CF_Field_Poll_Select" ) ) {
     }
 }
 $easy_cf = new Easy_CF($field_data);
-
+/*
 class DFMInArticlePoll
 {
     // We use this class to 
@@ -115,3 +120,4 @@ class DFMInArticlePoll
         return false;
     }
 }
+*/
