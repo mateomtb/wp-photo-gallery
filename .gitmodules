@@ -10,3 +10,6 @@
 [submodule "plugins/dfm-wp-brightTag"]
 	path = plugins/dfm-wp-brightTag
 	url = git@github.com:dfmedia/dfm-wp-brightTag.git
+[submodule "plugins/dfm-wp-data"]
+	path = plugins/dfm-wp-data
+	url = git@github.com:dfmedia/dfm-wp-data.git

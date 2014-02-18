@@ -61,13 +61,6 @@ $storyFeeds = array_values($config['story_feed']);
 
 $sectionPromos = array_values($config['section_promos']);
 
-
-// Blogs
-// Is this content going to come from a widget? 
-$blogs1;
-$blogs2;
-$blogs3;
-
 /* End config*/
 
 
