@@ -71,6 +71,57 @@ function global_context($data){
         'menu_hot' => new TimberMenu('Hot Topics'),
         'menu_action' => new TimberMenu('Take Action'),
     );
+    
+    // Data provided here:
+    /*
+    [site_name] => Silver City Sun News
+    [url] => www.scsun-news.com/
+    [wp_site_name] => scsun-news
+    [domain] => scsun-news
+    [company] => MNG
+    [platform] => NGPS
+    [geo] => NEW MEXICO
+    [city] => Silver City, NM
+    [zip_code] => 88026
+    [coords] => n/a
+    [facebook_page] => http://www.facebook.com/SilverCitySunNews
+    [facebook_page_id] => 187899791275353
+    [facebook_app_id] => n/a
+    [fb_secret] => n/a
+    [yahoo_pub_id] => 21641094265
+    [yahoo_site_name] => www.scsun-news.com
+    [ad_server_on_mc] => dfp
+    [omniture_account] => midslv
+    [twitter_page] => https://twitter.com/SCSunNews
+    [twitter_short_name] => SCSunNews
+    [disqus_api_key] => n/a
+    [disqus_user_api_key] => n/a
+    [mycapture_url] => n/a
+    [media_center_url] => http://photos.scsun-news.com/
+    [smug_api_key] => n/a
+    [smug_secret] => n/a
+    [smug_token] => n/a
+    [smug_url] => n/a
+    [nav_json_file_url] => http://local.scsun-news.com/assets/header-footer.json
+    [favicon_url] => http://extras.mnginteractive.com/live/media/favIcon/scsun-news/favicon.png
+    [akamai_large] => http://local.scsun-news.com/assets/logo-large.png
+    [akamai_small] => http://local.scsun-news.com/assets/logo-small.png
+    [events_url] => http://events.scsun-news.com
+    [events_api] => 890fda44c68da704e968b4b18ad71ca3
+    [brightcove_api] => n/a
+    [powerlinks] => yes
+    [google_analytics] => UA-42534117-6
+    [bc_player_id] => N/A
+    [bc_player_key] => N/A
+    [addthis] => N/A
+    [tout_id] => N/A
+    [ngps_site_id] => 558
+    [google_] => N/A
+    [quant_id] => p-4ctCQwtnNBNs2
+    [quant_label] => ElPasoRegional
+    */
+    if ( class_exists('DFMDataForWP') )
+        $data['dfm'] = DFMDataForWP::retrieveRowFromMasterData('domain', $data['domain']);
 
     if ( is_singular() ) $data['mode'] = 'article';
     //if ( is_single() ):
