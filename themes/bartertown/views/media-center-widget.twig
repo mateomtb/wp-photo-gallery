@@ -125,338 +125,338 @@
 // We can still go back to the old way of putting all the html into the JS, but I'd like to avoid that
 // Maybe we can make use of something like Handlebars for the html
 var mc_rotator_options_responsive = {
-	'src' : 'http://mediacenter/mercurynews/rotator?size=responsive&callback=__callback'
+    'src' : 'http://mediacenter/mercurynews/rotator?size=responsive&callback=__callback'
 };
 (function($, jsonpCallback, domain, options){
-	if (typeof $ === 'undefined') {
-		console.log("You need jQuery.");
-		return false;
-	}
-	if (typeof $.fn.carousel !== 'function') {
-		console.log("You need jQuery.fn.carousel. See http://sandbox.digitalfirstmedia.com/btown/");
-		return false;
-	}
-	if (!domain) {
-		return false;
-	}
+    if (typeof $ === 'undefined') {
+        console.log("You need jQuery.");
+        return false;
+    }
+    if (typeof $.fn.carousel !== 'function') {
+        console.log("You need jQuery.fn.carousel. See http://sandbox.digitalfirstmedia.com/btown/");
+        return false;
+    }
+    if (!domain) {
+        return false;
+    }
 
-	window[jsonpCallback] = function(json){
-		createWidget(json);
-	}
-	
-	var script = document.createElement('script');
-	script.type = 'text/javascript';
-	if (options.src) {
-		script.src = options.src;
-	}
-	else {
-		script.src = createURL() + 'rotator/?size=responsive&cat=' + section() + '&callback=' + jsonpCallback;
-	}
-	document.getElementsByTagName('head')[0].appendChild(script);
-	
-	function createWidget(data){
-		// All of the responsive image sizes
-		var sizes = [
-			[320, 240],
-			[640, 480],
-			[480, 320],
-			[960, 640],
-			[640, 480],
-			[1280, 960],
-			[800, 600],
-			[1600, 1200],
-			[640, 480],
-			[1280, 960],
-			[480, 320],
-			[960, 640],
-			[640, 480],
-			[1280, 960],
-			[800, 600],
-			[1600, 1200]
-		];
-		var mc = $(options.mcJQEl || 'div.media-center.sm');
-		// Set link back to media center
-		mc.find('h4 a').attr('href', createURL());
+    window[jsonpCallback] = function(json){
+        createWidget(json);
+    }
+    
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    if (options.src) {
+        script.src = options.src;
+    }
+    else {
+        script.src = createURL() + 'rotator/?size=responsive&cat=' + section() + '&callback=' + jsonpCallback;
+    }
+    document.getElementsByTagName('head')[0].appendChild(script);
+    
+    function createWidget(data){
+        // All of the responsive image sizes
+        var sizes = [
+            [320, 240],
+            [640, 480],
+            [480, 320],
+            [960, 640],
+            [640, 480],
+            [1280, 960],
+            [800, 600],
+            [1600, 1200],
+            [640, 480],
+            [1280, 960],
+            [480, 320],
+            [960, 640],
+            [640, 480],
+            [1280, 960],
+            [800, 600],
+            [1600, 1200]
+        ];
+        var mc = $(options.mcJQEl || 'div.media-center.sm');
+        // Set link back to media center
+        mc.find('h4 a').attr('href', createURL());
 
-		for (var i = 0; i < 3; i++) {
-			setMainSlide(i);
-		}
-		for (var i = 3; i < 6; i++) {
-			setOtherItems(i);
-		}	
-			
-		function replaceWidthHeight(URL, width, height){
-			// Takes a SmugMug large image URL and returns a new size
-			if (!URL) {
-				return false;
-			}
-			return URL.replace(
-				/\/L\//,'/' + width + 'x' + height + '/').replace(
-				/\-L\./, '-' + width + 'x' + height + '.'
-			);
-		}
-		
-		
-		function setMainSlide(index){
-			// jQuery chain to set all slide attributes
-			// Still testing performance
-			var count = 0;
-			mc.find('div.carousel-inner div.item:eq(' + index + ')')
-				.attr('data-title', data.items[index].title)
-				.attr('data-caption', data.items[index].excerpt)
-			.find('span span')
-				.each(
-					function(){
-						$(this).attr(
-							'data-src', 
-							replaceWidthHeight(data.items[index].image, sizes[count][0], sizes[count][1])
-						);
-						++count;
-					}
-				);
-		}
-		function setOtherItems(index){
-			// jQuery chain to set attributes/text of bottom three items
-			mc.find('ul.secondary-stories li:eq(' + (index - 3) + ')')
-			.find('a')
-				.attr('href', data.items[index].url)
-			.find('img')
-				.attr('src', replaceWidthHeight(data.items[index].image, 400, 255))
-			.find('h3 a').text(data.items[index].title);
+        for (var i = 0; i < 3; i++) {
+            setMainSlide(i);
+        }
+        for (var i = 3; i < 6; i++) {
+            setOtherItems(i);
+        }   
+            
+        function replaceWidthHeight(URL, width, height){
+            // Takes a SmugMug large image URL and returns a new size
+            if (!URL) {
+                return false;
+            }
+            return URL.replace(
+                /\/L\//,'/' + width + 'x' + height + '/').replace(
+                /\-L\./, '-' + width + 'x' + height + '.'
+            );
+        }
+        
+        
+        function setMainSlide(index){
+            // jQuery chain to set all slide attributes
+            // Still testing performance
+            var count = 0;
+            mc.find('div.carousel-inner div.item:eq(' + index + ')')
+                .attr('data-title', data.items[index].title)
+                .attr('data-caption', data.items[index].excerpt)
+            .find('span span')
+                .each(
+                    function(){
+                        $(this).attr(
+                            'data-src', 
+                            replaceWidthHeight(data.items[index].image, sizes[count][0], sizes[count][1])
+                        );
+                        ++count;
+                    }
+                );
+        }
+        function setOtherItems(index){
+            // jQuery chain to set attributes/text of bottom three items
+            mc.find('ul.secondary-stories li:eq(' + (index - 3) + ')')
+            .find('a')
+                .attr('href', data.items[index].url)
+            .find('img')
+                .attr('src', replaceWidthHeight(data.items[index].image, 400, 255))
+            .find('h3 a').text(data.items[index].title);
 
-		}
-		
-		function setCaption(jQ){
-			item = jQ.find('.active'),
-	        title = item[0].dataset.title,
-	        caption = item[0].dataset.caption;
-	        $('#media-center-info h2').text(title);
-	        $('#media-center-info .excerpt').text(caption);
-		}
-		
+        }
+        
+        function setCaption(jQ){
+            item = jQ.find('.active'),
+            title = item[0].dataset.title,
+            caption = item[0].dataset.caption;
+            $('#media-center-info h2').text(title);
+            $('#media-center-info .excerpt').text(caption);
+        }
+        
 
-		// Init carousel and bind caption changes
-		$('div#media-center-promo.carousel').carousel();
-		setCaption($('div#media-center-promo'));	
-		
-		$('div#media-center-promo').on('slid.bs.carousel', function () {
-			setCaption($(this));
+        // Init carousel and bind caption changes
+        $('div#media-center-promo.carousel').carousel();
+        setCaption($('div#media-center-promo'));    
+        
+        $('div#media-center-promo').on('slid.bs.carousel', function () {
+            setCaption($(this));
          });
-	}
-	
-	function section() {
-		if (typeof options.category !== 'undefined') {
-			return 'rotator?cat=' + options.category;
-		}
-		var url = location.pathname,
-			patt = /news|sports|entertainment|life|living|style/i,
-			theMatch = (url.match(patt) || [])[0];
-		
-		if (theMatch === 'news'){
-			theMatch = 'news';
-		}
-		else if (theMatch === 'sports'){
-			theMatch = 'sports';
-		}
-		else if (theMatch === 'entertainment'){
-			theMatch = 'entertainment';
-		}
-		else if (theMatch === 'life' || theMatch === 'living' || theMatch === 'style'){
-			theMatch = 'lifestyles';
-		}
-		else {
-			theMatch = 'mc_rotator_home___';
-		}
-		return theMatch;
-	}
-	
-	function createURL() {
-		if (options.url) {
-			return options.url;
-		}
-		var url = 'http://photos.' + domain + '.com/';
-		switch(domain) {
-			//Some URLs that don't fall into the photos.domain.com structure
-			case 'delcotimes':
-				url = 'http://media.delcotimes.com/';
-				break;
-			case 'dailycamera':
-				url = 'http://mediacenter.dailycamera.com/';
-				break;
-			case 'chicoer':
-				url = 'http://media.chicoer.com/';
-				break;
-			case 'eptrail':
-				url = 'http://mediacenter.eptrail.com/';
-				break;
-			case 'reporterherald':
-				url = 'http://media.reporterherald.com/';
-				break;
-			case 'coloradodaily':
-				url = 'http://mediacenter.coloradodaily.com/';
-				break;
-			case 'theoaklandpress':
-				url = 'http://media.theoaklandpress.com/';
-				break;
-			case 'macombdaily':
-				url = 'http://media.macombdaily.com/';
-				break;
-			case 'themorningsun':
-				url = 'http://media.themorningsun.com/';
-				break;
-			case 'dailytribune':
-				url = 'http://media.dailytribune.com/';
-				break;
-			case 'heritage':
-				url = 'http://media.heritage.com/';
-				break;
-			case 'thenewsherald':
-				url = 'http://media.thenewsherald.com/';
-				break;
-			case 'pressandguide':
-				url = 'http://media.pressandguide.com/';
-				break;
-			case 'voicenews':
-				url = 'http://media.voicenews.com/';
-				break;
-			case 'sourcenewspapers':
-				url = 'http://media.sourcenewspapers.com/';
-				break;
-			case 'morningstarpublishing':
-				url = 'http://media.morningstarpublishing.com/';
-				break;
-			case 'dailylocal':
-				url = 'http://media.dailylocal.com/';
-				break;
-			case 'pottsmerc':
-				url = 'http://media.pottsmerc.com/';
-				break;
-			case 'timesherald':
-				url = 'http://media.timesherald.com/';
-				break;
-			case 'thereporteronline':
-				url = 'http://media.thereporteronline.com/';
-				break;
-			case 'mainlinemedianews':
-				url = 'http://media.mainlinemedianews.com/';
-				break;
-			case 'montgomerynews':
-				url = 'http://media.montgomerynews.com/';
-				break;
-			case 'phoenixvillenews':
-				url = 'http://media.phoenixvillenews.com/';
-				break;
-			case 'buckslocalnews':
-				url = 'http://media.buckslocalnews.com/';
-				break;
-			case 'delconewsnetwork':
-				url = 'http://media.delconewsnetwork.com/';
-				break;
-			case 'berksmontnews':
-				url = 'http://media.berksmontnews.com/';
-				break;
-			case 'southernchestercountyweeklies':
-				url = 'http://media.southernchestercountyweeklies.com/';
-				break;
-			case 'ydr':
-				url = 'http://mediacenter.ydr.com/';
-				break;
-			case 'news-herald':
-				url = 'http://media.news-herald.com/';
-				break;
-			case 'morningjournal':
-				url = 'http://media.morningjournal.com/';
-				break;
-			case 'dailyfreeman':
-				url = 'http://media.dailyfreeman.com/';
-				break;
-			case 'saratogian':
-				url = 'http://media.saratogian.com/';
-				break;
-			case 'troyrecord':
-				url = 'http://media.troyrecord.com/';
-				break;
-			case 'oneidadispatch':
-				url = 'http://media.oneidadispatch.com/';
-				break;
-			case 'cnweekly':
-				url = 'http://media.cnweekly.com/';
-				break;
-			case 'romeobserver':
-				url = 'http://media.romeobserver.com/';
-				break;
-			case 'trentonian':
-				url = 'http://media.trentonian.com/';
-				break;
-			case 'southjerseylocalnews':
-				url = 'http://media.southjerseylocalnews.com/';
-				break;
-			case 'middletownpress':
-				url = 'http://media.middletownpress.com/';
-				break;
-			case 'registercitizen':
-				url = 'http://media.registercitizen.com/';
-				break;
-			case 'countytimes':
-				url = 'http://media.countytimes.com/';
-				break;
-			case 'westhartfordnews':
-				url = 'http://media.westhartfordnews.com/';
-				break;
-			case 'housatonictimes':
-				url = 'http://media.housatonictimes.com/';
-				break;
-			case 'minutemannewscenter':
-				url = 'http://media.minutemannewscenter.com/';
-				break;
-			case 'ctpostchronicle':
-				url = 'http://media.ctpostchronicle.com/';
-				break;
-			case 'shorelinetimes':
-				url = 'http://media.shorelinetimes.com/';
-				break;
-			case 'ctbulletin':
-				url = 'http://media.ctbulletin.com/';
-				break;
-			case 'dolphin-news':
-				url = 'http://media.dolphin-news.com/';
-				break;
-			case 'nhregister':
-				url = 'http://photos.newhavenregister.com/';
-				break;
-			case 'burlesonstar':
-				url = 'http://photos.burlesonstar.net/';
-				break;
-			case 'crowleystar':
-				url = 'http://photos.crowleystar.net/';
-				break;
-			case 'joshuastar':
-				url = 'http://photos.joshuastar.net/';
-				break;
-			case 'keenestar':
-				url = 'http://photos.keenestar.net/';
-				break;
-			case 'alvaradostar':
-				url = 'http://photos.alvaradostar.net/';
-				break;
-			case 'insidebayarea':
-				url = 'http://photos.mercurynews.com/';
-				break;
-			case 'contracostatimes':
-				url = 'http://photos.mercurynews.com/';
-				break;
-			case 'broomfieldenterprise':
-				url = 'http://mediacenter.broomfieldenterprise.com/';
-				break;
-		}
-		return url;
-	}
+    }
+    
+    function section() {
+        if (typeof options.category !== 'undefined') {
+            return 'rotator?cat=' + options.category;
+        }
+        var url = location.pathname,
+            patt = /news|sports|entertainment|life|living|style/i,
+            theMatch = (url.match(patt) || [])[0];
+        
+        if (theMatch === 'news'){
+            theMatch = 'news';
+        }
+        else if (theMatch === 'sports'){
+            theMatch = 'sports';
+        }
+        else if (theMatch === 'entertainment'){
+            theMatch = 'entertainment';
+        }
+        else if (theMatch === 'life' || theMatch === 'living' || theMatch === 'style'){
+            theMatch = 'lifestyles';
+        }
+        else {
+            theMatch = 'mc_rotator_home___';
+        }
+        return theMatch;
+    }
+    
+    function createURL() {
+        if (options.url) {
+            return options.url;
+        }
+        var url = 'http://photos.' + domain + '.com/';
+        switch(domain) {
+            //Some URLs that don't fall into the photos.domain.com structure
+            case 'delcotimes':
+                url = 'http://media.delcotimes.com/';
+                break;
+            case 'dailycamera':
+                url = 'http://mediacenter.dailycamera.com/';
+                break;
+            case 'chicoer':
+                url = 'http://media.chicoer.com/';
+                break;
+            case 'eptrail':
+                url = 'http://mediacenter.eptrail.com/';
+                break;
+            case 'reporterherald':
+                url = 'http://media.reporterherald.com/';
+                break;
+            case 'coloradodaily':
+                url = 'http://mediacenter.coloradodaily.com/';
+                break;
+            case 'theoaklandpress':
+                url = 'http://media.theoaklandpress.com/';
+                break;
+            case 'macombdaily':
+                url = 'http://media.macombdaily.com/';
+                break;
+            case 'themorningsun':
+                url = 'http://media.themorningsun.com/';
+                break;
+            case 'dailytribune':
+                url = 'http://media.dailytribune.com/';
+                break;
+            case 'heritage':
+                url = 'http://media.heritage.com/';
+                break;
+            case 'thenewsherald':
+                url = 'http://media.thenewsherald.com/';
+                break;
+            case 'pressandguide':
+                url = 'http://media.pressandguide.com/';
+                break;
+            case 'voicenews':
+                url = 'http://media.voicenews.com/';
+                break;
+            case 'sourcenewspapers':
+                url = 'http://media.sourcenewspapers.com/';
+                break;
+            case 'morningstarpublishing':
+                url = 'http://media.morningstarpublishing.com/';
+                break;
+            case 'dailylocal':
+                url = 'http://media.dailylocal.com/';
+                break;
+            case 'pottsmerc':
+                url = 'http://media.pottsmerc.com/';
+                break;
+            case 'timesherald':
+                url = 'http://media.timesherald.com/';
+                break;
+            case 'thereporteronline':
+                url = 'http://media.thereporteronline.com/';
+                break;
+            case 'mainlinemedianews':
+                url = 'http://media.mainlinemedianews.com/';
+                break;
+            case 'montgomerynews':
+                url = 'http://media.montgomerynews.com/';
+                break;
+            case 'phoenixvillenews':
+                url = 'http://media.phoenixvillenews.com/';
+                break;
+            case 'buckslocalnews':
+                url = 'http://media.buckslocalnews.com/';
+                break;
+            case 'delconewsnetwork':
+                url = 'http://media.delconewsnetwork.com/';
+                break;
+            case 'berksmontnews':
+                url = 'http://media.berksmontnews.com/';
+                break;
+            case 'southernchestercountyweeklies':
+                url = 'http://media.southernchestercountyweeklies.com/';
+                break;
+            case 'ydr':
+                url = 'http://mediacenter.ydr.com/';
+                break;
+            case 'news-herald':
+                url = 'http://media.news-herald.com/';
+                break;
+            case 'morningjournal':
+                url = 'http://media.morningjournal.com/';
+                break;
+            case 'dailyfreeman':
+                url = 'http://media.dailyfreeman.com/';
+                break;
+            case 'saratogian':
+                url = 'http://media.saratogian.com/';
+                break;
+            case 'troyrecord':
+                url = 'http://media.troyrecord.com/';
+                break;
+            case 'oneidadispatch':
+                url = 'http://media.oneidadispatch.com/';
+                break;
+            case 'cnweekly':
+                url = 'http://media.cnweekly.com/';
+                break;
+            case 'romeobserver':
+                url = 'http://media.romeobserver.com/';
+                break;
+            case 'trentonian':
+                url = 'http://media.trentonian.com/';
+                break;
+            case 'southjerseylocalnews':
+                url = 'http://media.southjerseylocalnews.com/';
+                break;
+            case 'middletownpress':
+                url = 'http://media.middletownpress.com/';
+                break;
+            case 'registercitizen':
+                url = 'http://media.registercitizen.com/';
+                break;
+            case 'countytimes':
+                url = 'http://media.countytimes.com/';
+                break;
+            case 'westhartfordnews':
+                url = 'http://media.westhartfordnews.com/';
+                break;
+            case 'housatonictimes':
+                url = 'http://media.housatonictimes.com/';
+                break;
+            case 'minutemannewscenter':
+                url = 'http://media.minutemannewscenter.com/';
+                break;
+            case 'ctpostchronicle':
+                url = 'http://media.ctpostchronicle.com/';
+                break;
+            case 'shorelinetimes':
+                url = 'http://media.shorelinetimes.com/';
+                break;
+            case 'ctbulletin':
+                url = 'http://media.ctbulletin.com/';
+                break;
+            case 'dolphin-news':
+                url = 'http://media.dolphin-news.com/';
+                break;
+            case 'nhregister':
+                url = 'http://photos.newhavenregister.com/';
+                break;
+            case 'burlesonstar':
+                url = 'http://photos.burlesonstar.net/';
+                break;
+            case 'crowleystar':
+                url = 'http://photos.crowleystar.net/';
+                break;
+            case 'joshuastar':
+                url = 'http://photos.joshuastar.net/';
+                break;
+            case 'keenestar':
+                url = 'http://photos.keenestar.net/';
+                break;
+            case 'alvaradostar':
+                url = 'http://photos.alvaradostar.net/';
+                break;
+            case 'insidebayarea':
+                url = 'http://photos.mercurynews.com/';
+                break;
+            case 'contracostatimes':
+                url = 'http://photos.mercurynews.com/';
+                break;
+            case 'broomfieldenterprise':
+                url = 'http://mediacenter.broomfieldenterprise.com/';
+                break;
+        }
+        return url;
+    }
 
 })(
-	dfm.$, 
-	'__callback', 
-	dfm.env.domain || (location.host.match(/([^.]+)\.\w{2,3}(?:\.\w{2})?$/) || [])[1],
-	mc_rotator_options_responsive || {}
+    dfm.$, 
+    '__callback', 
+    dfm.env.domain || (location.host.match(/([^.]+)\.\w{2,3}(?:\.\w{2})?$/) || [])[1],
+    mc_rotator_options_responsive || {}
 );
 </script>
 {% endif %}
