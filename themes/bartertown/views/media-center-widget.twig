@@ -1,7 +1,8 @@
-<!--<link rel="stylesheet" href="http://extras.mnginteractive.com/live/partners/MediaCenter/widget_large/mc_widget_large_min.css" type="text/css" />
-<script type="text/javascript" src="http://extras.mnginteractive.com/live/partners/MediaCenter/widget_large/mc_widget_large_min.js"></script>-->
+<link rel="stylesheet" href="http://extras.mnginteractive.com/live/partners/MediaCenter/widget_large/mc_widget_large_min.css" type="text/css" />
+<script type="text/javascript" src="http://extras.mnginteractive.com/live/partners/MediaCenter/widget_large/mc_widget_large_min.js"></script>
 
-<div class="media-center sm">
+{% if false %}
+<div class="media-center sm" style="display: none;">
     <h4><a href="">Media Center: Photos &amp; Videos</a></h4>
     <div id="media-center-promo" class="carousel slide" data-interval="false">
         <ol class="carousel-indicators">
@@ -211,10 +212,11 @@ var mc_rotator_options_responsive = {
 							replaceWidthHeight(data.items[index].image, sizes[count][0], sizes[count][1])
 						);
 						++count;
-						}
-					);
+					}
+				);
 		}
 		function setOtherItems(index){
+			// jQuery chain to set attributes/text of bottom three items
 			mc.find('ul.secondary-stories li:eq(' + (index - 3) + ')')
 			.find('a')
 				.attr('href', data.items[index].url)
@@ -457,5 +459,5 @@ var mc_rotator_options_responsive = {
 	mc_rotator_options_responsive || {}
 );
 </script>
-
+{% endif %}
 
