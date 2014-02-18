@@ -14,8 +14,17 @@ $post = new TimberPost();
 $context['post'] = $post;
 $context['wp_title'] .= ' - ' . $post->title();
 
+// This subhead-specific plugin doesn't yet work.
 if ( function_exists('the_subheading') )
     $context['subhead'] = the_subheading();
+
+
+// The 'Others also read...' posts
+if ( function_exists('related_posts') )
+    $context['also_read'] = related_posts(); 
+elseif ( function_exists('wp_related_posts') ) 
+    $context['also_read'] = wp_related_posts();
+
 
 // Disqus comments
 if ( function_exists('dsq_comments_template') ):
@@ -23,6 +32,7 @@ if ( function_exists('dsq_comments_template') ):
     $context['comment_form'] = TimberHelper::function_wrapper('comments_template', array($comments_file));
 endif;
 
+// Article-sidebar (as opposed to layout-sidebar) content
 if ( class_exists('DFMCollection') ):
     // First we look for any Package collections that exist.
     $package = new DFMCollection($post);
@@ -41,5 +51,6 @@ if ( class_exists('DFMCollection') ):
     endif;
 endif;
 
+// Layout-sidebar content
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');
 Timber::render(array('single-' . $post->ID . '.twig', 'single-' . $post->post_type . '.twig', 'single.twig'), $context);
