@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: 
+ * Plugin Name: DFM - Omniture
  * Plugin URI: 
  * Description: 
  * Version: 0.1
@@ -9,63 +9,19 @@
  * License: Apache-2
  */
 
-// TODOS:
 /*
+// TODOS:
 // Usage:
 */
 
-if ( !file_exists(WP_PLUGIN_DIR . '') ) die("Requires plugin (  )");
 
-require_once( WP_PLUGIN_DIR . '' );
-
-
-class DFMAutoAutoBlog
+class DFMOmniture
 {
-    // We use this class to 
+    // We use this class to add the files Omniture requires onto any WP page.
 
 
-    function __construct($post, $collection_type = 'package')
+    function __construct()
     {
-        switch ( gettype($post) ):
-            case 'object':
-                $this->post = $post;
-                break;
-            case 'integer':
-                $this->post = get_post($post);
-                break;
-            case 'string':
-                $this->post = get_post(intval($post));
-                break;
-        endswitch;
-        $this->collection_type=$collection_type;
-        $this->collection=$this->get_collection();
     }
 
-    public function get_collection($post_id=0)
-    {
-        // Returns the tag slug of the collection for a particular post.
-        // Takes a parameter, post_id, for manual lookups of post collection field.
-        if ( $post_id == 0 )
-            $post_id = $post->ID;
-
-        $collection = get_post_custom_values('package', $post_id);
-        if ( $this->collection_type == 'related' )
-            $collection = get_post_custom_values('related', $post_id);
-        
-        return $collection;
-    }
-
-    public function get_collection_items()
-    {
-        // Returns an array of post objects in the collection.
-        $args = array(
-            'tag' => $this->collection[0],
-            'limit' => 10,
-            );
-        $query = new WP_Query($args);
-        if ( $query->have_posts() )
-            return $query->posts;
-        
-        return false;
-    }
 }
