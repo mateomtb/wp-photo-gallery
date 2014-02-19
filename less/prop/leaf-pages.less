@@ -1,36 +1,29 @@
 .web-feeds {
-	h3 {
-		font-size:22px;
-	}
-	.link-list {
-		.clearfix();
-		ul {
-			width:32%;
-			float:left;
-			margin-right:2%;
-			&:last-child {
-				margin-right:0;
-			}
-		}
-	}
-	.subhead {
-		margin-bottom:@baseLineHeight/2;
-	}
-	.full-feeds, .faqs {
-		.clearfix();
-		margin: @baseLineHeight 0;
-	}
-	.full-feeds {
-		a {
-			font-size:@baseFontSize - 1;
-			margin-right:0.4em;
-		}
-	}
-	li.subhed {
-		font-weight:bold;
-		margin-top:@baseLineHeight;
-		a {
-			margin-right:0;
-		}
-	}
+  h1.page-header {
+    margin-top: 0;
+  }
+  h3 {
+    .font-size(18px);
+  }
+  .full-feeds,
+  .faqs {
+    .clearfix();
+    margin: @line-height-computed 0;
+    a {
+      color: lighten(@link-color, 10%);
+    }
+  }
+  .full-feeds {
+    a {
+      .font-size((@font-size-base - 1));
+      margin-right: 0.4em;
+    }
+  }
+  .subhed {
+    font-weight: @font-weight-bold;
+    margin-top: @line-height-computed;
+    a {
+      margin-right: 0;
+    }
+  }
 }

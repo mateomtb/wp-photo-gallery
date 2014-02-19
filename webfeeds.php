@@ -7,38 +7,43 @@
 <?php require_once('temps/header.php'); // load in header ?>
 <div class="row">
     <div class="content-well web-feeds">
-        <div class="page-header">
-            <h1>Newspaper.com web feeds</h1>
-        </div>
+        <h1 id="page-top" class="page-header">Newspaper.com web feeds</h1>
         <p class="lead">Click a link to get started subscribing</p>
-        <div class="link-list">
+        <p class="small"><a href="#faqs">Skip to FAQs</a></p>
+        <section class="quick-links">
             <h3>Quicklinks</h3>
-            <ul>
-                <li><a href="#blogs">Blog Feeds</a></li>
-                <li><a href="#business-feeds">Business Feeds</a></li>
-                <li><a href="#entertainment-feeds">Entertainment Feeds</a></li>
-                <li><a href="#food">Food Feeds</a></li>
-                <li><a href="#lifestyles-feeds">Lifestyles Feeds</a></li>
-            </ul>
-            <ul>
-                <li><a href="#neighbors">Neighbors Feeds</a></li>
-                <li><a href="#news-feeds">News Feeds</a></li>
-                <li><a href="#opinion-feeds">Opinion Feeds</a></li>
-                <li><a href="#outdoors">Outdoors Feeds</a></li>
-                <li><a href="#photos">Photo Galleries</a></li>
-            </ul>
-            <ul>
-                <li><a href="#politics-feeds">Politics Feeds</a></li>
-                <li><a href="#ski-report">Snow Report Feeds</a></li>
-                <li><a href="#sports-feeds">Sports Feeds</a></li>
-                <li><a href="#prep-sports">Prep Sports Feeds</a></li>
-                <li><a href="#travel-feeds">Travel Feeds</a></li>
-            </ul>
-        </div>
+                <div class="row">
+                    <div class="col md-4 link-list">
+                        <ul>
+                            <li><a href="#blogs">Blog Feeds</a></li>
+                            <li><a href="#business-feeds">Business Feeds</a></li>
+                            <li><a href="#entertainment-feeds">Entertainment Feeds</a></li>
+                            <li><a href="#food">Food Feeds</a></li>
+                            <li><a href="#lifestyles-feeds">Lifestyles Feeds</a></li>
+                        </ul>
+                    </div>
+                    <div class="col md-4 link-list">
+                        <ul>
+                            <li><a href="#neighbors">Neighbors Feeds</a></li>
+                            <li><a href="#news-feeds">News Feeds</a></li>
+                            <li><a href="#opinion-feeds">Opinion Feeds</a></li>
+                            <li><a href="#outdoors">Outdoors Feeds</a></li>
+                            <li><a href="#photos">Photo Galleries</a></li>
+                        </ul>
+                    </div>
+                    <div class="col md-4 link-list">
+                        <ul>
+                            <li><a href="#politics-feeds">Politics Feeds</a></li>
+                            <li><a href="#ski-report">Snow Report Feeds</a></li>
+                            <li><a href="#sports-feeds">Sports Feeds</a></li>
+                            <li><a href="#prep-sports">Prep Sports Feeds</a></li>
+                            <li><a href="#travel-feeds">Travel Feeds</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </section>
         <section class="full-feeds">
-            <div class="page-header">
-                <h3>Full feed list</h3>
-            </div>
+            <h3 class="page-header">Full feed list</h3>
             <ul>
                 <li class="subhed"><a name="news-feeds" id="news-feeds"></a>News Feeds</li><p></p>
                 <li><a href="http://feeds.denverpost.com/dp-news-breaking"><img src="http://extras.mnginteractive.com/live/media/site200/2007/0627/20070627__rss.gif" width="16" height="11" alt="" border="none" style="vertical-align: middle;"></a><a class="myyahooButton" href="http://us.rd.yahoo.com/my/atm/DenverPost/News Breaking/*http://add.my.yahoo.com/rss?url=http%3A//feeds.denverpost.com/dp-news-breaking"><img src="http://us.i1.yimg.com/us.yimg.com/i/us/my/addtomyyahoo4.gif" width="91" height="17" border="0" align="middle" alt="Add to My Yahoo!"></a><a href="http://feeds.denverpost.com/dp-news-breaking" title="">News: Breaking</a></li>
@@ -450,17 +455,16 @@
 
             </ul>
         </section>
-        <section class="faqs">
-            <div class="page-header">
-                <h3>FAQs</h3>
-            </div>
-            <h4 class="subhead">What's a web feed?</h4>
+        <section id="faqs" class="faqs">
+            <h2 class="page-header">FAQs</h2>
+            <p class="small"><a href="#page-top">Back to top</a></p>
+            <h3>What's a web feed?</h3>
             <p>Web feeds are useful for keeping up with multiple online information sources. Some common types of feeds are a site's blog posts, all our stories from a particular category ( from large categories, like Sports, to small categories, like our Books coverage). The feeds you subscribe let you know when there's new content. The feeds themselves usually consist of a collection of entries, each with a headline and a blurb and a link.</p>
 
-            <h4 class="subhead">What's the point?</h4>
+            <h3>What's the point?</h3>
             <p>The cool thing about feeds is when they're used right they save you time. <strong>Web feeds allow you access to only the information you're interested in and none of the information you're not.</strong> Are you only interested in our movie coverage? Instead of surfing to our movie section each day to see if there's a new article, you can subscribe to <a href="http://feeds.denverpost.com/dp-entertainment-movies">the movie web feed</a>, which will let you know when there are new articles. This gets more useful the more feeds you subscribe to: instead of going to, say, fifteen different sites, sections or pages to see if there's anything you want to read, now you just go to one place.
             </p>
-            <h4 class="subhead">What's a web feed reader?</h4>     
+            <h3>What's a web feed reader?</h3>     
             <p>To take advantage of these feeds, you'll need a <strong>web feed reader</strong>, which is a piece of software that searches the web for feeds. You can customize these readers to just search for articles or sources (like a specific blog, for example, or all the News from the BBC) that you want, and ignore everything else. It's a way to filter through the huge amount of information online and retrieve the stuff that matters most to you.</p>
             <p><a href="http://www.denverpost.com/termsofuse#rss-terms">Read our RSS Terms and Conditions here</a>.</p>
         </section>
