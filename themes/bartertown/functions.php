@@ -20,6 +20,8 @@
 		wp_enqueue_script('jquery');
 	}
 
+if ( function_exists('register_sidebar') ) register_sidebar();
+
 register_nav_menus(array('hot-topics' => __( 'Hot Topics' )), array('take-action' => __( 'Take Action' )));
 
 add_filter('timber_context', 'global_context');

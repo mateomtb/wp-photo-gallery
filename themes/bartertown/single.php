@@ -51,6 +51,15 @@ if ( class_exists('DFMCollection') ):
     endif;
 endif;
 
+// More article sidebar content
+$poll_id = intval(get_post_custom_values('inarticle_poll', $post->ID));
+if ( $poll_id > 0 ):
+    $context['inarticle_poll'] = TimberHelper::function_wrapper('get_poll', array($poll_id));
+else:
+    $context['inarticle_poll'] = 'heyyy';
+endif;
+
+
 // Layout-sidebar content
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');
 Timber::render(array('single-' . $post->ID . '.twig', 'single-' . $post->post_type . '.twig', 'single.twig'), $context);
