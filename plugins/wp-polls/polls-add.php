@@ -2,8 +2,8 @@
 /*
 +----------------------------------------------------------------+
 |																							|
-|	WordPress 2.7 Plugin: WP-Polls 2.40										|
-|	Copyright (c) 2008 Lester "GaMerZ" Chan									|
+|	WordPress Plugin: WP-Polls										|
+|	Copyright (c) 2012 Lester "GaMerZ" Chan									|
 |																							|
 |	File Written By:																	|
 |	- Lester "GaMerZ" Chan															|
@@ -22,11 +22,9 @@ if(!current_user_can('manage_polls')) {
 	die('Access Denied');
 }
 
-
 ### Poll Manager
 $base_name = plugin_basename('wp-polls/polls-manager.php');
 $base_page = 'admin.php?page='.$base_name;
-
 
 ### Form Processing 
 if(!empty($_POST['do'])) {
@@ -34,6 +32,7 @@ if(!empty($_POST['do'])) {
 	switch($_POST['do']) {
 		// Add Poll
 		case __('Add Poll', 'wp-polls'):
+			check_admin_referer('wp-polls_add-poll');
 			// Poll Question
 			$pollq_question = addslashes(trim($_POST['pollq_question']));
 			// Poll Start Date
@@ -104,72 +103,9 @@ if(!empty($_POST['do'])) {
 $poll_noquestion = 2;
 $count = 0;
 ?>
-<script type="text/javascript">
-	/* <![CDATA[*/
-	function check_pollexpiry() {
-		poll_expiry = document.getElementById("pollq_expiry_no").checked;
-		if(poll_expiry) {
-			document.getElementById("pollq_expiry").style.display = 'none';
-		} else {
-			document.getElementById("pollq_expiry").style.display = 'block';
-		}
-	}
-	var count_poll_answer = <?php echo $poll_noquestion; ?>;
-	function create_poll_answer() {
-		// Create Elements
-		var poll_tr = document.createElement("tr");
-		var poll_td1 = document.createElement("th");
-		var poll_td2 = document.createElement("td");
-		var poll_answer = document.createElement("input");
-		var poll_answer_count = document.createTextNode("<?php _e('Answer', 'wp-polls'); ?> " + (count_poll_answer+1));
-		var poll_answer_bold = document.createElement("strong");
-		var poll_option = document.createElement("option");
-		var poll_option_text = document.createTextNode((count_poll_answer+1));
-		count_poll_answer++;
-		// Elements - Input
-		poll_answer.setAttribute('type', "text");
-		poll_answer.setAttribute('name', "polla_answers[]");
-		poll_answer.setAttribute('size', "50");
-		// Elements - Options
-		poll_option.setAttribute('value', count_poll_answer);
-		poll_option.setAttribute('id', "pollq-multiple-" + (count_poll_answer+1));
-		// Elements - TD/TR
-		poll_tr.setAttribute('id', "poll-answer-" + count_poll_answer);
-		poll_td1.setAttribute('width', "20%");
-		poll_td1.setAttribute('scope', "row");
-		poll_td2.setAttribute('width', "80%");
-		// Appending
-		poll_tr.appendChild(poll_td1);
-		poll_tr.appendChild(poll_td2);
-		poll_answer_bold.appendChild(poll_answer_count);
-		poll_td1.appendChild(poll_answer_bold);
-		poll_td2.appendChild(poll_answer);
-		poll_option.appendChild(poll_option_text);
-		document.getElementById("poll_answers").appendChild(poll_tr);
-		document.getElementById("pollq_multiple").appendChild(poll_option);
-	}
-	function remove_poll_answer() {
-		if(count_poll_answer == 2) {
-			alert("<?php _e('You need at least a minimum of 2 poll answers.', 'wp-polls'); ?>");
-		} else {
-			document.getElementById("poll_answers").removeChild(document.getElementById("poll-answer-" + count_poll_answer));
-			document.getElementById("pollq_multiple").removeChild(document.getElementById("pollq-multiple-" + (count_poll_answer+1)));
-			document.getElementById("pollq_multiple").value = count_poll_answer;
-			count_poll_answer--;
-		}
-	}
-	function check_pollq_multiple() {
-		if(parseInt(document.getElementById("pollq_multiple_yes").value) == 1) {
-			document.getElementById("pollq_multiple").disabled = false;
-		} else {
-			document.getElementById("pollq_multiple").value = 1;
-			document.getElementById("pollq_multiple").disabled = true;
-		}
-	}
-	/* ]]> */
-</script>
 <?php if(!empty($text)) { echo '<!-- Last Action --><div id="message" class="updated fade">'.stripslashes($text).'</div>'; } ?>
-<form action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="post">
+<form method="post" action="<?php echo admin_url('admin.php?page='.plugin_basename(__FILE__)); ?>">
+<?php wp_nonce_field('wp-polls_add-poll'); ?>
 <div class="wrap">
 	<div id="icon-wp-polls" class="icon32"><br /></div>
 	<h2><?php _e('Add Poll', 'wp-polls'); ?></h2>
@@ -187,7 +123,7 @@ $count = 0;
 		<tfoot>
 			<tr>
 				<td width="20%">&nbsp;</td>
-				<td width="80%"><input type="button" value="<?php _e('Add Answer', 'wp-polls') ?>" onclick="create_poll_answer();" class="button" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="<?php _e('Remove Answer', 'wp-polls') ?>" onclick="remove_poll_answer();" class="button" /></td>
+				<td width="80%"><input type="button" value="<?php _e('Add Answer', 'wp-polls') ?>" onclick="add_poll_answer_add();" class="button" /></td>
 			</tr>
 		</tfoot>
 		<tbody id="poll_answers">
@@ -195,7 +131,7 @@ $count = 0;
 			for($i = 1; $i <= $poll_noquestion; $i++) {
 				echo "<tr id=\"poll-answer-$i\">\n";
 				echo "<th width=\"20%\" scope=\"row\" valign=\"top\">".sprintf(__('Answer %s', 'wp-polls'), number_format_i18n($i))."</th>\n";
-				echo "<td width=\"80%\"><input type=\"text\" size=\"50\" name=\"polla_answers[]\" /></td>\n";
+				echo "<td width=\"80%\"><input type=\"text\" size=\"50\" maxlength=\"200\" name=\"polla_answers[]\" />&nbsp;&nbsp;&nbsp;<input type=\"button\" value=\"".__('Remove', 'wp-polls')."\" onclick=\"remove_poll_answer_add(".$i.");\" class=\"button\" /></td>\n";
 				echo "</tr>\n";
 				$count++;
 			}
@@ -239,6 +175,6 @@ $count = 0;
 			<td width="80%"><input type="checkbox" name="pollq_expiry_no" id="pollq_expiry_no" value="1" checked="checked" onclick="check_pollexpiry();" />&nbsp;&nbsp;<label for="pollq_expiry_no"><?php _e('Do NOT Expire This Poll', 'wp-polls'); ?></label><?php poll_timestamp(current_time('timestamp'), 'pollq_expiry', 'none'); ?></td>
 		</tr>
 	</table>
-	<p style="text-align: center;"><input type="submit" name="do" value="<?php _e('Add Poll', 'wp-polls'); ?>"  class="button" />&nbsp;&nbsp;<input type="button" name="cancel" value="<?php _e('Cancel', 'wp-polls'); ?>" class="button" onclick="javascript:history.go(-1)" /></p>
+	<p style="text-align: center;"><input type="submit" name="do" value="<?php _e('Add Poll', 'wp-polls'); ?>"  class="button-primary" />&nbsp;&nbsp;<input type="button" name="cancel" value="<?php _e('Cancel', 'wp-polls'); ?>" class="button" onclick="javascript:history.go(-1)" /></p>
 </div>
 </form>
