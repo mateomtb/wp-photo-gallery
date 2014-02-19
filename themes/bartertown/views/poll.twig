@@ -1,10 +1,12 @@
 <div class="poll">
     <h4>Two Cents</h4>
     <h3>{{ poll_title }}</h3>
-    <form action="">
-        <div class="radio pollAnswers">
-                {{ poll_options }}
+    <form action="{{poll_form_action}}">{# need to address this #}
+        <div class="radio">
+            <label>
+                {{poll_options}}{# need to address clicking after initial click #}
+            </label>
         </div>
-        <button class="btn primary block" value="Vote" onclick="{{ poll_vote }}">Vote!</button>
+        <button class="btn primary block">Vote!</button>
     </form>
 </div> <!-- .poll -->

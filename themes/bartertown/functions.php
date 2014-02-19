@@ -47,7 +47,8 @@ function global_context($data){
     if(count($pollAns) > 0) {
         foreach($pollAns as $pollAns1) {
             $poll_answers .= $pollAns1->nodeValue;
-            $poll_options .= '<label><input type="radio" name="'.$poll_answers.'">'.$poll_answers.'</input><br /></label>';
+            //$poll_options .= '<label><input type="radio" name="'.$poll_answers.'">'.$poll_answers.'</input><br /></label>';
+            $poll_options .= '<input type="radio" name="optionsRadios" id="optionsRadios1" value="'.$poll_answers.'">'.$poll_answers.'</input><br />';
             $poll_answers = '';
         }
     }
