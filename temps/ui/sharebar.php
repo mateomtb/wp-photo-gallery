@@ -1,26 +1,28 @@
-<ul class="share-toolbar visible-md-down">
+<div class="share-placeholder">
+<ul class="share-toolbar">
     <li>
-        <a href="#" class="fc-webicon facebook"><span class="sr-only">Share on Facebook</span></a>
+        <a href="#" class="webicon facebook">Like us on Facebook</a>
     </li>
     <li>
-        <a href="#" class="fc-webicon twitter"><span class="sr-only">Share on Twitter</span></a>
+        <a href="#" class="webicon twitter md">Share on Twitter</a>
     </li>
     <li class="google">
-        <a href="#" class="fc-webicon googleplus"><span class="sr-only">Share on Google Plus</span></a>
+        <a href="#" class="webicon googleplus"><span class="sr-only">Share on Google Plus</span></a>
     </li>
     <li>
-        <a href="#" class="fc-webicon mail"><span class="sr-only">Email</span></a>
+        <a href="#" class="webicon mail"><span class="sr-only">Email</span></a>
     </li>
     <li>
         <a href="#" class="glyphicon glyphicon-print"><span class="sr-only">Print</span></a>
     </li>
     <li>
-        <a href="#" data-toggle="modal" data-target="#shareModal">...<span class="sr-only">More ways to share</span></a>
+        <a href="#" class="text" data-toggle="modal" data-target="#shareModal">...<span class="sr-only">More ways to share</span></a>
     </li>
 </ul>
+</div>
 
 <div id="shareModal" class="modal fade in share-modal" tabindex="-1" role="dialog" aria-labelledby="shareOptions" aria-hidden="false">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

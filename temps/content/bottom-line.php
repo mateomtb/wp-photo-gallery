@@ -3,16 +3,16 @@
         <h4 class="topic-header">The Bottom Line
             <ul class="share-widget visible-md-up">
                 <li>
-                    <a data-toggle="tooltip" data-placement="top" data-original-title="Like us on Facebook" title="Like us on Facebook" class="fc-webicon facebook" href="">Facebook</a>
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="Like us on Facebook" title="Like us on Facebook" class="webicon facebook" href="">Facebook</a>
                 </li>
                 <li>
-                    <a data-toggle="tooltip" data-placement="top" data-original-title="Follow us on Twitter @bottomline" title="Follow us on Twitter @bottomline" class="fc-webicon twitter" href="http://www.twitter.com/denverpost">Twitter</a>
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="Follow us on Twitter @bottomline" title="Follow us on Twitter @bottomline" class="webicon twitter" href="http://www.twitter.com/denverpost">Twitter</a>
                 </li>
                 <li>
-                    <a data-toggle="tooltip" data-placement="top" data-original-title="Google Plus" title="Google Plus" class="fc-webicon googleplus" href="">Google Plus</a>
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="Google Plus" title="Google Plus" class="webicon googleplus" href="">Google Plus</a>
                 </li>
                 <li>
-                    <a data-toggle="tooltip" data-placement="top" data-original-title="Subscribe to this RSS Feed" title="Subscribe to this RSS Feed" class="fc-webicon rss" href="">RSS Feed</a>
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="Subscribe to this RSS Feed" title="Subscribe to this RSS Feed" class="webicon rss" href="">RSS Feed</a>
                 </li>
             </ul> <!-- .share-widget -->
         </h4>
