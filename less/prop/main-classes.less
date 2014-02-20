@@ -54,69 +54,69 @@
   }
 }
 .share-toolbar {
-	&:extend(.clearfix all);
-	margin-bottom: @line-height-computed;
-	li {
-		display: inline;
-		float: left;
-		.square(32px);
-		margin-right: .3em;
-		a {
-			display: block;
-			.square(32px);
-			.font-size(20px);
-			line-height: 32px;
-			text-align: center;
-			background: @gray-lighter;
-			.border-radius(@border-radius-base);
-			&:hover {
-				.opacity(.7);
-				text-decoration: none;
-			}
-		}
-	}
-	&.vertical {
-		margin: 0;
-		width: 32px;
-		li {
-			margin: 0;
-			margin-top: -1px;
-			display: block;
-			float: none;
-			a {
-				border-radius: 0;
-				border: 1px solid @gray;
-			}
-		}
-	}
+  &:extend(.clearfix all);
+  margin-bottom: @line-height-computed;
+  li {
+    display: inline;
+    float: left;
+    .square(32px);
+    margin-right: .3em;
+    a {
+      display: block;
+      .square(32px);
+      .font-size(20px);
+      line-height: 32px;
+      text-align: center;
+      background: @gray-lighter;
+      .border-radius(@border-radius-base);
+      &:hover {
+        .opacity(.7);
+        text-decoration: none;
+      }
+    }
+  }
+  &.vertical {
+    margin: 0;
+    width: 32px;
+    li {
+      margin: 0;
+      margin-top: -1px;
+      display: block;
+      float: none;
+      a {
+        border-radius: 0;
+        border: 1px solid @gray;
+      }
+    }
+  }
 }
 .share-modal {
-	ul {
-		width: 100%;
-		li {
-			border-bottom: @border;
-			a {
-				display: block;
-				.user-select(none);
-				height: 32px;
-				padding-left: 10px;
-				background: @gray-lightest;
-				.font-size(16px);
-				line-height: 32px;
-				font-family: @font-family-treb;
-				font-weight: @font-weight-heavy;
-				color: @text-color;
-				&:hover {
-					.opacity(.5);
-					text-decoration: none;
-				}
-				span {
-					float: right;
-					margin-bottom: 0!important;
-				}
-			}
-		}
-	}
+  ul {
+    width: 100%;
+    li {
+      border-bottom: @border;
+      a {
+        display: block;
+        .user-select(none);
+        height: 32px;
+        padding-left: 10px;
+        background: @gray-lightest;
+        .font-size(16px);
+        line-height: 32px;
+        font-family: @font-family-treb;
+        font-weight: @font-weight-heavy;
+        color: @text-color;
+        &:hover {
+          .opacity(.5);
+          text-decoration: none;
+        }
+        span {
+          float: right;
+          margin-bottom: 0!important;
+        }
+      }
+    }
+  }
 }
 
 // Meta and referral classes
@@ -219,6 +219,21 @@
   }
   .timestamp {
     font-weight: @font-weight-base;
+  }
+}
+
+// elminate animations for touch devices
+.touch {
+  .link-list {
+    ul {
+      > li {
+        > a {
+          &:hover {
+             padding-left: 0;
+          }
+        }
+      }
+    }
   }
 }
 
