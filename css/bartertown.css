@@ -7433,6 +7433,9 @@ h6,
   font-weight: 700;
   color: #39547a;
 }
+.link-list .timestamp {
+  font-weight: 400;
+}
 .story-feed {
   margin-bottom: 22px;
 }
