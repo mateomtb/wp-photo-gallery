@@ -1,0 +1,45 @@
+//
+
+@media (max-width: @breakpoint-sm-max) {
+  .search-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    .input-group {
+      overflow: hidden;
+      width: 41px;
+	  padding: 0;
+    }
+    input, button {
+      border-radius: 0;
+      border: 0;
+    }
+    input {
+	  padding: 0;
+      height: (@navbar-height + 4);
+      background: rgba(255,255,255,.75);
+    }
+    button {
+      border-left: 1px solid #fff;
+      .square(@navbar-height + 4);
+      &:focus,
+      &:active {
+        border: 0;
+      }
+      &:hover {
+        background: lighten(@brand-primary, 10%)!important;
+      }
+    }
+  }
+}
+
+/*
+            <form id="site-search" action="#" class="search-bar" role="search">
+                <div class="input-group">
+                    <input type="text" name="s" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn primary" type="button"><span class="glyphicon glyphicon-search"><span class="sr-only">Search</span></span></button>
+                    </span>
+                </div><!-- /input-group -->
+            </form> <!-- #site-search -->
+*/

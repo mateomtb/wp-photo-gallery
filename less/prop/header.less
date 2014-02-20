@@ -13,10 +13,6 @@
   width: 150px;
     margin: 0 auto;
   }
-  .search-bar {
-    float: right;
-    width: 50px;
-  }
   @media (min-width: @breakpoint-md) {
     position: relative;
     z-index: 5;
@@ -36,17 +32,9 @@
       width: 225px;
     }
   }
-  @media (max-width: @breakpoint-sm-max) {
-    .search-bar {
-      .input-group {
-        display: none!important;
-      }
-    }
-  }
 }
 
 
-.search-toggle,
 .back-toggle {
   position: absolute;
   top: 0;
@@ -72,10 +60,6 @@
   }
 }
 
-.search-toggle {
-  right: 0;
-  border-left: @border;
-}
 .back-toggle {
   .transition(@default-trans);
   left: -40px;

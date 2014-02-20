@@ -7558,10 +7558,6 @@ h6,
   width: 150px;
   margin: 0 auto;
 }
-.flag .search-bar {
-  float: right;
-  width: 50px;
-}
 @media (min-width: 768px) {
   .flag {
     position: relative;
@@ -7586,12 +7582,6 @@ h6,
     width: 225px;
   }
 }
-@media (max-width: 767px) {
-  .flag .search-bar .input-group {
-    display: none!important;
-  }
-}
-.search-toggle,
 .back-toggle {
   position: absolute;
   top: 0;
@@ -7603,30 +7593,22 @@ h6,
   background: rgba(255, 255, 255, .1);
   border: 0;
 }
-.search-toggle .glyphicon,
 .back-toggle .glyphicon {
   font-size: 18px;
   font-size: 1.8rem;
   color: #fff;
   pointer-events: none;
 }
-.search-toggle:focus,
 .back-toggle:focus {
   border: 0;
 }
-.search-toggle:hover,
 .back-toggle:hover {
   background: rgba(255, 255, 255, .2);
 }
 @media (min-width: 768px) {
-  .search-toggle,
   .back-toggle {
     display: none;
   }
-}
-.search-toggle {
-  right: 0;
-  border-left: 1px solid #ddd;
 }
 .back-toggle {
   left: -40px;
@@ -9474,6 +9456,50 @@ header.ear-ads .ear-ad-right {
   background: #39547a url('../img/limicons/markets_icon_white.png') no-repeat 10px 4px;
   border-radius: 0 0 10px 0;
 }
+@media (max-width: 767px) {
+  .search-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .search-bar .input-group {
+    width: 41px;
+    padding: 0;
+    overflow: hidden;
+  }
+  .search-bar input,
+  .search-bar button {
+    border: 0;
+    border-radius: 0;
+  }
+  .search-bar input {
+    height: 40px;
+    padding: 0;
+    background: rgba(255, 255, 255, .75);
+  }
+  .search-bar button {
+    width: 36px + 4;
+    height: 36px + 4;
+    border-left: 1px solid #fff;
+  }
+  .search-bar button:focus,
+  .search-bar button:active {
+    border: 0;
+  }
+  .search-bar button:hover {
+    background: #496c9d !important;
+  }
+}
+/*
+            <form id="site-search" action="#" class="search-bar" role="search">
+                <div class="input-group">
+                    <input type="text" name="s" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn primary" type="button"><span class="glyphicon glyphicon-search"><span class="sr-only">Search</span></span></button>
+                    </span>
+                </div><!-- /input-group -->
+            </form> <!-- #site-search -->
+*/
 @font-face {
   font-family: 'Glyphicons Halflings';
 
