@@ -59,7 +59,14 @@ else:
     $context['inarticle_poll'] = 'heyyy';
 endif;
 
+if ( function_exists('rh_the_revision') ):
+    $context['revisions'] = TimberHelper::function_wrapper('rh_the_revision', array('<h4>', '</h4>'));
+endif;
+
 
 // Layout-sidebar content
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');
+
+
+
 Timber::render(array('single-' . $post->ID . '.twig', 'single-' . $post->post_type . '.twig', 'single.twig'), $context);
