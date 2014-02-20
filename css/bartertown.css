@@ -7327,6 +7327,9 @@ h6,
 .share-modal .modal-dialog {
   width: 290px;
 }
+.share-modal .webicon {
+  border-radius: 0;
+}
 .share-modal ul {
   width: 100%;
 }

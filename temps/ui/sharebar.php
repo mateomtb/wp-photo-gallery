@@ -30,12 +30,12 @@
             </div>
             <div class="modal-body">
                 <ul>
-                    <li><a href="#">LinkedIn <span class="fc-webicon linkedin"></span></a></li>
-                    <li><a href="#">Reddit <span class="fc-webicon reddit"></a></li>
-                    <li><a href="#">StumbleUpon <span class="fc-webicon stumbleupon"></a></li>
-                    <li><a href="#">Tumblr <span class="fc-webicon tumblr"></a></li>
-                    <li><a href="#">Evernote <span class="fc-webicon evernote"></a></li>
-                    <li><a href="#">Pinterest <span class="fc-webicon pinterest"></a></li>
+                    <li><a href="#">LinkedIn <span class="webicon linkedin"></span></a></li>
+                    <li><a href="#">Reddit <span class="webicon reddit"></a></li>
+                    <li><a href="#">StumbleUpon <span class="webicon stumbleupon"></a></li>
+                    <li><a href="#">Tumblr <span class="webicon tumblr"></a></li>
+                    <li><a href="#">Evernote <span class="webicon evernote"></a></li>
+                    <li><a href="#">Pinterest <span class="webicon pinterest"></a></li>
                 </ul>
             </div>
             <div class="modal-footer">
