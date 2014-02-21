@@ -1,5 +1,5 @@
 /*!
- * bartertown v1.1.0
+ * bartertown v1.2.0
  * Built using Strapit v2.0.5 
  * Homepage: http://sandbox.digitalfirstmedia.com/btown
  * GitHub: http://github.com/dfmlabs/btown
