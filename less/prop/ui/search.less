@@ -8,16 +8,20 @@
     .input-group {
       overflow: hidden;
       width: 41px;
-	  padding: 0;
+      padding: 0;
+      .transition(width 0.2s ease-in-out);
     }
     input, button {
       border-radius: 0;
       border: 0;
     }
     input {
-	  padding: 0;
+    padding: 0;
       height: (@navbar-height + 4);
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.85);
+      -moz-box-shadow:    inset 0 12px 12px rgba(255,255,255,.75);
+      -webkit-box-shadow: inset 0 12px 12px rgba(255,255,255,.75);
+      box-shadow:         inset 0 12px 12px rgba(255,255,255,.75);
     }
     button {
       border-left: 1px solid #fff;
@@ -31,15 +35,53 @@
       }
     }
   }
+  
+  // when search is toggled open
+  .search-active {
+    .search-bar {
+      .input-group {
+        .transition(width 0.2s ease-in-out);
+        width: 280px;
+        input {
+          padding-left: 10px;
+          padding-right: 10px;
+          color: #000;
+        }
+        button {
+          background: lighten(@brand-primary, 10%)!important;
+        }
+      }
+    }
+    .flag {
+      overflow: hidden;
+      height: 40px;
+    }
+    .page-id,
+    .menu-toggle {
+      position: relative;
+      left: -100%;
+      .transition(@default-trans);
+    }
+    #content {
+      transition: filter .2s ease-in-out;
+      transition: -webkit-filter .2s ease-in-out;
+      transition: -moz-filter .2s ease-in-out;
+      transition: -o-filter .2s ease-in-out;
+      transition: -ms-filter .2s ease-in-out;
+      filter: blur(4px);
+      -webkit-filter: blur(4px);
+      -moz-filter: blur(4px);
+      -o-filter: blur(4px);
+      -ms-filter: blur(4px);
+    }
+    
+  }
+
+
 }
 
-/*
-            <form id="site-search" action="#" class="search-bar" role="search">
-                <div class="input-group">
-                    <input type="text" name="s" class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn primary" type="button"><span class="glyphicon glyphicon-search"><span class="sr-only">Search</span></span></button>
-                    </span>
-                </div><!-- /input-group -->
-            </form> <!-- #site-search -->
-*/
+.page-id,
+.menu-toggle {
+  left: 0;
+  .transition(@default-trans);
+}

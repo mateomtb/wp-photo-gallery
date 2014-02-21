@@ -69,6 +69,10 @@
               $('.dropdown-menu').removeClass('active');
               checkRightRailHeight();
             }
+            // clear search active class when resizing
+            if($('body').hasClass('search-active')) {
+                $('body').removeClass('search-active')
+            }
           } else {
            // $('#content .row:first-child').removeAttr('style');
           }
@@ -77,6 +81,12 @@
           if($(window).width() <= breakpointMD) {
             setToggle();
           }
+
+            if($(window).width() < breakpointMD) {
+                setSearchButton();
+            } else {
+                restoreDefaultSearch();
+            }
 
           // For Desktops and larger
           if($(window).width() >= breakpointLG) {
@@ -94,6 +104,31 @@
         // ----------------------------------------
         if($('.carousel').length) {
           $('.carousel').carousel();
+        }
+
+        // SEARCH TOGGLE
+        // ----------------------------------------
+        if($(window).width() < breakpointMD) {
+            setSearchButton();
+        } else {
+            restoreDefaultSearch();
+        }
+        function setSearchButton() {
+            $('#search-button').off('click').on('click', function(e){
+                e.preventDefault();
+                console.log('seach');
+                ($('body').hasClass('search-active')) ? $('body').removeClass('search-active') : $('body').addClass('search-active');
+            });
+            if($('body').hasClass('search-active')) {
+                $('#search-field').focus();
+            } else {
+                $('#search-field').blur();
+            }
+        }
+        function restoreDefaultSearch() {
+            $('#search-button').off('click').on('click', function(){
+                $('#site-search').submit();
+            });
         }
 
         // MEDIA CENTER CAROUSEL
@@ -138,7 +173,6 @@
         }
 
         function activateSharebar() {
-	console.log('sharebar active');
             // OBJECTS
             var $article = $('.the-article'),
                 $shareBar = $('.share-toolbar');
