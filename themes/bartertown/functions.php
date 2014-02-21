@@ -88,6 +88,7 @@ function global_context($data){
         'is_paged' => is_paged(),
         'is_attachment' => is_attachment(),
         'is_singular' => is_singular(),
+        'template_uri' => get_template_directory_uri(),
 
         // Environment vars
         'domain' => $domain_bits[1],
