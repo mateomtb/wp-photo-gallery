@@ -1,278 +1,100 @@
-<script type="text/javascript">
-function mediaCenterTemplate(data){
-	window.data = data;
-}
-</script>
-<!--<link rel="stylesheet" href="http://extras.mnginteractive.com/live/partners/MediaCenter/widget_large/mc_widget_large_min.css" type="text/css" />
-<script type="text/javascript" src="http://extras.mnginteractive.com/live/partners/MediaCenter/widget_large/mc_widget_large_min.js"></script>-->
 <script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
-<script type="text/javascript" src="http://www.scsun-news.com/wp-content/themes/bartertown/js/media-center.js"></script>
 
 
-<div id="test">
-</div>
 
-<script type="text/javascript">
-
-var obj = {"top_items":[{"title":"Sample Gallery","images":{"_320x240":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/320x240\/i-v4C25cH-320x240.jpg","_640x480":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/640x480\/i-v4C25cH-640x480.jpg","_480x320":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/480x320\/i-v4C25cH-480x320.jpg","_960x640":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/960x640\/i-v4C25cH-960x640.jpg","_1280x960":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/1280x960\/i-v4C25cH-1280x960.jpg","_800x600":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/800x600\/i-v4C25cH-800x600.jpg","_1600x1200":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/1600x1200\/i-v4C25cH-1600x1200.jpg"},"url":"http:\/\/mediacenter\/mercurynews\/2013\/11\/08\/john-madden\/","excerpt":"This is a sample of the standard gallery now used on the Media Center.","gallery_type":"smugmug"},{"title":"Sample Longform (captured) gallery","images":{"_320x240":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/320x240\/i-LPCHzNg-320x240.jpg","_640x480":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/640x480\/i-LPCHzNg-640x480.jpg","_480x320":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/480x320\/i-LPCHzNg-480x320.jpg","_960x640":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/960x640\/i-LPCHzNg-960x640.jpg","_1280x960":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/1280x960\/i-LPCHzNg-1280x960.jpg","_800x600":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/800x600\/i-LPCHzNg-800x600.jpg","_1600x1200":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/1600x1200\/i-LPCHzNg-1600x1200.jpg"},"url":"http:\/\/mediacenter\/mercurynews\/2013\/11\/07\/photos-hurricane-sandy-looking-back-at-the-devastation-one-year-later\/","excerpt":"This is a sample of a gallery pulled from the Denver Post's captured blog.","gallery_type":"smugmug"},{"title":"blah blah blah","images":{"_320x240":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/320x240\/DSC_5343-320x240.jpg","_640x480":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/640x480\/DSC_5343-640x480.jpg","_480x320":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/480x320\/DSC_5343-480x320.jpg","_960x640":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/960x640\/DSC_5343-960x640.jpg","_1280x960":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/1280x960\/DSC_5343-1280x960.jpg","_800x600":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/800x600\/DSC_5343-800x600.jpg","_1600x1200":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/1600x1200\/DSC_5343-1600x1200.jpg"},"url":"http:\/\/mediacenter\/mercurynews\/2012\/11\/14\/blah-blah-blah\/","excerpt":"some stuff goes here","gallery_type":"smugmug"}],"bottom_items":[{"title":"test from dfm smug cartoons","images":"http:\/\/dfm-photo.smugmug.com\/photos\/i-4XC3hW4\/0\/400x225\/i-4XC3hW4-400x225.jpg","url":"http:\/\/mediacenter\/mercurynews\/2012\/11\/06\/test-from-dfm-smug-cartoons\/","excerpt":"some cartoons to se how this shiznit works","gallery_type":"smugmug"},{"title":"test smug mercury news","images":null,"url":"http:\/\/mediacenter\/mercurynews\/2012\/10\/30\/test-smug-mercury-news\/","excerpt":"al;kjfl;dsjfadls;kjfsldkfjsldfjk;fjfajdfsalksa\r lasdkjflsd;jflds\r aslkjfl;sdfj;laksj;alsfd...","gallery_type":"smugmug"},{"title":"test smug hoopster photos","images":"http:\/\/denverpost.smugmug.com\/photos\/i-MzqSjjj\/0\/400x225\/i-MzqSjjj-400x225.jpg","url":"http:\/\/mediacenter\/mercurynews\/2012\/10\/30\/test-smug-hoopster-photos\/","excerpt":"Here is some stuff for the post. Here is some stuff for the post. Here is some stuff for the post...","gallery_type":"smugmug"}]}
-Handlebars.registerHelper('mediacenter', function() { return "foo";/*return createURL();*/ });
-
-
-var template = Handlebars.compile(data);
-var htmlt = template(obj);
-$('#test').html(htmlt);
-//console.log(html);
-</script>
-
-{% if false %}
-<div class="media-center sm" style="display: none;">
-    <h4><a href="">Media Center: Photos &amp; Videos</a></h4>
-    <div id="media-center-promo" class="carousel slide" data-interval="false">
-        <ol class="carousel-indicators">
-            <li data-target="#media-center-promo" data-slide-to="0" class="active"></li>
-            <li data-target="#media-center-promo" data-slide-to="1"></li>
-            <li data-target="#media-center-promo" data-slide-to="2"></li>
-        </ol>
-
-        <div class="carousel-inner">
-            <div class="item active" data-title="" data-caption="">
-            <span data-picture data-alt="">
-                <span data-src=""></span>
-                <span data-src="" data-media="(min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 321px)"></span>
-                <span data-src="" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 481px)"></span>
-                <span data-src="" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 641px)"></span>
-                <span data-src="" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 769px)"></span>
-                <span data-src="" data-media="(min-width: 769px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 960px)"></span>
-                <span data-src="" data-media="(min-width: 960px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 1029px)"></span>
-                <span data-src="" data-media="(min-width: 1029px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 1241px)"></span>
-                <span data-src="" data-media="(min-width: 1241px) and (min-device-pixel-ratio: 2.0)"></span>
-                <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
-                <noscript>
-                    <img src="http://placehold.it/320x24" alt="Image description goes here">
-                </noscript>
-            </span>
-        </div>
-           <div class="item" data-title="" data-caption="">
-            <span data-picture data-alt="">
-                <span data-src=""></span>
-                <span data-src="" data-media="(min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 321px)"></span>
-                <span data-src="" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 481px)"></span>
-                <span data-src="" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 641px)"></span>
-                <span data-src="" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 769px)"></span>
-                <span data-src="" data-media="(min-width: 769px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 960px)"></span>
-                <span data-src="" data-media="(min-width: 960px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 1029px)"></span>
-                <span data-src="" data-media="(min-width: 1029px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 1241px)"></span>
-                <span data-src="" data-media="(min-width: 1241px) and (min-device-pixel-ratio: 2.0)"></span>
-                <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
-                <noscript>
-                    <img src="http://placehold.it/320x24" alt="Image description goes here">
-                </noscript>
-            </span>
-        </div>
-           <div class="item" data-title="" data-caption="">
-            <span data-picture data-alt="">
-                <span data-src=""></span>
-                <span data-src="" data-media="(min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 321px)"></span>
-                <span data-src="" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 481px)"></span>
-                <span data-src="" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 641px)"></span>
-                <span data-src="" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 769px)"></span>
-                <span data-src="" data-media="(min-width: 769px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 960px)"></span>
-                <span data-src="" data-media="(min-width: 960px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 1029px)"></span>
-                <span data-src="" data-media="(min-width: 1029px) and (min-device-pixel-ratio: 2.0)"></span>
-                <span data-src="" data-media="(min-width: 1241px)"></span>
-                <span data-src="" data-media="(min-width: 1241px) and (min-device-pixel-ratio: 2.0)"></span>
-                <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
-                <noscript>
-                    <img src="http://placehold.it/320x24" alt="Image description goes here">
-                </noscript>
-            </span>
-        </div>
-    </div>
-    <a class="left carousel-control" href="#media-center-promo" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="right carousel-control" href="#media-center-promo" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
-    </div>
-    <div id="media-center-info" class="media-center-caption">
-        <h2></h2>
-        <p class="excerpt"></p>
-    </div>
-    <h4 class="visible-md-up"><a href=""></a></h4>
-    <ul class="secondary-stories visible-md-up">
-        <li class="col-lg-4">
-            <a href=""><img src="http://placehold.it/400x225" alt="" /></a>
-            <h3><a href=""></a></h3>
-        </li>
-        <li class="col-lg-4">
-            <a href=""><img src="http://placehold.it/400x225" alt="" /></a>
-            <h3><a href=""></a></h3>
-        </li>
-        <li class="col-lg-4">
-            <a href=""><img src="http://placehold.it/400x225" alt="" /></a>
-            <h3><a href=""></a></h3>
-        </li>
-    </ul> <!-- .secondary-stories -->
-</div>
+<div id="media-center-container"></div>
 
 
 <script type="text/javascript">
-// Created as javascript in anticipation of portability needs
-// Hopefully we can ensure that Bootstrap Carousel exists wherever we place this
-// once fully widgetized
-// Carousel currently in http://sandbox.digitalfirstmedia.com/btown/js/bartertown.min.js
-// Will activte once new feeds are on prod
-// Trying a different approach where the JS just adds data to HTML skeleton
-// See blogs rotator for more of a HTML in JS approach
-// We can still go back to the old way of putting all the html into the JS, but I'd like to avoid that
-// Maybe we can make use of something like Handlebars for the html
 var mc_rotator_options_responsive = {
-    'src' : 'http://mediacenter/mercurynews/rotator?size=responsive&callback=__callback'
+    'dataSource' : 'http://mediacenter/mercurynews/rotator?size=responsive&callback=__callback',
+	'container' : '#media-center-container'
 };
+
 (function($, jsonpCallback, domain, options){
+	
+	// The URL to the media center
+	var mediaCenterUrl = createUrl();
+	// Container to which the widget will be attached as jQUery selector
+	var container = options.container || '#media-center-container';
+	// Part of the error message
+	var ERROR_COMPONENT = 'The media center widget requires ';
+	
+	// Dependencies
     if (typeof $ === 'undefined') {
-        console.log("You need jQuery.");
+        console.log(ERROR_COMPONENT + 'need jQuery.');
         return false;
     }
     if (typeof $.fn.carousel !== 'function') {
-        console.log("You need jQuery.fn.carousel. See http://sandbox.digitalfirstmedia.com/btown/");
+        console.log(ERROR_COMPONENT + 'jQuery.fn.carousel. See http://sandbox.digitalfirstmedia.com/btown/');
         return false;
     }
+	if (typeof Handlebars === 'undefined') {
+		console.log(ERROR_COMPONENT + 'need Handlebars.js');
+		return false;
+	}
     if (!domain) {
+		console.log(ERROR_COMPONENT + 'a domain to find feeds');
         return false;
     }
 
+	// URL of media center widget template with Handlebars.js expressions
+	var templateLocation = options.templateLocation || 
+		'http://www.' + domain + '.com/wp-content/themes/bartertown/js/media-center.js';
+
+	// Define jsonp function for widget data
     window[jsonpCallback] = function(json){
         createWidget(json);
     }
-    
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    if (options.src) {
-        script.src = options.src;
-    }
-    else {
-        script.src = createURL() + 'rotator/?size=responsive&cat=' + section() + '&callback=' + jsonpCallback;
-    }
-    document.getElementsByTagName('head')[0].appendChild(script);
-    
+	
+	// Define jsonp function for widget template
+	window['__mediaCenterTemplate'] = function(template) {
+		window['__mcTemplate'] = template;
+	}
+	
+	// JSONP call for for the Handlebars Template
+    jsonp(templateLocation);
+
+	// Callback in a callback. So we just wait for the template assignment of the window object
+	var waitingForTemplate = setInterval(function(){
+		if (typeof __mcTemplate !== 'undefined') {
+			jsonp(options.dataSource || mediaCenterUrl + 'rotator/?size=responsive&cat=' + section() + '&callback=' + jsonpCallback);
+			clearInterval(waitingForTemplate);
+		}
+	}, 100);
+
+
+	// ##Some funtions to break up the rest of the code nicely##
+	
+    // Called once the second jsonp call (for the data) succeeds
     function createWidget(data){
-        // All of the responsive image sizes
-        var sizes = [
-            [320, 240],
-            [640, 480],
-            [480, 320],
-            [960, 640],
-            [640, 480],
-            [1280, 960],
-            [800, 600],
-            [1600, 1200],
-            [640, 480],
-            [1280, 960],
-            [480, 320],
-            [960, 640],
-            [640, 480],
-            [1280, 960],
-            [800, 600],
-            [1600, 1200]
-        ];
-        var mc = $(options.mcJQEl || 'div.media-center.sm');
-        // Set link back to media center
-        mc.find('h4 a').attr('href', createURL());
-
-        for (var i = 0; i < 3; i++) {
-            setMainSlide(i);
-        }
-        for (var i = 3; i < 6; i++) {
-            setOtherItems(i);
-        }   
-            
-        function replaceWidthHeight(URL, width, height){
-            // Takes a SmugMug large image URL and returns a new size
-            if (!URL) {
-                return false;
-            }
-            return URL
-				.replace(/\/L\//,'/' + width + 'x' + height + '/')
-				.replace(
-                /\-L\./, '-' + width + 'x' + height + '.'
-            );
-        }
-        
-        
-        function setMainSlide(index){
-            // jQuery chain to set all slide attributes
-            // Still testing performance
-            var count = 0;
-            mc.find('div.carousel-inner div.item:eq(' + index + ')')
-                .attr('data-title', data.items[index].title)
-                .attr('data-caption', data.items[index].excerpt)
-            .find('span span')
-                .each(
-                    function(){
-                        $(this).attr(
-                            'data-src', 
-                            replaceWidthHeight(data.items[index].image, sizes[count][0], sizes[count][1])
-                        );
-                        ++count;
-                    }
-                );
-        }
-        function setOtherItems(index){
-			var items = mc.find('ul.secondary-stories li:eq(' + (index - 3) + ')');
-            // jQuery chain to set attributes/text of bottom three items
-            items
-            .find('a')
-                .attr('href', data.items[index].url)
-            .find('img')
-                .attr('src', replaceWidthHeight(data.items[index].image, 400, 255));
-            items
-				.find('h3 a')
-				.text(data.items[index].title);
-
-        }
-        
-        function setCaption(jQ){
-            var item = jQ.find('div.item.active'),
-				title = item.attr('data-title'),
-            	caption = item.attr('data-caption');
-			console.log(title);
-            $('#media-center-info h2').text(title);
-            $('#media-center-info .excerpt').text(caption);
-        }
-        
+		
+		// Some Handlebars.js stuff 
+		// URL to media center
+		Handlebars.registerHelper('mediacenter', function() { return mediaCenterUrl; });
+		var template = Handlebars.compile(__mcTemplate);
+		var html = template(data);
+		$(container).html(html);
+     
 
         // Init carousel and bind caption changes
-        $('div#media-center-promo.carousel').carousel();
-        setCaption($('div#media-center-promo'));    
+        $('div#media-center-promo.carousel').carousel(); 
         
         $('div#media-center-promo').on('slid.bs.carousel', function () {
-            setCaption($(this));
-         });
-		mc.show();
+            var item = $(this).find('div.item.active'),
+				title = item.attr('data-title'),
+            	caption = item.attr('data-caption');
+            $('#media-center-info h2').text(title);
+            $('#media-center-info .excerpt').text(caption);
+        });
+
+		// Clean up globals
+		delete window['jsonpCallback'];
+		delete window['mediaCenterTemplate'];
+		delete window['__mcTemplate'];
     }
     
+	// Wordpress category that the feed pulls from
     function section() {
         if (typeof options.category !== 'undefined') {
             return 'rotator?cat=' + options.category;
@@ -299,7 +121,8 @@ var mc_rotator_options_responsive = {
         return theMatch;
     }
     
-    function createURL() {
+	// Not all media center URLs are photos.domain.com
+    function createUrl() {
         if (options.url) {
             return options.url;
         }
@@ -481,12 +304,24 @@ var mc_rotator_options_responsive = {
         return url;
     }
 
+	// Create scripts calls to json with padding
+	function jsonp(source) {
+		var script = document.createElement('script');
+	    script.type = 'text/javascript';
+	    script.src = source;
+	    document.getElementsByTagName('head')[0].appendChild(script);
+	}
+
 })(
+	// Our JQuery
     dfm.$, 
+	// Callback to data can be variable
     '__callback', 
+	// The site's domain
     dfm.env.domain || (location.host.match(/([^.]+)\.\w{2,3}(?:\.\w{2})?$/) || [])[1],
+	// Options for URLs, categories and containers
     mc_rotator_options_responsive || {}
 );
 </script>
-{% endif %}
+
 
