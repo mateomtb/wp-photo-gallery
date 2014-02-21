@@ -17,6 +17,12 @@ var mc_rotator_options_responsive = {
 	var mediaCenterUrl = createUrl();
 	// Container to which the widget will be attached as jQUery selector
 	var container = options.container || '#media-center-container';
+	// URL of media center widget template with Handlebars.js expressions
+	var templateLocation = options.templateLocation || 
+		'http://www.' + domain + '.com/wp-content/themes/bartertown/js/media-center.js';
+	// URL of data
+	var dataLocation = options.dataSource || 
+		mediaCenterUrl + 'rotator/?size=responsive&cat=' + section() + '&callback=' + jsonpCallback;
 	// Part of the error message
 	var ERROR_COMPONENT = 'The media center widget requires ';
 	
@@ -38,10 +44,6 @@ var mc_rotator_options_responsive = {
         return false;
     }
 
-	// URL of media center widget template with Handlebars.js expressions
-	var templateLocation = options.templateLocation || 
-		'http://www.' + domain + '.com/wp-content/themes/bartertown/js/media-center.js';
-
 	// Define jsonp function for widget data
     window[jsonpCallback] = function(json){
         createWidget(json);
@@ -58,7 +60,7 @@ var mc_rotator_options_responsive = {
 	// Callback in a callback. So we just wait for the template assignment of the window object
 	var waitingForTemplate = setInterval(function(){
 		if (typeof __mcTemplate !== 'undefined') {
-			jsonp(options.dataSource || mediaCenterUrl + 'rotator/?size=responsive&cat=' + section() + '&callback=' + jsonpCallback);
+			jsonp(dataLocation);
 			clearInterval(waitingForTemplate);
 		}
 	}, 100);
@@ -88,6 +90,7 @@ var mc_rotator_options_responsive = {
             $('#media-center-info .excerpt').text(caption);
         });
 
+		
 		// Clean up globals
 		delete window['jsonpCallback'];
 		delete window['mediaCenterTemplate'];
