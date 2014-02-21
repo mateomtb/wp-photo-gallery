@@ -70,19 +70,21 @@ class WPMDBPro_Base {
 		include $this->template_dir . $template . '.php';
 	}
 
-	function get_installed_version( $plugin = false ) {
-		if ( !is_admin() ) return false;
 
-		$plugin_basename = ( false !== $plugin ? $plugin : $this->plugin_basename );
+    function get_installed_version( $plugin = false ) {
+                return '1.3.1';
+                        if ( !is_admin() ) return false;
 
-		$plugins = get_plugins();
+                        $plugin_basename = ( false !== $plugin ? $plugin : $this->plugin_basename );
 
-		if ( !isset( $plugins[$plugin_basename]['Version'] ) ) {
-			return false;
-		}
+                                $plugins = get_plugins();
 
-		return $plugins[$plugin_basename]['Version'];
-	}
+                                if ( !isset( $plugins[$plugin_basename]['Version'] ) ) {
+                                                return false;
+                                                        }
+
+                                        return $plugins[$plugin_basename]['Version'];
+                                    }
 
 	function open_ssl_enabled() {
 		if ( defined( 'OPENSSL_VERSION_TEXT' ) ) {
