@@ -4,11 +4,13 @@
                <div id='DFM-adPos-cube1'><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('DFM-adPos-cube1');});</script></div>
             </li>
             <li class="widget">
-               <div id="socialMediaWire"></div>
+               {%include "crowdy.twig"%}
             </li>
+            {% if dfm.tout_id != "N/A" %}
             <li class="widget">
-               <div id="tout-right-rail"></div>
+               {%include "toutwidget.twig"%}
             </li>
+            {% endif %}
             <li class="ad">
                <div id='DFM-adPos-cube2'><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('DFM-adPos-cube2');});</script></div>
             </li>

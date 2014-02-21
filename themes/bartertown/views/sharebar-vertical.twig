@@ -1,0 +1,21 @@
+<ul class="share-toolbar vertical affix" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+    <li>
+        <a href="http://www.facebook.com/sharer.php?u={{post.permalink}}" class="fc-webicon facebook"><span class="sr-only">Share on Facebook</span></a>
+    </li>
+    <li>
+        <a href="http://twitter.com/share?url={{post.permalink}}&text={{post.title}}&via=ADDTWITTERHANDLEFROMSITEDATA" class="fc-webicon twitter"><span class="sr-only">Share on Twitter</span></a>
+    </li>
+    <li class="google">
+        <a href="https://plus.google.com/share?url={{post.permalink}}" onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"" class="fc-webicon googleplus"><span class="sr-only">Share on Google Plus</span></a>
+    </li>
+    <li>
+        <a href="mailto:?Subject={{post.title}}" class="fc-webicon mail"><span class="sr-only">Email</span></a>
+    </li>
+    <li>
+        <a href="#" class="glyphicon glyphicon-print"><span class="sr-only">Print</span></a>
+    </li>
+    <li>
+        <a href="#" data-toggle="modal" data-target="#shareModal">...<span class="sr-only">More ways to share</span></a>
+    </li>
+</ul>
