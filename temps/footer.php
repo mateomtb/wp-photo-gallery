@@ -4,16 +4,16 @@
             <a class="branding md"><?php include('img/logo.svg');?><span class="sr-only">The Denver Post</span></a>
             <ul class="share-widget list-inline">
                 <li>
-                    <a data-toggle="tooltip" data-placement="top" data-original-title="Like us on Facebook" title="Like us on Facebook" class="fc-webicon facebook" href="">Facebook</a>
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="Like us on Facebook" title="Like us on Facebook" class="webicon facebook" href="">Facebook</a>
                 </li>
                 <li>
-                    <a data-toggle="tooltip" data-placement="top" data-original-title="Follow us on Twitter @denverpost" title="Follow us on Twitter @denverpost" class="fc-webicon twitter" href="http://www.twitter.com/denverpost">Twitter</a>
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="Follow us on Twitter @denverpost" title="Follow us on Twitter @denverpost" class="webicon twitter" href="http://www.twitter.com/denverpost">Twitter</a>
                 </li>
                 <li>
-                    <a data-toggle="tooltip" data-placement="top" data-original-title="Google Plus" title="Google Plus" class="fc-webicon googleplus" href="">Google Plus</a>
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="Google Plus" title="Google Plus" class="webicon googleplus" href="">Google Plus</a>
                 </li>
                 <li>
-                    <a data-toggle="tooltip" data-placement="top" data-original-title="Subscribe to our RSS Feed" title="Subscribe to our RSS Feed" class="fc-webicon rss" href="">RSS Feed</a>
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="Subscribe to our RSS Feed" title="Subscribe to our RSS Feed" class="webicon rss" href="">RSS Feed</a>
                 </li>
             </ul> <!-- .share-widget -->
             <ul class="colophon list-inline">
@@ -24,6 +24,7 @@
                 <li><a href="">Permissions</a></li>
                 <li><a href="">Corrections</a></li>
                 <li><a href="">Accessibility</a></li>
+                <br />
                 <li><a href=""><strong>Site Help</strong></a></li>
                 <li><a href=""><strong>Contact Us</strong></a></li>
                 <li><a href=""><strong>Unsubscribe</strong></a></li>
