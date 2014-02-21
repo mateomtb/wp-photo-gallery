@@ -20,9 +20,9 @@
  * @subpackage  Timber
  * @since    Timber 0.1
  */
-
 $templates = array('leaf.twig', 'index.twig');
-$context = Timber::get_context();
+$context = global_context($context);
 $post = new TimberPost();
 $context['post'] = $post;
+//print_r($context);
 Timber::render($templates, $context);
