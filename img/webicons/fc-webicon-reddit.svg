@@ -1,0 +1,49 @@
+<svg width="67" height="67" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <g>
+  <title>Reddit</title>
+  <path d="m64.656,67h-64.627v-67l66.942,0.045v66.941l-2.315,0.014z" fill="#FF4500" id="svg_1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="g12">
+   <g id="g16">
+    <g id="svg_2">
+     <defs transform="matrix(1.25,0,0,-1.25,-305,520) ">
+      <rect height="989.998" width="765" y="-103.272" x="-70.753" id="SVGID_1_"/>
+     </defs>
+     <clipPath transform="matrix(1.25,0,0,-1.25,-305,520) " id="SVGID_2_">
+      <use id="svg_3" xlink:href="#SVGID_1_"/>
+     </clipPath>
+     <g clip-path="url(#SVGID_2_)" id="g18">
+      <g id="g64">
+       <path d="m49.00452,10.01163l-11.56125,-2.7225l-4.24875,13.43125" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#FFFFFF" fill="none" id="path66"/>
+      </g>
+      <g id="g80">
+       <path d="m58.28137,10.94536c0,2.5175 -2.0425,4.5575 -4.55625,4.5575c-2.52,0 -4.55875,-2.04 -4.55875,-4.5575c0,-2.5175 2.0375,-4.55625 4.55875,-4.55625c2.51375,0 4.55625,2.0375 4.55625,4.55625z" stroke-miterlimit="10" stroke-width="3" stroke="#FFFFFF" fill="none" id="path82"/>
+      </g>
+      <path id="svg_4" d="m13.74874,26.57124c-1.06001,-1.255 -2.64376,-2.05376 -4.415,-2.05376c-3.19376,0 -5.78001,2.58877 -5.78001,5.78377c0,2.35874 1.41125,4.38 3.435,5.28126c0.83126,-3.45875 3.25502,-6.57001 6.76001,-9.01127z" stroke-miterlimit="10" stroke-width="3" stroke="#FFFFFF" fill="none"/>
+      <g id="g160">
+       <path d="m26.82298,34.91798c0,1.68875 -1.3725,3.05875 -3.06,3.05875c-1.6925,0 -3.0625,-1.37 -3.0625,-3.05875c0,-1.69375 1.37,-3.0625 3.0625,-3.0625c1.6875,0 3.06,1.36875 3.06,3.0625z" stroke-miterlimit="10" stroke-width="3" stroke="#FFFFFF" fill="none" id="path162"/>
+      </g>
+      <g id="g168">
+       <path d="m45.27001,34.91798c0,1.68875 -1.36875,3.05875 -3.06,3.05875c-1.6875,0 -3.0575,-1.37 -3.0575,-3.05875c0,-1.69375 1.37,-3.0625 3.0575,-3.0625c1.69,0 3.06,1.36875 3.06,3.0625z" stroke-miterlimit="10" stroke-width="3" stroke="#FFFFFF" fill="none" id="path170"/>
+      </g>
+      <g id="g172">
+       <path d="m23.93427,46.11713c2.2825,2.28125 5.96125,2.72125 9.01125,2.72125" stroke-linecap="round" stroke-width="3" stroke="#FFFFFF" fill="none" id="path174"/>
+      </g>
+      <g id="g176">
+       <path d="m42.02175,46.11713c-2.28125,2.28125 -5.9575,2.72125 -9.00875,2.72125" stroke-linecap="round" stroke-width="3" stroke="#FFFFFF" fill="none" id="path178"/>
+      </g>
+     </g>
+    </g>
+   </g>
+  </g>
+  <g id="svg_5">
+   <path id="svg_6" d="m56.62,24.518c-1.822,0 -3.445,0.846 -4.504,2.165c3.452,2.446 5.825,5.55 6.623,8.993c2.145,-0.846 3.664,-2.929 3.664,-5.375c0,-3.194 -2.588,-5.783 -5.783,-5.783z" stroke-miterlimit="10" stroke-width="3" stroke="#FFFFFF" fill="none"/>
+  </g>
+  <path d="m32.853,21.165c14.46,0 26.184,7.65 26.184,17.088" stroke-miterlimit="10" stroke-width="3" stroke="#FFFFFF" fill="none" id="path98_4_"/>
+  <path d="m6.668,38.253c0,-9.438 11.722,-17.088 26.185,-17.088" stroke-miterlimit="10" stroke-width="3" stroke="#FFFFFF" fill="none" id="path98_3_"/>
+  <path d="m32.853,55.338c-14.462,0 -26.185,-7.647 -26.185,-17.085" stroke-miterlimit="10" stroke-width="3" stroke="#FFFFFF" fill="none" id="path98_2_"/>
+  <path d="m59.036,38.253c0,9.438 -11.724,17.085 -26.184,17.085" stroke-miterlimit="10" stroke-width="3" stroke="#FFFFFF" fill="none" id="path98"/>
+ </g>
+</svg>
