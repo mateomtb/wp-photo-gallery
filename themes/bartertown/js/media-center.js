@@ -1,3 +1,314 @@
-// Create from sandbox in human readable form and Handlebars.js expressions
-// Remove all non single spaces and place as string in callback
-__mediaCenterTemplate('<div class="media-center sm"><h4><a href="{{mediacenter}}">Media Center: Photos &amp; Videos</a></h4><div id="media-center-promo" class="carousel slide" data-interval="false"><ol class="carousel-indicators"><li data-target="#media-center-promo" data-slide-to="0" class="active"></li><li data-target="#media-center-promo" data-slide-to="1"></li><li data-target="#media-center-promo" data-slide-to="2"></li></ol><div class="carousel-inner">{{#top_items}}<div class="item {{#if @first}}active{{/if}}" data-title="{{title}}" data-caption="{{excerpt}}"><span data-picture data-alt=""> {{#images}}<span data-src="{{_320x240}}"></span><span data-src="{{_640x480}}" data-media="(min-device-pixel-ratio: 2.0)"></span><span data-src="{{_480x320}}" data-media="(min-width: 321px)"></span><span data-src="{{_960x640}}" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span><span data-src="{{_640x480}}" data-media="(min-width: 481px)"></span><span data-src="{{_1280x960}}" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span><span data-src="{{_800x600}}" data-media="(min-width: 641px)"></span><span data-src="{{_1600x1200}}" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span><span data-src="{{_640x480}}" data-media="(min-width: 769px)"></span><span data-src="{{_1280x960}}" data-media="(min-width: 769px) and (min-device-pixel-ratio: 2.0)"></span><span data-src="{{_480x320}}" data-media="(min-width: 960px)"></span><span data-src="{{_960x640}}" data-media="(min-width: 960px) and (min-device-pixel-ratio: 2.0)"></span><span data-src="{{_640x480}}" data-media="(min-width: 1029px)"></span><span data-src="{{_1280x960}}" data-media="(min-width: 1029px) and (min-device-pixel-ratio: 2.0)"></span><span data-src="{{_800x600}}" data-media="(min-width: 1241px)"></span><span data-src="{{_1600x1200}}" data-media="(min-width: 1241px) and (min-device-pixel-ratio: 2.0)"></span><!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. --><noscript><img src="http://placehold.it/320x24" alt="You must enable javascript to see this image."></noscript> {{/images}}</span></div>{{/top_items}}</div><a class="left carousel-control" href="#media-center-promo" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a><a class="right carousel-control" href="#media-center-promo" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a></div><div id="media-center-info" class="media-center-caption"> {{#top_items}}{{#if @first}}<h2><a href="{{href}}">{{title}}</a></h2><p class="excerpt">{{excerpt}}</p> {{else}} {{/if}} {{/top_items}}</div><h4 class="visible-md-up"><a href=""></a></h4><ul class="secondary-stories visible-md-up">{{#bottom_items}}<li class="col-lg-4"><a href="{{href}}"><img src="{{images}}" alt="{{title}}" /></a><h3><a href="{{href}}">{{title}}</a></h3></li> {{/bottom_items}}</ul> <!-- .secondary-stories --></div>')
+(function($, jsonpCallback, domain, options){
+	
+	// The URL to the media center
+	var mediaCenterUrl = createUrl();
+	// Container to which the widget will be attached as jQUery selector
+	var container = options.container || '#media-center-container';
+	// URL of media center widget template with Handlebars.js expressions
+	var templateSource = options.templateSource || 
+		'http://www.' + domain + '.com/wp-content/themes/bartertown/js/media-center-template.js';
+	// URL of data
+	var dataSource = options.dataSource || 
+		mediaCenterUrl + 'rotator/?size=responsive&cat=' + section() + '&callback=' + jsonpCallback;
+	// Part of the error message
+	var ERROR_COMPONENT = 'The media center widget requires ';
+	
+	// Dependencies
+    if (typeof $ === 'undefined') {
+        console.log(ERROR_COMPONENT + 'need jQuery.');
+        return false;
+    }
+    if (typeof $.fn.carousel !== 'function') {
+        console.log(ERROR_COMPONENT + 'jQuery.fn.carousel. See http://sandbox.digitalfirstmedia.com/btown/');
+        return false;
+    }
+	if (typeof Handlebars === 'undefined') {
+		console.log(ERROR_COMPONENT + 'need Handlebars.js');
+		return false;
+	}
+    if (!domain) {
+		console.log(ERROR_COMPONENT + 'a domain to find feeds');
+        return false;
+    }
+
+	// Define jsonp function for widget data
+    window[jsonpCallback] = function(json){
+        createWidget(json);
+    }
+	
+	// Define jsonp function for widget template
+	window['__mediaCenterTemplate'] = function(template) {
+		window['__mcTemplate'] = template;
+	}
+	
+	// JSONP call for for the Handlebars Template
+    jsonp(templateSource);
+
+	// Callback in a callback. So we just wait for the template assignment of the window object
+	var waitingForTemplate = setInterval(function(){
+		if (typeof __mcTemplate !== 'undefined') {
+			jsonp(dataSource);
+			clearInterval(waitingForTemplate);
+		}
+	}, 100);
+
+
+	// ##Some funtions to break up the rest of the code nicely##
+	
+    // Called once the second jsonp call (for the data) succeeds
+    function createWidget(data){
+		
+		// Some Handlebars.js stuff 
+		// URL to media center
+		Handlebars.registerHelper('mediacenter', function() { return mediaCenterUrl; });
+		var template = Handlebars.compile(__mcTemplate);
+		var html = template(data);
+		$(container).html(html);
+     
+
+        // Init carousel and bind caption changes
+        $('div#media-center-promo.carousel').carousel(); 
+        
+        $('div#media-center-promo').on('slid.bs.carousel', function () {
+            var item = $(this).find('div.item.active'),
+				title = item.attr('data-title'),
+            	caption = item.attr('data-caption');
+            $('#media-center-info h2').text(title);
+            $('#media-center-info .excerpt').text(caption);
+        });
+
+		
+		// Clean up globals
+		delete window['jsonpCallback'];
+		delete window['mediaCenterTemplate'];
+		delete window['__mcTemplate'];
+    }
+    
+	// Wordpress category that the feed pulls from
+    function section() {
+        if (typeof options.category !== 'undefined') {
+            return 'rotator?cat=' + options.category;
+        }
+        var url = location.pathname,
+            patt = /news|sports|entertainment|life|living|style/i,
+            theMatch = (url.match(patt) || [])[0];
+        
+        if (theMatch === 'news'){
+            theMatch = 'news';
+        }
+        else if (theMatch === 'sports'){
+            theMatch = 'sports';
+        }
+        else if (theMatch === 'entertainment'){
+            theMatch = 'entertainment';
+        }
+        else if (theMatch === 'life' || theMatch === 'living' || theMatch === 'style'){
+            theMatch = 'lifestyles';
+        }
+        else {
+            theMatch = 'mc_rotator_home___';
+        }
+        return theMatch;
+    }
+    
+	// Not all media center URLs are photos.domain.com
+    function createUrl() {
+        if (options.url) {
+            return options.url;
+        }
+        var url = 'http://photos.' + domain + '.com/';
+        switch(domain) {
+            //Some URLs that don't fall into the photos.domain.com structure
+            case 'delcotimes':
+                url = 'http://media.delcotimes.com/';
+                break;
+            case 'dailycamera':
+                url = 'http://mediacenter.dailycamera.com/';
+                break;
+            case 'chicoer':
+                url = 'http://media.chicoer.com/';
+                break;
+            case 'eptrail':
+                url = 'http://mediacenter.eptrail.com/';
+                break;
+            case 'reporterherald':
+                url = 'http://media.reporterherald.com/';
+                break;
+            case 'coloradodaily':
+                url = 'http://mediacenter.coloradodaily.com/';
+                break;
+            case 'theoaklandpress':
+                url = 'http://media.theoaklandpress.com/';
+                break;
+            case 'macombdaily':
+                url = 'http://media.macombdaily.com/';
+                break;
+            case 'themorningsun':
+                url = 'http://media.themorningsun.com/';
+                break;
+            case 'dailytribune':
+                url = 'http://media.dailytribune.com/';
+                break;
+            case 'heritage':
+                url = 'http://media.heritage.com/';
+                break;
+            case 'thenewsherald':
+                url = 'http://media.thenewsherald.com/';
+                break;
+            case 'pressandguide':
+                url = 'http://media.pressandguide.com/';
+                break;
+            case 'voicenews':
+                url = 'http://media.voicenews.com/';
+                break;
+            case 'sourcenewspapers':
+                url = 'http://media.sourcenewspapers.com/';
+                break;
+            case 'morningstarpublishing':
+                url = 'http://media.morningstarpublishing.com/';
+                break;
+            case 'dailylocal':
+                url = 'http://media.dailylocal.com/';
+                break;
+            case 'pottsmerc':
+                url = 'http://media.pottsmerc.com/';
+                break;
+            case 'timesherald':
+                url = 'http://media.timesherald.com/';
+                break;
+            case 'thereporteronline':
+                url = 'http://media.thereporteronline.com/';
+                break;
+            case 'mainlinemedianews':
+                url = 'http://media.mainlinemedianews.com/';
+                break;
+            case 'montgomerynews':
+                url = 'http://media.montgomerynews.com/';
+                break;
+            case 'phoenixvillenews':
+                url = 'http://media.phoenixvillenews.com/';
+                break;
+            case 'buckslocalnews':
+                url = 'http://media.buckslocalnews.com/';
+                break;
+            case 'delconewsnetwork':
+                url = 'http://media.delconewsnetwork.com/';
+                break;
+            case 'berksmontnews':
+                url = 'http://media.berksmontnews.com/';
+                break;
+            case 'southernchestercountyweeklies':
+                url = 'http://media.southernchestercountyweeklies.com/';
+                break;
+            case 'ydr':
+                url = 'http://mediacenter.ydr.com/';
+                break;
+            case 'news-herald':
+                url = 'http://media.news-herald.com/';
+                break;
+            case 'morningjournal':
+                url = 'http://media.morningjournal.com/';
+                break;
+            case 'dailyfreeman':
+                url = 'http://media.dailyfreeman.com/';
+                break;
+            case 'saratogian':
+                url = 'http://media.saratogian.com/';
+                break;
+            case 'troyrecord':
+                url = 'http://media.troyrecord.com/';
+                break;
+            case 'oneidadispatch':
+                url = 'http://media.oneidadispatch.com/';
+                break;
+            case 'cnweekly':
+                url = 'http://media.cnweekly.com/';
+                break;
+            case 'romeobserver':
+                url = 'http://media.romeobserver.com/';
+                break;
+            case 'trentonian':
+                url = 'http://media.trentonian.com/';
+                break;
+            case 'southjerseylocalnews':
+                url = 'http://media.southjerseylocalnews.com/';
+                break;
+            case 'middletownpress':
+                url = 'http://media.middletownpress.com/';
+                break;
+            case 'registercitizen':
+                url = 'http://media.registercitizen.com/';
+                break;
+            case 'countytimes':
+                url = 'http://media.countytimes.com/';
+                break;
+            case 'westhartfordnews':
+                url = 'http://media.westhartfordnews.com/';
+                break;
+            case 'housatonictimes':
+                url = 'http://media.housatonictimes.com/';
+                break;
+            case 'minutemannewscenter':
+                url = 'http://media.minutemannewscenter.com/';
+                break;
+            case 'ctpostchronicle':
+                url = 'http://media.ctpostchronicle.com/';
+                break;
+            case 'shorelinetimes':
+                url = 'http://media.shorelinetimes.com/';
+                break;
+            case 'ctbulletin':
+                url = 'http://media.ctbulletin.com/';
+                break;
+            case 'dolphin-news':
+                url = 'http://media.dolphin-news.com/';
+                break;
+            case 'nhregister':
+                url = 'http://photos.newhavenregister.com/';
+                break;
+            case 'burlesonstar':
+                url = 'http://photos.burlesonstar.net/';
+                break;
+            case 'crowleystar':
+                url = 'http://photos.crowleystar.net/';
+                break;
+            case 'joshuastar':
+                url = 'http://photos.joshuastar.net/';
+                break;
+            case 'keenestar':
+                url = 'http://photos.keenestar.net/';
+                break;
+            case 'alvaradostar':
+                url = 'http://photos.alvaradostar.net/';
+                break;
+            case 'insidebayarea':
+                url = 'http://photos.mercurynews.com/';
+                break;
+            case 'contracostatimes':
+                url = 'http://photos.mercurynews.com/';
+                break;
+            case 'broomfieldenterprise':
+                url = 'http://mediacenter.broomfieldenterprise.com/';
+                break;
+        }
+        return url;
+    }
+
+	// Create scripts calls to json with padding
+	function jsonp(source) {
+		var script = document.createElement('script');
+	    script.type = 'text/javascript';
+	    script.src = source;
+	    document.getElementsByTagName('head')[0].appendChild(script);
+	}
+
+})(
+	// Our JQuery
+    dfm.$, 
+	// Callback to data can be variable
+    '__callback', 
+	// The site's domain
+    dfm.env.domain || (location.host.match(/([^.]+)\.\w{2,3}(?:\.\w{2})?$/) || [])[1],
+	// Options for URLs, categories and containers
+    mc_rotator_options_responsive || {}
+);
