@@ -60,7 +60,6 @@ $storyFeeds = array_values($config['story_feed']);
 );*/
 
 $sectionPromos = array_values($config['section_promos']);
-$bottomLine = array_values($config['bottom_line']);
 
 /* End config*/
 
@@ -99,6 +98,8 @@ $context['section_promos'] = array();
 foreach($sectionPromos as $promo) {
     $context['section_promos'][] = Timber::get_posts(createWPQueryArray(array_values($promo)));
 }
-$context['bottom_line'] = Timber::get_posts('category=news');
+$context['bottom_line1'] = Timber::get_posts('tag=bottom_line1');
+$context['bottom_line2'] = Timber::get_posts('tag=bottom_line2');
+$context['bottom_line3'] = Timber::get_posts('tag=bottom_line3');
 /* End run queries */
 ?>
