@@ -6888,21 +6888,18 @@ button.close {
     bottom: 20px;
   }
 }
-.breadcrumb-block,
-.breadcrumb.block {
+.breadcrumb-block {
   padding: 0;
   margin: 0 0 22px;
   list-style: none;
-  background-color: transparent;
+  background-color: #f5f5f5;
 }
-.breadcrumb-block > li,
-.breadcrumb.block > li {
+.breadcrumb-block > li {
   font-size: 14px;
   font-size: 1.4rem;
   margin: 0 4px 0 0;
 }
-.breadcrumb-block > li:before,
-.breadcrumb.block > li:before {
+.breadcrumb-block > li:before {
   width: 0;
   height: 0;
   border-left: 7px solid #fff;
@@ -6912,22 +6909,19 @@ button.close {
   position: absolute;
   top: -8px;
 }
-.breadcrumb-block > li:after,
-.breadcrumb.block > li:after {
+.breadcrumb-block > li:after {
   padding: 0;
   content: none;
   border-left: 8px solid #dddddd;
 }
-.breadcrumb-block > li a,
-.breadcrumb.block > li a {
+.breadcrumb-block > li a {
   background: #dddddd;
   line-height: 22px !important;
   padding: 10px 14px 10px 20px;
   -webkit-transition: none;
   transition: none;
 }
-.breadcrumb-block > li a:after,
-.breadcrumb.block > li a:after {
+.breadcrumb-block > li a:after {
   width: 0;
   height: 0;
   border-left: 8px solid #dddddd;
@@ -6938,62 +6932,52 @@ button.close {
   right: -8px;
   top: -6px;
 }
-.breadcrumb-block > li a:hover,
-.breadcrumb.block > li a:hover {
+.breadcrumb-block > li a:hover {
   background: #c4c4c4;
   text-decoration: none;
 }
-.breadcrumb-block > li a:hover:after,
-.breadcrumb.block > li a:hover:after {
+.breadcrumb-block > li a:hover:after {
   border-left: 8px solid #c4c4c4;
 }
-.breadcrumb-block > .active,
-.breadcrumb.block > .active {
+.breadcrumb-block > .active {
   padding: 8px 16px 8px 20px;
   background-color: #39547a;
   color: #fff;
   font-weight: 700;
 }
-.breadcrumb-block > .active:before,
-.breadcrumb.block > .active:before {
+.breadcrumb-block > .active:before {
   border-left: 7px solid #fff;
   top: 0;
   left: 0;
 }
-.breadcrumb-block > .active:after,
-.breadcrumb.block > .active:after {
+.breadcrumb-block > .active:after {
   border: 0;
 }
 .breadcrumb-block-sm > li,
-.breadcrumb-block.sm > li,
-.breadcrumb.block.sm > li {
+.breadcrumb-block.sm > li {
   font-size: 12px;
   font-size: 1.2rem;
   margin: 0 3px 0 0;
 }
 .breadcrumb-block-sm > li:before,
-.breadcrumb-block.sm > li:before,
-.breadcrumb.block.sm > li:before {
+.breadcrumb-block.sm > li:before {
   border-left: 8px solid #fff;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
   top: 0;
 }
 .breadcrumb-block-sm > li a,
-.breadcrumb-block.sm > li a,
-.breadcrumb.block.sm > li a {
+.breadcrumb-block.sm > li a {
   padding: 4px 10px 5px 16px;
 }
 .breadcrumb-block-sm > li a:after,
-.breadcrumb-block.sm > li a:after,
-.breadcrumb.block.sm > li a:after {
+.breadcrumb-block.sm > li a:after {
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
   top: 0;
 }
 .breadcrumb-block-sm > .active,
-.breadcrumb-block.sm > .active,
-.breadcrumb.block.sm > .active {
+.breadcrumb-block.sm > .active {
   padding: 1px 10px 4px 16px;
 }
 .debug {
@@ -7318,11 +7302,6 @@ h6,
 @media (min-width: 1120px) {
   .has-supporting-content .share-toolbar {
     left: -252px;
-  }
-}
-@media (min-width: 1200px) {
-  .has-supporting-content .share-toolbar {
-    left: -280px;
   }
 }
 .share-modal .modal-dialog {
