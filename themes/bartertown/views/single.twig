@@ -1,6 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
+                    {% include "sharebar-vertical.twig" %}
                     <article id="main-story" class="full-story post-{{post.ID}}{% if post.sidebar_title or post.sidebar_markup or post.package %} has-supporting-content{% endif %} ">
                     <header id="article-top" class="article-header">
                         {% include "breadcrumb.twig" %}
@@ -33,6 +34,7 @@
                                     </p>
                                 </div>
                             </div> <!-- .byline-bar -->
+                            {% include "sharebar.twig" %}
                             <div class="article-body body-copy">
                             {{post.content}}
                             </div>
