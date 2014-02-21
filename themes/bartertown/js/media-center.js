@@ -1,19 +1,19 @@
 (function($, jsonpCallback, domain, options){
-	
-	// The URL to the media center
-	var mediaCenterUrl = createUrl();
-	// Container to which the widget will be attached as jQUery selector
-	var container = options.container || '#media-center-container';
-	// URL of media center widget template with Handlebars.js expressions
-	var templateSource = options.templateSource || 
-		'http://www.' + domain + '.com/wp-content/themes/bartertown/js/media-center-template.js';
-	// URL of data
-	var dataSource = options.dataSource || 
-		mediaCenterUrl + 'rotator/?size=responsive&cat=' + section() + '&callback=' + jsonpCallback;
-	// Part of the error message
-	var ERROR_COMPONENT = 'The media center widget requires ';
-	
-	// Dependencies
+  
+  // The URL to the media center
+  var mediaCenterUrl = createUrl();
+  // Container to which the widget will be attached as jQUery selector
+  var container = options.container || '#media-center-container';
+  // URL of media center widget template with Handlebars.js expressions
+  var templateSource = options.templateSource || 
+    'http://www.' + domain + '.com/wp-content/themes/bartertown/js/media-center-template.js';
+  // URL of data
+  var dataSource = options.dataSource || 
+    mediaCenterUrl + 'rotator/?size=responsive&cat=' + section() + '&callback=' + jsonpCallback;
+  // Part of the error message
+  var ERROR_COMPONENT = 'The media center widget requires ';
+  
+  // Dependencies
     if (typeof $ === 'undefined') {
         console.log(ERROR_COMPONENT + 'need jQuery.');
         return false;
@@ -22,48 +22,48 @@
         console.log(ERROR_COMPONENT + 'jQuery.fn.carousel. See http://sandbox.digitalfirstmedia.com/btown/');
         return false;
     }
-	if (typeof Handlebars === 'undefined') {
-		console.log(ERROR_COMPONENT + 'need Handlebars.js');
-		return false;
-	}
+  if (typeof Handlebars === 'undefined') {
+    console.log(ERROR_COMPONENT + 'need Handlebars.js');
+    return false;
+  }
     if (!domain) {
-		console.log(ERROR_COMPONENT + 'a domain to find feeds');
+    console.log(ERROR_COMPONENT + 'a domain to find feeds');
         return false;
     }
 
-	// Define jsonp function for widget data
+  // Define jsonp function for widget data
     window[jsonpCallback] = function(json){
         createWidget(json);
     }
-	
-	// Define jsonp function for widget template
-	window['__mediaCenterTemplate'] = function(template) {
-		window['__mcTemplate'] = template;
-	}
-	
-	// JSONP call for for the Handlebars Template
+  
+  // Define jsonp function for widget template
+  window['__mediaCenterTemplate'] = function(template) {
+    window['__mcTemplate'] = template;
+  }
+  
+  // JSONP call for for the Handlebars Template
     jsonp(templateSource);
 
-	// Callback in a callback. So we just wait for the template assignment of the window object
-	var waitingForTemplate = setInterval(function(){
-		if (typeof __mcTemplate !== 'undefined') {
-			jsonp(dataSource);
-			clearInterval(waitingForTemplate);
-		}
-	}, 100);
+  // Callback in a callback. So we just wait for the template assignment of the window object
+  var waitingForTemplate = setInterval(function(){
+    if (typeof __mcTemplate !== 'undefined') {
+      jsonp(dataSource);
+      clearInterval(waitingForTemplate);
+    }
+  }, 100);
 
 
-	// ##Some funtions to break up the rest of the code nicely##
-	
+  // ##Some funtions to break up the rest of the code nicely##
+  
     // Called once the second jsonp call (for the data) succeeds
     function createWidget(data){
-		
-		// Some Handlebars.js stuff 
-		// URL to media center
-		Handlebars.registerHelper('mediacenter', function() { return mediaCenterUrl; });
-		var template = Handlebars.compile(__mcTemplate);
-		var html = template(data);
-		$(container).html(html);
+    
+    // Some Handlebars.js stuff 
+    // URL to media center
+    Handlebars.registerHelper('mediacenter', function() { return mediaCenterUrl; });
+    var template = Handlebars.compile(__mcTemplate);
+    var html = template(data);
+    $(container).html(html);
      
 
         // Init carousel and bind caption changes
@@ -71,20 +71,20 @@
         
         $('div#media-center-promo').on('slid.bs.carousel', function () {
             var item = $(this).find('div.item.active'),
-				title = item.attr('data-title'),
-            	caption = item.attr('data-caption');
+        title = item.attr('data-title'),
+              caption = item.attr('data-caption');
             $('#media-center-info h2').text(title);
             $('#media-center-info .excerpt').text(caption);
         });
 
-		
-		// Clean up globals
-		delete window['jsonpCallback'];
-		delete window['mediaCenterTemplate'];
-		delete window['__mcTemplate'];
+    
+    // Clean up globals
+    delete window['jsonpCallback'];
+    delete window['mediaCenterTemplate'];
+    delete window['__mcTemplate'];
     }
     
-	// Wordpress category that the feed pulls from
+  // Wordpress category that the feed pulls from
     function section() {
         if (typeof options.category !== 'undefined') {
             return 'rotator?cat=' + options.category;
@@ -111,7 +111,7 @@
         return theMatch;
     }
     
-	// Not all media center URLs are photos.domain.com
+  // Not all media center URLs are photos.domain.com
     function createUrl() {
         if (options.url) {
             return options.url;
@@ -294,21 +294,21 @@
         return url;
     }
 
-	// Create scripts calls to json with padding
-	function jsonp(source) {
-		var script = document.createElement('script');
-	    script.type = 'text/javascript';
-	    script.src = source;
-	    document.getElementsByTagName('head')[0].appendChild(script);
-	}
+  // Create scripts calls to json with padding
+  function jsonp(source) {
+    var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = source;
+      document.getElementsByTagName('head')[0].appendChild(script);
+  }
 
 })(
-	// Our JQuery
+  // Our JQuery
     dfm.$, 
-	// Callback to data can be variable
+  // Callback to data can be variable
     '__callback', 
-	// The site's domain
+  // The site's domain
     dfm.env.domain || (location.host.match(/([^.]+)\.\w{2,3}(?:\.\w{2})?$/) || [])[1],
-	// Options for URLs, categories and containers
+  // Options for URLs, categories and containers
     mc_rotator_options_responsive || {}
 );
