@@ -1,3 +1,4 @@
+{% if false %}
 <!-- Remove these comments before pushing to prod -->
 <!-- Wrote as javascript in anticipation of portability needs and to demonstrate an MVC approach for JS widgets -->
 <!-- Would be fairly trivial to do this with PHP, just need to port over feed url generating JS code -->
@@ -6,13 +7,14 @@
 <div id="media-center-container"></div>
 <script type="text/javascript">
 var mc_rotator_options_responsive = {
-    'dataSource' : 'http://mediacenter/mercurynews/rotator?size=responsive&callback=__callback',
-	'templateSource' : '{{template_uri}}/js/media-center-template.js',
-	'container' : '#media-center-container'
+    //'dataSource' : 'http://mediacenter/mercurynews/rotator?size=responsive&callback=__callback',
+	//'templateSource' : '{{template_uri}}/js/media-center-template.js',
+	//'container' : '#media-center-container'
 };
 </script>
 <script type="text/javascript" src="{{template_uri}}/js/handlebars.min.1.3.0.js"></script>
 <script type="text/javascript" src="{{template_uri}}/js/media-center.js"></script>
+{% endif %}
 
 
 
