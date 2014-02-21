@@ -31,46 +31,9 @@
 </div> <!-- .topper -->
 
 
-<div class="left-column col md-3">
-    <div class="preview">
-        <figure>
-            <a href=""><img src="http://placehold.it/320x240"></a>
-        </figure>
-        <h3><a href="">After violent night, police comb streets of Watertown</a></h3>
-        <div class="excerpt">
-            <p>
-                Police are looking for suspected Marathon bomber Dzhokhar A. Tsarnaev after a manhunt last night in which another suspect — his brother — and a police officer died. <time datetime="2013-04-19T14:33:20" class="stamp" data-pubtime="20130419183320">12:33 pm</time>
-            </p>
-        </div>
-    </div> <!-- .preview -->
-    <div class="preview">
-        <figure>
-            <img src="http://placehold.it/320x240" alt="" />
-        </figure>
-        <h3><a href="">Live manhunt video</a></h3>
-        <div class="excerpt">
-            <p>
-                Watch live coverage from CBS News on the search for the Marathon bombing suspect.<time datetime="2013-01-21T10:57:07" class="stamp" data-pubtime="20130121155707">&nbsp;</time>
-            </p>
-        </div>
-    </div> <!-- .preview -->
-    <div class="preview">
-        <figure>
-            <img src="http://placehold.it/320x240" alt="" />
-        </figure>
-        <a class="h5">Joanne Davidson</a>
-        <h3><a href="">Columnist headline in this space right here</a></h3>
-        <div class="excerpt">
-            <p>
-                If Tamerlan Tsarnaev nursed murderous grudges, then he was, as his uncle said, a loser. <time datetime="2013-04-19T13:43:08" class="stamp" data-pubtime="20130419174308">&nbsp;</time>
-            </p>
-        </div>
-    </div> <!-- .preview -->
-</div> <!-- .left-column -->
-
-
-<div class="middle-column col md-9">
+<div class="middle-column col md-9 md-push-3">
     <div class="second-lead-story">
+		<a class="h4 topic-name" href="">Story Label</a>
         <h3><a href="">Older bombing suspect ‘was up to no good,’ cousin says</a></h3>
         <p class="excerpt">A relative says he repeatedly warned Dzhokhar Tsarnaev about the bad influence of his older brother.</p>
         <div class="meta">
@@ -115,3 +78,44 @@
         </ul>
     </div> <!-- .link-list -->
 </div> <!-- .middle-column -->
+
+
+
+<div class="left-column col md-3 md-pull-9">
+    <div class="preview">
+        <figure>
+            <a href=""><img src="http://placehold.it/320x240"></a>
+        </figure>
+        <h3><a href="">After violent night, police comb streets of Watertown</a></h3>
+        <div class="excerpt">
+            <p>
+                Police are looking for suspected Marathon bomber Dzhokhar A. Tsarnaev after a manhunt last night in which another suspect — his brother — and a police officer died. <time datetime="2013-04-19T14:33:20" class="stamp" data-pubtime="20130419183320">12:33 pm</time>
+            </p>
+        </div>
+    </div> <!-- .preview -->
+    <div class="preview">
+        <figure>
+            <img src="http://placehold.it/320x240" alt="" />
+        </figure>
+        <h3><a href="">Live manhunt video</a></h3>
+        <div class="excerpt">
+            <p>
+                Watch live coverage from CBS News on the search for the Marathon bombing suspect.<time datetime="2013-01-21T10:57:07" class="stamp" data-pubtime="20130121155707">&nbsp;</time>
+            </p>
+        </div>
+    </div> <!-- .preview -->
+    <div class="preview">
+        <figure>
+            <img src="http://placehold.it/320x240" alt="" />
+        </figure>
+        <a class="h5">Joanne Davidson</a>
+        <h3><a href="">Columnist headline in this space right here</a></h3>
+        <div class="excerpt">
+            <p>
+                If Tamerlan Tsarnaev nursed murderous grudges, then he was, as his uncle said, a loser. <time datetime="2013-04-19T13:43:08" class="stamp" data-pubtime="20130419174308">&nbsp;</time>
+            </p>
+        </div>
+    </div> <!-- .preview -->
+</div> <!-- .left-column -->
+
+

@@ -8108,6 +8108,9 @@ iframe[name="adblade_ad_iframe"] {
   font-weight: 400;
   line-height: 1.4;
 }
+.takeover .link-list {
+  margin-bottom: 22px;
+}
 .web-feeds h1.page-header {
   margin-top: 0;
 }
