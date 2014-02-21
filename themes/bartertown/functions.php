@@ -20,6 +20,8 @@
 		wp_enqueue_script('jquery');
 	}
 
+if ( function_exists('register_sidebar') ) register_sidebar();
+
 register_nav_menus(array('hot-topics' => __( 'Hot Topics' )), array('take-action' => __( 'Take Action' )));
 
 add_filter('timber_context', 'global_context');
@@ -47,7 +49,6 @@ function global_context($data){
     if(count($pollAns) > 0) {
         foreach($pollAns as $pollAns1) {
             $poll_answers .= $pollAns1->nodeValue;
-            //$poll_options .= '<label><input type="radio" name="'.$poll_answers.'">'.$poll_answers.'</input><br /></label>';
             $poll_options .= '<input type="radio" name="optionsRadios" id="optionsRadios1" value="'.$poll_answers.'">'.$poll_answers.'</input><br />';
             $poll_answers = '';
         }
@@ -87,6 +88,7 @@ function global_context($data){
         'is_paged' => is_paged(),
         'is_attachment' => is_attachment(),
         'is_singular' => is_singular(),
+        'template_uri' => get_template_directory_uri(),
 
         // Environment vars
         'domain' => $domain_bits[1],
