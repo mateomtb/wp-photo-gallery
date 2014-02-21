@@ -1,5 +1,28 @@
-<link rel="stylesheet" href="http://extras.mnginteractive.com/live/partners/MediaCenter/widget_large/mc_widget_large_min.css" type="text/css" />
-<script type="text/javascript" src="http://extras.mnginteractive.com/live/partners/MediaCenter/widget_large/mc_widget_large_min.js"></script>
+<script type="text/javascript">
+function mediaCenterTemplate(data){
+	window.data = data;
+}
+</script>
+<!--<link rel="stylesheet" href="http://extras.mnginteractive.com/live/partners/MediaCenter/widget_large/mc_widget_large_min.css" type="text/css" />
+<script type="text/javascript" src="http://extras.mnginteractive.com/live/partners/MediaCenter/widget_large/mc_widget_large_min.js"></script>-->
+<script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
+<script type="text/javascript" src="http://www.scsun-news.com/wp-content/themes/bartertown/js/media-center.js"></script>
+
+
+<div id="test">
+</div>
+
+<script type="text/javascript">
+
+var obj = {"top_items":[{"title":"Sample Gallery","images":{"_320x240":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/320x240\/i-v4C25cH-320x240.jpg","_640x480":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/640x480\/i-v4C25cH-640x480.jpg","_480x320":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/480x320\/i-v4C25cH-480x320.jpg","_960x640":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/960x640\/i-v4C25cH-960x640.jpg","_1280x960":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/1280x960\/i-v4C25cH-1280x960.jpg","_800x600":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/800x600\/i-v4C25cH-800x600.jpg","_1600x1200":"http:\/\/bangphotos.smugmug.com\/photos\/i-v4C25cH\/0\/1600x1200\/i-v4C25cH-1600x1200.jpg"},"url":"http:\/\/mediacenter\/mercurynews\/2013\/11\/08\/john-madden\/","excerpt":"This is a sample of the standard gallery now used on the Media Center.","gallery_type":"smugmug"},{"title":"Sample Longform (captured) gallery","images":{"_320x240":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/320x240\/i-LPCHzNg-320x240.jpg","_640x480":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/640x480\/i-LPCHzNg-640x480.jpg","_480x320":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/480x320\/i-LPCHzNg-480x320.jpg","_960x640":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/960x640\/i-LPCHzNg-960x640.jpg","_1280x960":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/1280x960\/i-LPCHzNg-1280x960.jpg","_800x600":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/800x600\/i-LPCHzNg-800x600.jpg","_1600x1200":"http:\/\/mediacenter.smugmug.com\/photos\/i-LPCHzNg\/0\/1600x1200\/i-LPCHzNg-1600x1200.jpg"},"url":"http:\/\/mediacenter\/mercurynews\/2013\/11\/07\/photos-hurricane-sandy-looking-back-at-the-devastation-one-year-later\/","excerpt":"This is a sample of a gallery pulled from the Denver Post's captured blog.","gallery_type":"smugmug"},{"title":"blah blah blah","images":{"_320x240":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/320x240\/DSC_5343-320x240.jpg","_640x480":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/640x480\/DSC_5343-640x480.jpg","_480x320":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/480x320\/DSC_5343-480x320.jpg","_960x640":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/960x640\/DSC_5343-960x640.jpg","_1280x960":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/1280x960\/DSC_5343-1280x960.jpg","_800x600":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/800x600\/DSC_5343-800x600.jpg","_1600x1200":"http:\/\/dfm-photo.smugmug.com\/Other\/some-name-for-matt\/i-BhnHp3N\/0\/1600x1200\/DSC_5343-1600x1200.jpg"},"url":"http:\/\/mediacenter\/mercurynews\/2012\/11\/14\/blah-blah-blah\/","excerpt":"some stuff goes here","gallery_type":"smugmug"}],"bottom_items":[{"title":"test from dfm smug cartoons","images":"http:\/\/dfm-photo.smugmug.com\/photos\/i-4XC3hW4\/0\/400x225\/i-4XC3hW4-400x225.jpg","url":"http:\/\/mediacenter\/mercurynews\/2012\/11\/06\/test-from-dfm-smug-cartoons\/","excerpt":"some cartoons to se how this shiznit works","gallery_type":"smugmug"},{"title":"test smug mercury news","images":null,"url":"http:\/\/mediacenter\/mercurynews\/2012\/10\/30\/test-smug-mercury-news\/","excerpt":"al;kjfl;dsjfadls;kjfsldkfjsldfjk;fjfajdfsalksa\r lasdkjflsd;jflds\r aslkjfl;sdfj;laksj;alsfd...","gallery_type":"smugmug"},{"title":"test smug hoopster photos","images":"http:\/\/denverpost.smugmug.com\/photos\/i-MzqSjjj\/0\/400x225\/i-MzqSjjj-400x225.jpg","url":"http:\/\/mediacenter\/mercurynews\/2012\/10\/30\/test-smug-hoopster-photos\/","excerpt":"Here is some stuff for the post. Here is some stuff for the post. Here is some stuff for the post...","gallery_type":"smugmug"}]}
+Handlebars.registerHelper('mediacenter', function() { return "foo";/*return createURL();*/ });
+
+
+var template = Handlebars.compile(data);
+var htmlt = template(obj);
+$('#test').html(htmlt);
+//console.log(html);
+</script>
 
 {% if false %}
 <div class="media-center sm" style="display: none;">
@@ -190,8 +213,9 @@ var mc_rotator_options_responsive = {
             if (!URL) {
                 return false;
             }
-            return URL.replace(
-                /\/L\//,'/' + width + 'x' + height + '/').replace(
+            return URL
+				.replace(/\/L\//,'/' + width + 'x' + height + '/')
+				.replace(
                 /\-L\./, '-' + width + 'x' + height + '.'
             );
         }
@@ -216,20 +240,24 @@ var mc_rotator_options_responsive = {
                 );
         }
         function setOtherItems(index){
+			var items = mc.find('ul.secondary-stories li:eq(' + (index - 3) + ')');
             // jQuery chain to set attributes/text of bottom three items
-            mc.find('ul.secondary-stories li:eq(' + (index - 3) + ')')
+            items
             .find('a')
                 .attr('href', data.items[index].url)
             .find('img')
-                .attr('src', replaceWidthHeight(data.items[index].image, 400, 255))
-            .find('h3 a').text(data.items[index].title);
+                .attr('src', replaceWidthHeight(data.items[index].image, 400, 255));
+            items
+				.find('h3 a')
+				.text(data.items[index].title);
 
         }
         
         function setCaption(jQ){
-            item = jQ.find('.active'),
-            title = item[0].dataset.title,
-            caption = item[0].dataset.caption;
+            var item = jQ.find('div.item.active'),
+				title = item.attr('data-title'),
+            	caption = item.attr('data-caption');
+			console.log(title);
             $('#media-center-info h2').text(title);
             $('#media-center-info .excerpt').text(caption);
         }
@@ -242,6 +270,7 @@ var mc_rotator_options_responsive = {
         $('div#media-center-promo').on('slid.bs.carousel', function () {
             setCaption($(this));
          });
+		mc.show();
     }
     
     function section() {
