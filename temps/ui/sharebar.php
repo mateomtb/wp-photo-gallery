@@ -1,22 +1,22 @@
 <div class="share-placeholder">
 <ul class="share-toolbar">
     <li>
-        <a href="#" class="webicon facebook">Like us on Facebook</a>
+        <a href="#" title="Share this story on Facebook" class="webicon facebook">Like us on Facebook</a>
     </li>
     <li>
-        <a href="#" class="webicon twitter md">Share on Twitter</a>
+        <a href="#" title="Tweet this story" class="webicon twitter md">Share on Twitter</a>
     </li>
     <li class="google">
-        <a href="#" class="webicon googleplus"><span class="sr-only">Share on Google Plus</span></a>
+        <a href="#" title="Share this story on Google Plus" class="webicon googleplus"><span class="sr-only">Share on Google Plus</span></a>
     </li>
     <li>
-        <a href="#" class="webicon mail"><span class="sr-only">Email</span></a>
+        <a href="#" title="Email this story" class="webicon mail"><span class="sr-only">Email</span></a>
     </li>
     <li>
-        <a href="#" class="glyphicon glyphicon-print"><span class="sr-only">Print</span></a>
+        <a href="#" title="Print this story" class="glyphicon glyphicon-print"><span class="sr-only">Print</span></a>
     </li>
     <li>
-        <a href="#" class="text" data-toggle="modal" data-target="#shareModal">...<span class="sr-only">More ways to share</span></a>
+        <a href="#" title="See more ways to share" class="text" data-toggle="modal" data-target="#shareModal">...<span class="sr-only">More ways to share</span></a>
     </li>
 </ul>
 </div>

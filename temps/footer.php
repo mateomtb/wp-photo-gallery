@@ -101,6 +101,11 @@
           }
         }); // end resize function
 
+        // Smart resize -- in case you need it
+        $(window).on("debouncedresize", function() {
+            
+        });
+        
         // CAROUSELS
         // ----------------------------------------
         if($('.carousel').length) {
@@ -194,7 +199,6 @@
           }
 
         function deactivateSharebar() {
-            console.log('remove styling');
             $('.share-placeholder').removeAttr('style');
             $(window).unbind('scroll');
         }
