@@ -144,7 +144,7 @@ module.exports = function (grunt) {
         }
       },
       less: {
-        files: ['less/*.less', 'less/*/*.less'],
+        files: ['less/*.less', 'less/*/*.less', 'less/*/*/*.less'],
         tasks: ['less', 'csscomb', 'usebanner'],
         options: {
           livereload: true

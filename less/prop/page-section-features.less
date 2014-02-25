@@ -1,0 +1,112 @@
+.features-page {
+  .features-main, .secondary-stories {
+    margin-bottom: @line-height-computed;
+  }
+  .secondary-stories {
+    p.excerpt {font-family: @font-family-sans-serif; .font-size((@font-size-base - 1));}
+    [class*="span"] {
+      padding: (@line-height-computed / 2) 0 @line-height-computed;
+      border-top: 3px solid @border-color;
+    }
+    [class*="col"]:hover {
+      border-color: @brand-primary;
+    }
+  }
+  
+  .features-main {
+    .tabbable {
+      background: #000;
+    }
+    .tab-pane {
+      overflow: hidden;
+      padding: 0;
+    }
+    .teaser {
+      @media (min-width:@breakpoint-sm) {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+      background: rgb(0,0,0);
+      background: rgba(0,0,0,.65);
+      h3 {
+        font-family: @font-family-sans-serif;
+        font-weight: 100;
+        letter-spacing: 1px;
+        margin: 0 0 6px 0;
+        @media (min-width:@breakpoint-md) {
+          .font-size(30px);
+        }
+      }
+      .excerpt {
+        font-family: @font-family-sans-serif;
+        font-weight: @font-weight-light;
+        margin-bottom: 0;
+      }
+      color: #fff;
+      padding: (@grid-gutter-width / 2);
+    }
+    .tabs {
+      background: @gray-darker;
+      border: 0;
+      margin-bottom: 0;
+      li {
+        a {
+          border-radius: 0;
+          color: #fff;
+          border: 0;
+          border-top: 1px solid @gray-lightest;
+          border-right: 1px solid @gray-light;
+          margin: 0;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          font-weight: 100;
+          letter-spacing: 1px;
+          @media (min-width:@breakpoint-lg) {
+            .font-size(16px);
+          }
+        }
+        &:last-child {
+          a {
+            border-right-width: 0;
+          }
+        }
+      }
+      li.active {
+        &:after {
+          position: absolute;
+          top: -7px;
+          left: 47%;
+          display: inline-block;
+          .opacity(85);
+          border-right: 8px solid transparent;
+          border-bottom: 8px solid @gray-lightest;
+          border-left: 8px solid transparent;
+          content: '';
+        }
+      }
+      li a:hover,
+      li.active a {
+        background: @brand-primary;
+        text-shadow: -1px 1px 1px darken(@brand-primary, 25%);
+      }
+      li a:hover {
+        box-shadow: inset 0 -5px 80px rgb(57,84,122,.1);
+        border-top: 1px solid @gray-lightest;
+      }
+      li {
+        .transition(width 0.3s ease-in-out);
+        width: 20%;
+      }
+      li.active {
+        width: 40%;
+
+      }
+      li.active a {
+        box-shadow: inset 0 12px 20px rgb(57,84,122,.1);
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@
   padding: 0;
   margin: 0 0 @line-height-computed; // overide default margin if there
   list-style: none; // overide default list styles if there
-  background-color: @breadcrumb-bg;
+  background-color: transparent;
   > li {
     .font-size(@font-size-base);
     margin: 0 4px 0 0;
@@ -70,7 +70,7 @@
 
 .breadcrumb-block-sm,
 .breadcrumb-block.sm,
-.breadcrumb.block.sm {
+.breadcrumb.block.sm  {
   > li {
     .font-size((@font-size-base - 2));
     margin: 0 3px 0 0;

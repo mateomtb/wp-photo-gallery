@@ -1,6 +1,8 @@
 // Global classes
 // ------------------------------------
 
+// Site branding
+// ---------------------------
 .branding {
   display: block;
   svg {
@@ -40,6 +42,12 @@
   }
 }
 
+<<<<<<< HEAD
+=======
+// Social sharing tools
+// ---------------------------
+
+>>>>>>> 7e74a0ec9f3788d02fa6ff8a17818e886860e10d
 .share-widget {
   &:extend(.list-inline all);
   li {
@@ -49,9 +57,124 @@
     margin-bottom:0;
   }
 }
+.share-toolbar {
+  &:extend(.clearfix all);
+  margin-bottom: @line-height-computed;
+  li {
+    display: inline;
+    float: left;
+    .square(32px);
+    margin-right: .3em;
+    a {
+      display: block;
+      .square(32px);
+      text-align: center;
+      .border-radius(@border-radius-base);
+      &:hover {
+        .opacity(.7);
+        text-decoration: none;
+      }
+      &.glyphicon,
+      &.text {
+        .font-size(20px);
+        border: 1px solid darken(@gray-lighter, 10%);
+        line-height: 32px;
+        background: @gray-lighter;
+      }
+    }
+  }
+  @media (min-width: @breakpoint-lg) {
+    margin: 0;
+    width: 42px;
+    position: absolute;
+    top: 0;
+    left: -60px;
+    border: 5px solid #fff;
+    .box-shadow(0px 0 3px rgba(0,0,0,.2));
+    li {
+      margin: 0;
+      margin-top: -1px;
+      display: block;
+      float: none;
+      a {
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+.has-supporting-content {
+  .share-toolbar {
+    @media (min-width: @breakpoint-lg) {
+      left: -210px;
+    }
+    @media (min-width: @breakpoint-xl) {
+      left: -252px;
+    }
+    @media (min-width: 1230px) {
+      left: -280px;
+    }
+  }
+}
+
+.share-modal {
+  .modal-dialog {
+    width: 290px;
+  }
+  .webicon {
+    border-radius: 0;
+  }
+  ul {
+    width: 100%;
+    li {
+      border-bottom: @border;
+      a {
+        display: block;
+        .user-select(none);
+        height: 32px;
+        padding-left: 10px;
+        background: @gray-lightest;
+        .font-size(16px);
+        line-height: 32px;
+        font-family: @font-family-treb;
+        font-weight: @font-weight-heavy;
+        color: @text-color;
+        &:hover {
+          .opacity(.5);
+          text-decoration: none;
+        }
+        span {
+          float: right;
+          margin-bottom: 0!important;
+        }
+      }
+    }
+  }
+}
+
+// Meta and referral classes
+// ---------------------------
 .excerpt {
   font-family: @font-family-serif;
   .font-size(16px);
+}
+.meta {
+  &:extend(.clearfix all);
+  .timestamp,
+  .source {
+    float: left;
+  }
+  .source {
+    font-family: @font-family-sans-serif;
+    font-weight: @font-weight-light;
+    .font-size(12px);
+    .timestamp {
+      float: none;
+    }
+  }
+  .comment-bug {
+    float: right;
+  }
 }
 .timestamp {
   font-family: @font-family-sans-serif;
@@ -84,25 +207,29 @@
     }
   }
 }
+
+// Lists of links
+// --------------------------
 .link-list {
+  font-family: @font-family-treb;
+  font-weight: @font-weight-heavy;
   ul {
     border-bottom: @border;
     > li {
       > a {
         display: block;
         padding: @padding-base-horizontal 0;
-        .font-size(13px);
         line-height: 1.4;
-        color: @gray;
+        color: @gray-dark;
         border-top: @border;
+        &:hover,
         strong {
-          color: @gray-dark;
+          color: @gray-darker;
         }  
         &:hover {
           #gradient > .vertical(@start-color:lighten(@brand-primary, 60%); @end-color: #fff);
           text-decoration: none;
           padding-left: 5px;
-          color: @gray-dark;
           border-top: @border-blue;
         }
       }
@@ -123,25 +250,26 @@
     font-weight: @font-weight-bold;
     color: @link-color;
   }
-}
-.meta {
-  &:extend(.clearfix all);
-  .timestamp,
-  .source {
-    float: left;
+  .timestamp {
+    font-weight: @font-weight-base;
   }
-  .source {
-    font-family: @font-family-sans-serif;
-    font-weight: @font-weight-light;
-    .font-size(12px);
-    .timestamp {
-      float: none;
+}
+
+// elminate animations for touch devices
+.touch {
+  .link-list {
+    ul {
+      > li {
+        > a {
+          &:hover {
+             padding-left: 0;
+          }
+        }
+      }
     }
   }
-  .comment-bug {
-    float: right;
-  }
 }
+
 .story-feed {
   margin-bottom: @line-height-computed;
   h3, .h3 {
@@ -195,7 +323,7 @@
 }
 
 .story-feed.lg,
-.centerpiece{
+.centerpiece {
   .meta {
     border: @border;
     border-width: 1px 0;

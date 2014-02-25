@@ -28,15 +28,16 @@
 
         <!-- <div class="header-tools"> 
              would like these to be one form -->
-            <form id="site-search" action="#" class="search-bar" role="search">
-                <button class="search-toggle"><span class="glyphicon glyphicon-search"><span class="sr-only">Search</span></span></button>
+
+            <form id="site-search" action="#" class="search-bar" method="get" role="search">
                 <div class="input-group">
-                    <input type="text" name="s" class="form-control">
+                    <input id="search-field" type="text" name="s" class="form-control">
                     <span class="input-group-btn">
-                        <button class="btn primary" type="button"><span class="glyphicon glyphicon-search"><span class="sr-only">Search</span></span></button>
+                        <button id="search-button" class="btn primary" type="button"><span class="glyphicon glyphicon-search"><span class="sr-only">Search</span></span></button>
                     </span>
                 </div><!-- /input-group -->
             </form> <!-- #site-search -->
+
         <!-- </div> --> <!-- .header-tools -->
 
         <ul class="top-bar-toggle visible-md-up">

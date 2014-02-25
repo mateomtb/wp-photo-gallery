@@ -38,6 +38,7 @@
                     <p class="timestamp">Posted <time datetime="2012-03-05T20:53Z">Monday, March 5, 2012 8:53pm MST</time><span class="divider">|</span>Updated 4 hours ago</p>
                 </div>
             </div> <!-- .byline-bar -->
+            <?php include('temps/ui/sharebar.php'); ?>
             <div class="body-copy">
             <p>The addresses of one in six homes in Jefferson and Broomfield counties are entered inconsistently in databases used to warn people when there is an emergency, officials say.</p>
             <p>That means as many as 100,000 homeowners may not receive notification if an evacuation is ordered should another wildfire break out.</p>
@@ -106,7 +107,7 @@
     </section> 
     <footer id="article-footer">
         <?php include('temps/ui/recommended.php'); ?>
-        <?php //include('temps/ui/newstogram.php'); ?>
+        <?php include('temps/ui/newstogram.php'); ?>
         <?php include('temps/ui/adblade.php'); ?>
         <?php include('temps/ui/comments.php'); ?>
     </footer>

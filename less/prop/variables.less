@@ -104,6 +104,7 @@
 @icon-font-svg-id:        "glyphicons_halflingsregular";
 
 @web-icon-path:           "../img/webicons/"; //social web icons
+//@web-icon-path:           "http://projects/btown/img/webicons/"
 
 // Components
 // -------------------------
@@ -272,10 +273,10 @@
 @breakpoint-sm:           480px;
 @breakpoint-md:           768px;
 @breakpoint-lg:           960px;
-@breakpoint-xl:           1200px;
+@breakpoint-xl:           1120px;
 
 // Maximum widths
-@site-max-width:          1280px;
+@site-max-width:          1200px;
 @breakpoint-xs-max:       (@breakpoint-sm - 1);
 @breakpoint-sm-max:       (@breakpoint-md - 1);
 @breakpoint-md-max:       (@breakpoint-lg - 1);
@@ -290,7 +291,7 @@
 // ---------------------------------------------------------
 
 // Small screen / tablet
-@container-tablet:             ((720px + @grid-gutter-width));
+@container-tablet:             ((720px + (@grid-gutter-width)));
 @container-sm:                 @container-tablet;
 
 // Medium screen / desktop
@@ -298,7 +299,7 @@
 @container-md:                 @container-desktop;
 
 // Large screen / wide desktop
-@container-lg-desktop:         ((1140px + @grid-gutter-width));
+@container-lg-desktop:         ((1070px + @grid-gutter-width));
 @container-lg:                 @container-lg-desktop;
 
 // For static width sites

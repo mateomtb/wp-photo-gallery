@@ -1,6 +1,6 @@
 /*!
- * bartertown v1.1.0
- * Built using Strapit v2.0.4 
+ * bartertown v1.2.0
+ * Built using Strapit v2.0.5 
  * Homepage: http://sandbox.digitalfirstmedia.com/btown
  * GitHub: http://github.com/dfmlabs/btown
  * Copyright 2014 Digital First Media design team
@@ -3104,12 +3104,12 @@ $(document).ready(function() {
     console.log('not a touch device!!!');
 
     // Hover intent for navigation
-    var config = {
-      over: function(){$(this).find($('ul.dropdown-menu')).css({'display' : 'block'});},
-      interval: 150,
-      out: function(){$(this).find($('ul.dropdown-menu')).css({'display' : 'none'});}
-    };
-    $('.dropdown').hoverIntent(config);
+    // var config = {
+    //   over: function(){$(this).find($('ul.dropdown-menu')).css({'display' : 'block'}); console.log('over'); },
+    //   interval: 150,
+    //   out: function(){$(this).find($('ul.dropdown-menu')).css({'display' : 'none'}); console.log('out'); }
+    // };
+    // $('.dropdown').hoverIntent(config);
   }
 
   // VARS

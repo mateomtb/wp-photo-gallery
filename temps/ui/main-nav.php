@@ -46,7 +46,7 @@
                 <a href="#">Local 2</a>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Marketplace <b class="caret"></b></a>
+                <span class="dropdown-toggle">Marketplace <b class="caret"></b></span>
                 <ul class="dropdown-menu">
                     <li><a href="">Autos</a></li>
                     <li><a href="">Classifieds</a></li>
@@ -56,7 +56,7 @@
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Tools <b class="caret"></b></a>
+                <span class="dropdown-toggle">Tools <b class="caret"></b></span>
                 <ul class="dropdown-menu">
                     <li><a href="">Login/Register</a></li>
                     <li><a href="">Customer Care</a></li>
