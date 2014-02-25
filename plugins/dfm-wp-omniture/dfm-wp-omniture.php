@@ -29,7 +29,13 @@ class DFMOmniture
         $environment = 'dev';
         // wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
         wp_enqueue_script('dtm', $url[$environment], false, '', false);
+        add_action('wp_footer', 'omniture_footer', 75);
     }
-
 }
+
+function omniture_footer()
+{
+    echo '<script type="text/javascript">_satellite.pageBottom();</script>';
+}
+
 $DFMOmniture = new DFMOmniture();
