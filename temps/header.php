@@ -15,6 +15,7 @@
 </head>
 <body <?php if($page_type === 'home') { echo ' class="home-page"'; }
        else if($page_type === 'section') { echo ' class="section-page"'; }
+       else if($page_type === 'section-features') { echo ' class="features-page"'; }
        else if($page_type === 'article') { echo ' class="article-page"'; }?>>
     <!-- Chrome Frame -->
     <!--[if lt IE 8]><p class="chromeframe">Your browser is <em>old.</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
