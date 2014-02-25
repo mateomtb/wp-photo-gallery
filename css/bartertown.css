@@ -8243,6 +8243,14 @@ iframe[name="adblade_ad_iframe"] {
 .takeover .link-list {
   margin-bottom: 22px;
 }
+@media (min-width: 768px) {
+  .topic-page .media,
+  .topic-page .inline-promo {
+    float: left;
+    width: 50%;
+    margin-right: 15px;
+  }
+}
 .web-feeds h1.page-header {
   margin-top: 0;
 }
