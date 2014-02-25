@@ -1,24 +1,24 @@
 <?php
 
-	add_theme_support('post-formats', array('aside', 'gallery', 'image', 'video', 'audio', 'link'));
-	add_theme_support('post-thumbnails');
-	add_theme_support('menus');
+    add_theme_support('post-formats', array('aside', 'gallery', 'image', 'video', 'audio', 'link'));
+    add_theme_support('post-thumbnails');
+    add_theme_support('menus');
 
-	add_filter('get_twig', 'add_to_twig');
+    add_filter('get_twig', 'add_to_twig');
 
-	add_action('wp_enqueue_scripts', 'load_scripts');
+    add_action('wp_enqueue_scripts', 'load_scripts');
 
-	define('THEME_URL', get_template_directory_uri());
-	function add_to_twig($twig){
-		/* this is where you can add your own fuctions to twig */
-		$twig->addExtension(new Twig_Extension_StringLoader());
-		$twig->addFilter('myfoo', new Twig_Filter_Function('myfoo'));
-		return $twig;
-	}
+    define('THEME_URL', get_template_directory_uri());
+    function add_to_twig($twig){
+        /* this is where you can add your own fuctions to twig */
+        $twig->addExtension(new Twig_Extension_StringLoader());
+        $twig->addFilter('myfoo', new Twig_Filter_Function('myfoo'));
+        return $twig;
+    }
 
-	function load_scripts(){
-		wp_enqueue_script('jquery');
-	}
+    function load_scripts(){
+        wp_enqueue_script('jquery');
+    }
 
 if ( function_exists('register_sidebar') ) register_sidebar();
 
@@ -58,7 +58,7 @@ function global_context($data){
         $poll_vote .= 'vote button'.$pollVotes1;
     }
     $domain_bits = explode('.', $_SERVER['HTTP_HOST']);
-	$data = array(
+    $data = array(
         // WP conditionals
         'is_home' => is_home(),
         'is_front_page' => is_front_page(),
@@ -96,8 +96,8 @@ function global_context($data){
         'poll_title' => $poll_title,
         'poll_options' => $poll_options,
         'poll_vote' => $poll_vote,
-	    'mode' => 'section',
-	    'section' => '',
+        'mode' => 'section',
+        'section' => '',
 
         // Content vars
         'single_cat_title' => single_cat_title(),
@@ -155,10 +155,10 @@ function global_context($data){
     [quant_label] => ElPasoRegional
     */
     if ( class_exists('DFMDataForWP') ) {
-		// Add to session var and Timber context
-		// Probably move later session var assignment later
+        // Add to session var and Timber context
+        // Probably move later session var assignment later
         $data['dfm'] = $_SESSION['dfm'] = DFMDataForWP::retrieveRowFromMasterData('domain', $data['domain']);
-	}
+    }
 
 
     if ( is_singular() ) $data['mode'] = 'article';
@@ -291,12 +291,12 @@ function createWPQueryArray($array) {
 }
 
 function getMediaCenterFeed() {
-	if ($s = $_SESSION['dfm']) {
-		$url = $s['media_center_url'];
-		$cat = get_category(get_query_var('cat'))->slug;
-		if (!$cat) {
-			$cat = 'mc_rotator_home___';
-		}
-		return $url . "rotator?size=responsive&cat=$cat";
-	}
+    if ($s = $_SESSION['dfm']) {
+        $url = $s['media_center_url'];
+        $cat = get_category(get_query_var('cat'))->slug;
+        if (!$cat) {
+            $cat = 'mc_rotator_home___';
+        }
+        return $url . "rotator?size=responsive&cat=$cat";
+    }
 }
