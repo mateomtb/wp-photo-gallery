@@ -60,7 +60,7 @@
 </div>
                         </div>
                         {# SIDEBAR #}
-                        {% if post.sidebar_title or package or collection %}
+                        {% if post.sidebar_title or package or collection or inarticle_poll %}
                             <section class="supporting-content" role="complementary">
                                 <ul class="share-tools sm">
                                     <li><span class="glyphicon glyphicon-comment"></span><a href="#comments">Comments</a></li>
@@ -71,7 +71,7 @@
                                 </ul>
                                 {% if post.sidebar_title %}<h3>{{post.sidebar_title}}</h3>{% endif %}
                                 {{ post.sidebar_markup }}
-                                {% if package %}
+                                {% if package_name != '' %}
                                 <div id="more-media" class="link-list no-anim">
                                     <h4>More Media</h4>
                                     <ul>
@@ -81,7 +81,7 @@
                                     </ul>
                                 </div>
                                 {% endif %}
-                                {% if collection %}
+                                {% if collection_name != '' %}
                                 <div id="related-stories" class="link-list no-anim">
                                     <h4>Related{% if collection_name %}: {{collection_name}}{% endif %}</h4>
                                     <ul>
@@ -91,9 +91,14 @@
                                     </ul>
                                 </div>
                                 {% endif %}
+                                {% if inarticle_poll %}
+                                    {{inarticle_poll}}
+                                {% endif %}
                             </section>
                         {% endif %}
-
+<div style="display:none;">
+{{revisions}}
+</div>
                 </section>
             </section>
 
