@@ -22,7 +22,8 @@
  */
 $templates = array('leaf.twig', 'index.twig');
 $context = global_context($context);
+$domain_bits = explode('.', $_SERVER['HTTP_HOST']);
+$context['dfm'] = DFMDataForWP::retrieveRowFromMasterData('domain', $domain_bits[1]);
 $post = new TimberPost();
 $context['post'] = $post;
-//print_r($context);
 Timber::render($templates, $context);
