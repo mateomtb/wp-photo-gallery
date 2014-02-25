@@ -70,12 +70,10 @@ class WPMDBPro_Base {
 		include $this->template_dir . $template . '.php';
 	}
 
-<<<<<<< HEAD
-=======
+
 	function get_installed_version( $plugin = false ) {
         return '1.3.1'; //fix via plugin dev this version tracking is broken mateo 2-24-14
 		if ( !is_admin() ) return false;
->>>>>>> 978ed1cba947d6d3d2d523dbe0d72d1126a1bad3
 
     function get_installed_version( $plugin = false ) {
                 return '1.3.1';
