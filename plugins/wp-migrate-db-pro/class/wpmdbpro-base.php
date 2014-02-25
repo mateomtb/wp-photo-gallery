@@ -71,6 +71,7 @@ class WPMDBPro_Base {
 	}
 
 	function get_installed_version( $plugin = false ) {
+        return '1.3.1'; //fix via plugin dev this version tracking is broken mateo 2-24-14
 		if ( !is_admin() ) return false;
 
 		$plugin_basename = ( false !== $plugin ? $plugin : $this->plugin_basename );
