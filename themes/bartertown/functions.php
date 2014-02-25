@@ -1,24 +1,24 @@
 <?php
 
-	add_theme_support('post-formats', array('aside', 'gallery', 'image', 'video', 'audio', 'link'));
-	add_theme_support('post-thumbnails');
-	add_theme_support('menus');
+    add_theme_support('post-formats', array('aside', 'gallery', 'image', 'video', 'audio', 'link'));
+    add_theme_support('post-thumbnails');
+    add_theme_support('menus');
 
-	add_filter('get_twig', 'add_to_twig');
+    add_filter('get_twig', 'add_to_twig');
 
-	add_action('wp_enqueue_scripts', 'load_scripts');
+    add_action('wp_enqueue_scripts', 'load_scripts');
 
-	define('THEME_URL', get_template_directory_uri());
-	function add_to_twig($twig){
-		/* this is where you can add your own fuctions to twig */
-		$twig->addExtension(new Twig_Extension_StringLoader());
-		$twig->addFilter('myfoo', new Twig_Filter_Function('myfoo'));
-		return $twig;
-	}
+    define('THEME_URL', get_template_directory_uri());
+    function add_to_twig($twig){
+        /* this is where you can add your own fuctions to twig */
+        $twig->addExtension(new Twig_Extension_StringLoader());
+        $twig->addFilter('myfoo', new Twig_Filter_Function('myfoo'));
+        return $twig;
+    }
 
-	function load_scripts(){
-		wp_enqueue_script('jquery');
-	}
+    function load_scripts(){
+        wp_enqueue_script('jquery');
+    }
 
 if ( function_exists('register_sidebar') ) register_sidebar();
 
@@ -58,7 +58,7 @@ function global_context($data){
         $poll_vote .= 'vote button'.$pollVotes1;
     }
     $domain_bits = explode('.', $_SERVER['HTTP_HOST']);
-	$data = array(
+    $data = array(
         // WP conditionals
         'is_home' => is_home(),
         'is_front_page' => is_front_page(),
@@ -96,8 +96,8 @@ function global_context($data){
         'poll_title' => $poll_title,
         'poll_options' => $poll_options,
         'poll_vote' => $poll_vote,
-	    'mode' => 'section',
-	    'section' => '',
+        'mode' => 'section',
+        'section' => '',
 
         // Content vars
         'single_cat_title' => single_cat_title(),
@@ -106,6 +106,60 @@ function global_context($data){
         'menu_hot' => new TimberMenu('Hot Topics'),
         'menu_action' => new TimberMenu('Take Action'),
     );
+    // Data provided here:
+    /*
+    [site_name] => Silver City Sun News
+    [url] => www.scsun-news.com/
+    [wp_site_name] => scsun-news
+    [domain] => scsun-news
+    [company] => MNG
+    [platform] => NGPS
+    [geo] => NEW MEXICO
+    [city] => Silver City, NM
+    [zip_code] => 88026
+    [coords] => n/a
+    [facebook_page] => http://www.facebook.com/SilverCitySunNews
+    [facebook_page_id] => 187899791275353
+    [facebook_app_id] => n/a
+    [fb_secret] => n/a
+    [yahoo_pub_id] => 21641094265
+    [yahoo_site_name] => www.scsun-news.com
+    [ad_server_on_mc] => dfp
+    [omniture_account] => midslv
+    [twitter_page] => https://twitter.com/SCSunNews
+    [twitter_short_name] => SCSunNews
+    [disqus_api_key] => n/a
+    [disqus_user_api_key] => n/a
+    [mycapture_url] => n/a
+    [media_center_url] => http://photos.scsun-news.com/
+    [smug_api_key] => n/a
+    [smug_secret] => n/a
+    [smug_token] => n/a
+    [smug_url] => n/a
+    [nav_json_file_url] => http://local.scsun-news.com/assets/header-footer.json
+    [favicon_url] => http://extras.mnginteractive.com/live/media/favIcon/scsun-news/favicon.png
+    [akamai_large] => http://local.scsun-news.com/assets/logo-large.png
+    [akamai_small] => http://local.scsun-news.com/assets/logo-small.png
+    [events_url] => http://events.scsun-news.com
+    [events_api] => 890fda44c68da704e968b4b18ad71ca3
+    [brightcove_api] => n/a
+    [powerlinks] => yes
+    [google_analytics] => UA-42534117-6
+    [bc_player_id] => N/A
+    [bc_player_key] => N/A
+    [addthis] => N/A
+    [tout_id] => N/A
+    [ngps_site_id] => 558
+    [google_] => N/A
+    [quant_id] => p-4ctCQwtnNBNs2
+    [quant_label] => ElPasoRegional
+    */
+    if ( class_exists('DFMDataForWP') ) {
+        // Add to session var and Timber context
+        // Probably move later session var assignment later
+        $data['dfm'] = $_SESSION['dfm'] = DFMDataForWP::retrieveRowFromMasterData('domain', $data['domain']);
+    }
+
 
     if ( is_singular() ) $data['mode'] = 'article';
     //if ( is_single() ):
@@ -234,4 +288,15 @@ function createWPQueryArray($array) {
         'meta_key' => ($array[3] ? $array[3] : null),
         'meta_value' => ($array[4] ? $array[4] : null)
     );
+}
+
+function getMediaCenterFeed() {
+    if ($s = $_SESSION['dfm']) {
+        $url = $s['media_center_url'];
+        $cat = get_category(get_query_var('cat'))->slug;
+        if (!$cat) {
+            $cat = 'mc_rotator_home___';
+        }
+        return $url . "rotator?size=responsive&cat=$cat";
+    }
 }

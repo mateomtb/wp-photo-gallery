@@ -1,0 +1,8 @@
+<script>
+ var scriptOL = document.createElement( 'script' );
+	  scriptOL.type = 'text/javascript';
+	  scriptOL.id = 'ownLocalJS';
+	  scriptOL.src = 'http://extras.mnginteractive.com/live/js/ownLocal/ownLocalRDS.js?domain=mylocal.' + '{{dfm.domain}}' + '.com&city=' + '{{ dfm.city|split(',').0 }}' + '&state=' + '{{ dfm.city|split(',').1 }}';
+	  dfm.$('head')[0].appendChild(scriptOL);
+</script>
+<div id="ownLocalWidgy"></div>
