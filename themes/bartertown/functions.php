@@ -60,6 +60,7 @@ function global_context($data){
         'is_paged' => is_paged(),
         'is_attachment' => is_attachment(),
         'is_singular' => is_singular(),
+        'template_uri' => get_template_directory_uri(),
 
         // Environment vars
         'domain' => $domain_bits[1],
@@ -122,8 +123,11 @@ function global_context($data){
     [quant_id] => p-4ctCQwtnNBNs2
     [quant_label] => ElPasoRegional
     */
-    if ( class_exists('DFMDataForWP') )
-        $data['dfm'] = DFMDataForWP::retrieveRowFromMasterData('domain', $data['domain']);
+    if ( class_exists('DFMDataForWP') ) {
+		// Add to session var and Timber context
+		// Probably move later session var assignment later
+        $data['dfm'] = $_SESSION['dfm'] = DFMDataForWP::retrieveRowFromMasterData('domain', $data['domain']);
+	}
 
     if ( is_singular() ) $data['mode'] = 'article';
     //if ( is_single() ):
@@ -252,4 +256,15 @@ function createWPQueryArray($array) {
         'meta_key' => ($array[3] ? $array[3] : null),
         'meta_value' => ($array[4] ? $array[4] : null)
     );
+}
+
+function getMediaCenterFeed() {
+	if ($s = $_SESSION['dfm']) {
+		$url = $s['media_center_url'];
+		$cat = get_category(get_query_var('cat'))->slug;
+		if (!$cat) {
+			$cat = 'mc_rotator_home___';
+		}
+		return $url . "rotator?size=responsive&cat=$cat";
+	}
 }
