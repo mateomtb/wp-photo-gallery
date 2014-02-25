@@ -1,1 +1,0 @@
-Added this test file to see if new plugins files are correctly synced.

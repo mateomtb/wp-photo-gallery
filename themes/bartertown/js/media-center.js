@@ -56,8 +56,7 @@
     // ##Some funtions to break up the rest of the code nicely##
     
     // Called once the second jsonp call (for the data) succeeds
-    function createWidget(data){
-    
+    function createWidget(data){    
         // Some Handlebars.js stuff 
         // URL to media center
         Handlebars.registerHelper('mediacenter', function() { return mediaCenterUrl; });
