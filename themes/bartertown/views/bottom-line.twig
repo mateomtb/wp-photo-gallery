@@ -86,6 +86,6 @@
                 </ul>
         </div> <!-- bottomline-list -->
         <div class="ad medium-rectangle visible-lg-up">
-            <div id='DFM-adPos-bottomline'><script type='text/javascript'>googletag.cmd.push(function(){googletag.display('DFM-adPos-bottomline');});</script></div>
+            {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-bottomline'}%}
         </div>
     </section> <!-- #bottomline-body -->
