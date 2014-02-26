@@ -16,10 +16,6 @@ add_action( 'wp_enqueue_scripts', 'register_eventful_styles' );
 function register_eventful_styles() {
 	wp_register_style( 'jqueryuicss', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css');
 	wp_enqueue_style( 'jqueryuicss' );
-    //wp_register_script( 'jqueryuijs', plugins_url('/dfm-wp-eventful/js/jquery-ui-1.10.4.custom.min.js'));
-	//wp_enqueue_script( 'jqueryuijs' );
-	wp_register_script( 'jshowoff', plugins_url('/dfm-wp-eventful/js/jquery.jshowoff.min.js'));
-	wp_enqueue_script( 'jshowoff' );	
     wp_register_style( 'eventfulcss', plugins_url('/dfm-wp-eventful/css/eventful.css'));
 	wp_enqueue_style( 'eventfulcss' );
 
