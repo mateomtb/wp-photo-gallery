@@ -99,6 +99,10 @@ foreach($sectionPromos as $promo) {
     $context['section_promos'][] = Timber::get_posts(createWPQueryArray(array_values($promo)));
 }
 
+//Eventful
+$context['events'] = get_eventful();
+
+
 // Bottom Line
 $context['bottom_line1'] = Timber::get_posts('tag=bottom_line1');
 $context['bottom_line2'] = Timber::get_posts('tag=bottom_line2');
