@@ -1,5 +1,5 @@
 (function($, jsonpCallback, domain, options){
-    console.log('foo');
+
     // The URL to the media center
     var mediaCenterUrl = createUrl();
     // Container to which the widget will be attached as jQUery selector

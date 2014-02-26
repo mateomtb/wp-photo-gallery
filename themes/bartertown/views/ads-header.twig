@@ -1,0 +1,83 @@
+<script type="text/javascript">
+/***** AdTags *****/
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+/***** AdTags *****/
+    var firstEmbedAssetContainer = '';
+    var firstEmbedAssetType = '';
+</script>
+<script type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+<script type="text/javascript">
+        googletag.pubads().setTargeting('page',['article']);
+        googletag.pubads().setTargeting('article',['140129737']);
+        googletag.pubads().setTargeting('kv',['{{single_cat_title}}']); 
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().enableSyncRendering();
+        googletag.enableServices();
+        var DFM_ad_loc = dfm.api("data","NetworkID") + '/' + dfm.api("data","siteDomain");
+        if(dfm.api("data","Taxonomy1")!=''){
+            DFM_ad_loc+='/'+dfm.api("data","Taxonomy1");
+            if(dfm.api("data","Taxonomy2")!=''){
+                DFM_ad_loc+='/'+dfm.api("data","Taxonomy2");
+                if(dfm.api("data","Taxonomy3")!=''){
+                    DFM_ad_loc+='/'+dfm.api("data","Taxonomy3");
+                    if(dfm.api("data","Taxonomy4")!=''){
+                        DFM_ad_loc+='/'+dfm.api("data","Taxonomy4");
+                    }
+                }
+            }
+        }
+
+        googletag.defineSlot(DFM_ad_loc,[[120,90]], 'DFM-adPos-ear1')
+            .setTargeting('pos',['Ear_Left'])
+            .addService(googletag.pubads());
+            
+        googletag.defineSlot(DFM_ad_loc,[[120,90]], 'DFM-adPos-ear2')
+            .setTargeting('pos',['Ear_Right'])
+            .addService(googletag.pubads());
+            
+        googletag.defineSlot(DFM_ad_loc,[[50,50]], 'DFM-adPos-peel')
+            .setTargeting('pos',['corner_pagepeel'])  
+            .addService(googletag.pubads());
+            
+        googletag.defineSlot(DFM_ad_loc,[[50,50]], 'DFM-adPos-hand')
+            .setTargeting('pos',['corner_hand'])      
+            .addService(googletag.pubads());
+            
+        googletag.defineSlot(DFM_ad_loc,[[100,100]], 'DFM-adPos-wallpaper') 
+            .setTargeting('pos',['wallpaper'])
+            .addService(googletag.pubads());
+            
+        googletag.defineSlot(DFM_ad_loc,[[120,60]], 'DFM-adPos-breaking')
+            .setTargeting('pos',['breaking_news'])
+            .addService(googletag.pubads());
+            
+        googletag.defineSlot(DFM_ad_loc,[[1,1]], 'DFM-adPos-inter')
+            .setTargeting('pos',['interstitial'])
+            .addService(googletag.pubads());
+            
+        googletag.defineSlot(DFM_ad_loc,[[970,30],[970,250]], 'DFM-adPos-pencil')
+            .setTargeting('pos',['SBB'])
+            .addService(googletag.pubads());
+            
+        googletag.defineSlot(DFM_ad_loc,[[970,90],[728,90]], 'DFM-adPos-leader')
+            .setTargeting('pos',['top_leaderboard'])
+            .addService(googletag.pubads());
+            
+        googletag.defineSlot(DFM_ad_loc,[[300,250],[300,600],[300,1050],[160,600]],'DFM-adPos-cube1')
+            .setTargeting('pos',['Cube1_RRail_ATF'])  
+            .addService(googletag.pubads());
+        
+        googletag.defineSlot(DFM_ad_loc,[[300,250]], 'DFM-adPos-cube2')
+            .setTargeting('pos',['Cube2_RRail_mid'])
+            .addService(googletag.pubads());
+            
+        googletag.defineSlot(DFM_ad_loc,[[300,250]], 'DFM-adPos-cube3')     
+            .setTargeting('pos',['Cube3_RRail_lower'])
+            .addService(googletag.pubads());
+            
+        googletag.defineSlot(DFM_ad_loc,[[300,250]], 'DFM-adPos-bottomline')
+            .setTargeting('pos',['Cube4_BottomLine'])
+            .addService(googletag.pubads());
+
+</script>
