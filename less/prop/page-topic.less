@@ -1,0 +1,28 @@
+//
+.topic-page {
+	.centerpiece {
+		.meta {
+			border: 0;
+		}
+	}
+	@media (min-width:@breakpoint-md) {
+		.media {
+			float: left;
+			width: 50%;
+			margin-right: (@grid-gutter-width / 2);
+			z-index: 2;
+		}
+	}
+	@media (min-width:@breakpoint-sm) {
+		.post-excerpt {
+			.clearfix();
+			.promo-image {
+				float: left;
+				max-width: 25%;
+				margin-right: (@grid-gutter-width / 2);
+			}
+		}
+
+	}
+
+}
