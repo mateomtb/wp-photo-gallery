@@ -8,8 +8,8 @@
             {% block header %}{% endblock %}
         </header>
 
-
     <div id="content" class="container">
+	{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-pencil'} %}
     {% if is_home %}
         {% include 'home.twig' %}
     {% else %}

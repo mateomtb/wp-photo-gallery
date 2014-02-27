@@ -66,7 +66,7 @@ function global_context($data){
         'is_single' => is_single(),
         'is_sticky' => is_sticky(),
         'get_post_type' => get_post_type(),
-        'is_singular' => is_singular(),
+        'is_single' => is_single(),
         'is_post_type_archive' => is_post_type_archive(),
         'comments_open' => comments_open(),
         'is_page' => is_page(),
