@@ -1,7 +1,8 @@
 // 404
 // ------------------------
 
-.error-page {
+.error-page,
+.serp {
   h1, h3 {
     font-family: @font-family-treb!important;
   }
@@ -36,6 +37,59 @@
       border: 0;
     }
   }
+}
+
+// SERP CSS
+// ------------------------
+.content-well {
+	> h1 {
+		margin-top: 0;
+	}
+}
+
+.serp {
+	h1 {
+		
+	}
+}
+
+.results {
+	line-height: 1.4;
+	p {
+		margin-bottom: (@line-height-computed / 4);
+	}
+	.headline {
+		.font-size(18px);
+		text-decoration: underline;
+	}
+	.byline,
+	.meta {
+		font-weight: @font-weight-bold;
+		.font-size(11px);
+	}
+	.description {
+		.font-size(13px);
+	}
+	.meta {
+		color: @brand-success;
+	}
+	ul {
+		li {
+			margin-bottom: (@line-height-computed * 1.5);
+		}
+	}
+}
+.filters {
+	.font-size(13px);
+	.page-header {
+		margin: 0!important;
+	}
+	.filter {
+		margin-bottom: @line-height-computed;
+	}
+	.badge {
+		float: right;
+	}
 }
 
 // Web feeds page CSS

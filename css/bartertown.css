@@ -694,6 +694,8 @@ a.bg-info:hover {
 .comments:after,
 .error-page .error-message:before,
 .error-page .error-message:after,
+.serp .error-message:before,
+.serp .error-message:after,
 .ad.pushdown:before,
 .ad.pushdown:after,
 .ad.pencil.expanded:before,
@@ -763,6 +765,7 @@ a.bg-info:hover {
 #ifrRec:after,
 .comments:after,
 .error-page .error-message:after,
+.serp .error-message:after,
 .ad.pushdown:after,
 .ad.pencil.expanded:after,
 .factbox:after,
@@ -5499,7 +5502,8 @@ a.list-group-item.active > .badge,
   margin-left: 3px;
 }
 .jumbotron,
-.error-page .error-message {
+.error-page .error-message,
+.serp .error-message {
   padding: 30px;
   margin-bottom: 30px;
   color: inherit;
@@ -5508,39 +5512,48 @@ a.list-group-item.active > .badge,
 .jumbotron h1,
 .jumbotron .h1,
 .error-page .error-message h1,
-.error-page .error-message .h1 {
+.error-page .error-message .h1,
+.serp .error-message h1,
+.serp .error-message .h1 {
   color: inherit;
 }
 .jumbotron p,
-.error-page .error-message p {
+.error-page .error-message p,
+.serp .error-message p {
   margin-bottom: 15px;
   font-size: 21px;
   font-size: 2.1rem;
   font-weight: 200;
 }
 .container .jumbotron,
-.container .error-page .error-message {
+.container .error-page .error-message,
+.container .serp .error-message {
   border-radius: 6px;
 }
 .jumbotron .container,
-.error-page .error-message .container {
+.error-page .error-message .container,
+.serp .error-message .container {
   max-width: 100%;
 }
 @media screen and (min-width: 768px) {
   .jumbotron,
-  .error-page .error-message {
+  .error-page .error-message,
+  .serp .error-message {
     padding-top: 48px;
     padding-bottom: 48px;
   }
   .container .jumbotron,
-  .container .error-page .error-message {
+  .container .error-page .error-message,
+  .container .serp .error-message {
     padding-right: 60px;
     padding-left: 60px;
   }
   .jumbotron h1,
   .jumbotron .h1,
   .error-page .error-message h1,
-  .error-page .error-message .h1 {
+  .error-page .error-message .h1,
+  .serp .error-message h1,
+  .serp .error-message .h1 {
     font-size: 63px;
     font-size: 6.3rem;
   }
@@ -8344,40 +8357,94 @@ iframe[name="adblade_ad_iframe"] {
   border-top: 4px solid #ddd;
 }
 .error-page h1,
-.error-page h3 {
+.serp h1,
+.error-page h3,
+.serp h3 {
   font-family: "Oxygen", "Trebuchet MS", "Helvetica Neue", Arial, serif !important;
 }
-.error-page hr {
+.error-page hr,
+.serp hr {
   margin: 44px;
 }
-.error-page .error-message {
+.error-page .error-message,
+.serp .error-message {
   text-align: center;
   background: #fef7f7;
   border: 1px solid #a61a13;
 }
 @media (min-width: 768px) {
-  .error-page .error-message h1 {
+  .error-page .error-message h1,
+  .serp .error-message h1 {
     margin-top: 0;
   }
-  .error-page .error-message form {
+  .error-page .error-message form,
+  .serp .error-message form {
     margin-bottom: 0;
   }
 }
 .error-page .col,
+.serp .col,
 .error-page .factbox,
-.error-page .inline-promo {
+.serp .factbox,
+.error-page .inline-promo,
+.serp .inline-promo {
   margin-bottom: 44px;
 }
 @media (max-width: 767px) {
-  .error-page .error-message {
+  .error-page .error-message,
+  .serp .error-message {
     padding: 0;
     background: transparent;
     border: 0;
   }
-  .error-page .error-message p {
+  .error-page .error-message p,
+  .serp .error-message p {
     font-size: 16px;
     font-size: 1.6rem;
   }
+}
+.content-well > h1 {
+  margin-top: 0;
+}
+.results {
+  line-height: 1.4;
+}
+.results p {
+  margin-bottom: 5.5px;
+}
+.results .headline {
+  font-size: 18px;
+  font-size: 1.8rem;
+  text-decoration: underline;
+}
+.results .byline,
+.results .meta {
+  font-size: 11px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.results .description {
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.results .meta {
+  color: #59830f;
+}
+.results ul li {
+  margin-bottom: 33px;
+}
+.filters {
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.filters .page-header {
+  margin: 0!important;
+}
+.filters .filter {
+  margin-bottom: 22px;
+}
+.filters .badge {
+  float: right;
 }
 .web-feeds h1.page-header {
   margin-top: 0;
