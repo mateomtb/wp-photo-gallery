@@ -33,11 +33,23 @@ Uses Strapit version 2.0.5
 [Article page with factbox]
 (http://sandbox.digitalfirstmedia.com/btown/article.php?factbox)
 
-[Apocalyse treatment]
+[Apocalypse treatment]
 (http://sandbox.digitalfirstmedia.com/btown/index-apoc.php)
+
+[Search Results page]
+(http://sandbox.digitalfirstmedia.com/btown/serp.php)
+
+[Topic page]
+(http://sandbox.digitalfirstmedia.com/btown/topic.php)
+
+[404 Error page]
+(http://sandbox.digitalfirstmedia.com/btown/404.php)
 
 [RSS Feeds page]
 (http://sandbox.digitalfirstmedia.com/btown/webfeeds.php)
+
+[Site Map page]
+(http://sandbox.digitalfirstmedia.com/btown/sitemap.php)
 
 
 
