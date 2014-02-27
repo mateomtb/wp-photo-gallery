@@ -7,6 +7,8 @@
             {% include 'body-header.twig' %}
             {% block header %}{% endblock %}
         </header>
+        <div id="header"></div>
+        {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-wallpaper'} %}
 
     <div id="content" class="container">
 	{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-pencil'} %}
