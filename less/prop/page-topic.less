@@ -1,28 +1,38 @@
 //
 .topic-page {
-	.centerpiece {
-		.meta {
-			border: 0;
-		}
+	.content-well {
+		margin-bottom: @line-height-computed;
 	}
-	@media (min-width:@breakpoint-md) {
-		.media {
-			float: left;
-			width: 50%;
-			margin-right: (@grid-gutter-width / 2);
-			z-index: 2;
-		}
-	}
-	@media (min-width:@breakpoint-sm) {
-		.post-excerpt {
-			.clearfix();
-			.promo-image {
-				float: left;
-				max-width: 25%;
-				margin-right: (@grid-gutter-width / 2);
-			}
-		}
 
-	}
+  .centerpiece {
+    .meta {
+      border: 0;
+    }
+    margin-bottom: 0;
+  }
+  @media (min-width:@breakpoint-md) {
+    .media {
+      float: left;
+      width: 50%;
+      margin-right: (@grid-gutter-width / 2);
+      z-index: 2;
+    }
+  }
+  @media (min-width:@breakpoint-sm) {
+    .post-excerpt {
+      .clearfix();
+      .promo-image {
+        float: left;
+        max-width: 25%;
+        margin-right: (@grid-gutter-width / 2);
+      }
+    }
+
+  }
+  .story-feed + .story-feed {
+    border-top: @fat-gray-border;
+    margin-top: @line-height-computed;
+    padding-top: (@line-height-computed - 4);
+  }
 
 }

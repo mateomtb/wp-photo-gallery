@@ -18,6 +18,7 @@
             </div>  <!-- .col md-9 -->
             <div class="left-rail col md-3 md-pull-9">
                 <?php include('temps/content/story-feed-topic.php'); ?>
+                <?php include('temps/content/story-feed-topic2.php'); ?>
             </div> <!-- .left-rail -->
         </div> <!-- .down-page -->
     </div> <!-- .content-well -->
