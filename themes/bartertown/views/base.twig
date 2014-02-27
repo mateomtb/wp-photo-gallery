@@ -4,11 +4,11 @@
 {% endblock %}
 </head>
     <body class="{{body_class}}" data-source="base.twig">
-	    <div id="header"></div>
-	    {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-wallpaper'} %}
         <header id="site-header" class="header" >
             {% include 'body-header.twig' %}
             {% block header %}{% endblock %}
+            <div id="header"></div>
+		    {#{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-wallpaper'} %}#}
         </header>
 
     <div id="content" class="container">

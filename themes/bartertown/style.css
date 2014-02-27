@@ -43,8 +43,13 @@ section#right-rail { margin-top:20px; margin-left:15px; border: 1px solid red; }
 	display: none;
 }
 
+#DFM-adPos-pencil {
+	display: none;
+}
+
 @media (min-width: 768px) {
 
+  /* Dog ear ad related */
 	#DFM-adPos-ear1 {
 		display: block;
 		float: left;
@@ -54,7 +59,15 @@ section#right-rail { margin-top:20px; margin-left:15px; border: 1px solid red; }
 		display: block;
 		float: right;
 	}
+	/* End dog ear ad related */
 	
+}
+
+@media (min-width: 1120px) {
+	#DFM-adPos-pencil {
+		display: block;
+		margin-bottom: 20px;
+	}
 }
 
 
