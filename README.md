@@ -3,7 +3,7 @@ btown
 
 Bartertown responsive comps.
 
-## Current version: 1.2.0
+## Current version: 1.3.0
 Uses Strapit version 2.0.5
 
 
