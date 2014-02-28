@@ -7640,10 +7640,6 @@ h6,
   min-height: 40px;
   background: #39547a;
 }
-.flag .branding {
-  width: 150px;
-  margin: 0 auto;
-}
 @media (min-width: 768px) {
   .flag {
     position: relative;
@@ -7653,7 +7649,25 @@ h6,
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe4eaf2', endColorstr='#ffffffff', GradientType=0);
     background-repeat: repeat-x;
   }
+  .flag .container {
+    min-height: 90px;
+  }
+}
+@media (min-width: 768px) {
+  .flag .page-id {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    width: 225px;
+  }
+}
+.flag .branding {
+  width: 150px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
   .flag .branding {
+    width: auto;
     min-height: none;
     max-height: none;
     margin: 0;
@@ -7661,6 +7675,11 @@ h6,
   .flag .branding.sm {
     margin-top: 5px;
   }
+  .flag .branding.xl {
+    width: 45%;
+  }
+}
+@media (min-width: 768px) {
   .flag .search-bar {
     position: absolute;
     right: 15px;

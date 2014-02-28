@@ -11,7 +11,7 @@
     <script src="<?php echo JS_DIR; ?>/lib/modernizr.js"></script>
 
     <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="<?php echo BASE_URL;?>/css/bartertown.min.css" media="screen"/> 
+    <link rel="stylesheet" href="<?php echo BASE_URL;?>/css/bartertown.css" media="screen"/> 
 </head>
 <body <?php if($page_type === 'home') { echo ' class="home-page"'; }
        else if($page_type === 'section') { echo ' class="section-page"'; }
