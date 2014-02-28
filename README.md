@@ -51,7 +51,5 @@ Uses Strapit version 2.0.5
 [Site Map page]
 (http://sandbox.digitalfirstmedia.com/btown/sitemap.php)
 
-
-
-
-
+[Staff Profile page]
+(http://sandbox.digitalfirstmedia.com/btown/author.php)
