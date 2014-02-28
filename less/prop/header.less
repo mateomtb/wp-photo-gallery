@@ -22,7 +22,6 @@
       position: absolute;
       bottom: 10px;
       left: (@grid-gutter-width / 2);
-      width: 225px;
     }
   }
   .branding {
@@ -34,14 +33,13 @@
       max-height: none;
       margin: 0;
       &.sm {
-        margin-top: 5px;
+        margin-bottom: 5px;
       }
       &.xl {
-        width: 45%;
+        width: 80%;
       }
     }
   }
-
   .search-bar {
     @media (min-width: @breakpoint-md) {
       position: absolute;
@@ -82,47 +80,36 @@
   }
 }
 
-
 .back-toggle {
   position: absolute;
   top: 0;
+  left: -40px;
   .square(@navbar-height + 4);
-  .glyphicon {
-    color: #fff;
-    .font-size(18px);
-    pointer-events: none;
-  }
-  &:focus {
-    border: 0;
-  }
+  margin-left: (@grid-gutter-width / -2);
   padding: 10px;
   background: rgba(255,255,255,.1);
   border: 0;
-  cursor: pointer;
-  margin-left: (@grid-gutter-width / -2);
-  &:hover {
-    background: rgba(255,255,255,.2);
-  }
-  @media (min-width: @grid-float-breakpoint) {
-    display: none;
-  }
-}
-
-.back-toggle {
-  .transition(@default-trans);
-  left: -40px;
   border-right: @border;
+  cursor: pointer;
+  .transition(@default-trans);
   &.active {
     left: 15px;
     .transition(@default-trans);
     z-index: 20000;
   }
-}
-
-.home-page .flag > .container {
+  &:hover {
+    background: rgba(255,255,255,.2);
+  }
+  &:focus {
+    border: 0;
+  }
+  .glyphicon {
+    color: #fff;
+    .font-size(18px);
+    pointer-events: none;
+  }
   @media (min-width: @breakpoint-md) {
-    padding-top: @grid-gutter-width;
-    padding-bottom: (@grid-gutter-width * .25);
+    display: none;
   }
 }
 
@@ -139,6 +126,7 @@
   margin: 0;
   @media (min-width: @breakpoint-md) { 
     .font-size(36px);
+    line-height: .8;
   }
   @media (max-width: @breakpoint-sm-max) {
     .font-size(18px);
@@ -149,6 +137,7 @@
     color: #fff;
   }
 }
+// CSS lint doesn't like this but it needs to be done
 a.section-name {
   &:hover {
     text-decoration: none;
@@ -162,7 +151,7 @@ a.section-name {
 // Hot topics
 // -----------------------------
 #hot-topics {
-  border-bottom: 1px solid @border-color;
+  border-bottom: @border;
   width: 100%;
   .container {
     &:extend(.clearfix all);
@@ -173,8 +162,8 @@ a.section-name {
       height: (@line-height-computed * 1.5);
       > li {
         &:first-child {
-          padding-left:0;
-          text-transform:uppercase;
+          padding-left: 0;
+          text-transform: uppercase;
           font-family: @font-family-treb;
           font-weight: @font-weight-heavy;
         }
