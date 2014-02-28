@@ -28,8 +28,8 @@
 				<div class="col md-9">
 					<?php include('temps/content/story-feed-author.php'); ?>
 					<ul class="pagination">
-					  <li class="active"><a href="#">&laquo;</a></li>
-					  <li><a href="#">1</a></li>
+					  <li class="disabled"><a href="#">&laquo;</a></li>
+					  <li class="active"><a href="#">1</a></li>
 					  <li><a href="#">2</a></li>
 					  <li><a href="#">3</a></li>
 					  <li><a href="#">4</a></li>
