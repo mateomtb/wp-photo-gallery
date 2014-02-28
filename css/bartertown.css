@@ -694,8 +694,6 @@ a.bg-info:hover {
 .comments:after,
 .error-page .error-message:before,
 .error-page .error-message:after,
-.serp .error-message:before,
-.serp .error-message:after,
 .ad.pushdown:before,
 .ad.pushdown:after,
 .ad.pencil.expanded:before,
@@ -765,7 +763,6 @@ a.bg-info:hover {
 #ifrRec:after,
 .comments:after,
 .error-page .error-message:after,
-.serp .error-message:after,
 .ad.pushdown:after,
 .ad.pencil.expanded:after,
 .factbox:after,
@@ -5502,8 +5499,7 @@ a.list-group-item.active > .badge,
   margin-left: 3px;
 }
 .jumbotron,
-.error-page .error-message,
-.serp .error-message {
+.error-page .error-message {
   padding: 30px;
   margin-bottom: 30px;
   color: inherit;
@@ -5512,48 +5508,39 @@ a.list-group-item.active > .badge,
 .jumbotron h1,
 .jumbotron .h1,
 .error-page .error-message h1,
-.error-page .error-message .h1,
-.serp .error-message h1,
-.serp .error-message .h1 {
+.error-page .error-message .h1 {
   color: inherit;
 }
 .jumbotron p,
-.error-page .error-message p,
-.serp .error-message p {
+.error-page .error-message p {
   margin-bottom: 15px;
   font-size: 21px;
   font-size: 2.1rem;
   font-weight: 200;
 }
 .container .jumbotron,
-.container .error-page .error-message,
-.container .serp .error-message {
+.container .error-page .error-message {
   border-radius: 6px;
 }
 .jumbotron .container,
-.error-page .error-message .container,
-.serp .error-message .container {
+.error-page .error-message .container {
   max-width: 100%;
 }
 @media screen and (min-width: 768px) {
   .jumbotron,
-  .error-page .error-message,
-  .serp .error-message {
+  .error-page .error-message {
     padding-top: 48px;
     padding-bottom: 48px;
   }
   .container .jumbotron,
-  .container .error-page .error-message,
-  .container .serp .error-message {
+  .container .error-page .error-message {
     padding-right: 60px;
     padding-left: 60px;
   }
   .jumbotron h1,
   .jumbotron .h1,
   .error-page .error-message h1,
-  .error-page .error-message .h1,
-  .serp .error-message h1,
-  .serp .error-message .h1 {
+  .error-page .error-message .h1 {
     font-size: 63px;
     font-size: 6.3rem;
   }
@@ -7482,6 +7469,7 @@ h6,
   margin-bottom: 0;
   font-size: 10px;
   font-weight: 900;
+  line-height: 1;
 }
 .comment-bug .glyphicon {
   margin-top: -20%;
@@ -8394,47 +8382,40 @@ iframe[name="adblade_ad_iframe"] {
 }
 .error-page h1,
 .serp h1,
+.author-page h1,
 .error-page h3,
-.serp h3 {
+.serp h3,
+.author-page h3 {
   font-family: "Oxygen", "Trebuchet MS", "Helvetica Neue", Arial, serif !important;
 }
-.error-page hr,
-.serp hr {
+.error-page hr {
   margin: 44px;
 }
-.error-page .error-message,
-.serp .error-message {
+.error-page .error-message {
   text-align: center;
   background: #fef7f7;
   border: 1px solid #a61a13;
 }
 @media (min-width: 768px) {
-  .error-page .error-message h1,
-  .serp .error-message h1 {
+  .error-page .error-message h1 {
     margin-top: 0;
   }
-  .error-page .error-message form,
-  .serp .error-message form {
+  .error-page .error-message form {
     margin-bottom: 0;
   }
 }
 .error-page .col,
-.serp .col,
 .error-page .factbox,
-.serp .factbox,
-.error-page .inline-promo,
-.serp .inline-promo {
+.error-page .inline-promo {
   margin-bottom: 44px;
 }
 @media (max-width: 767px) {
-  .error-page .error-message,
-  .serp .error-message {
+  .error-page .error-message {
     padding: 0;
     background: transparent;
     border: 0;
   }
-  .error-page .error-message p,
-  .serp .error-message p {
+  .error-page .error-message p {
     font-size: 16px;
     font-size: 1.6rem;
   }
@@ -8564,6 +8545,38 @@ iframe[name="adblade_ad_iframe"] {
 .site-map .bottom-items {
   margin-top: 22px;
   margin-bottom: 22px;
+}
+.author-page img {
+  margin-bottom: 11px;
+}
+.author-page .media ul,
+.author-page .inline-promo ul {
+  padding-top: 11px;
+  margin-top: 11px;
+  border-top: 1px solid #ddd;
+}
+.author-page .media ul li,
+.author-page .inline-promo ul li {
+  margin-bottom: 5.5px;
+}
+@media (max-width: 767px) {
+  .author-page .media,
+  .author-page .inline-promo {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #ddd;
+  }
+  .author-page .media .media-object,
+  .author-page .inline-promo .media-object {
+    float: left;
+    max-width: 90px;
+    margin-right: 10px;
+  }
+  .author-page .media ul li,
+  .author-page .inline-promo ul li {
+    display: inline-block;
+    margin-right: 5px;
+  }
 }
 .ad {
   position: relative;
@@ -10581,6 +10594,11 @@ header.ear-ads .ear-ad-right {
 .webicon:hover {
   filter: alpha(opacity=50);
   opacity: .5;
+}
+.webicon.xs {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
 }
 .webicon.sm {
   width: 20px;

@@ -1,11 +1,19 @@
-// 404
+// COMMON
 // ------------------------
 
 .error-page,
-.serp {
+.serp,
+.author-page {
   h1, h3 {
     font-family: @font-family-treb!important;
   }
+}
+
+
+// 404
+// ------------------------
+
+.error-page {
   hr {
     margin: (@line-height-computed * 2);
   }
@@ -38,6 +46,7 @@
     }
   }
 }
+
 
 // SERP CSS
 // ------------------------
@@ -161,4 +170,39 @@
     margin-bottom: @line-height-computed;
     &:extend(.row all);
   }
+}
+
+// Author page CSS
+// ------------------------
+
+.author-page {
+	img {
+		margin-bottom: (@line-height-computed / 2);
+	}
+	.media ul {
+		border-top: @border;
+		margin-top: (@line-height-computed / 2);
+		padding-top: (@line-height-computed / 2);
+		li {
+			margin-bottom: (@line-height-computed / 4);
+		}
+	}
+	@media (max-width: @breakpoint-sm-max) {
+		.media {
+			border-bottom: @fat-gray-border;
+			margin-bottom: (@line-height-computed - 2);
+			padding-bottom: (@line-height-computed - 2);
+			.media-object {
+				margin-right: 10px;
+				max-width: 90px;
+				float: left;
+			}
+			ul {
+				li {
+					display: inline-block;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
 }
