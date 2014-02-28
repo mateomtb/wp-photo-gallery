@@ -1,5 +1,5 @@
-// COMMON
-// ------------------------
+// Common styles on leaf pages
+// -----------------------------
 
 .error-page,
 .serp,
@@ -10,7 +10,7 @@
 }
 
 
-// 404
+// 404 page
 // ------------------------
 
 .error-page {
@@ -48,60 +48,60 @@
 }
 
 
-// SERP CSS
+// Search results page
 // ------------------------
 .content-well {
-	> h1 {
-		margin-top: 0;
-	}
+  > h1 {
+    margin-top: 0;
+  }
 }
 
 .serp {
-	h1 {
-		
-	}
+  h1 {
+    
+  }
 }
 
 .results {
-	line-height: 1.4;
-	p {
-		margin-bottom: (@line-height-computed / 4);
-	}
-	.headline {
-		.font-size(18px);
-		text-decoration: underline;
-	}
-	.byline,
-	.meta {
-		font-weight: @font-weight-bold;
-		.font-size(11px);
-	}
-	.description {
-		.font-size(13px);
-	}
-	.meta {
-		color: @brand-success;
-	}
-	ul {
-		li {
-			margin-bottom: (@line-height-computed * 1.5);
-		}
-	}
+  line-height: 1.4;
+  p {
+    margin-bottom: (@line-height-computed / 4);
+  }
+  .headline {
+    .font-size(18px);
+    text-decoration: underline;
+  }
+  .byline,
+  .meta {
+    font-weight: @font-weight-bold;
+    .font-size(11px);
+  }
+  .description {
+    .font-size(13px);
+  }
+  .meta {
+    color: @brand-success;
+  }
+  ul {
+    li {
+      margin-bottom: (@line-height-computed * 1.5);
+    }
+  }
 }
 .filters {
-	.font-size(13px);
-	.page-header {
-		margin: 0!important;
-	}
-	.filter {
-		margin-bottom: @line-height-computed;
-	}
-	.badge {
-		float: right;
-	}
+  .font-size(13px);
+  .page-header {
+    margin: 0!important;
+  }
+  .filter {
+    margin-bottom: @line-height-computed;
+  }
+  .badge {
+    float: right;
+  }
 }
 
-// Web feeds page CSS
+// Web feeds page
 // ------------------------
 
 .web-feeds {
@@ -134,7 +134,7 @@
   }
 }
 
-// Site map page CSS
+// Site map page
 // ------------------------
 
 .site-map {  
@@ -172,37 +172,40 @@
   }
 }
 
-// Author page CSS
+// Author page
 // ------------------------
 
 .author-page {
-	img {
-		margin-bottom: (@line-height-computed / 2);
-	}
-	.media ul {
-		border-top: @border;
-		margin-top: (@line-height-computed / 2);
-		padding-top: (@line-height-computed / 2);
-		li {
-			margin-bottom: (@line-height-computed / 4);
-		}
-	}
-	@media (max-width: @breakpoint-sm-max) {
-		.media {
-			border-bottom: @fat-gray-border;
-			margin-bottom: (@line-height-computed - 2);
-			padding-bottom: (@line-height-computed - 2);
-			.media-object {
-				margin-right: 10px;
-				max-width: 90px;
-				float: left;
-			}
-			ul {
-				li {
-					display: inline-block;
-					margin-right: 5px;
-				}
-			}
-		}
-	}
+  img {
+    margin-bottom: (@line-height-computed / 2);
+  }
+  .media ul {
+    border-top: @border;
+    margin-top: (@line-height-computed / 2);
+    padding-top: (@line-height-computed / 2);
+    li {
+      margin-bottom: (@line-height-computed / 4);
+    }
+  }
+  @media (max-width: @breakpoint-sm-max) {
+    .media {
+      border-bottom: @fat-gray-border;
+      margin-bottom: (@line-height-computed - 2);
+      padding-bottom: (@line-height-computed - 2);
+      .media-object {
+        margin-right: 10px;
+        max-width: 90px;
+        float: left;
+      }
+      ul {
+        li {
+          display: inline-block;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
 }
+
+// Contact page
+// ------------------------
