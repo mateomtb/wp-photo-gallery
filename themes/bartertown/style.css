@@ -35,39 +35,52 @@ section#right-rail { margin-top:20px; margin-left:15px; border: 1px solid red; }
 
 /* Ads */
 
-#DFM-adPos-ear1 {
-	display: none;
-}
-
-#DFM-adPos-ear2 {
-	display: none;
+.flag .earad {
+	display: block;
 }
 
 #DFM-adPos-pencil {
 	display: none;
 }
 
-@media (min-width: 768px) {
-
-  /* Dog ear ad related */
-	#DFM-adPos-ear1 {
-		display: block;
-		float: left;
-	}
-
-	#DFM-adPos-ear2 {
-		display: block;
-		float: right;
-	}
-	/* End dog ear ad related */
-	
+#leftWall {
+	display: none;
 }
 
-@media (min-width: 1120px) {
+#rightWall {
+	display:none;
+}
+
+
+/* Wallpaper related */
+/* The wallpaper doesn't really work for smaller screens if you keep expanding the width of the main container */
+/*#content {
+	max-width: 1000px;
+}*/
+
+@media (min-width: 1000px) {
+	#leftWall {
+		display: block;
+		/*position:relative;*/
+	}
+
+	#rightWall {
+		display:none;
+		/*position: relative;*/
+	}
+}
+
+/* End wallpaper related */
+
+/* Sliding billboard (pencil) ad related */
+@media (min-width: 1000px) {
 	#DFM-adPos-pencil {
 		display: block;
 		margin-bottom: 20px;
 	}
+	
+	/* End sliding billboard (pencil) related */
+	
 }
 
 

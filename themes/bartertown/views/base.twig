@@ -7,12 +7,14 @@
         <header id="site-header" class="header" >
             {% include 'body-header.twig' %}
             {% block header %}{% endblock %}
+            {# not sure if we're going to have wallpaper 
             <div id="header"></div>
-		    {#{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-wallpaper'} %}#}
+            {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-wallpaper'} %}
+            #}
         </header>
 
     <div id="content" class="container">
-	{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-pencil'} %}
+    {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-pencil'} %}
     {% if is_home %}
         {% include 'home.twig' %}
     {% else %}

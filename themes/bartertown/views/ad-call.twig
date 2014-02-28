@@ -1,4 +1,4 @@
-<div id="{{ad_size}}" class="dfp-ad">
+<div id="{{ad_size}}" class="dfp-ad{% if ad_size == 'DFM-adPos-ear1' %} earad flag earad-in left {% elseif ad_size == 'DFM-adPos-ear2' %} earad flag earad-in right {% endif %}">
     <script type='text/javascript'>
         googletag.cmd.push(
             function(){
