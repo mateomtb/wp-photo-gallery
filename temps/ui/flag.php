@@ -1,4 +1,4 @@
-<div class="flag">
+<div class="flag<?php if($earads == 'true'){ echo ' earads-in'; }?>">
     <div class="container">
         <a class="menu-toggle">
             <span class="icon-bar" aria-hidden="true"></span>
@@ -8,7 +8,10 @@
         </a>
         <button class="back-toggle"><span class="glyphicon glyphicon-chevron-left"><span class="sr-only">Back</span></span></button>
 
-
+			<?php if($earads == 'true'):?>
+				<img src="http://placehold.it/120x90" alt="" class="earad left" />
+				<img src="http://placehold.it/120x90" alt="" class="earad right" />
+			<?php endif;?>
         <div class="page-id">
             <?php if($page_type === 'home'): ?>
             <h1 class="branding xl"><?php include('img/logo.svg');?><span class="sr-only">The Denver Post</span></h1>
@@ -37,7 +40,6 @@
                     </span>
                 </div><!-- /input-group -->
             </form> <!-- #site-search -->
-
         <!-- </div> --> <!-- .header-tools -->
 
         <ul class="top-bar-toggle visible-md-up">

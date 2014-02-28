@@ -7668,6 +7668,34 @@ h6,
     width: 225px;
   }
 }
+.flag .earad {
+  position: absolute;
+  top: 10px;
+  display: none;
+}
+.flag .earad.left {
+  left: 15px;
+}
+.flag .earad.right {
+  right: 15px;
+}
+@media (min-width: 960px) {
+  .flag.earads-in .container {
+    min-height: 110px;
+  }
+  .flag.earads-in .page-id {
+    position: absolute;
+    bottom: 10px;
+    left: 145px;
+  }
+  .flag.earads-in .search-bar,
+  .flag.earads-in .top-bar-toggle {
+    right: 145px;
+  }
+  .flag.earads-in .earad {
+    display: block;
+  }
+}
 .back-toggle {
   position: absolute;
   top: 0;

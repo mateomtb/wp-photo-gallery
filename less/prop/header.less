@@ -32,6 +32,36 @@
       width: 225px;
     }
   }
+  .earad {
+    position: absolute;
+    top: 10px;
+    display: none;
+    &.left {
+      left: 15px;
+    }
+    &.right {
+      right: 15px;
+    }
+  }
+  &.earads-in {
+	  @media (min-width: @breakpoint-lg) {
+        .container {
+          min-height: 110px
+        }
+        .page-id {
+          position: absolute;
+          bottom: 10px;
+          left: 145px;
+        }
+        .search-bar,
+        .top-bar-toggle {
+          right:145px;
+        }
+        .earad {
+          display: block;
+        }
+	  }
+  }
 }
 
 
