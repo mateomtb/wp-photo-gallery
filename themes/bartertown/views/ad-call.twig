@@ -1,6 +1,8 @@
+{% if all_ads %}
 <div id="{{ad_size}}" class="dfp-ad{% if ad_size == 'DFM-adPos-ear1' %} earad flag earad-in left {% elseif ad_size == 'DFM-adPos-ear2' %} earad flag earad-in right {% endif %}">
     <script type='text/javascript'>
         (function(width, adSize) {
+	        console.log(width);
             if (width < 960) {
 				if (adSize === 'DFM-adPos-ear1' || adSize === 'DFM-adPos-ear2') {
 					return false;
@@ -13,9 +15,10 @@
 			}
 		googletag.cmd.push(
             function(){
-                googletag.display({{ad_size}});
+                googletag.display('{{ad_size}}');
             }
         );
-		})(dfm.$(window).width(), {{ad_size}});
+		})(dfm.$(window).width(), '{{ad_size}}');
     </script>
 </div>
+{% endif %}

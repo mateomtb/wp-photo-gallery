@@ -1,9 +1,9 @@
-{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-inter'} %}
 {% include 'html-header.twig' %}
 {% block head %}
 {% endblock %}
 </head>
     <body class="{{body_class}}" data-source="base.twig">
+	    {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-leader'} %}
         <header id="site-header" class="header" >
             {% include 'body-header.twig' %}
             {% block header %}{% endblock %}

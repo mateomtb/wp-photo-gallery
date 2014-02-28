@@ -65,4 +65,9 @@
     dfm.api("data","janrain.settings.appUrl", "https://registration.medianewsgroup.com");
     dfm.api("data","janrain.settings.capture.backplaneBusName", "dfm");
 </script>
+{% if is_single == false %}
 {% include 'ads-header.twig' %}
+{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-inter'} %}
+{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-hand'} %}
+{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-peel'} %}
+{% endif %}
