@@ -1,8 +1,8 @@
 <?php require_once('inc/init.php'); // load in base objects ?>
 <?php
     $page_type = 'section';
-    $master_name = 'Author bio';
-    $sub_name = 'Author bio';
+    $master_name = 'Staff profile';
+    $sub_name = 'Staff profile';
 ?>
 <?php require_once('temps/header.php'); // load in header ?>
 <div class="row author-page">
