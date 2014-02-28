@@ -1,9 +1,21 @@
 <div id="{{ad_size}}" class="dfp-ad{% if ad_size == 'DFM-adPos-ear1' %} earad flag earad-in left {% elseif ad_size == 'DFM-adPos-ear2' %} earad flag earad-in right {% endif %}">
     <script type='text/javascript'>
-        googletag.cmd.push(
+        (function(width, adSize) {
+            if (width < 960) {
+				if (adSize === 'DFM-adPos-ear1' || adSize === 'DFM-adPos-ear2') {
+					return false;
+				}
+			}
+			if (width < 1000 && adSize === 'DFM-adPos-pencil') {
+				if (adSize === 'DFM-adPos-pencil' || adSize === 'DFM-adPos-inter' || adSize === 'DFM-adPos-leader' || adSize === 'DFM-adPos-leader' || adSize === 'DFM-adPos-peel' || adSize === 'DFM-adPos-hand') {
+					return false;
+				}
+			}
+		googletag.cmd.push(
             function(){
-                googletag.display('{{ad_size}}');
+                googletag.display({{ad_size}});
             }
         );
+		})(dfm.$(window).width(), {{ad_size}});
     </script>
 </div>

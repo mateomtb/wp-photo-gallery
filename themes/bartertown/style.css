@@ -39,6 +39,14 @@ section#right-rail { margin-top:20px; margin-left:15px; border: 1px solid red; }
 	display: block;
 }
 
+#DFM-adPos-ear1 {
+	display: none;
+}
+
+#DFM-adPos-ear2 {
+	display: none;
+}
+
 #DFM-adPos-pencil {
 	display: none;
 }
@@ -51,6 +59,17 @@ section#right-rail { margin-top:20px; margin-left:15px; border: 1px solid red; }
 	display:none;
 }
 
+@media (min-width : 960px) {
+	#DFM-adPos-ear1 {
+		display: block;
+	}
+
+	#DFM-adPos-ear2 {
+		display: block;
+	}
+	
+	
+}
 
 /* Wallpaper related */
 /* The wallpaper doesn't really work for smaller screens if you keep expanding the width of the main container */
