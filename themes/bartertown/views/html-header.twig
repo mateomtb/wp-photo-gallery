@@ -19,6 +19,8 @@
 <script type="text/javascript" src="http://extras.mnginteractive.com/live/js/otherinc/otherinc.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
+<script type="text/javascript" src="http://local.denverpost.com/common/dfm/dfm-core.js"></script>
+
 <!-- Will have to replace with production-ready CSS URL. -->
 <link rel="stylesheet" href="http://sandbox.digitalfirstmedia.com/btown/css/bartertown.min.css" media="screen"/>
 <link rel="stylesheet" type="text/css" media="all" href="{{bloginfo('stylesheet_url')}}" /> 
@@ -65,9 +67,7 @@
     dfm.api("data","janrain.settings.appUrl", "https://registration.medianewsgroup.com");
     dfm.api("data","janrain.settings.capture.backplaneBusName", "dfm");
 </script>
-{% if is_single == false %}
 {% include 'ads-header.twig' %}
+{% if is_single == false %}
 {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-inter'} %}
-{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-hand'} %}
-{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-peel'} %}
 {% endif %}
