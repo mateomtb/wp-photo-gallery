@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: 
+ * Plugin Name: DFM In-Article Teasers
  * Plugin URI: 
- * Description: 
+ * Description: Takes a WP link object and appends it in-article as a teaser to the destination. Requires Easy Custom Fields.
  * Version: 0.1
  * Author: Joe Murphy, Digital First Media
  * Author URI: http://digitalfirstmedia.com/
@@ -19,40 +19,18 @@ if ( !file_exists(WP_PLUGIN_DIR . '') ) die("Requires plugin (  )");
 require_once( WP_PLUGIN_DIR . '' );
 
 
-class DFMAutoAutoBlog
+class DFMInArticleTeaser
 {
-    // We use this class to 
+    // We use this class to manage In-Article Teasers
 
 
     function __construct($post, $collection_type = 'package')
     {
-        switch ( gettype($post) ):
-            case 'object':
-                $this->post = $post;
-                break;
-            case 'integer':
-                $this->post = get_post($post);
-                break;
-            case 'string':
-                $this->post = get_post(intval($post));
-                break;
-        endswitch;
-        $this->collection_type=$collection_type;
-        $this->collection=$this->get_collection();
     }
 
     public function get_collection($post_id=0)
     {
         // Returns the tag slug of the collection for a particular post.
-        // Takes a parameter, post_id, for manual lookups of post collection field.
-        if ( $post_id == 0 )
-            $post_id = $post->ID;
-
-        $collection = get_post_custom_values('package', $post_id);
-        if ( $this->collection_type == 'related' )
-            $collection = get_post_custom_values('related', $post_id);
-        
-        return $collection;
     }
 
     public function get_collection_items()
