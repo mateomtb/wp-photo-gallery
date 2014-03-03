@@ -72,6 +72,29 @@ section#right-rail { margin-top:20px; margin-left:15px; border: 1px solid red; }
   }
   
   /*End ear ad related*/
+
+	/* Sliding billboard (pencil) ad related */
+
+	  #DFM-adPos-pencil {
+	    display: block;
+	    padding-bottom: 20px;
+	  }
+
+	  /* End sliding billboard (pencil) related */
+
+	  /* Top leaderboard related*/
+
+	  .leaderboard-wrap {
+	    width:100%; 
+	    text-align:center;
+	  }
+
+	  #DFM-adPos-leader {
+	    display : block;
+	    padding: 10px 0;
+	  }
+
+	  /* End top leaderboard related */
   
 }
 
@@ -94,32 +117,5 @@ section#right-rail { margin-top:20px; margin-left:15px; border: 1px solid red; }
 }
 
 /* End wallpaper related */
-
-@media (min-width: 1000px) {
-
-/* Sliding billboard (pencil) ad related */
-  
-  #DFM-adPos-pencil {
-    display: block;
-    padding-bottom: 20px;
-  }
-  
-  /* End sliding billboard (pencil) related */
-  
-  /* Top leaderboard related*/
-  
-  .leaderboard-wrap {
-    width:100%; 
-    text-align:center;
-  }
-  
-  #DFM-adPos-leader {
-    display : block;
-    padding: 10px 0;
-  }
-  
-  /* End top leaderboard related */
-  
-}
 
 /* End ads */
