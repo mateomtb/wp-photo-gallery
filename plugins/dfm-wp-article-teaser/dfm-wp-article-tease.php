@@ -37,13 +37,17 @@ if ( !class_exists( "Easy_CF_Field_Link_Select" ) ) {
             $label = ( empty( $this->_field_data['label'] ) ) ? $this->_field_data['id'] :  $this->_field_data['label'];
             $value = $this->get();
 
+            $items = array();
+            if ( function_exists('get_bookmarks') )
+                $items = get_bookmarks(array('category'=>'teaser'));
+
             //$items = get_tags();
             $options = '<option value=""></option>';
             $selected = '';
 
             foreach ( $items as $item ):
-                if ( $tag->slug == $value ) $selected = 'selected';
-                $options .= '<option value="' . $tag->slug . '" . ' . $selected . '>' . $tag->name . '</option>' . "\n";
+                if ( $item->slug == $value ) $selected = 'selected';
+                $options .= '<option value="' . $item->link_id . '" . ' . $selected . '>' . $item->link_name . '</option>' . "\n";
                 $selected = '';
             endforeach;
 
@@ -63,29 +67,14 @@ $easy_cf = new Easy_CF($field_data);
 
 class DFMInArticleTeaser
 {
-    // We use this class to manage In-Article Teasers
+    // We use this class to manage In-Article Teasers.
+    // Yes, it's just a wrapper for get_bookmark,
+    // but this allows us to build on the functionality here without
+    // significant theme code rewrites.
 
 
-    function __construct($post, $collection_type = 'package')
+    function __construct($bookmark_id)
     {
-    }
-
-    public function get_collection($post_id=0)
-    {
-        // Returns the tag slug of the collection for a particular post.
-    }
-
-    public function get_collection_items()
-    {
-        // Returns an array of post objects in the collection.
-        $args = array(
-            'tag' => $this->collection[0],
-            'limit' => 10,
-            );
-        $query = new WP_Query($args);
-        if ( $query->have_posts() )
-            return $query->posts;
-        
-        return false;
+        return get_bookmark($bookmark_id);
     }
 }
