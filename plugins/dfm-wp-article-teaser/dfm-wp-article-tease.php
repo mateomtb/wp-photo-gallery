@@ -36,18 +36,17 @@ if ( !class_exists( "Easy_CF_Field_Link_Select" ) ) {
             $id = ( empty( $this->_field_data['id'] ) ) ? $this->_field_data['id'] :  $this->_field_data['id'];
             $label = ( empty( $this->_field_data['label'] ) ) ? $this->_field_data['id'] :  $this->_field_data['label'];
             $value = $this->get();
-
+var_dump($this);
             $items = array();
             if ( function_exists('get_bookmarks') )
-                $items = get_bookmarks(array('category'=>'teaser'));
+                $items = get_bookmarks(array('category_name'=>'teaser'));
 
-            //$items = get_tags();
-            $options = '<option value=""></option>';
+            $options = "\n<option value=\"\"></option>\n";
             $selected = '';
 
             foreach ( $items as $item ):
-                if ( $item->slug == $value ) $selected = 'selected';
-                $options .= '<option value="' . $item->link_id . '" . ' . $selected . '>' . $item->link_name . '</option>' . "\n";
+                if ( $item->link_id == $value ) $selected = 'selected';
+                $options .= '<option value="' . $item->link_id . '" ' . $selected . '>' . $item->link_name . '</option>' . "\n";
                 $selected = '';
             endforeach;
 
