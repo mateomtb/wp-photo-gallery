@@ -18,11 +18,16 @@ if ( !file_exists(WP_PLUGIN_DIR . '/easy-custom-fields/easy-custom-fields.php') 
 
 require_once( WP_PLUGIN_DIR . '/easy-custom-fields/easy-custom-fields.php' );
 
+$slug = 'teaser';
 $field_data = array (
         'Teaser' => array (
                 'fields' => array (
                         'package' => array('label'=>'Teaser',
-                                        'type'=>'link_select'),
+                                        'type'=>'link_select',
+                                        'input_class' => $slug,
+                                        'class' => $slug,
+                                        'id' => $slug
+                                        ),
                 ),
         ),
 );
