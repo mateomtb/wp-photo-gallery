@@ -10,7 +10,8 @@
 $context = array();
 $domain_bits = explode('.', $_SERVER['HTTP_HOST']);
 $context['dfm'] = DFMDataForWP::retrieveRowFromMasterData('domain', $domain_bits[1]);
-$context['events'] = get_eventful();
+if ( function_exists('get_eventful') )
+    $context['events'] = get_eventful();
 $context['dynamic_sidebar'] = Timber::get_widgets('dynamic_sidebar');
 Timber::render(array('sidebar.twig'), $context);
 
