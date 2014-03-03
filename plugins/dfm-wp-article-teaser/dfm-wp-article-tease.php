@@ -42,6 +42,7 @@ if ( !class_exists( "Easy_CF_Field_Link_Select" ) ) {
             $label = ( empty( $this->_field_data['label'] ) ) ? $this->_field_data['id'] :  $this->_field_data['label'];
             $value = $this->get();
 var_dump($this);
+var_dump($_POST);
             $items = array();
             if ( function_exists('get_bookmarks') )
                 $items = get_bookmarks(array('category_name'=>'teaser'));
@@ -60,10 +61,10 @@ var_dump($this);
             $label_format =
                 '<div class="%s">'.
                 '<p><label for="%s"><strong>%s</strong></label></p>'.
-                '<p><select class="%s" style="width: 100%%;" name="%s">%s</select></p>'.
+                '<p><select class="%s" style="width: 100%%;" name="%s" id="%s">%s</select></p>'.
                 '%s'.
                 '</div>';
-            printf( $label_format, $class, $id, $label, $input_class, $id, $options, $hint );
+            printf( $label_format, $class, $id, $label, $input_class, $id, $id, $options, $hint );
         }
     }
 }
