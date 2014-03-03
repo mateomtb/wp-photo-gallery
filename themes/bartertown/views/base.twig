@@ -3,11 +3,11 @@
 {% endblock %}
 </head>
     <body class="{{body_class}}" data-source="base.twig">
-	    {% if is_single == false %}
-	    {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-hand'} %}
-		{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-peel'} %}
-		{% endif %}
-	    {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-leader'} %}
+        {% if is_single == false %}
+        {#{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-hand'} %}
+        {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-peel'} %}#}
+        {% endif %}
+        <div class="leaderboard-wrap">{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-leader'} %}</div>
         <header id="site-header" class="header" >
             {% include 'body-header.twig' %}
             {% block header %}{% endblock %}
@@ -18,7 +18,7 @@
         </header>
 
     <div id="content" class="container">
-	{% if is_single == false %}
+    {% if is_single == false %}
     {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-pencil'} %}
     {% endif %}
     {% if is_home %}

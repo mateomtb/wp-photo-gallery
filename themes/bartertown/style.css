@@ -1,6 +1,6 @@
 /*  Theme Name: WP-BT /Bartertown/
-	Description: Bartertown design on WP, with Timber
-	Author: Digital First Media
+  Description: Bartertown design on WP, with Timber
+  Author: Digital First Media
 */
 /*
 #dfmFooter { clear:both; }
@@ -35,73 +35,91 @@ section#right-rail { margin-top:20px; margin-left:15px; border: 1px solid red; }
 
 /* Ads */
 
-.flag .earad {
-	display: block;
-}
-
 #DFM-adPos-ear1 {
-	display: none;
+  display: none;
 }
 
 #DFM-adPos-ear2 {
-	display: none;
+  display: none;
 }
 
 #DFM-adPos-pencil {
-	display: none;
+  display: none;
 }
 
 #leftWall {
-	display: none;
+  display: none;
 }
 
 #rightWall {
-	display:none;
+  display:none;
+}
+
+#DFM-adPos-leader {
+  display: none;
 }
 
 @media (min-width : 960px) {
-	#DFM-adPos-ear1 {
-		display: block;
-	}
+  
+  /* Ear ad related */
 
-	#DFM-adPos-ear2 {
-		display: block;
-	}
-	
-	
+  #DFM-adPos-ear1 {
+    display: block;
+  }
+
+  #DFM-adPos-ear2 {
+    display: block;
+  }
+  
+  /*End ear ad related*/
+  
 }
 
 /* Wallpaper related */
 /* The wallpaper doesn't really work for smaller screens if you keep expanding the width of the main container */
 /*#content {
-	max-width: 1000px;
+  max-width: 1000px;
 }*/
 
 @media (min-width: 1000px) {
-	#leftWall {
-		display: block;
-		/*position:relative;*/
-	}
+  #leftWall {
+    display: block;
+    /*position:relative;*/
+  }
 
-	#rightWall {
-		display:none;
-		/*position: relative;*/
-	}
+  #rightWall {
+    display:none;
+    /*position: relative;*/
+  }
 }
 
 /* End wallpaper related */
 
-/* Sliding billboard (pencil) ad related */
 @media (min-width: 1000px) {
-	#DFM-adPos-pencil {
-		display: block;
-		margin-bottom: 20px;
-	}
-	
-	/* End sliding billboard (pencil) related */
-	
+
+/* Sliding billboard (pencil) ad related */
+  
+  #DFM-adPos-pencil {
+    display: block;
+    padding-bottom: 20px;
+  }
+  
+  /* End sliding billboard (pencil) related */
+  
+  /* Top leaderboard related*/
+  
+  .leaderboard-wrap {
+    width:100%; 
+    text-align:center;
+  }
+  
+  #DFM-adPos-leader {
+    display : block;
+    padding: 10px 0;
+  }
+  
+  /* End top leaderboard related */
+  
 }
-
-
 
 /* End ads */

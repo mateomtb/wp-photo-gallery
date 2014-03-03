@@ -1,23 +1,36 @@
-{% if all_ads %}
-<div id="{{ad_size}}" class="dfp-ad">
+{# 
+DFP doesn't support hiding ad sizes for responsive yet.
+So we use screen widths to determine whether or not to call the googletag display() method
+#}
+<div id="{{ad_size}}" 
+    class="dfp-ad{% if ad_size == 'DFM-adPos-ear1' %} earad left {% elseif ad_size == 'DFM-adPos-ear2' %} earad right{% endif %}">
     <script type='text/javascript'>
         (function(width, adSize) {
             if (width < 960) {
-				if (adSize === 'DFM-adPos-ear1' || adSize === 'DFM-adPos-ear2') {
-					return false;
-				}
-			}
-			if (width < 1000) {
-				if (adSize === 'DFM-adPos-pencil' || adSize === 'DFM-adPos-inter' || adSize === 'DFM-adPos-leader' || adSize === 'DFM-adPos-leader' || adSize === 'DFM-adPos-peel' || adSize === 'DFM-adPos-hand') {
-					return false;
-				}
-			}
-		googletag.cmd.push(
-            function(){
-                googletag.display('{{ad_size}}');
+                if (adSize === 'DFM-adPos-ear1' || adSize === 'DFM-adPos-ear2') {
+                    return false;
+                }
             }
-        );
-		})(dfm.$(window).width(), '{{ad_size}}');
+            if (width < 1000) {
+                if (adSize === 'DFM-adPos-pencil' || 
+                    adSize === 'DFM-adPos-inter' || 
+                    adSize === 'DFM-adPos-leader' || 
+                    adSize === 'DFM-adPos-leader' || 
+                    adSize === 'DFM-adPos-peel' || 
+                    adSize === 'DFM-adPos-hand'
+                ) {
+                    return false;
+                }
+            }
+            if (adSize === 'DFM-adPos-ear1' || adSize === 'DFM-adPos-ear2') {
+                // Ear ads need parent container with a special class
+                $('header#site-header div.flag').addClass('earads-in');
+            }
+            googletag.cmd.push(
+                function(){
+                    googletag.display(adSize);
+                }
+            );
+        })(dfm.$(window).width(), '{{ad_size}}');
     </script>
 </div>
-{% endif %}

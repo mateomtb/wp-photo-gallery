@@ -51,11 +51,11 @@
     dfm.api("data","sectionId",       "General news");
     dfm.api("data","slug",            "LDN-Z-MAC");
     dfm.api("data","NetworkID",       "8013");
-    dfm.api("data","Taxonomy1",       "News");
+    dfm.api("data","Taxonomy1",       "{{single_cat_title}}");
     dfm.api("data","Taxonomy2",       "");
     dfm.api("data","Taxonomy3",       "");
     dfm.api("data","Taxonomy4",       "");
-    dfm.api("data","kv",              "News");
+    dfm.api("data","kv",              "unbolt_test");
     dfm.api("data","omnitureAccount", "{{domain}}");
 /***** JanRain Log in / registration *****/
     dfm.api("data","engageAppName", "registration.medianewsgroup.com");
@@ -69,5 +69,5 @@
 </script>
 {% include 'ads-header.twig' %}
 {% if is_single == false %}
-{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-inter'} %}
+{#{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-inter'} %}#}
 {% endif %}
