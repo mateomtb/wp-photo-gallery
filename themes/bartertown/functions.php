@@ -66,7 +66,7 @@ function global_context($data){
         'is_single' => is_single(),
         'is_sticky' => is_sticky(),
         'get_post_type' => get_post_type(),
-        'is_singular' => is_singular(),
+        'is_single' => is_single(),
         'is_post_type_archive' => is_post_type_archive(),
         'comments_open' => comments_open(),
         'is_page' => is_page(),
@@ -89,6 +89,8 @@ function global_context($data){
         'is_attachment' => is_attachment(),
         'is_singular' => is_singular(),
         'template_uri' => get_template_directory_uri(),
+        // Ads might be buggy so control with query var for now
+        'all_ads' => $_REQUEST['ads'] !== null ? true : false,
 
         // Environment vars
         'domain' => $domain_bits[1],
