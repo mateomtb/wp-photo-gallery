@@ -22,8 +22,8 @@ $slug = 'teaser';
 $field_data = array (
         'Teaser' => array (
                 'fields' => array (
-                        'package' => array('label'=>'Teaser',
-                                        'type'=>'link_select',
+                        'package' => array('label'=>'The Teaser',
+                                        'type'=>'linkselect',
                                         'input_class' => $slug,
                                         'class' => $slug,
                                         'id' => $slug
@@ -33,7 +33,7 @@ $field_data = array (
 );
 
 if ( !class_exists( "Easy_CF_Field_Link_Select" ) ) {
-    class Easy_CF_Field_Link_Select extends Easy_CF_Field {
+    class Easy_CF_Field_Linkselect extends Easy_CF_Field {
         public function print_form() {
             $class = ( empty( $this->_field_data['class'] ) ) ? $this->_field_data['id'] . '_class' :  $this->_field_data['class'];
             $input_class = ( empty( $this->_field_data['input_class'] ) ) ? $this->_field_data['id'] . '_input_class' :  $this->_field_data['input_class'];
@@ -41,8 +41,8 @@ if ( !class_exists( "Easy_CF_Field_Link_Select" ) ) {
             $id = ( empty( $this->_field_data['id'] ) ) ? $this->_field_data['id'] :  $this->_field_data['id'];
             $label = ( empty( $this->_field_data['label'] ) ) ? $this->_field_data['id'] :  $this->_field_data['label'];
             $value = $this->get();
-var_dump($this);
-var_dump($_POST);
+            //var_dump(get_class_methods($this));
+
             $items = array();
             if ( function_exists('get_bookmarks') )
                 $items = get_bookmarks(array('category_name'=>'teaser'));
@@ -52,7 +52,8 @@ var_dump($_POST);
 
             foreach ( $items as $item ):
                 if ( $item->link_id == $value ) $selected = 'selected';
-                $options .= '<option value="' . $item->link_id . '" ' . $selected . '>' . $item->link_name . '</option>' . "\n";
+                else echo $item->link_id . '-';
+                $options .= '<option value="hey' . $item->link_id . 'hey" ' . $selected . '>' . $item->link_name . '</option>' . "\n";
                 $selected = '';
             endforeach;
 
@@ -61,10 +62,10 @@ var_dump($_POST);
             $label_format =
                 '<div class="%s">'.
                 '<p><label for="%s"><strong>%s</strong></label></p>'.
-                '<p><select class="%s" style="width: 100%%;" name="%s" id="%s">%s</select></p>'.
+                '<p><select class="%s" style="width: 100%%;" name="%s">%s</select></p>'.
                 '%s'.
                 '</div>';
-            printf( $label_format, $class, $id, $label, $input_class, $id, $id, $options, $hint );
+            printf( $label_format, $class, $id, $label, $input_class, $id, $options, $hint );
         }
     }
 }
