@@ -305,10 +305,8 @@ function getMediaCenterFeed() {
 }
 
 call_user_func(function() {
-
     // Gets current temp, icon, and url
     function getCurrentConditions($d){
-        
         //$currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $language . '&apikey=' . $apiKey;
         $currentConditionsUrl = 'http://apidev.accuweather.com/currentconditions/v1/35083_PC.json?language=en&apikey=230548dfe5d54776aaaf5a1f2a19b3f5';
         $jsonCurrent = file_get_contents($currentConditionsUrl);
@@ -339,6 +337,4 @@ call_user_func(function() {
         }
     }
     getWeather($apiUrl, $zip_code, $apiKey, $isMetric);
-
-
 });
