@@ -138,5 +138,15 @@
             "custom_field" : "bottom_line3",
             "custom_field_value" : "yes"
         }
+    },
+
+    "apoc_secondary_lead_story" : {
+	    "first" : {
+	        "heading" : "Silver City", 
+	        "category_slug" : "news",
+	        "number_of_posts" : 1,
+	        "custom_field" : "secondary_lead_story",
+	        "custom_field_value" : "yes"
+	    }
     }
 }

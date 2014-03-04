@@ -69,9 +69,16 @@ $sectionPromos = array_values($config['section_promos']);
 
 /* Run queries and assign contexts to be used in templates */
 
+// Apocalypse
+$context['apoc'] = Timber::get_posts('tag=apoc');
+if ($context['apoc']) {
+	// Bring config from above down here for these sorts of stories
+	// Apoc secondary lead story
+	$apocSecondaryLeadStory = array_values($config['apoc_secondary_lead_story']);
+	$context['apoc_secondary_lead_story'] = Timber::get_posts(createWPQueryArray($leadStory));
+}
 // Breaking Alert
 $context['breaking_alert'] = Timber::get_posts('tag=breaking-news');
-
 // Lead story
 $context['lead_story'] = Timber::get_posts(createWPQueryArray($leadStory));
 // Secondary lead story
