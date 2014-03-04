@@ -1,0 +1,141 @@
+{% for fc_img in get_fc|slice(1) %}
+	
+{% endfor %}
+
+<ul class="top-bar-toggle visible-md-up">
+    <li class="weather-toggle"><a href="">Weather</a></li>
+    <li class="traffic-toggle"><a href="">Traffic</a></li>
+    <li class="markets-toggle"><a href="">Markets</a></li>
+</ul>
+<div id="topbar" class="top-bar">
+    <div class="container">
+    <div id="topbar-viewport">
+        <div id="topbar-wrapper">
+
+            <div class="weather-bar">
+                <div class="current-weather">
+                    <div class="today-temp">
+                        <div class="current-temp">
+                        	{% for fc_img in get_fc|slice(1) %}  
+                        		{# this only handles daytime now. need to figure out how/when to change Day to Night. #}           	
+	                         	<img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc_img[1].Day.Icon < 10 %}0{% endif %}{{ fc_img[1].Day.Icon }}.png" alt="{{ fc_img[1].Day.IconPhrase }}" />
+	                         {% endfor %}
+	                    {% for cw in get_cw %}     
+	                            <p class="right-now">Right now</p>
+	                            <p class="temp lg">{{ cw.Temperature.Imperial.Value }}</p>
+
+	                    {% endfor %}
+	                    {% for fc in get_fc.DailyForecasts %}
+	                    	{% if loop.first %}
+		                        </div> <!-- .current-temp -->
+			                        <ul class="high-low">
+			                          <li>
+			                            <p><small>Today's high</small></p>
+			                            <p class="temp">{{ fc.Temperature.Maximum.Value }}</p>
+			                          </li>
+			                          <li>
+			                            <p><small>Today's low</small></p>
+			                            <p class="temp">{{ fc.Temperature.Minimum.Value }}</p>
+			                          </li>
+			                        </ul>  <!-- .high-low -->
+		                   		</div> <!-- .today-temp -->
+	                   		{% endif %}
+                    	{% endfor %}
+                    <div class="forecast">
+                        <ul>
+                        	{% for fc in get_fc.DailyForecasts|slice(1,7) %}
+	                            <li>
+	                                <p class="day">{{ fc.Date|date('l') }}</p>
+	                                <img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc.Day.Icon < 10 %}0{% endif %}{{ fc.Day.Icon }}.png" alt="{{ fc.Day.IconPhrase }}" class="weather-icon" />
+	                                <p class="high-temp">{{ fc.Temperature.Maximum.Value }}</p>
+	                                <p class="low-temp">{{ fc.Temperature.Minimum.Value }}</p>
+	                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div><!-- .forecast -->
+                </div> <!-- .current-weather -->
+                <div class="ad button" id="weather-ad">
+                    {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-breaking'} %}
+                    <a href="{{ get_fc.DailyForecasts[0].Link }}">Full weather report</a>
+                </div>
+            </div><!-- .weather-bar -->
+            <div class="traffic-bar">
+				<iframe src="http://www.sigalert.com/Portlet/Map.asp?partner=LADailyNews&lat=33.85347&lon=-117.28584&z=2&th=blue&urqs=1&url=/traffic" class="traffic-map" scrolling="no" frameborder="0"></iframe>
+                <script type="text/javascript">
+                var iframe = document.getElementsByTagName('iframe')[0];
+                function restyle() {
+                   var body = iframe.contentDocument.body;
+                   body.style.padding = 0;
+                   body.style.margin = 0;
+                }
+                iframe.onload = restyle;
+                restyle();</script>
+                <div class="ad button" id="traffic-ad">
+                    <img src="http://placehold.it/120x60&text=trafficad" alt="traffic ad" />
+                    <p><a href="">Full traffic report</a></p>
+                </div>
+            </div><!-- .traffic-bar -->
+            <div class="markets-bar">
+                <script src="http://markets.financialcontent.com/{{ domain }}/widget:tickerbar1?Output=JS"></script>
+                <div class="ad button" id="markets-ad">
+                    <img src="http://placehold.it/120x60&text=marketsad" alt="markets ad" />
+                    <p><a href="">Full markets news</a></p>
+                </div>
+            </div><!-- .markets-bar -->
+        </div>    <!-- #topbar-wrapper -->
+    </div> <!-- #topbar-viewport -->
+    </div> <!-- .container-fluid -->
+</div> <!-- #topbar -->
+
+<!-- Copied from NHRegister. Seems to work fine. -->
+<script type="text/javascript">
+(function() {
+  $('document').ready(function(){
+    var weatherToggle = $('.weather-toggle a'),
+        trafficToggle = $('.traffic-toggle a'),
+        marketsToggle = $('.markets-toggle a');
+
+    weatherToggle.click(function(e) {
+      e.preventDefault();
+      activateTopBar($(this), $('.weather-bar'), $('#topbar').find('.visible'));
+      trafficToggle.removeClass('active');
+      marketsToggle.removeClass('active');
+    });
+
+    trafficToggle.click(function(e){
+      e.preventDefault();
+      activateTopBar($(this), $('.traffic-bar'), $('#topbar').find('.visible'));
+      weatherToggle.removeClass('active');
+      marketsToggle.removeClass('active');
+    });
+
+    marketsToggle.click(function(e){
+      e.preventDefault();
+      activateTopBar($(this), $('.markets-bar'), $('#topbar').find('.visible'));
+      trafficToggle.removeClass('active');
+      weatherToggle.removeClass('active');
+    });
+
+  function activateTopBar($btn, $target, $active) {
+    if($('#topbar').is(':visible')) {
+      if($btn.hasClass('active')) {
+        $('#topbar').slideUp('fast', function(){
+          $target.removeClass('visible');
+        });
+      } else {
+        $('#topbar').slideUp('fast', function(){
+          $('#topbar .visible').removeClass('visible');
+          $target.addClass('visible');
+          $('#topbar').slideDown('fast');
+        });
+
+      }
+    } else {
+      $target.addClass('visible');
+      $('#topbar').slideDown('fast');
+    }
+    $btn.toggleClass('active');
+  }
+	});
+}());  
+</script>

@@ -1,3 +1,4 @@
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <?php
 
     add_theme_support('post-formats', array('aside', 'gallery', 'image', 'video', 'audio', 'link'));
@@ -96,6 +97,8 @@ function global_context($data){
         'poll_title' => $poll_title,
         'poll_options' => $poll_options,
         'poll_vote' => $poll_vote,
+        'get_cw' => getCurrentConditions('false'),
+        'get_fc' => getForecasts('80203'),
         'mode' => 'section',
         'section' => '',
 
@@ -300,3 +303,42 @@ function getMediaCenterFeed() {
         return $url . "rotator?size=responsive&cat=$cat";
     }
 }
+
+call_user_func(function() {
+
+    // Gets current temp, icon, and url
+    function getCurrentConditions($d){
+        
+        //$currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $language . '&apikey=' . $apiKey;
+        $currentConditionsUrl = 'http://apidev.accuweather.com/currentconditions/v1/35083_PC.json?language=en&apikey=230548dfe5d54776aaaf5a1f2a19b3f5';
+        $jsonCurrent = file_get_contents($currentConditionsUrl);
+        $parsed_jsonCurrent = json_decode($jsonCurrent, true);
+        return $parsed_jsonCurrent;
+    }
+    
+
+    function getForecasts($zip_code) {
+        $forecastUrl = file_get_contents('http://apidev.accuweather.com/forecasts/v1/daily/10day/35083_PC.json?language=en&apikey=230548dfe5d54776aaaf5a1f2a19b3f5');
+        $forecastUrl = json_decode($forecastUrl, true);
+        return $forecastUrl;
+    }
+    
+    //declare vars
+    $isMetric = false;
+    $apiUrl = 'http://apidev.accuweather.com'; 
+    $apiKey = '230548dfe5d54776aaaf5a1f2a19b3f5';
+    $language = 'en';  
+    $zip_code = '80203';
+    //Need function to dynamically get json url
+    function getWeather($a, $z, $p, $m){
+        $locationUrl = $a . '/locations/v1/US/search?q=' . $z . '&apiKey' . $p;
+        //echo $locationUrl;
+        if($locationUrl != null) {
+            getCurrentConditions($m);
+            //getForecasts($z);
+        }
+    }
+    getWeather($apiUrl, $zip_code, $apiKey, $isMetric);
+
+
+});
