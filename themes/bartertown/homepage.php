@@ -69,36 +69,49 @@ $sectionPromos = array_values($config['section_promos']);
 
 /* Run queries and assign contexts to be used in templates */
 
+// Breaking Alert
+$context['breaking_alert'] = Timber::get_posts('tag=breaking-news');
+
 // Apocalypse
 $context['apoc'] = Timber::get_posts('tag=apoc');
 if ($context['apoc']) {
 	// Bring config from above down here for these sorts of stories
 	// Apoc secondary lead story
 	$apocSecondaryLeadStory = array_values($config['apoc_secondary_lead_story']);
-	$context['apoc_secondary_lead_story'] = Timber::get_posts(createWPQueryArray($leadStory));
+	$context['apoc_secondary_lead_story'] = Timber::get_posts(createWPQueryArray($apocSecondaryLeadStory));
+	
+	// Apoc secondary stories
+	$apocSecondaryStories = array_values($config['apoc_secondary_stories']);
+	$context['apoc_secondary_lead_story'] = Timber::get_posts(createWPQueryArray($apocSecondaryStories));
+	
+	// Apoc related
+	$apocRelatedStories = array_values($config['apoc_related_stories']);
+	$context['apoc_related_stories'] = Timber::get_posts(createWPQueryArray($apocRelatedStories));
 }
-// Breaking Alert
-$context['breaking_alert'] = Timber::get_posts('tag=breaking-news');
-// Lead story
-$context['lead_story'] = Timber::get_posts(createWPQueryArray($leadStory));
-// Secondary lead story
-$context['secondary_lead_story'] = Timber::get_posts(createWPQueryArray($secondaryLeadStory));
-// Related stories (only appear if second lead story does not exist)
-$context['related_stories'] = Timber::get_posts(createWPQueryArray($relatedStories));
-$context['related_stories_heading'] = $relatedStories[0];
-// Secondary stories
-$context['secondary_stories'] = array();
-foreach($secondaryStories as $story) {
-    $context['secondary_stories'][] =  Timber::get_post(createWPQueryArray(array_values($story)));
-}
-// Story feed small
-$context['story_feed_heading'] = $config['story_feed_heading'];
-$context['story_feed'] = array();
-foreach($storyFeeds as $story) {
-    $context['story_feed'][] = Timber::get_post(createWPQueryArray(array_values($story)));
-    //$context['story_feed_' . feedStoryCount] = Timber::get_post(createWPQueryArray($feedStory1));
-    //$context['story_feed_' . feedStoryCount . '_heading'] = $feedStory1[0];
-    //++feedStoryCount;
+// Normal
+else {
+	// Lead story
+	$context['lead_story'] = Timber::get_posts(createWPQueryArray($leadStory));
+	// Secondary lead story
+	$context['secondary_lead_story'] = Timber::get_posts(createWPQueryArray($secondaryLeadStory));
+	// Related stories (only appear if second lead story does not exist)
+	$context['related_stories'] = Timber::get_posts(createWPQueryArray($relatedStories));
+	var_dump($context['related_stories']);
+	$context['related_stories_heading'] = $relatedStories[0];
+	// Secondary stories
+	$context['secondary_stories'] = array();
+	foreach($secondaryStories as $story) {
+	    $context['secondary_stories'][] =  Timber::get_post(createWPQueryArray(array_values($story)));
+	}
+	// Story feed small
+	$context['story_feed_heading'] = $config['story_feed_heading'];
+	$context['story_feed'] = array();
+	foreach($storyFeeds as $story) {
+	    $context['story_feed'][] = Timber::get_post(createWPQueryArray(array_values($story)));
+	    //$context['story_feed_' . feedStoryCount] = Timber::get_post(createWPQueryArray($feedStory1));
+	    //$context['story_feed_' . feedStoryCount . '_heading'] = $feedStory1[0];
+	    //++feedStoryCount;
+	}
 }
 // Section promos
 $context['section_promos'] = array();

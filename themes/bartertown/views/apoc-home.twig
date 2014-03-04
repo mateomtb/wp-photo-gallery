@@ -45,39 +45,24 @@
         {% endfor %}
     </div> <!-- .second-lead-story -->
     <ul class="secondary-stories">
+	    {% for post in apoc_secondary_story %}
         <li>
-            <a href=""><img src="http://placehold.it/400x300" alt="max 400x300 photo in this space" /></a>
-            <h3><a href="">Secondary topics heading will go in this space</a></h3>
+            <a href="{{post.permalink}}"><img src="{{post.thumbnail.src|resize(400,300)}}" alt="{{post.title}}" /></a>
+            <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
         </li>
-        <li>
-            <a href=""><img src="http://placehold.it/400x300" alt="max 400x300 photo in this space" /></a>
-            <h3><a href="">Secondary topics heading will go in this space</a></h3>
-        </li>
-        <li>
-            <a href=""><img src="http://placehold.it/400x300" alt="max 400x300 photo in this space" /></a>
-            <h3><a href="">Secondary topics heading will go in this space</a></h3>
-        </li>
+		{% endfor %}
     </ul> <!-- .secondary-stories -->
     <div class="link-list top-border fat">
         <h4>Latest Headlines</h4>
         <ul>
-            <li><a href="">Viewing photo of dead suspect cathartic for some officers</a></li>
-            <li><a href="">Police search Cambridge apartment of suspected bombers</a></li>
-            <li><a href="">Bombing suspect attended UMass Dartmouth</a></li>
-            <li><a href="">Wrestling coach recalls Dzhokhar Tsarnaev as ‘dedicated kid’</a></li>
-            <li><a href="">Heavy police presence, fewer travelers at Logan</a></li>
+			{% for post in apoc_related_stories[:5] %}
+            <li><a href="{{post.permalink}}">{{post.title}}</a></li>
+			{% endfor %}
+			{% for post in apoc_related_stories[6:] %}
             <li class="saveable">
-            <a href="/news/nation/2013/04/19/uncle-bomb-suspects-calls-them-losers-suggests-they-had-difficulty-assimilating/YMQlw9iK8r6NG8KiRtIiyO/story.html" data-uuid="e6c90714-a910-11e2-8041-ed522f3d49f8">Uncle calls suspects ‘losers’ </a>
+            <a href="{{post.permalink}}" data-uuid="e6c90714-a910-11e2-8041-ed522f3d49f8">{{post.title}}</a>
             </li>
-            <li class="saveable">
-            <a href="/metro/2013/04/19/metropolitan-boston-awakens-under-siege-police-launch-manhunt-for-marathon-bomber/AcObNkQ5NOJC4Acv2azyZJ/story.html" data-uuid="35651850-a8f7-11e2-8041-ed522f3d49f8">Residents urged to remain indoors</a>
-            </li>
-            <li class="saveable">
-            <a href="/lifestyle/health-wellness/2013/04/19/beth-israel-deaconess-medical-staff-tried-revive-suspect-killed-shoot-out/EklhnOS3cRiFmrWSBcje5O/story.html" data-uuid="ea76e31c-a90c-11e2-8041-ed522f3d49f8">Doctors tried to revive suspect</a>
-            </li>
-            <li class="saveable">
-            <a class="more" href="http://www.bostonglobe.com/metro/specials/boston-marathon-explosions" data-uuid="279ff61a-a6ac-11e2-8041-ed522f3d49f8">Full coverage of the Boston Marathon Bombing</a>
-            </li>
+			{% endfor %}
         </ul>
     </div> <!-- .link-list -->
 </div> <!-- .middle-column -->
