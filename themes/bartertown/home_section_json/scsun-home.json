@@ -6,6 +6,7 @@
         "custom_field" : "lead_story",
         "custom_field_value" : "yes"
     },
+
     "secondary_lead_story" : {
         "heading" : null, 
         "category_slug" : null,
@@ -13,6 +14,7 @@
         "custom_field" : "secondary_lead_story",
         "custom_field_value" : "yes"
     },
+
     "related_stories" : {
         "heading" : "Related Stories", 
         "category_slug" : "news",
@@ -20,6 +22,7 @@
         "custom_field" : null,
         "custom_field_value" : null
     },
+
     "secondary_stories" : {
         "first" : {
             "heading" : "News", 
@@ -136,6 +139,72 @@
             "category_slug" : "entertainment",
             "number_of_posts" : 4,
             "custom_field" : "bottom_line3",
+            "custom_field_value" : "yes"
+        }
+    },
+
+    "apoc_secondary_lead_story" : {
+        "first" : {
+            "heading" : "Silver City", 
+            "category_slug" : "news",
+            "number_of_posts" : 1,
+            "custom_field" : "secondary_lead_story",
+            "custom_field_value" : "yes"
+        }
+    },
+
+    "apoc_secondary_stories" : {
+        "first" : {
+            "heading" : "News", 
+            "category_slug" : "news",
+            "number_of_posts" : 1,
+            "custom_field" : "apoc_secondary_story",
+            "custom_field_value" : "yes"
+        },
+        "second" : {
+            "heading" : "News", 
+            "category_slug" : "sports",
+            "number_of_posts" : 1,
+            "custom_field" : "apoc_secondary_story",
+            "custom_field_value" : "yes"
+        },
+        "third" : {
+            "heading" : "News", 
+            "category_slug" : "business",
+            "number_of_posts" : 1,
+            "custom_field" : "apoc_secondary_story",
+            "custom_field_value" : "yes"
+        }
+    },
+
+    "apoc_related_stories" : {
+        "heading" : "Related Stories", 
+        "category_slug" : "news",
+        "number_of_posts" : 9,
+        "custom_field" : null,
+        "custom_field_value" : null
+    },
+
+    "apoc_story_feed" : {
+        "first" : {
+            "heading" : "", 
+            "category_slug" : "news",
+            "number_of_posts" : 1,
+            "custom_field" : "apoc_story_feed",
+            "custom_field_value" : "yes"
+        },
+        "second" : {
+            "heading" : "", 
+            "category_slug" : "sports",
+            "number_of_posts" : 1,
+            "custom_field" : "apoc_story_feed",
+            "custom_field_value" : "yes"
+        },
+        "third" : {
+            "heading" : "Columnist", 
+            "category_slug" : "business",
+            "number_of_posts" : 1,
+            "custom_field" : "apoc_story_feed",
             "custom_field_value" : "yes"
         }
     }
