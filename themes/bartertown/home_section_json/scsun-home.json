@@ -144,13 +144,13 @@
     },
 
     "apoc_secondary_lead_story" : {
-	    "first" : {
-	        "heading" : "Silver City", 
-	        "category_slug" : "news",
-	        "number_of_posts" : 1,
-	        "custom_field" : "secondary_lead_story",
-	        "custom_field_value" : "yes"
-	    }
+        "first" : {
+            "heading" : "Silver City", 
+            "category_slug" : "news",
+            "number_of_posts" : 1,
+            "custom_field" : "secondary_lead_story",
+            "custom_field_value" : "yes"
+        }
     },
 
     "apoc_secondary_stories" : {
@@ -163,14 +163,14 @@
         },
         "second" : {
             "heading" : "News", 
-            "category_slug" : "news",
+            "category_slug" : "sports",
             "number_of_posts" : 1,
             "custom_field" : "apoc_secondary_story",
             "custom_field_value" : "yes"
         },
         "third" : {
             "heading" : "News", 
-            "category_slug" : "news",
+            "category_slug" : "business",
             "number_of_posts" : 1,
             "custom_field" : "apoc_secondary_story",
             "custom_field_value" : "yes"
@@ -188,7 +188,7 @@
     "apoc_story_feed" : {
         "first" : {
             "heading" : "", 
-            "category_slug" : "",
+            "category_slug" : "news",
             "number_of_posts" : 1,
             "custom_field" : "apoc_story_feed",
             "custom_field_value" : "yes"
@@ -202,7 +202,7 @@
         },
         "third" : {
             "heading" : "Columnist", 
-            "category_slug" : "entertainment",
+            "category_slug" : "business",
             "number_of_posts" : 1,
             "custom_field" : "apoc_story_feed",
             "custom_field_value" : "yes"

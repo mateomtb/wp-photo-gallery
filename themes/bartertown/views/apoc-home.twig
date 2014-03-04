@@ -1,6 +1,6 @@
 {# Will refine queries this content is based on after we iron out workflow #}
 <div class="topper">
-	{% for post in apoc %}
+    {% for post in apoc %}
     <a class="h4 topic-name" href="{{post.permalink}}">{{post.category}}</a>
     <a class="h1" href="{{post.permalink}}">{{post.title}}</a>
     <div class="overline">
@@ -29,13 +29,13 @@
            </noscript>
        </span>
     </div> <!-- .media -->
-	{% endfor %}
+    {% endfor %}
 </div> <!-- .topper -->
 
 <div class="middle-column col md-9 md-push-3">
     <div class="second-lead-story">
-	    {% for post in apoc_secondary_lead_story %}
-		<a class="h4 topic-name" href="{{post.permalink}}">{{post.category}}</a>
+        {% for post in apoc_secondary_lead_story %}
+        <a class="h4 topic-name" href="{{post.permalink}}">{{post.category}}</a>
         <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
         <p class="excerpt">{{post.post_excerpt}}</p>
         <div class="meta">
@@ -45,24 +45,24 @@
         {% endfor %}
     </div> <!-- .second-lead-story -->
     <ul class="secondary-stories">
-	    {% for post in apoc_secondary_story %}
+        {% for post in apoc_secondary_story %}
         <li>
             <a href="{{post.permalink}}"><img src="{{post.thumbnail.src|resize(400,300)}}" alt="{{post.title}}" /></a>
             <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
         </li>
-		{% endfor %}
+        {% endfor %}
     </ul> <!-- .secondary-stories -->
     <div class="link-list top-border fat">
         <h4>Latest Headlines</h4>
         <ul>
-			{% for post in apoc_related_stories[:5] %}
+            {% for post in apoc_related_stories[:5] %}
             <li><a href="{{post.permalink}}">{{post.title}}</a></li>
-			{% endfor %}
-			{% for post in apoc_related_stories[6:] %}
+            {% endfor %}
+            {% for post in apoc_related_stories[6:] %}
             <li class="saveable">
             <a href="{{post.permalink}}" data-uuid="e6c90714-a910-11e2-8041-ed522f3d49f8">{{post.title}}</a>
             </li>
-			{% endfor %}
+            {% endfor %}
         </ul>
     </div> <!-- .link-list -->
 </div> <!-- .middle-column -->
@@ -70,40 +70,20 @@
 
 
 <div class="left-column col md-3 md-pull-9">
+    {% for post in apoc_story_feed %}
     <div class="preview">
         <figure>
-            <a href=""><img src="http://placehold.it/320x240"></a>
+            <img src="{{post.thumbnail.src|resize(320,240)}}" alt="{{post.title}}" />
         </figure>
-        <h3><a href="">After violent night, police comb streets of Watertown</a></h3>
+        {% if post.heading %}<a class="h5">{{post.heading}}</a>{% endif %}
+        <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
         <div class="excerpt">
             <p>
-                Police are looking for suspected Marathon bomber Dzhokhar A. Tsarnaev after a manhunt last night in which another suspect — his brother — and a police officer died. <time datetime="2013-04-19T14:33:20" class="stamp" data-pubtime="20130419183320">12:33 pm</time>
+                {{post.post_excerpt}}<time datetime="{{post.post_date}}" class="stamp" data-pubtime="{{post.post_modified}}">&nbsp;</time>
             </p>
         </div>
     </div> <!-- .preview -->
-    <div class="preview">
-        <figure>
-            <img src="http://placehold.it/320x240" alt="" />
-        </figure>
-        <h3><a href="">Live manhunt video</a></h3>
-        <div class="excerpt">
-            <p>
-                Watch live coverage from CBS News on the search for the Marathon bombing suspect.<time datetime="2013-01-21T10:57:07" class="stamp" data-pubtime="20130121155707">&nbsp;</time>
-            </p>
-        </div>
-    </div> <!-- .preview -->
-    <div class="preview">
-        <figure>
-            <img src="http://placehold.it/320x240" alt="" />
-        </figure>
-        <a class="h5">Joanne Davidson</a>
-        <h3><a href="">Columnist headline in this space right here</a></h3>
-        <div class="excerpt">
-            <p>
-                If Tamerlan Tsarnaev nursed murderous grudges, then he was, as his uncle said, a loser. <time datetime="2013-04-19T13:43:08" class="stamp" data-pubtime="20130419174308">&nbsp;</time>
-            </p>
-        </div>
-    </div> <!-- .preview -->
+    {% endfor %}
 </div> <!-- .left-column -->
 
 
