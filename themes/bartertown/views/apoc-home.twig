@@ -1,0 +1,89 @@
+{# Will refine queries this content is based on after we iron out workflow #}
+<div class="topper">
+    {% for post in apoc %}
+    <a class="h4 topic-name" href="{{post.permalink}}">{{post.category}}</a>
+    <a class="h1" href="{{post.permalink}}">{{post.title}}</a>
+    <div class="overline">
+        <a class="h4" href="{{post.permalink}}">{{post.post_excerpt}}</a>
+        <!--<a class="h4" href="">/a>-->
+    </div>
+    <div class="media single-img">
+       <span data-picture data-alt="Image description goes here">
+           <span data-src="{{post.thumbnail.src|resize(320,240)}}"></span>
+           <span data-src="{{post.thumbnail.src|resize(640,480)}}" data-media="(min-device-pixel-ratio: 2.0)"></span>
+           <span data-src="{{post.thumbnail.src|resize(480,320)}}" data-media="(min-width: 321px)"></span>
+           <span data-src="{{post.thumbnail.src|resize(960,640)}}" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
+           <span data-src="{{post.thumbnail.src|resize(640,480)}}" data-media="(min-width: 481px)"></span>
+           <span data-src="{{post.thumbnail.src|resize(1280,960)}}" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
+           <span data-src="{{post.thumbnail.src|resize(800,600)}}" data-media="(min-width: 641px)"></span>
+           <span data-src="{{post.thumbnail.src|resize(1600,1200)}}" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>
+           <span data-src="{{post.thumbnail.src|resize(640,480)}}" data-media="(min-width: 960px)"></span>
+           <span data-src="{{post.thumbnail.src|resize(1280,960)}}" data-media="(min-width: 960px) and (min-device-pixel-ratio: 2.0)"></span>
+           <span data-src="{{post.thumbnail.src|resize(800,600)}}" data-media="(min-width: 1029px)"></span>
+           <span data-src="{{post.thumbnail.src|resize(1600,1200)}}" data-media="(min-width: 1029px) and (min-device-pixel-ratio: 2.0)"></span>
+           <span data-src="{{post.thumbnail.src|resize(1200,900)}}" data-media="(min-width: 1241px)"></span>
+           <span data-src="{{post.thumbnail.src|resize(2400,1800)}}" data-media="(min-width: 1241px) and (min-device-pixel-ratio: 2.0)"></span>
+           <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+           <noscript>
+               <img src="{{post.thumbnail.src|resize(320,240)}}" alt="{{post.title}}">
+           </noscript>
+       </span>
+    </div> <!-- .media -->
+    {% endfor %}
+</div> <!-- .topper -->
+
+<div class="middle-column col md-9 md-push-3">
+    <div class="second-lead-story">
+        {% for post in apoc_secondary_lead_story %}
+        <a class="h4 topic-name" href="{{post.permalink}}">{{post.category}}</a>
+        <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
+        <p class="excerpt">{{post.post_excerpt}}</p>
+        <div class="meta">
+            <p class="source">{{post.author}}<span class="divider">|</span><time datetime="{{post.post_date}}" class="timestamp">{{post.post_date|time_ago}}</time></p>
+            <p class="comment-bug"><span class="glyphicon glyphicon-comment"></span><span class="sr-only">Comments: </span><a href="{{post.permalink}}">{{post.comment_count}}</a></p>
+        </div>
+        {% endfor %}
+    </div> <!-- .second-lead-story -->
+    <ul class="secondary-stories">
+        {% for post in apoc_secondary_story %}
+        <li>
+            <a href="{{post.permalink}}"><img src="{{post.thumbnail.src|resize(400,300)}}" alt="{{post.title}}" /></a>
+            <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
+        </li>
+        {% endfor %}
+    </ul> <!-- .secondary-stories -->
+    <div class="link-list top-border fat">
+        <h4>Latest Headlines</h4>
+        <ul>
+            {% for post in apoc_related_stories[:5] %}
+            <li><a href="{{post.permalink}}">{{post.title}}</a></li>
+            {% endfor %}
+            {% for post in apoc_related_stories[6:] %}
+            <li class="saveable">
+            <a href="{{post.permalink}}" data-uuid="e6c90714-a910-11e2-8041-ed522f3d49f8">{{post.title}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div> <!-- .link-list -->
+</div> <!-- .middle-column -->
+
+
+
+<div class="left-column col md-3 md-pull-9">
+    {% for post in apoc_story_feed %}
+    <div class="preview">
+        <figure>
+            <img src="{{post.thumbnail.src|resize(320,240)}}" alt="{{post.title}}" />
+        </figure>
+        {% if post.heading %}<a class="h5">{{post.heading}}</a>{% endif %}
+        <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
+        <div class="excerpt">
+            <p>
+                {{post.post_excerpt}}<time datetime="{{post.post_date}}" class="stamp" data-pubtime="{{post.post_modified}}">&nbsp;</time>
+            </p>
+        </div>
+    </div> <!-- .preview -->
+    {% endfor %}
+</div> <!-- .left-column -->
+
+
