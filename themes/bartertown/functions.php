@@ -1,24 +1,24 @@
 <?php
 
-	add_theme_support('post-formats', array('aside', 'gallery', 'image', 'video', 'audio', 'link'));
-	add_theme_support('post-thumbnails');
-	add_theme_support('menus');
+    add_theme_support('post-formats', array('aside', 'gallery', 'image', 'video', 'audio', 'link'));
+    add_theme_support('post-thumbnails');
+    add_theme_support('menus');
 
-	add_filter('get_twig', 'add_to_twig');
+    add_filter('get_twig', 'add_to_twig');
 
-	add_action('wp_enqueue_scripts', 'load_scripts');
+    add_action('wp_enqueue_scripts', 'load_scripts');
 
-	define('THEME_URL', get_template_directory_uri());
-	function add_to_twig($twig){
-		/* this is where you can add your own fuctions to twig */
-		$twig->addExtension(new Twig_Extension_StringLoader());
-		$twig->addFilter('myfoo', new Twig_Filter_Function('myfoo'));
-		return $twig;
-	}
+    define('THEME_URL', get_template_directory_uri());
+    function add_to_twig($twig){
+        /* this is where you can add your own fuctions to twig */
+        $twig->addExtension(new Twig_Extension_StringLoader());
+        $twig->addFilter('myfoo', new Twig_Filter_Function('myfoo'));
+        return $twig;
+    }
 
-	function load_scripts(){
-		wp_enqueue_script('jquery');
-	}
+    function load_scripts(){
+        wp_enqueue_script('jquery');
+    }
 
 if ( function_exists('register_sidebar') ) register_sidebar();
 
@@ -29,8 +29,36 @@ function global_context($data){
     // Rudimentary domain chunk. 
     // Works for domains in the style of "www.domain.com" -- as in, 
     // it takes the chunk after the first '.' in the string.
+
+    //polls!
+    ob_start();
+    get_poll();
+    $poll = ob_get_contents();
+    ob_end_clean();
+    $poll_title = $poll_answers = $poll_options = $poll_vote = '';
+    $pollDOM = new DOMDocument;
+    $pollDOM -> loadHTML($poll);
+    $pollTitle = $pollDOM -> getElementsByTagName('strong');
+    $pollAns = $pollDOM -> getElementsByTagName('li');
+    $pollVote = $pollDOM -> getElementsByTagName('button');
+    if(count($pollTitle) > 0) {
+        foreach($pollTitle as $pollTitle1) {
+            $poll_title .= $pollTitle1->nodeValue;
+        }
+    }
+    if(count($pollAns) > 0) {
+        foreach($pollAns as $pollAns1) {
+            $poll_answers .= $pollAns1->nodeValue;
+            $poll_options .= '<input type="radio" name="optionsRadios" id="optionsRadios1" value="'.$poll_answers.'">'.$poll_answers.'</input><br />';
+            $poll_answers = '';
+        }
+    }
+    foreach($pollVote as $pollVotes){
+        $polleVptes1 .= $pollVotes->nodeValue;
+        $poll_vote .= 'vote button'.$pollVotes1;
+    }
     $domain_bits = explode('.', $_SERVER['HTTP_HOST']);
-	$data = array(
+    $data = array(
         // WP conditionals
         'is_home' => is_home(),
         'is_front_page' => is_front_page(),
@@ -38,7 +66,7 @@ function global_context($data){
         'is_single' => is_single(),
         'is_sticky' => is_sticky(),
         'get_post_type' => get_post_type(),
-        'is_singular' => is_singular(),
+        'is_single' => is_single(),
         'is_post_type_archive' => is_post_type_archive(),
         'comments_open' => comments_open(),
         'is_page' => is_page(),
@@ -60,11 +88,18 @@ function global_context($data){
         'is_paged' => is_paged(),
         'is_attachment' => is_attachment(),
         'is_singular' => is_singular(),
+        'template_uri' => get_template_directory_uri(),
+        // Ads might be buggy so control with query var for now
+        'all_ads' => $_REQUEST['ads'] !== null ? true : false,
 
         // Environment vars
         'domain' => $domain_bits[1],
-	    'mode' => 'section',
-	    'section' => '',
+        'poll' => $poll,
+        'poll_title' => $poll_title,
+        'poll_options' => $poll_options,
+        'poll_vote' => $poll_vote,
+        'mode' => 'section',
+        'section' => '',
 
         // Content vars
         'single_cat_title' => single_cat_title(),
@@ -73,7 +108,6 @@ function global_context($data){
         'menu_hot' => new TimberMenu('Hot Topics'),
         'menu_action' => new TimberMenu('Take Action'),
     );
-    
     // Data provided here:
     /*
     [site_name] => Silver City Sun News
@@ -122,8 +156,12 @@ function global_context($data){
     [quant_id] => p-4ctCQwtnNBNs2
     [quant_label] => ElPasoRegional
     */
-    if ( class_exists('DFMDataForWP') )
-        $data['dfm'] = DFMDataForWP::retrieveRowFromMasterData('domain', $data['domain']);
+    if ( class_exists('DFMDataForWP') ) {
+        // Add to session var and Timber context
+        // Probably move later session var assignment later
+        $data['dfm'] = $_SESSION['dfm'] = DFMDataForWP::retrieveRowFromMasterData('domain', $data['domain']);
+    }
+
 
     if ( is_singular() ) $data['mode'] = 'article';
     //if ( is_single() ):
@@ -180,7 +218,7 @@ add_filter('the_title', 'remove_widows');
 
 // We do this for all the custom posts we need to make this site run.
 if ( file_exists(WP_PLUGIN_DIR . '/easy-custom-fields/easy-custom-fields.php') ):
-
+/*
 require_once( WP_PLUGIN_DIR . '/easy-custom-fields/easy-custom-fields.php' );
 $field_data = array (
         'BylineOverride' => array (             // unique group id
@@ -221,6 +259,7 @@ if ( !class_exists( "Easy_CF_Field_Textarea" ) ) {
     }
 }
 $easy_cf = new Easy_CF($field_data);
+*/
 endif;
 
 /*
@@ -252,4 +291,15 @@ function createWPQueryArray($array) {
         'meta_key' => ($array[3] ? $array[3] : null),
         'meta_value' => ($array[4] ? $array[4] : null)
     );
+}
+
+function getMediaCenterFeed() {
+    if ($s = $_SESSION['dfm']) {
+        $url = $s['media_center_url'];
+        $cat = get_category(get_query_var('cat'))->slug;
+        if (!$cat) {
+            $cat = 'mc_rotator_home___';
+        }
+        return $url . "rotator?size=responsive&cat=$cat";
+    }
 }

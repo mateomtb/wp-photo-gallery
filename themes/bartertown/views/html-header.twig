@@ -19,8 +19,11 @@
 <script type="text/javascript" src="http://extras.mnginteractive.com/live/js/otherinc/otherinc.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
+<script type="text/javascript" src="http://local.denverpost.com/common/dfm/dfm-core.js"></script>
+
 <!-- Will have to replace with production-ready CSS URL. -->
-<link rel="stylesheet" href="http://sandbox.digitalfirstmedia.com/btown/css/bartertown.min.css" media="screen"/> 
+<link rel="stylesheet" href="http://sandbox.digitalfirstmedia.com/btown/css/bartertown.min.css" media="screen"/>
+<link rel="stylesheet" type="text/css" media="all" href="{{bloginfo('stylesheet_url')}}" /> 
 
 <script type="text/javascript" src="http://local.{{domain}}.com/common/dfm/assets/js/modernizr.js"></script>
 <script type="text/javascript" src="http://local.{{domain}}.com/common/dfm/assets/js/jquery-1.9.1.min.js"></script>
@@ -48,11 +51,11 @@
     dfm.api("data","sectionId",       "General news");
     dfm.api("data","slug",            "LDN-Z-MAC");
     dfm.api("data","NetworkID",       "8013");
-    dfm.api("data","Taxonomy1",       "News");
+    dfm.api("data","Taxonomy1",       "{{single_cat_title}}");
     dfm.api("data","Taxonomy2",       "");
     dfm.api("data","Taxonomy3",       "");
     dfm.api("data","Taxonomy4",       "");
-    dfm.api("data","kv",              "News");
+    dfm.api("data","kv",              "unbolt_test");
     dfm.api("data","omnitureAccount", "{{domain}}");
 /***** JanRain Log in / registration *****/
     dfm.api("data","engageAppName", "registration.medianewsgroup.com");
@@ -63,28 +66,8 @@
     dfm.api("data","janrain.settings.captureServer", "https://medianewsgroup.janraincapture.com/");
     dfm.api("data","janrain.settings.appUrl", "https://registration.medianewsgroup.com");
     dfm.api("data","janrain.settings.capture.backplaneBusName", "dfm");
-/***** AdTags *****/
-    var googletag = googletag || {};
-    googletag.cmd = googletag.cmd || [];
-/***** AdTags *****/
-    var firstEmbedAssetContainer = '';
-    var firstEmbedAssetType = '';
 </script>
-<script type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
-<script type="text/javascript">
-        googletag.pubads().setTargeting('page',['article']);
-        googletag.pubads().setTargeting('article',['140129737']);
-   googletag.pubads().setTargeting('kv',['News']); 
-        googletag.pubads().enableSingleRequest();
-        googletag.pubads().enableSyncRendering();
-        googletag.enableServices();
-        var DFM_ad_loc = dfm.api("data","NetworkID") + '/' + dfm.api("data","siteDomain");
-        if(dfm.api("data","Taxonomy1")!=''){DFM_ad_loc+='/'+dfm.api("data","Taxonomy1");if(dfm.api("data","Taxonomy2")!=''){DFM_ad_loc+='/'+dfm.api("data","Taxonomy2");if(dfm.api("data","Taxonomy3")!=''){DFM_ad_loc+='/'+dfm.api("data","Taxonomy3");if(dfm.api("data","Taxonomy4")!=''){DFM_ad_loc+='/'+dfm.api("data","Taxonomy4");}}}}
-    googletag.defineSlot(DFM_ad_loc,[[1,1]],                                   'DFM-adPos-inter')     .setTargeting('pos',['interstitial'])     .addService(googletag.pubads());
-    googletag.defineSlot(DFM_ad_loc,[[970,30],[970,250]],                      'DFM-adPos-pencil')    .setTargeting('pos',['SBB'])              .addService(googletag.pubads());
-    googletag.defineSlot(DFM_ad_loc,[[970,90],[728,90]],                       'DFM-adPos-leader')    .setTargeting('pos',['top_leaderboard'])  .addService(googletag.pubads());
-    googletag.defineSlot(DFM_ad_loc,[[300,250],[300,600],[300,1050],[160,600]],'DFM-adPos-cube1')     .setTargeting('pos',['Cube1_RRail_ATF'])  .addService(googletag.pubads());
-    googletag.defineSlot(DFM_ad_loc,[[300,250]],                               'DFM-adPos-cube2')     .setTargeting('pos',['Cube2_RRail_mid'])  .addService(googletag.pubads());
-    googletag.defineSlot(DFM_ad_loc,[[300,250]],                               'DFM-adPos-cube3')     .setTargeting('pos',['Cube3_RRail_lower']).addService(googletag.pubads());
-    googletag.defineSlot(DFM_ad_loc,[[300,250]],                               'DFM-adPos-bottomline').setTargeting('pos',['Cube4_BottomLine']) .addService(googletag.pubads());
-</script>
+{% include 'ads-header.twig' %}
+{% if is_single == false %}
+{#{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-inter'} %}#}
+{% endif %}

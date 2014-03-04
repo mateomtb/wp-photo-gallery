@@ -98,5 +98,15 @@ $context['section_promos'] = array();
 foreach($sectionPromos as $promo) {
     $context['section_promos'][] = Timber::get_posts(createWPQueryArray(array_values($promo)));
 }
+
+//Eventful
+if ( function_exists('get_eventful') )
+    $context['events'] = get_eventful();
+
+
+// Bottom Line
+$context['bottom_line1'] = Timber::get_posts('tag=bottom_line1');
+$context['bottom_line2'] = Timber::get_posts('tag=bottom_line2');
+$context['bottom_line3'] = Timber::get_posts('tag=bottom_line3');
 /* End run queries */
 ?>

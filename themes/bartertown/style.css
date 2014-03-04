@@ -1,6 +1,6 @@
 /*  Theme Name: WP-BT /Bartertown/
-	Description: Bartertown design on WP, with Timber
-	Author: Digital First Media
+  Description: Bartertown design on WP, with Timber
+  Author: Digital First Media
 */
 /*
 #dfmFooter { clear:both; }
@@ -16,68 +16,110 @@ section#right-rail { margin-top:20px; margin-left:15px; border: 1px solid red; }
 .top-bar-toggle .markets-toggle a { background-image: url(http://local.medianewsgroup.com/common/dfm/assets/img/markets_icon.png) !important; }
 
 /** WP-Poll specific **/
-#polls-2 > p, #polls-2-ans p { text-align: left !important; }
-
-#polls-2.wp-polls > form > p {
+.poll > h3 {
     margin-top: 0;
-    font-size: 18px !important; font-family: "Merriweather", Georgia, "Times New Roman", Times, serif;
+    font-size: 18px !important;
+    font-family: "Merriweather", Georgia, "Times New Roman", Times, serif;
     font-weight: bold;
     color: inherit;
     text-rendering: optimizelegibility;
     margin: 0 0 11px;
-    text-align: left !important;
 }
 
-#polls-2-ans input.Buttons { background-color: #394E7A;
-    background-image: -moz-linear-gradient(center top , #39547A, #39447A);
-    background-repeat: repeat-x;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    color: #FFFFFF;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    -moz-box-sizing: border-box;
+.pollAnswers {
+    display:inline;
+    font-weight:400 !important;
+    cursor:pointer;
+}
+
+
+/* Ads */
+
+#DFM-adPos-ear1 {
+  display: none;
+}
+
+#DFM-adPos-ear2 {
+  display: none;
+}
+
+#DFM-adPos-pencil {
+  display: none;
+}
+
+#leftWall {
+  display: none;
+}
+
+#rightWall {
+  display:none;
+}
+
+#DFM-adPos-leader {
+  display: none;
+}
+
+@media (min-width : 960px) {
+  
+  /* Ear ad related */
+
+  #DFM-adPos-ear1 {
     display: block;
-    padding-left: 0;
-    padding-right: 0;
-    width: 100px !important;
-    -moz-border-bottom-colors: none;
-    -moz-border-image: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    border-radius: 4px 4px 4px 4px;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
-    cursor: pointer;
-    font-size: 14px;
-    line-height: 20px;
-    margin-bottom: 0;
-    text-align: center;
-    vertical-align: middle;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-}
+  }
 
-
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    -moz-box-sizing: border-box;
+  #DFM-adPos-ear2 {
     display: block;
-    padding-left: 0;
-    padding-right: 0;
-    width: 100px !important;
-    -moz-border-bottom-colors: none;
-    -moz-border-image: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    border-radius: 4px 4px 4px 4px;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
-    cursor: pointer;
-    font-size: 14px;
-    line-height: 20px;
-    margin-bottom: 0;
-    text-align: center;
-    vertical-align: middle;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  
+  /*End ear ad related*/
+  
 }
+
+/* Wallpaper related */
+/* The wallpaper doesn't really work for smaller screens if you keep expanding the width of the main container */
+/*#content {
+  max-width: 1000px;
+}*/
+
+@media (min-width: 1000px) {
+  #leftWall {
+    display: block;
+    /*position:relative;*/
+  }
+
+  #rightWall {
+    display:none;
+    /*position: relative;*/
+  }
+}
+
+/* End wallpaper related */
+
+@media (min-width: 1000px) {
+
+/* Sliding billboard (pencil) ad related */
+  
+  #DFM-adPos-pencil {
+    display: block;
+    padding-bottom: 20px;
+  }
+  
+  /* End sliding billboard (pencil) related */
+  
+  /* Top leaderboard related*/
+  
+  .leaderboard-wrap {
+    width:100%; 
+    text-align:center;
+  }
+  
+  #DFM-adPos-leader {
+    display : block;
+    padding: 10px 0;
+  }
+  
+  /* End top leaderboard related */
+  
+}
+
+/* End ads */

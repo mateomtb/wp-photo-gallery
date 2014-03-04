@@ -20,9 +20,10 @@
  * @subpackage  Timber
  * @since    Timber 0.1
  */
-
 $templates = array('leaf.twig', 'index.twig');
-$context = Timber::get_context();
+$context = global_context($context);
+$domain_bits = explode('.', $_SERVER['HTTP_HOST']);
+$context['dfm'] = DFMDataForWP::retrieveRowFromMasterData('domain', $domain_bits[1]);
 $post = new TimberPost();
 $context['post'] = $post;
 Timber::render($templates, $context);

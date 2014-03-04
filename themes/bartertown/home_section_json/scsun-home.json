@@ -114,5 +114,29 @@
             "custom_field" : null,
             "custom_field_value" : null
         }
+    },
+
+    "bottom_line" : {
+        "first" : {
+            "heading" : "Silver City", 
+            "category_slug" : "news",
+            "number_of_posts" : 4,
+            "custom_field" : "bottom_line1",
+            "custom_field_value" : "yes"
+        },
+        "second" : {
+            "heading" : "Sports", 
+            "category_slug" : "sports",
+            "number_of_posts" : 4,
+            "custom_field" : "bottom_line2",
+            "custom_field_value" : "yes"
+        },
+        "third" : {
+            "heading" : "Entertainment", 
+            "category_slug" : "entertainment",
+            "number_of_posts" : 4,
+            "custom_field" : "bottom_line3",
+            "custom_field_value" : "yes"
+        }
     }
 }
