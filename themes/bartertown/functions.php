@@ -218,7 +218,7 @@ add_filter('the_title', 'remove_widows');
 
 // We do this for all the custom posts we need to make this site run.
 if ( file_exists(WP_PLUGIN_DIR . '/easy-custom-fields/easy-custom-fields.php') ):
-
+/*
 require_once( WP_PLUGIN_DIR . '/easy-custom-fields/easy-custom-fields.php' );
 $field_data = array (
         'BylineOverride' => array (             // unique group id
@@ -259,6 +259,7 @@ if ( !class_exists( "Easy_CF_Field_Textarea" ) ) {
     }
 }
 $easy_cf = new Easy_CF($field_data);
+*/
 endif;
 
 /*

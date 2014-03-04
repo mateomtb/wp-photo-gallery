@@ -131,7 +131,8 @@ foreach($sectionPromos as $promo) {
 }
 
 //Eventful
-$context['events'] = get_eventful();
+if ( function_exists('get_eventful') )
+    $context['events'] = get_eventful();
 
 
 // Bottom Line
