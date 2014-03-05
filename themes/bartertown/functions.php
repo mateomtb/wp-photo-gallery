@@ -31,32 +31,34 @@ function global_context($data){
     // it takes the chunk after the first '.' in the string.
 
     //polls!
-    ob_start();
-    get_poll();
-    $poll = ob_get_contents();
-    ob_end_clean();
-    $poll_title = $poll_answers = $poll_options = $poll_vote = '';
-    $pollDOM = new DOMDocument;
-    $pollDOM -> loadHTML($poll);
-    $pollTitle = $pollDOM -> getElementsByTagName('strong');
-    $pollAns = $pollDOM -> getElementsByTagName('li');
-    $pollVote = $pollDOM -> getElementsByTagName('button');
-    if(count($pollTitle) > 0) {
-        foreach($pollTitle as $pollTitle1) {
-            $poll_title .= $pollTitle1->nodeValue;
+    if ( function_exists('get_poll') ):
+        ob_start();
+        get_poll();
+        $poll = ob_get_contents();
+        ob_end_clean();
+        $poll_title = $poll_answers = $poll_options = $poll_vote = '';
+        $pollDOM = new DOMDocument;
+        $pollDOM -> loadHTML($poll);
+        $pollTitle = $pollDOM -> getElementsByTagName('strong');
+        $pollAns = $pollDOM -> getElementsByTagName('li');
+        $pollVote = $pollDOM -> getElementsByTagName('button');
+        if (count($pollTitle) > 0):
+            foreach($pollTitle as $pollTitle1):
+                $poll_title .= $pollTitle1->nodeValue;
+            endforeach;
+        endif;
+        if(count($pollAns) > 0) {
+            foreach($pollAns as $pollAns1) {
+                $poll_answers .= $pollAns1->nodeValue;
+                $poll_options .= '<input type="radio" name="optionsRadios" id="optionsRadios1" value="'.$poll_answers.'">'.$poll_answers.'</input><br />';
+                $poll_answers = '';
+            }
         }
-    }
-    if(count($pollAns) > 0) {
-        foreach($pollAns as $pollAns1) {
-            $poll_answers .= $pollAns1->nodeValue;
-            $poll_options .= '<input type="radio" name="optionsRadios" id="optionsRadios1" value="'.$poll_answers.'">'.$poll_answers.'</input><br />';
-            $poll_answers = '';
+        foreach($pollVote as $pollVotes){
+            $polleVptes1 .= $pollVotes->nodeValue;
+            $poll_vote .= 'vote button'.$pollVotes1;
         }
-    }
-    foreach($pollVote as $pollVotes){
-        $polleVptes1 .= $pollVotes->nodeValue;
-        $poll_vote .= 'vote button'.$pollVotes1;
-    }
+    endif;
     $domain_bits = explode('.', $_SERVER['HTTP_HOST']);
     $data = array(
         // WP conditionals
@@ -164,8 +166,6 @@ function global_context($data){
 
 
     if ( is_singular() ) $data['mode'] = 'article';
-    //if ( is_single() ):
-    //endif;
 
     return $data;
 }
@@ -215,6 +215,7 @@ function remove_widows($title)
  
 } 
 add_filter('the_title', 'remove_widows');
+
 function createWPQueryArray($array) {
     return array(
         'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : null),
