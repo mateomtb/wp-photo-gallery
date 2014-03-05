@@ -22,7 +22,7 @@ $slug = 'teaser';
 $field_data = array (
         'Teaser' => array (
                 'fields' => array (
-                        'package' => array('label'=>'The Teaser',
+                         $slug => array('label'=>'In-Article Teaser',
                                         'type'=>'linkselect',
                                         'input_class' => $slug,
                                         'class' => $slug,
@@ -41,7 +41,6 @@ if ( !class_exists( "Easy_CF_Field_Link_Select" ) ) {
             $id = ( empty( $this->_field_data['id'] ) ) ? $this->_field_data['id'] :  $this->_field_data['id'];
             $label = ( empty( $this->_field_data['label'] ) ) ? $this->_field_data['id'] :  $this->_field_data['label'];
             $value = $this->get();
-            //var_dump(get_class_methods($this));
 
             $items = array();
             if ( function_exists('get_bookmarks') )
@@ -52,8 +51,7 @@ if ( !class_exists( "Easy_CF_Field_Link_Select" ) ) {
 
             foreach ( $items as $item ):
                 if ( $item->link_id == $value ) $selected = 'selected';
-                else echo $item->link_id . '-';
-                $options .= '<option value="hey' . $item->link_id . 'hey" ' . $selected . '>' . $item->link_name . '</option>' . "\n";
+                $options .= '<option value="' . $item->link_id . '" ' . $selected . '>' . $item->link_name . '</option>' . "\n";
                 $selected = '';
             endforeach;
 
