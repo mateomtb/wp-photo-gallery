@@ -32,6 +32,15 @@ if ( function_exists('dsq_comments_template') ):
     $context['comment_form'] = TimberHelper::function_wrapper('comments_template', array($comments_file));
 endif;
 
+// In-Article teaser content
+if ( class_exists('DFMInArticleTeaser') ):
+    $teaser = new DFMInArticleTeaser($post);
+    $teaser_exists = $teaser->load_teaser();
+    if ( $teaser_exists != NULL )
+        $context['teaser'] = $teaser_exists;
+    //var_dump($teaser);
+endif;
+
 // Article-sidebar (as opposed to layout-sidebar) content
 if ( class_exists('DFMCollection') ):
     // First we look for any Package collections that exist.
