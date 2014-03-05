@@ -77,8 +77,21 @@ class DFMInArticleTeaser
     // significant theme code rewrites.
 
 
-    function __construct($bookmark_id)
+    function __construct($post)
     {
-        return get_bookmark($bookmark_id);
+        $this->post = $post;
+        $this->load_teaser();
+    }
+    public function load_teaser($post = 0)
+    {
+        if ( $post != 0 ):
+            // include manual teaser-get code
+        else:
+            $post = $this->post;
+        endif;
+
+        $teaser = get_post_custom_values('teaser', $post->ID);
+        //var_dump(get_bookmark($teaser[0]));
+        return get_bookmark($teaser[0]);
     }
 }
