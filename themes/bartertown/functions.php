@@ -215,30 +215,6 @@ function remove_widows($title)
  
 } 
 add_filter('the_title', 'remove_widows');
-
-
-/*
-class boilerplate_widget extends WP_Widget
-{
-    public function __construct()
-    {
-            parent::__construct(
-                'boilerplate_widget',
-                __('boilerplate Widget', 'boilerplate_widget'),
-                array('description' => __('DESC', 'boilerplate_widget'), )
-            );
-    }
-
-    public function widget($args, $instance)
-    {
-        // DESC
-        echo 'MARKUP';
-        }
-}
-function register_boilerplate_widget() { register_widget('boilerplate_widget'); }
-add_action('widgits_init', 'register_boilerplate_widget');
-*/
-
 function createWPQueryArray($array) {
     return array(
         'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : null),
