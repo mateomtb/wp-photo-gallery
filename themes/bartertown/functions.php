@@ -242,7 +242,7 @@ $apiKey = '230548dfe5d54776aaaf5a1f2a19b3f5';
 $wLanguage = 'en';  
 //zip_code generated from $dfm object
 
-function getCurrentConditions($d){
+function getCurrentConditions(){
     //$currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
     $currentConditionsUrl = 'http://apidev.accuweather.com/currentconditions/v1/37363_PC.json?language=en&apikey=230548dfe5d54776aaaf5a1f2a19b3f5';
     return $currentConditionsUrl;
