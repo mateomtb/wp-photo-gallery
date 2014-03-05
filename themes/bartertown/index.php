@@ -21,5 +21,7 @@ $context['posts'] = Timber::get_posts();
 $templates = array('index.twig');
 include get_template_directory() . '/homepage.php';
 $context['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed()), true)) ? $mc : null;
+$context['get_cw'] = ($gw = json_decode(file_get_contents(getCurrentConditions()), true)) ? $gw : null;
+$context['get_fc'] = ($fc = json_decode(file_get_contents(getForecasts($_SESSION['dfm']['zip_code'])), true)) ? $fc : null;
 if (is_home()) array_unshift($templates, 'home.twig');
 Timber::render('index.twig', $context);
