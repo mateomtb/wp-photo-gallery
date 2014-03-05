@@ -1,5 +1,4 @@
 <?php
-
     add_theme_support('post-formats', array('aside', 'gallery', 'image', 'video', 'audio', 'link'));
     add_theme_support('post-thumbnails');
     add_theme_support('menus');
@@ -234,4 +233,33 @@ function getMediaCenterFeed() {
         }
         return $url . "rotator?size=responsive&cat=$cat";
     }
+}
+
+//declare vars
+$isMetric = false;
+$apiUrl = 'http://apidev.accuweather.com'; 
+$apiKey = '230548dfe5d54776aaaf5a1f2a19b3f5';
+$wLanguage = 'en';  
+//zip_code generated from $dfm object
+
+function getCurrentConditions($d){
+    //$currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
+    $currentConditionsUrl = 'http://apidev.accuweather.com/currentconditions/v1/37363_PC.json?language=en&apikey=230548dfe5d54776aaaf5a1f2a19b3f5';
+    return $currentConditionsUrl;
+}
+
+function getForecasts() {
+    // Not able to generate $locationKey at this time
+    //$forecastUrl = $apiUrl . '/forecasts/v1/daily/10day/' . $locationKey . 'json?language=' . $wLanguage . '&apikey' . $apiKey;
+    $forecastUrl = 'http://apidev.accuweather.com/forecasts/v1/daily/10day/37363_PC.json?language=en&apikey=230548dfe5d54776aaaf5a1f2a19b3f5';
+    return $forecastUrl;
+}
+
+// Need functionality to generate $locationKey. This call fails, using static json for time being. It basically does nothing until locationKey gets returned.
+function getWeather($a, $z, $p, $m){
+    $locationUrl = $a . '/locations/v1/US/search?q=' . $z . '&apiKey' . $p;
+    //$gwUrl = file_get_contents($locationUrl);
+    //$gwURL = json_decode($gwURL, true);
+    //$locationKey = $rwUrl[0].Key
+    return $locationUrl;
 }
