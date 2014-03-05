@@ -38,7 +38,6 @@ if ( class_exists('DFMInArticleTeaser') ):
     $teaser_exists = $teaser->load_teaser();
     if ( $teaser_exists != NULL )
         $context['teaser'] = $teaser_exists;
-    //var_dump($teaser);
 endif;
 
 // Article-sidebar (as opposed to layout-sidebar) content

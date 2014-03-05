@@ -51,7 +51,7 @@ if ( !class_exists( "Easy_CF_Field_Link_Select" ) ) {
 
             foreach ( $items as $item ):
                 if ( $item->link_id == $value ) $selected = 'selected';
-                $options .= '<option value="' . $item->link_id . '" ' . $selected . '>' . $item->link_name . '</option>' . "\n";
+                $options .= '<option value="' . intval($item->link_id) . '" ' . $selected . '>' . htmlspecialchars($item->link_name) . '</option>' . "\n";
                 $selected = '';
             endforeach;
 
@@ -77,11 +77,12 @@ class DFMInArticleTeaser
     // significant theme code rewrites.
 
 
-    function __construct($post)
+    public function __construct($post)
     {
         $this->post = $post;
         $this->load_teaser();
     }
+
     public function load_teaser($post = 0)
     {
         if ( $post != 0 ):
@@ -91,7 +92,6 @@ class DFMInArticleTeaser
         endif;
 
         $teaser = get_post_custom_values('teaser', $post->ID);
-        //var_dump(get_bookmark($teaser[0]));
         return get_bookmark($teaser[0]);
     }
 }
