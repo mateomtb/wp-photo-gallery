@@ -85,6 +85,7 @@ class DFMInArticleTeaser
 
     public function load_teaser($post = 0)
     {
+        //
         if ( $post != 0 ):
             // include manual teaser-get code
         else:
@@ -92,6 +93,25 @@ class DFMInArticleTeaser
         endif;
 
         $teaser = get_post_custom_values('teaser', $post->ID);
-        return get_bookmark($teaser[0]);
+        $this->bookmark = get_bookmark($teaser[0]);
+        return $this->bookmark;
+    }
+
+    public function load_feed($rss_url = '')
+    {
+        // Wrapper for WP's https://codex.wordpress.org/Function_Reference/fetch_feed
+        if ( $rss_url == '' ):
+            // If we're taking the url of the bookmark object, and we haven't
+            // loaded the bookmark object yet, we load the bookmark object.
+            if ( !isset($this->bookmark) )
+                $this->load_teaser();
+
+            $rss_url = $this->bookmark->rss;
+        endif;
+
+        if ( filter_var($rss_url, FILTER_VALIDATE_URL) === FALSE )
+            return false;
+
+        return fetch_feed($rss_url);
     }
 }
