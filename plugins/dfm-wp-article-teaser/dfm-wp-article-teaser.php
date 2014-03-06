@@ -135,7 +135,13 @@ class DFMInArticleTeaser
         if ( $max_items == 0 )
             return false;
 
-        $items = $feed->get_items(0, $max_items);
+        $raw_items = $feed->get_items(0, $max_items);
+        $items = Array();
+        foreach ( $raw_items as $item ):
+            $items[] = Array('date' => $item->get_date(),
+                            'title' => $item->get_title(),
+                            'permalink' => $item->get_permalink());
+        endforeach;
         return $items;
     }
 }

@@ -50,7 +50,11 @@
                                     <p>{{teaser.link_description}}</p>
                                     {% endif %}
                                     {% if teaser_feeds %}
-                                    <p>-{{teaser_feeds}}-</p>
+                                    <ul class="list">
+                                        {% for item in teaser_feeds %}
+                                        <li><a href="{{item.permalink}}">{{item.title}}</a></li>
+                                        {% endfor %}
+                                    </ul>
                                     {% endif %}
                                 </div>
                             </div>        
