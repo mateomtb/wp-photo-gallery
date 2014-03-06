@@ -1,5 +1,4 @@
 <?php
-
     add_theme_support('post-formats', array('aside', 'gallery', 'image', 'video', 'audio', 'link'));
     add_theme_support('post-thumbnails');
     add_theme_support('menus');
@@ -31,32 +30,34 @@ function global_context($data){
     // it takes the chunk after the first '.' in the string.
 
     //polls!
-    ob_start();
-    get_poll();
-    $poll = ob_get_contents();
-    ob_end_clean();
-    $poll_title = $poll_answers = $poll_options = $poll_vote = '';
-    $pollDOM = new DOMDocument;
-    $pollDOM -> loadHTML($poll);
-    $pollTitle = $pollDOM -> getElementsByTagName('strong');
-    $pollAns = $pollDOM -> getElementsByTagName('li');
-    $pollVote = $pollDOM -> getElementsByTagName('button');
-    if(count($pollTitle) > 0) {
-        foreach($pollTitle as $pollTitle1) {
-            $poll_title .= $pollTitle1->nodeValue;
+    if ( function_exists('get_poll') ):
+        ob_start();
+        get_poll();
+        $poll = ob_get_contents();
+        ob_end_clean();
+        $poll_title = $poll_answers = $poll_options = $poll_vote = '';
+        $pollDOM = new DOMDocument;
+        $pollDOM -> loadHTML($poll);
+        $pollTitle = $pollDOM -> getElementsByTagName('strong');
+        $pollAns = $pollDOM -> getElementsByTagName('li');
+        $pollVote = $pollDOM -> getElementsByTagName('button');
+        if (count($pollTitle) > 0):
+            foreach($pollTitle as $pollTitle1):
+                $poll_title .= $pollTitle1->nodeValue;
+            endforeach;
+        endif;
+        if(count($pollAns) > 0) {
+            foreach($pollAns as $pollAns1) {
+                $poll_answers .= $pollAns1->nodeValue;
+                $poll_options .= '<input type="radio" name="optionsRadios" id="optionsRadios1" value="'.$poll_answers.'">'.$poll_answers.'</input><br />';
+                $poll_answers = '';
+            }
         }
-    }
-    if(count($pollAns) > 0) {
-        foreach($pollAns as $pollAns1) {
-            $poll_answers .= $pollAns1->nodeValue;
-            $poll_options .= '<input type="radio" name="optionsRadios" id="optionsRadios1" value="'.$poll_answers.'">'.$poll_answers.'</input><br />';
-            $poll_answers = '';
+        foreach($pollVote as $pollVotes){
+            $polleVptes1 .= $pollVotes->nodeValue;
+            $poll_vote .= 'vote button'.$pollVotes1;
         }
-    }
-    foreach($pollVote as $pollVotes){
-        $polleVptes1 .= $pollVotes->nodeValue;
-        $poll_vote .= 'vote button'.$pollVotes1;
-    }
+    endif;
     $domain_bits = explode('.', $_SERVER['HTTP_HOST']);
     $data = array(
         // WP conditionals
@@ -164,8 +165,6 @@ function global_context($data){
 
 
     if ( is_singular() ) $data['mode'] = 'article';
-    //if ( is_single() ):
-    //endif;
 
     return $data;
 }
@@ -216,74 +215,6 @@ function remove_widows($title)
 } 
 add_filter('the_title', 'remove_widows');
 
-// We do this for all the custom posts we need to make this site run.
-if ( file_exists(WP_PLUGIN_DIR . '/easy-custom-fields/easy-custom-fields.php') ):
-/*
-require_once( WP_PLUGIN_DIR . '/easy-custom-fields/easy-custom-fields.php' );
-$field_data = array (
-        'BylineOverride' => array (             // unique group id
-                'fields' => array(             // array "fields" with field definitions
-                        'Name'  => array(),      // globally unique field id
-                        'Publication'  => array(),
-                ),
-        ),
-        'Sidebar' => array (
-                'fields' => array (
-                        'sidebar_title' => array('label'=>'Sidebar Title'),
-                        'sidebar_markup' => array('label'=>'Sidebar Content',
-                                        'type'=>'textarea'),
-                ),
-        ),
-);
-
-
-if ( !class_exists( "Easy_CF_Field_Textarea" ) ) {
-    class Easy_CF_Field_Textarea extends Easy_CF_Field {
-        public function print_form() {
-            $class = ( empty( $this->_field_data['class'] ) ) ? $this->_field_data['id'] . '_class' :  $this->_field_data['class'];
-            $input_class = ( empty( $this->_field_data['input_class'] ) ) ? $this->_field_data['id'] . '_input_class' :  $this->_field_data['input_class'];
-
-            $id = ( empty( $this->_field_data['id'] ) ) ? $this->_field_data['id'] :  $this->_field_data['id'];
-            $label = ( empty( $this->_field_data['label'] ) ) ? $this->_field_data['id'] :  $this->_field_data['label'];
-            $value = $this->get();
-            $hint = ( empty( $this->_field_data['hint'] ) ) ? '' :  '<p><em>' . $this->_field_data['hint'] . '</em></p>';
-
-            $label_format =
-                '<div class="%s">'.
-                '<p><label for="%s"><strong>%s</strong></label></p>'.
-                '<p><textarea class="%s" style="width: 100%%;" type="text" name="%s">%s</textarea></p>'.
-                '%s'.
-                '</div>';
-            printf( $label_format, $class, $id, $label, $input_class, $id, $value, $hint );
-        }
-    }
-}
-$easy_cf = new Easy_CF($field_data);
-*/
-endif;
-
-/*
-class boilerplate_widget extends WP_Widget
-{
-    public function __construct()
-    {
-            parent::__construct(
-                'boilerplate_widget',
-                __('boilerplate Widget', 'boilerplate_widget'),
-                array('description' => __('DESC', 'boilerplate_widget'), )
-            );
-    }
-
-    public function widget($args, $instance)
-    {
-        // DESC
-        echo 'MARKUP';
-        }
-}
-function register_boilerplate_widget() { register_widget('boilerplate_widget'); }
-add_action('widgits_init', 'register_boilerplate_widget');
-*/
-
 function createWPQueryArray($array) {
     return array(
         'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : null),
@@ -302,4 +233,33 @@ function getMediaCenterFeed() {
         }
         return $url . "rotator?size=responsive&cat=$cat";
     }
+}
+
+//declare vars
+$isMetric = false;
+$apiUrl = 'http://apidev.accuweather.com'; 
+$apiKey = '230548dfe5d54776aaaf5a1f2a19b3f5';
+$wLanguage = 'en';  
+//zip_code generated from $dfm object
+
+function getCurrentConditions($d){
+    //$currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
+    $currentConditionsUrl = 'http://apidev.accuweather.com/currentconditions/v1/37363_PC.json?language=en&apikey=230548dfe5d54776aaaf5a1f2a19b3f5';
+    return $currentConditionsUrl;
+}
+
+function getForecasts() {
+    // Not able to generate $locationKey at this time
+    //$forecastUrl = $apiUrl . '/forecasts/v1/daily/10day/' . $locationKey . 'json?language=' . $wLanguage . '&apikey' . $apiKey;
+    $forecastUrl = 'http://apidev.accuweather.com/forecasts/v1/daily/10day/37363_PC.json?language=en&apikey=230548dfe5d54776aaaf5a1f2a19b3f5';
+    return $forecastUrl;
+}
+
+// Need functionality to generate $locationKey. This call fails, using static json for time being. It basically does nothing until locationKey gets returned.
+function getWeather($a, $z, $p, $m){
+    $locationUrl = $a . '/locations/v1/US/search?q=' . $z . '&apiKey' . $p;
+    //$gwUrl = file_get_contents($locationUrl);
+    //$gwURL = json_decode($gwURL, true);
+    //$locationKey = $rwUrl[0].Key
+    return $locationUrl;
 }

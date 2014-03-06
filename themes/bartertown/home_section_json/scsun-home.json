@@ -143,6 +143,8 @@
         }
     },
 
+    "most_popular" : false,
+
     "apoc_secondary_lead_story" : {
         "first" : {
             "heading" : "Silver City", 

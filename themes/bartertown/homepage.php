@@ -61,6 +61,19 @@ $storyFeeds = array_values($config['story_feed']);
 
 $sectionPromos = array_values($config['section_promos']);
 
+
+$mostPopular = $config['most_popular'];
+
+if ($mostPopular) {
+    if (function_exists(‘JPV_display_top_posts’)) {
+        // If we can get Jetpack page views working live and for each site instance,
+        // we should be able to find and assign some most pop posts here and then loop through them in the 
+        // popular-widget.twig.
+        // We can also try http://wordpress.org/plugins/wordpress-popular-posts/
+    }
+    $context['most_popular'] = $mostPopular;
+}
+
 /* End config*/
 
 

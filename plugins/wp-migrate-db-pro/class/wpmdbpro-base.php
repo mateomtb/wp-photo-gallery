@@ -71,24 +71,21 @@ class WPMDBPro_Base {
 	}
 
 
-	function get_installed_version( $plugin = false ) {
-        return '1.3.1'; //fix via plugin dev this version tracking is broken mateo 2-24-14
-		if ( !is_admin() ) return false;
-
-    function get_installed_version( $plugin = false ) {
+        function get_installed_version( $plugin = false ) {
                 return '1.3.1';
-                        if ( !is_admin() ) return false;
+                    if ( !is_admin() ) return false;
 
-                        $plugin_basename = ( false !== $plugin ? $plugin : $this->plugin_basename );
+                    $plugin_basename = ( false !== $plugin ? $plugin : $this->plugin_basename );
 
-                                $plugins = get_plugins();
+                        $plugins = get_plugins();
 
-                                if ( !isset( $plugins[$plugin_basename]['Version'] ) ) {
-                                                return false;
-                                                        }
+                        if ( !isset( $plugins[$plugin_basename]['Version'] ) ) {
+                                    return false;
+                                        }
 
-                                        return $plugins[$plugin_basename]['Version'];
-                                    }
+                            return $plugins[$plugin_basename]['Version'];
+        }
+
 
 	function open_ssl_enabled() {
 		if ( defined( 'OPENSSL_VERSION_TEXT' ) ) {
