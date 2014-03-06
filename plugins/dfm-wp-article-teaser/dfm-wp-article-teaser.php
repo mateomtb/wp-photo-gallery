@@ -92,7 +92,7 @@ class DFMInArticleTeaser
         if ( $post == 0 ):
             $post = $this->post;
         else:
-            // include manual teaser-get code
+            $post = get_post($post);
         endif;
 
         $teaser = get_post_custom_values('teaser', $post->ID);
@@ -137,6 +137,10 @@ class DFMInArticleTeaser
 
         $raw_items = $feed->get_items(0, $max_items);
         $items = Array();
+
+        // We take these attributes instead of the whole object for ease
+        // of use within the timber templating system. This is a decision
+        // that can be looked at.
         foreach ( $raw_items as $item ):
             $items[] = Array('date' => $item->get_date(),
                             'title' => $item->get_title(),

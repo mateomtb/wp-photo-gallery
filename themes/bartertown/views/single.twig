@@ -52,7 +52,8 @@
                                     {% if teaser_feeds %}
                                     <ul class="list">
                                         {% for item in teaser_feeds %}
-                                        <li><a href="{{item.permalink}}">{{item.title}}</a></li>
+                                        <!-- NOTE: Inline styles are temporary! -->
+                                        <li style="font-size:1.4rem;"><a href="{{item.permalink}}">{{item.title}}</a></li>
                                         {% endfor %}
                                     </ul>
                                     {% endif %}
