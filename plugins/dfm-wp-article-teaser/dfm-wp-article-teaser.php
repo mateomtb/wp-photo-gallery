@@ -100,6 +100,8 @@ class DFMInArticleTeaser
     public function load_feed($rss_url = '')
     {
         // Wrapper for WP's https://codex.wordpress.org/Function_Reference/fetch_feed
+        // Returns a SimplePie feed object (see http://simplepie.org/wiki/ )
+
         if ( $rss_url == '' ):
             // If we're taking the url of the bookmark object, and we haven't
             // loaded the bookmark object yet, we load the bookmark object.
@@ -112,6 +114,25 @@ class DFMInArticleTeaser
         if ( filter_var($rss_url, FILTER_VALIDATE_URL) === FALSE )
             return false;
 
+        // Adjust feed caching time here. ***
         return fetch_feed($rss_url);
+    }
+
+    public function get_feed_items($limit = 5, $feed = '')
+    {
+        // Returns an array of feed item objects.
+        if ( $feed == '' ):
+            $feed = $this->load_feed();
+
+        if ( is_wp_error($feed) )
+            return false;
+        
+        $max_items = $feed->get_item_quantity($limit);
+        // We will need a way to distinguish between the different return-false's.
+        if ( $max_items == 0 )
+            return false;
+
+        $items = $feed->get_items(0, $max_items);
+        return $items;
     }
 }
