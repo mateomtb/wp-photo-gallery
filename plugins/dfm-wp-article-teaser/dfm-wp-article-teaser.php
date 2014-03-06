@@ -124,7 +124,7 @@ class DFMInArticleTeaser
         if ( $feed == '' )
             $feed = $this->load_feed();
 
-        if ( is_wp_error($feed) )
+        if ( is_wp_error($feed) || $feed == false )
             return false;
         
         $max_items = $feed->get_item_quantity($limit);
