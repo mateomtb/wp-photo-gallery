@@ -36,8 +36,10 @@ endif;
 if ( class_exists('DFMInArticleTeaser') ):
     $teaser = new DFMInArticleTeaser($post);
     $teaser_exists = $teaser->load_teaser();
-    if ( $teaser_exists != NULL )
+    if ( $teaser_exists != NULL ):
         $context['teaser'] = $teaser_exists;
+        $context['teaser_feeds'] = $teaser->get_feed_items();
+    endif;
 endif;
 
 // Article-sidebar (as opposed to layout-sidebar) content
@@ -63,8 +65,6 @@ endif;
 $poll_id = intval(get_post_custom_values('inarticle_poll', $post->ID));
 if ( $poll_id > 0 ):
     $context['inarticle_poll'] = TimberHelper::function_wrapper('get_poll', array($poll_id));
-else:
-    $context['inarticle_poll'] = 'heyyy';
 endif;
 
 if ( function_exists('rh_the_revision') ):

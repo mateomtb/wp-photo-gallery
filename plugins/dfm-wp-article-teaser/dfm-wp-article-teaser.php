@@ -121,7 +121,7 @@ class DFMInArticleTeaser
     public function get_feed_items($limit = 5, $feed = '')
     {
         // Returns an array of feed item objects.
-        if ( $feed == '' ):
+        if ( $feed == '' )
             $feed = $this->load_feed();
 
         if ( is_wp_error($feed) )
