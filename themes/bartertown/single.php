@@ -16,7 +16,7 @@ $context['wp_title'] .= ' - ' . $post->title();
 
 // This subhead-specific plugin doesn't yet work.
 if ( function_exists('the_subheading') )
-    $context['subhead'] = the_subheading();
+    $context['subhead'] = get_the_subheading();
 
 
 // The 'Others also read...' posts
