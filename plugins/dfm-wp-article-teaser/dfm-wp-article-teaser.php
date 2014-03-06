@@ -85,11 +85,14 @@ class DFMInArticleTeaser
 
     public function load_teaser($post = 0)
     {
-        //
-        if ( $post != 0 ):
-            // include manual teaser-get code
-        else:
+        // A teaser is a bookmark object we use for teasing its content in an article.
+        // load_teaser takes a post object and gets the teaser custom field (a bookmark id),
+        // and returns the bookmark object. It also assigns the bookmark object to itself.
+
+        if ( $post == 0 ):
             $post = $this->post;
+        else:
+            // include manual teaser-get code
         endif;
 
         $teaser = get_post_custom_values('teaser', $post->ID);
@@ -108,7 +111,7 @@ class DFMInArticleTeaser
             if ( !isset($this->bookmark) )
                 $this->load_teaser();
 
-            $rss_url = $this->bookmark->rss;
+            $rss_url = $this->bookmark->link_rss;
         endif;
 
         if ( filter_var($rss_url, FILTER_VALIDATE_URL) === FALSE )
