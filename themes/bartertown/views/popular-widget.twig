@@ -10,73 +10,73 @@
         <li><a href="#pop-ae" data-toggle="tab">A&amp;E</a></li>
         <!-- <li><a href="#pop-email" data-toggle="tab">Email</a></li> -->
         <li><a href="#pop-life" data-toggle="tab">Life</a></li>
-  </ul>
+    </ul>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div class="tab-pane link-list active" id="pop-day">
-         <ul>
-            {% for post in most_pop.day %}
-            <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
-            {% endfor %}
-            <!--<li ><a href="/popular#pop-business" class="more">See full most-popular-of-the-day list</a></li>-->
-        </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane link-list active" id="pop-day">
+             <ul>
+                {% for post in most_pop.day %}
+                <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
+                {% endfor %}
+                <!--<li ><a href="/popular#pop-business" class="more">See full most-popular-of-the-day list</a></li>-->
+            </ul>
+        </div>
+        <div class="tab-pane link-list" id="pop-hour">
+              <ul>
+                {% for post in most_pop.hour %}
+                <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
+                {% endfor %}
+                <!--<li><a href="/popular#pop-business" class="more">See full most-popular-of-the-hour list</a></li>-->
+            </ul>
+        </div>
+        <div class="tab-pane link-list" id="pop-news">
+             <ul>
+                {% for post in most_pop.news %}
+                <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
+                {% endfor %}
+                <!--<li ><a href="/popular#pop-business" class="more">More most-popular news stories</a></li>-->
+            </ul>
+        </div>
+        <div class="tab-pane link-list" id="pop-sports">
+             <ul>
+                {% for post in most_pop.sports %}
+                <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
+                {% endfor %}
+                <li><a href="/popular#pop-business" class="more">More most-popular sports stories</a></li>
+            </ul>
+        </div>
+        <div class="tab-pane link-list" id="pop-biz">
+             <ul>
+                {% for post in most_pop.business %}
+                <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
+                {% endfor %}
+                <!--<li><a href="/popular#pop-business" class="more">More most-popular business stories</a></li>-->
+            </ul>
+        </div>
+        <div class="tab-pane link-list" id="pop-ae">
+             <ul>
+                {% for post in most_pop.entertainment %}
+                <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
+                {% endfor %}
+                <!--<li><a href="/popular#pop-business" class="more">More most-popular A&amp;E stories</a></li>-->
+            </ul>
+        </div>
+        <div class="tab-pane link-list" id="pop-email">
+             <ul>
+                {% for post in most_pop.emailed %}
+                <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
+                {% endfor %}
+                <!--<li ><a href="/popular#pop-business" class="more">More most-popular emailed stories</a></li>-->
+            </ul>
+        </div>
+        <div class="tab-pane link-list" id="pop-life">
+             <ul>
+                {% for post in most_pop.lifestyle %}
+                <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
+                {% endfor %}
+                <!--<li><a href="/popular#pop-business" class="more">More most-popular lifestyle stories</a></li>-->
+            </ul>
+        </div>
     </div>
-    <div class="tab-pane link-list" id="pop-hour">
-          <ul>
-            {% for post in most_pop.hour %}
-            <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
-            {% endfor %}
-            <!--<li><a href="/popular#pop-business" class="more">See full most-popular-of-the-hour list</a></li>-->
-        </ul>
-    </div>
-    <div class="tab-pane link-list" id="pop-news">
-         <ul>
-            {% for post in most_pop.news %}
-            <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
-            {% endfor %}
-            <!--<li ><a href="/popular#pop-business" class="more">More most-popular news stories</a></li>-->
-        </ul>
-    </div>
-    <div class="tab-pane link-list" id="pop-sports">
-         <ul>
-            {% for post in most_pop.sports %}
-            <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
-            {% endfor %}
-            <li><a href="/popular#pop-business" class="more">More most-popular sports stories</a></li>
-        </ul>
-    </div>
-    <div class="tab-pane link-list" id="pop-biz">
-         <ul>
-            {% for post in most_pop.business %}
-            <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
-            {% endfor %}
-            <!--<li><a href="/popular#pop-business" class="more">More most-popular business stories</a></li>-->
-        </ul>
-    </div>
-    <div class="tab-pane link-list" id="pop-ae">
-         <ul>
-            {% for post in most_pop.entertainment %}
-            <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
-            {% endfor %}
-            <!--<li><a href="/popular#pop-business" class="more">More most-popular A&amp;E stories</a></li>-->
-        </ul>
-    </div>
-    <div class="tab-pane link-list" id="pop-email">
-         <ul>
-            {% for post in most_pop.emailed %}
-            <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
-            {% endfor %}
-            <!--<li ><a href="/popular#pop-business" class="more">More most-popular emailed stories</a></li>-->
-        </ul>
-    </div>
-    <div class="tab-pane link-list" id="pop-life">
-         <ul>
-            {% for post in most_pop.lifestyle %}
-            <li><a href="{{post.permalink}}?source=most_viewed">{{post.title}}</a></li>
-            {% endfor %}
-            <!--<li><a href="/popular#pop-business" class="more">More most-popular lifestyle stories</a></li>-->
-        </ul>
-    </div>
-  </div>
 </div>
