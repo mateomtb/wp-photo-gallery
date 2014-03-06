@@ -36,84 +36,87 @@ section#right-rail { margin-top:20px; margin-left:15px; border: 1px solid red; }
 /* Ads */
 
 #DFM-adPos-ear1 {
-  display: none;
+    display: none;
 }
 
 #DFM-adPos-ear2 {
-  display: none;
+    display: none;
 }
 
 #DFM-adPos-pencil {
-  display: none;
+    display: none;
 }
 
 #leftWall {
-  display: none;
+    display: none;
 }
 
 #rightWall {
-  display:none;
+    display:none;
 }
 
 #DFM-adPos-leader {
-  display: none;
+    display: none;
 }
 
 @media (min-width : 960px) {
+
+    /* Ear ad related */
+
+    #DFM-adPos-ear1 {
+        display: block;
+        z-index: 6;
+    }
+
+    #DFM-adPos-ear2 {
+        display: block;
+        z-index: 6;
+    }
   
-  /* Ear ad related */
+    /*End ear ad related*/
 
-  #DFM-adPos-ear1 {
-    display: block;
-  }
+    /* Sliding billboard (pencil) ad related */
 
-  #DFM-adPos-ear2 {
-    display: block;
-  }
-  
-  /*End ear ad related*/
+      #DFM-adPos-pencil {
+          display: block;
+          padding-bottom: 20px;
+      }
 
-	/* Sliding billboard (pencil) ad related */
+      /* End sliding billboard (pencil) related */
 
-	  #DFM-adPos-pencil {
-	    display: block;
-	    padding-bottom: 20px;
-	  }
+      /* Top leaderboard related*/
 
-	  /* End sliding billboard (pencil) related */
+    .leaderboard-wrap {
+        width:100%; 
+        text-align:center;
+    }
 
-	  /* Top leaderboard related*/
+    #DFM-adPos-leader {
+        display : block;
+        padding: 10px 0;
+    }
 
-	  .leaderboard-wrap {
-	    width:100%; 
-	    text-align:center;
-	  }
-
-	  #DFM-adPos-leader {
-	    display : block;
-	    padding: 10px 0;
-	  }
-
-	  /* End top leaderboard related */
+    /* End top leaderboard related */
   
 }
 
 /* Wallpaper related */
 /* The wallpaper doesn't really work for smaller screens if you keep expanding the width of the main container */
-/*#content {
-  max-width: 1000px;
+/*
+#content {
+    max-width: 1000px;
 }*/
 
 @media (min-width: 1000px) {
-  #leftWall {
-    display: block;
-    /*position:relative;*/
-  }
+    #leftWall {
+        display: block;
+        /*position:relative;*/
+    }
 
-  #rightWall {
-    display:none;
-    /*position: relative;*/
-  }
+    #rightWall {
+        display:none;
+        /*position: relative;*/
+    }
 }
 
 /* End wallpaper related */
