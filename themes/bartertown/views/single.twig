@@ -45,8 +45,17 @@
                                 {% endif %}
                                 <div class="promo-body">
                                     <h4 class="promo-heading"><a href="{{teaser.link_url}}">{{teaser.link_name}}</a></h4>
+
                                     {% if teaser.link_description %}
                                     <p>{{teaser.link_description}}</p>
+                                    {% endif %}
+                                    {% if teaser_feeds %}
+                                    <ul class="list">
+                                        {% for item in teaser_feeds %}
+                                        <!-- NOTE: Inline styles are temporary! -->
+                                        <li style="font-size:1.4rem;"><a href="{{item.permalink}}">{{item.title}}</a></li>
+                                        {% endfor %}
+                                    </ul>
                                     {% endif %}
                                 </div>
                             </div>        
