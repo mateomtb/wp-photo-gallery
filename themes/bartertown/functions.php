@@ -240,30 +240,35 @@ $isMetric = false;
 $apiUrl = 'http://apidev.accuweather.com'; 
 $apiKey = '230548dfe5d54776aaaf5a1f2a19b3f5';
 $wLanguage = 'en';  
-//zip_code generated from $dfm object
+$locationKey = '';
 
-function getCurrentConditions($d){
-    //$currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
-    $currentConditionsUrl = 'http://apidev.accuweather.com/currentconditions/v1/37363_PC.json?language=en&apikey=230548dfe5d54776aaaf5a1f2a19b3f5';
+function getCurrentConditions($apiUrl, $locationKey, $wLanguage, $apiKey){
+    $currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
     return $currentConditionsUrl;
 }
 
-function getForecasts() {
-    // Not able to generate $locationKey at this time
-    //$forecastUrl = $apiUrl . '/forecasts/v1/daily/10day/' . $locationKey . 'json?language=' . $wLanguage . '&apikey' . $apiKey;
-    $forecastUrl = 'http://apidev.accuweather.com/forecasts/v1/daily/10day/37363_PC.json?language=en&apikey=230548dfe5d54776aaaf5a1f2a19b3f5';
+function getForecasts($apiUrl, $locationKey, $wLanguage, $apiKey) {
+    $forecastUrl = $apiUrl . '/forecasts/v1/daily/10day/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
     return $forecastUrl;
 }
 
-// Need functionality to generate $locationKey. This call fails, using static json for time being. It basically does nothing until locationKey gets returned.
-function getWeather($a, $z, $p, $m){
-    $locationUrl = $a . '/locations/v1/US/search?q=' . $z . '&apiKey' . $p;
-    //$gwUrl = file_get_contents($locationUrl);
-    //$gwURL = json_decode($gwURL, true);
-    //$locationKey = $rwUrl[0].Key
-    return $locationUrl;
+function getWeather($apiUrl, $z, $apiKey){
+    $locationUrl = $apiUrl . '/locations/v1/US/search?q=' . $z . '&apiKey=' . $apiKey;
+    $locationUrl = file_get_contents($locationUrl);
+    $locationUrl = json_decode($locationUrl, true);
+    $locationKey = $locationUrl[0]['Key'];
+    if($locationKey != null){
+        return $locationKey;
+    }
 }
 
+function getMarket($domain){
+    $mUrl = 'http://markets.financialcontent.com/'.$domain.'/widget:tickerbar1?Output=JS';
+    $fp = fopen($mUrl, 'w');
+    $fwrite = ($fp);
+    fclose($fp);
+
+}
 
 
 /*DFM TAXONOMY FIELD MANAGER TESTING */
