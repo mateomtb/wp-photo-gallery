@@ -216,11 +216,19 @@ function remove_widows($title)
 add_filter('the_title', 'remove_widows');
 
 function createWPQueryArray($array) {
+    // Create querybuilder function that gets the custom-field based posts first
+    // then excludes those here
+    // Prevent overlap of stories
+    $exclusions = '';
+    if ($array[3] === 'lead_story') {
+        //var_dump($array[3]);
+    }
     return array(
         'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : null),
         'posts_per_page' => ($array[2] ? $array[2] : null),
         'meta_key' => ($array[3] ? $array[3] : null),
-        'meta_value' => ($array[4] ? $array[4] : null)
+        'meta_value' => ($array[4] ? $array[4] : null),
+        'exclude' => ''
     );
 }
 
