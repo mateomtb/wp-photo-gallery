@@ -244,13 +244,11 @@ $locationKey = '';
 
 function getCurrentConditions($apiUrl, $locationKey, $wLanguage, $apiKey){
     $currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
-    //$currentConditionsUrl = 'http://apidev.accuweather.com/currentconditions/v1/' . $locationKey . '.json?language=en&apikey=230548dfe5d54776aaaf5a1f2a19b3f5';
     return $currentConditionsUrl;
 }
 
 function getForecasts($apiUrl, $locationKey, $wLanguage, $apiKey) {
     $forecastUrl = $apiUrl . '/forecasts/v1/daily/10day/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
-    //$forecastUrl = 'http://apidev.accuweather.com/forecasts/v1/daily/10day/' . $locationKey . '.json?language=en&apikey=230548dfe5d54776aaaf5a1f2a19b3f5';
     return $forecastUrl;
 }
 
