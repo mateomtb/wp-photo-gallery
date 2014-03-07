@@ -85,13 +85,67 @@ class DFMInArticleTeaser
 
     public function load_teaser($post = 0)
     {
-        if ( $post != 0 ):
-            // include manual teaser-get code
-        else:
+        // A teaser is a bookmark object we use for teasing its content in an article.
+        // load_teaser takes a post object and gets the teaser custom field (a bookmark id),
+        // and returns the bookmark object. It also assigns the bookmark object to itself.
+
+        if ( $post == 0 ):
             $post = $this->post;
+        else:
+            $post = get_post($post);
         endif;
 
         $teaser = get_post_custom_values('teaser', $post->ID);
-        return get_bookmark($teaser[0]);
+        $this->bookmark = get_bookmark($teaser[0]);
+        return $this->bookmark;
+    }
+
+    public function load_feed($rss_url = '')
+    {
+        // Wrapper for WP's https://codex.wordpress.org/Function_Reference/fetch_feed
+        // Returns a SimplePie feed object (see http://simplepie.org/wiki/ )
+
+        if ( $rss_url == '' ):
+            // If we're taking the url of the bookmark object, and we haven't
+            // loaded the bookmark object yet, we load the bookmark object.
+            if ( !isset($this->bookmark) )
+                $this->load_teaser();
+
+            $rss_url = $this->bookmark->link_rss;
+        endif;
+
+        if ( filter_var($rss_url, FILTER_VALIDATE_URL) === FALSE )
+            return false;
+
+        // Adjust feed caching time here. ***
+        return fetch_feed($rss_url);
+    }
+
+    public function get_feed_items($limit = 5, $feed = '')
+    {
+        // Returns an array of feed item objects.
+        if ( $feed == '' )
+            $feed = $this->load_feed();
+
+        if ( is_wp_error($feed) || $feed == false )
+            return false;
+        
+        $max_items = $feed->get_item_quantity($limit);
+        // We will need a way to distinguish between the different return-false's.
+        if ( $max_items == 0 )
+            return false;
+
+        $raw_items = $feed->get_items(0, $max_items);
+        $items = Array();
+
+        // We take these attributes instead of the whole object for ease
+        // of use within the timber templating system. This is a decision
+        // that can be looked at.
+        foreach ( $raw_items as $item ):
+            $items[] = Array('date' => $item->get_date(),
+                            'title' => $item->get_title(),
+                            'permalink' => $item->get_permalink());
+        endforeach;
+        return $items;
     }
 }
