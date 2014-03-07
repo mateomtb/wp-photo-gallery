@@ -267,6 +267,8 @@ function getWeather($a, $z, $p, $m){
 
 
 /*DFM TAXONOMY FIELD MANAGER TESTING */
+
+if (class_exists("Fieldmanager_Group")){
 add_action( 'init', function() {
 
   $fm = new Fieldmanager_Group( array(
@@ -284,6 +286,8 @@ add_action( 'init', function() {
     ) );
     $fm->add_meta_box( 'Categories', array( 'post' ) );
     } );
+}
+
 
 /**
  * Add custom taxonomies
