@@ -263,19 +263,20 @@ function getWeather($apiUrl, $z, $apiKey){
 }
 
 function getMarket($domain){
-    $mUrl = 'http://markets.financialcontent.com/'.$domain.'/widget:tickerbar1?Output=JS';
+    if(!$mktUrl){
+        $mUrl = 'http://markets.financialcontent.com/'.$domain.'/widget:tickerbar1?Output=JS';
+        return $mktUrl;
+    }
 }
 
 function getTraffic($zip_code) {
-    $url = 'http://maps.googleapis.com/maps/api/geocode/json?address=' . $zip_code . '&sensor=false';
-    /*
-    $url = file_get_contents($url);
-    $coordsUrl = json_decode($url, true);
-    if($coordsUrl !== null){
-        return $coordsUrl;
-    } */
-    if($url !== null){
-        return $url;
+    if(!isset($coordsUrl)){
+        $url = 'http://maps.googleapis.com/maps/api/geocode/json?address=' . $zip_code . '&sensor=false';
+        $url = file_get_contents($url);
+        $coordsUrl = json_decode($url, true);
+        if($coordsUrl !== null){
+            return $coordsUrl;
+        }         
     }
     /*$latUrl = wp_remote_get( $url );
     if(isset($latUrl['body'])) {
@@ -305,7 +306,6 @@ add_action( 'init', function() {
     $fm->add_meta_box( 'Categories', array( 'post' ) );
     } );
 }
-
 
 /**
  * Add custom taxonomies

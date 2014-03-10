@@ -25,6 +25,6 @@ $context['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFe
 $context['get_weather'] = ($get_weather = getWeather($apiUrl, $zipCode, $apiKey)) ? $get_weather : null;
 $context['get_cw'] = ($gw = json_decode(file_get_contents(getCurrentConditions($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $gw : null;
 $context['get_fc'] = ($fc = json_decode(file_get_contents(getForecasts($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $fc : null;
-$context['get_traffic'] = json_decode(wp_remote_get($get_traffic = getTraffic($zipCode))) ? $get_traffic : null;
+$context['get_traffic'] = ($get_traffic = getTraffic($zipCode)) ? $get_traffic : null;
 if (is_home()) array_unshift($templates, 'home.twig');
 Timber::render('index.twig', $context);
