@@ -1,3 +1,6 @@
+<br /><br /><br /><br /><br />
+{{ dump(get_traffic) }}
+
 <div id="topbar" class="top-bar">
     <div class="container">
     <div id="topbar-viewport">
@@ -50,8 +53,9 @@
             </div><!-- .weather-bar -->
             <div class="traffic-bar">
             	<div class="height-0">
-					<iframe src="http://www.sigalert.com/Portlet/Map.asp?partner=LADailyNews&lat=33.85347&lon=-117.28584&z=2&th=blue&urqs=1&url=/traffic" class="traffic-map" scrolling="no" frameborder="0" height="500px" width="500px"></iframe>
-
+                {% for items in get_traffic.results %}
+                    <iframe src="http://www.sigalert.com/Portlet/Map.asp?partner=LADailyNews&lat={{ items.geometry.location.lat }}&lon={{ items.geometry.location.lng }}&z=2&th=blue&urqs=1&url=/traffic" class="traffic-map" scrolling="no" frameborder="0" height="500px" width="500px"></iframe>
+                {% endfor %}
 	                <div class="ad button" id="traffic-ad">
 	                    <img src="http://placehold.it/120x60&text=trafficad" alt="traffic ad" />
 	                    <p><a href="/traffic">Full traffic report</a></p>

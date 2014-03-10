@@ -264,12 +264,25 @@ function getWeather($apiUrl, $z, $apiKey){
 
 function getMarket($domain){
     $mUrl = 'http://markets.financialcontent.com/'.$domain.'/widget:tickerbar1?Output=JS';
-    $fp = fopen($mUrl, 'w');
-    $fwrite = ($fp);
-    fclose($fp);
-
 }
 
+function getTraffic($zip_code) {
+    $url = 'http://maps.googleapis.com/maps/api/geocode/json?address=' . $zip_code . '&sensor=false';
+    /*
+    $url = file_get_contents($url);
+    $coordsUrl = json_decode($url, true);
+    if($coordsUrl !== null){
+        return $coordsUrl;
+    } */
+    if($url !== null){
+        return $url;
+    }
+    /*$latUrl = wp_remote_get( $url );
+    if(isset($latUrl['body'])) {
+        $lat = $latUrl['body'];
+        return $lat;
+    } */     
+}
 
 /*DFM TAXONOMY FIELD MANAGER TESTING */
 
