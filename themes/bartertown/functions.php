@@ -215,14 +215,57 @@ function remove_widows($title)
 } 
 add_filter('the_title', 'remove_widows');
 
-function createWPQueryArray($array) {
+/* Query functions */
+
+// Can move these to a class if more additions are required
+function excludeFilter($posts, &$excludeArray){
+    if ($posts) {
+        foreach ($posts as $post) {
+            $excludeArray[] = $post->ID;
+        }
+    }
+    return $posts;
+}
+
+function createWPQueryArray($array, $excludeArray = array()) {
+	/* Array is structured like this
+	array(
+		string heading, 
+		string category-slug, 
+		int number-of-posts, 
+		string custom-field, 
+		string custom-field-value, 
+		string tag
+	);	
+	*/
     return array(
-        'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : null),
+        'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : 0),
         'posts_per_page' => ($array[2] ? $array[2] : null),
         'meta_key' => ($array[3] ? $array[3] : null),
-        'meta_value' => ($array[4] ? $array[4] : null)
+        'meta_value' => ($array[4] ? $array[4] : null),
+        'tag' => ($array[5] ? $array[5] : null),
+        'post__not_in' => $excludeArray
     );
 }
+
+function unboltQuery($method, $query, &$excludeArray){
+    // Basically this function returns posts while adding to an array
+    // of IDs of posts that should be excluded from future get_post(s)() returns
+    // without any global declarations
+    // Had no luck filtering Timber's get_post(s)() methods
+    // Still need to verify if this is performant
+    if (is_array($query)) {
+        // The query passed should be a specific array like
+        // based on the json config files
+        $query = createWPQueryArray($query, $excludeArray);
+    }
+    return excludeFilter(
+        call_user_func(array(Timber, $method), $query), 
+        $excludeArray
+    );
+}
+
+/* End Query functions */
 
 function getMediaCenterFeed() {
     if ($s = $_SESSION['dfm']) {
