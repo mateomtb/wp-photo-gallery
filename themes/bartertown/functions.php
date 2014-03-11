@@ -228,6 +228,16 @@ function excludeFilter($posts, &$excludeArray){
 }
 
 function createWPQueryArray($array, $excludeArray = array()) {
+	/* Array is structured like this
+	array(
+		string heading, 
+		string category-slug, 
+		int number-of-posts, 
+		string custom-field, 
+		string custom-field-value, 
+		string tag
+	);	
+	*/
     return array(
         'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : 0),
         'posts_per_page' => ($array[2] ? $array[2] : null),
@@ -238,21 +248,19 @@ function createWPQueryArray($array, $excludeArray = array()) {
     );
 }
 
-function unboltQuery($obj, $method, $query, &$excludeArray){
+function unboltQuery($method, $query, &$excludeArray){
     // Basically this function returns posts while adding to an array
     // of IDs of posts that should be excluded from future get_post(s)() returns
     // without any global declarations
     // Had no luck filtering Timber's get_post(s)() methods
     // Still need to verify if this is performant
     if (is_array($query)) {
-        // The query passed can be a very specific array like what is found in the json config files
-        // Or a string like we were using for tag-based queries
+        // The query passed should be a specific array like
+        // based on the json config files
         $query = createWPQueryArray($query, $excludeArray);
     }
     return excludeFilter(
-        call_user_func(
-            array($obj, $method), $query
-        ), 
+        call_user_func(array(Timber, $method), $query), 
         $excludeArray
     );
 }
