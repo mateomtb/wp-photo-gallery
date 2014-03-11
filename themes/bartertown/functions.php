@@ -217,6 +217,7 @@ add_filter('the_title', 'remove_widows');
 
 /* Query functions */
 
+// Can move these to a class if more additions are required
 function excludeFilter($posts, &$excludeArray){
     if ($posts) {
         foreach ($posts as $post) {
@@ -225,25 +226,32 @@ function excludeFilter($posts, &$excludeArray){
     }
     return $posts;
 }
+
 function createWPQueryArray($array, $excludeArray = array()) {
     return array(
-        'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : null),
+        'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : 0),
         'posts_per_page' => ($array[2] ? $array[2] : null),
         'meta_key' => ($array[3] ? $array[3] : null),
         'meta_value' => ($array[4] ? $array[4] : null),
+        'tag' => ($array[5] ? $array[5] : null),
         'post__not_in' => $excludeArray
     );
 }
-function unboltQuery($obj, $method, $queryArray, &$excludeArray){
+
+function unboltQuery($obj, $method, $query, &$excludeArray){
     // Basically this function returns posts while adding to an array
     // of IDs of posts that should be excluded from future get_post(s)() returns
     // without any global declarations
     // Had no luck filtering Timber's get_post(s)() methods
     // Still need to verify if this is performant
-    $query = createWPQueryArray($queryArray, $excludeArray);
+    if (is_array($query)) {
+        // The query passed can be a very specific array like what is found in the json config files
+        // Or a string like we were using for tag-based queries
+        $query = createWPQueryArray($query, $excludeArray);
+    }
     return excludeFilter(
         call_user_func(
-            array($obj, $method), createWPQueryArray($queryArray, $excludeArray)
+            array($obj, $method), $query
         ), 
         $excludeArray
     );

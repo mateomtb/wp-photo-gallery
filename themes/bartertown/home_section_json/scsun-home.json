@@ -145,6 +145,15 @@
 
     "most_popular" : false,
 
+    "breaking_news" : {
+         "heading" : null, 
+         "category_slug" : null,
+         "number_of_posts" : 1,
+         "custom_field" : null,
+         "custom_field_value" : null,
+         "tag" : "breaking_news"
+    },
+
     "apoc_secondary_lead_story" : {
         "first" : {
             "heading" : "Silver City", 

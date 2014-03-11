@@ -31,7 +31,7 @@ $columnists = array_values($config['columnists']);
 /* Run queries and assign contexts to be used in templates */
 
 // Breaking Alert
-$context['breaking_alert'] = Timber::get_posts('tag=breaking-news');
+$context['breaking_news'] = Timber::get_posts('tag=breaking-news');
 
 // Lead story
 $context['lead_story'] = Timber::get_posts(createWPQueryArray($leadStory));

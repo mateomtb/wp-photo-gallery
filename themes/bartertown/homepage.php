@@ -59,6 +59,8 @@ $storyFeeds = array_values($config['story_feed']);
     array('Silver City', 'news', 4)
 );*/
 
+$breakingNews = array_values($config['breaking_news']);
+
 $sectionPromos = array_values($config['section_promos']);
 
 
@@ -80,10 +82,8 @@ if ($mostPopular) {
 
 /* Run queries and assign contexts to be used in templates */
 
-// We should probably move tags into the createWPQueryArray()
-
 // Breaking Alert
-$context['breaking_alert'] = excludeFilter(Timber::get_posts('tag=breaking-news'));
+$context['breaking_news'] = unboltQuery(Timber, 'get_posts', $breakingNews, $context['exclude_posts']);
 
 // Apocalypse
 $context['apoc'] = excludeFilter(Timber::get_posts('tag=apoc'));
@@ -149,7 +149,7 @@ if ( function_exists('get_eventful') )
 
 
 // Bottom Line
-$context['bottom_line1'] = Timber::get_posts('tag=bottom_line1');
+$context['bottom_line1'] = Timber::get_posts('tag=bottom_line1&post__not_in=571');
 $context['bottom_line2'] = Timber::get_posts('tag=bottom_line2');
 $context['bottom_line3'] = Timber::get_posts('tag=bottom_line3');
 /* End run queries */
