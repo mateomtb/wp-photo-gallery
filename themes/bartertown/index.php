@@ -20,7 +20,7 @@ $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
 // As we run specific queries, we need a place to store post IDs that are curated
 // so they can be excluded from more general queries
-$context['exclude_post_ids'] = array();
+$context['exclude_posts'] = array();
 $templates = array('index.twig');
 include get_template_directory() . '/homepage.php';
 $zipCode = $_SESSION['dfm']['zip_code'];

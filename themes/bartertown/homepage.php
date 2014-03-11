@@ -114,7 +114,8 @@ if ($context['apoc']) {
 // Normal
 else {
     // Lead story
-    $context['lead_story'] = Timber::get_posts(createWPQueryArray($leadStory));
+    $context['lead_story'] = excludeFilter(Timber::get_posts(createWPQueryArray($leadStory, $context['exclude_posts'])), $context['exclude_posts']);
+    var_dump($context['exclude_posts']);
     // Secondary lead story
     $context['secondary_lead_story'] = Timber::get_posts(createWPQueryArray($secondaryLeadStory));
     // Related stories (only appear if second lead story does not exist)

@@ -215,7 +215,18 @@ function remove_widows($title)
 } 
 add_filter('the_title', 'remove_widows');
 
-function createWPQueryArray($array) {
+
+add_filter('timber_get_posts', 'excludeFilter');
+function excludeFilter($posts, $excludeArray){
+	if ($posts) {
+		foreach ($posts as $post) {
+			$excludeArray[] = $post->ID;
+		}
+	}
+	return $posts;
+}
+function createWPQueryArray($array, $excludeArray = array()) {
+	global $context;
     return array(
         'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : null),
         'posts_per_page' => ($array[2] ? $array[2] : null),
