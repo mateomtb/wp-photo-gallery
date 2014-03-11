@@ -25,25 +25,22 @@ $config = json_decode(file_get_contents(get_template_directory() . '/home_sectio
 
 // Assign arrays structured as above created from JSON file
 
+// Lead Stories
 $leadStory = array_values($config['lead_story']);
-
 $secondaryLeadStory = array_values($config['secondary_lead_story']);
-
 $relatedStories = array_values($config['related_stories']);
-
-
 $secondaryStories = array_values($config['secondary_stories']);
 
+// Story feed
 $feedStoryHeading = $config['story_feed_heading'];
 $storyFeeds = array_values($config['story_feed']);
 
+// Breaking and apocalypse
 $breakingNews = array_values($config['breaking_news']);
-
 $apocalypse = array_values($config['apocalypse']);
 
+// Section promos and most popular
 $sectionPromos = array_values($config['section_promos']);
-
-
 $mostPopular = $config['most_popular'];
 
 if ($mostPopular) {
