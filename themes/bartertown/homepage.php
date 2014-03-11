@@ -80,76 +80,67 @@ if ($mostPopular) {
 
 /* Run queries and assign contexts to be used in templates */
 
+// We should probably move tags into the createWPQueryArray()
+
 // Breaking Alert
-$context['breaking_alert'] = Timber::get_posts('tag=breaking-news');
+$context['breaking_alert'] = excludeFilter(Timber::get_posts('tag=breaking-news'));
 
 // Apocalypse
-$context['apoc'] = Timber::get_posts('tag=apoc');
+$context['apoc'] = excludeFilter(Timber::get_posts('tag=apoc'));
 if ($context['apoc']) {
     // Bring config from above down here for these sorts of stories
     
     // Apoc secondary lead story
     $apocSecondaryLeadStory = array_values($config['apoc_secondary_lead_story']);
-    $context['apoc_secondary_lead_story'] = Timber::get_posts(createWPQueryArray($apocSecondaryLeadStory));
+
+    $context['apoc_secondary_lead_story'] = unboltQuery(Timber, 'get_posts', $apocSecondaryLeadStory, $context['exclude_posts']);
     
     // Apoc secondary stories
     $apocSecondaryStories = array_values($config['apoc_secondary_stories']);
-    $context['apoc_secondary_lead_story'] = array();
+    $context['apoc_secondary_story'] = array();
     foreach($apocSecondaryStories as $story) {
-        $context['apoc_secondary_lead_story'][] = Timber::get_post(createWPQueryArray($story));
+        $context['apoc_secondary_story'][] = unboltQuery(Timber, 'get_post', $story, $context['exclude_posts']);
     }
     
     // Apoc related
     $apocRelatedStories = array_values($config['apoc_related_stories']);
-    $context['apoc_related_stories'] = Timber::get_posts(createWPQueryArray($apocRelatedStories));
+    $context['apoc_related_stories'] = unboltQuery(Timber, 'get_posts', $apocRelatedStories, $context['exclude_posts']);
     
     // Apoc story feed
     $apocStoryFeed = array_values($config['apoc_story_feed']);
     $context['apoc_story_feed'] = array();
     foreach ($apocStoryFeed as $story) {
-        $context['apoc_story_feed'][] = Timber::get_post(createWPQueryArray($story));
+        $context['apoc_story_feed'][] = unboltQuery(Timber, 'get_post', $story, $context['exclude_posts']);
     }
 
 }
 // Normal
 else {
     // Lead story
-	function foo($a, $b, $c) {
-		var_dump(is_callable($a));
-		call_user_func(array($a, $b), $c);
-	}
-	//$Timber = 'Timber';
-	$instance = new Timber();
-	$a = foo($instance, 'get_posts', array());
-	var_dump($a);
-    //$context['lead_story'] = excludeFilter(Timber::get_posts(createWPQueryArray($leadStory, $context['exclude_posts'])), $context['exclude_posts']);
-    $context['lead_story'] = unboltQuery('Timber', 'get_posts', $leadStory, $context['exclude_posts']);
-    //var_dump($context['lead_story']);
-    //var_dump($context['exclude_posts']);
+    $context['lead_story'] = unboltQuery(Timber, 'get_posts', $leadStory, $context['exclude_posts']);
     // Secondary lead story
-    $context['secondary_lead_story'] = Timber::get_posts(createWPQueryArray($secondaryLeadStory));
+    $context['secondary_lead_story'] = unboltQuery(Timber, 'get_posts', $secondaryLeadStory, $context['exclude_posts']);
     // Related stories (only appear if second lead story does not exist)
-    $context['related_stories'] = Timber::get_posts(createWPQueryArray($relatedStories));
+    //$context['related_stories'] = Timber::get_posts(createWPQueryArray($relatedStories));
+    $context['related_stories'] = unboltQuery(Timber, 'get_posts', $relatedStories, $context['exclude_posts']);
     $context['related_stories_heading'] = $relatedStories[0];
     // Secondary stories
     $context['secondary_stories'] = array();
     foreach($secondaryStories as $story) {
-        $context['secondary_stories'][] =  Timber::get_post(createWPQueryArray(array_values($story)));
+        //$context['secondary_stories'][] =  Timber::get_post(createWPQueryArray(array_values($story)));
+        $context['secondary_stories'][] = unboltQuery(Timber, 'get_post', array_values($story), $context['exclude_posts']);
     }
     // Story feed small
     $context['story_feed_heading'] = $config['story_feed_heading'];
     $context['story_feed'] = array();
     foreach($storyFeeds as $story) {
-        $context['story_feed'][] = Timber::get_post(createWPQueryArray(array_values($story)));
-        //$context['story_feed_' . feedStoryCount] = Timber::get_post(createWPQueryArray($feedStory1));
-        //$context['story_feed_' . feedStoryCount . '_heading'] = $feedStory1[0];
-        //++feedStoryCount;
+        $context['story_feed'][] = unboltQuery(Timber, 'get_post', array_values($story), $context['exclude_posts']);
     }
 }
 // Section promos
 $context['section_promos'] = array();
 foreach($sectionPromos as $promo) {
-    $context['section_promos'][] = Timber::get_posts(createWPQueryArray(array_values($promo)));
+    $context['section_promos'][] = unboltQuery(Timber, 'get_posts', array_values($promo), $context['exclude_posts']);
 }
 
 //Eventful

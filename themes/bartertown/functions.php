@@ -218,15 +218,14 @@ add_filter('the_title', 'remove_widows');
 /* Query functions */
 
 function excludeFilter($posts, &$excludeArray){
-	if ($posts) {
-		foreach ($posts as $post) {
-			$excludeArray[] = $post->ID;
-		}
-	}
-	return $posts;
+    if ($posts) {
+        foreach ($posts as $post) {
+            $excludeArray[] = $post->ID;
+        }
+    }
+    return $posts;
 }
 function createWPQueryArray($array, $excludeArray = array()) {
-	global $context;
     return array(
         'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : null),
         'posts_per_page' => ($array[2] ? $array[2] : null),
@@ -235,14 +234,19 @@ function createWPQueryArray($array, $excludeArray = array()) {
         'post__not_in' => $excludeArray
     );
 }
-function unboltQuery($bool, $queryArray, &$excludeArray){
-	// Basically this function returns posts while adding to an array
-	// of IDs of posts that should be excluded in the future
-	// get_posts() if $bool === true 
-	// get_post() if $bool === false
-	// was having trouble making this dynamic using call_user_func
-	$query = createWPQueryArray($queryArray, $excludeArray)	
-	excludeFilter($bool ? Timber::get_posts($query) : Timber::get_post($query), $excludeArray);
+function unboltQuery($obj, $method, $queryArray, &$excludeArray){
+    // Basically this function returns posts while adding to an array
+    // of IDs of posts that should be excluded from future get_post(s)() returns
+    // without any global declarations
+    // Had no luck filtering Timber's get_post(s)() methods
+    // Still need to verify if this is performant
+    $query = createWPQueryArray($queryArray, $excludeArray);
+    return excludeFilter(
+        call_user_func(
+            array($obj, $method), createWPQueryArray($queryArray, $excludeArray)
+        ), 
+        $excludeArray
+    );
 }
 
 /* End Query functions */
