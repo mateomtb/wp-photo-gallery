@@ -114,8 +114,18 @@ if ($context['apoc']) {
 // Normal
 else {
     // Lead story
-    $context['lead_story'] = excludeFilter(Timber::get_posts(createWPQueryArray($leadStory, $context['exclude_posts'])), $context['exclude_posts']);
-    var_dump($context['exclude_posts']);
+	function foo($a, $b, $c) {
+		var_dump(is_callable($a));
+		call_user_func(array($a, $b), $c);
+	}
+	//$Timber = 'Timber';
+	$instance = new Timber();
+	$a = foo($instance, 'get_posts', array());
+	var_dump($a);
+    //$context['lead_story'] = excludeFilter(Timber::get_posts(createWPQueryArray($leadStory, $context['exclude_posts'])), $context['exclude_posts']);
+    $context['lead_story'] = unboltQuery('Timber', 'get_posts', $leadStory, $context['exclude_posts']);
+    //var_dump($context['lead_story']);
+    //var_dump($context['exclude_posts']);
     // Secondary lead story
     $context['secondary_lead_story'] = Timber::get_posts(createWPQueryArray($secondaryLeadStory));
     // Related stories (only appear if second lead story does not exist)
