@@ -343,7 +343,7 @@ function getTraffic($zip_code) {
 // Used for weather to determine to use day or night icons
 function getTimeZone(){
     $timeZone = get_option('gmt_offset');
-    $tzArr = ['New_York' => -4, 'Chicago' => -5, 'Denver' => -6, 'Los_Angeles' => -7];
+    $tzArr = array('New_York' => -4, 'Chicago' => -5, 'Denver' => -6, 'Los_Angeles' => -7);
     foreach ($tzArr as $key => $value){
         if($timeZone == $value){
             return $key;
