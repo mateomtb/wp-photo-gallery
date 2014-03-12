@@ -1,5 +1,8 @@
+{% set timeZ = "now"|date("U", "America/%get_timezone%"|replace({"%get_timezone%": get_timezone})) %} 
+{% set night = "06:00pm"|date("U", "America/%get_timezone%"|replace({"%get_timezone%": get_timezone})) %}
+{% set morning = "6:00am"|date("U", "America/%get_timezone%"|replace({"%get_timezone%": get_timezone})) %}
 <div id="topbar" class="top-bar">
-    <div class="container">
+    <div class="container"> 
     <div id="topbar-viewport">
         <div id="topbar-wrapper">
             <div class="weather-bar">
@@ -7,8 +10,12 @@
                     <div class="today-temp">
                         <div class="current-temp">
                         	{% for fc_img in get_fc|slice(1) %}  
-                        		{# this only handles daytime now. need to figure out how/when to change Day to Night. #}           	
-	                         	<img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc_img[1].Day.Icon < 10 %}0{% endif %}{{ fc_img[1].Day.Icon }}.png" alt="{{ fc_img[1].Day.IconPhrase }}" />
+
+                                {% if ( timeZ < morning) and ( timeZ > night ) %}         	
+	                         	    <img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc_img[1].Night.Icon < 10 %}0{% endif %}{{ fc_img[1].Night.Icon }}.png" alt="{{ fc_img[1].Night.IconPhrase }}" />
+                                {% else %}
+                                    <img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc_img[1].Day.Icon < 10 %}0{% endif %}{{ fc_img[1].Day.Icon }}.png" alt="{{ fc_img[1].Day.IconPhrase }}" />
+                                {% endif %}
 	                        {% endfor %}
 	                    	{% for cw in get_cw %}     
 	                            <p class="right-now">Right now</p>
@@ -35,7 +42,11 @@
                         	{% for fc in get_fc.DailyForecasts|slice(1,7) %}
 	                            <li>
 	                                <p class="day">{{ fc.Date|date('l') }}</p>
-	                                <img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc.Day.Icon < 10 %}0{% endif %}{{ fc.Day.Icon }}.png" alt="{{ fc.Day.IconPhrase }}" class="weather-icon" />
+                                    {% if ( timeZ < morning) and ( timeZ > night ) %} 
+	                                   <img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc.Night.Icon < 10 %}0{% endif %}{{ fc.Night.Icon }}.png" alt="{{ fc.Night.IconPhrase }}" class="weather-icon" />
+                                    {% else %}
+                                        <img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc.Day.Icon < 10 %}0{% endif %}{{ fc.Day.Icon }}.png" alt="{{ fc.Day.IconPhrase }}" class="weather-icon" />
+                                    {% endif %}
 	                                <p class="high-temp">{{ fc.Temperature.Maximum.Value }}</p>
 	                                <p class="low-temp">{{ fc.Temperature.Minimum.Value }}</p>
 	                            </li>
@@ -50,8 +61,9 @@
             </div><!-- .weather-bar -->
             <div class="traffic-bar">
             	<div class="height-0">
-					<iframe src="http://www.sigalert.com/Portlet/Map.asp?partner=LADailyNews&lat=33.85347&lon=-117.28584&z=2&th=blue&urqs=1&url=/traffic" class="traffic-map" scrolling="no" frameborder="0" height="500px" width="500px"></iframe>
-
+                {% for items in get_traffic.results %}
+                    <iframe src="http://www.sigalert.com/Portlet/Map.asp?partner=LADailyNews&lat={{ items.geometry.location.lat }}&lon={{ items.geometry.location.lng }}&z=2&th=blue&urqs=1&url=/traffic" class="traffic-map" scrolling="no" frameborder="0" height="500px" width="500px"></iframe>
+                {% endfor %}
 	                <div class="ad button" id="traffic-ad">
 	                    <img src="http://placehold.it/120x60&text=trafficad" alt="traffic ad" />
 	                    <p><a href="/traffic">Full traffic report</a></p>
