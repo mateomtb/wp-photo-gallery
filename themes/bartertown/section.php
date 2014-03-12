@@ -4,16 +4,9 @@
 
 /* Set categories and other config for all content on home page */
 
-// All of the configuration could come from a JSON file for each site
-$config = json_decode(file_get_contents(get_template_directory() . '/home_section_json/scsun-sports.json'), true);
+// See homepage.php for explanation
 
-// Might be a better choice than WP Menus since we will not be overly reliant on a
-// WordPress specific implementation?
-
-
-// array('heading', 'category-slug', number-of-posts, custom-field, custom-field-value);
-// Right now heading is sort of useless since we're using the category slug to get the category name
-// where a heading is neeeded. But it's probably good to anticipate custom requests?
+$config = getContentConfigFeed($context['domain'], $context['section']);
 
 // Lead Stories
 $leadStory = array_values($config['lead_story']);
