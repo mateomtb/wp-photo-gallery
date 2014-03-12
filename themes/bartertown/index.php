@@ -18,10 +18,13 @@ if (!class_exists('Timber')):
 endif;
 $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
+// As we run specific queries, we need a place to store IDs of posts that are curated
+// so they can be excluded from subsequent queries
+$context['exclude_posts'] = array();
 $templates = array('index.twig');
 include get_template_directory() . '/homepage.php';
 $zipCode = $_SESSION['dfm']['zip_code'];
-$context['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed()), true)) ? $mc : null;
+$context['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed($context['section'])), true)) ? $mc : null;
 $context['get_weather'] = ($get_weather = getWeather($apiUrl, $zipCode, $apiKey)) ? $get_weather : null;
 $context['get_cw'] = ($gw = json_decode(file_get_contents(getCurrentConditions($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $gw : null;
 $context['get_fc'] = ($fc = json_decode(file_get_contents(getForecasts($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $fc : null;

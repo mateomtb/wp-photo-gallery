@@ -15,7 +15,7 @@
     
     // Dependencies
     if (typeof $ === 'undefined') {
-        console.log(ERROR_COMPONENT + 'need jQuery.');
+        console.log(ERROR_COMPONENT + 'jQuery.');
         return false;
     }
     if (typeof $.fn.carousel !== 'function') {

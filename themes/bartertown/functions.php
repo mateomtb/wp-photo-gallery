@@ -100,7 +100,7 @@ function global_context($data){
         'poll_options' => $poll_options,
         'poll_vote' => $poll_vote,
         'mode' => 'section',
-        'section' => '',
+        'section' => get_category(get_query_var('cat'))->slug,
 
         // Content vars
         'single_cat_title' => single_cat_title(),
@@ -215,23 +215,78 @@ function remove_widows($title)
 } 
 add_filter('the_title', 'remove_widows');
 
-function createWPQueryArray($array) {
+/* Query functions */
+
+// Can move these to a class if more additions are required
+function excludeFilter($posts, &$excludeArray){
+    if ($posts) {
+        foreach ($posts as $post) {
+            $excludeArray[] = $post->ID;
+        }
+    }
+    return $posts;
+}
+
+function createWPQueryArray($array, $excludeArray = array()) {
+    /* $array is structured like this
+    array(
+        string heading, 
+        string category-slug, 
+        int number-of-posts, 
+        string custom-field, 
+        string custom-field-value, 
+        string tag
+    );  
+    */
     return array(
-        'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : null),
+        'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : 0),
         'posts_per_page' => ($array[2] ? $array[2] : null),
         'meta_key' => ($array[3] ? $array[3] : null),
-        'meta_value' => ($array[4] ? $array[4] : null)
+        'meta_value' => ($array[4] ? $array[4] : null),
+        'tag' => ($array[5] ? $array[5] : null),
+        'post__not_in' => $excludeArray
     );
 }
 
-function getMediaCenterFeed() {
+function unboltQuery($method, $query, &$excludeArray){
+    // Basically this function returns posts while adding to an array
+    // of IDs of posts that should be excluded from future get_post(s)() returns
+    // without any global declarations
+    // Had no luck filtering Timber's get_post(s)() methods
+    // Still need to verify if this is performant
+    if (is_array($query)) {
+        // The query passed should be a specific array
+        // based on the json config files
+        $query = createWPQueryArray($query, $excludeArray);
+    }
+    return excludeFilter(
+        call_user_func(array(Timber, $method), $query), 
+        $excludeArray
+    );
+}
+
+/* End Query functions */
+
+function getMediaCenterFeed($section) {
     if ($s = $_SESSION['dfm']) {
         $url = $s['media_center_url'];
-        $cat = get_category(get_query_var('cat'))->slug;
+        $cat = $section;
         if (!$cat) {
             $cat = 'mc_rotator_home___';
         }
         return $url . "rotator?size=responsive&cat=$cat";
+    }
+}
+
+function getContentConfigFeed($domain, $section){
+    $dir = get_template_directory() . '/home_section_json/';
+    $section = $section ? $section : 'home';
+
+    if ($file = file_get_contents($dir . $domain . '/' . $section . '.json')) {
+        return json_decode($file, true);
+    }
+    else {
+        return json_decode($dir . 'default.json', true);
     }
 }
 
