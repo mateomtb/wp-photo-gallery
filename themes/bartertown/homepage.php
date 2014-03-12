@@ -4,21 +4,22 @@
 
 /* Set categories and other config for all content on home page */
 
+
 // All of the configuration can come from a JSON file for each site
-$config = json_decode(file_get_contents(get_template_directory() . '/home_section_json/scsun-home.json'), true);
+$config = getContentConfigFeed($context['domain'], $context['section']);
 
 
-	/* Array is structured like this
-	array(
-		string heading, 
-		string category-slug, 
-		int number-of-posts, 
-		string custom-field, 
-		string custom-field-value, 
-		string tag
-	);	
-	*/
-	
+    /* Array is structured like this
+    array(
+        string heading,
+        string category-slug,
+        int number-of-posts,
+        string custom-field,
+        string custom-field-value,
+        string tag
+    );  
+    */
+    
 // Right now heading is sort of useless since we're using the category slug to get the category name
 // where a heading is neeeded. But it's probably good to anticipate custom requests and to have another 
 // bit of meta data?
@@ -57,7 +58,7 @@ if ($mostPopular) {
 
 
 
-/* Run queries and assign contexts to be used in templates */
+/* Run queries and assign contexts to be used in Twig templates */
 
 // Breaking Alert
 $context['breaking_news'] = unboltQuery('get_posts', $breakingNews, $context['exclude_posts']);

@@ -100,7 +100,7 @@ function global_context($data){
         'poll_options' => $poll_options,
         'poll_vote' => $poll_vote,
         'mode' => 'section',
-        'section' => '',
+        'section' => get_category(get_query_var('cat'))->slug,
 
         // Content vars
         'single_cat_title' => single_cat_title(),
@@ -228,16 +228,16 @@ function excludeFilter($posts, &$excludeArray){
 }
 
 function createWPQueryArray($array, $excludeArray = array()) {
-	/* Array is structured like this
-	array(
-		string heading, 
-		string category-slug, 
-		int number-of-posts, 
-		string custom-field, 
-		string custom-field-value, 
-		string tag
-	);	
-	*/
+    /* $array is structured like this
+    array(
+        string heading, 
+        string category-slug, 
+        int number-of-posts, 
+        string custom-field, 
+        string custom-field-value, 
+        string tag
+    );  
+    */
     return array(
         'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : 0),
         'posts_per_page' => ($array[2] ? $array[2] : null),
@@ -255,7 +255,7 @@ function unboltQuery($method, $query, &$excludeArray){
     // Had no luck filtering Timber's get_post(s)() methods
     // Still need to verify if this is performant
     if (is_array($query)) {
-        // The query passed should be a specific array like
+        // The query passed should be a specific array
         // based on the json config files
         $query = createWPQueryArray($query, $excludeArray);
     }
@@ -267,14 +267,26 @@ function unboltQuery($method, $query, &$excludeArray){
 
 /* End Query functions */
 
-function getMediaCenterFeed() {
+function getMediaCenterFeed($section) {
     if ($s = $_SESSION['dfm']) {
         $url = $s['media_center_url'];
-        $cat = get_category(get_query_var('cat'))->slug;
+        $cat = $section;
         if (!$cat) {
             $cat = 'mc_rotator_home___';
         }
         return $url . "rotator?size=responsive&cat=$cat";
+    }
+}
+
+function getContentConfigFeed($domain, $section){
+    $dir = get_template_directory() . '/home_section_json/';
+    $section = $section ? $section : 'home';
+
+    if ($file = file_get_contents($dir . $domain . '/' . $section . '.json')) {
+        return json_decode($file, true);
+    }
+    else {
+        return json_decode($dir . 'default.json', true);
     }
 }
 
