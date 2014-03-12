@@ -1,7 +1,6 @@
 {% set timeZ = "now"|date("U", "America/%get_timezone%"|replace({"%get_timezone%": get_timezone})) %} 
 {% set night = "06:00pm"|date("U", "America/%get_timezone%"|replace({"%get_timezone%": get_timezone})) %}
 {% set morning = "6:00am"|date("U", "America/%get_timezone%"|replace({"%get_timezone%": get_timezone})) %}
-<br />
 <div id="topbar" class="top-bar">
     <div class="container"> 
     <div id="topbar-viewport">
