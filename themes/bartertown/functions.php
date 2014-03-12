@@ -349,9 +349,8 @@ function getTimeZone(){
             return $key;
         }
     }
+    return 'Denver';
 }
-
-
 
 /*DFM TAXONOMY FIELD MANAGER TESTING */
 
@@ -415,5 +414,3 @@ add_action( 'init', 'add_custom_taxonomies', 0 );
 
 
 /*DFM TAXONOMY FIELD MANAGER TESTING */
-
-
