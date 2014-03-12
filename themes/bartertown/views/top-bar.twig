@@ -1,3 +1,6 @@
+<br /><br /><br /><br /><br /><br />
+<br />
+
 <div id="topbar" class="top-bar">
     <div class="container">
     <div id="topbar-viewport">
@@ -7,8 +10,11 @@
                     <div class="today-temp">
                         <div class="current-temp">
                         	{% for fc_img in get_fc|slice(1) %}  
-                        		{# this only handles daytime now. need to figure out how/when to change Day to Night. #}           	
-	                         	<img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc_img[1].Day.Icon < 10 %}0{% endif %}{{ fc_img[1].Day.Icon }}.png" alt="{{ fc_img[1].Day.IconPhrase }}" />
+                                {% if ("now"|date("U", "America/Denver") > '6:00pm'|date('U', 'America/Denver')) and ("now"|date("U", "America/Denver") < '5:00am'|date('U', 'America/Denver')) %}         	
+	                         	    <img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc_img[1].Night.Icon < 10 %}0{% endif %}{{ fc_img[1].Night.Icon }}.png" alt="{{ fc_img[1].Night.IconPhrase }}" />
+                                {% else %}
+                                    <img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc_img[1].Day.Icon < 10 %}0{% endif %}{{ fc_img[1].Day.Icon }}.png" alt="{{ fc_img[1].Day.IconPhrase }}" />
+                                {% endif %}
 	                        {% endfor %}
 	                    	{% for cw in get_cw %}     
 	                            <p class="right-now">Right now</p>
@@ -35,7 +41,11 @@
                         	{% for fc in get_fc.DailyForecasts|slice(1,7) %}
 	                            <li>
 	                                <p class="day">{{ fc.Date|date('l') }}</p>
-	                                <img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc.Day.Icon < 10 %}0{% endif %}{{ fc.Day.Icon }}.png" alt="{{ fc.Day.IconPhrase }}" class="weather-icon" />
+                                    {% if ("now"|date("U", "America/Denver") > '6:00pm'|date('U', 'America/Denver')) and ("now"|date("U", "America/Denver") < '5:00am'|date('U', 'America/Denver')) %} 
+	                                   <img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc.Night.Icon < 10 %}0{% endif %}{{ fc.Night.Icon }}.png" alt="{{ fc.Night.IconPhrase }}" class="weather-icon" />
+                                    {% else %}
+                                        <img src="http://local.dailynews.com/common/dfm/assets/img/accuweather/{% if fc.Day.Icon < 10 %}0{% endif %}{{ fc.Day.Icon }}.png" alt="{{ fc.Day.IconPhrase }}" class="weather-icon" />
+                                    {% endif %}
 	                                <p class="high-temp">{{ fc.Temperature.Maximum.Value }}</p>
 	                                <p class="low-temp">{{ fc.Temperature.Minimum.Value }}</p>
 	                            </li>
