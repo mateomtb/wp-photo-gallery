@@ -352,8 +352,6 @@ function getTimeZone(){
     return 'Denver';
 }
 
-
-
 /*DFM TAXONOMY FIELD MANAGER TESTING */
 
 if (class_exists("Fieldmanager_Group")){
@@ -416,5 +414,3 @@ add_action( 'init', 'add_custom_taxonomies', 0 );
 
 
 /*DFM TAXONOMY FIELD MANAGER TESTING */
-
-
