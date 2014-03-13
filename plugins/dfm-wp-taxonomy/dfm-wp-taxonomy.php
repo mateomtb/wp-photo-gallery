@@ -8,7 +8,18 @@
  * License: TBD
 **/
 
-wp_enqueue_script('dfm-wp-taxonomy' , plugins_url( '/js/dfm-wp-taxonomy.js' , __FILE__ ));
+
+
+add_action ('admin_enqueue_scripts', 'dfm_taxonomy_js');
+function dfm_taxonomy_js($hook){
+	$screen = get_current_screen();
+	if ($screen->taxonomy == 'category'){
+	    wp_enqueue_script('dfm-wp-taxonomy' , plugins_url( '/js/dfm-wp-taxonomy.js' , __FILE__ ));
+	}
+}
+
+
+
 add_action( 'category_add_form_fields', 'dfm_parent_category' );
 
 function dfm_parent_category() {
@@ -45,12 +56,12 @@ function dfm_master_list($term_id){
 
 // filter row-actions
 
-add_filter( 'category_row_actions', 'remove_row_actions', 10, 1 );
+add_filter( 'category_row_actions', 'dfm_tax_remove_row_actions', 10, 1 );
 
 /**
 * @desc	Hide row actions on DFM categories
 */
-function remove_row_actions ( $actions ){
+function dfm_tax_remove_row_actions ( $actions ){
 	
     $cat_id = explode('=', $actions['view']);
     $cat_id = explode('"', $cat_id[2]);
@@ -65,8 +76,8 @@ function remove_row_actions ( $actions ){
 }
 
 
-add_filter('bulk_actions-edit-category','remove_bulk_actions');
- function remove_bulk_actions($actions){
+add_filter('bulk_actions-edit-category','dfm_tax_remove_bulk_actions');
+ function dfm_tax_remove_bulk_actions($actions){
         unset( $actions['delete'] );
         return $actions;
     }
