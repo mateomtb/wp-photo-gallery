@@ -349,4 +349,5 @@ function getTimeZone(){
             return $key;
         }
     }
+    return 'Denver';
 }
