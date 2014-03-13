@@ -351,3 +351,35 @@ function getTimeZone(){
     }
     return 'Denver';
 }
+
+
+if (class_exists('Fieldmanager_Group')) {
+    add_action( 'init', function() {
+  $fm = new Fieldmanager_Group( array(
+		'name' => 'lead_story',
+		'children' => array(
+			'centerpiece' => new  Fieldmanager_Checkboxes('centerpiece'),
+		),
+	) );
+	$fm->add_meta_box('Centerpiece', array( 'post' ) );
+} );
+
+add_action( 'init', function() {
+  $fm = new Fieldmanager_Group( array(
+		'name' => 'contact_information',
+		'children' => array(
+			'name' => new Fieldmanager_Textfield( 'Name' ),
+			'phone_number' => new Fieldmanager_Textfield( 'Phone Number' ),
+			'website' => new Fieldmanager_Link( 'Website' ),
+		),
+	) );
+	$fm->add_meta_box( 'Contact Information', array( 'post' ) );
+	
+	
+	$fmc = new Fieldmanager_Context_Post('test', 'post', $context = 'normal', $priority = 'default', $fm);
+	
+} );
+
+
+
+}
