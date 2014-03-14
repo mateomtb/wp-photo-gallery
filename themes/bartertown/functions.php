@@ -355,17 +355,17 @@ function getTimeZone(){
 
 if (class_exists('Fieldmanager_Group')) {
     add_action( 'init', function() {
-  $fm = new Fieldmanager_Group( array(
+  /*$fm = new Fieldmanager_Group( array(
 		'name' => 'lead_story',
 		'children' => array(
 			'centerpiece' => new  Fieldmanager_Checkboxes('centerpiece'),
 		),
 	) );
-	$fm->add_meta_box('Centerpiece', array( 'post' ) );
+	$fm->add_meta_box('Centerpiece', array( 'post' ) );*/
 } );
 
 add_action( 'init', function() {
-  $fm = new Fieldmanager_Group( array(
+  /*$fm = new Fieldmanager_Group( array(
 		'name' => 'contact_information',
 		'children' => array(
 			'name' => new Fieldmanager_Textfield( 'Name' ),
@@ -373,10 +373,20 @@ add_action( 'init', function() {
 			'website' => new Fieldmanager_Link( 'Website' ),
 		),
 	) );
-	$fm->add_meta_box( 'Contact Information', array( 'post' ) );
+	$fm->add_meta_box( 'Contact Information', array( 'post' ) );*/
 	
+	$fm = new Fieldmanager_Checkbox( 'Basic Checkbox', array( 'name' => 'basic_checkbox' ) );
+	// Account for centerpiece on all section fronts somehow by default? If there is no json for it? 
+		$fm->add_meta_box( 'Basic Checkbox Field', 'demo-checkbox' );
+
+		$fm = new Fieldmanager_Checkbox( 'Click here if you want this post to show as the centerpiece', array(
+			'name'          => 'lead_story',
+			//'options' => 'Yes',
+			'default_value' => 'yes'
+		) );
+		$fm->add_meta_box( 'Centerpiece', array( 'post' ) );
 	
-	$fmc = new Fieldmanager_Context_Post('test', 'post', $context = 'normal', $priority = 'default', $fm);
+	//$fmc = new Fieldmanager_Context_Post('test', 'post', $context = 'normal', $priority = 'default', $fm);
 	
 } );
 
