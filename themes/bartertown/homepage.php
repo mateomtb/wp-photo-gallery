@@ -24,6 +24,10 @@ $config = getContentConfigFeed($context['domain'], $context['section']);
 // where a heading is neeeded. But it's probably good to anticipate custom requests and to have another 
 // bit of meta data?
 
+// Arrays based on custom values or tags need to be queried first unless we include a priority system
+// Otherwise, the exclusion array could include posts that were already queried into a more generic array
+// See comment in $priorityQueries array below
+
 // Assign arrays structured as above created from JSON file
 
 // Lead Stories
@@ -51,6 +55,13 @@ if ($mostPopular) {
     // Run queries and assign here
     $context['most_popular'] = $mostPopular;
 }
+
+$priorityQueries = array(
+	// We could choose different arrays here that do not include the exclude posts
+	// array during their querying if order down below is insufficient
+	// for prioritization
+    // Or simply pass an empty array for the $excludeArray
+);
 
 /* End config*/
 
@@ -99,10 +110,6 @@ else {
     $context['lead_story'] = unboltQuery('get_posts', $leadStory, $context['exclude_posts']);
     // Secondary lead story
     $context['secondary_lead_story'] = unboltQuery('get_posts', $secondaryLeadStory, $context['exclude_posts']);
-    // Related stories (only appear if second lead story does not exist)
-    //$context['related_stories'] = Timber::get_posts(createWPQueryArray($relatedStories));
-    $context['related_stories'] = unboltQuery('get_posts', $relatedStories, $context['exclude_posts']);
-    $context['related_stories_heading'] = $relatedStories[0];
     // Secondary stories
     $context['secondary_stories'] = array();
     foreach($secondaryStories as $story) {
@@ -115,6 +122,10 @@ else {
     foreach($storyFeeds as $story) {
         $context['story_feed'][] = unboltQuery('get_post', array_values($story), $context['exclude_posts']);
     }
+    // Related stories (only appear if second lead story does not exist)
+    $context['related_stories'] = Timber::get_posts(createWPQueryArray($relatedStories));
+    $context['related_stories'] = unboltQuery('get_posts', $relatedStories, $context['exclude_posts']);
+    $context['related_stories_heading'] = $relatedStories[0];
 }
 // Section promos
 $context['section_promos'] = array();

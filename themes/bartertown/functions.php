@@ -230,12 +230,12 @@ function excludeFilter($posts, &$excludeArray){
 function createWPQueryArray($array, $excludeArray = array()) {
     /* $array is structured like this
     array(
-        string heading, 
-        string category-slug, 
-        int number-of-posts, 
-        string custom-field, 
-        string custom-field-value, 
-        string tag
+        [0] string heading,
+        [1] string category-slug,
+        [2] int number-of-posts,
+        [3] string custom-field,
+        [4] string custom-field-value,
+        [5] string tag
     );  
     */
     return array(
@@ -254,10 +254,26 @@ function unboltQuery($method, $query, &$excludeArray){
     // without any global declarations
     // Had no luck filtering Timber's get_post(s)() methods
     // Still need to verify if this is performant
+    //var_dump($query);
     if (is_array($query)) {
         // The query passed should be a specific array
         // based on the json config files
         $query = createWPQueryArray($query, $excludeArray);
+        $posts = call_user_func(array(Timber, $method), $query);
+        if (!$posts && $query['tag'] !== 'apocalypse' && $query['tag'] !== 'breaking_news') {
+            // This logic is overly specific and harcoded at the moment
+            // Will likely start converting this into an object asap
+            // Run a backup query
+            // only based on number of posts and category
+            $bQuery = array(
+                'category' => $query['category'],
+                'posts_per_page' => $query['posts_per_page']
+            );
+            return excludeFilter(
+                call_user_func(array(Timber, $method), $bQuery), 
+                $excludeArray
+            );
+        }
     }
     return excludeFilter(
         call_user_func(array(Timber, $method), $query), 
@@ -354,6 +370,18 @@ function getTimeZone(){
 
 
 if (class_exists('Fieldmanager_Group')) {
+	
+	add_action( 'init', function() {
+  $fm = new Fieldmanager_Group( array(
+		'name' => 'contact_information',
+		'children' => array(
+			'name' => new Fieldmanager_Textfield( 'Name' ),
+			'phone_number' => new Fieldmanager_Textfield( 'Phone Number' ),
+			'website' => new Fieldmanager_Link( 'Website' ),
+		),
+	) );
+	$fm->add_meta_box( 'Contact Information', array( 'post' ) );
+} );
 
     add_action('init', function() {
         // Centerpiece
