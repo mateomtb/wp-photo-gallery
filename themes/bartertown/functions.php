@@ -230,12 +230,12 @@ function excludeFilter($posts, &$excludeArray){
 function createWPQueryArray($array, $excludeArray = array()) {
     /* $array is structured like this
     array(
-        string heading, 
-        string category-slug, 
-        int number-of-posts, 
-        string custom-field, 
-        string custom-field-value, 
-        string tag
+        [0] string heading,
+        [1] string category-slug,
+        [2] int number-of-posts,
+        [3] string custom-field,
+        [4] string custom-field-value,
+        [5] string tag
     );  
     */
     return array(
@@ -253,11 +253,28 @@ function unboltQuery($method, $query, &$excludeArray){
     // of IDs of posts that should be excluded from future get_post(s)() returns
     // without any global declarations
     // Had no luck filtering Timber's get_post(s)() methods
-    // Still need to verify if this is performant
+    //var_dump($query);
     if (is_array($query)) {
         // The query passed should be a specific array
         // based on the json config files
         $query = createWPQueryArray($query, $excludeArray);
+        $posts = call_user_func(array(Timber, $method), $query);
+        if (!$posts && $query['tag'] !== 'apocalypse' && $query['tag'] !== 'breaking_news') {
+            // This logic is overly specific and harcoded at the moment
+            // Will likely start converting this and related functions into a Class 
+            // as soon as POC done/complexity grows
+
+            // Run a backup query
+            // only based on number of posts and category
+            $bQuery = array(
+                'category' => $query['category'],
+                'posts_per_page' => $query['posts_per_page']
+            );
+            return excludeFilter(
+                call_user_func(array(Timber, $method), $bQuery), 
+                $excludeArray
+            );
+        }
     }
     return excludeFilter(
         call_user_func(array(Timber, $method), $query), 
@@ -354,6 +371,10 @@ function getTimeZone(){
 
 
 if (class_exists('Fieldmanager_Group')) {
+    
+    // Curation checkboxes
+    // We should probably hide the traditional list of custom fields permanently depending on user
+    // Need to look into moving these into the quick editor as well
 
     add_action('init', function() {
         // Centerpiece
@@ -379,6 +400,44 @@ if (class_exists('Fieldmanager_Group')) {
             'checked_value' => 'yes'
         ));
         $fm->add_meta_box('Secondary story', array('post'));
+
+        // Story feed
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as a story feed item for the relevant category', array(
+            'name' => 'story_feed',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Story feed', array('post'));
+
+
+        /* Apocalypse */
+
+        // Secondary lead story
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as an apocalypse secondary lead story', array(
+            'name' => 'apoc_secondary_lead_story',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Apocalypse secondary lead story', array('post'));
+        
+        // Secondary stories
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as an apocalypse secondary story for the relevant category', array(
+            'name' => 'apoc_secondary_story',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Apocalypse secondary story', array('post'));
+
+        // Story feed
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as an apocalypse story feed item for the relevant category', array(
+            'name' => 'apoc_story_feed',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Apocalypse story feed', array('post'));
+
+        /* End apocalypse */
+       
     });
 
 }
