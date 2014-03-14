@@ -382,11 +382,10 @@ add_action( 'init', function() {
 		$fm = new Fieldmanager_Checkbox( 'Click here if you want this post to show as the centerpiece', array(
 			'name'          => 'lead_story',
 			//'options' => 'Yes',
-			'default_value' => 'yes'
+			'checked_value' => 'Yes'
 		) );
 		$fm->add_meta_box( 'Centerpiece', array( 'post' ) );
-	
-	//$fmc = new Fieldmanager_Context_Post('test', 'post', $context = 'normal', $priority = 'default', $fm);
+
 	
 } );
 
