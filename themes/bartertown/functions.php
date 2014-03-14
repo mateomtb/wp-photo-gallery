@@ -253,7 +253,6 @@ function unboltQuery($method, $query, &$excludeArray){
     // of IDs of posts that should be excluded from future get_post(s)() returns
     // without any global declarations
     // Had no luck filtering Timber's get_post(s)() methods
-    // Still need to verify if this is performant
     //var_dump($query);
     if (is_array($query)) {
         // The query passed should be a specific array
@@ -262,7 +261,9 @@ function unboltQuery($method, $query, &$excludeArray){
         $posts = call_user_func(array(Timber, $method), $query);
         if (!$posts && $query['tag'] !== 'apocalypse' && $query['tag'] !== 'breaking_news') {
             // This logic is overly specific and harcoded at the moment
-            // Will likely start converting this into an object asap
+            // Will likely start converting this and related functions into a Class 
+            // as soon as POC done/complexity grows
+
             // Run a backup query
             // only based on number of posts and category
             $bQuery = array(
