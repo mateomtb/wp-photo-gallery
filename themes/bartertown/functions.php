@@ -371,18 +371,10 @@ function getTimeZone(){
 
 
 if (class_exists('Fieldmanager_Group')) {
-	
-	add_action( 'init', function() {
-  $fm = new Fieldmanager_Group( array(
-		'name' => 'contact_information',
-		'children' => array(
-			'name' => new Fieldmanager_Textfield( 'Name' ),
-			'phone_number' => new Fieldmanager_Textfield( 'Phone Number' ),
-			'website' => new Fieldmanager_Link( 'Website' ),
-		),
-	) );
-	$fm->add_meta_box( 'Contact Information', array( 'post' ) );
-} );
+    
+    // Curation checkboxes
+    // We should probably hide the traditional list of custom fields permanently depending on user
+    // Need to look into moving these into the quick editor as well
 
     add_action('init', function() {
         // Centerpiece
@@ -408,6 +400,44 @@ if (class_exists('Fieldmanager_Group')) {
             'checked_value' => 'yes'
         ));
         $fm->add_meta_box('Secondary story', array('post'));
+
+        // Story feed
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as a story feed item for the relevant category', array(
+            'name' => 'story_feed',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Story feed', array('post'));
+
+
+        /* Apocalypse */
+
+        // Secondary lead story
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as an apocalypse secondary lead story', array(
+            'name' => 'apoc_secondary_lead_story',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Apocalypse secondary lead story', array('post'));
+        
+        // Secondary stories
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as an apocalypse secondary story for the relevant category', array(
+            'name' => 'apoc_secondary_story',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Apocalypse secondary story', array('post'));
+
+        // Story feed
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as an apocalypse story feed item for the relevant category', array(
+            'name' => 'apoc_story_feed',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Apocalypse story feed', array('post'));
+
+        /* End apocalypse */
+       
     });
 
 }

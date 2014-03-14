@@ -57,9 +57,9 @@ if ($mostPopular) {
 }
 
 $priorityQueries = array(
-	// We could choose different arrays here that do not include the exclude posts
-	// array during their querying if order down below is insufficient
-	// for prioritization
+    // We could choose different arrays here that do not include the exclude posts
+    // array during their querying if order down below is insufficient
+    // for prioritization
     // Or simply pass an empty array for the $excludeArray
 );
 
