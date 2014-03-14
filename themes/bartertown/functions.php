@@ -354,33 +354,31 @@ function getTimeZone(){
 
 
 if (class_exists('Fieldmanager_Group')) {
-    add_action('init', function() {
-  		/*$fm = new Fieldmanager_Group( array(
-			'name' => 'lead_story',
-			'children' => array(
-				'centerpiece' => new  Fieldmanager_Checkboxes('centerpiece'),
-				),
-		));
-	$fm->add_meta_box('Centerpiece', array( 'post' ) );*/
-	});
 
-	add_action( 'init', function() {
-	  /*$fm = new Fieldmanager_Group( array(
-			'name' => 'contact_information',
-			'children' => array(
-				'name' => new Fieldmanager_Textfield( 'Name' ),
-				'phone_number' => new Fieldmanager_Textfield( 'Phone Number' ),
-				'website' => new Fieldmanager_Link( 'Website' ),
-			),
-		) );
-		$fm->add_meta_box( 'Contact Information', array( 'post' ) );*/
-	
-		// Account for centerpiece on all section fronts by default (if there's no json config for it)?
-		$fm = new Fieldmanager_Checkbox( 'Click here if you want this post to show as the centerpiece', array(
-			'name' => 'lead_story',
-			//'options' => 'Yes',
-			'checked_value' => 'Yes'
-		));
-		$fm->add_meta_box('Centerpiece', array('post'));
-	});
+    add_action('init', function() {
+        // Centerpiece
+        // Account for centerpiece on all section fronts by default (if there's no json config for it)?
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show as the centerpiece', array(
+            'name' => 'lead_story',
+            'checked_value' => 'yes' // custom field values are always strings, no booleans?
+        ));
+        $fm->add_meta_box('Centerpiece', array('post'));
+
+        // Secondary lead story
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as a secondary lead story', array(
+            'name' => 'secondary_lead_story',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Secondary lead story', array('post'));
+        
+        // Secondary stories
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as a secondary story for the relevant category', array(
+            'name' => 'secondary_story',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Secondary story', array('post'));
+    });
+
 }
