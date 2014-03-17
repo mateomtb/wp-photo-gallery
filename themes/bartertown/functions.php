@@ -164,6 +164,78 @@ function global_context($data){
     }
 
 
+    //declare vars
+    $isMetric = false;
+    $apiUrl = 'http://apidev.accuweather.com'; 
+    $apiKey = '230548dfe5d54776aaaf5a1f2a19b3f5';
+    $wLanguage = 'en';  
+    $locationKey = '';
+
+    function getCurrentConditions($apiUrl, $locationKey, $wLanguage, $apiKey){
+        $currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
+        return $currentConditionsUrl;
+    }
+
+    function getForecasts($apiUrl, $locationKey, $wLanguage, $apiKey) {
+        $forecastUrl = $apiUrl . '/forecasts/v1/daily/10day/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
+        return $forecastUrl;
+    }
+
+    function getWeather($apiUrl, $z, $apiKey){
+        $locationUrl = $apiUrl . '/locations/v1/US/search?q=' . $z . '&apiKey=' . $apiKey;
+        $locationUrl = file_get_contents($locationUrl);
+        $locationUrl = json_decode($locationUrl, true);
+        $locationKey = $locationUrl[0]['Key'];
+        if($locationKey != null){
+            return $locationKey;
+        }
+    }
+
+    function getMarket($domain){
+        if(!$mktUrl){
+            $mUrl = 'http://markets.financialcontent.com/'.$domain.'/widget:tickerbar1?Output=JS';
+            return $mktUrl;
+        }
+    }
+
+    function getTraffic($zip_code) {
+        if(!isset($coordsUrl)){
+            $url = 'http://maps.googleapis.com/maps/api/geocode/json?address=' . $zip_code . '&sensor=false';
+            $url = file_get_contents($url);
+            $coordsUrl = json_decode($url, true);
+            if($coordsUrl !== null){
+                return $coordsUrl;
+            }         
+        }
+        /*$latUrl = wp_remote_get( $url );
+        if(isset($latUrl['body'])) {
+            $lat = $latUrl['body'];
+            return $lat;
+        } */     
+    }
+
+    // Used for weather to determine to use day or night icons
+    function getTimeZone(){
+        if($timeZone = get_option('gmt_offset')){
+            $tzArr = array('New_York' => -4, 'Chicago' => -5, 'Denver' => -6, 'Los_Angeles' => -7);
+            foreach ($tzArr as $key => $value){
+                if($timeZone == $value){
+                   // echo '<br />'.$key;
+                    return $key;
+                }
+            }   
+        }    
+        return 'Denver';
+    }
+
+    $zipCode = $_SESSION['dfm']['zip_code'];
+    $data['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed($context['section'])), true)) ? $mc : null;
+    $data['get_weather'] = ($get_weather = getWeather($apiUrl, $zipCode, $apiKey)) ? $get_weather : null;
+    $data['get_cw'] = ($gw = json_decode(file_get_contents(getCurrentConditions($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $gw : null;
+    $data['get_fc'] = ($fc = json_decode(file_get_contents(getForecasts($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $fc : null;
+    $data['get_traffic'] = ($get_traffic = getTraffic($zipCode)) ? $get_traffic : null;
+    $data['get_timezone'] = ($timezone = getTimeZone()) ? $timezone : null;
+
     if ( is_singular() ) $data['mode'] = 'article';
 
     return $data;
@@ -230,12 +302,12 @@ function excludeFilter($posts, &$excludeArray){
 function createWPQueryArray($array, $excludeArray = array()) {
     /* $array is structured like this
     array(
-        string heading, 
-        string category-slug, 
-        int number-of-posts, 
-        string custom-field, 
-        string custom-field-value, 
-        string tag
+        [0] string heading,
+        [1] string category-slug,
+        [2] int number-of-posts,
+        [3] string custom-field,
+        [4] string custom-field-value,
+        [5] string tag
     );  
     */
     return array(
@@ -253,11 +325,28 @@ function unboltQuery($method, $query, &$excludeArray){
     // of IDs of posts that should be excluded from future get_post(s)() returns
     // without any global declarations
     // Had no luck filtering Timber's get_post(s)() methods
-    // Still need to verify if this is performant
+    //var_dump($query);
     if (is_array($query)) {
         // The query passed should be a specific array
         // based on the json config files
         $query = createWPQueryArray($query, $excludeArray);
+        $posts = call_user_func(array(Timber, $method), $query);
+        if (!$posts && $query['tag'] !== 'apocalypse' && $query['tag'] !== 'breaking_news') {
+            // This logic is overly specific and harcoded at the moment
+            // Will likely start converting this and related functions into a Class 
+            // as soon as POC done/complexity grows
+
+            // Run a backup query
+            // only based on number of posts and category
+            $bQuery = array(
+                'category' => $query['category'],
+                'posts_per_page' => $query['posts_per_page']
+            );
+            return excludeFilter(
+                call_user_func(array(Timber, $method), $bQuery), 
+                $excludeArray
+            );
+        }
     }
     return excludeFilter(
         call_user_func(array(Timber, $method), $query), 
@@ -290,131 +379,74 @@ function getContentConfigFeed($domain, $section){
     }
 }
 
-//declare vars
-$isMetric = false;
-$apiUrl = 'http://apidev.accuweather.com'; 
-$apiKey = '230548dfe5d54776aaaf5a1f2a19b3f5';
-$wLanguage = 'en';  
-$locationKey = '';
+if (class_exists('Fieldmanager_Group')) {
+    
+    // Curation checkboxes
+    // We should probably hide the traditional list of custom fields permanently depending on user
+    // Need to look into moving these into the quick editor as well
 
-function getCurrentConditions($apiUrl, $locationKey, $wLanguage, $apiKey){
-    $currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
-    return $currentConditionsUrl;
+    add_action('init', function() {
+        // Centerpiece
+        // Account for centerpiece on all section fronts by default (if there's no json config for it)?
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show as the centerpiece', array(
+            'name' => 'lead_story',
+            'checked_value' => 'yes' // custom field values are always strings, no booleans?
+        ));
+        $fm->add_meta_box('Centerpiece', array('post'));
+
+        // Secondary lead story
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as a secondary lead story', array(
+            'name' => 'secondary_lead_story',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Secondary lead story', array('post'));
+        
+        // Secondary stories
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as a secondary story for the relevant category', array(
+            'name' => 'secondary_story',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Secondary story', array('post'));
+
+        // Story feed
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as a story feed item for the relevant category', array(
+            'name' => 'story_feed',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Story feed', array('post'));
+
+
+        /* Apocalypse */
+
+        // Secondary lead story
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as an apocalypse secondary lead story', array(
+            'name' => 'apoc_secondary_lead_story',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Apocalypse secondary lead story', array('post'));
+        
+        // Secondary stories
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as an apocalypse secondary story for the relevant category', array(
+            'name' => 'apoc_secondary_story',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Apocalypse secondary story', array('post'));
+
+        // Story feed
+        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
+            as an apocalypse story feed item for the relevant category', array(
+            'name' => 'apoc_story_feed',
+            'checked_value' => 'yes'
+        ));
+        $fm->add_meta_box('Apocalypse story feed', array('post'));
+
+        /* End apocalypse */
+       
+    });
+
 }
-
-function getForecasts($apiUrl, $locationKey, $wLanguage, $apiKey) {
-    $forecastUrl = $apiUrl . '/forecasts/v1/daily/10day/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
-    return $forecastUrl;
-}
-
-function getWeather($apiUrl, $z, $apiKey){
-    $locationUrl = $apiUrl . '/locations/v1/US/search?q=' . $z . '&apiKey=' . $apiKey;
-    $locationUrl = file_get_contents($locationUrl);
-    $locationUrl = json_decode($locationUrl, true);
-    $locationKey = $locationUrl[0]['Key'];
-    if($locationKey != null){
-        return $locationKey;
-    }
-}
-
-function getMarket($domain){
-    if(!$mktUrl){
-        $mUrl = 'http://markets.financialcontent.com/'.$domain.'/widget:tickerbar1?Output=JS';
-        return $mktUrl;
-    }
-}
-
-function getTraffic($zip_code) {
-    if(!isset($coordsUrl)){
-        $url = 'http://maps.googleapis.com/maps/api/geocode/json?address=' . $zip_code . '&sensor=false';
-        $url = file_get_contents($url);
-        $coordsUrl = json_decode($url, true);
-        if($coordsUrl !== null){
-            return $coordsUrl;
-        }         
-    }
-    /*$latUrl = wp_remote_get( $url );
-    if(isset($latUrl['body'])) {
-        $lat = $latUrl['body'];
-        return $lat;
-    } */     
-}
-
-// Used for weather to determine to use day or night icons
-function getTimeZone(){
-    $timeZone = get_option('gmt_offset');
-    $tzArr = array('New_York' => -4, 'Chicago' => -5, 'Denver' => -6, 'Los_Angeles' => -7);
-    foreach ($tzArr as $key => $value){
-        if($timeZone == $value){
-            return $key;
-        }
-    }
-    return 'Denver';
-}
-
-
-
-/*DFM TAXONOMY FIELD MANAGER TESTING */
-
-if (class_exists("Fieldmanager_Group")){
-add_action( 'init', function() {
-
-  $fm = new Fieldmanager_Group( array(
-        'name' => 'localcategories',
-        'children' => array(
-                'localcats' => new Fieldmanager_Select( 'Local Categories', array(
-                    'limit' => 0,
-                    'one_label_per_item' => False,
-                    'add_more_label' => 'Add another category',
-                    'datasource' => new Fieldmanager_Datasource_Term( array(
-                    'taxonomy' => 'localcategories'
-                ) ),
-            ) ),
-        ),
-    ) );
-    $fm->add_meta_box( 'Categories', array( 'post' ) );
-    } );
-}
-
-/**
- * Add custom taxonomies
- *
- * Additional custom taxonomies can be defined here
- * http://codex.wordpress.org/Function_Reference/register_taxonomy
- */
-function add_custom_taxonomies() {
-    // Add new "Locations" taxonomy to Posts
-    register_taxonomy('localcategories', 'post', array(
-        // Hierarchical taxonomy (like categories)
-        'hierarchical' => true,
-        // This array of options controls the labels displayed in the WordPress Admin UI
-        'labels' => array(
-            'name' => _x( 'Local Categories', 'taxonomy general name' ),
-            'singular_name' => _x( 'Category', 'taxonomy singular name' ),
-            'search_items' =>  __( 'Search Categories' ),
-            'all_items' => __( 'All Categories' ),
-            'parent_item' => __( 'Parent Category' ),
-            'parent_item_colon' => __( 'Parent Category:' ),
-            'edit_item' => __( 'Edit Category' ),
-            'update_item' => __( 'Update Category' ),
-            'add_new_item' => __( 'Add New Category' ),
-            'new_item_name' => __( 'New Category Name' ),
-            'menu_name' => __( 'Local Categories' ),
-        ),
-        // Control the slugs used for this taxonomy
-        'rewrite' => array(
-            'slug' => 'localcategories', // This controls the base slug that will display before each term
-            'with_front' => false, // Don't display the category base before "/locations/"
-            'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
-        ),
-    ));
-}
-add_action( 'init', 'add_custom_taxonomies', 0 );
-
-
-
-
-
-/*DFM TAXONOMY FIELD MANAGER TESTING */
-
-
