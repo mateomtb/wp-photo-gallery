@@ -164,6 +164,78 @@ function global_context($data){
     }
 
 
+    //declare vars
+    $isMetric = false;
+    $apiUrl = 'http://apidev.accuweather.com'; 
+    $apiKey = '230548dfe5d54776aaaf5a1f2a19b3f5';
+    $wLanguage = 'en';  
+    $locationKey = '';
+
+    function getCurrentConditions($apiUrl, $locationKey, $wLanguage, $apiKey){
+        $currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
+        return $currentConditionsUrl;
+    }
+
+    function getForecasts($apiUrl, $locationKey, $wLanguage, $apiKey) {
+        $forecastUrl = $apiUrl . '/forecasts/v1/daily/10day/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
+        return $forecastUrl;
+    }
+
+    function getWeather($apiUrl, $z, $apiKey){
+        $locationUrl = $apiUrl . '/locations/v1/US/search?q=' . $z . '&apiKey=' . $apiKey;
+        $locationUrl = file_get_contents($locationUrl);
+        $locationUrl = json_decode($locationUrl, true);
+        $locationKey = $locationUrl[0]['Key'];
+        if($locationKey != null){
+            return $locationKey;
+        }
+    }
+
+    function getMarket($domain){
+        if(!$mktUrl){
+            $mUrl = 'http://markets.financialcontent.com/'.$domain.'/widget:tickerbar1?Output=JS';
+            return $mktUrl;
+        }
+    }
+
+    function getTraffic($zip_code) {
+        if(!isset($coordsUrl)){
+            $url = 'http://maps.googleapis.com/maps/api/geocode/json?address=' . $zip_code . '&sensor=false';
+            $url = file_get_contents($url);
+            $coordsUrl = json_decode($url, true);
+            if($coordsUrl !== null){
+                return $coordsUrl;
+            }         
+        }
+        /*$latUrl = wp_remote_get( $url );
+        if(isset($latUrl['body'])) {
+            $lat = $latUrl['body'];
+            return $lat;
+        } */     
+    }
+
+    // Used for weather to determine to use day or night icons
+    function getTimeZone(){
+        if($timeZone = get_option('gmt_offset')){
+            $tzArr = array('New_York' => -4, 'Chicago' => -5, 'Denver' => -6, 'Los_Angeles' => -7);
+            foreach ($tzArr as $key => $value){
+                if($timeZone == $value){
+                   // echo '<br />'.$key;
+                    return $key;
+                }
+            }   
+        }    
+        return 'Denver';
+    }
+
+    $zipCode = $_SESSION['dfm']['zip_code'];
+    $data['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed($context['section'])), true)) ? $mc : null;
+    $data['get_weather'] = ($get_weather = getWeather($apiUrl, $zipCode, $apiKey)) ? $get_weather : null;
+    $data['get_cw'] = ($gw = json_decode(file_get_contents(getCurrentConditions($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $gw : null;
+    $data['get_fc'] = ($fc = json_decode(file_get_contents(getForecasts($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $fc : null;
+    $data['get_traffic'] = ($get_traffic = getTraffic($zipCode)) ? $get_traffic : null;
+    $data['get_timezone'] = ($timezone = getTimeZone()) ? $timezone : null;
+
     if ( is_singular() ) $data['mode'] = 'article';
 
     return $data;
@@ -306,69 +378,6 @@ function getContentConfigFeed($domain, $section){
         return json_decode($dir . 'default.json', true);
     }
 }
-
-//declare vars
-$isMetric = false;
-$apiUrl = 'http://apidev.accuweather.com'; 
-$apiKey = '230548dfe5d54776aaaf5a1f2a19b3f5';
-$wLanguage = 'en';  
-$locationKey = '';
-
-function getCurrentConditions($apiUrl, $locationKey, $wLanguage, $apiKey){
-    $currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
-    return $currentConditionsUrl;
-}
-
-function getForecasts($apiUrl, $locationKey, $wLanguage, $apiKey) {
-    $forecastUrl = $apiUrl . '/forecasts/v1/daily/10day/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
-    return $forecastUrl;
-}
-
-function getWeather($apiUrl, $z, $apiKey){
-    $locationUrl = $apiUrl . '/locations/v1/US/search?q=' . $z . '&apiKey=' . $apiKey;
-    $locationUrl = file_get_contents($locationUrl);
-    $locationUrl = json_decode($locationUrl, true);
-    $locationKey = $locationUrl[0]['Key'];
-    if($locationKey != null){
-        return $locationKey;
-    }
-}
-
-function getMarket($domain){
-    if(!$mktUrl){
-        $mUrl = 'http://markets.financialcontent.com/'.$domain.'/widget:tickerbar1?Output=JS';
-        return $mktUrl;
-    }
-}
-
-function getTraffic($zip_code) {
-    if(!isset($coordsUrl)){
-        $url = 'http://maps.googleapis.com/maps/api/geocode/json?address=' . $zip_code . '&sensor=false';
-        $url = file_get_contents($url);
-        $coordsUrl = json_decode($url, true);
-        if($coordsUrl !== null){
-            return $coordsUrl;
-        }         
-    }
-    /*$latUrl = wp_remote_get( $url );
-    if(isset($latUrl['body'])) {
-        $lat = $latUrl['body'];
-        return $lat;
-    } */     
-}
-
-// Used for weather to determine to use day or night icons
-function getTimeZone(){
-    $timeZone = get_option('gmt_offset');
-    $tzArr = array('New_York' => -4, 'Chicago' => -5, 'Denver' => -6, 'Los_Angeles' => -7);
-    foreach ($tzArr as $key => $value){
-        if($timeZone == $value){
-            return $key;
-        }
-    }
-    return 'Denver';
-}
-
 
 if (class_exists('Fieldmanager_Group')) {
     
