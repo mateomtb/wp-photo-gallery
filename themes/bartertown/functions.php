@@ -59,9 +59,16 @@ function global_context($data){
         }
     endif;
     $domain_bits = explode('.', $_SERVER['HTTP_HOST']);
+    
+    // Assign reused functions to vars
+    $isHome = is_home();
+    $cat = get_category(get_query_var('cat'));
+    // Taxonomy for ads
+    $taxonomy = getCategoryHierarchy($isHome);
+
     $data = array(
         // WP conditionals
-        'is_home' => is_home(),
+        'is_home' => $isHome,
         'is_front_page' => is_front_page(),
         'is_admin' => is_admin(),
         'is_single' => is_single(),
@@ -100,7 +107,6 @@ function global_context($data){
         'poll_options' => $poll_options,
         'poll_vote' => $poll_vote,
         'mode' => 'section',
-        'section' => get_category(get_query_var('cat'))->slug,
 
         // Content vars
         'single_cat_title' => single_cat_title(),
@@ -108,6 +114,13 @@ function global_context($data){
         'menu_main' => new TimberMenu('Main'),
         'menu_hot' => new TimberMenu('Hot Topics'),
         'menu_action' => new TimberMenu('Take Action'),
+        'section' => $cat->slug,
+        'sectionName' => $cat->name,
+        'taxonomy1' => $taxonomy[0] ? $taxonomy[0] : '', 
+        'taxonomy2' => $taxonomy[1] ? $taxonomy[1] : '',
+        'taxonomy3' => $taxonomy[2] ? $taxonomy[2] : '',
+        'taxonomy4' => $taxonomy[3] ? $taxonomy[3] : ''
+
     );
     // Data provided here:
     /*
@@ -287,6 +300,17 @@ function remove_widows($title)
 } 
 add_filter('the_title', 'remove_widows');
 
+function getCategoryHierarchy($isHome = false){
+    if ($isHome) {
+        return array("Home");
+   }
+   if ($cat = get_the_category()) {
+       $cats = explode('/', trim(get_category_parents($cat[0]->cat_ID), '/'));
+       return $cats;
+   }
+   return array();
+}
+
 /* Query functions */
 
 // Can move these to a class if more additions are required
@@ -370,12 +394,13 @@ function getMediaCenterFeed($section) {
 function getContentConfigFeed($domain, $section){
     $dir = get_template_directory() . '/home_section_json/';
     $section = $section ? $section : 'home';
+    $file = $dir . $domain . '/' . $section . '.json';
 
-    if ($file = file_get_contents($dir . $domain . '/' . $section . '.json')) {
-        return json_decode($file, true);
+    if (file_exists($file)) {
+        return json_decode(file_get_contents($file), true);
     }
     else {
-        return json_decode($dir . 'default.json', true);
+        return json_decode(file_get_contents($dir . 'default.json'), true);
     }
 }
 
