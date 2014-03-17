@@ -400,7 +400,7 @@ function getContentConfigFeed($domain, $section){
         return json_decode(file_get_contents($file), true);
     }
     else {
-        return json_decode($dir . 'default.json', true);
+        return json_decode(file_get_contents($dir . 'default.json'), true);
     }
 }
 
