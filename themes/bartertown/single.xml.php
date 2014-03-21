@@ -15,37 +15,10 @@ $context['post'] = $post;
 $context['wp_title'] .= ' - ' . $post->title();
 
 
-//include(WP_PLUGIN_DIR . '/Mission-Control/php/class-article.php');
-$article = new Article();
-// TODO's: abstract article-specific code into a class, ala https://github.com/DFMdata/Mission-Control
-
 // This subhead-specific plugin doesn't yet work.
 if ( function_exists('the_subheading') )
     $context['subhead'] = get_the_subheading();
 
-
-// The 'Others also read...' posts
-if ( function_exists('related_posts') )
-    $context['also_read'] = related_posts(); 
-elseif ( function_exists('wp_related_posts') ) 
-    $context['also_read'] = wp_related_posts();
-
-
-// Disqus comments
-if ( function_exists('dsq_comments_template') ):
-    $comments_file = TimberHelper::function_wrapper('dsq_comments_template', array('You must have the DISQUS plugin enabled.'));
-    $context['comment_form'] = TimberHelper::function_wrapper('comments_template', array($comments_file));
-endif;
-
-// In-Article teaser content
-if ( class_exists('DFMInArticleTeaser') ):
-    $teaser = new DFMInArticleTeaser($post);
-    $teaser_exists = $teaser->load_teaser();
-    if ( $teaser_exists != NULL ):
-        $context['teaser'] = $teaser_exists;
-        $context['teaser_feeds'] = $teaser->get_feed_items();
-    endif;
-endif;
 
 // Article-sidebar (as opposed to layout-sidebar) content
 if ( class_exists('DFMCollection') ):
@@ -67,14 +40,4 @@ if ( class_exists('DFMCollection') ):
 endif;
 
 
-//if ( function_exists('rh_the_revision') ):
-//    $context['revisions'] = TimberHelper::function_wrapper('rh_the_revision', array('<h4>', '</h4>'));
-//endif;
-
-
-// Layout-sidebar content
-$context['sidebar'] = Timber::get_sidebar('sidebar.php');
-
-
-
-Timber::render(array('single-' . $post->ID . '.twig', 'single-' . $post->post_type . '.twig', 'single.twig'), $context);
+Timber::render(array('single.xml.twig'), $context);
