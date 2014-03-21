@@ -14,7 +14,8 @@ $post = new TimberPost();
 $context['post'] = $post;
 $context['wp_title'] .= ' - ' . $post->title();
 
-include('php/class-article.php');
+
+//include(WP_PLUGIN_DIR . '/Mission-Control/php/class-article.php');
 $article = new Article();
 // TODO's: abstract article-specific code into a class, ala https://github.com/DFMdata/Mission-Control
 
@@ -65,11 +66,6 @@ if ( class_exists('DFMCollection') ):
     endif;
 endif;
 
-// More article sidebar content
-$poll_id = intval(get_post_custom_values('inarticle_poll', $post->ID));
-if ( $poll_id > 0 ):
-    $context['inarticle_poll'] = TimberHelper::function_wrapper('get_poll', array($poll_id));
-endif;
 
 //if ( function_exists('rh_the_revision') ):
 //    $context['revisions'] = TimberHelper::function_wrapper('rh_the_revision', array('<h4>', '</h4>'));
