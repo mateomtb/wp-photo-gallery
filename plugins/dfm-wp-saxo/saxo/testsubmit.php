@@ -23,7 +23,7 @@
 		$xDoc = $proc->transformToXML($xml);
 		//echo $xDoc; die();
 
-		$login = 'CJohnson:TxGxA7vC';
+		$login = file_get_contents('.credentials');
 		//$url = 'http://'. $login .'@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 
 		/*
@@ -101,7 +101,7 @@
 
 	function olderAttempt() {
 		//http://username:password@www.mydomain.com/directory/
-		$login = 'CJohnson:TxGxA7vC';
+		$login = '*****';
 		$url = 'http://'. $login .'@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 		//$homepage = file_get_contents( $url );
 		//echo $homepage;
@@ -188,7 +188,7 @@
 
 	function postData($postFields,$url){
 					echo '2<BR>';
-					$login = 'CJohnson:TxGxA7vC';
+					$login = '******';
 	                $ch = curl_init(); 
 	                curl_setopt($ch, CURLOPT_URL, $url); 
 	                curl_setopt($ch, CURLOPT_POST ,1); 
@@ -215,7 +215,7 @@
 	function nonGrepAttempt() {
 		$xml = file_get_contents('article1.xml');
 		
-		$login = 'CJohnfson:TxGxA7vC';
+		$login = '******';
 		$url = 'http://'. $login .'@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 
 		$post_data = array(
