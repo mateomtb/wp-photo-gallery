@@ -106,7 +106,7 @@ function global_context($data){
         'poll_title' => $poll_title,
         'poll_options' => $poll_options,
         'poll_vote' => $poll_vote,
-        'mode' => 'section',
+        'mode' => '',
 
         // Content vars
         'single_cat_title' => single_cat_title(),
@@ -184,7 +184,7 @@ function global_context($data){
     $wLanguage = 'en';  
     $locationKey = '';
 
-    function getCurrentConditions($apiUrl, $locationKey, $wLanguage, $apiKey){
+    function getCurrentConditions($apiUrl, $locationKey, $wLanguage, $apiKey) {
         $currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
         return $currentConditionsUrl;
     }
@@ -194,7 +194,7 @@ function global_context($data){
         return $forecastUrl;
     }
 
-    function getWeather($apiUrl, $z, $apiKey){
+    function getWeather($apiUrl, $z, $apiKey) {
         $locationUrl = $apiUrl . '/locations/v1/US/search?q=' . $z . '&apiKey=' . $apiKey;
         $locationUrl = file_get_contents($locationUrl);
         $locationUrl = json_decode($locationUrl, true);
@@ -475,3 +475,6 @@ if (class_exists('Fieldmanager_Group')) {
     });
 
 }
+
+include(WP_PLUGIN_DIR . '/DFM-WordPress-Objects/dfm-wordpress-objects.php');
+dfm_uses_wordpress_object('article', 'source');

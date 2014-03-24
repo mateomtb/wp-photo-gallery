@@ -19,3 +19,6 @@
 [submodule "plugins/Mission-Control"]
 	path = plugins/Mission-Control
 	url = git@github.com:DFMdata/Mission-Control.git
+[submodule "plugins/DFM-WordPress-Objects"]
+	path = plugins/DFM-WordPress-Objects
+	url = git@github.com:DFMdata/DFM-WordPress-Objects.git

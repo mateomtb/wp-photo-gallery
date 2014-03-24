@@ -15,10 +15,6 @@ $context['post'] = $post;
 $context['wp_title'] .= ' - ' . $post->title();
 
 
-//include(WP_PLUGIN_DIR . '/Mission-Control/php/class-article.php');
-$article = new Article();
-// TODO's: abstract article-specific code into a class, ala https://github.com/DFMdata/Mission-Control
-
 // This subhead-specific plugin doesn't yet work.
 if ( function_exists('the_subheading') )
     $context['subhead'] = get_the_subheading();
