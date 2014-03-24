@@ -36,6 +36,8 @@ $secondaryLeadStory = array_values($config['secondary_lead_story']);
 $relatedStories = array_values($config['related_stories']);
 $secondaryStories = array_values($config['secondary_stories']);
 
+var_dump($excludeArray);
+
 // Story feed
 $feedStoryHeading = $config['story_feed_heading'];
 $storyFeeds = array_values($config['story_feed']);

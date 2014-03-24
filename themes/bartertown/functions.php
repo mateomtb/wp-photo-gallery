@@ -413,27 +413,6 @@ if (class_exists('Fieldmanager_Group')) {
     add_action('init', function() {
         // Centerpiece
         // Account for centerpiece on all section fronts by default (if there's no json config for it)?
-        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show as the centerpiece', array(
-            'name' => 'lead_story',
-            'checked_value' => 'yes' // custom field values are always strings, no booleans?
-        ));
-        $fm->add_meta_box('Centerpiece', array('post'));
-
-        // Secondary lead story
-        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
-            as a secondary lead story', array(
-            'name' => 'secondary_lead_story',
-            'checked_value' => 'yes'
-        ));
-        $fm->add_meta_box('Secondary lead story', array('post'));
-        
-        // Secondary stories
-        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
-            as a secondary story for the relevant category', array(
-            'name' => 'secondary_story',
-            'checked_value' => 'yes'
-        ));
-        $fm->add_meta_box('Secondary story', array('post'));
 
         // Story feed
         $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
@@ -471,6 +450,26 @@ if (class_exists('Fieldmanager_Group')) {
         $fm->add_meta_box('Apocalypse story feed', array('post'));
 
         /* End apocalypse */
+
+        $fm = new Fieldmanager_Group( array(
+            'name' => 'article_curation',
+            'children' => array(
+                'lead_story' => new Fieldmanager_Checkbox( 'Lead Story', array(
+                    'name' => 'lead_story',
+                    'checked_value' => 'yes'
+                    )),
+                'secondary_lead_story' => new Fieldmanager_Checkbox( 'Secondary Lead Story', array(
+                    'name' => 'secondary_lead_story',
+                    'checked_value' => 'yes'
+                    )),
+                'secondary_story' => new Fieldmanager_Checkbox( 'Secondary Story', array(
+                    'name' => 'secondary_story',
+                    'checked_value' => 'yes'
+                    )),
+            ),
+        ) );
+        $fm->add_meta_box( 'Article Curation', array( 'post' ) );
+        //var_dump($fm);
        
     });
 
