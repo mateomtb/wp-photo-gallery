@@ -1,10 +1,11 @@
 {% extends "base.twig" %}
 
-{% block content %}
-                    <article id="main-story" class="full-story post-{{post.ID}}{% if post.Markup %} has-supporting-content{% endif %} ">
+{% block content %}                    
+                    <article id="main-story" class="full-story post-{{post.ID}}{% if post.sidebar_title or post.sidebar_markup or post.package %} has-supporting-content{% endif %} ">
                     <header id="article-top" class="article-header">
                         {% include "breadcrumb.twig" %}
                         <h1 class="title entry-title cleanprint-title article-h1">{{post.title}}</h1>
+                        {% if subhead %}<h4 class="subhead">{{subhead}}</h4>{% endif %}
 
                         {% if post.thumbnail.src %}
                         <div id="main-media" class="single-img"> <!-- other class options here: flex-video, flex-video widescreen, img-gallery-->
@@ -17,7 +18,6 @@
                             </figure>
                         </div>
                         {% endif %}
-
                     </header>
 
 
@@ -29,20 +29,46 @@
                                 <div class="meta">
                                     <p class="timestamp">
                                         Published {{ post.display_date }}
+{% if post.post_date != post.post_modified %} | <span title="Updated at {{ post.post_modified|date("F jS \\a\\t g:ia") }}">Last updated {{ post.post_modified|date("F jS \\a\\t g:ia") }}</span>{% endif %}
                                     </p>
                                 </div>
                             </div> <!-- .byline-bar -->
+                            {% include "sharebar.twig" %}
                             <div class="article-body body-copy">
+                            {% if teaser %}
+                            <div class="inline-promo lg sm-6 md-3 pull-right">
+                                {% if teaser.link_image %}
+                                <a class="promo-image" href="{{teaser.link_url}}">
+                                    <img src="{{teaser.link_image}}" alt="{{teaser.link_name}}" />
+                                </a>
+                                {% endif %}
+                                <div class="promo-body">
+                                    <h4 class="promo-heading"><a href="{{teaser.link_url}}">{{teaser.link_name}}</a></h4>
+
+                                    {% if teaser.link_description %}
+                                    <p>{{teaser.link_description}}</p>
+                                    {% endif %}
+                                    {% if teaser_feeds %}
+                                    <ul class="list">
+                                        {% for item in teaser_feeds %}
+                                        <!-- NOTE: Inline styles are temporary! -->
+                                        <li style="font-size:1.4rem;"><a href="{{item.permalink}}">{{item.title}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                            </div>        
+                            {% endif %}
                             {{post.content}}
                             </div>
                             <div class="article-categories">
                                 {% if post.categories %}<p>Published in: {% for item in post.categories %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
-                                {% if post.tags %}<p>Tagged: {% for item in post.tags %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% endfor %}</p>{% endif %}
+                                {% if post.tags %}<p>Tagged: {% for item in post.tags %}<a href="/{{category_base}}/{{item.slug}}/" title="{{item}}">{{item}}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
                             </div>
 <div id="author" class="media">
 {% if post.author.user_url %}
   <a class="pull-left" href="{{post.author.path}}">
-    <img class="media-object" src="{{post.author.user_url}}" alt="{{post.author}}" />
+    <img class="media-object" src="{{function('content_url')}}/authors/{{post.author.author_image}}" alt="{{post.author}}" />
   </a>
 {% endif %}
   <div class="media-body">
@@ -59,7 +85,7 @@
 </div>
                         </div>
                         {# SIDEBAR #}
-                        {% if post.Markup %}
+                        {% if post.sidebar_title or package or collection or inarticle_poll %}
                             <section class="supporting-content" role="complementary">
                                 <ul class="share-tools sm">
                                     <li><span class="glyphicon glyphicon-comment"></span><a href="#comments">Comments</a></li>
@@ -68,14 +94,64 @@
                                     <style>.at300b span{display:none;}</style>
                                     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=mngi"></script>
                                 </ul>
-                                {% if post.Title %}<h3>{{post.Title}}</h3>{% endif %}
-                                {{ post.Markup }}
+                                {% if post.sidebar_title %}<h3>{{post.sidebar_title}}</h3>{% endif %}
+                                {{ post.sidebar_markup }}
+                                {% if package_name != '' %}
+                                <div id="more-media" class="link-list no-anim">
+                                    <h4>More Media</h4>
+                                    <ul>
+                                    {% for post in TimberTerm(package_name).get_posts('numberposts=5') %}
+                                        <li><a href="{{post.guid}}">{% if function('get_post_format', post.ID) != '' %}<strong>{{function('get_post_format', post.ID)|title}}</strong>: {% endif %}{{post.title}}</a></li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                                {% endif %}
+                                {% if collection_name != '' %}
+                                <div id="related-stories" class="link-list no-anim">
+                                    <h4>Related{% if collection_name %}: {{collection_name}}{% endif %}</h4>
+                                    <ul>
+                                    {% for post in TimberTerm(collection_name).get_posts('numberposts=5') %}
+                                        <li><a href="{{post.guid}}">{{post.title}}</a></li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                                {% endif %}
+                                {% if inarticle_poll %}
+                                    {{inarticle_poll}}
+                                {% endif %}
                             </section>
                         {% endif %}
-
+<div style="display:none;">
+{{revisions}}
+</div>
                 </section>
             </section>
 
+            <footer id="article-footer">
+                <div class="recommender">
+                    <div class="row">
+{% if also_read %}
+                        <div class="link-list col md-4 no-anim">
+                            <h4>Others also read...</h4>
+                            <ul>
+                                {{also_read}}
+                            </ul>
+                        </div>
+{% endif %}
+
+{% if menu_action %}
+                        <div class="link-list col md-4 no-anim">
+                            <h4>Take Action</h4>
+                            <ul>
+{% for item in menu_action.get_items %}
+                                <li><a href="{{ item.get_path }}" title="{{ item.title }}">{{ item.title }}</a></li>
+{% endfor %}
+                            </ul>
+                        </div>
+{% endif %}
+                    </div>
+                </div>
+            </footer>
             <section class="comments">
                 <script type="text/javascript"><!--
   adblade_cid="{{config.adblade}}";

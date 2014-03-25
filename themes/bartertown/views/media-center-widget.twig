@@ -1,2 +1,90 @@
-<link rel="stylesheet" href="http://extras.mnginteractive.com/live/partners/MediaCenter/widget_large/mc_widget_large_min.css" type="text/css" />
-<script type="text/javascript" src="http://extras.mnginteractive.com/live/partners/MediaCenter/widget_large/mc_widget_large_min.js"></script>
+
+{% if media_center %}
+<div class="media-center sm">
+    <h4><a href="{{dfm.media_center_url}}">Media Center: Photos &amp; Videos</a></h4>
+    <div id="media-center-promo" class="carousel slide" data-interval="false">
+        <ol class="carousel-indicators">
+            <li data-target="#media-center-promo" data-slide-to="0" class="active"></li>
+            <li data-target="#media-center-promo" data-slide-to="1"></li>
+            <li data-target="#media-center-promo" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            {% for gallery in media_center.top_items %}
+            <div class="item{% if loop.index == 1 %} active{% endif %}" data-title="{{gallery.title}}" data-caption="{{gallery.excerpt}}" data-href="{{gallery.url}}">
+            <span data-picture data-alt="Image description goes here">
+                <span data-src="{{gallery.images['_320x240']}}"></span>
+                <span data-src="{{gallery.images['_640x480']}}" data-media="(min-device-pixel-ratio: 2.0)"></span>
+                <span data-src="{{gallery.images['_480x320']}}" data-media="(min-width: 321px)"></span>
+                <span data-src="{{gallery.images['_960x640']}}" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
+                <span data-src="{{gallery.images['_640x480']}}" data-media="(min-width: 481px)"></span>
+                <span data-src="{{gallery.images['_1280x960']}}" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
+                <span data-src="{{gallery.images['_800x600']}}" data-media="(min-width: 641px)"></span>
+                <span data-src="{{gallery.images['_1600x1200']}}" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>
+                <span data-src="{{gallery.images['_640x480']}}" data-media="(min-width: 769px)"></span>
+                <span data-src="{{gallery.images['_1280x960']}}" data-media="(min-width: 769px) and (min-device-pixel-ratio: 2.0)"></span>
+                <span data-src="{{gallery.images['_480x320']}}" data-media="(min-width: 960px)"></span>
+                <span data-src="{{gallery.images['_960x640']}}" data-media="(min-width: 960px) and (min-device-pixel-ratio: 2.0)"></span>
+                <span data-src="{{gallery.images['_640x480']}}" data-media="(min-width: 1029px)"></span>
+                <span data-src="{{gallery.images['_1280x960']}}" data-media="(min-width: 1029px) and (min-device-pixel-ratio: 2.0)"></span>
+                <span data-src="{{gallery.images['_800x600']}}" data-media="(min-width: 1241px)"></span>
+                <span data-src="{{gallery.images['_1600x1200']}}" data-media="(min-width: 1241px) and (min-device-pixel-ratio: 2.0)"></span>
+                <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+                <noscript>
+                    <img src="{{gallery.images._320x340}}" alt="Image description goes here">
+                </noscript>
+            </span>
+        </div>
+        {% endfor %}
+    </div>
+    <a class="left carousel-control" href="#media-center-promo" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#media-center-promo" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+    </div>
+    <div id="media-center-info" class="media-center-caption">
+        <h2><a href="{{media_center.top_items[0].url}}">{{media_center.top_items[0].title}}</a></h2>
+        <p class="excerpt">{{media_center.top_items[0].excerpt}}</p>
+    </div>
+    <h4 class="visible-md-up"><a href="{{dfm.media_center_url}}">Featured on Media Center</a></h4>
+    <ul class="secondary-stories visible-md-up">
+        {% for gallery in media_center.bottom_items %}
+        <li class="col-lg-4">
+            <a href="{{gallery.url}}"><img src="{{gallery.images}}" alt="{{gallery.title}}" /></a>
+            <h3><a href="{{gallery.url}}">{{gallery.title}}</a></h3>
+        </li>
+        {% endfor %}
+    </ul> <!-- .secondary-stories -->
+</div>
+<script type="text/javascript">
+$('div#media-center-promo').on('slid.bs.carousel', function () {
+    var item = $(this).find('div.item.active'),
+        title = item.attr('data-title'),
+        caption = item.attr('data-caption'),
+        url = item.attr('data-href');
+    $('#media-center-info h2 a').text(title);
+    $('#media-center-info .excerpt').text(caption);
+    $('#media-center-info a').attr('href', url);
+});
+</script>
+
+{% else %}
+<div id="media-center-container"></div>
+<script type="text/javascript">
+var mc_rotator_options_responsive = {
+    //'dataSource' : 'http://mediacenter/mercurynews/rotator?size=responsive&callback=__callback',
+    //'templateSource' : '{{template_uri}}/js/media-center-template.js',
+    //'container' : '#media-center-container'
+
+};
+</script>
+<script type="text/javascript" src="{{template_uri}}/js/handlebars.min.1.3.0.js"></script>
+<script type="text/javascript" src="{{template_uri}}/js/media-center.js"></script>
+{% endif %}
+
+
+
+
+
+

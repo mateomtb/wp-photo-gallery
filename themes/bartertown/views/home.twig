@@ -1,6 +1,12 @@
+{% if breaking_news %}
+        {% include 'breaking-alert.twig' %}
+{% endif %}
 <div class="row">
     <div class="content-well">
         <div id="above-fold" class="row">
+            {% if apocalypse %}
+                {% include 'apoc-home.twig' %}
+            {% else %}
             <div class="centerpiece col md-9 md-push-3">
                 {% include 'home-centerpiece.twig' %}
                 {% include 'secondary-stories.twig' %}
@@ -8,6 +14,7 @@
             <div class="left-rail col md-3 md-pull-9">
                 {% include 'story-feed-small.twig' %}
             </div>
+            {% endif %}
         </div> <!-- #above-fold -->
         <div id="middle-row">
             <div class="col md-3">
@@ -44,4 +51,7 @@
     <div class="right-rail">
         {% include 'sidebar.twig' %}
     </div> <!-- .right-rail -->
+    <div id="bottom-line">
+        {% include 'bottom-line.twig' %}
+    </div>
 </div>

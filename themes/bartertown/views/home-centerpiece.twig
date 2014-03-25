@@ -1,4 +1,4 @@
-{% for post in lead_story %} <!-- there is only one of these, but we can keep using post object for clarity-->
+{% for post in lead_story %} {# there is only one of these, but we can keep using "post" for clarity #}
 <div class="lead-story">
     <div class="media single-img">
         <span data-picture data-alt="Image description goes here">
@@ -6,8 +6,7 @@
             <span data-src="{{post.thumbnail.src|resize(640,480)}}" data-media="(min-device-pixel-ratio: 2.0)"></span>
             <span data-src="{{post.thumbnail.src|resize(480,320)}}" data-media="(min-width: 321px)"></span>
             <span data-src="{{post.thumbnail.src|resize(640,960)}}" data-media="(min-width: 321px) and (min-device-pixel-ratio: 2.0)"></span>
-            <!-- not sure if we're missing some JS for the actual image tag portion? -->
-            <span data-src="{{post.thumbnail.src|resize(640,480)}}" data-media="(min-width: 481px)"><img src="{{post.thumbnail.src|resize(640,480)}}" alt="{{post.title}}"></span>
+            <span data-src="{{post.thumbnail.src|resize(640,480)}}" data-media="(min-width: 481px)"></span>
             <span data-src="{{post.thumbnail.src|resize(1280,960)}}" data-media="(min-width: 481px) and (min-device-pixel-ratio: 2.0)"></span>
             <span data-src="{{post.thumbnail.src|resize(800,600)}}" data-media="(min-width: 641px)"></span>
             <span data-src="{{post.thumbnail.src|resize(1600,1200)}}" data-media="(min-width: 641px) and (min-device-pixel-ratio: 2.0)"></span>

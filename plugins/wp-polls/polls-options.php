@@ -2,8 +2,8 @@
 /*
 +----------------------------------------------------------------+
 |																							|
-|	WordPress 2.7 Plugin: WP-Polls 2.40										|
-|	Copyright (c) 2008 Lester "GaMerZ" Chan									|
+|	WordPress Plugin: WP-Polls										|
+|	Copyright (c) 2012 Lester "GaMerZ" Chan									|
 |																							|
 |	File Written By:																	|
 |	- Lester "GaMerZ" Chan															|
@@ -26,11 +26,11 @@ if(!current_user_can('manage_polls')) {
 ### Variables Variables Variables
 $base_name = plugin_basename('wp-polls/polls-options.php');
 $base_page = 'admin.php?page='.$base_name;
-$id = intval($_GET['id']);
-
+$id = (isset($_GET['id']) ? intval($_GET['id']) : 0);
 
 ### If Form Is Submitted
-if($_POST['Submit']) {
+if( isset($_POST['Submit']) && $_POST['Submit'] ) {
+	check_admin_referer('wp-polls_options');
 	$poll_bar_style = strip_tags(trim($_POST['poll_bar_style']));
 	$poll_bar_background = strip_tags(trim($_POST['poll_bar_bg']));
 	$poll_bar_border = strip_tags(trim($_POST['poll_bar_border']));
@@ -51,7 +51,7 @@ if($_POST['Submit']) {
 	$poll_cookielog_expiry = intval($_POST['poll_cookielog_expiry']);
 	$poll_allowtovote = intval($_POST['poll_allowtovote']);
 	$update_poll_queries = array();
-	$update_poll_text = array();	
+	$update_poll_text = array();
 	$update_poll_queries[] = update_option('poll_bar', $poll_bar);
 	$update_poll_queries[] = update_option('poll_ajax_style', $poll_ajax_style);
 	$update_poll_queries[] = update_option('poll_ans_sortby', $poll_ans_sortby);
@@ -99,38 +99,31 @@ if($_POST['Submit']) {
 <script type="text/javascript">
 /* <![CDATA[*/
 	function set_pollbar_height(height) {
-			document.getElementById('poll_bar_height').value = height;
+			jQuery("#poll_bar_height").val(height);
 	}
 	function update_pollbar(where) {
-		pollbar_background = '#' + document.getElementById('poll_bar_bg').value;
-		pollbar_border = '#' + document.getElementById('poll_bar_border').value;
-		pollbar_height = document.getElementById('poll_bar_height').value + 'px';
-		if(where  == 'background') {
-			document.getElementById('wp-polls-pollbar-bg').style.backgroundColor = pollbar_background;			
-		} else if(where == 'border') {
-			document.getElementById('wp-polls-pollbar-border').style.backgroundColor = pollbar_border;
-		} else if(where == 'style') {
-			pollbar_style_options = document.getElementById('poll_options_form').poll_bar_style;
-			for(i = 0; i < pollbar_style_options.length; i++) {
-				 if(pollbar_style_options[i].checked)  {
-					pollbar_style = pollbar_style_options[i].value;
-          break;
-				 }
-			}
-			if(pollbar_style == 'use_css') {
-				document.getElementById('wp-polls-pollbar').style.backgroundImage = "";
+		pollbar_background = "#" + jQuery("#poll_bar_bg").val();
+		pollbar_border = "#" + jQuery("#poll_bar_border").val();
+		pollbar_height = jQuery("#poll_bar_height").val() + "px";
+		if(where  == "background") {
+			jQuery("#wp-polls-pollbar-bg").css("background-color", pollbar_background);
+		} else if(where == "border") {
+			jQuery("#wp-polls-pollbar-border").css("background-color", pollbar_border);
+		} else if(where == "style") {
+			pollbar_style = jQuery("input[name='poll_bar_style']:checked").val();
+			if(pollbar_style == "use_css") {
+				jQuery("#wp-polls-pollbar").css("background-image", "none");
 			} else {
-				document.getElementById('wp-polls-pollbar').style.backgroundImage = "url('<?php echo plugins_url('wp-polls/images/'); ?>" + pollbar_style + "/pollbg.gif')";
+				jQuery("#wp-polls-pollbar").css("background-image", "url('<?php echo plugins_url('wp-polls/images/'); ?>" + pollbar_style + "/pollbg.gif')");
 			}
 		}
-		document.getElementById('wp-polls-pollbar').style.backgroundColor = pollbar_background;
-		document.getElementById('wp-polls-pollbar').style.border = '1px solid ' + pollbar_border;
-		document.getElementById('wp-polls-pollbar').style.height = pollbar_height;
-	}	
+		jQuery("#wp-polls-pollbar").css({"background-color":pollbar_background, "border":"1px solid " + pollbar_border, "height":pollbar_height});
+	}
 /* ]]> */
 </script>
 <?php if(!empty($text)) { echo '<!-- Last Action --><div id="message" class="updated fade"><p>'.$text.'</p></div>'; } ?>
-<form id="poll_options_form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>"> 
+<form id="poll_options_form" method="post" action="<?php echo admin_url('admin.php?page='.plugin_basename(__FILE__)); ?>">
+<?php wp_nonce_field('wp-polls_options'); ?>
 <div class="wrap">
 	<div id="icon-wp-polls" class="icon32"><br /></div>
 	<h2><?php _e('Poll Options', 'wp-polls'); ?></h2>
@@ -144,28 +137,28 @@ if($_POST['Submit']) {
 					$pollbar = get_option('poll_bar');
 					$pollbar_url = plugins_url('wp-polls/images');
 					$pollbar_path = WP_PLUGIN_DIR.'/wp-polls/images';
-					if($handle = @opendir($pollbar_path)) {     
-						while (false !== ($filename = readdir($handle))) {  
-							if ($filename != '.' && $filename != '..') {
+					if($handle = @opendir($pollbar_path)) {
+						while (false !== ($filename = readdir($handle))) {
+							if (substr($filename, 0, 1) != '.' && substr($filename, 0, 2) != '..') {
 								if(is_dir($pollbar_path.'/'.$filename)) {
-                  echo '<p>'."\n";
+									echo '<p>'."\n";
 									$pollbar_info = getimagesize($pollbar_path.'/'.$filename.'/pollbg.gif');
 									if($pollbar['style'] == $filename) {
-										echo '<input type="radio" name="poll_bar_style" value="'.$filename.'" checked="checked" onclick="set_pollbar_height('.$pollbar_info[1].'); update_pollbar(\'style\');" />';										
+										echo '<input type="radio" id="poll_bar_style-'.$filename.'" name="poll_bar_style" value="'.$filename.'" checked="checked" onclick="set_pollbar_height('.$pollbar_info[1].'); update_pollbar(\'style\');" />';
 									} else {
-										echo '<input type="radio" name="poll_bar_style" value="'.$filename.'" onclick="set_pollbar_height('.$pollbar_info[1].'); update_pollbar(\'style\');" />';
+										echo '<input type="radio" id="poll_bar_style-'.$filename.'" name="poll_bar_style" value="'.$filename.'" onclick="set_pollbar_height('.$pollbar_info[1].'); update_pollbar(\'style\');" />';
 									}
-									echo '&nbsp;&nbsp;&nbsp;';
+									echo '<label for="poll_bar_style-'.$filename.'">&nbsp;&nbsp;&nbsp;';
 									echo '<img src="'.$pollbar_url.'/'.$filename.'/pollbg.gif" height="'.$pollbar_info[1].'" width="100" alt="pollbg.gif" />';
-									echo '&nbsp;&nbsp;&nbsp;('.$filename.')';
-                  echo '</p>'."\n";
+									echo '&nbsp;&nbsp;&nbsp;('.$filename.')</label>';
+									echo '</p>'."\n";
 								}
-							} 
-						} 
+							}
+						}
 						closedir($handle);
 					}
 				?>
-				<input type="radio" name="poll_bar_style" value="use_css"<?php checked('use_css', $pollbar['style']); ?> onclick="update_pollbar('style');" /> <?php _e('Use CSS Style', 'wp-polls'); ?>
+				<input type="radio" id="poll_bar_style-use_css" name="poll_bar_style" value="use_css"<?php checked('use_css', $pollbar['style']); ?> onclick="update_pollbar('style');" /><label for="poll_bar_style-use_css"> <?php _e('Use CSS Style', 'wp-polls'); ?></label>
 			</td>
 		</tr>
 		<tr>
@@ -209,17 +202,17 @@ if($_POST['Submit']) {
 				</select>
 			</td>
 		</tr>
-		<tr> 
+		<tr>
 			<th scope="row" valign="top"><?php _e('Show Fading In And Fading Out Of Poll', 'wp-polls'); ?></th>
 			<td>
 				<select name="poll_ajax_style_fading" size="1">
 					<option value="0"<?php selected('0', $poll_ajax_style['fading']); ?>><?php _e('No', 'wp-polls'); ?></option>
 					<option value="1"<?php selected('1', $poll_ajax_style['fading']); ?>><?php _e('Yes', 'wp-polls'); ?></option>
 				</select>
-			</td> 
+			</td>
 		</tr>
 	</table>
-	
+
 	<!-- Sorting Of Poll Answers -->
 	<h3><?php _e('Sorting Of Poll Answers', 'wp-polls'); ?></h3>
 	<table class="form-table">
@@ -233,17 +226,17 @@ if($_POST['Submit']) {
 				</select>
 			</td>
 		</tr>
-		<tr> 
+		<tr>
 			<th scope="row" valign="top"><?php _e('Sort Order Of Poll Answers:', 'wp-polls'); ?></th>
 			<td>
 				<select name="poll_ans_sortorder" size="1">
 					<option value="asc"<?php selected('asc', get_option('poll_ans_sortorder')); ?>><?php _e('Ascending', 'wp-polls'); ?></option>
 					<option value="desc"<?php selected('desc', get_option('poll_ans_sortorder')); ?>><?php _e('Descending', 'wp-polls'); ?></option>
 				</select>
-			</td> 
+			</td>
 		</tr>
 	</table>
-	
+
 	<!-- Sorting Of Poll Results -->
 	<h3><?php _e('Sorting Of Poll Results', 'wp-polls'); ?></h3>
 	<table class="form-table">
@@ -251,21 +244,21 @@ if($_POST['Submit']) {
 			<th scope="row" valign="top"><?php _e('Sort Poll Results By:', 'wp-polls'); ?></th>
 			<td>
 				<select name="poll_ans_result_sortby" size="1">
-					<option value="polla_votes"<?php selected('polla_votes', get_option('poll_ans_result_sortby')); ?>><?php _e('Votes Casted', 'wp-polls'); ?></option>
+					<option value="polla_votes"<?php selected('polla_votes', get_option('poll_ans_result_sortby')); ?>><?php _e('Votes Cast', 'wp-polls'); ?></option>
 					<option value="polla_aid"<?php selected('polla_aid', get_option('poll_ans_result_sortby')); ?>><?php _e('Exact Order', 'wp-polls'); ?></option>
 					<option value="polla_answers"<?php selected('polla_answers', get_option('poll_ans_result_sortby')); ?>><?php _e('Alphabetical Order', 'wp-polls'); ?></option>
 					<option value="RAND()"<?php selected('RAND()', get_option('poll_ans_result_sortby')); ?>><?php _e('Random Order', 'wp-polls'); ?></option>
 				</select>
 			</td>
 		</tr>
-		<tr> 
+		<tr>
 			<th scope="row" valign="top"><?php _e('Sort Order Of Poll Results:', 'wp-polls'); ?></th>
 			<td>
 				<select name="poll_ans_result_sortorder" size="1">
 					<option value="asc"<?php selected('asc', get_option('poll_ans_result_sortorder')); ?>><?php _e('Ascending', 'wp-polls'); ?></option>
 					<option value="desc"<?php selected('desc', get_option('poll_ans_result_sortorder')); ?>><?php _e('Descending', 'wp-polls'); ?></option>
 				</select>
-			</td> 
+			</td>
 		</tr>
 	</table>
 
@@ -351,9 +344,6 @@ if($_POST['Submit']) {
 					<option value="-1"<?php selected(-1, get_option('poll_currentpoll')); ?>><?php _e('Do NOT Display Poll (Disable)', 'wp-polls'); ?></option>
 					<option value="-2"<?php selected(-2, get_option('poll_currentpoll')); ?>><?php _e('Display Random Poll', 'wp-polls'); ?></option>
 					<option value="0"<?php selected(0, get_option('poll_currentpoll')); ?>><?php _e('Display Latest Poll', 'wp-polls'); ?></option>
-					<?php if(function_exists('dynamic_sidebar')) { ?>
-					<option value="-3"<?php selected(-3, get_option('poll_currentpoll')); ?>><?php _e('Display Multiple Polls', 'wp-polls'); ?></option>
-					<?php } ?>
 					<optgroup>&nbsp;</optgroup>
 					<?php
 						$polls = $wpdb->get_results("SELECT pollq_id, pollq_question FROM $wpdb->pollsq ORDER BY pollq_id DESC");
@@ -372,27 +362,21 @@ if($_POST['Submit']) {
 				</select>
 			</td>
 		</tr>
-		<?php if(function_exists('dynamic_sidebar')) { ?>
-		<tr>
-			<th scope="row"valign="top"><?php _e('Note', 'wp-polls'); ?></th>
-			<td><em><?php _e('If you chose \'Display Multiple Polls\' for the above option, you need to configure it in Presentation -> Widgets -> Poll.', 'wp-polls'); ?></em></td>
-		</tr>
-		<?php } ?>
 		 <tr>
 			<th scope="row" valign="top"><?php _e('When Poll Is Closed', 'wp-polls'); ?>:</th>
 			<td>
 				<select name="poll_close" size="1">
 					<option value="1"<?php selected(1, get_option('poll_close')); ?>><?php _e('Display Poll\'s Results', 'wp-polls'); ?></option>
 					<option value="3"<?php selected(3, get_option('poll_close')); ?>><?php _e('Display Disabled Poll\'s Voting Form', 'wp-polls'); ?></option>
-					<option value="2"<?php selected(2, get_option('poll_close')); ?>><?php _e('Do Not Display Poll In Post/Sidebar', 'wp-polls'); ?></option>		
+					<option value="2"<?php selected(2, get_option('poll_close')); ?>><?php _e('Do Not Display Poll In Post/Sidebar', 'wp-polls'); ?></option>
 				</select>
 			</td>
 		</tr>
 	</table>
-	
+
 	<!-- Submit Button -->
 	<p class="submit">
-		<input type="submit" name="Submit" class="button" value="<?php _e('Save Changes', 'wp-polls'); ?>" />
+		<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save Changes', 'wp-polls'); ?>" />
 	</p>
-</div> 
-</form> 
+</div>
+</form>

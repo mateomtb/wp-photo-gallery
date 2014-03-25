@@ -4,3 +4,21 @@
 [submodule "plugins/sem-author-image"]    
     path = plugins/sem-author-image
     url = git@github.com:wp-plugins/sem-author-image.git
+[submodule "plugins/dfm-wp-collection"]
+	path = plugins/dfm-wp-collection
+	url = git@github.com:dfmedia/dfm-wp-collection.git
+[submodule "plugins/dfm-wp-brightTag"]
+	path = plugins/dfm-wp-brightTag
+	url = git@github.com:dfmedia/dfm-wp-brightTag.git
+[submodule "plugins/dfm-wp-data"]
+	path = plugins/dfm-wp-data
+	url = git@github.com:dfmedia/dfm-wp-data.git
+[submodule "plugins/dfm-wp-omniture"]
+	path = plugins/dfm-wp-omniture
+	url = git@github.com:dfmedia/dfm-wp-omniture.git
+[submodule "plugins/Mission-Control"]
+	path = plugins/Mission-Control
+	url = git@github.com:DFMdata/Mission-Control.git
+[submodule "plugins/DFM-WordPress-Objects"]
+	path = plugins/DFM-WordPress-Objects
+	url = git@github.com:DFMdata/DFM-WordPress-Objects.git

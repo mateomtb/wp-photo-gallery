@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xmldocument>
+  <fields>
+    <siteuri>www.denverpost.com</siteuri>
+    <site>www.denverpost.com</site>
+    <status>published</status>
+    
+
+    <startdate>20140322</startdate>
+    <keywords />
+    <category_saxo />
+    <taxonomywords />
+    <heading>Up Heading</heading>
+    <summary>Up Summary</summary>
+    <body>Up body is fun and good, its fun and good. Did I mention that it is fun and good?</body>
+    <byline>Up byline</byline>
+    <image />
+    <imageCaption />
+    <gallerypathuid />
+    <galleryuid />
+    <!-- Extra Fields Follow-->
+    <siteid>la</siteid>
+    <origsite>origsite.com</origsite>
+   
+    <contentid />
+    <category />
+    <anchor />
+    <seodescription />
+    <relatedarticles />
+    <enddate></enddate>
+  </fields>
+</xmldocument>
