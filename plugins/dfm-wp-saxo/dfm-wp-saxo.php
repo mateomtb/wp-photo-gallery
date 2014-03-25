@@ -13,8 +13,6 @@
 /*
 // Usage:
 */
-//define(WP_INCLUDE_DIR, preg_replace('/wp-content$/', 'wp-includes', WP_CONTENT_DIR));
-//include(WP_INCLUDE_DIR . '/post.php');
 
 class DFMSaxoArticle
 {
@@ -55,6 +53,8 @@ class DFMSaxoArticle
 
     
 }
+
+
 class DFMRequest
 {
     // A class to handle HTTP requests.
@@ -71,10 +71,10 @@ class DFMRequest
     }
 }
 
-function send_to_saxo()
-{
 
-    $article = new DFMSaxoArticle(14);
+function send_to_saxo($post_id)
+{
+    $article = new DFMSaxoArticle($post_id);
     $xml = $article->get_article();
 }
 add_action( 'save_post', 'send_to_saxo' );
