@@ -112,7 +112,8 @@
 
 	//SendFileToSaxo();
 	function SendFileToSaxo() {
-		$target_url = 'http://CJohnson:TxGxA7vC@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
+		$login = file_get_contents('.credentials');
+		$target_url = 'http://' . $login . '@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 		
 		$post = getXmlFromXSL( 'article.xml', 'article.xslt');
 
@@ -181,8 +182,8 @@
 
 		$xDoc = trim(file_get_contents( 'TestFile.xml' )) or die('ouch1');
 
-		$login = 'CJohnson:TxGxA7vC';
-		//$url = 'http://'. $login .'@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
+		$login = file_get_contents('.credentials');
+			//$url = 'http://'. $login .'@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 
 
 		//http://CJohnson:TxGxA7vC@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories
@@ -198,7 +199,7 @@
 
 
 
-		$target_url = 'http://CJohnson:TxGxA7vC@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
+		$target_url = 'http://' . $login . '@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 		//This needs to be the full path to the file you want to send.
 		//$file_name_with_full_path = realpath('article1.xml');
 		
@@ -270,7 +271,7 @@
 
 	function olderAttempt() {
 		//http://username:password@www.mydomain.com/directory/
-		$login = 'CJohnson:TxGxA7vC';
+		$login = '*****';
 		$url = 'http://'. $login .'@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 		//$homepage = file_get_contents( $url );
 		//echo $homepage;
@@ -357,7 +358,7 @@
 
 	function postData($postFields,$url){
 					echo '2<BR>';
-					$login = 'CJohnson:TxGxA7vC';
+					$login = '******';
 	                $ch = curl_init(); 
 	                curl_setopt($ch, CURLOPT_URL, $url); 
 	                curl_setopt($ch, CURLOPT_POST ,1); 
@@ -384,7 +385,7 @@
 	function nonGrepAttempt() {
 		$xml = file_get_contents('article1.xml');
 		
-		$login = 'CJohnfson:TxGxA7vC';
+		$login = '******';
 		$url = 'http://'. $login .'@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 
 		$post_data = array(
