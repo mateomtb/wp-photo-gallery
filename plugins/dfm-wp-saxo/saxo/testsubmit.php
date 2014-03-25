@@ -1,11 +1,124 @@
 <?php
-	
-	
-	SendFileToSaxo();
-	function SendFileToSaxo() {
-		$target_url = 'http://' . $login . '@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
+	anotherImageAttempt();
+	function anotherImageAttempt() {
+		// Create a cURL handle
+		$ch = curl_init('http://CJohnson:TxGxA7vC@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/myaccount/tempstore/images');
+		echo 'Current PHP version: ' . phpversion();
+		// Create a CURLFile object
+		$cfile = curl_file_create('21eh5fjkt3.jpg','image/jpeg','test_name');
+		echo '2';
+		// Assign POST data
+		$data = array('file' => $cfile);
+		curl_setopt($ch, CURLOPT_POST,1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+		// Execute the handle
+		$result=curl_exec ($ch) or die('error1');
+		//echo ':'. $result . ':';
+
+
+		//---get header info
+		$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+		$header = substr($result, 0, $header_size);
+		$body = substr($result, $header_size);
+
+		echo $header . '<BR>';
+		echo $body . '<BR>';
+
+		if(curl_errno($ch))
+			print curl_error($ch);
+		else
+			curl_close($ch);
+	}
+
+	//ImageSaxo();
+	function ImageSaxo() {
+		$target_url = 'http://CJohnson:TxGxA7vC@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/myaccount/tempstore/images';
 		
-		$post = file_get_contents( 'TestFile.xml' ) or die('ouch1');
+		$filename = realpath('21eh5fjkt3.jpg');
+
+		$handle = fopen('21eh5fjkt3.jpg', "r");
+		$data = fread($handle, filesize('21eh5fjkt3.jpg'));
+		$POST_DATA   = array('content'=>base64_encode($data));
+		die( filesize(realpath('21eh5fjkt3.jpg')));
+		//$POST_DATA   = base64_encode($data);
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $target_url);
+		curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+		curl_setopt($curl, CURLOPT_POST, 1);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $POST_DATA);
+
+		$result=curl_exec ($curl) or die('error1');
+
+		//---get header info
+		$header_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
+		$header = substr($result, 0, $header_size);
+		$body = substr($result, $header_size);
+
+		echo ':'. $result . ':';
+		echo $header . '<BR>';
+		echo $body . '<BR>';
+
+		if(curl_errno($curl))
+			print curl_error($curl);
+		else
+			curl_close($curl);
+	}
+
+	//SendImageToSaxo('21eh5fjkt3.jpg');
+	function SendImageToSaxo($xfile) {
+		$target_url = 'http://CJohnson:TxGxA7vC@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/myaccount/tempstore/images';
+		
+		$ch = curl_init();
+
+		//$data = array('name' => 'Foo', 'file' => '@/home/user/test.png');
+		$data = realpath($xfile);
+		//die( file_get_contents( $data ));
+
+		//$post = array('image' => '@'.$data );
+		//$post = array('file'=>base64_encode(file_get_contents( $data ) ) );
+		//$post = base64_encode(file_get_contents( $data ) );
+
+		$handle = fopen($data, "r");
+		$rdata = fread($handle, filesize($handle));
+		$POST_DATA   = array('content'=>base64_encode($rdata));
+
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_VERBOSE, 1);
+		curl_setopt($ch, CURLOPT_HEADER, 1);
+
+		curl_setopt($ch, CURLOPT_URL,$target_url);
+		//curl_setopt($ch, CURLOPT_POST,1);
+		//curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: image/jpeg'));
+		curl_setopt($ch, CURLOPT_POSTFIELDS, base64_encode($rdata));
+
+		$result=curl_exec ($ch) or die('error1');
+
+		//---get header info
+		$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+		$header = substr($result, 0, $header_size);
+		$body = substr($result, $header_size);
+
+		echo ':'. $result . ':';
+		echo $header . '<BR>';
+		echo $body . '<BR>';
+
+		if(curl_errno($ch))
+			print curl_error($ch);
+		else
+			curl_close($ch);
+	}
+
+	//SendFileToSaxo();
+	function SendFileToSaxo() {
+		$target_url = 'http://CJohnson:TxGxA7vC@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
+		
+		$post = getXmlFromXSL( 'article.xml', 'article.xslt');
+
+		//$post = file_get_contents( 'TestFile.xml' ) or die('ouch1');
+		//$post = file_get_contents( 'article1.xml' ) or die('ouch1');
+		//die( $post );
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_VERBOSE, 1);
@@ -26,13 +139,27 @@
 
 		echo $header . '<BR>';
 		echo $body . '<BR>';
-		
+
 		if(curl_errno($ch))
 			print curl_error($ch);
 		else
 			curl_close($ch);
 	}
 
+	function getXmlFromXSL( $xmlFile, $xTemplate) {
+		//this function uses the templates/xml files Peter B sent Joe & I to dynamically render article xml content from article.xml
+		$xml = new DOMDocument;
+		$xml->load( $xmlFile );
+		$xsl = new DOMDocument;
+		$xsl->load( $xTemplate );
+		// Configure the transformer
+		$proc = new XSLTProcessor;
+		$proc->importStyleSheet($xsl); // attach the xsl rules
+		return $proc->transformToXML($xml);
+	}
+
+
+	//------------------------------------------------------------below this is JUNK
 
 	//mainAttempt();
 	function mainAttempt() {
@@ -51,10 +178,11 @@
 
 		$xDoc = $proc->transformToXML($xml);
 		//echo $xDoc; die();
+
 		$xDoc = trim(file_get_contents( 'TestFile.xml' )) or die('ouch1');
 
-		$login = file_get_contents('.credentials');
-			//$url = 'http://'. $login .'@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
+		$login = 'CJohnson:TxGxA7vC';
+		//$url = 'http://'. $login .'@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 
 
 		//http://CJohnson:TxGxA7vC@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories
@@ -70,7 +198,7 @@
 
 
 
-		$target_url = 'http://' . $login . '@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
+		$target_url = 'http://CJohnson:TxGxA7vC@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 		//This needs to be the full path to the file you want to send.
 		//$file_name_with_full_path = realpath('article1.xml');
 		
@@ -142,7 +270,7 @@
 
 	function olderAttempt() {
 		//http://username:password@www.mydomain.com/directory/
-		$login = '*****';
+		$login = 'CJohnson:TxGxA7vC';
 		$url = 'http://'. $login .'@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 		//$homepage = file_get_contents( $url );
 		//echo $homepage;
@@ -229,7 +357,7 @@
 
 	function postData($postFields,$url){
 					echo '2<BR>';
-					$login = '******';
+					$login = 'CJohnson:TxGxA7vC';
 	                $ch = curl_init(); 
 	                curl_setopt($ch, CURLOPT_URL, $url); 
 	                curl_setopt($ch, CURLOPT_POST ,1); 
@@ -256,7 +384,7 @@
 	function nonGrepAttempt() {
 		$xml = file_get_contents('article1.xml');
 		
-		$login = '******';
+		$login = 'CJohnfson:TxGxA7vC';
 		$url = 'http://'. $login .'@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 
 		$post_data = array(
