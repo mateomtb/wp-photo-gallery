@@ -1,11 +1,40 @@
 <?php
 	
 	
-	
+	SendFileToSaxo();
+	function SendFileToSaxo() {
+		$target_url = 'http://CJohnson:TxGxA7vC@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
+		
+		$post = file_get_contents( 'TestFile.xml' ) or die('ouch1');
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_VERBOSE, 1);
+		curl_setopt($ch, CURLOPT_HEADER, 1);
+
+		curl_setopt($ch, CURLOPT_URL,$target_url);
+		curl_setopt($ch, CURLOPT_POST,1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+
+		$result=curl_exec ($ch) or die('error1');
+		//echo ':'. $result . ':';
 
 
+		//---get header info
+		$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+		$header = substr($result, 0, $header_size);
+		$body = substr($result, $header_size);
 
-	mainAttempt();
+		echo $header . '<BR>';
+		echo $body . '<BR>';
+		
+		if(curl_errno($ch))
+			print curl_error($ch);
+		else
+			curl_close($ch);
+	}
+
+
+	//mainAttempt();
 	function mainAttempt() {
 		// Load the XML source
 		$xml = new DOMDocument;
@@ -22,9 +51,13 @@
 
 		$xDoc = $proc->transformToXML($xml);
 		//echo $xDoc; die();
+		$xDoc = trim(file_get_contents( 'TestFile.xml' )) or die('ouch1');
 
 		$login = file_get_contents('.credentials');
-		//$url = 'http://'. $login .'@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
+			//$url = 'http://'. $login .'@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
+
+
+		//http://CJohnson:TxGxA7vC@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories
 
 		/*
 		as type/text xml as the content of the body
@@ -37,9 +70,9 @@
 
 
 
-		$target_url = 'http://cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/22/stories';
+		$target_url = 'http://' . $login . '@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 		//This needs to be the full path to the file you want to send.
-		$file_name_with_full_path = realpath('article1.xml');
+		//$file_name_with_full_path = realpath('article1.xml');
 		
 			//return;
 		        /* curl will accept an array here too.
@@ -58,14 +91,18 @@
 		curl_setopt($ch, CURLOPT_POST,1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-		curl_setopt($ch, CURLOPT_USERPWD, $login);
-		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-		curl_setopt($ch, CURLOPT_VERBOSE, 1);
+		//curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+		//curl_setopt($ch, CURLOPT_USERPWD, $login);
+		//curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+		//curl_setopt($ch, CURLOPT_VERBOSE, 1);\
+
+		//curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/x-www-form-urlencoded'));
+		echo '1<BR>';
 		//curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
-		$result=curl_exec ($ch) or die('error');
+		$result=curl_exec ($ch) or die('error1');
+		echo '2<BR>';
 		//curl_close ($ch);
-		echo $result;
+		echo ':'. $result . ':';
 
 		if(curl_errno($ch))
 			print curl_error($ch);
@@ -74,6 +111,10 @@
 
 
 		    /*
+
+			//CURLOPT_HTTPHEADER 	An array of HTTP header fields to set, in the format array('Content-type: text/plain', 'Content-length: 100') 
+			//"application/x-www-form-urlencoded"	MJ set this
+
 		    public string postStory(Uri address, string username, string password, string strData ,ref string message)
 	        {
 	            string location = "";
@@ -130,9 +171,9 @@
 	    curl_setopt($ch, CURLOPT_USERPWD, $login);
 		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 		//curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
-		$result=curl_exec ($ch) or die('error');
+		$result=curl_exec ($ch) or die('error2');
 		//curl_close ($ch);
-		echo $result;
+		echo ':'. $result . ':';
 
 		if(curl_errno($ch))
 	    	print curl_error($ch);
