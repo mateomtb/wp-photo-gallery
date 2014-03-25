@@ -3,7 +3,7 @@
 	
 	SendFileToSaxo();
 	function SendFileToSaxo() {
-		$target_url = 'http://CJohnson:TxGxA7vC@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
+		$target_url = 'http://' . $login . '@cjohnson-development.mn1.dc.publicus.com/apps/ows.dll/sites/la/stories';
 		
 		$post = file_get_contents( 'TestFile.xml' ) or die('ouch1');
 		$ch = curl_init();

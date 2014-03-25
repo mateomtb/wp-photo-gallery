@@ -19,25 +19,22 @@ if ( !file_exists(WP_PLUGIN_DIR . '') ) die("Requires plugin (  )");
 require_once( WP_PLUGIN_DIR . '' );
 
 
-class DFMSaxoExport
+class DFMSaxoArticle
 {
-    // We use this class to 
+    // We use this class to create an article XML for the
+    // purpose of sending to Saxotech's OWS.
 
 
-    function __construct($post, $collection_type = 'package')
+    function __construct($post)
     {
         $this->collection_type=$collection_type;
         $this->collection=$this->get_collection();
     }
 
-    public function get_collection($post_id=0)
+    public function get_article($post_id=0)
     {
-        // Returns the tag slug of the collection for a particular post.
+        // Returns an xml representation of the desired article
         // Takes a parameter, post_id, for manual lookups of post collection field.
     }
 
-    public function get_collection_items()
-    {
-        // Returns an array of post objects in the collection.
-    }
 }
