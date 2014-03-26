@@ -46,7 +46,7 @@ class DFMSaxoArticle
         $post = new TimberPost();
         $context['post'] = $post;
         ob_start();
-        Timber::render(array('single-' . $post->ID . '.twig', 'single-' . $post->post_type . '.twig', 'single.twig'), $context);
+        Timber::render(array('single.xml.twig'), $context);
         $xml = ob_get_clean();
         return $xml;
     }
@@ -76,5 +76,11 @@ function send_to_saxo($post_id)
 {
     $article = new DFMSaxoArticle($post_id);
     $xml = $article->get_article();
+    // *** initiate curl
+    // *** if this is an article update, get the saxo article id (custom field)
+    // *** send document to saxo
+    // *** if this is a new article, get the saxo article id and store it in a custom field
+    // *** Get the response from saxo, let the user know if it failed or succeeded.
+    // *** If it failed, print as many relevant details of the failure as possible.
 }
 add_action( 'save_post', 'send_to_saxo' );
