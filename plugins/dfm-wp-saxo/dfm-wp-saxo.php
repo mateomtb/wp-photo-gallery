@@ -71,6 +71,8 @@ class DFMRequest
 {
     // A class to handle HTTP requests.
 
+    var $cur = curl_init();
+
     function __construct()
     {
         $this->credentials=$this->get_credentials();
@@ -80,6 +82,63 @@ class DFMRequest
     {
         // Return a "user:password" formatted credentials for saxo.
         return file_get_contents('.credentials');
+    }
+
+    public function curl_initialize()
+    {
+        // In case we need to re-initalize the curl object.
+		$this->cur = curl_init();
+        return true;
+    }
+
+    public function curl_options($values = array())
+    {
+        // Set options. Takes an array of CURL_OPTION => CURL_OPTION_VALUE.
+        foreach ( $values as $key => $value ):
+            curl_setopt($this->cur, $key, $value);
+        endforeach;
+
+        /*
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_VERBOSE, 1);
+		curl_setopt($ch, CURLOPT_HEADER, 1);
+		curl_setopt($ch, CURLOPT_URL,$target_url);
+		curl_setopt($ch, CURLOPT_POST,1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+        */
+        return true;
+    }
+
+    public function curl_execute()
+    {
+        // Wrapper for curl_exec
+		$result = curl_exec($this->cur) or return false;
+        return $result;
+    }
+
+    public function curl_results($result)
+    {
+		// Takes a curl_exec return object and pulls out the header
+        // and body content.
+        $response = array();
+		$header_size = curl_getinfo($this->cur, CURLINFO_HEADER_SIZE);
+		$response['header'] = substr($result, 0, $header_size);
+		$response['body'] = substr($result, $header_size);
+
+		echo $header . '';
+		echo $body . '';
+
+		if(curl_errno($this->cur)):
+			print curl_error($this->cur);
+        endif;
+        return $response;
+    }
+
+    public function curl_destroy()
+    {
+        // Wrapper for curl_close()
+	    curl_close($this_>cur);
+        return true;
     }
 }
 
