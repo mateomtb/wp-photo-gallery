@@ -54,6 +54,18 @@ class DFMSaxoArticle
     
 }
 
+class DFMSaxoUser
+{
+    // Mapping between wordpress' site object and user object and
+    // Saxo's EWS User object ( https://docs.newscyclesolutions.com/display/MWC/Editorial+Web+Service+3.0#EditorialWebService3.0-ListingUsers,Products,Categories,AccessLevels&TextFormats )
+
+    function __construct()
+    {
+
+    }
+
+}
+
 
 class DFMRequest
 {
