@@ -70,6 +70,24 @@ class DFMSaxoUser
 class DFMRequest
 {
     // A class to handle HTTP requests.
+    // Example use:
+    // $request = new DFMRequest();
+    // $curl_options = array(
+    //  CURLOPT_URL => $target_url,
+    //  CURLOPT_POSTFIELDS => $post
+    //  CURLOPT_RETURNTRANSFER => 1,
+    //  CURLOPT_VERBOSE => 1,
+    //  CURLOPT_HEADER => 1,
+    //  CURLOPT_POST => 1,
+    // );
+    // if ( $request->curl_options($curl_options) == true ):
+    //  $result = $request->curl_execute();
+    //  $reponse = $request->curl_results($result);
+    //  if ( $response != false ):
+    //      var_dump($response);
+    //      $request->curl_destroy();
+    //  endif;
+    // endif;
 
     var $cur = curl_init();
 
