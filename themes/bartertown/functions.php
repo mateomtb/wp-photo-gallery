@@ -10,8 +10,8 @@
     define('THEME_URL', get_template_directory_uri());
     function add_to_twig($twig){
         /* this is where you can add your own fuctions to twig */
-        $twig->addExtension(new Twig_Extension_StringLoader());
-        $twig->addFilter('myfoo', new Twig_Filter_Function('myfoo'));
+        //$twig->addExtension(new Twig_Extension_StringLoader());
+        //$twig->addFilter('myfoo', new Twig_Filter_Function('myfoo'));
         return $twig;
     }
 
@@ -233,7 +233,6 @@ function global_context($data){
             $tzArr = array('New_York' => -4, 'Chicago' => -5, 'Denver' => -6, 'Los_Angeles' => -7);
             foreach ($tzArr as $key => $value){
                 if($timeZone == $value){
-                   // echo '<br />'.$key;
                     return $key;
                 }
             }   
