@@ -8,7 +8,6 @@
 // All of the configuration can come from a JSON file for each site
 $config = getContentConfigFeed($context['domain'], $context['section']);
 
-
     /* Array is structured like this
     array(
         string heading,
@@ -31,12 +30,11 @@ $config = getContentConfigFeed($context['domain'], $context['section']);
 // Assign arrays structured as above created from JSON file
 
 // Lead Stories
-$leadStory = array_values($config['lead_story']);
+$leadStory = array_values($config['article_curation']['lead_story'][0]);
 $secondaryLeadStory = array_values($config['secondary_lead_story']);
 $relatedStories = array_values($config['related_stories']);
 $secondaryStories = array_values($config['secondary_stories']);
 
-var_dump($excludeArray);
 
 // Story feed
 $feedStoryHeading = $config['story_feed_heading'];
@@ -66,9 +64,6 @@ $priorityQueries = array(
 );
 
 /* End config*/
-
-
-
 
 
 /* Run queries and assign contexts to be used in Twig templates */
@@ -110,6 +105,7 @@ if ($context['apocalypse']) {
 else {
     // Lead story
     $context['lead_story'] = unboltQuery('get_posts', $leadStory, $context['exclude_posts']);
+    //echo '<pre>'; var_dump($context['lead_story']); echo '</pre>';
     // Secondary lead story
     $context['secondary_lead_story'] = unboltQuery('get_posts', $secondaryLeadStory, $context['exclude_posts']);
     // Secondary stories

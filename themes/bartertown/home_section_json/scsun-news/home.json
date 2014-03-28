@@ -1,4 +1,31 @@
 {
+    "article_curation" : {
+        "lead_story" : { 
+            "heading" : null, 
+            "category_slug" : null,
+            "number_of_posts" : 0,
+            "custom_field" : "lead_story",
+            "custom_field_value" : "yes"
+        }
+
+    },
+
+    "secondary_lead_story" : {
+        "heading" : null, 
+        "category_slug" : null,
+        "number_of_posts" : 1,
+        "custom_field" : "secondary_lead_story",
+        "custom_field_value" : "yes"
+    },
+
+    "related_stories" : {
+        "heading" : "Related Stories", 
+        "category_slug" : "news",
+        "number_of_posts" : 4,
+        "custom_field" : null,
+        "custom_field_value" : null
+    },
+
     "lead_story" : { 
         "heading" : null, 
         "category_slug" : null,
