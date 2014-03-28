@@ -89,10 +89,11 @@ class DFMRequest
     //  endif;
     // endif;
 
-    var $cur = curl_init();
+    var $cur;
 
     function __construct()
     {
+        $this->cur = curl_init();
         $this->credentials=$this->get_credentials();
     }
 
@@ -116,21 +117,13 @@ class DFMRequest
             curl_setopt($this->cur, $key, $value);
         endforeach;
 
-        /*
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_VERBOSE, 1);
-		curl_setopt($ch, CURLOPT_HEADER, 1);
-		curl_setopt($ch, CURLOPT_URL,$target_url);
-		curl_setopt($ch, CURLOPT_POST,1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-        */
         return true;
     }
 
     public function curl_execute()
     {
         // Wrapper for curl_exec
-		$result = curl_exec($this->cur) or return false;
+		$result = curl_exec($this->cur);
         return $result;
     }
 
