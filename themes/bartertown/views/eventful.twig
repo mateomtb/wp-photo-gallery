@@ -1,4 +1,5 @@
-<script src="http://localhost:8888/bt/wp-content/plugins/dfm-wp-eventful/js/eventful.js"></script>
+{% if events %}
+<script src="/wp-content/plugins/dfm-wp-eventful/js/eventful.js"></script>
 <div class="thingsToDoIn"><span>Local Events</span></div>
 <div class="eventMenu">
 <div id="featuredEvents" class="activeTab">Most Popular</div>
@@ -232,3 +233,5 @@ jQuery(window).load(function () {
   jQuery('.ui-datepicker-next').removeAttr("title");
 });
 </script>
+
+{% endif %}
