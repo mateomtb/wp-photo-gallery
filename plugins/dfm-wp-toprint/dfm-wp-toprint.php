@@ -37,16 +37,20 @@ class DFMToPrintArticle
         endswitch;
     }
 
-    public function get_article($post_id=0)
+    public function get_article($post_id=0, $template_filename = 'single.xml.twig')
     {
         // Returns an xml representation of the desired article
         // Takes a parameter, post_id, for manual lookups of post collection field.
         $post = $this->post;
+        if ( $post_id > 0 ):
+            $post = get_post($post_id);
+        endif;
+
         $context = Timber::get_context();
         $post = new TimberPost();
         $context['post'] = $post;
         ob_start();
-        Timber::render(array('single.xml.twig'), $context);
+        Timber::render(array($template_filename), $context);
         $xml = ob_get_clean();
         return $xml;
     }
@@ -56,12 +60,12 @@ class DFMToPrintArticle
 
 class DFMToPrintUser
 {
-    // Mapping between wordpress' site object and user object and
-    // Saxo's EWS User object ( https://docs.newscyclesolutions.com/display/MWC/Editorial+Web+Service+3.0#EditorialWebService3.0-ListingUsers,Products,Categories,AccessLevels&TextFormats )
+    // Mapping between wordpress' site object and user object
+    var $user_id;
 
     function __construct()
     {
-
+        $this->user_id = array('wp'=>0, 'remote'=>0);
     }
 
 }
