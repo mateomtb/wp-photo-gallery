@@ -154,3 +154,5 @@ class DFMRequest
 }
 
 
+// Hard-coded, for now.
+include('class.saxo.php');

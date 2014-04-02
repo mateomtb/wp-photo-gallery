@@ -11,7 +11,7 @@ class SaxoArticle extends DFMToPrintArticle
 
 }
 
-class SaxoUser extend DFMToPrintUser
+class SaxoUser extends DFMToPrintUser
 {
 
 }
