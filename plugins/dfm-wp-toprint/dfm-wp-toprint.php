@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: DFM Saxo
+ * Plugin Name: DFM To Print
  * Plugin URI: 
- * Description: Publish and update articles to / in Saxotech. 
+ * Description: Publish and update articles to / in print-edition CMSes.
  * Version: 0.1
  * Author: Chris Johnson and Joe Murphy, Digital First Media
  * Author URI: http://digitalfirstmedia.com/
@@ -14,10 +14,10 @@
 // Usage:
 */
 
-class DFMSaxoArticle
+class DFMToPrintArticle
 {
     // We use this class to create an article XML for the
-    // purpose of sending to Saxotech's OWS.
+    // purpose of sending to a print-edition CMS.
 
     var $post;
 
@@ -54,7 +54,7 @@ class DFMSaxoArticle
     
 }
 
-class DFMSaxoUser
+class DFMToPrintUser
 {
     // Mapping between wordpress' site object and user object and
     // Saxo's EWS User object ( https://docs.newscyclesolutions.com/display/MWC/Editorial+Web+Service+3.0#EditorialWebService3.0-ListingUsers,Products,Categories,AccessLevels&TextFormats )
