@@ -476,5 +476,5 @@ if (class_exists('Fieldmanager_Group')) {
 
 }
 
-include(WP_PLUGIN_DIR . '/DFM-WordPress-Objects/dfm-wordpress-objects.php');
-dfm_uses_wordpress_object('article', 'source');
+//include(WP_PLUGIN_DIR . '/DFM-WordPress-Objects/dfm-wordpress-objects.php');
+//dfm_uses_wordpress_object('article', 'source');
