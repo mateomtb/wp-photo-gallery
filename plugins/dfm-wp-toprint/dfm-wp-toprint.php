@@ -78,7 +78,7 @@ class DFMRequest
     // $request = new DFMRequest();
     // $curl_options = array(
     //  CURLOPT_URL => $target_url,
-    //  CURLOPT_POSTFIELDS => $post
+    //  CURLOPT_POSTFIELDS => $post,
     //  CURLOPT_RETURNTRANSFER => 1,
     //  CURLOPT_VERBOSE => 1,
     //  CURLOPT_HEADER => 1,
@@ -87,7 +87,7 @@ class DFMRequest
     // if ( $request->curl_options($curl_options) == true ):
     //  $result = $request->curl_execute();
     //  $reponse = $request->curl_results($result);
-    //  if ( $response != false ):
+    //  if ( isset($response) ):
     //      var_dump($response);
     //      $request->curl_destroy();
     //  endif;
@@ -104,7 +104,12 @@ class DFMRequest
     private function get_credentials()
     {
         // Return a "user:password" formatted credentials.
-        return file_get_contents('.credentials');
+        return trim(file_get_contents('.credentials'));
+    }
+
+    public function set_url($url)
+    {
+        return str_replace('%%%CREDENTIALS%%%', $this->credentials, $url);
     }
 
     public function curl_initialize()
@@ -140,11 +145,9 @@ class DFMRequest
 		$response['header'] = substr($result, 0, $header_size);
 		$response['body'] = substr($result, $header_size);
 
-		echo $header . '';
-		echo $body . '';
-
 		if(curl_errno($this->cur)):
-			print curl_error($this->cur);
+            echo "ERROR: ";
+			echo curl_error($this->cur);
         endif;
         return $response;
     }
@@ -160,3 +163,27 @@ class DFMRequest
 
 // Hard-coded, for now.
 include('class.saxo.php');
+$params = array('');
+$target_urls = array(
+    'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/1/users/944621807',
+    'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/1/stories'
+    );
+$post = file_get_contents('saxo/EWS_article.xml');
+$request = new DFMRequest();
+$curl_options = array(
+    CURLOPT_URL => $request->set_url($target_url['article']),
+    //CURLOPT_POSTFIELDS => http_build_query($params),
+    CURLOPT_POSTFIELDS => $post,
+    CURLOPT_RETURNTRANSFER => 1,
+    CURLOPT_VERBOSE => 1,
+    CURLOPT_HEADER => 1,
+    CURLOPT_POST => 1,
+);
+if ( $request->curl_options($curl_options) == true ):
+    $result = $request->curl_execute();
+    $reponse = $request->curl_results($result);
+    if ( isset($response) ):
+        var_dump($response);
+        $request->curl_destroy();
+    endif;
+endif;

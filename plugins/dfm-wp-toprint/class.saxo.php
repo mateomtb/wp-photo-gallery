@@ -27,4 +27,9 @@ function send_to_saxo($post_id)
     // *** Get the response from saxo, let the user know if it failed or succeeded.
     // *** If it failed, print as many relevant details of the failure as possible.
 }
-add_action( 'save_post', 'send_to_saxo' );
+
+// If we're testing these scripts out on the terminal, add_action won't exist.
+if ( function_exists('add_action') ):
+    add_action( 'save_post', 'send_to_saxo' );
+endif;
+

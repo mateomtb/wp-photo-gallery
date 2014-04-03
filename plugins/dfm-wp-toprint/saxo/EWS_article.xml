@@ -1,0 +1,13 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sax="http://www.saxotech.com/editorial" targetNamespace="http://www.saxotech.com/editorial" elementFormDefault="qualified">
+<xs:element name="story" type="sax:ArticleListItemType"/>
+<xs:complexType name="ParagraphListType">
+<xs:sequence>
+<xs:element name="paragraph" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="NativeBoxChunkListType">
+<xs:sequence>
+<xs:element name="chunk" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
