@@ -8,6 +8,7 @@
 // All of the configuration can come from a JSON file for each site
 $config = getContentConfigFeed($context['domain'], $context['section']);
 
+
     /* Array is structured like this
     array(
         string heading,
@@ -30,7 +31,48 @@ $config = getContentConfigFeed($context['domain'], $context['section']);
 // Assign arrays structured as above created from JSON file
 
 // Lead Stories
-$leadStory = array_values($config['article_curation']['lead_story'][0]);
+//$leadStory = array_values($config['lead_story']);
+
+$id_array = array();
+
+$posts = get_posts(array(
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'fields' => 'ids'
+    )
+);
+//loop over each post
+foreach($posts as $p){
+    //get the meta you need form each post
+    $article_curation = get_post_meta($p,"article_curation",true);
+    //echo '<pre>'; var_dump($long['lead_story']); echo '</pre>';
+    if( $article_curation['lead_story'] === 'yes' ) {
+       //echo 'The id(s) of the aritlce set to lead_story is ' . $p . '<br />';
+       array_push($id_array, $p);
+    } else {
+        //need logic for how to handle if no lead article set
+    }
+}
+
+// Gets the lead story with the arg of all the posts set to lead_story
+function get_lead_story( $ids ){
+    if( isset( $ids )){
+        foreach ( $ids as $key => $value) {
+            // Article contains lead story.
+            $meta_values = get_post_meta( $value );
+            $myposts = get_post( intval($value) );
+            $leadStory = array_values( $myposts );
+            $context['lead_story'] = get_posts( $myposts );
+            //echo '<pre>'; var_dump( $myposts ); echo '</pre>';
+            return 'will i see this context?';
+        }
+    }
+    else {
+        //need logic to handle if $ids array isn't present
+    }
+}
+$context['lead_story'] = call_user_func_array("get_lead_story", array( $id_array ));
+
 $secondaryLeadStory = array_values($config['secondary_lead_story']);
 $relatedStories = array_values($config['related_stories']);
 $secondaryStories = array_values($config['secondary_stories']);
@@ -64,7 +106,6 @@ $priorityQueries = array(
 );
 
 /* End config*/
-
 
 /* Run queries and assign contexts to be used in Twig templates */
 
@@ -104,7 +145,7 @@ if ($context['apocalypse']) {
 // Normal
 else {
     // Lead story
-    $context['lead_story'] = unboltQuery('get_posts', $leadStory, $context['exclude_posts']);
+    //$context['lead_story'] = unboltQuery('get_posts', $leadStory, $context['exclude_posts']);
     //echo '<pre>'; var_dump($context['lead_story']); echo '</pre>';
     // Secondary lead story
     $context['secondary_lead_story'] = unboltQuery('get_posts', $secondaryLeadStory, $context['exclude_posts']);
