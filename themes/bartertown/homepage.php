@@ -41,20 +41,20 @@ $posts = get_posts(array(
     'fields' => 'ids'
     )
 );
-//loop over each post
+// Loop over each post and find the lead_story(s).
 foreach($posts as $p){
-    //get the meta you need form each post
+    // Get the meta you need form each post.
     $article_curation = get_post_meta($p,"article_curation",true);
     //echo '<pre>'; var_dump($long['lead_story']); echo '</pre>';
     if( $article_curation['lead_story'] === 'yes' ) {
        //echo 'The id(s) of the aritlce set to lead_story is ' . $p . '<br />';
        array_push($id_array, $p);
     } else {
-        //need logic for how to handle if no lead article set
+        // Need logic for how to handle if no lead article set.
     }
 }
 
-// Gets the lead story with the arg of all the posts set to lead_story
+// Gets the lead story with the arg of all the posts set to lead_story.
 function get_lead_story( $ids ){
     if( isset( $ids )){
         foreach ( $ids as $key => $value) {
@@ -63,8 +63,8 @@ function get_lead_story( $ids ){
             $myposts = get_post( intval($value) );
             $leadStory = array_values( $myposts );
             $context['lead_story'] = get_posts( $myposts );
-            //echo '<pre>'; var_dump( $myposts ); echo '</pre>';
-            return 'will i see this context?';
+            //==echo '<pre>'; var_dump( $myposts ); echo '</pre>';
+            return get_posts( $myposts );
         }
     }
     else {
