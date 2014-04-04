@@ -20,44 +20,37 @@
             <xs:element name="title" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
             <xs:element name="description" nillable="true" type="xs:string" maxOccurs="1" minOccurs="0" />
       </xs:sequence>
-      <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+      <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
    <xs:complexType name="StatusType">
       <xs:simpleContent>
           <xs:extension base="xs:string">
-             <xs:attribute name="statuscode" type="xs:int">
-</xs:attribute>
-               <xs:attribute name="iconuri" type="xs:anyURI" use="optional">
-</xs:attribute>
+             <xs:attribute name="statuscode" type="xs:int"></xs:attribute>
+               <xs:attribute name="iconuri" type="xs:anyURI" use="optional"></xs:attribute>
             </xs:extension>
      </xs:simpleContent>
  </xs:complexType>
    <xs:complexType name="CategoryType">
         <xs:simpleContent>
           <xs:extension base="xs:string">
-             <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+             <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
             </xs:extension>
      </xs:simpleContent>
  </xs:complexType>
    <xs:complexType name="rolesType">
        <xs:sequence>
-           <xs:element name="role" type="xs:string" minOccurs="1" maxOccurs="unbounded">
-</xs:element>
+           <xs:element name="role" type="xs:string" minOccurs="1" maxOccurs="unbounded"></xs:element>
       </xs:sequence>
   </xs:complexType>
    <xs:complexType name="InternalResourceType">
-        <xs:attribute name="uri" type="xs:anyURI">
-</xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI"></xs:attribute>
    </xs:complexType>
    <!-- ArticleCategory -->
     <xs:element name="category" type="sax:CategoryListItemType" />
   <xs:complexType name="CategoryListItemType">
         <xs:simpleContent>
           <xs:extension base="xs:string">
-             <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+             <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
                 <xs:attribute name="site" type="xs:long" use="required" />
               <xs:attribute name="id" type="xs:long" use="required" />
                 <xs:attribute name="type" type="xs:long" use="optional" />
@@ -77,10 +70,8 @@
            <xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
          <xs:element name="date" type="xs:dateTime" maxOccurs="1" minOccurs="0" />
        </xs:sequence>
-      <xs:attribute name="id" type="xs:long" use="required">
-</xs:attribute>
-       <xs:attribute name="uri" type="xs:anyURI" use="required">
-</xs:attribute>
+      <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+       <xs:attribute name="uri" type="xs:anyURI" use="required"></xs:attribute>
     </xs:complexType>
    <xs:element name="publications" type="sax:PublicationListType" />
    <xs:complexType name="PublicationListType">
@@ -95,10 +86,8 @@
            <xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="0" />
          <xs:element name="sortOrder" type="xs:string" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-      <xs:attribute name="id" type="xs:long" use="required">
-</xs:attribute>
-       <xs:attribute name="uri" type="xs:anyURI" use="required">
-</xs:attribute>
+      <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+       <xs:attribute name="uri" type="xs:anyURI" use="required"></xs:attribute>
     </xs:complexType>
    <xs:element name="accesslevels" type="sax:AccessLevelListType" />
    <xs:complexType name="AccessLevelListType">
@@ -223,12 +212,9 @@
      </xs:complexContent>
     </xs:complexType>
     <xs:complexType name="ArticleChangedType">
-        <xs:attribute name="content" type="xs:boolean" use="required">
-</xs:attribute>
-        <xs:attribute name="properties" type="xs:boolean" use="required">
-</xs:attribute>
-        <xs:attribute name="geometry" type="xs:boolean" use="required">
-</xs:attribute>
+        <xs:attribute name="content" type="xs:boolean" use="required"></xs:attribute>
+        <xs:attribute name="properties" type="xs:boolean" use="required"></xs:attribute>
+        <xs:attribute name="geometry" type="xs:boolean" use="required"></xs:attribute>
     </xs:complexType>
  <xs:complexType name="ArticleListType">
      <xs:sequence>
@@ -245,10 +231,8 @@
            <xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="0" />
          <xs:element name="version" type="xs:string" maxOccurs="1" minOccurs="0" />
       </xs:sequence>
-      <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-       <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+      <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+       <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
    <!-- <xs:element name="companies" type="sax:SiteListType" />
  <xs:complexType name="CompanyListType">
@@ -270,10 +254,8 @@
             <xs:element name="email" type="xs:string" maxOccurs="1" minOccurs="0" />
             <xs:element name="website" type="xs:string" maxOccurs="1" minOccurs="0" />
       </xs:sequence>
-      <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-       <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+      <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+       <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
    <xs:element name="sites" type="sax:SiteListType" />
  <xs:complexType name="SiteListType">
@@ -284,10 +266,8 @@
    <xs:complexType name="SiteRefType">
      <xs:simpleContent>
           <xs:extension base="xs:string">
-             <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-               <xs:attribute name="uri" type="xs:anyURI" use="required">
-</xs:attribute>
+             <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+               <xs:attribute name="uri" type="xs:anyURI" use="required"></xs:attribute>
             </xs:extension>
      </xs:simpleContent>
  </xs:complexType>
@@ -295,10 +275,8 @@
    <xs:element name="user" type="sax:UserItemType" />
   <xs:complexType name="UserItemType">
         <xs:sequence>
-           <xs:element name="username" type="xs:string" maxOccurs="1" minOccurs="1">
-</xs:element>
-          <xs:element name="initials" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true">
-</xs:element>
+           <xs:element name="username" type="xs:string" maxOccurs="1" minOccurs="1"></xs:element>
+          <xs:element name="initials" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true"></xs:element>
           <xs:element name="password" type="xs:string" maxOccurs="1" minOccurs="0" />
          <xs:element name="enabled" type="xs:boolean" maxOccurs="1" minOccurs="0" />
          <xs:element name="site" type="sax:SiteRefType" nillable="true" />
@@ -326,12 +304,9 @@
             <xs:element name="defaulttexttype" type="xs:long" maxOccurs="1" minOccurs="0" nillable="true" />
             <xs:element name="indesignserver" type="xs:boolean" maxOccurs="1" minOccurs="0" nillable="true" />
      </xs:sequence>
-      <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-       <xs:attribute name="puid" type="xs:long" use="optional">
-</xs:attribute>
-     <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+      <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+       <xs:attribute name="puid" type="xs:long" use="optional"></xs:attribute>
+     <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
    <xs:element name="users" type="sax:UserListType" />
  <xs:complexType name="UserListType">
@@ -343,15 +318,11 @@
        <xs:complexContent>
          <xs:extension base="sax:FileContentType">
                <xs:sequence>
-                   <xs:element name="iptc" type="sax:IptcType" maxOccurs="1" minOccurs="0" nillable="true">
-</xs:element>
-                   <xs:element name="height" type="xs:float" maxOccurs="1" minOccurs="0" nillable="true">
-</xs:element>
-                 <xs:element name="width" type="xs:float" maxOccurs="1" minOccurs="0" nillable="true">
-</xs:element>
+                   <xs:element name="iptc" type="sax:IptcType" maxOccurs="1" minOccurs="0" nillable="true"></xs:element>
+                   <xs:element name="height" type="xs:float" maxOccurs="1" minOccurs="0" nillable="true"></xs:element>
+                 <xs:element name="width" type="xs:float" maxOccurs="1" minOccurs="0" nillable="true"></xs:element>
               </xs:sequence>
-              <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
+              <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
            </xs:extension>
      </xs:complexContent>
     </xs:complexType>
@@ -365,12 +336,9 @@
      <xs:sequence>
            <xs:element name="paragraph" type="sax:ParagraphListType" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-      <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-       <xs:attribute name="captionnumber" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="pictureid" type="xs:long" use="optional">
-</xs:attribute>
+      <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+       <xs:attribute name="captionnumber" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="pictureid" type="xs:long" use="optional"></xs:attribute>
     </xs:complexType>
    <xs:element name="captions" type="sax:CaptionListType" />
    <xs:complexType name="CaptionListType">
@@ -380,16 +348,13 @@
     </xs:complexType>
    <xs:complexType name="KeyValue">
         <xs:sequence>
-           <xs:element name="key" type="xs:string">
-</xs:element>
-           <xs:element name="value" type="xs:string">
-</xs:element>
+           <xs:element name="key" type="xs:string"></xs:element>
+           <xs:element name="value" type="xs:string"></xs:element>
      </xs:sequence>
   </xs:complexType>
    <xs:complexType name="IptcType">
         <xs:sequence>
-           <xs:element name="keyvalue" type="sax:KeyValue" minOccurs="0" maxOccurs="unbounded">
-</xs:element>
+           <xs:element name="keyvalue" type="sax:KeyValue" minOccurs="0" maxOccurs="unbounded"></xs:element>
        </xs:sequence>
   </xs:complexType>
    <xs:complexType name="MimeType">
@@ -403,8 +368,7 @@
          <xs:extension base="sax:BaseItemType">
               <xs:sequence>
                    <xs:element name="filename" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
-                 <xs:element name="fileextension" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true">
-</xs:element>
+                 <xs:element name="fileextension" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true"></xs:element>
                  <xs:element name="mimetype" type="sax:MimeType" maxOccurs="1" minOccurs="0" nillable="true" />
                   <!-- <xs:element name="filesize" type="xs:long" minOccurs="0" default="0" />
  -->
@@ -422,10 +386,8 @@
             <xs:element name="styles" type="sax:StyleListType" maxOccurs="1" minOccurs="0" nillable="true" />
            <xs:element name="allowedstyles" type="sax:StyleListType" maxOccurs="1" minOccurs="0" nillable="true" />
         </xs:sequence>
-      <xs:attribute name="id" type="xs:long" use="required">
-</xs:attribute>
-       <xs:attribute name="uri" type="xs:anyURI" use="required">
-</xs:attribute>
+      <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+       <xs:attribute name="uri" type="xs:anyURI" use="required"></xs:attribute>
     </xs:complexType>
    <xs:element name="textformats" type="sax:TextFormatListType" />
  <xs:complexType name="TextFormatListType">
@@ -452,10 +414,8 @@
           <xs:element name="pcshortcut" type="sax:ShortcutType" maxOccurs="1" minOccurs="0" nillable="true" />
             <xs:element name="macshortcut" type="sax:ShortcutType" maxOccurs="1" minOccurs="0" nillable="true" />
        </xs:sequence>
-      <xs:attribute name="id" type="xs:long" use="required">
-</xs:attribute>
-       <!-- <xs:attribute name="uri" type="xs:anyURI" use="required">
-</xs:attribute>
+      <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+       <!-- <xs:attribute name="uri" type="xs:anyURI" use="required"></xs:attribute>
  -->
    </xs:complexType>
     <xs:complexType name="MultiPrioritiesListType">
@@ -471,14 +431,10 @@
             <xs:element name="activeto" type="xs:date" nillable="false" maxOccurs="1" minOccurs="0" />
             <xs:element name="ismainprofile" type="xs:int" nillable="false" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="profileid" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="iconuri" type="xs:anyURI" use="optional">
-</xs:attribute>
-        <xs:attribute name="headericonuri" type="xs:anyURI" use="optional">
-</xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="profileid" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="iconuri" type="xs:anyURI" use="optional"></xs:attribute>
+        <xs:attribute name="headericonuri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
     <xs:complexType name="ChannelWorksetListType">
         <xs:sequence>
@@ -489,12 +445,9 @@
         <xs:sequence>
             <xs:element name="channels" type="sax:ChannelsListType" minOccurs="0" maxOccurs="unbounded" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="name" type="xs:string" use="optional">
-</xs:attribute>
-        <xs:attribute name="sortOrder" type="xs:long" use="optional">
-</xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
+        <xs:attribute name="sortOrder" type="xs:long" use="optional"></xs:attribute>
     </xs:complexType>
     <xs:element name="channels" type="sax:ChannelsListType" />
         <xs:complexType name="ChannelsListType">
@@ -523,28 +476,18 @@
             <xs:element name="mediapublishingchannel" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
             <xs:element name="mediaisdefault" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:long" use="required">
-</xs:attribute>
-        <xs:attribute name="productid" type="xs:long" use="required">
-</xs:attribute>
-        <xs:attribute name="uri" type="xs:anyURI" use="required">
-</xs:attribute>
-        <xs:attribute name="iconuri" type="xs:anyURI" use="optional">
-</xs:attribute>
-        <xs:attribute name="statusiconuri" type="xs:anyURI" use="optional">
-</xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+        <xs:attribute name="productid" type="xs:long" use="required"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="required"></xs:attribute>
+        <xs:attribute name="iconuri" type="xs:anyURI" use="optional"></xs:attribute>
+        <xs:attribute name="statusiconuri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
      <xs:complexType name="ShortcutType">
-        <xs:attribute name="meta" type="xs:boolean" use="required">
-</xs:attribute>
-        <xs:attribute name="shift" type="xs:boolean" use="required">
-</xs:attribute>
-        <xs:attribute name="control" type="xs:boolean" use="required">
-</xs:attribute>
-        <xs:attribute name="alt" type="xs:boolean" use="required">
-</xs:attribute>
-        <xs:attribute name="key" type="xs:string" use="required">
-</xs:attribute>
+        <xs:attribute name="meta" type="xs:boolean" use="required"></xs:attribute>
+        <xs:attribute name="shift" type="xs:boolean" use="required"></xs:attribute>
+        <xs:attribute name="control" type="xs:boolean" use="required"></xs:attribute>
+        <xs:attribute name="alt" type="xs:boolean" use="required"></xs:attribute>
+        <xs:attribute name="key" type="xs:string" use="required"></xs:attribute>
     </xs:complexType>
     <xs:element name="shortcuts" type="sax:StyleListType" />
         <xs:complexType name="ShortcutListType">
@@ -562,8 +505,7 @@
  <xs:complexType name="PropertyValue">
        <xs:simpleContent>
           <xs:extension base="xs:string">
-             <xs:attribute name="name" type="xs:string" use="optional">
-</xs:attribute>
+             <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
            </xs:extension>
      </xs:simpleContent>
  </xs:complexType>
@@ -582,8 +524,7 @@
             <xs:element name="value" type="xs:string" maxOccurs="1" minOccurs="0" />
             <xs:element name="type" type="xs:string" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
     <xs:element name="taxonomyterms" type="sax:TaxonomyListType" />
     <xs:complexType name="TaxonomyListType">
@@ -601,26 +542,19 @@
             <xs:element name="childcount" type="xs:integer" nillable="true" maxOccurs="1" minOccurs="0" />
             <xs:element name="children" type="sax:TaxonomyListType" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="level" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="creatortype" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="parentid" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="productid" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+        <xs:attribute name="level" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="creatortype" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="parentid" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="productid" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
     <xs:element name="error" type="sax:ErrorItemType" />
         <xs:complexType name="ErrorItemType">
         <xs:sequence>
             <xs:element name="message" type="xs:string" nillable="false" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="type" type="xs:string" use="optional">
-</xs:attribute>
+        <xs:attribute name="type" type="xs:string" use="optional"></xs:attribute>
     </xs:complexType>
     <xs:element name="multipriorities" type="sax:DefaultMultiPrioritiesListType" />
     <xs:complexType name="DefaultMultiPrioritiesListType">
@@ -636,14 +570,10 @@
             <xs:element name="activeto" type="xs:date" nillable="false" maxOccurs="1" minOccurs="0" />
             <xs:element name="ismainprofile" type="xs:int" nillable="false" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="profileid" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="iconuri" type="xs:anyURI" use="optional">
-</xs:attribute>
-        <xs:attribute name="headericonuri" type="xs:anyURI" use="optional">
-</xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="profileid" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="iconuri" type="xs:anyURI" use="optional"></xs:attribute>
+        <xs:attribute name="headericonuri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
     <xs:complexType name="UserVerticalMeasurement">
         <xs:sequence>
@@ -651,10 +581,8 @@
             <xs:element name="inpoints" type="xs:double" nillable="false" maxOccurs="1" minOccurs="0" />
             <xs:element name="digits" type="xs:integer" nillable="false" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="name" type="xs:string" use="optional">
-</xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
     </xs:complexType>
         <xs:complexType name="WebSettingsListItemType">
         <xs:sequence>
@@ -678,10 +606,8 @@
             <xs:element name="pbcsextra" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
             <xs:element name="rating" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
         <xs:element name="webcategories" type="sax:PBCSCategoryListType" />
         <xs:complexType name="PBCSCategoryListType">
@@ -696,12 +622,9 @@
             <xs:element name="description" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
             <xs:element name="parentname" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:long" use="required">
-</xs:attribute>
-        <xs:attribute name="productid" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+        <xs:attribute name="productid" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
     <xs:element name="onlinepriorities" type="sax:PriorityListType" />
         <xs:complexType name="PriorityListType">
@@ -719,12 +642,9 @@
             <xs:element name="color" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
             <xs:element name="bacspriority" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:long" use="required">
-</xs:attribute>
-        <xs:attribute name="productid" type="xs:long" use="required">
-</xs:attribute>
-        <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+        <xs:attribute name="productid" type="xs:long" use="required"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
         <xs:element name="planelements" type="sax:PlanElementListType" />
         <xs:complexType name="PlanElementListType">
@@ -749,14 +669,10 @@
             <xs:element name="status" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
             <xs:element name="enabled" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="type" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
-        <xs:attribute name="iconuri" type="xs:anyURI" use="optional">
-</xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="type" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+        <xs:attribute name="iconuri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
         <xs:element name="links" type="sax:ElementLinkListType" />
     <xs:complexType name="ElementLinkListType">
@@ -773,14 +689,10 @@
             <xs:element name="relplantype" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
             <xs:element name="relplantypename" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="type" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="parentelementtype" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="type" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="parentelementtype" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
     <xs:complexType name="ClientColumnListType">
         <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -805,8 +717,7 @@
         <xs:element name="originlet" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
         <xs:element name="showastext" type="xs:boolean" nillable="true" maxOccurs="1" minOccurs="0" />
       </xs:sequence>
-        <xs:attribute name="column" type="xs:string" use="optional">
-</xs:attribute>
+        <xs:attribute name="column" type="xs:string" use="optional"></xs:attribute>
     </xs:complexType>
         <xs:element name="worksets" type="sax:CategoryWorksetListType" />
     <xs:complexType name="CategoryWorksetListType">
@@ -820,18 +731,12 @@
             <xs:element name="description" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
             <xs:element name="categories" type="sax:CategoryListType" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="site" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="name" type="xs:string" use="optional">
-</xs:attribute>
-        <xs:attribute name="separator" type="xs:boolean" use="optional">
-</xs:attribute>
-        <xs:attribute name="dateworkset" type="xs:boolean" use="optional">
-</xs:attribute>
-        <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="site" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
+        <xs:attribute name="separator" type="xs:boolean" use="optional"></xs:attribute>
+        <xs:attribute name="dateworkset" type="xs:boolean" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
         <xs:element name="texttypes" type="sax:TextTypeListType" />
     <xs:complexType name="TextTypeListType">
@@ -846,23 +751,16 @@
             <xs:element name="canuseaswanted" type="xs:boolean" maxOccurs="1" minOccurs="0" />
             <xs:element name="tooltip" type="xs:string" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="name" type="xs:string" use="optional">
-</xs:attribute>
-        <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
     </xs:complexType>
         <xs:complexType name="NativeTextTypeListItemType">
         <xs:sequence>
             <xs:element name="technicalname" type="xs:string" maxOccurs="1" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:long" use="optional">
-</xs:attribute>
-        <xs:attribute name="name" type="xs:string" use="optional">
-</xs:attribute>
-<!--         <xs:attribute name="uri" type="xs:anyURI" use="optional">
-</xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
+<!--         <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
  -->
-    </xs:complexType>
-</xs:schema>
+    </xs:complexType></xs:schema>
