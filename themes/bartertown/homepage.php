@@ -33,7 +33,7 @@ $config = getContentConfigFeed($context['domain'], $context['section']);
 // Lead Stories
 //$leadStory = array_values($config['lead_story']);
 
-$id_array = array();
+//$id_array = array();
 
 $posts = get_posts(array(
     'post_status' => 'publish',
@@ -41,14 +41,13 @@ $posts = get_posts(array(
     'fields' => 'ids'
     )
 );
-// Loop over each post and find the lead_story(s).
+
 foreach($posts as $p){
-    // Get the meta you need form each post.
     $article_curation = get_post_meta($p,"article_curation",true);
     //echo '<pre>'; var_dump($long['lead_story']); echo '</pre>';
     if( $article_curation['lead_story'] === 'yes' ) {
        //echo 'The id(s) of the aritlce set to lead_story is ' . $p . '<br />';
-       array_push($id_array, $p);
+      // array_push($id_array, $p);
     } else {
         // Need logic for how to handle if no lead article set.
     }
@@ -63,12 +62,17 @@ function get_lead_story( $ids ){
             $myposts = get_post( intval($value) );
             $leadStory = array_values( $myposts );
             $context['lead_story'] = get_posts( $myposts );
-            //==echo '<pre>'; var_dump( $myposts ); echo '</pre>';
+            //echo '<pre>'; var_dump( $myposts ); echo '</pre>';
             return get_posts( $myposts );
         }
     }
     else {
-        //need logic to handle if $ids array isn't present
+        // ^^^ Need to test this
+        //echo 'This is in the else';
+        $args = array( 'numberposts' => '1' );
+        $recent_article = wp_get_recent_posts( $args );
+        //echo '<pre>'; var_dump( $recent_article ); echo '</pre>';
+        return $recent_article;
     }
 }
 $context['lead_story'] = call_user_func_array("get_lead_story", array( $id_array ));
@@ -90,7 +94,7 @@ $apocalypse = array_values($config['apocalypse']);
 $sectionPromos = array_values($config['section_promos']);
 $mostPopular = $config['most_popular'];
 
-if ($mostPopular) {
+if ( isset( $mostPopular )) {
     // Need to find out if there is an Omniture API we can leverage
     // Hoping to avoid Jetpack
 
