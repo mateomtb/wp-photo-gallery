@@ -134,9 +134,9 @@ foreach($sectionPromos as $promo) {
 }
 
 //Eventful
-if ( function_exists('get_eventful') )
-    $context['events'] = get_eventful();
-
+if ( function_exists('get_eventful') ):
+    $context['events'] = get_eventful($context);
+endif;
 
 // Bottom Line
 // You can still run queries that do not exclude anything if needed

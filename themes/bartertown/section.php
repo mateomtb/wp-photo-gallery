@@ -22,7 +22,7 @@ $storyFeeds = array_values($config['story_feed']);
 $breakingNews = array_values($config['breaking_news']);
 
 // Columnists
-$columnists = array_values($config['columnists']);
+$columnists = $config['columnists'];
 /* End config*/
 
 /* Run queries and assign contexts to be used in templates */
@@ -47,9 +47,11 @@ foreach($storyFeeds as $story) {
     $context['story_feed'][] = unboltQuery('get_post', $story, $context['exclude_posts']);
 }
 // Section promos
-$context['columnists'] = array();
-foreach($columnists as $columnist) {
-    $context['columnists'][] = unboltQuery('get_posts', $columnist, $context['exclude_posts']);
-}
+if ( is_array($columnists) ):
+    $context['columnists'] = array();
+    foreach($columnists as $columnist) {
+        $context['columnists'][] = unboltQuery('get_posts', $columnist, $context['exclude_posts']);
+    }
+endif;
 /* End run queries */
 ?>
