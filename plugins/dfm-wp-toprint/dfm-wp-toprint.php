@@ -143,15 +143,31 @@ class DFMRequest
     {
 		// Takes a curl_exec return object and pulls out the header
         // and body content.
-        $response = array();
+        $response = array('body' => '', 'header' => array('responsecode' => ''));
 		$header_size = curl_getinfo($this->cur, CURLINFO_HEADER_SIZE);
-		$response['header'] = substr($result, 0, $header_size);
+		$header = substr($result, 0, $header_size);
+        // Cycle through the parts of the header
+        foreach ( explode("\n", $header) as $key => $value ):
+            if ( trim($value) == '' ):
+                continue;
+            endif;
+            // If we have a colon then it's a name/value pair we want to parse
+            // and add to $response['header']
+            // If we don't have a colon then it's a HTTP response code.
+            if ( strpos($value, ':') > 0  ):
+                $namevalue = explode(': ', $value);
+                $response['header'][$namevalue[0]] = trim($namevalue[1]);
+            else:
+                $response['header']['responsecode'] .= $value;
+            endif;
+        endforeach;
 		$response['body'] = substr($result, $header_size);
 
 		if(curl_errno($this->cur)):
             echo "ERROR: ";
 			echo curl_error($this->cur);
         endif;
+        var_dump($response);
         return $response;
     }
 
