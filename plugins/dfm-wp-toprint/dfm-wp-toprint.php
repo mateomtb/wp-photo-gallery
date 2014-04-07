@@ -166,9 +166,10 @@ include('class.saxo.php');
 $params = array('');
 $target_urls = array(
     'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/1/users/944621807',
-    'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/1/stories'
+    'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/1/stories?timestamp=1396888974828',
+    'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/1/textformats/720743380?timestamp=1396888974444'
     );
-$post = file_get_contents('saxo/EWS_article.xml');
+$post = file_get_contents('saxo/st2saxo.xml');
 $request = new DFMRequest();
 $curl_options = array(
     CURLOPT_URL => $request->set_url($target_urls['article']),
