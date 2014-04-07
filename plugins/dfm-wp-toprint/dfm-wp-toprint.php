@@ -179,6 +179,7 @@ $curl_options = array(
     CURLOPT_VERBOSE => 1,
     CURLOPT_HEADER => 1,
     CURLOPT_POST => 1,
+    CURLOPT_HTTPHEADER => array('Content-Type: application/xml')
 );
 if ( $request->curl_options($curl_options) == true ):
     $result = $request->curl_execute();
