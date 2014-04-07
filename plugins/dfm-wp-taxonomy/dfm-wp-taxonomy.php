@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DFM Wordpress Taxonomy
  * Description: Creates a central taxonomy that local sites can append.
- * Version: 1.0
+ * Version: 0.1
  * Author: Brian Henderson
  * Author Contact : bhenderson@pioneerpress.com
  * License: TBD
@@ -36,6 +36,9 @@ function dfm_parent_category() {
     echo '</div>';
 }
 
+/**
+* @desc Assigns any categories that are imported by Dictator to an array in the dfm_categories option. The 'DICTATOR' constant is set in dictator.php. 
+*/
 add_action('created_term', 'dfm_master_list');
  
 function dfm_master_list($term_id){
@@ -48,16 +51,12 @@ function dfm_master_list($term_id){
     }
 }
 
-
-// filter row-actions
-
 add_filter( 'category_row_actions', 'dfm_tax_remove_row_actions', 10, 1 );
 
 /**
-* @desc	Hide row actions on DFM categories
+* @desc	Filter to remove "Edit", "Quick Edit" and "Delete" mouseover links on the category page.
 */
 function dfm_tax_remove_row_actions ( $actions ){
-	
     $cat_id = explode('=', $actions['view']);
     $cat_id = explode('"', $cat_id[2]);
     $cat_id = $cat_id[0];
@@ -67,7 +66,7 @@ function dfm_tax_remove_row_actions ( $actions ){
 		unset( $actions['edit'] );	// edit
 		unset( $actions['delete'] );	// delete
 	}
-    	return $actions;
+    return $actions;
 }
 
 add_filter('bulk_actions-edit-category','dfm_tax_remove_bulk_actions');
@@ -77,30 +76,29 @@ add_filter('bulk_actions-edit-category','dfm_tax_remove_bulk_actions');
     }
 
 add_action( 'init', function() {
-    $fm = new Fieldmanager_Group( array(
-        'name' => 'dfmpostcategories',
-        'add_more_label' => 'Add another category',
-        'limit' => 0,
-        'one_label_per_item' => False,
-
-        'children' => array(
-                
-                'localcats' => new Fieldmanager_Autocomplete( 'Category', array(
-                    'limit' => 1,
-                    'one_label_per_item' => False,                   
-                    'datasource' => new Fieldmanager_Datasource_Term( array(
-                    'taxonomy' => 'category'
+    if (class_exists("Fieldmanager_Group")){
+        $fm = new Fieldmanager_Group( array(
+            'name' => 'dfmpostcategories',
+            'add_more_label' => 'Add another category',
+            'limit' => 0,
+            'one_label_per_item' => False,
+            'children' => array(                
+                    'localcats' => new Fieldmanager_Autocomplete( 'Category', array(
+                        'limit' => 1,
+                        'one_label_per_item' => False,                   
+                        'datasource' => new Fieldmanager_Datasource_Term( array(
+                        'taxonomy' => 'category'
+                    ) ),                
                 ) ),
-                
-            ) ),
-        'primarycategory' => new Fieldmanager_Checkbox('Main Category?'),
-        ),
-    ) );
-    $fm->add_meta_box( 'Categories', array( 'post' ) );
-    } );
+            'primarycategory' => new Fieldmanager_Checkbox('Main Category?'),
+            ),
+        ) );
+        $fm->add_meta_box( 'Categories', array( 'post' ) );
+    }
+} );
 
 /**
-* @desc Allow users to hide categories in on the post page
+* @desc Allow users to hide categories on the post page
 */
 
 function dfm_filter_terms( $exclusions, $args ){
@@ -122,54 +120,53 @@ function dfm_filter_terms( $exclusions, $args ){
     return $exclusions;
 }
  
-if( is_admin() ) {
-    global $pagenow;
-    if( 'post.php' == $pagenow ) {
+add_action( 'current_screen' , function($thescreen){
+    if( $thescreen->base == 'post' ) {
         add_filter( 'list_terms_exclusions', 'dfm_filter_terms', 10, 2 );
     }
-}
+} );
 
-add_action('init', function(){
-    $fm = new Fieldmanager_Checkboxes( array(
-        'name' => 'hiddencategories',
-        'limit' => 1,
-        'starting_count' => 0,
-        'multiple' => true,
-        'required' => false,
-        'one_label_per_item' => False,                    
-        'datasource' => new Fieldmanager_Datasource_Term( array(
-            'taxonomy' => 'category',
-            'taxonomy_hierarchical' => true,
+add_action('init', function (){
+    if (class_exists("Fieldmanager_Group")){
+        $fm = new Fieldmanager_Checkboxes( array(
+            'name' => 'hiddencategories',
+            'limit' => 1,
+            'starting_count' => 0,
+            'multiple' => true,
+            'required' => false,
+            'one_label_per_item' => False,                    
+            'datasource' => new Fieldmanager_Datasource_Term( array(
+                'taxonomy' => 'category',
+                'taxonomy_hierarchical' => true,
             ) ),        
-    ) );
-    $fm->add_submenu_page( 'options-general.php', 'DFM Local Taxonomy - Hide Categories');
-   
-} );
+        ) );
+        $fm->add_submenu_page( 'options-general.php', 'DFM Local Taxonomy - Hide Categories');
+    }   
+});
 
 add_action('init', function(){
-    $fm = new Fieldmanager_Group( array(
-        'name' => 'locallabels',
-        'limit' => 0,
-        'label' => 'New Label',
-        'label_macro' => array( 'Label: %s', 'title' ),
-        'add_more_label' => 'Add another label',
-        'collapsed' => True,
-        'sortable' => True,
-        'required' => false,
-        'children' => array(
-            'title' => new Fieldmanager_Textfield( 'Local Label' ),
-            'posts' => new Fieldmanager_Autocomplete( 'DFM Taxonomy Name', array(
-                'limit' => 1,
-                'one_label_per_item' => False,
-                
-                'datasource' => new Fieldmanager_Datasource_Term( array(
-                    'taxonomy' => 'category',
-                    
+    if (class_exists("Fieldmanager_Group")){
+        $fm = new Fieldmanager_Group( array(
+            'name' => 'locallabels',
+            'limit' => 0,
+            'label' => 'New Label',
+            'label_macro' => array( 'Label: %s', 'title' ),
+            'add_more_label' => 'Add another label',
+            'collapsed' => True,
+            'sortable' => True,
+            'required' => false,
+            'children' => array(
+                'title' => new Fieldmanager_Textfield( 'Local Label' ),
+                'posts' => new Fieldmanager_Autocomplete( 'DFM Taxonomy Name', array(
+                    'limit' => 1,
+                    'one_label_per_item' => False,                
+                    'datasource' => new Fieldmanager_Datasource_Term( array(
+                        'taxonomy' => 'category',                    
+                    ) ),
                 ) ),
-            ) ),
-        ),
-    ) );
-    $fm->add_submenu_page( 'options-general.php', 'DFM Local Taxonomy - Local Labels');
-} );
-
+            ),
+        ) );
+        $fm->add_submenu_page( 'options-general.php', 'DFM Local Taxonomy - Local Labels');
+    }
+});
 ?>
