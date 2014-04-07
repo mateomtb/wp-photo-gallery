@@ -31,52 +31,42 @@ $config = getContentConfigFeed($context['domain'], $context['section']);
 // Assign arrays structured as above created from JSON file
 
 // Lead Stories
-//$leadStory = array_values($config['lead_story']);
-
 $id_array = array();
 
-$posts = get_posts(array(
+$all_posts = get_posts(array(
     'post_status' => 'publish',
     'posts_per_page' => -1,
     'fields' => 'ids'
     )
 );
 
-foreach($posts as $p){
-    $article_curation = get_post_meta($p,"article_curation",true);
-    //echo '<pre>'; var_dump($long['lead_story']); echo '</pre>';
-    if( $article_curation['lead_story'] === 'yes' ) {
-       //echo 'The id(s) of the aritlce set to lead_story is ' . $p . '<br />';
-      array_push($id_array, $p);
-      echo '<pre>'; var_dump($id_array); echo '</pre>';
-    } else {
-        // Need logic for how to handle if no lead article set.
+if( isset( $all_posts ) && !empty( $all_posts ) ){
+    foreach($all_posts as $p){    
+        $article_curation = get_post_meta($p,"article_curation",true);
+        if( is_string( $article_curation ) === false && $article_curation['lead_story'] !== false ) {
+            array_push($id_array, $p);
+        }
     }
 }
 
 // Gets the lead story with the arg of all the posts set to lead_story.
 function get_lead_story( $ids ){
-    if( isset( $ids )){
+    if( isset( $ids ) && !empty( $ids ) ){
         foreach ( $ids as $key => $value) {
             // Article contains lead story.
             $meta_values = get_post_meta( $value );
-            $myposts = Timber::get_post( intval($value) );
-            $leadStory = array_values( $myposts );
-            $context['lead_story'] = get_posts( $myposts );
-            echo '<pre>'; var_dump( $myposts ); echo '</pre>';
-            return $myposts;
+            $leadStory = Timber::get_post( intval($value) );
+            return $leadStory;
         }
     }
     else {
-        // ^^^ Need to test this
-        //echo 'This is in the else';
+        // lead_story checkbox not checked on any post, grabs most recent
         $args = array( 'numberposts' => '1' );
-        $recent_article = wp_get_recent_posts( $args );
-        echo '<pre>'; var_dump( $recent_article ); echo '</pre>';
-        return $recent_article;
+        $most_recent_article = Timber::get_post( $args );
+        return $most_recent_article;
     }
 }
-$context['lead_story'] = call_user_func_array("get_lead_story", array( $id_array ));
+
 
 $secondaryLeadStory = array_values($config['secondary_lead_story']);
 $relatedStories = array_values($config['related_stories']);
@@ -122,7 +112,9 @@ $context['apocalypse'] = unboltQuery('get_posts', $apocalypse, $context['exclude
 
 if ($context['apocalypse']) {
     // Bring config from above down here for these sorts of stories
-    
+    // Lead Story
+    $context['lead_story'] = call_user_func_array("get_lead_story", array( $id_array ));
+
     // Apoc secondary lead story
     $apocSecondaryLeadStory = array_values($config['apoc_secondary_lead_story']);
 
@@ -150,7 +142,7 @@ if ($context['apocalypse']) {
 // Normal
 else {
     // Lead story
-    //$context['lead_story'] = unboltQuery('get_posts', $leadStory, $context['exclude_posts']);
+    $context['lead_story'] = call_user_func_array("get_lead_story", array( $id_array ));
     //echo '<pre>'; var_dump($context['lead_story']); echo '</pre>';
     // Secondary lead story
     $context['secondary_lead_story'] = unboltQuery('get_posts', $secondaryLeadStory, $context['exclude_posts']);
