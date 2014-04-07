@@ -1,6 +1,6 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sax="http://www.saxotech.com/editorial" targetNamespace="http://www.saxotech.com/editorial" elementFormDefault="qualified">
     <xs:complexType name="BaseItemType">
-        <xs:sequence>
+ json       <xs:sequence>
            <xs:element name="createdtime" type="xs:dateTime" maxOccurs="1" minOccurs="0" />
             <xs:element name="createdby" type="sax:InternalResourceType" maxOccurs="1" minOccurs="0" />
          <xs:element name="updatedtime" type="xs:dateTime" maxOccurs="1" minOccurs="0" />

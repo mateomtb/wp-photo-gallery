@@ -28,8 +28,14 @@ function send_to_saxo($post_id)
     // *** If it failed, print as many relevant details of the failure as possible.
 }
 
+function remove_from_saxo()
+{
+}
+
 // If we're testing these scripts out on the terminal, add_action won't exist.
 if ( function_exists('add_action') ):
-    add_action( 'save_post', 'send_to_saxo' );
+    add_action( 'publish_post', 'send_to_saxo' );
+    // Wrappers for the other actions we'll need to hook into.
+    add_action('before_delete_post', 'remove_from_saxo');
+    add_action('post_updated', 'send_to_saxo');
 endif;
-
