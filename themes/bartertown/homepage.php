@@ -33,7 +33,7 @@ $config = getContentConfigFeed($context['domain'], $context['section']);
 // Lead Stories
 //$leadStory = array_values($config['lead_story']);
 
-//$id_array = array();
+$id_array = array();
 
 $posts = get_posts(array(
     'post_status' => 'publish',
@@ -47,7 +47,8 @@ foreach($posts as $p){
     //echo '<pre>'; var_dump($long['lead_story']); echo '</pre>';
     if( $article_curation['lead_story'] === 'yes' ) {
        //echo 'The id(s) of the aritlce set to lead_story is ' . $p . '<br />';
-      // array_push($id_array, $p);
+      array_push($id_array, $p);
+      echo '<pre>'; var_dump($id_array); echo '</pre>';
     } else {
         // Need logic for how to handle if no lead article set.
     }
@@ -59,11 +60,11 @@ function get_lead_story( $ids ){
         foreach ( $ids as $key => $value) {
             // Article contains lead story.
             $meta_values = get_post_meta( $value );
-            $myposts = get_post( intval($value) );
+            $myposts = Timber::get_post( intval($value) );
             $leadStory = array_values( $myposts );
             $context['lead_story'] = get_posts( $myposts );
-            //echo '<pre>'; var_dump( $myposts ); echo '</pre>';
-            return get_posts( $myposts );
+            echo '<pre>'; var_dump( $myposts ); echo '</pre>';
+            return $myposts;
         }
     }
     else {
@@ -71,7 +72,7 @@ function get_lead_story( $ids ){
         //echo 'This is in the else';
         $args = array( 'numberposts' => '1' );
         $recent_article = wp_get_recent_posts( $args );
-        //echo '<pre>'; var_dump( $recent_article ); echo '</pre>';
+        echo '<pre>'; var_dump( $recent_article ); echo '</pre>';
         return $recent_article;
     }
 }
