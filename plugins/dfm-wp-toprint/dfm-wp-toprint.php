@@ -94,6 +94,7 @@ class DFMRequest
     // endif;
 
     var $cur;
+    var $response;
 
     function __construct()
     {
@@ -143,22 +144,23 @@ class DFMRequest
     {
 		// Takes a curl_exec return object and pulls out the header
         // and body content.
-        $response = array('body' => '', 'header' => array('responsecode' => ''));
 		$header_size = curl_getinfo($this->cur, CURLINFO_HEADER_SIZE);
 		$header = substr($result, 0, $header_size);
+
         // Cycle through the parts of the header
+        $response = array('body' => '', 'header' => array('responsecode' => ''), 'error' => '');
         foreach ( explode("\n", $header) as $key => $value ):
             if ( trim($value) == '' ):
                 continue;
             endif;
             // If we have a colon then it's a name/value pair we want to parse
-            // and add to $response['header']
+            // and add to $response['header'].
             // If we don't have a colon then it's a HTTP response code.
-            if ( strpos($value, ':') > 0  ):
+            if ( strpos($value, ':') > 0 ):
                 $namevalue = explode(': ', $value);
                 $response['header'][$namevalue[0]] = trim($namevalue[1]);
             else:
-                $response['header']['responsecode'] .= $value;
+                $response['header']['responsecode'] .= trim($value) . "\n";
             endif;
         endforeach;
 		$response['body'] = substr($result, $header_size);
@@ -166,15 +168,16 @@ class DFMRequest
 		if(curl_errno($this->cur)):
             echo "ERROR: ";
 			echo curl_error($this->cur);
+            $response['error'] = curl_error($this->cur);
         endif;
-        var_dump($response);
+        $this->response = $response;
         return $response;
     }
 
     public function curl_destroy()
     {
         // Wrapper for curl_close()
-	    curl_close($this_>cur);
+	    curl_close($this->cur);
         return true;
     }
 }
@@ -203,8 +206,8 @@ $curl_options = array(
 if ( $request->curl_options($curl_options) == true ):
     $result = $request->curl_execute();
     $reponse = $request->curl_results($result);
-    if ( isset($response) ):
-        var_dump($response);
+    if ( isset($request->response) ):
+        var_dump($request->response);
         $request->curl_destroy();
     endif;
 endif;
