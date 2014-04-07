@@ -169,7 +169,7 @@ $target_urls = array(
     'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/1/stories?timestamp=' . time(),
     'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/1/textformats/720743380?timestamp=' . time()
     );
-$post = file_get_contents('saxo/st2saxo.xml');
+$post = file_get_contents('saxo/story.xml');
 $request = new DFMRequest();
 $curl_options = array(
     CURLOPT_URL => $request->set_url($target_urls['article']),
