@@ -63,7 +63,7 @@ function get_lead_story( $ids ){
         // lead_story checkbox not checked on any post, grabs most recent
         $args = array( 'numberposts' => '1' );
         $most_recent_article = Timber::get_post( $args );
-        return $most_recent_article;
+        return $most_vrecent_article;
     }
 }
 
