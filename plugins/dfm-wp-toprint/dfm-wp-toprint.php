@@ -109,7 +109,10 @@ class DFMRequest
 
     public function set_url($url)
     {
-        return str_replace('%%%CREDENTIALS%%%', $this->credentials, $url);
+        $url = str_replace('%%%CREDENTIALS%%%', $this->credentials, $url);
+        $url = str_replace('%%%PRODUCTID%%%', 1, $url); //***HC***
+        $url = str_replace('%%%USERID%%%', 944621807, $url); //***HC***
+        return $url;
     }
 
     public function curl_initialize()
@@ -165,9 +168,9 @@ class DFMRequest
 include('class.saxo.php');
 $params = array('');
 $target_urls = array(
-    'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/1/users/944621807',
-    'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/1/stories?timestamp=' . time(),
-    'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/1/textformats/720743380?timestamp=' . time()
+    'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
+    'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(),
+    'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
     );
 $post = file_get_contents('saxo/story.xml');
 $request = new DFMRequest();
