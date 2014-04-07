@@ -23,7 +23,7 @@ class DFMToPrintArticle
 
     function __construct($post)
     {
-        // Load up the post we're sending to Saxo.
+        // Load up the post we're sending out.
         switch ( gettype($post) ):
             case 'object':
                 $this->post = $post;
@@ -86,9 +86,9 @@ class DFMRequest
     // );
     // if ( $request->curl_options($curl_options) == true ):
     //  $result = $request->curl_execute();
-    //  $reponse = $request->curl_results($result);
-    //  if ( isset($response) ):
-    //      var_dump($response);
+    //  $request->curl_results($result);
+    //  if ( isset($request->response) ):
+    //      var_dump($request->response);
     //      $request->curl_destroy();
     //  endif;
     // endif;
@@ -170,6 +170,7 @@ class DFMRequest
 			echo curl_error($this->cur);
             $response['error'] = curl_error($this->cur);
         endif;
+
         $this->response = $response;
         return $response;
     }
@@ -185,18 +186,18 @@ class DFMRequest
 
 // Hard-coded, for now.
 include('class.saxo.php');
-$params = array('');
 $target_urls = array(
     'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
     'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(),
     'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
     );
-$post = file_get_contents('saxo/story.xml');
+
+
 $request = new DFMRequest();
 $curl_options = array(
     CURLOPT_URL => $request->set_url($target_urls['article']),
     //CURLOPT_POSTFIELDS => http_build_query($params),
-    CURLOPT_POSTFIELDS => $post,
+    CURLOPT_POSTFIELDS => file_get_contents('saxo/story.xml'),
     CURLOPT_RETURNTRANSFER => 1,
     CURLOPT_VERBOSE => 1,
     CURLOPT_HEADER => 1,
@@ -205,9 +206,15 @@ $curl_options = array(
 );
 if ( $request->curl_options($curl_options) == true ):
     $result = $request->curl_execute();
-    $reponse = $request->curl_results($result);
+    $request->curl_results($result);
     if ( isset($request->response) ):
-        var_dump($request->response);
         $request->curl_destroy();
     endif;
+endif;
+
+// Saxo-specific
+// If we've created a new article, we want to associate its saxo-id
+// with the article in WP.
+if ( isset($request->response['header']['Location']) ):
+    // *** add check to see if value already exists in custom field.
 endif;
