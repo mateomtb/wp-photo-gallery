@@ -31,7 +31,7 @@ $config = getContentConfigFeed($context['domain'], $context['section']);
 // Assign arrays structured as above created from JSON file
 
 // Lead Stories
-$id_array = array();
+$lead_array = array();
 
 $all_posts = get_posts(array(
     'post_status' => 'publish',
@@ -41,10 +41,10 @@ $all_posts = get_posts(array(
 );
 
 if( isset( $all_posts ) && !empty( $all_posts ) ){
-    foreach($all_posts as $p){    
-        $article_curation = get_post_meta($p,"article_curation",true);
+    foreach( $all_posts as $p ){    
+        $article_curation = get_post_meta( $p,"article_curation",true );
         if( is_string( $article_curation ) === false && $article_curation['lead_story'] !== false ) {
-            array_push($id_array, $p);
+            array_push($lead_array, $p);
         }
     }
 }
@@ -60,10 +60,10 @@ function get_lead_story( $ids ){
         }
     }
     else {
-        // lead_story checkbox not checked on any post, grabs most recent
+        // Lead_story checkbox not checked on any post, grabs most recent.
         $args = array( 'numberposts' => '1' );
         $most_recent_article = Timber::get_post( $args );
-        return $most_vrecent_article;
+        return $most_recent_article;
     }
 }
 
@@ -113,7 +113,7 @@ $context['apocalypse'] = unboltQuery('get_posts', $apocalypse, $context['exclude
 if ($context['apocalypse']) {
     // Bring config from above down here for these sorts of stories
     // Lead Story
-    $context['lead_story'] = call_user_func_array("get_lead_story", array( $id_array ));
+    $context['lead_story'] = call_user_func_array("get_lead_story", array( $lead_array ));
 
     // Apoc secondary lead story
     $apocSecondaryLeadStory = array_values($config['apoc_secondary_lead_story']);
@@ -142,7 +142,7 @@ if ($context['apocalypse']) {
 // Normal
 else {
     // Lead story
-    $context['lead_story'] = call_user_func_array("get_lead_story", array( $id_array ));
+    $context['lead_story'] = call_user_func_array("get_lead_story", array( $lead_array ));
     //echo '<pre>'; var_dump($context['lead_story']); echo '</pre>';
     // Secondary lead story
     $context['secondary_lead_story'] = unboltQuery('get_posts', $secondaryLeadStory, $context['exclude_posts']);
