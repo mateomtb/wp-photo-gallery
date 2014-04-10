@@ -19,12 +19,18 @@ class DFMToPrintArticle
     // We use this class to create an article XML for the
     // purpose of sending to a print-edition CMS.
 
-    var $post;
     var $article_template;
+    var $post;
 
     function __construct($post)
     {
         $this->article_template = 'single.xml.twig';
+        set_post($post);
+    }
+
+    function set_post($post)
+    {
+        // Should we need to change the post object in an existing object.
         // Load up the post we're sending out.
         switch ( gettype($post) ):
             case 'object':
@@ -37,14 +43,14 @@ class DFMToPrintArticle
                 $this->post = get_post(intval($post));
                 break;
         endswitch;
-    }
-
-    function set_post($value)
-    {
+        return $this->post;
     }
 
     function set_article_template($value)
     {
+        // Should we need to change the template string in an existing object.
+        $this->article_template = $value;
+        return $this->article_template;
     }
 
     public function get_article($post_id=0)
