@@ -57,12 +57,14 @@ class DFMToPrintArticle
     {
         // Returns an xml representation of the desired article
         // Takes a parameter, post_id, for manual lookups of post collection field.
+        $post_id = 1;
         $post = $this->post;
         if ( $post_id > 0 ):
             $post = get_post($post_id);
         endif;
 
         $context = Timber::get_context();
+        $context['product_id'] = 1; // *** HC for now
         $post = new TimberPost();
         $context['post'] = $post;
         ob_start();
@@ -121,7 +123,10 @@ class DFMRequest
     private function get_credentials()
     {
         // Return a "user:password" formatted credentials.
-        return trim(file_get_contents('.credentials'));
+        if ( $credentials = trim(file_get_contents('.credentials')) == FALSE ):
+            die('No .credentials file in dfm-wp plugin directory available.' . "\n");
+        endif;
+        return $credentials;
     }
 
     public function set_url($url)
