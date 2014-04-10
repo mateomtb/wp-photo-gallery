@@ -73,6 +73,7 @@ class DFMToPrintArticle
         endif;
         $context = Timber::get_context();
         $context['product_id'] = 1; // *** HC for now
+        $context['author_print_id'] = 944621807; // *** HC for now
         $post = new TimberPost();
         $context['post'] = $post;
         ob_start();

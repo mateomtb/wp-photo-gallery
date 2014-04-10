@@ -27,11 +27,14 @@ function send_to_saxo($post_id)
     );
 
 $request = new DFMRequest();
+$xml = trim($article->get_article());
+//$xml = file_get_contents('/home/joe/bt-wp/plugins/dfm-wp-toprint/saxo/story.xml');
+//die($xml);
 $curl_options = array(
     CURLOPT_URL => $request->set_url($target_urls['article']),
     //CURLOPT_POSTFIELDS => http_build_query($params),
     //CURLOPT_POSTFIELDS => file_get_contents('saxo/story.xml'),
-    CURLOPT_POSTFIELDS => $article->get_article(),
+    CURLOPT_POSTFIELDS => $xml,
     CURLOPT_RETURNTRANSFER => 1,
     CURLOPT_VERBOSE => 1,
     CURLOPT_HEADER => 1,
@@ -66,7 +69,7 @@ function remove_from_saxo()
 
 // If we're testing these scripts out on the terminal, add_action won't exist.
 if ( function_exists('add_action') ):
-    add_action( 'publish_post', 'send_to_saxo' );
+    //add_action( 'publish_post', 'send_to_saxo' );
     // Wrappers for the other actions we'll need to hook into.
     add_action('before_delete_post', 'remove_from_saxo');
     add_action('post_updated', 'send_to_saxo');
