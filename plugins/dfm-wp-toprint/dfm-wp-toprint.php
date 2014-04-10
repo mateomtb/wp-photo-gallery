@@ -20,9 +20,11 @@ class DFMToPrintArticle
     // purpose of sending to a print-edition CMS.
 
     var $post;
+    var $article_template;
 
     function __construct($post)
     {
+        $this->article_template = 'single.xml.twig';
         // Load up the post we're sending out.
         switch ( gettype($post) ):
             case 'object':
@@ -37,7 +39,15 @@ class DFMToPrintArticle
         endswitch;
     }
 
-    public function get_article($post_id=0, $template_filename = 'single.xml.twig')
+    function set_post($value)
+    {
+    }
+
+    function set_article_template($value)
+    {
+    }
+
+    public function get_article($post_id=0)
     {
         // Returns an xml representation of the desired article
         // Takes a parameter, post_id, for manual lookups of post collection field.
@@ -182,6 +192,24 @@ class DFMRequest
         return true;
     }
 }
+
+// *******************
+//
+// CUSTOM FIELDS
+//
+// *******************
+if ( class_exists('Fieldmanager_Group') ):
+// We don't need to display these in the post-edit interface, we
+// just need them available to us robots.
+add_action( 'init', function() {
+  $fm = new Fieldmanager_Group( array(
+        'name' => 'toprint_article_fields',
+        'children' => array(
+            'print_cms_id' => new Fieldmanager_Textfield( 'Print CMS ID' ),
+        ),
+    ) );
+} );
+endif;
 
 
 // Hard-coded, for now.
