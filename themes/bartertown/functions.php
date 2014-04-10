@@ -184,6 +184,7 @@ function global_context($data){
     $wLanguage = 'en';  
     $locationKey = '';
 
+if ( !function_exists('getCurrentConditions') ):
     function getCurrentConditions($apiUrl, $locationKey, $wLanguage, $apiKey) {
         $currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
         return $currentConditionsUrl;
@@ -240,6 +241,7 @@ function global_context($data){
         }    
         return 'Denver';
     }
+endif;
 
     $zipCode = $_SESSION['dfm']['zip_code'];
     $data['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed($context['section'])), true)) ? $mc : null;
@@ -475,6 +477,5 @@ if (class_exists('Fieldmanager_Group')) {
     });
 
 }
-
 //include(WP_PLUGIN_DIR . '/DFM-WordPress-Objects/dfm-wordpress-objects.php');
 //dfm_uses_wordpress_object('article', 'source');

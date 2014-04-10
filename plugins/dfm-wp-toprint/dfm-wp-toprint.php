@@ -21,11 +21,16 @@ class DFMToPrintArticle
 
     var $article_template;
     var $post;
+    var $path_prefix;
 
-    function __construct($post)
+    function __construct($post=1)
     {
         $this->article_template = 'single.xml.twig';
-        set_post($post);
+        $this->set_post($post);
+        $this->path_prefix = '';
+        if ( function_exists('plugin_dir_path') ):
+            $this->path_prefix = plugin_dir_path( __FILE__ );
+        endif;
     }
 
     function set_post($post)
@@ -63,12 +68,15 @@ class DFMToPrintArticle
             $post = get_post($post_id);
         endif;
 
+        if ( !class_exists('Timber') ):
+        include($this->path_prefix . '/../timber/timber.php');
+        endif;
         $context = Timber::get_context();
         $context['product_id'] = 1; // *** HC for now
         $post = new TimberPost();
         $context['post'] = $post;
         ob_start();
-        Timber::render(array($template_filename), $context);
+        Timber::render(array($this->article_template), $context);
         $xml = ob_get_clean();
         return $xml;
     }
@@ -117,13 +125,18 @@ class DFMRequest
     function __construct()
     {
         $this->cur = curl_init();
+        $this->path_prefix = '';
+        if ( function_exists('plugin_dir_path') ):
+            $this->path_prefix = plugin_dir_path( __FILE__ );
+        endif;
         $this->credentials=$this->get_credentials();
     }
 
     private function get_credentials()
     {
         // Return a "user:password" formatted credentials.
-        if ( $credentials = trim(file_get_contents('.credentials')) == FALSE ):
+        $credentials = trim(file_get_contents($this->path_prefix . '.credentials'));
+        if ( $credentials == FALSE || $credentials == '' ):
             die('No .credentials file in dfm-wp plugin directory available.' . "\n");
         endif;
         return $credentials;
@@ -225,35 +238,3 @@ endif;
 
 // Hard-coded, for now.
 include('class.saxo.php');
-$target_urls = array(
-    'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
-    'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(),
-    'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
-    );
-
-
-$request = new DFMRequest();
-$curl_options = array(
-    CURLOPT_URL => $request->set_url($target_urls['article']),
-    //CURLOPT_POSTFIELDS => http_build_query($params),
-    CURLOPT_POSTFIELDS => file_get_contents('saxo/story.xml'),
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_VERBOSE => 1,
-    CURLOPT_HEADER => 1,
-    CURLOPT_POST => 1,
-    CURLOPT_HTTPHEADER => array('Content-Type: application/xml; charset=UTF-8')
-);
-if ( $request->curl_options($curl_options) == true ):
-    $result = $request->curl_execute();
-    $request->curl_results($result);
-    if ( isset($request->response) ):
-        $request->curl_destroy();
-    endif;
-endif;
-
-// Saxo-specific
-// If we've created a new article, we want to associate its saxo-id
-// with the article in WP.
-if ( isset($request->response['header']['Location']) ):
-    // *** add check to see if value already exists in custom field.
-endif;
