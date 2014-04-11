@@ -394,7 +394,6 @@ function getContentConfigFeed($domain, $section){
     $dir = get_template_directory() . '/home_section_json/';
     $section = $section ? $section : 'home';
     $file = $dir . $domain . '/' . $section . '.json';
-
     if (file_exists($file)) {
         return json_decode(file_get_contents($file), true);
     }
