@@ -30,7 +30,7 @@ $config = getContentConfigFeed($context['domain'], $context['section']);
 
 // Assign arrays structured as above created from JSON file
 
-// Lead Stories
+// Declare arrays for later use
 $lead_array = array();
 $secondary_lead_story_array = array();
 
@@ -58,7 +58,9 @@ if( isset( $all_posts ) && !empty( $all_posts ) ){
     }
 }
 
-// Gets the lead story with the arg of all the posts set to lead_story.
+// Gets the respective story with the arg of all the posts set to respective array.
+// Need to find a better way to check if story is lead or not lead.
+// As of now just adding string to $lead_array and checking for existence.
 function get_respective_post( $id ){
     if( isset( $id ) && !empty( $id ) ){
         if( in_array( 'lead array!' , $id) ){
@@ -79,7 +81,7 @@ function get_respective_post( $id ){
     }
 
     else {
-        // Lead_story checkbox not checked on any post, grabs most recent.
+        // ^^^Need to verify this is accurate
         $args = array( 'numberposts' => '1' );
         $most_recent_article = Timber::get_post( $args );
         return $most_recent_article;
@@ -87,8 +89,6 @@ function get_respective_post( $id ){
 }
 
 //echo '<pre>'; var_dump( $leadStory_posts ); echo '</pre>';
-//var_dump($leadStory_posts);
-//var_dump($leadStory);
 $secondaryLeadStory = array_values($config['secondary_lead_story']);
 $relatedStories = array_values($config['related_stories']);
 $secondaryStories = array_values($config['secondary_stories']);
@@ -164,11 +164,11 @@ if ($context['apocalypse']) {
 else {
     // Lead story
     $context['lead_story'] = call_user_func_array("get_respective_post", array( $lead_array ));
-    //$context['lead_story'] = get_respective_post( $lead_array );
+
     // Secondary lead story
-    //$context['secondary_lead_story'] = unboltQuery('get_posts', $secondaryLeadStory, $context['exclude_posts']);
     $context['secondary_lead_story'] = call_user_func_array("get_respective_post", array( $secondary_lead_story_array ));
     //echo '<pre>'; var_dump($context['secondary_lead_story']); echo '</pre>';
+
     // Secondary stories
     $context['secondary_stories'] = array();
     foreach($secondaryStories as $story) {
