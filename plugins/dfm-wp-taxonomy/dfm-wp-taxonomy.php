@@ -36,6 +36,77 @@ function dfm_parent_category() {
     echo '</div>';
 }
 
+
+add_action( 'admin_init', 'dfm_ad_taxonomy' );
+
+function dfm_ad_taxonomy() {
+    if (class_exists("Fieldmanager_Group")){
+        $fm = new Fieldmanager_Select( array(
+            'name' => 'adtaxonomy',            
+            'datasource' => new Fieldmanager_Datasource_Term( array(
+                'taxonomy' => 'adtaxonomy'
+            ) ),   
+        ) );    
+    $fm->add_term_form( 'Ad Taxonomy', array('category'));
+    }    
+}     
+
+add_action( 'add_category', array( $this, 'dfm_save_ad_taxonomy_field' ), 10, 1 );
+add_action( 'edit_category', array( $this, 'dfm_save_ad_taxonomy_field' ), 10, 1 );
+
+function dfm_save_ad_taxonomy_field($term_id) {
+    if (isset($_POST['adtaxonomy'])) {
+        $t_id = $term_id;
+        $term_meta = get_option("adtaxonomy_$t_id");
+        $cat_keys = array_keys($_POST['adtaxonomy']);
+        foreach ($cat_keys as $key) {
+            if (isset($_POST['adtaxonomy'][$key])) {
+                $term_meta[$key] = $_POST['adtaxonomy'][$key];
+            }
+        }
+        update_option("adtaxonomy_$t_id", $term_meta);
+    }
+}
+
+
+// Register Custom Taxonomy
+function dfm_register_ad_taxonomy() {
+
+    $labels = array(
+        'name'                       => _x( 'Ad Taxonomies', 'Taxonomy General Name', 'text_domain' ),
+        'singular_name'              => _x( 'Ad Taxonomy', 'Taxonomy Singular Name', 'text_domain' ),
+        'menu_name'                  => __( 'Ad Taxonomy', 'text_domain' ),
+        'all_items'                  => __( 'All Items', 'text_domain' ),
+        'parent_item'                => __( 'Parent Item', 'text_domain' ),
+        'parent_item_colon'          => __( 'Parent Item:', 'text_domain' ),
+        'new_item_name'              => __( 'New Item Name', 'text_domain' ),
+        'add_new_item'               => __( 'Add New Item', 'text_domain' ),
+        'edit_item'                  => __( 'Edit Item', 'text_domain' ),
+        'update_item'                => __( 'Update Item', 'text_domain' ),
+        'separate_items_with_commas' => __( 'Separate items with commas', 'text_domain' ),
+        'search_items'               => __( 'Search Items', 'text_domain' ),
+        'add_or_remove_items'        => __( 'Add or remove items', 'text_domain' ),
+        'choose_from_most_used'      => __( 'Choose from the most used items', 'text_domain' ),
+        'not_found'                  => __( 'Not Found', 'text_domain' ),
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => false,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+    );
+    register_taxonomy( 'adtaxonomy', array( 'post' ), $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'dfm_register_ad_taxonomy', 0 );
+
+
+
 /**
 * @desc Assigns any categories that are imported by Dictator to an array in the dfm_categories option. The 'DICTATOR' constant is set in dictator.php. 
 */
@@ -134,6 +205,7 @@ add_action('init', function (){
             'starting_count' => 0,
             'multiple' => true,
             'required' => false,
+            
             'one_label_per_item' => False,                    
             'datasource' => new Fieldmanager_Datasource_Term( array(
                 'taxonomy' => 'category',
