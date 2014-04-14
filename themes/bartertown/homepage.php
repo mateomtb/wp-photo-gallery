@@ -37,31 +37,32 @@ $secondary_lead_story_array = array();
 $all_posts = get_posts(array(
     'post_status' => 'publish',
     'posts_per_page' => -1,
-    'fields' => 'ids'
+    'fields' => 'ids',
+    'orderby' => 'modified'
     )
 );
 
+
+
 if( isset( $all_posts ) && !empty( $all_posts ) ){
+    $lead_in_array = 'lead array!';
     foreach( $all_posts as $p ){    
-        $article_curation = get_post_meta( $p,"article_curation",true );
+        $article_curation = get_post_meta( $p , "article_curation" , true );
         if( is_string( $article_curation ) === false && $article_curation['lead_story'] !== false ) {
-            $lead = 'lead array!';
-            array_push( $lead_array, $p );
-            array_push( $lead_array, $lead );
+            array_push( $lead_array , $p );
+            array_push( $lead_array , $lead_in_array );
         }
-        if( is_string( $article_curation ) === false && $article_curation['secondary_lead_story'] !== false ) {
+        elseif( is_string( $article_curation ) === false && $article_curation['secondary_lead_story'] !== false ) {
             array_push( $secondary_lead_story_array, $p );
         }
     }
 }
 
-//echo '<pre>'; var_dump( $secondary_lead_story_array ); echo '</pre>';
-
 // Gets the lead story with the arg of all the posts set to lead_story.
 function get_respective_post( $id ){
     if( isset( $id ) && !empty( $id ) ){
-        if( in_array( 'lead array!' , $id ) ){
-            foreach ( $id as $ids ) {            
+        if( in_array( 'lead array!' , $id) ){
+            foreach ( $id as $ids ) {          
                 $meta_values = get_post_meta( $ids );
                 $leadStory = Timber::get_post( intval( $ids ) );
                 return $leadStory;
@@ -73,6 +74,7 @@ function get_respective_post( $id ){
                 $nonLeadStory = Timber::get_post( intval( $ids ) );
                 return $nonLeadStory;
             }
+            
         }
     }
 
@@ -161,9 +163,8 @@ if ($context['apocalypse']) {
 // Normal
 else {
     // Lead story
-    //$context['lead_story'] = call_user_func_array("get_respective_post", array( $lead_array ));
-    $context['lead_story'] = get_respective_post( $lead_array );
-    //echo '<pre>'; var_dump($context['lead_story']); echo '</pre>';
+    $context['lead_story'] = call_user_func_array("get_respective_post", array( $lead_array ));
+    //$context['lead_story'] = get_respective_post( $lead_array );
     // Secondary lead story
     //$context['secondary_lead_story'] = unboltQuery('get_posts', $secondaryLeadStory, $context['exclude_posts']);
     $context['secondary_lead_story'] = call_user_func_array("get_respective_post", array( $secondary_lead_story_array ));
