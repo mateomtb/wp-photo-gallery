@@ -464,6 +464,10 @@ if (class_exists('Fieldmanager_Group')) {
                     'name' => 'secondary_story',
                     'checked_value' => 'yes'
                     )),
+                'story_feed' => new Fieldmanager_Checkbox( 'Story Feed', array(
+                    'name' => 'story_feed',
+                    'checked_value' => 'yes'
+                    )),
             ),
         ) );
         $fm->add_meta_box( 'Article Curation', array( 'post' ) );

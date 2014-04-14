@@ -70,36 +70,36 @@
             "heading" : "Silver City", 
             "category_slug" : "news",
             "number_of_posts" : 1,
-            "custom_field" : null,
-            "custom_field_value" : null
+            "custom_field" : "article_curation[story_feed]",
+            "custom_field_value" : "yes"
         },
         "second" : {
             "heading" : "Silver City", 
             "category_slug" : "sports",
             "number_of_posts" : 1,
-            "custom_field" : null,
-            "custom_field_value" : null
+            "custom_field" : "article_curation[story_feed]",
+            "custom_field_value" : "yes"
         },
         "third" : {
             "heading" : "Entertainment", 
             "category_slug" : "entertainment",
             "number_of_posts" : 1,
-            "custom_field" : null,
-            "custom_field_value" : null
+            "custom_field" : "article_curation[story_feed]",
+            "custom_field_value" : "yes"
         },
         "fourth" : {
             "heading" : "Weather", 
             "category_slug" : "weather",
             "number_of_posts" : 1,
-            "custom_field" : null,
-            "custom_field_value" : null
+            "custom_field" : "article_curation[story_feed]",
+            "custom_field_value" : "yes"
         },
         "fifth" : {
             "heading" : "Business", 
             "category_slug" : "business",
             "number_of_posts" : 1,
-            "custom_field" : null,
-            "custom_field_value" : null
+            "custom_field" : "article_curation[story_feed]",
+            "custom_field_value" : "yes"
         }
     },
     
