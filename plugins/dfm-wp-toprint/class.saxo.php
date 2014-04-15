@@ -27,9 +27,7 @@ function send_to_saxo($post_id)
     );
 
 $request = new DFMRequest();
-$xml = trim($article->get_article());
-//$xml = file_get_contents('/home/joe/bt-wp/plugins/dfm-wp-toprint/saxo/story.xml');
-//die($xml);
+$xml = $article->get_article();
 $curl_options = array(
     CURLOPT_URL => $request->set_url($target_urls['article']),
     //CURLOPT_POSTFIELDS => http_build_query($params),
