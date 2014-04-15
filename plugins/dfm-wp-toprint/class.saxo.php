@@ -50,7 +50,39 @@ endif;
 // Saxo-specific
 // If we've created a new article, we want to associate its saxo-id
 // with the article in WP.
+// This response will look something like:
+//array(3) {
+//  ["body"]=>
+//  bool(false)
+//  ["header"]=>
+//  array(8) {
+//    ["responsecode"]=>
+//    string(43) "HTTP/1.1 100 Continue
+//HTTP/1.1 201 Created
+//"
+//    ["Date"]=>
+//    string(29) "Tue, 15 Apr 2014 19:39:07 GMT"
+//    ["Accept-Ranges"]=>
+//    string(5) "bytes"
+//    ["Location"]=>
+//    string(65) "https://mn1reporter.saxotech.com/ews/products/1/stories/509568932"
+//    ["Server"]=>
+//    string(24) "Restlet-Framework/2.0.14"
+//    ["Vary"]=>
+//    string(56) "Accept-Charset, Accept-Encoding, Accept-Language, Accept"
+//    ["Content-Type"]=>
+//    string(29) "application/xml;charset=UTF-8"
+//    ["Content-Length"]=>
+//    string(1) "0"
+//  }
+//  ["error"]=>
+//  string(0) ""
+//}
+
+
 if ( isset($request->response['header']['Location']) ):
+    // Get the story id, which will always be the last integer in the URL.
+    $story_id = intval(array_pop(explode('/', $request->response['header']['Location'])));
     // *** add check to see if value already exists in custom field.
 endif;
     // *** initiate curl
