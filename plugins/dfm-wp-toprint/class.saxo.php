@@ -19,10 +19,14 @@ class SaxoUser extends DFMToPrintUser
 function send_to_saxo($post_id)
 {
     if ( intval($post_id) == 0 ) die("0 post_id");
+    $request = new DFMRequest();
     $newarticle_flag = TRUE;
+    $url_type = 'article';
     $print_cms_id = get_post_meta($post_id, 'print_cms_id', TRUE);
     if ( intval($print_cms_id) > 0 ):
-        $newaraticle_flag = FALSE;
+        $newarticle_flag = FALSE;
+        $url_type = 'article_update';
+        $request->set_print_cms_id($print_cms_id);
         die($print_cms_id);
     endif;
     $article = new SaxoArticle($post_id);
@@ -30,20 +34,15 @@ function send_to_saxo($post_id)
     $target_urls = array(
     'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
     'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(),
+    'article_update' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%?timestamp=' . time(),
     'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
     );
 
-$request = new DFMRequest();
 
-// We may be testing this on the command line:
-if ( isset($_SERVER['argv'][0]) ):
-    $xml = file_get_contents('saxo/story.xml');
-else:
-    $xml = $article->get_article();
-endif;
+$xml = $article->get_article();
 
 $curl_options = array(
-    CURLOPT_URL => $request->set_url($target_urls['article']),
+    CURLOPT_URL => $request->set_url($target_urls[$url_type]),
     //CURLOPT_POSTFIELDS => http_build_query($params),
     CURLOPT_POSTFIELDS => $xml,
     CURLOPT_RETURNTRANSFER => 1,
@@ -94,8 +93,9 @@ endif;
 
 if ( isset($request->response['header']['Location']) ):
     // Get the story id, which will always be the last integer in the URL.
+    $newarticle_flag = TRUE;
     $story_id = array_pop(explode('/', $request->response['header']['Location']));
-    die($article->update_post(array('print_cms_id' => $story_id)));
+    $article->update_post(array('print_cms_id' => $story_id));
     // *** add check to see if value already exists in custom field.
 endif;
     // *** initiate curl

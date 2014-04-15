@@ -135,6 +135,7 @@ class DFMRequest
 
     var $cur;
     var $response;
+    var $print_cms_id;
 
     function __construct()
     {
@@ -144,6 +145,13 @@ class DFMRequest
             $this->path_prefix = plugin_dir_path( __FILE__ );
         endif;
         $this->credentials=$this->get_credentials();
+    }
+
+    public function set_print_cms_id($value)
+    {
+        // Should we need to edit the print_cms_id
+        $this->print_cms_id = $value;
+        return $this->print_cms_id;
     }
 
     private function get_credentials()
@@ -161,6 +169,7 @@ class DFMRequest
         $url = str_replace('%%%CREDENTIALS%%%', $this->credentials, $url);
         $url = str_replace('%%%PRODUCTID%%%', 1, $url); //***HC***
         $url = str_replace('%%%USERID%%%', 944621807, $url); //***HC***
+        $url = str_replace('%%%STORYID%%%', $this->print_cms_id, $url); //***HC***
         return $url;
     }
 
