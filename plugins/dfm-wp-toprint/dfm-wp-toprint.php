@@ -33,7 +33,7 @@ class DFMToPrintArticle
         endif;
     }
 
-    function set_post($post)
+    public function set_post($post)
     {
         // Should we need to change the post object in an existing object.
         // Load up the post we're sending out.
@@ -47,15 +47,28 @@ class DFMToPrintArticle
             case 'string':
                 $this->post = get_post(intval($post));
                 break;
+            default:
+                return false;
         endswitch;
         return $this->post;
     }
 
-    function set_article_template($value)
+    public function set_article_template($value)
     {
         // Should we need to change the template string in an existing object.
         $this->article_template = $value;
         return $this->article_template;
+    }
+
+    public function update_post($field_array)
+    {
+        // Update the WordPress post object.
+        // This is a wrapper for the update_post_meta() function, and we do this
+        // in case we need to add anything to the update.
+        foreach ( $field_array as $key => $value ):
+            $return = update_post_meta($this->post->ID, $key, $value);
+        endforeach;
+        return $return;
     }
 
     public function get_article($post_id=0)
@@ -223,18 +236,19 @@ class DFMRequest
 // CUSTOM FIELDS
 //
 // *******************
-if ( class_exists('Fieldmanager_Group') ):
 // We don't need to display these in the post-edit interface, we
 // just need them available to us robots.
 add_action( 'init', function() {
-  $fm = new Fieldmanager_Group( array(
+    if ( class_exists('Fieldmanager_Group') ):
+    $fm = new Fieldmanager_Group( array(
         'name' => 'toprint_article_fields',
         'children' => array(
             'print_cms_id' => new Fieldmanager_Textfield( 'Print CMS ID' ),
         ),
     ) );
+    $fm->add_meta_box( 'ToPrint', array( 'post' ) );
+    endif;
 } );
-endif;
 
 
 // Hard-coded, for now.

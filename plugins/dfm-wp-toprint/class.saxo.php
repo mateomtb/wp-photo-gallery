@@ -18,6 +18,13 @@ class SaxoUser extends DFMToPrintUser
 
 function send_to_saxo($post_id)
 {
+    if ( intval($post_id) == 0 ) die("0 post_id");
+    $newarticle_flag = TRUE;
+    $print_cms_id = get_post_meta($post_id, 'print_cms_id', TRUE);
+    if ( intval($print_cms_id) > 0 ):
+        $newaraticle_flag = FALSE;
+        die($print_cms_id);
+    endif;
     $article = new SaxoArticle($post_id);
     $xml = $article->get_article();
     $target_urls = array(
@@ -27,11 +34,17 @@ function send_to_saxo($post_id)
     );
 
 $request = new DFMRequest();
-$xml = $article->get_article();
+
+// We may be testing this on the command line:
+if ( isset($_SERVER['argv'][0]) ):
+    $xml = file_get_contents('saxo/story.xml');
+else:
+    $xml = $article->get_article();
+endif;
+
 $curl_options = array(
     CURLOPT_URL => $request->set_url($target_urls['article']),
     //CURLOPT_POSTFIELDS => http_build_query($params),
-    //CURLOPT_POSTFIELDS => file_get_contents('saxo/story.xml'),
     CURLOPT_POSTFIELDS => $xml,
     CURLOPT_RETURNTRANSFER => 1,
     CURLOPT_VERBOSE => 1,
@@ -47,7 +60,7 @@ if ( $request->curl_options($curl_options) == true ):
     endif;
 endif;
 
-// Saxo-specific
+
 // If we've created a new article, we want to associate its saxo-id
 // with the article in WP.
 // This response will look something like:
@@ -79,10 +92,10 @@ endif;
 //  string(0) ""
 //}
 
-
 if ( isset($request->response['header']['Location']) ):
     // Get the story id, which will always be the last integer in the URL.
-    $story_id = intval(array_pop(explode('/', $request->response['header']['Location'])));
+    $story_id = array_pop(explode('/', $request->response['header']['Location']));
+    die($article->update_post(array('print_cms_id' => $story_id)));
     // *** add check to see if value already exists in custom field.
 endif;
     // *** initiate curl
@@ -113,9 +126,8 @@ endif;
 // If we're running this file from the command line, we want to run this script.
 if ( isset($_SERVER['argv'][0]) ):
     if ( isset($_SERVER['argv'][1]) ):
-        // Not testing, will d/l file from Sports Direct
         // To run it this way:
-        // $ php the_thermometer.php whatever-just-put-something-here
+        // $ php 
         send_to_saxo(intval($_SERVER['argv'][1]));
     else:
         // Testing, will use local files.
