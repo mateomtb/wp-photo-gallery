@@ -38,8 +38,7 @@ function send_to_saxo($post_id)
     );
 
 
-    if ( $newarticle_flag == TRUE ):
-    $xml = $article->get_article();
+    $xml = $article->get_article($newarticle_flag);
 
     $curl_options = array(
     CURLOPT_URL => $request->set_url($target_urls[$url_type]),
@@ -52,13 +51,19 @@ function send_to_saxo($post_id)
     CURLOPT_HTTPHEADER => array('Content-Type: application/xml; charset=UTF-8')
     );
 
-    if ( $request->curl_options($curl_options) == true ):
-        $result = $request->curl_execute();
-        $request->curl_results($result);
-        if ( isset($request->response) ):
-            $request->curl_destroy();
-        endif;
+    
+    if ( $newarticle_flag == TRUE ):
+        // Article creation
+        if ( $request->curl_options($curl_options) == true ):
+            $result = $request->curl_execute();
+            $request->curl_results($result);
+            if ( isset($request->response) ):
+                $request->curl_destroy();
+            endif;
     endif;
+    else:
+        // Article update
+        $curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
     endif;
 
 

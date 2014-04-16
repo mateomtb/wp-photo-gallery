@@ -73,11 +73,12 @@ class DFMToPrintArticle
         return $return;
     }
 
-    public function get_article($post_id=0)
+    public function get_article($newarticle = false, $post_id=0)
     {
         // Returns an xml representation of the desired article
-        // Takes a parameter, post_id, for manual lookups of post collection field.
-        $post_id = 1;
+        // Takes two parameters:
+        // $newarticle, boolean, if this is an article we're adding to EWS.
+        // $post_id, integer, for manual lookups of post collection field.
         $post = $this->post;
         if ( $post_id > 0 ):
             $post = get_post($post_id);
@@ -89,6 +90,7 @@ class DFMToPrintArticle
         $context = Timber::get_context();
         $context['product_id'] = 1; // *** HC for now
         $context['author_print_id'] = 944621807; // *** HC for now
+        $context['newarticle'] = $newarticle;
         $post = new TimberPost();
         $context['post'] = $post;
         ob_start();
