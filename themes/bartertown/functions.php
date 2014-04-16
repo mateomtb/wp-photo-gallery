@@ -123,6 +123,9 @@ function global_context($data){
 
     );
     // Data provided here:
+    // We put this here for devs who are looking at this code for the first
+    // time and want to know what site information they have to work with.
+    // These fields / information come from the dfm-wp-data plugin.
     /*
     [site_name] => Silver City Sun News
     [url] => www.scsun-news.com/

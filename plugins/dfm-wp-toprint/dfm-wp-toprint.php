@@ -125,7 +125,6 @@ add_action( 'init', function() {
             'print_cms_id' => new Fieldmanager_Textfield( 'Print CMS ID' ),
         ),
     ) );
-    $fm->add_meta_box( 'ToPrint', array( 'post' ) );
     endif;
 } );
 

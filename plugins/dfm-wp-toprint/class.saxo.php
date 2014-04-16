@@ -27,7 +27,6 @@ function send_to_saxo($post_id)
         $newarticle_flag = FALSE;
         $url_type = 'article_update';
         $request->set_print_cms_id($print_cms_id);
-        die($print_cms_id);
     endif;
     $article = new SaxoArticle($post_id);
     $xml = $article->get_article();
@@ -39,9 +38,10 @@ function send_to_saxo($post_id)
     );
 
 
-$xml = $article->get_article();
+    if ( $newarticle_flag == TRUE ):
+    $xml = $article->get_article();
 
-$curl_options = array(
+    $curl_options = array(
     CURLOPT_URL => $request->set_url($target_urls[$url_type]),
     //CURLOPT_POSTFIELDS => http_build_query($params),
     CURLOPT_POSTFIELDS => $xml,
@@ -50,14 +50,16 @@ $curl_options = array(
     CURLOPT_HEADER => 1,
     CURLOPT_POST => 1,
     CURLOPT_HTTPHEADER => array('Content-Type: application/xml; charset=UTF-8')
-);
-if ( $request->curl_options($curl_options) == true ):
-    $result = $request->curl_execute();
-    $request->curl_results($result);
-    if ( isset($request->response) ):
-        $request->curl_destroy();
+    );
+
+    if ( $request->curl_options($curl_options) == true ):
+        $result = $request->curl_execute();
+        $request->curl_results($result);
+        if ( isset($request->response) ):
+            $request->curl_destroy();
+        endif;
     endif;
-endif;
+    endif;
 
 
 // If we've created a new article, we want to associate its saxo-id
@@ -93,7 +95,6 @@ endif;
 
 if ( isset($request->response['header']['Location']) ):
     // Get the story id, which will always be the last integer in the URL.
-    $newarticle_flag = TRUE;
     $story_id = array_pop(explode('/', $request->response['header']['Location']));
     $article->update_post(array('print_cms_id' => $story_id));
     // *** add check to see if value already exists in custom field.
