@@ -94,15 +94,25 @@ class DFMToPrintArticle
         if ( $newarticle === false ):
             $context['statuscode'] = 2;
             $context['updatedtime'] = date('c');
-            echo 'hahah';
             $context['newarticle'] = $newarticle;
         endif;
-        $post = new TimberPost();
-        $context['post'] = $post;
+        //$the_post = new TimberPost();
+        $context['post'] = new TimberPost($post->ID);
         ob_start();
         Timber::render(array($this->article_template), $context);
         $xml = ob_get_clean();
+        $this->log_article($xml);
         return $xml;
+    }
+
+    public function log_article($xml)
+    {
+        // Save the article xml to a file in the log directory.
+        $filename = $post->ID . '_' . $post->slug . '_' . time() . '.xml';
+        if ( is_dir($this->path_prefix . '/log/') ):
+            return file_put_contents($this->path_prefix . '/log/' . $filename, $xml);
+        endif;
+        return false;
     }
 }
 
