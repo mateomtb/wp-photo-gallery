@@ -14,9 +14,10 @@ $post = new TimberPost();
 $context['post'] = $post;
 $context['wp_title'] .= ' - ' . $post->title();
 
+
 // This subhead-specific plugin doesn't yet work.
 if ( function_exists('the_subheading') )
-    $context['subhead'] = the_subheading();
+    $context['subhead'] = get_the_subheading();
 
 
 // The 'Others also read...' posts
@@ -30,6 +31,16 @@ elseif ( function_exists('wp_related_posts') )
 if ( function_exists('dsq_comments_template') ):
     $comments_file = TimberHelper::function_wrapper('dsq_comments_template', array('You must have the DISQUS plugin enabled.'));
     $context['comment_form'] = TimberHelper::function_wrapper('comments_template', array($comments_file));
+endif;
+
+// In-Article teaser content
+if ( class_exists('DFMInArticleTeaser') ):
+    $teaser = new DFMInArticleTeaser($post);
+    $teaser_exists = $teaser->load_teaser();
+    if ( $teaser_exists != NULL ):
+        $context['teaser'] = $teaser_exists;
+        $context['teaser_feeds'] = $teaser->get_feed_items();
+    endif;
 endif;
 
 // Article-sidebar (as opposed to layout-sidebar) content
@@ -51,17 +62,10 @@ if ( class_exists('DFMCollection') ):
     endif;
 endif;
 
-// More article sidebar content
-$poll_id = intval(get_post_custom_values('inarticle_poll', $post->ID));
-if ( $poll_id > 0 ):
-    $context['inarticle_poll'] = TimberHelper::function_wrapper('get_poll', array($poll_id));
-else:
-    $context['inarticle_poll'] = 'heyyy';
-endif;
 
-if ( function_exists('rh_the_revision') ):
-    $context['revisions'] = TimberHelper::function_wrapper('rh_the_revision', array('<h4>', '</h4>'));
-endif;
+//if ( function_exists('rh_the_revision') ):
+//    $context['revisions'] = TimberHelper::function_wrapper('rh_the_revision', array('<h4>', '</h4>'));
+//endif;
 
 
 // Layout-sidebar content

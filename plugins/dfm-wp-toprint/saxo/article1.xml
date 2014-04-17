@@ -1,0 +1,68 @@
+﻿<?xml version="1.0"?>
+<onl:story xmlns:onl="http://www.saxotech.com/online" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.saxotech.com/online story.xsd" site="www.denverpost.com" siteuri="www.denverpost.com" date="20140322">
+  <onl:metadata source="none" rating="0" comments="false" paystatus="0" priority="2" storytype="standard" multimedia="list" status="published">
+    <onl:design frontpage="" section="" story=""/>
+    <onl:theme/>
+    <onl:keywords/>
+    <onl:channels web="0"/>
+    <onl:category id=""/>
+    <onl:seolabels>
+      <onl:seolabel main="1"/>
+    </onl:seolabels>
+    <onl:accesscontrol flow="0" singlesale="0"/>
+    <onl:multipriorities/>
+  </onl:metadata>
+  <onl:content>
+    <onl:kicker/>
+    <onl:heading><![CDATA[Up Heading]]></onl:heading>
+    <onl:subheading/>
+    <onl:netheading/>
+    <onl:summary><![CDATA[Up Summary]]></onl:summary>
+    <onl:paragraphs>
+      <onl:paragraph>
+        <onl:body><![CDATA[Up body is fun and good, its fun and good. Did I mention that it is fun and good?]]></onl:body>
+      </onl:paragraph>
+    </onl:paragraphs>
+    <onl:byline><![CDATA[Up byline]]></onl:byline>
+    <onl:location/>
+    <onl:extrafields>
+      <onl:extrafield>
+        <onl:key><![CDATA[siteid]]></onl:key>
+        <onl:value><![CDATA[la]]></onl:value>
+      </onl:extrafield>
+      <onl:extrafield>
+        <onl:key><![CDATA[origsite]]></onl:key>
+        <onl:value><![CDATA[origsite.com]]></onl:value>
+      </onl:extrafield>
+      <onl:extrafield>
+        <onl:key><![CDATA[contentid]]></onl:key>
+        <onl:value/>
+      </onl:extrafield>
+      <onl:extrafield>
+        <onl:key><![CDATA[originalcategory]]></onl:key>
+        <onl:value/>
+      </onl:extrafield>
+      <onl:extrafield>
+        <onl:key><![CDATA[anchor]]></onl:key>
+        <onl:value/>
+      </onl:extrafield>
+      <onl:extrafield>
+        <onl:key><![CDATA[seodescription]]></onl:key>
+        <onl:value/>
+      </onl:extrafield>
+      <onl:extrafield>
+        <onl:key><![CDATA[relatedarticles]]></onl:key>
+        <onl:value/>
+      </onl:extrafield>
+      <onl:extrafield>
+        <onl:key><![CDATA[enddate]]></onl:key>
+        <onl:value/>
+      </onl:extrafield>
+    </onl:extrafields>
+  </onl:content>
+  <onl:teaser/>
+  <onl:parents/>
+  <onl:taxonomywords/>
+  <onl:geopoints/>
+  <onl:mediafiles/>
+</onl:story>

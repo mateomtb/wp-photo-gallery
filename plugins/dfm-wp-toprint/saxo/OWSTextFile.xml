@@ -1,0 +1,126 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<onl:story xmlns:onl="http://www.saxotech.com/online" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.saxotech.com/online story.xsd" site="zz" siteuri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz" date="20140310" id="140219901" key="{7AB77EB9-73BE-4ACE-8362-EEA5940405CA}" uri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA" viewuri="http://ZZEdit.JR1.atl.publicus.com/article/20140310/NEWS/140219901" previewuri="http://ZZEdit.JR1.atl.publicus.com/preview/20140219/NEWS/140219901">
+<onl:metadata status="published" source="none" rating="0" comments="false" paystatus="0" priority="0" storytype="standard" multimedia="list" originalguid="{69F7D7B8-63CF-430A-B441-D2D9892CC5CD}">
+<onl:modified by="GNPortal-1" user="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/users/{468E5224-B4B0-47D0-83FB-D4D86B8F4070}" timestamp="2014-02-19T16:12:09Z" internaltimestamp="2014-02-19T16:12:11Z"/>
+<onl:created by="GNPortal-1" user="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/users/{468E5224-B4B0-47D0-83FB-D4D86B8F4070}" timestamp="2014-02-19T15:21:37Z"/>
+<onl:published timestamp="2014-03-10T15:21:37Z"/>
+<onl:design frontpage="" section="" story=""/>
+<onl:channels web="1" wap="0" sms="0" newsletter="0" pda="0"/>
+<onl:category id="NEWS" uri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/categories/NEWS">
+<![CDATA[News]]>
+</onl:category>
+<onl:multipriorities>
+<onl:multipriority profileuri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/profiles/1028361" profile="1028361" from="2/19/2014" to="2/19/2014" priority="0" mainprofile="true"/>
+<onl:multipriority profileuri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/profiles/4003755" profile="4003755" from="2/19/2014" to="2/19/2014" priority="0" mainprofile="false"/>
+</onl:multipriorities>
+<onl:subresources>
+<onl:subresource name="parents" count="0" uri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/parents"/>
+<onl:subresource name="children" count="0" uri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/children"/>
+<onl:subresource name="taxonomywords" count="3" uri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/taxonomywords"/>
+<onl:subresource name="geopoints" count="0" uri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/geopoints"/>
+<onl:subresource name="mediafiles" count="0" uri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/content/mediafiles"/>
+<onl:subresource name="extraimages" count="0" uri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/content/extraimages"/>
+<onl:subresource name="staffmembers" count="0" uri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/staffmembers"/>
+<onl:subresource name="comments" count="0" uri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/comments"/>
+</onl:subresources>
+</onl:metadata>
+<onl:content>
+<onl:heading>
+<![CDATA[CJs test xml #5 YO!]]>
+</onl:heading>
+<onl:paragraphs>
+<onl:paragraph html="0">
+<onl:body>
+<![CDATA[Boy, Frank Underwood, do you have a way with words. The viciously-cutthroat protagonist of Netflix’s hit political thriller <em>
+<paragraph>
+<body/>
+</paragraph>
+</em> often breaks the fourth wall to provide viewers with merciless advice.]]>
+</onl:body>
+<onl:image binaryuri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/content/paragraphs/1/image/binary"/>
+</onl:paragraph>
+<onl:paragraph html="0">
+<onl:body>
+<![CDATA[Some of his more inspiring gems:]]>
+</onl:body>
+<onl:image binaryuri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/content/paragraphs/2/image/binary"/>
+</onl:paragraph>
+<onl:paragraph html="0">
+<onl:body>
+<![CDATA[<ul>
+<paragraph>
+<body/>
+</paragraph>
+<paragraph>
+<body/>
+</paragraph>
+<paragraph>
+<body/>
+</paragraph>
+</ul>]]>
+</onl:body>
+<onl:image binaryuri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/content/paragraphs/3/image/binary"/>
+</onl:paragraph>
+<onl:paragraph html="0">
+<onl:body>
+<![CDATA[<div>
+<paragraph>
+<body/>
+</paragraph>
+</div>]]>
+</onl:body>
+<onl:image binaryuri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/content/paragraphs/4/image/binary"/>
+</onl:paragraph>
+<onl:paragraph html="0">
+<onl:body>
+<![CDATA[No one can deny that Underwood’s manipulative and vengeful persona, paired with his eloquent words of wisdom have made him one of the most quotable characters in recent television history. So it’s fitting that Digg has compiled some of Underwood’s most ruthless life lessons into one motivational video.]]>
+</onl:body>
+<onl:image binaryuri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/content/paragraphs/5/image/binary"/>
+</onl:paragraph>
+<onl:paragraph html="0">
+<onl:body>
+<![CDATA[Anyone else think Underwood should pen a self-help book or keynote a few graduation ceremonies? Yeah, us neither.]]>
+</onl:body>
+<onl:image binaryuri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/content/paragraphs/6/image/binary"/>
+</onl:paragraph>
+<onl:paragraph html="0">
+<onl:body>
+<![CDATA[<em> This article originally appeared on</em>  <a href="http://mashable.com/2014/02/18/frank-underwood-house-of-cards-advice/" target="_blank">Mashable</a>.]]>
+</onl:body>
+<onl:image binaryuri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/content/paragraphs/7/image/binary"/>
+</onl:paragraph>
+</onl:paragraphs>
+<onl:image viewuri="http://zzedit.jr1.atl.publicus.com/apps/pbcsi.dll/bilde?Site=zz&amp;Date=20140219&amp;Category=NEWS&amp;ArtNo=140219901&amp;Ref=AR&amp;Item=0" binaryuri="http://ZZEdit.JR1.atl.publicus.com/apps/ows.dll/sites/zz/stories/7AB77EB9-73BE-4ACE-8362-EEA5940405CA/content/image/binary">
+<onl:body>
+<![CDATA[d8e64d93-107b-43b7-9117-23595e1e03ec]]>
+</onl:body>
+</onl:image>
+<onl:byline>
+<![CDATA[Neha Prakash, Mashable]]>
+</onl:byline>
+<onl:extrafields>
+<onl:extrafield>
+<onl:key>
+<![CDATA[siteid]]>
+</onl:key>
+<onl:value>
+<![CDATA[2398]]>
+</onl:value>
+</onl:extrafield>
+<onl:extrafield>
+<onl:key>
+<![CDATA[UTUBEVIDEO1]]>
+</onl:key>
+<onl:value>
+<![CDATA[http://youtu.be/a5Ha3IWeXOo]]>
+</onl:value>
+</onl:extrafield>
+</onl:extrafields>
+</onl:content>
+<onl:taxonomywords>
+<onl:taxonomyword id="28361"/>
+<onl:taxonomyword id="103148"/>
+<onl:taxonomyword id="2398"/>
+</onl:taxonomywords>
+</onl:story>

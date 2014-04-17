@@ -16,3 +16,6 @@
 [submodule "plugins/dfm-wp-omniture"]
 	path = plugins/dfm-wp-omniture
 	url = git@github.com:dfmedia/dfm-wp-omniture.git
+[submodule "plugins/Mission-Control"]
+	path = plugins/Mission-Control
+	url = git@github.com:DFMdata/Mission-Control.git

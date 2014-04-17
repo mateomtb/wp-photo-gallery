@@ -18,8 +18,10 @@ if (!class_exists('Timber')):
 endif;
 $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
+// As we run specific queries, we need a place to store IDs of posts that are curated
+// so they can be excluded from subsequent queries
+$context['exclude_posts'] = array();
 $templates = array('index.twig');
 include get_template_directory() . '/homepage.php';
-$context['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed()), true)) ? $mc : null;
 if (is_home()) array_unshift($templates, 'home.twig');
 Timber::render('index.twig', $context);

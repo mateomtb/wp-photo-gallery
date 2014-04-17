@@ -21,12 +21,14 @@
     </div>
     <div class="left-rail col md-3 md-pull-9">
         {% include 'story-feed-small.twig' %}
+{% if columnists %}
 <div class="story-feed sm" id="columnists">
     <h4 class="topic-header">Opinion</h4>
         {% include 'columnists.twig' with {count : 0} %}
         {% include 'columnists.twig' with {count : 1} %}
         {% include 'columnists.twig' with {count : 2} %}
 </div>
+{% endif %}
     </div>
     </div> <!-- #above-fold -->
 
