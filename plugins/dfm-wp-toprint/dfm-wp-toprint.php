@@ -91,9 +91,10 @@ class DFMToPrintArticle
         $context['product_id'] = 1; // *** HC for now
         $context['author_print_id'] = 944621807; // *** HC for now
         $context['statuscode'] = 1;
-        if ( $newarticle == true ):
+        if ( $newarticle === false ):
             $context['statuscode'] = 2;
             $context['updatedtime'] = date('c');
+            echo 'hahah';
             $context['newarticle'] = $newarticle;
         endif;
         $post = new TimberPost();

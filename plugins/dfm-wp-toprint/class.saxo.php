@@ -29,14 +29,12 @@ function send_to_saxo($post_id)
         $request->set_print_cms_id($print_cms_id);
     endif;
     $article = new SaxoArticle($post_id);
-    $xml = $article->get_article();
     $target_urls = array(
     'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
     'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(),
     'article_update' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%?timestamp=' . time(),
     'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
     );
-
 
     $xml = $article->get_article($newarticle_flag);
 
@@ -52,7 +50,7 @@ function send_to_saxo($post_id)
     );
 
     
-    if ( $newarticle_flag == TRUE ):
+    if ( $newarticle_flag === TRUE ):
         // Article creation
         if ( $request->curl_options($curl_options) == true ):
             $result = $request->curl_execute();
