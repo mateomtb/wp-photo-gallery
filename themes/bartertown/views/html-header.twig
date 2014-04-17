@@ -19,11 +19,14 @@
 <script type="text/javascript" src="http://extras.mnginteractive.com/live/js/otherinc/otherinc.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
+<!-- Will have to replace with production-ready JS URL. -->
+<script src="http://sandbox.digitalfirstmedia.com/btown/js/bartertown.min.js"></script>
+
 <script type="text/javascript" src="http://local.denverpost.com/common/dfm/dfm-core.js"></script>
 
 <!-- Will have to replace with production-ready CSS URL. -->
 <link rel="stylesheet" href="http://sandbox.digitalfirstmedia.com/btown/css/bartertown.min.css" media="screen"/>
-<link rel="stylesheet" type="text/css" media="all" href="{{bloginfo('stylesheet_url')}}" /> 
+<link rel="stylesheet" type="text/css" media="all" href="{{bloginfo('stylesheet_url')}}" />
 
 <script type="text/javascript" src="http://local.{{domain}}.com/common/dfm/assets/js/modernizr.js"></script>
 <script type="text/javascript" src="http://local.{{domain}}.com/common/dfm/assets/js/jquery-1.9.1.min.js"></script>
@@ -39,7 +42,7 @@
     dfm.api("data","localCommonUrl",  "");
     dfm.api("data","localAssetsUrl",  "");
     dfm.api("data","contentId",       "140129737");
-    dfm.api("data","sectionName",     "General news");
+    dfm.api("data","sectionName",     "{{sectionName}}");
     dfm.api("data","pageId",          "{B2DB5BE6-B751-4899-B5A9-ACDEFF2DB294}");
     dfm.api("data","pageUrl",         "http://www.{{domain}}.com/general-news/20140123/30-years-ago-the-apple-macintosh-changed-the-world-forever");
     dfm.api("data","pageVanityUrl",   "http://www.{{domain}}.com/general-news/20140123/30-years-ago-the-apple-macintosh-changed-the-world-forever");
@@ -51,11 +54,11 @@
     dfm.api("data","sectionId",       "General news");
     dfm.api("data","slug",            "LDN-Z-MAC");
     dfm.api("data","NetworkID",       "8013");
-    dfm.api("data","Taxonomy1",       "{{single_cat_title}}");
-    dfm.api("data","Taxonomy2",       "");
-    dfm.api("data","Taxonomy3",       "");
-    dfm.api("data","Taxonomy4",       "");
-    dfm.api("data","kv",              "unbolt_test");
+    dfm.api("data","Taxonomy1",       "{{taxonomy1}}");
+    dfm.api("data","Taxonomy2",       "{{taxonomy2}}");
+    dfm.api("data","Taxonomy3",       "{{taxonomy3}}");
+    dfm.api("data","Taxonomy4",       "{{taxonomy4}}");
+    dfm.api("data","kv",              "unbolt_test"); // we'll set this to sectionName after testing
     dfm.api("data","omnitureAccount", "{{domain}}");
 /***** JanRain Log in / registration *****/
     dfm.api("data","engageAppName", "registration.medianewsgroup.com");

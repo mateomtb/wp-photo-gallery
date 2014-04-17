@@ -23,9 +23,15 @@ function register_eventful_styles() {
 
 
 
-function get_eventful(){
-$domain_bits = explode('.', $_SERVER['HTTP_HOST']);
-$context['dfm'] = DFMDataForWP::retrieveRowFromMasterData('domain', $domain_bits[1]);
+function get_eventful($context='') {
+
+// In case we haven't passed the context array to this function, 
+// or if the context array doesn't have the dfm array in it yet.
+if ( !isset($context['dfm']) ):
+    $domain_bits = explode('.', $_SERVER['HTTP_HOST']);
+    $context['dfm'] = DFMDataForWP::retrieveRowFromMasterData('domain', $domain_bits[1]);
+endif;
+
 $eventsURL= $context['dfm']['events_url'] ; 
 $apiToken= $context['dfm']['events_api'] ;
 $eventfulURL= $eventsURL . '/api/v1/events/search?api_token=' . $apiToken . '&sort_order=popularity&image_size=block250';

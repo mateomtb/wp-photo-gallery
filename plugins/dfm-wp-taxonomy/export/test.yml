@@ -1,0 +1,57 @@
+state: site
+terms:
+  category:
+    business:
+      name: Business
+      description:
+      parent: 
+    careers:
+      name: Careers
+      description:
+      parent: business
+    career-change:
+      name: Career change
+      description:
+      parent: careers
+    technology:
+      name: Technology
+      description:
+      parent: business
+    entertainment:
+      name: Entertainment
+      description:
+      parent: sports
+    lifestyle:
+      name: Lifestyle
+      description:
+      parent: 
+    marketplace:
+      name: Marketplace
+      description:
+      parent: 
+    news:
+      name: News
+      description:
+      parent: 
+    sports:
+      name: Sports
+      description:
+      parent: 
+    basketball:
+      name: Basketball
+      description:
+      parent: sports            
+  post_tag:
+    breaking-news:
+      name: breaking-news
+      description:
+      parent:
+  nav_menu:
+    hot-topics:
+      name: Hot Topics
+      description:
+      parent:
+    main:
+      name: Main
+      description:
+      parent:
