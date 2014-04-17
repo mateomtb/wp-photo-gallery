@@ -85,7 +85,7 @@ class DFMToPrintArticle
         endif;
 
         if ( !class_exists('Timber') ):
-        include($this->path_prefix . '/../timber/timber.php');
+        include($this->path_prefix . '../timber/timber.php');
         endif;
         $context = Timber::get_context();
         $context['product_id'] = 1; // *** HC for now
@@ -108,9 +108,9 @@ class DFMToPrintArticle
     public function log_article($xml)
     {
         // Save the article xml to a file in the log directory.
-        $filename = $post->ID . '_' . $post->slug . '_' . time() . '.xml';
-        if ( is_dir($this->path_prefix . '/log/') ):
-            return file_put_contents($this->path_prefix . '/log/' . $filename, $xml);
+        $filename = $this->post->ID . '_' . $this->post->slug . '_' . time() . '.xml';
+        if ( is_dir($this->path_prefix . 'log/') ):
+            return file_put_contents($this->path_prefix . 'log/' . $filename, $xml);
         endif;
         return false;
     }
