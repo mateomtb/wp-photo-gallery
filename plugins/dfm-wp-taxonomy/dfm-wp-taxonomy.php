@@ -37,36 +37,26 @@ function dfm_parent_category() {
 }
 
 
-add_action( 'admin_init', 'dfm_ad_taxonomy' );
+
+add_action( 'category_add_form_fields', 'dfm_ad_taxonomy' );
 
 function dfm_ad_taxonomy() {
-    if (class_exists("Fieldmanager_Group")){
-        $fm = new Fieldmanager_Select( array(
-            'name' => 'adtaxonomy',            
-            'datasource' => new Fieldmanager_Datasource_Term( array(
-                'taxonomy' => 'adtaxonomy'
-            ) ),   
-        ) );    
-    $fm->add_term_form( 'Ad Taxonomy', array('category'));
-    }    
-}     
-
-add_action( 'add_category', array( $this, 'dfm_save_ad_taxonomy_field' ), 10, 1 );
-add_action( 'edit_category', array( $this, 'dfm_save_ad_taxonomy_field' ), 10, 1 );
-
-function dfm_save_ad_taxonomy_field($term_id) {
-    if (isset($_POST['adtaxonomy'])) {
-        $t_id = $term_id;
-        $term_meta = get_option("adtaxonomy_$t_id");
-        $cat_keys = array_keys($_POST['adtaxonomy']);
-        foreach ($cat_keys as $key) {
-            if (isset($_POST['adtaxonomy'][$key])) {
-                $term_meta[$key] = $_POST['adtaxonomy'][$key];
-            }
+    echo '<div class="form-field form-required">';
+    echo '<label for="adtaxonomy">' . _ex('Ad taxonomy', 'Ad Taxonomy') . '</label>';
+    $adtaxonomy = get_terms('adtaxonomy', array('hide_empty'    => false));
+    if ($adtaxonomy){
+        echo '<select name="description" class="postform">';
+        foreach ($adtaxonomy as $adtaxitem) {
+             echo '<option value = "' . $adtaxitem->name . '">' . $adtaxitem->name . '</option>';
         }
-        update_option("adtaxonomy_$t_id", $term_meta);
-    }
+        echo '</select>';
+    }    
+    echo '</div>';
 }
+
+
+
+
 
 
 // Register Custom Taxonomy
