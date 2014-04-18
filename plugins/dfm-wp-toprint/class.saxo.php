@@ -58,13 +58,14 @@ function send_to_saxo($post_id)
             if ( isset($request->response) ):
                 $request->curl_destroy();
             endif;
-    endif;
+        endif;
     else:
         // Article update
         $curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
     endif;
 
 
+    write_log($result->response);
 // If we've created a new article, we want to associate its saxo-id
 // with the article in WP.
 // This response will look something like:
