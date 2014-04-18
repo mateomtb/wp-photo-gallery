@@ -8,17 +8,26 @@
  * License: TBD
 **/
 
-add_action ('admin_enqueue_scripts', 'dfm_taxonomy_js');
-function dfm_taxonomy_js($hook){
+/**
+* @desc Enqueues a js file that hides the default parent and description fields on the category edit page.
+*/
+
+add_action ('admin_enqueue_scripts', 'dfm_enqueue_taxonomy_js');
+function dfm_enqueue_taxonomy_js($hook){
 	$screen = get_current_screen();
 	if ($screen->taxonomy == 'category'){
 	    wp_enqueue_script('dfm-wp-taxonomy' , plugins_url( '/js/dfm-wp-taxonomy.js' , __FILE__ ));
 	}
 }
 
-add_action( 'category_add_form_fields', 'dfm_parent_category' );
+/**
+* @desc Adds 2 dropdowns to the category page. 
+* 1. DFM Parent Category - Pulls the current list of categories and forces any new categories to be the child of an existing category.
+* 2. Ad taxonomy - Pulls the ad taxonomy and allows the creator to assign a value for ad tags to the description field. 
+*/
 
-function dfm_parent_category() {
+add_action( 'category_add_form_fields', 'dfm_add_parent_category_dropdown' );
+function dfm_add_parent_category_dropdown() {
 	echo '<div class="form-field form-required">';
 	echo '<label for="parent">' . _ex('DFM Parent Category', 'Taxonomy Parent') . '</label>';
 	$dropdown_args = array(
@@ -36,11 +45,8 @@ function dfm_parent_category() {
     echo '</div>';
 }
 
-
-
-add_action( 'category_add_form_fields', 'dfm_ad_taxonomy' );
-
-function dfm_ad_taxonomy() {
+add_action( 'category_add_form_fields', 'dfm_add_ad_taxonomy_dropdown' );
+function dfm_add_ad_taxonomy_dropdown() {
     echo '<div class="form-field form-required">';
     echo '<label for="adtaxonomy">' . _ex('Ad taxonomy', 'Ad Taxonomy') . '</label>';
     $adtaxonomy = get_terms('adtaxonomy', array('hide_empty'    => false));
@@ -54,14 +60,12 @@ function dfm_ad_taxonomy() {
     echo '</div>';
 }
 
+/**
+* @desc Register a custom taxonomy to handle ad taxonomy values.
+*/
 
-
-
-
-
-// Register Custom Taxonomy
+add_action( 'init', 'dfm_register_ad_taxonomy', 0 );
 function dfm_register_ad_taxonomy() {
-
     $labels = array(
         'name'                       => _x( 'Ad Taxonomies', 'Taxonomy General Name', 'text_domain' ),
         'singular_name'              => _x( 'Ad Taxonomy', 'Taxonomy Singular Name', 'text_domain' ),
@@ -92,17 +96,12 @@ function dfm_register_ad_taxonomy() {
 
 }
 
-// Hook into the 'init' action
-add_action( 'init', 'dfm_register_ad_taxonomy', 0 );
-
-
-
 /**
 * @desc Assigns any categories that are imported by Dictator to an array in the dfm_categories option. The 'DICTATOR' constant is set in dictator.php. 
 */
-add_action('created_term', 'dfm_master_list');
+add_action('created_term', 'dfm_add_to_master_list');
  
-function dfm_master_list($term_id){
+function dfm_add_to_master_list($term_id){
     if( constant('DICTATOR') ){
         $dfm_categories = get_option( 'dfm_categories', array() );
         if ( ! in_array( $term_id, $dfm_categories ) ) {
@@ -112,11 +111,11 @@ function dfm_master_list($term_id){
     }
 }
 
+/**
+* @desc Filter to remove "Edit", "Quick Edit" and "Delete" mouseover links on the category page.
+*/
 add_filter( 'category_row_actions', 'dfm_tax_remove_row_actions', 10, 1 );
 
-/**
-* @desc	Filter to remove "Edit", "Quick Edit" and "Delete" mouseover links on the category page.
-*/
 function dfm_tax_remove_row_actions ( $actions ){
     $cat_id = explode('=', $actions['view']);
     $cat_id = explode('"', $cat_id[2]);
@@ -130,36 +129,18 @@ function dfm_tax_remove_row_actions ( $actions ){
     return $actions;
 }
 
+/**
+* @desc Remove the bulk actions dropdown too.
+*/
+
 add_filter('bulk_actions-edit-category','dfm_tax_remove_bulk_actions');
  function dfm_tax_remove_bulk_actions($actions){
         unset( $actions['delete'] );
         return $actions;
     }
 
-add_action( 'init', function() {
-    if (class_exists("Fieldmanager_Group")){
-        $fm = new Fieldmanager_Group( array(
-            'name' => 'dfmpostcategories',
-            'add_more_label' => 'Add another category',
-            'limit' => 0,
-            'one_label_per_item' => False,
-            'children' => array(                
-                    'localcats' => new Fieldmanager_Autocomplete( 'Category', array(
-                        'limit' => 1,
-                        'one_label_per_item' => False,                   
-                        'datasource' => new Fieldmanager_Datasource_Term( array(
-                        'taxonomy' => 'category'
-                    ) ),                
-                ) ),
-            'primarycategory' => new Fieldmanager_Checkbox('Main Category?'),
-            ),
-        ) );
-        $fm->add_meta_box( 'Categories', array( 'post' ) );
-    }
-} );
-
 /**
-* @desc Allow users to hide categories on the post page
+* @desc Gets the hidden categories option and adds the values within to the exclusions on the editpost page.
 */
 
 function dfm_filter_terms( $exclusions, $args ){
@@ -187,6 +168,11 @@ add_action( 'current_screen' , function($thescreen){
     }
 } );
 
+/**
+* @desc Adds a screen of checkboxes that allow editors to hide categories on the edit post page of a site.
+*/
+
+
 add_action('init', function (){
     if (class_exists("Fieldmanager_Group")){
         $fm = new Fieldmanager_Checkboxes( array(
@@ -205,6 +191,10 @@ add_action('init', function (){
         $fm->add_submenu_page( 'options-general.php', 'DFM Local Taxonomy - Hide Categories');
     }   
 });
+
+/**
+* @desc Add a page to manage local labels to the WP Admin.
+*/
 
 add_action('init', function(){
     if (class_exists("Fieldmanager_Group")){
