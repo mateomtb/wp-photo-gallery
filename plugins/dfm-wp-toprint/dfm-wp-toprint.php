@@ -91,6 +91,7 @@ class DFMToPrintArticle
         $context['product_id'] = 1; // *** HC for now
         $context['author_print_id'] = 944621807; // *** HC for now
         $context['statuscode'] = 1;
+        $context['post_content_filtered'] = str_replace('<p>', '<p class="TX Body">', $post->post_content);
         if ( $newarticle === false ):
             $context['statuscode'] = 2;
             $context['updatedtime'] = date('c');
@@ -108,7 +109,7 @@ class DFMToPrintArticle
     public function log_article($xml)
     {
         // Save the article xml to a file in the log directory.
-        $filename = $this->post->ID . '_' . $this->post->slug . '_' . time() . '.xml';
+        $filename = $this->post->ID . '_' . $this->post->post_name . '_' . time() . '.xml';
         if ( is_dir($this->path_prefix . 'log/') ):
             return file_put_contents($this->path_prefix . 'log/' . $filename, $xml);
         endif;
