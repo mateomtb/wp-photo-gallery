@@ -493,4 +493,3 @@ if (!function_exists('write_log'))
         }
     }
 }
-write_log("hi", "HI JOE");
