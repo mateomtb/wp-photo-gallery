@@ -85,23 +85,34 @@ class DFMToPrintArticle
         endif;
 
         if ( !class_exists('Timber') ):
-        include($this->path_prefix . '/../timber/timber.php');
+        include($this->path_prefix . '../timber/timber.php');
         endif;
         $context = Timber::get_context();
         $context['product_id'] = 1; // *** HC for now
         $context['author_print_id'] = 944621807; // *** HC for now
         $context['statuscode'] = 1;
-        if ( $newarticle == true ):
+        if ( $newarticle === false ):
             $context['statuscode'] = 2;
             $context['updatedtime'] = date('c');
             $context['newarticle'] = $newarticle;
         endif;
-        $post = new TimberPost();
-        $context['post'] = $post;
+        //$the_post = new TimberPost();
+        $context['post'] = new TimberPost($post->ID);
         ob_start();
         Timber::render(array($this->article_template), $context);
         $xml = ob_get_clean();
+        $this->log_article($xml);
         return $xml;
+    }
+
+    public function log_article($xml)
+    {
+        // Save the article xml to a file in the log directory.
+        $filename = $this->post->ID . '_' . $this->post->slug . '_' . time() . '.xml';
+        if ( is_dir($this->path_prefix . 'log/') ):
+            return file_put_contents($this->path_prefix . 'log/' . $filename, $xml);
+        endif;
+        return false;
     }
 }
 

@@ -473,10 +473,23 @@ if (class_exists('Fieldmanager_Group')) {
             ),
         ) );
         $fm->add_meta_box( 'Article Curation', array( 'post' ) );
-        //var_dump($fm);
        
     });
 
 }
 //include(WP_PLUGIN_DIR . '/DFM-WordPress-Objects/dfm-wordpress-objects.php');
 //dfm_uses_wordpress_object('article', 'source');
+if (!function_exists('write_log')) 
+{
+    function write_log ($log, $title = '')  
+    {
+        if ( true === WP_DEBUG ) 
+        {
+            if ( is_array( $log ) || is_object( $log ) ):
+                error_log($title . ': ' . print_r( $log, true ) );
+            else:
+                error_log($title . ': ' . $log);
+            endif;
+        }
+    }
+}
