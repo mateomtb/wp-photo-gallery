@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<onl:story xmlns:onl="http://www.saxotech.com/online" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.saxotech.com/online story.xsd" site="la" siteuri="http://cjohnson-development.mn1.dc.publicus.com//apps/ows.dll/sites/la" date="20140317" id="" key="" uri="" viewuri="" previewuri="">
+	<onl:metadata status="unpublished" source="none" rating="3" comments="false" paystatus="0" priority="1" storytype="standard" multimedia="list" >
+		<onl:published timestamp="2014-03-18T07:01:00Z"/>
+		<onl:design frontpage="" section="" story=""/>
+		<onl:channels web="1" wap="1" sms="1" newsletter="1" pda="1"/>
+	</onl:metadata>
+	<onl:content>
+		<onl:kicker><![CDATA[Submitted Kicker]]></onl:kicker>
+		<onl:heading><![CDATA[Submitted Title Here]]></onl:heading>
+		<onl:subheading><![CDATA[Submitted Subtitle ]]></onl:subheading>
+		<onl:netheading><![CDATA[Submitted Net Title]]></onl:netheading>
+		<onl:summary><![CDATA[This is a summary of the story in question, which is a Submitted.]]></onl:summary>
+		<onl:paragraphs>
+			<onl:paragraph html="1">
+				<onl:heading><![CDATA[This is paragraph 1 subheading]]></onl:heading>
+				<onl:body><![CDATA[<hardreturn>THis is the body of the article.<br class="hardreturn" />]]></onl:body>
+			</onl:paragraph>
+		</onl:paragraphs>
+		<onl:byline><![CDATA[Chris Johnson]]></onl:byline>
+		<onl:location><![CDATA[California Location]]></onl:location>
+	</onl:content>
+</onl:story>
+
+
+
+
+
+
+
+
+
+
+
