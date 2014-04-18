@@ -82,11 +82,10 @@ function get_respective_post( $post_ids ){
         if( ! in_array( 'lead array!' , $post_ids) ){
             foreach ( $post_ids as $id ) {
                 // ^^^ Need conditional logic. This breaks $secondary_lead_story.
-                // Adds all posts to $storage_Array for use in twig.
+                // Adds all posts to $storage_Array for use in context/twig.
                 $meta_values = get_post_meta( $id );
                 $nonLeadStory = Timber::get_post( intval( $id ) );
                 array_push( $storage_Array , $nonLeadStory );
-                
             }
             return $storage_Array;
         }
@@ -178,7 +177,9 @@ else {
     $context['lead_story'] = call_user_func_array("get_respective_post", array( $lead_story_array ));
 
     // Secondary lead story
-    $context['secondary_lead_story'] = call_user_func_array("get_respective_post", array( $secondary_lead_story_array ));
+    //$context['secondary_lead_story'] = call_user_func_array("get_respective_post", array( $secondary_lead_story_array[0] ));
+    $context['secondary_lead_story'] = get_respective_post( $secondary_lead_story_array[0] );
+    var_dump( $secondary_lead_story_array[0] );
 
     // Secondary stories
     $context['secondary_stories'] = array();
@@ -188,8 +189,8 @@ else {
     }
     // Story feed small
     $context['story_feed_heading'] = $config['story_feed_heading'];
-    $context['story_feed'] = array();
 
+    // Breaking Stories, aka Story Feeds
     $context['story_feed'] = get_respective_post( $related_stories_array );
     
     // Related stories (only appear if second lead story does not exist)
