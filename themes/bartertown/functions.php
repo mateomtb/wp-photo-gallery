@@ -106,7 +106,7 @@ function global_context($data){
         'poll_title' => $poll_title,
         'poll_options' => $poll_options,
         'poll_vote' => $poll_vote,
-        'mode' => 'section',
+        'mode' => '',
 
         // Content vars
         'single_cat_title' => single_cat_title(),
@@ -123,6 +123,9 @@ function global_context($data){
 
     );
     // Data provided here:
+    // We put this here for devs who are looking at this code for the first
+    // time and want to know what site information they have to work with.
+    // These fields / information come from the dfm-wp-data plugin.
     /*
     [site_name] => Silver City Sun News
     [url] => www.scsun-news.com/
@@ -184,7 +187,8 @@ function global_context($data){
     $wLanguage = 'en';  
     $locationKey = '';
 
-    function getCurrentConditions($apiUrl, $locationKey, $wLanguage, $apiKey){
+if ( !function_exists('getCurrentConditions') ):
+    function getCurrentConditions($apiUrl, $locationKey, $wLanguage, $apiKey) {
         $currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
         return $currentConditionsUrl;
     }
@@ -194,7 +198,7 @@ function global_context($data){
         return $forecastUrl;
     }
 
-    function getWeather($apiUrl, $z, $apiKey){
+    function getWeather($apiUrl, $z, $apiKey) {
         $locationUrl = $apiUrl . '/locations/v1/US/search?q=' . $z . '&apiKey=' . $apiKey;
         $locationUrl = file_get_contents($locationUrl);
         $locationUrl = json_decode($locationUrl, true);
@@ -239,6 +243,7 @@ function global_context($data){
         }    
         return 'Denver';
     }
+endif;
 
     $zipCode = $_SESSION['dfm']['zip_code'];
     $data['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed($context['section'])), true)) ? $mc : null;
@@ -468,8 +473,23 @@ if (class_exists('Fieldmanager_Group')) {
             ),
         ) );
         $fm->add_meta_box( 'Article Curation', array( 'post' ) );
-        //var_dump($fm);
        
     });
 
+}
+//include(WP_PLUGIN_DIR . '/DFM-WordPress-Objects/dfm-wordpress-objects.php');
+//dfm_uses_wordpress_object('article', 'source');
+if (!function_exists('write_log')) 
+{
+    function write_log ($log, $title = '')  
+    {
+        if ( true === WP_DEBUG ) 
+        {
+            if ( is_array( $log ) || is_object( $log ) ):
+                error_log($title . ': ' . print_r( $log, true ) );
+            else:
+                error_log($title . ': ' . $log);
+            endif;
+        }
+    }
 }

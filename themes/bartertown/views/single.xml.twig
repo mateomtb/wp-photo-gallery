@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sax:story xmlns:sax="http://www.saxotech.com/editorial">
+<sax:updatedtime>{{updatedtime}}</sax:updatedtime>
+<sax:texttype id="1"/>
+<sax:updatedby uri="https://mn1reporter.saxotech.com/ews/products/{{product_id}}/users/{{author_print_id}}"/>
+<sax:site uri="https://mn1reporter.saxotech.com/ews/products/{{product_id}}"/>
+<sax:status statuscode="{{statuscode}}"/>
+<sax:category uri="https://mn1reporter.saxotech.com/ews/products/{{product_id}}/stories/categories/456600033"/>
+<sax:publication>990358</sax:publication>
+<sax:accesslevel>1</sax:accesslevel>
+<sax:textformat>720743380</sax:textformat>
+<sax:title>DFM-{{post.slug}}-{{post.ID}}</sax:title>
+<sax:description></sax:description>
+<sax:author></sax:author>
+<sax:kicker></sax:kicker>
+<sax:header></sax:header>
+<sax:subheader></sax:subheader>
+<sax:byline>By {{post.author.name}}</sax:byline>
+<sax:preface></sax:preface>
+<sax:netheader></sax:netheader>
+<sax:sms></sax:sms>
+<sax:onlinepriority/>
+<sax:captions/>
+{% if newarticle %}
+<sax:changed content="false" properties="false" geometry="false"/>
+{% else %}
+<sax:changed content="true" properties="false" geometry="false"/>
+{% endif %}
+<sax:paragraphs>
+<sax:paragraph>
+By {{post.author.name}}
+{{post.content|striptags}}</sax:paragraph>
+</sax:paragraphs>
+<sax:nativeboxtexts>
+<sax:nativeboxtext boxtype="body" nativetexttype="Adobe InCopy CS4 ICML">
+<sax:xhtml><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title/></head><body>
+<p class="BY Byline">By {{post.author.name}}</p>
+<p class="TX Body"></p>
+</body></html>]]></sax:xhtml>
+</sax:nativeboxtext>
+<sax:nativeboxtext boxtype="header" nativetexttype="Adobe InCopy CS4 ICML">
+<sax:xhtml><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title/></head><body>
+<p class="HD Kicker"></p>
+<p class="HD Head_36"></p>
+<p class="HDD Deck_16"></p>
+</body></html>]]></sax:xhtml></sax:nativeboxtext>
+<sax:nativeboxtext boxtype="sms" nativetexttype="Adobe InCopy CS4 ICML">
+<sax:plaintext></sax:plaintext></sax:nativeboxtext>
+<sax:nativeboxtext boxtype="netheader" nativetexttype="Adobe InCopy CS4 ICML">
+<sax:plaintext></sax:plaintext></sax:nativeboxtext></sax:nativeboxtexts>
+<sax:bodyextent></sax:bodyextent>
+<sax:numberofcharacters></sax:numberofcharacters>
+<sax:taxonomyterms/>
+<sax:channels/>
+<sax:multipriorities/></sax:story>
