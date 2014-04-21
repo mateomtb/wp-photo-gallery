@@ -8,10 +8,13 @@ Extends DFP To Print plugin functionality for the Saxotech publishing system.
 
 class SaxoArticle extends DFMToPrintArticle
 {
-    public function category_mapper()
+    public function map_category($main_cat_id=0)
     {
         // Depending on the WP post's category, we assign a Saxo article category.
-
+        switch ($main_cat_id):
+            default:
+                return 442202241; //News
+        endswitch;
     }
 }
 

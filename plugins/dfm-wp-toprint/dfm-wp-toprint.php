@@ -75,6 +75,7 @@ class DFMToPrintArticle
 
     public function get_article($newarticle = false, $post_id=0)
     {
+        // *** Need to move this into the saxo class
         // Returns an xml representation of the desired article
         // Takes two parameters:
         // $newarticle, boolean, if this is an article we're adding to EWS.
@@ -90,6 +91,7 @@ class DFMToPrintArticle
         $context = Timber::get_context();
         $context['product_id'] = 1; // *** HC for now
         $context['author_print_id'] = 944621807; // *** HC for now
+        $context['category_id'] = 442202241;
         $context['statuscode'] = 1;
         $context['post_content_filtered'] = str_replace('<p>', '<p class="TX Body">', $post->post_content);
         if ( $newarticle === false ):
