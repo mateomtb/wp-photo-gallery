@@ -57,6 +57,7 @@ if( isset( $all_posts ) && !empty( $all_posts ) ){
         }
         if( is_string( $article_curation ) === false && $article_curation['secondary_lead_story'] !== false  && ! in_array( $p , $excludeArray ) ) {
             array_push( $secondary_lead_story_array, $p );
+            array_push( $secondary_lead_story_array , $lead_in_array );
             array_push( $excludeArray , $p );
         }
         elseif( is_string( $article_curation ) === false && $article_curation['story_feed'] !== false  && ! in_array( $p , $excludeArray ) ) {
@@ -145,7 +146,7 @@ $context['apocalypse'] = unboltQuery('get_posts', $apocalypse, $context['exclude
 if ($context['apocalypse']) {
     // Bring config from above down here for these sorts of stories
     // Lead Story
-    $context['lead_story'] = call_user_func_array("get_respective_post", array( $lead_story_array ));
+    //$context['lead_story'] = call_user_func_array("get_respective_post", array( $lead_story_array ));
 
     // Apoc secondary lead story
     $apocSecondaryLeadStory = array_values($config['apoc_secondary_lead_story']);
@@ -177,9 +178,8 @@ else {
     $context['lead_story'] = call_user_func_array("get_respective_post", array( $lead_story_array ));
 
     // Secondary lead story
-    //$context['secondary_lead_story'] = call_user_func_array("get_respective_post", array( $secondary_lead_story_array[0] ));
-    $context['secondary_lead_story'] = get_respective_post( $secondary_lead_story_array[0] );
-    var_dump( $secondary_lead_story_array[0] );
+    $context['secondary_lead_story'] = get_respective_post( $secondary_lead_story_array );
+    //$context['secondary_lead_story'] = call_user_func_array("get_respective_post", array( $secondary_lead_story_array ));
 
     // Secondary stories
     $context['secondary_stories'] = array();
