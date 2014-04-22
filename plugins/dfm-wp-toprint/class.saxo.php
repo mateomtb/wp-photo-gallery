@@ -47,7 +47,7 @@ class SaxoArticle extends DFMToPrintArticle
         ob_start();
         Timber::render(array($this->article_template), $context);
         $xml = ob_get_clean();
-        $this->log_article($xml);
+        $this->log_file_write($xml);
         return $xml;
     }
 }
@@ -95,6 +95,7 @@ function send_to_saxo($post_id)
         // Article creation
         if ( $request->curl_options($curl_options) == true ):
             $result = $request->curl_execute();
+            $article->log_file_write($result, 'request');
             $request->curl_results($result);
             if ( isset($request->response) ):
                 $request->curl_destroy();

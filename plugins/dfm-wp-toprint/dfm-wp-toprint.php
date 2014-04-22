@@ -86,12 +86,18 @@ class DFMToPrintArticle
         // Most of this is vendor-specific.
     }
 
-    public function log_article($xml)
+    public function log_file_write($content, $type='article')
     {
         // Save the article xml to a file in the log directory.
-        $filename = $this->post->ID . '_' . $this->post->post_name . '_' . time() . '.xml';
+        switch ( $type ):
+            case 'request':
+                $filename = $this->post->ID . '_request_' . time() . '.txt';
+            default:
+                $filename = $this->post->ID . '_' . $this->post->post_name . '_' . time() . '.xml';
+        endswitch;
+
         if ( is_dir($this->path_prefix . 'log/') ):
-            return file_put_contents($this->path_prefix . 'log/' . $filename, $xml);
+            return file_put_contents($this->path_prefix . 'log/' . $filename, $content);
         endif;
         return false;
     }
@@ -118,6 +124,8 @@ class DFMToPrintUser
 // just need them available to us robots.
 add_action( 'init', function() {
     if ( class_exists('Fieldmanager_Group') ):
+    // We don't include the code to publish this field in the wp admin because we don't
+    // want it edited by users.
     $fm = new Fieldmanager_Group( array(
         'name' => 'toprint_article_fields',
         'children' => array(
