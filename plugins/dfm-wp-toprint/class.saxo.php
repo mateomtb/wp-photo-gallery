@@ -18,10 +18,55 @@ class SaxoArticle extends DFMToPrintArticle
     public function map_category($main_cat_id=0)
     {
         // Depending on the WP post's category, we assign a Saxo article category.
-        switch ($main_cat_id):
+        // If we're passed a child category we go up the chain until we get
+        // the parent category. We look up the parent category's name against
+        // Saxo category names, if there's no match we default to Saxo's News
+        // category.
+
+        // *** Build a way to edit and variableize this lookup table.
+        $saxo_cat_lookup = array(
+            'Advance' => 13094166,
+            'Business' => 915630113,
+            'DFM_Wire' => 202449495,
+            'Entertainment' => 384737310,
+            'Features' => 223024429,
+            'Lottery' => 367648250,
+            'News' => 442202241,
+            'Obituaries' => 267297962,
+            'Opinion' => 201175805,
+            'Special' => 51890536,
+            'Sports' => 332831682,
+            'Test' => 522425866
+        );
+        
+        $saxo_cat_name = '';
+        $cat_name = get_the_category_by_ID($main_cat_id);
+        //$parent_cats = get_category_parents();
+        // *** if there are cat parents get the most-senior parent and put it in $cat_name, if not then continue
+        switch (strtolower($cat_name)):
+            case 'business':
+                $saxo_cat_name = 'Business';
+            case 'entertainment':
+            case 'arts':
+                $saxo_cat_name = 'Entertainment';
+            case 'living':
+            case 'style':
+            case 'lifestyle':
+            case 'home':
+            case 'fitness':
+                $saxo_cat_name = 'Features';
+            case 'obituaries':
+                $saxo_cat_name = 'Obituaries';
+            case 'opinion':
+                $saxo_cat_name = 'Opinion';
+            case 'sports':
+            case 'outdoors':
+                $saxo_cat_name = 'Sports';
             default:
-                return 442202241; //News
+                $saxo_cat_name = 'News';
         endswitch;
+
+        return $saxo_cat_lookup[$saxo_cat_name];
     }
 
     public function get_article($newarticle = false, $post_id=0)
