@@ -89,7 +89,7 @@ class SaxoArticle extends DFMToPrintArticle
             'author_print_id' => 944621807, // *** HC for now
             'category_id' => 442202241,
             'statuscode' => 1,
-            'post_content_filtered'] = str_replace('<p>', '<p class="TX Body">', $post->post_content),
+            'post_content_filtered' => str_replace('<p>', '<p class="TX Body">', $post->post_content),
             'post' => new TimberPost($post->ID)
         );
         if ( $newarticle === false ):
