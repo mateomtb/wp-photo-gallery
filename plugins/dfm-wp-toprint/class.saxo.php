@@ -65,13 +65,13 @@ class SaxoClient
         endif;
     }
 
-    public function lock_article($request)
+    public function lock_article()
     {   
         // Lock a Saxo article
      
     }
 
-    public function unlock_article($request)
+    public function unlock_article()
     {   
         // Unlock a Saxo article
      
@@ -80,7 +80,7 @@ class SaxoClient
     public function update_article($article)
     {   
         // Update a Saxo article
-     
+        //$curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
     }
 
 }
@@ -201,15 +201,11 @@ function send_to_saxo($post_id)
     $newarticle_flag = TRUE;
     $print_cms_id = get_post_meta($post_id, 'print_cms_id', TRUE);
     if ( intval($print_cms_id) > 0 ):
-        $newarticle_flag = FALSE;
-        $url_type = 'article_update';
         //$request->set_print_cms_id($print_cms_id);
         $client->set_print_cms_id($print_cms_id);
         $client->update_article($article);
     else:
         $client->create_article($article);
-        // Article update
-        //$curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
     endif;
 
 
@@ -245,9 +241,9 @@ function send_to_saxo($post_id)
 //  string(0) ""
 //}
 
-if ( isset($request->response['header']['Location']) ):
+if ( isset($client->request->response['header']['Location']) ):
     // Get the story id, which will always be the last integer in the URL.
-    $story_id = array_pop(explode('/', $request->response['header']['Location']));
+    $story_id = array_pop(explode('/', $client->request->response['header']['Location']));
     $article->update_post(array('print_cms_id' => $story_id));
     // *** add check to see if value already exists in custom field.
 endif;
