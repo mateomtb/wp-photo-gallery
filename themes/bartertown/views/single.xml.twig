@@ -6,7 +6,9 @@
 <sax:site uri="https://mn1reporter.saxotech.com/ews/products/{{product_id}}"/>
 <sax:status statuscode="{{statuscode}}"/>
 <sax:category uri="https://mn1reporter.saxotech.com/ews/products/{{product_id}}/stories/categories/{{category_id}}"/>
-<sax:publication></sax:publication>
+{% if publication_id != '' %}
+<sax:publication>{{publication_id}}</sax:publication>
+{% endif %}
 <sax:accesslevel>1</sax:accesslevel>
 <sax:textformat>720743380</sax:textformat>
 <sax:title>DFM-{{post.slug}}-{{post.ID}}</sax:title>
