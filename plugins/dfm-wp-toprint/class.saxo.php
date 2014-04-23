@@ -77,6 +77,12 @@ class SaxoClient
      
     }
 
+    public function update_article($article)
+    {   
+        // Update a Saxo article
+     
+    }
+
 }
 
 class SaxoArticle extends DFMToPrintArticle
@@ -199,15 +205,11 @@ function send_to_saxo($post_id)
         $url_type = 'article_update';
         //$request->set_print_cms_id($print_cms_id);
         $client->set_print_cms_id($print_cms_id);
-    endif;
-
-    
-    if ( $newarticle_flag === TRUE ):
-        // Article creation
-        $client->create_article($article);
+        $client->update_article($article);
     else:
+        $client->create_article($article);
         // Article update
-        $curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+        //$curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
     endif;
 
 
