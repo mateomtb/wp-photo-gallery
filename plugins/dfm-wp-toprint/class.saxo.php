@@ -204,7 +204,7 @@ function send_to_saxo($post_id)
     
     if ( $newarticle_flag === TRUE ):
         // Article creation
-        $client->article_create($article);
+        $client->create_article($article);
     else:
         // Article update
         $curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
