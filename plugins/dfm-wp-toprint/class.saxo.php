@@ -18,16 +18,39 @@ class SaxoClient
     // The object that handles requests to the Saxo EWS.
 
     var $target_urls;
+    var $print_cms_id;
 
     public function __construct()
     {
             $this->target_urls = array(
                 'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
                 'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(), 
-                'article_update' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%?timestamp=' . time(), 
+                'article_detail' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%?timestamp=' . time(), 
+                'article_lock' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%/lock?timestamp=' . time(), 
+                'article_unlock' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%/unlock?timestamp=' . time(), 
                 'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
             );  
     }
+
+    public function set_print_cms_id($value)
+    {
+        // Set the story_id, the id Saxo uses to identify an article.
+        $this->print_cms_id = $value;
+        return $this->print_cms_id;
+    }
+
+    public function lock_article($request)
+    {   
+        // Lock a Saxo article
+     
+    }
+
+    public function unlock_article($request)
+    {   
+        // Unlock a Saxo article
+     
+    }
+
 }
 
 class SaxoArticle extends DFMToPrintArticle
@@ -151,6 +174,7 @@ function send_to_saxo($post_id)
         $newarticle_flag = FALSE;
         $url_type = 'article_update';
         $request->set_print_cms_id($print_cms_id);
+        $client->set_print_cms_id($print_cms_id);
     endif;
 
     $xml = $article->get_article($newarticle_flag);
