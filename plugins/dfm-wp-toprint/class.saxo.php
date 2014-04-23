@@ -32,20 +32,22 @@ class SaxoArticle extends DFMToPrintArticle
         include($this->path_prefix . '../timber/timber.php');
         endif;
         $context = Timber::get_context();
-        $context['product_id'] = 1; // *** HC for now
-        $context['author_print_id'] = 944621807; // *** HC for now
-        $context['category_id'] = 442202241;
-        $context['statuscode'] = 1;
-        $context['post_content_filtered'] = str_replace('<p>', '<p class="TX Body">', $post->post_content);
+        $extra_context = array(
+            'product_id' => 1, // *** HC for now
+            'author_print_id' => 944621807, // *** HC for now
+            'category_id' => 442202241,
+            'statuscode' => 1,
+            'post_content_filtered'] = str_replace('<p>', '<p class="TX Body">', $post->post_content),
+            'post' => new TimberPost($post->ID)
+        );
         if ( $newarticle === false ):
             $context['statuscode'] = 2;
             $context['updatedtime'] = date('c');
             $context['newarticle'] = $newarticle;
         endif;
-        //$the_post = new TimberPost();
-        $context['post'] = new TimberPost($post->ID);
         ob_start();
-        Timber::render(array($this->article_template), $context);
+        
+        Timber::render(array($this->article_template), array_merge($context, $extra_context));
         $xml = ob_get_clean();
         $this->log_file_write($xml);
         return $xml;
@@ -59,7 +61,7 @@ class SaxoUser extends DFMToPrintUser
 
 function send_to_saxo($post_id)
 {
-    if ( intval($post_id) == 0 ) die("0 post_id");
+    if ( intval($post_id) == 0 ) die("0 post_id on send_to_saxo() in class.saxo.php");
     $request = new DFMRequest();
     $newarticle_flag = TRUE;
     $url_type = 'article';
