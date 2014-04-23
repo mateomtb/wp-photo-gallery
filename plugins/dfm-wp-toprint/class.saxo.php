@@ -13,8 +13,26 @@ class SaxoMeta
     }
 }
 
+class SaxoClient
+{
+    // The object that handles requests to the Saxo EWS.
+
+    var $target_urls;
+
+    public function __construct()
+    {
+            $this->target_urls = array(
+                'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
+                'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(), 
+                'article_update' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%?timestamp=' . time(), 
+                'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
+            );  
+    }
+}
+
 class SaxoArticle extends DFMToPrintArticle
 {
+
     public function map_category($main_cat_id=0)
     {
         // Depending on the WP post's category, we assign a Saxo article category.
@@ -111,6 +129,7 @@ class SaxoArticle extends DFMToPrintArticle
         $this->log_file_write($xml);
         return $xml;
     }
+
 }
 
 class SaxoUser extends DFMToPrintUser
@@ -122,6 +141,9 @@ function send_to_saxo($post_id)
 {
     if ( intval($post_id) == 0 ) die("0 post_id on send_to_saxo() in class.saxo.php");
     $request = new DFMRequest();
+    $article = new SaxoArticle($post_id);
+    $client = new SaxoClient();
+
     $newarticle_flag = TRUE;
     $url_type = 'article';
     $print_cms_id = get_post_meta($post_id, 'print_cms_id', TRUE);
@@ -130,18 +152,11 @@ function send_to_saxo($post_id)
         $url_type = 'article_update';
         $request->set_print_cms_id($print_cms_id);
     endif;
-    $article = new SaxoArticle($post_id);
-    $target_urls = array(
-        'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
-        'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(),
-        'article_update' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%?timestamp=' . time(),
-        'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
-    );
 
     $xml = $article->get_article($newarticle_flag);
 
     $curl_options = array(
-        CURLOPT_URL => $request->set_url($target_urls[$url_type]),
+        CURLOPT_URL => $request->set_url($client->target_urls[$url_type]),
         CURLOPT_POSTFIELDS => $xml,
         CURLOPT_RETURNTRANSFER => 1,
         CURLOPT_VERBOSE => 1,
