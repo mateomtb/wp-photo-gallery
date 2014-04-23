@@ -19,17 +19,19 @@ class SaxoClient
 
     var $target_urls;
     var $print_cms_id;
+    var $request;
 
     public function __construct()
     {
-            $this->target_urls = array(
-                'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
-                'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(), 
-                'article_detail' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%?timestamp=' . time(), 
-                'article_lock' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%/lock?timestamp=' . time(), 
-                'article_unlock' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%/unlock?timestamp=' . time(), 
-                'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
-            );  
+        $this->request = new DFMRequest();
+        $this->target_urls = array(
+            'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
+            'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(), 
+            'article_detail' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%?timestamp=' . time(), 
+            'article_lock' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%/lock?timestamp=' . time(), 
+            'article_unlock' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%/unlock?timestamp=' . time(), 
+            'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
+        );  
     }
 
     public function set_print_cms_id($value)
@@ -37,6 +39,30 @@ class SaxoClient
         // Set the story_id, the id Saxo uses to identify an article.
         $this->print_cms_id = $value;
         return $this->print_cms_id;
+    }
+
+    public function create_article($article)
+    {
+        // Create an article in Saxo.
+        $newarticle_flag = TRUE;
+        $xml = $article->get_article($newarticle_flag);
+        $curl_options = array(
+            CURLOPT_URL => $this->request->set_url($this->target_urls['article']),
+            CURLOPT_POSTFIELDS => $xml,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_VERBOSE => 1,
+            CURLOPT_HEADER => 1,
+            CURLOPT_POST => 1,
+            CURLOPT_HTTPHEADER => array('Content-Type: application/xml; charset=UTF-8')
+        );
+        if ( $this->request->curl_options($curl_options) == true ):
+            $result = $this->request->curl_execute();
+            $article->log_file_write($result, 'request');
+            $this->request->curl_results($result);
+            if ( isset($this->request->response) ):
+                $this->request->curl_destroy();
+            endif;
+        endif;
     }
 
     public function lock_article($request)
@@ -163,43 +189,22 @@ class SaxoUser extends DFMToPrintUser
 function send_to_saxo($post_id)
 {
     if ( intval($post_id) == 0 ) die("0 post_id on send_to_saxo() in class.saxo.php");
-    $request = new DFMRequest();
     $article = new SaxoArticle($post_id);
     $client = new SaxoClient();
 
     $newarticle_flag = TRUE;
-    $url_type = 'article';
     $print_cms_id = get_post_meta($post_id, 'print_cms_id', TRUE);
     if ( intval($print_cms_id) > 0 ):
         $newarticle_flag = FALSE;
         $url_type = 'article_update';
-        $request->set_print_cms_id($print_cms_id);
+        //$request->set_print_cms_id($print_cms_id);
         $client->set_print_cms_id($print_cms_id);
     endif;
-
-    $xml = $article->get_article($newarticle_flag);
-
-    $curl_options = array(
-        CURLOPT_URL => $request->set_url($client->target_urls[$url_type]),
-        CURLOPT_POSTFIELDS => $xml,
-        CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_VERBOSE => 1,
-        CURLOPT_HEADER => 1,
-        CURLOPT_POST => 1,
-        CURLOPT_HTTPHEADER => array('Content-Type: application/xml; charset=UTF-8')
-    );
 
     
     if ( $newarticle_flag === TRUE ):
         // Article creation
-        if ( $request->curl_options($curl_options) == true ):
-            $result = $request->curl_execute();
-            $article->log_file_write($result, 'request');
-            $request->curl_results($result);
-            if ( isset($request->response) ):
-                $request->curl_destroy();
-            endif;
-        endif;
+        $client->article_create($article);
     else:
         // Article update
         $curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
