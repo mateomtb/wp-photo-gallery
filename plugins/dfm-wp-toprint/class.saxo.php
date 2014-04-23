@@ -5,6 +5,13 @@ Extends DFP To Print plugin functionality for the Saxotech publishing system.
 
 */
 
+class SaxoMeta
+{
+    // Methods for handling the metadata we need from Saxo's EWS.
+    public function __construct()
+    {
+    }
+}
 
 class SaxoArticle extends DFMToPrintArticle
 {
@@ -29,7 +36,7 @@ class SaxoArticle extends DFMToPrintArticle
         endif;
 
         if ( !class_exists('Timber') ):
-        include($this->path_prefix . '../timber/timber.php');
+            include($this->path_prefix . '../timber/timber.php');
         endif;
         $context = Timber::get_context();
         $extra_context = array(
