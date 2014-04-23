@@ -46,22 +46,28 @@ class SaxoArticle extends DFMToPrintArticle
         switch (strtolower($cat_name)):
             case 'business':
                 $saxo_cat_name = 'Business';
+                break;
             case 'entertainment':
             case 'arts':
                 $saxo_cat_name = 'Entertainment';
+                break;
             case 'living':
             case 'style':
             case 'lifestyle':
             case 'home':
             case 'fitness':
                 $saxo_cat_name = 'Features';
+                break;
             case 'obituaries':
                 $saxo_cat_name = 'Obituaries';
+                break;
             case 'opinion':
                 $saxo_cat_name = 'Opinion';
+                break;
             case 'sports':
             case 'outdoors':
                 $saxo_cat_name = 'Sports';
+                break;
             default:
                 $saxo_cat_name = 'News';
         endswitch;
@@ -126,23 +132,22 @@ function send_to_saxo($post_id)
     endif;
     $article = new SaxoArticle($post_id);
     $target_urls = array(
-    'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
-    'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(),
-    'article_update' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%?timestamp=' . time(),
-    'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
+        'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
+        'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(),
+        'article_update' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%?timestamp=' . time(),
+        'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
     );
 
     $xml = $article->get_article($newarticle_flag);
 
     $curl_options = array(
-    CURLOPT_URL => $request->set_url($target_urls[$url_type]),
-    //CURLOPT_POSTFIELDS => http_build_query($params),
-    CURLOPT_POSTFIELDS => $xml,
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_VERBOSE => 1,
-    CURLOPT_HEADER => 1,
-    CURLOPT_POST => 1,
-    CURLOPT_HTTPHEADER => array('Content-Type: application/xml; charset=UTF-8')
+        CURLOPT_URL => $request->set_url($target_urls[$url_type]),
+        CURLOPT_POSTFIELDS => $xml,
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_VERBOSE => 1,
+        CURLOPT_HEADER => 1,
+        CURLOPT_POST => 1,
+        CURLOPT_HTTPHEADER => array('Content-Type: application/xml; charset=UTF-8')
     );
 
     

@@ -89,15 +89,17 @@ class DFMToPrintArticle
     public function log_file_write($content, $type='article')
     {
         // Save the article xml to a file in the log directory.
+        $log_dir = $this->path_prefix . 'log/';
         switch ( $type ):
             case 'request':
                 $filename = $this->post->ID . '_request_' . time() . '.txt';
+                break;
             default:
                 $filename = $this->post->ID . '_' . $this->post->post_name . '_' . time() . '.xml';
         endswitch;
 
-        if ( is_dir($this->path_prefix . 'log/') ):
-            return file_put_contents($this->path_prefix . 'log/' . $filename, $content);
+        if ( is_dir($log_dir) ):
+            return file_put_contents($log_dir . $filename, $content);
         endif;
         return false;
     }
