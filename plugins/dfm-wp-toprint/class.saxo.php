@@ -53,6 +53,10 @@ class SaxoClient
     {   
         // Write a Saxo article
         $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article']);
+
+        // Just in case:
+        unset($this->curl_options[CURLOPT_CUSTOMREQUEST]);
+
         $this->write_article($article, 'create');
     }
 
@@ -69,7 +73,7 @@ class SaxoClient
         // Create or update an article in Saxo. The $type parameter can be either 'create' or 'update'.
         $xml = $article->get_article();
         $this->curl_options[CURLOPT_POSTFIELDS] = $xml;
-        $this->execute_request();
+        $this->execute_request($article);
     }
 
     public function lock_article()
@@ -94,7 +98,7 @@ class SaxoClient
         $this->execute_request();
     }
 
-    private function execute_request($calling_method='')
+    private function execute_request($article = '')
     {
         // Many methods need to execute requests. This is what does that.
         $backtrace=debug_backtrace();
@@ -237,17 +241,32 @@ function send_to_saxo($post_id)
 
     $article->set_article_state('new');
     $print_cms_id = get_post_meta($post_id, 'print_cms_id', TRUE);
-    if ( intval($print_cms_id) > 0 ):
-        $article->set_article_state('update');
-        //$request->set_print_cms_id($print_cms_id);
-        $client->set_print_cms_id($print_cms_id);
-        $client->update_article($article);
-    else:
+
+    // Sometimes we need to create an article:
+    if ( intval($print_cms_id) == 0 ):
         $client->create_article($article);
+        write_log($client->result->response);
+
+        // On article creation, we assign the saxo story id to the wp post.
+        if ( isset($client->request->response['header']['Location']) ):
+            // Get the story id, which will always be the last integer in the URL.
+            $story_id = array_pop(explode('/', $client->request->response['header']['Location']));
+            $article->update_post(array('print_cms_id' => $story_id));
+        endif;
     endif;
 
-
+    // At all times we need to update the article with the headline and body content.
+    $article->set_article_state('update');
+    //$request->set_print_cms_id($print_cms_id);
+    $client->set_print_cms_id($print_cms_id);
+    $client->lock_article();
     write_log($client->result->response);
+    $client->update_article($article);
+    write_log($client->result->response);
+    $client->unlock_article();
+    write_log($client->result->response);
+
+
 // If we've created a new article, we want to associate its saxo-id
 // with the article in WP.
 // This response will look something like:
@@ -279,12 +298,6 @@ function send_to_saxo($post_id)
 //  string(0) ""
 //}
 
-if ( isset($client->request->response['header']['Location']) ):
-    // Get the story id, which will always be the last integer in the URL.
-    $story_id = array_pop(explode('/', $client->request->response['header']['Location']));
-    $article->update_post(array('print_cms_id' => $story_id));
-    // *** add check to see if value already exists in custom field.
-endif;
     // *** initiate curl
     // *** if this is an article update, get the saxo article id (custom field)
     // *** send document to saxo
