@@ -106,6 +106,9 @@ class SaxoClient
         // Many methods need to execute requests. This is what does that.
         $backtrace=debug_backtrace();
         $calling_function =  $backtrace[1]['function'];
+        
+        // In case:
+        unset($this->request->response['error']);
 
         if ( $this->request->curl_options($this->curl_options) == true ):
             $result = $this->request->curl_execute();
@@ -118,7 +121,7 @@ class SaxoClient
                     $article->log_file_write($this->request->response['error'], 'request');
                 endif;
 
-                write_log('Could not execute curl request in ' . $calling_function . ' in class.saxo.php: ' . $this->request->response['error'], 'PLUGIN WARNING');
+                write_log('Could not execute curl request in ' . $backtrace[2]['function'] . ' --> ' . $calling_function . ' in class.saxo.php: ' . $this->request->response['error'], 'PLUGIN WARNING');
             endif;
         else:
             write_log('Could not set curl_options on ' . $calling_function . ' in class.saxo.php', 'PLUGIN WARNING');
@@ -205,7 +208,7 @@ class SaxoArticle extends DFMToPrintArticle
 
         $local_context = array(
             'product_id' => 1, // *** HC for now
-            //'publication_id' => 816146, // *** HC for now
+            'publication_id' => 974570, // *** HC for now
             'author_print_id' => 944621807, // *** HC for now
             'category_id' => 442202241,
             'statuscode' => 1,
@@ -224,10 +227,9 @@ class SaxoArticle extends DFMToPrintArticle
         if ( $this->article_state == 'update' ):
             $context['statuscode'] = 2;
             $context['updatedtime'] = date('c');
-            $context['newarticle'] = FALSE;
         endif;
+
         ob_start();
-        
         Timber::render(array($this->article_template), array_merge($context, $local_context));
         $xml = ob_get_clean();
         $this->log_file_write($xml);
@@ -253,7 +255,9 @@ function send_to_saxo($post_id)
     // Sometimes we need to create an article:
     if ( intval($print_cms_id) == 0 ):
         $client->create_article($article);
-        write_log($client->result->response);
+        if ( isset($client->result->response) ):
+            write_log($client->result->response);
+        endif;
 
         // On article creation, we assign the saxo story id to the wp post.
         if ( isset($client->request->response['header']['Location']) ):
@@ -270,11 +274,17 @@ function send_to_saxo($post_id)
     //$request->set_print_cms_id($print_cms_id);
     $client->set_print_cms_id($print_cms_id);
     $client->lock_article();
-    write_log($client->result->response);
+    if ( isset($client->result->response) ):
+        write_log($client->result->response);
+    endif;
     $client->update_article($article);
-    write_log($client->result->response);
+    if ( isset($client->result->response) ):
+        write_log($client->result->response);
+    endif;
     $client->unlock_article();
-    write_log($client->result->response);
+    if ( isset($client->result->response) ):
+        write_log($client->result->response);
+    endif;
 
 
 // If we've created a new article, we want to associate its saxo-id
