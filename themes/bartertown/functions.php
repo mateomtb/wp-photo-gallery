@@ -98,7 +98,7 @@ function global_context($data){
         'is_singular' => is_singular(),
         'template_uri' => get_template_directory_uri(),
         // Ads might be buggy so control with query var for now
-        'all_ads' => $_REQUEST['ads'] !== null ? true : false,
+        'all_ads' => isset($_REQUEST['ads']) ? true : false,
 
         // Environment vars
         'domain' => $domain_bits[1],
@@ -114,14 +114,16 @@ function global_context($data){
         'menu_main' => new TimberMenu('Main'),
         'menu_hot' => new TimberMenu('Hot Topics'),
         'menu_action' => new TimberMenu('Take Action'),
-        'section' => $cat->slug,
-        'sectionName' => $cat->name,
-        'taxonomy1' => $taxonomy[0] ? $taxonomy[0] : '', 
-        'taxonomy2' => $taxonomy[1] ? $taxonomy[1] : '',
-        'taxonomy3' => $taxonomy[2] ? $taxonomy[2] : '',
-        'taxonomy4' => $taxonomy[3] ? $taxonomy[3] : ''
+        'taxonomy1' => isset($taxonomy[0]) ? $taxonomy[0] : '', 
+        'taxonomy2' => isset($taxonomy[1]) ? $taxonomy[1] : '',
+        'taxonomy3' => isset($taxonomy[2]) ? $taxonomy[2] : '',
+        'taxonomy4' => isset($taxonomy[3]) ? $taxonomy[3] : ''
 
     );
+    if ( get_query_var('cat') != '' ):
+        $data['section'] = $cat->slug;
+        $data['sectionName'] = $cat->name;
+    endif;
     // Data provided here:
     // We put this here for devs who are looking at this code for the first
     // time and want to know what site information they have to work with.
@@ -246,7 +248,9 @@ if ( !function_exists('getCurrentConditions') ):
 endif;
 
     $zipCode = $_SESSION['dfm']['zip_code'];
-    $data['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed($context['section'])), true)) ? $mc : null;
+    if ( isset($context) ):
+        $data['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed($context['section'])), true)) ? $mc : null;
+    endif;
     $data['get_weather'] = ($get_weather = getWeather($apiUrl, $zipCode, $apiKey)) ? $get_weather : null;
     $data['get_cw'] = ($gw = json_decode(file_get_contents(getCurrentConditions($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $gw : null;
     $data['get_fc'] = ($fc = json_decode(file_get_contents(getForecasts($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $fc : null;

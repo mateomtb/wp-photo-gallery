@@ -22,12 +22,14 @@ class DFMToPrintArticle
     // purpose of sending to a print-edition CMS.
 
     var $article_template;
+    var $article_state; // Two values: Either 'new' or 'update'
     var $post;
     var $path_prefix;
 
     function __construct($post=1)
     {
         $this->article_template = 'single.xml.twig';
+        $this->article_state = false;
         $this->set_post($post);
         $this->path_prefix = '';
         if ( function_exists('plugin_dir_path') ):
@@ -62,6 +64,14 @@ class DFMToPrintArticle
         return $this->article_template;
     }
 
+    public function set_article_state($value)
+    {
+        // When we need to change the article state.
+        // Recognized values: 'new', 'update'
+        $this->article_state = $value;
+        return $this->article_state;
+    }
+
     public function update_post($field_array)
     {
         // Update the WordPress post object.
@@ -73,17 +83,17 @@ class DFMToPrintArticle
         return $return;
     }
 
-    public function get_article($newarticle = false, $post_id=0)
+    public function get_article($post_id=0)
     {
         // Returns an xml representation of the desired article
-        // Takes two parameters:
-        // $newarticle, boolean, if this is an article we're adding to EWS.
+        // Takes one parameter:
         // $post_id, integer, for manual lookups of post collection field.
+        // It also relies on $this->article_state to know which actions to perform.
         $post = $this->post;
         if ( $post_id > 0 ):
             $post = get_post($post_id);
         endif;
-        // Most of this is vendor-specific.
+        // Most of this is vendor-specific and included in the subclass.
     }
 
     public function log_file_write($content, $type='article')
@@ -95,7 +105,7 @@ class DFMToPrintArticle
                 $filename = $this->post->ID . '_request_' . time() . '.txt';
                 break;
             default:
-                $filename = $this->post->ID . '_' . $this->post->post_name . '_' . time() . '.xml';
+                $filename = $this->post->ID . '_' . $this->post->post_name . '.xml';
         endswitch;
 
         if ( is_dir($log_dir) ):
@@ -140,3 +150,19 @@ add_action( 'init', function() {
 
 // Hard-coded, for now.
 include('class.saxo.php');
+
+
+// Because this is the only time we want to write this if statement:
+if ( !function_exists('write_log') ):
+    function write_log ($log, $title = '')  
+    {
+        if ( true === WP_DEBUG ) 
+        {
+            if ( is_array( $log ) || is_object( $log ) ):
+                error_log($title . ': ' . print_r( $log, true ) );
+            else:
+                error_log($title . ': ' . $log);
+            endif;
+        }
+    }
+endif;
