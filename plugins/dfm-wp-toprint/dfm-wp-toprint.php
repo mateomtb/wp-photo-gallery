@@ -83,34 +83,23 @@ class DFMToPrintArticle
         if ( $post_id > 0 ):
             $post = get_post($post_id);
         endif;
-
-        if ( !class_exists('Timber') ):
-        include($this->path_prefix . '../timber/timber.php');
-        endif;
-        $context = Timber::get_context();
-        $context['product_id'] = 1; // *** HC for now
-        $context['author_print_id'] = 944621807; // *** HC for now
-        $context['statuscode'] = 1;
-        if ( $newarticle === false ):
-            $context['statuscode'] = 2;
-            $context['updatedtime'] = date('c');
-            $context['newarticle'] = $newarticle;
-        endif;
-        //$the_post = new TimberPost();
-        $context['post'] = new TimberPost($post->ID);
-        ob_start();
-        Timber::render(array($this->article_template), $context);
-        $xml = ob_get_clean();
-        $this->log_article($xml);
-        return $xml;
+        // Most of this is vendor-specific.
     }
 
-    public function log_article($xml)
+    public function log_file_write($content, $type='article')
     {
         // Save the article xml to a file in the log directory.
-        $filename = $this->post->ID . '_' . $this->post->slug . '_' . time() . '.xml';
-        if ( is_dir($this->path_prefix . 'log/') ):
-            return file_put_contents($this->path_prefix . 'log/' . $filename, $xml);
+        $log_dir = $this->path_prefix . 'log/';
+        switch ( $type ):
+            case 'request':
+                $filename = $this->post->ID . '_request_' . time() . '.txt';
+                break;
+            default:
+                $filename = $this->post->ID . '_' . $this->post->post_name . '_' . time() . '.xml';
+        endswitch;
+
+        if ( is_dir($log_dir) ):
+            return file_put_contents($log_dir . $filename, $content);
         endif;
         return false;
     }
@@ -137,6 +126,8 @@ class DFMToPrintUser
 // just need them available to us robots.
 add_action( 'init', function() {
     if ( class_exists('Fieldmanager_Group') ):
+    // We don't include the code to publish this field in the wp admin because we don't
+    // want it edited by users.
     $fm = new Fieldmanager_Group( array(
         'name' => 'toprint_article_fields',
         'children' => array(
