@@ -54,11 +54,13 @@ class SaxoClient
     {   
         // Write a Saxo article
         $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article']);
+        $xml = $article->get_article();
+        $this->curl_options[CURLOPT_POSTFIELDS] = $xml;
 
         // Just in case:
         unset($this->curl_options[CURLOPT_CUSTOMREQUEST]);
 
-        $this->write_article($article, 'create');
+        $this->write_article($article);
     }
 
     public function update_article($article)
@@ -66,14 +68,14 @@ class SaxoClient
         // Update a Saxo article
         $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article_detail']);
         $this->curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
-        $this->write_article($article, 'update');
+        $xml = $article->get_article(0, array('print_cms_id' => $this->print_cms_id));
+        $this->curl_options[CURLOPT_POSTFIELDS] = $xml;
+        $this->write_article($article);
     }
 
-    private function write_article($article, $type)
+    private function write_article($article)
     {
-        // Create or update an article in Saxo. The $type parameter can be either 'create' or 'update'.
-        $xml = $article->get_article();
-        $this->curl_options[CURLOPT_POSTFIELDS] = $xml;
+        // Create or update an article in Saxo.
         $this->execute_request($article);
     }
 
@@ -187,7 +189,7 @@ class SaxoArticle extends DFMToPrintArticle
         return $saxo_cat_lookup[$saxo_cat_name];
     }
 
-    public function get_article($post_id=0)
+    public function get_article($post_id=0, $added_context = array())
     {
         // Returns an xml representation of the desired article
         // Takes one parameters:
@@ -201,7 +203,6 @@ class SaxoArticle extends DFMToPrintArticle
             include($this->path_prefix . '../timber/timber.php');
         endif;
 
-        $context = Timber::get_context();
         $local_context = array(
             'product_id' => 1, // *** HC for now
             //'publication_id' => 816146, // *** HC for now
@@ -211,6 +212,15 @@ class SaxoArticle extends DFMToPrintArticle
             'post_content_filtered' => str_replace('<p>', '<p class="TX Body">', $post->post_content),
             'post' => new TimberPost($post->ID)
         );
+        $approved_context_keys = array('product_id', 'publication_id', 'category_id', 'print_cms_id');
+        foreach ( $added_context as $key => $value ):
+            if ( !array_key_exists($key, $approved_context_keys) ):
+                continue;
+            endif;
+            $local_context[$key] = $value;
+        endforeach;
+
+        $context = Timber::get_context();
         if ( $this->article_state == 'update' ):
             $context['statuscode'] = 2;
             $context['updatedtime'] = date('c');
