@@ -88,6 +88,7 @@ class DFMRequest
     {
 		// Takes a curl_exec return object and pulls out the header
         // and body content.
+        // It returns an array of the response values.
 		$header_size = curl_getinfo($this->cur, CURLINFO_HEADER_SIZE);
 		$header = substr($result, 0, $header_size);
 

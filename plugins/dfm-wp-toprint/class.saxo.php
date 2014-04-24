@@ -46,6 +46,7 @@ class SaxoClient
     {
         // Set the story_id, the id Saxo uses to identify an article.
         $this->print_cms_id = $value;
+        $this->request->set_print_cms_id($value);
         return $this->print_cms_id;
     }
 
@@ -106,6 +107,7 @@ class SaxoClient
 
         if ( $this->request->curl_options($this->curl_options) == true ):
             $result = $this->request->curl_execute();
+            $this->request->curl_results($result);
             if ( $calling_function == 'write_article' ):
                 $article->log_file_write($result, 'request');
             endif;
@@ -246,8 +248,10 @@ function send_to_saxo($post_id)
         // On article creation, we assign the saxo story id to the wp post.
         if ( isset($client->request->response['header']['Location']) ):
             // Get the story id, which will always be the last integer in the URL.
-            $story_id = array_pop(explode('/', $client->request->response['header']['Location']));
-            $article->update_post(array('print_cms_id' => $story_id));
+            $print_cms_id = array_pop(explode('/', $client->request->response['header']['Location']));
+            $article->update_post(array('print_cms_id' => $print_cms_id));
+        else:
+            write_log('No Location header');
         endif;
     endif;
 
