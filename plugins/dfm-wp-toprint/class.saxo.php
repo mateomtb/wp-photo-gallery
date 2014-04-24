@@ -114,14 +114,10 @@ class SaxoClient
                     $article->log_file_write($this->request->response['error'], 'request');
                 endif;
 
-                if ( function_exists('write_log') ):
-                    write_log('Could not execute curl request in ' . $calling_function . ' in class.saxo.php: ' . $this->request->response['error'], 'PLUGIN WARNING');
-                endif;
+                write_log('Could not execute curl request in ' . $calling_function . ' in class.saxo.php: ' . $this->request->response['error'], 'PLUGIN WARNING');
             endif;
         else:
-            if ( function_exists('write_log') ):
-                write_log('Could not set curl_options on ' . $calling_function . ' in class.saxo.php', 'PLUGIN WARNING');
-            endif;
+            write_log('Could not set curl_options on ' . $calling_function . ' in class.saxo.php', 'PLUGIN WARNING');
         endif;
     }
 }
