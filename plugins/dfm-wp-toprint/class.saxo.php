@@ -20,6 +20,7 @@ class SaxoClient
     var $target_urls;
     var $print_cms_id;
     var $request;
+    var $curl_options;
 
     public function __construct()
     {
@@ -32,6 +33,13 @@ class SaxoClient
             'article_unlock' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%/unlock?timestamp=' . time(), 
             'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
         );  
+        $this->curl_options = array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_VERBOSE => 1,
+            CURLOPT_HEADER => 1,
+            CURLOPT_POST => 1,
+            CURLOPT_HTTPHEADER => array('Content-Type: application/xml; charset=UTF-8')
+        );
     }
 
     public function set_print_cms_id($value)
@@ -44,18 +52,12 @@ class SaxoClient
     public function create_article($article)
     {
         // Create an article in Saxo.
-        $newarticle_flag = TRUE;
-        $xml = $article->get_article($newarticle_flag);
-        $curl_options = array(
+        $local_curl_options = array(
             CURLOPT_URL => $this->request->set_url($this->target_urls['article']),
-            CURLOPT_POSTFIELDS => $xml,
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_VERBOSE => 1,
-            CURLOPT_HEADER => 1,
-            CURLOPT_POST => 1,
-            CURLOPT_HTTPHEADER => array('Content-Type: application/xml; charset=UTF-8')
+            CURLOPT_POSTFIELDS => $xml
         );
-        if ( $this->request->curl_options($curl_options) == true ):
+        $xml = $article->get_article();
+        if ( $this->request->curl_options(array_merge($this->curl_options, $local_curl_options)) == true ):
             $result = $this->request->curl_execute();
             $article->log_file_write($result, 'request');
             $this->request->curl_results($result);
@@ -80,7 +82,7 @@ class SaxoClient
     public function update_article($article)
     {   
         // Update a Saxo article
-        //$curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+        $local_curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
     }
 
 }
@@ -148,11 +150,10 @@ class SaxoArticle extends DFMToPrintArticle
         return $saxo_cat_lookup[$saxo_cat_name];
     }
 
-    public function get_article($newarticle = false, $post_id=0)
+    public function get_article($post_id=0)
     {
         // Returns an xml representation of the desired article
-        // Takes two parameters:
-        // $newarticle, boolean, if this is an article we're adding to EWS.
+        // Takes one parameters:
         // $post_id, integer, for manual lookups of post collection field.
         $post = $this->post;
         if ( $post_id > 0 ):
@@ -162,8 +163,9 @@ class SaxoArticle extends DFMToPrintArticle
         if ( !class_exists('Timber') ):
             include($this->path_prefix . '../timber/timber.php');
         endif;
+
         $context = Timber::get_context();
-        $extra_context = array(
+        $local_context = array(
             'product_id' => 1, // *** HC for now
             //'publication_id' => 816146, // *** HC for now
             'author_print_id' => 944621807, // *** HC for now
@@ -172,14 +174,14 @@ class SaxoArticle extends DFMToPrintArticle
             'post_content_filtered' => str_replace('<p>', '<p class="TX Body">', $post->post_content),
             'post' => new TimberPost($post->ID)
         );
-        if ( $newarticle === false ):
+        if ( $this->article_state == 'update' ):
             $context['statuscode'] = 2;
             $context['updatedtime'] = date('c');
-            $context['newarticle'] = $newarticle;
+            $context['newarticle'] = FALSE;
         endif;
         ob_start();
         
-        Timber::render(array($this->article_template), array_merge($context, $extra_context));
+        Timber::render(array($this->article_template), array_merge($context, $local_context));
         $xml = ob_get_clean();
         $this->log_file_write($xml);
         return $xml;
@@ -198,9 +200,10 @@ function send_to_saxo($post_id)
     $article = new SaxoArticle($post_id);
     $client = new SaxoClient();
 
-    $newarticle_flag = TRUE;
+    $article->set_article_state('new');
     $print_cms_id = get_post_meta($post_id, 'print_cms_id', TRUE);
     if ( intval($print_cms_id) > 0 ):
+        $article->set_article_state('update');
         //$request->set_print_cms_id($print_cms_id);
         $client->set_print_cms_id($print_cms_id);
         $client->update_article($article);
@@ -209,7 +212,7 @@ function send_to_saxo($post_id)
     endif;
 
 
-    write_log($result->response);
+    write_log($client->result->response);
 // If we've created a new article, we want to associate its saxo-id
 // with the article in WP.
 // This response will look something like:
