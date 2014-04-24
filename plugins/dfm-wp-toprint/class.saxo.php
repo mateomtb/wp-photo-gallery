@@ -49,6 +49,21 @@ class SaxoClient
         return $this->print_cms_id;
     }
 
+    public function create_article($article)
+    {   
+        // Write a Saxo article
+        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article']);
+        $this->write_article($article, 'create');
+    }
+
+    public function update_article($article)
+    {   
+        // Update a Saxo article
+        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article_detail']);
+        $this->curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+        $this->write_article($article, 'update');
+    }
+
     private function write_article($article, $type='create')
     {
         // Create or update an article in Saxo. The $type parameter can be either 'create' or 'update'.
@@ -78,7 +93,21 @@ class SaxoClient
     {   
         // Lock a Saxo article
         $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article_lock']);
+        $this->lock_unlock();
+    }
+
+    public function unlock_article()
+    {   
+        // Unlock a Saxo article
+        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article_unlock']);
+        $this->lock_unlock();
+    }
+
+    private function lock_unlock()
+    {
+        // abstact the common elements of lock and unlock requests.
         $this->curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+
         if ( $this->request->curl_options($this->curl_options) == true ):
             $result = $this->request->curl_execute();
             if ( isset($this->request->response['error']) ):
@@ -88,32 +117,10 @@ class SaxoClient
             endif;
         else:
             if ( function_exists('write_log') ):
-                write_log('Could not set curl_options on lock_article() in class.saxo.php', 'PLUGIN WARNING');
+                write_log('Could not set curl_options on lock_unlock() in class.saxo.php', 'PLUGIN WARNING');
             endif;
         endif;
     }
-
-    public function unlock_article()
-    {   
-        // Unlock a Saxo article
-     
-    }
-
-    public function create_article($article)
-    {   
-        // Write a Saxo article
-        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article']);
-        $this->write_article($article, 'create');
-    }
-
-    public function update_article($article)
-    {   
-        // Update a Saxo article
-        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article_detail']);
-        $this->curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
-        $this->write_article($article, 'update');
-    }
-
 }
 
 class SaxoArticle extends DFMToPrintArticle
