@@ -13,8 +13,125 @@ class SaxoMeta
     }
 }
 
+class SaxoClient
+{
+    // The object that handles requests to the Saxo EWS.
+
+    var $target_urls;
+    var $print_cms_id;
+    var $request;
+    var $curl_options;
+
+    public function __construct()
+    {
+        $this->request = new DFMRequest();
+        $this->target_urls = array(
+            'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
+            'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(), 
+            'article_detail' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%?timestamp=' . time(), 
+            'article_lock' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%/lock?timestamp=' . time(), 
+            'article_unlock' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%/unlock?timestamp=' . time(), 
+            'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
+        );  
+        $this->curl_options = array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_VERBOSE => 1,
+            CURLOPT_HEADER => 1,
+            CURLOPT_POST => 1,
+            CURLOPT_HTTPHEADER => array('Content-Type: application/xml; charset=UTF-8')
+        );
+    }
+
+    public function set_print_cms_id($value)
+    {
+        // Set the story_id, the id Saxo uses to identify an article.
+        $this->print_cms_id = $value;
+        $this->request->set_print_cms_id($value);
+        return $this->print_cms_id;
+    }
+
+    public function create_article($article)
+    {   
+        // Write a Saxo article
+        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article']);
+        $xml = $article->get_article();
+        $this->curl_options[CURLOPT_POSTFIELDS] = $xml;
+
+        // Just in case:
+        unset($this->curl_options[CURLOPT_CUSTOMREQUEST]);
+
+        $this->write_article($article);
+    }
+
+    public function update_article($article)
+    {   
+        // Update a Saxo article
+        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article_detail']);
+        $this->curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+        $xml = $article->get_article(0, array('print_cms_id' => $this->print_cms_id));
+        $this->curl_options[CURLOPT_POSTFIELDS] = $xml;
+        $this->write_article($article);
+    }
+
+    private function write_article($article)
+    {
+        // Create or update an article in Saxo.
+        $this->execute_request($article);
+    }
+
+    public function lock_article()
+    {   
+        // Lock a Saxo article
+        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article_lock']);
+        $this->lock_unlock();
+    }
+
+    public function unlock_article()
+    {   
+        // Unlock a Saxo article
+        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article_unlock']);
+        $this->lock_unlock();
+    }
+
+    private function lock_unlock()
+    {
+        // abstact the common elements of lock and unlock requests.
+        $this->curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+        $this->curl_options[CURLOPT_POSTFIELDS] = '<?xml version="1.0"?>';
+        $this->execute_request();
+    }
+
+    private function execute_request($article = '')
+    {
+        // Many methods need to execute requests. This is what does that.
+        $backtrace=debug_backtrace();
+        $calling_function =  $backtrace[1]['function'];
+        
+        // In case:
+        unset($this->request->response['error']);
+
+        if ( $this->request->curl_options($this->curl_options) == true ):
+            $result = $this->request->curl_execute();
+            $this->request->curl_results($result);
+            if ( $calling_function == 'write_article' ):
+                $article->log_file_write($result, 'request');
+            endif;
+            if ( isset($this->request->response['error']) ):
+                if ( $calling_function == 'write_article' ):
+                    $article->log_file_write($this->request->response['error'], 'request');
+                endif;
+
+                write_log('Could not execute curl request in ' . $backtrace[2]['function'] . ' --> ' . $calling_function . ' in class.saxo.php: ' . $this->request->response['error'], 'PLUGIN WARNING');
+            endif;
+        else:
+            write_log('Could not set curl_options on ' . $calling_function . ' in class.saxo.php', 'PLUGIN WARNING');
+        endif;
+    }
+}
+
 class SaxoArticle extends DFMToPrintArticle
 {
+
     public function map_category($main_cat_id=0)
     {
         // Depending on the WP post's category, we assign a Saxo article category.
@@ -75,11 +192,10 @@ class SaxoArticle extends DFMToPrintArticle
         return $saxo_cat_lookup[$saxo_cat_name];
     }
 
-    public function get_article($newarticle = false, $post_id=0)
+    public function get_article($post_id=0, $added_context = array())
     {
         // Returns an xml representation of the desired article
-        // Takes two parameters:
-        // $newarticle, boolean, if this is an article we're adding to EWS.
+        // Takes one parameters:
         // $post_id, integer, for manual lookups of post collection field.
         $post = $this->post;
         if ( $post_id > 0 ):
@@ -89,28 +205,37 @@ class SaxoArticle extends DFMToPrintArticle
         if ( !class_exists('Timber') ):
             include($this->path_prefix . '../timber/timber.php');
         endif;
-        $context = Timber::get_context();
-        $extra_context = array(
+
+        $local_context = array(
             'product_id' => 1, // *** HC for now
-            //'publication_id' => 816146, // *** HC for now
+            'publication_id' => 974570, // *** HC for now
             'author_print_id' => 944621807, // *** HC for now
             'category_id' => 442202241,
             'statuscode' => 1,
             'post_content_filtered' => str_replace('<p>', '<p class="TX Body">', $post->post_content),
             'post' => new TimberPost($post->ID)
         );
-        if ( $newarticle === false ):
+        $approved_context_keys = array('product_id', 'publication_id', 'category_id', 'print_cms_id');
+        foreach ( $added_context as $key => $value ):
+            if ( !array_key_exists($key, $approved_context_keys) ):
+                continue;
+            endif;
+            $local_context[$key] = $value;
+        endforeach;
+
+        $context = Timber::get_context();
+        if ( $this->article_state == 'update' ):
             $context['statuscode'] = 2;
             $context['updatedtime'] = date('c');
-            $context['newarticle'] = $newarticle;
         endif;
+
         ob_start();
-        
-        Timber::render(array($this->article_template), array_merge($context, $extra_context));
+        Timber::render(array($this->article_template), array_merge($context, $local_context));
         $xml = ob_get_clean();
         $this->log_file_write($xml);
         return $xml;
     }
+
 }
 
 class SaxoUser extends DFMToPrintUser
@@ -121,53 +246,47 @@ class SaxoUser extends DFMToPrintUser
 function send_to_saxo($post_id)
 {
     if ( intval($post_id) == 0 ) die("0 post_id on send_to_saxo() in class.saxo.php");
-    $request = new DFMRequest();
-    $newarticle_flag = TRUE;
-    $url_type = 'article';
-    $print_cms_id = get_post_meta($post_id, 'print_cms_id', TRUE);
-    if ( intval($print_cms_id) > 0 ):
-        $newarticle_flag = FALSE;
-        $url_type = 'article_update';
-        $request->set_print_cms_id($print_cms_id);
-    endif;
     $article = new SaxoArticle($post_id);
-    $target_urls = array(
-        'user' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/users/%%%USERID%%%',
-        'article' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories?timestamp=' . time(),
-        'article_update' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/stories/%%%STORYID%%%?timestamp=' . time(),
-        'textformats' => 'https://%%%CREDENTIALS%%%@mn1reporter.saxotech.com/ews/products/%%%PRODUCTID%%%/textformats/720743380?timestamp=' . time()
-    );
+    $client = new SaxoClient();
 
-    $xml = $article->get_article($newarticle_flag);
+    $article->set_article_state('new');
+    $print_cms_id = get_post_meta($post_id, 'print_cms_id', TRUE);
 
-    $curl_options = array(
-        CURLOPT_URL => $request->set_url($target_urls[$url_type]),
-        CURLOPT_POSTFIELDS => $xml,
-        CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_VERBOSE => 1,
-        CURLOPT_HEADER => 1,
-        CURLOPT_POST => 1,
-        CURLOPT_HTTPHEADER => array('Content-Type: application/xml; charset=UTF-8')
-    );
-
-    
-    if ( $newarticle_flag === TRUE ):
-        // Article creation
-        if ( $request->curl_options($curl_options) == true ):
-            $result = $request->curl_execute();
-            $article->log_file_write($result, 'request');
-            $request->curl_results($result);
-            if ( isset($request->response) ):
-                $request->curl_destroy();
-            endif;
+    // Sometimes we need to create an article:
+    if ( intval($print_cms_id) == 0 ):
+        $client->create_article($article);
+        if ( isset($client->result->response) ):
+            write_log($client->result->response);
         endif;
-    else:
-        // Article update
-        $curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+
+        // On article creation, we assign the saxo story id to the wp post.
+        if ( isset($client->request->response['header']['Location']) ):
+            // Get the story id, which will always be the last integer in the URL.
+            $print_cms_id = array_pop(explode('/', $client->request->response['header']['Location']));
+            $article->update_post(array('print_cms_id' => $print_cms_id));
+        else:
+            write_log('No Location header');
+        endif;
+    endif;
+
+    // At all times we need to update the article with the headline and body content.
+    $article->set_article_state('update');
+    //$request->set_print_cms_id($print_cms_id);
+    $client->set_print_cms_id($print_cms_id);
+    $client->lock_article();
+    if ( isset($client->result->response) ):
+        write_log($client->result->response);
+    endif;
+    $client->update_article($article);
+    if ( isset($client->result->response) ):
+        write_log($client->result->response);
+    endif;
+    $client->unlock_article();
+    if ( isset($client->result->response) ):
+        write_log($client->result->response);
     endif;
 
 
-    write_log($result->response);
 // If we've created a new article, we want to associate its saxo-id
 // with the article in WP.
 // This response will look something like:
@@ -199,12 +318,6 @@ function send_to_saxo($post_id)
 //  string(0) ""
 //}
 
-if ( isset($request->response['header']['Location']) ):
-    // Get the story id, which will always be the last integer in the URL.
-    $story_id = array_pop(explode('/', $request->response['header']['Location']));
-    $article->update_post(array('print_cms_id' => $story_id));
-    // *** add check to see if value already exists in custom field.
-endif;
     // *** initiate curl
     // *** if this is an article update, get the saxo article id (custom field)
     // *** send document to saxo

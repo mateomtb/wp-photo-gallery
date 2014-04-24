@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sax:story xmlns:sax="http://www.saxotech.com/editorial">
+<sax:story xmlns:sax="http://www.saxotech.com/editorial"{% if print_cms_id != '' %} id="{{print_cms_id}}" uri="https://mn1reporter.saxotech.com/ews/products/{{product_id}}/stories/{{story_id}}"{% endif %}>
 <sax:updatedtime>{{updatedtime}}</sax:updatedtime>
 <sax:texttype id="1"/>
 <sax:updatedby uri="https://mn1reporter.saxotech.com/ews/products/{{product_id}}/users/{{author_print_id}}"/>
@@ -23,7 +23,7 @@
 <sax:sms></sax:sms>
 <sax:onlinepriority/>
 <sax:captions/>
-{% if newarticle %}
+{% if print_cms_id == '' %}
 <sax:changed content="false" properties="false" geometry="false"/>
 {% else %}
 <sax:changed content="true" properties="false" geometry="false"/>
@@ -55,4 +55,5 @@ By {{post.author.name}}
 <sax:numberofcharacters></sax:numberofcharacters>
 <sax:taxonomyterms/>
 <sax:channels/>
-<sax:multipriorities/></sax:story>
+<sax:multipriorities/>
+</sax:story>
