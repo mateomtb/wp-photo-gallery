@@ -25,6 +25,7 @@ class DFMRequest
     var $cur;
     var $response;
     var $print_cms_id;
+    var $credentials;
 
     function __construct()
     {
@@ -72,11 +73,8 @@ class DFMRequest
     public function curl_options($values = array())
     {
         // Set options. Takes an array of CURL_OPTION => CURL_OPTION_VALUE.
-        foreach ( $values as $key => $value ):
-            curl_setopt($this->cur, $key, $value);
-        endforeach;
-
-        return true;
+        $return = curl_setopt_array($this->cur, $values);
+        return $return;
     }
 
     public function curl_execute()

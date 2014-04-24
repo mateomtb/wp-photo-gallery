@@ -52,15 +52,16 @@ class SaxoClient
     public function create_article($article)
     {
         // Create an article in Saxo.
-        $local_curl_options = array(
-            CURLOPT_URL => $this->request->set_url($this->target_urls['article']),
-            CURLOPT_POSTFIELDS => $xml
-        );
         $xml = $article->get_article();
-        if ( $this->request->curl_options(array_merge($this->curl_options, $local_curl_options)) == true ):
+        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article']);
+        $this->curl_options[CURLOPT_POSTFIELDS] = $xml;
+
+        if ( $this->request->curl_options($this->curl_options) == true ):
             $result = $this->request->curl_execute();
             $article->log_file_write($result, 'request');
-            $this->request->curl_results($result);
+            if ( isset($this->request->response['error']) ):
+                $article->log_file_write($this->request->response['error'], 'request');
+            endif;
             if ( isset($this->request->response) ):
                 $this->request->curl_destroy();
             endif;
