@@ -49,11 +49,10 @@ class SaxoClient
         return $this->print_cms_id;
     }
 
-    public function create_article($article)
+    private function write_article($article, $type='create')
     {
-        // Create an article in Saxo.
+        // Create or update an article in Saxo. The $type parameter can be either 'create' or 'update'.
         $xml = $article->get_article();
-        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article']);
         $this->curl_options[CURLOPT_POSTFIELDS] = $xml;
 
         if ( $this->request->curl_options($this->curl_options) == true ):
@@ -61,9 +60,16 @@ class SaxoClient
             $article->log_file_write($result, 'request');
             if ( isset($this->request->response['error']) ):
                 $article->log_file_write($this->request->response['error'], 'request');
+                if ( function_exists('write_log') ):
+                    write_log('Could not execute curl request in class.saxo.php: ' . $this->request->response['error'], 'PLUGIN WARNING');
+                endif;
             endif;
             if ( isset($this->request->response) ):
                 $this->request->curl_destroy();
+            endif;
+        else:
+            if ( function_exists('write_log') ):
+                write_log('Could not set curl_options on write_article() in class.saxo.php', 'PLUGIN WARNING');
             endif;
         endif;
     }
@@ -71,7 +77,20 @@ class SaxoClient
     public function lock_article()
     {   
         // Lock a Saxo article
-     
+        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article_lock']);
+        $this->curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+        if ( $this->request->curl_options($this->curl_options) == true ):
+            $result = $this->request->curl_execute();
+            if ( isset($this->request->response['error']) ):
+                if ( function_exists('write_log') ):
+                    write_log('Could not execute curl request in class.saxo.php: ' . $this->request->response['error'], 'PLUGIN WARNING');
+                endif;
+            endif;
+        else:
+            if ( function_exists('write_log') ):
+                write_log('Could not set curl_options on lock_article() in class.saxo.php', 'PLUGIN WARNING');
+            endif;
+        endif;
     }
 
     public function unlock_article()
@@ -80,10 +99,19 @@ class SaxoClient
      
     }
 
+    public function create_article($article)
+    {   
+        // Write a Saxo article
+        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article']);
+        $this->write_article($article, 'create');
+    }
+
     public function update_article($article)
     {   
         // Update a Saxo article
-        $local_curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+        $this->curl_options[CURLOPT_URL] = $this->request->set_url($this->target_urls['article_detail']);
+        $this->curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+        $this->write_article($article, 'update');
     }
 
 }
