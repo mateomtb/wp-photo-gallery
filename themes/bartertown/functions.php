@@ -483,6 +483,19 @@ if (class_exists('Fieldmanager_Group')) {
 }
 //include(WP_PLUGIN_DIR . '/DFM-WordPress-Objects/dfm-wordpress-objects.php');
 //dfm_uses_wordpress_object('article', 'source');
+
+
+//DEBUGGING STUFF
+//Add these lines to wp-config.php
+//define('WP_DEBUG', true);
+//define('WP_DEBUG_LOG', true);
+//define('WP_DEBUG_DISPLAY', false);
+
+//You can do things with write_log() like this
+//write_log($awesomearray) the write_log will suss the type you're passing and var_dump out the array to the debug log
+//at webroot/wp-content/debug.log
+//write_log also takes a second, optional parameter: title. If you want a prefix on the log entry pass it a string and that will prefix your log entry.
+//This is a good way to check your log file -> tail -f /path/to/wp-content/debug.log
 if (!function_exists('write_log')) 
 {
     function write_log ($log, $title = '')  
