@@ -208,7 +208,7 @@ class SaxoArticle extends DFMToPrintArticle
 
         $local_context = array(
             'product_id' => 1, // *** HC for now
-            'publication_id' => 974570, // *** HC for now
+            //'publication_id' => 974570, // *** HC for now
             'author_print_id' => 944621807, // *** HC for now
             'category_id' => 442202241,
             'statuscode' => 1,

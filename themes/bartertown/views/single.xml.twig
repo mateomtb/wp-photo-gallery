@@ -13,9 +13,9 @@
 <sax:textformat>720743380</sax:textformat>
 <sax:title>DFM-{{post.slug}}-{{post.ID}}</sax:title>
 <sax:description></sax:description>
-<sax:author></sax:author>
+<sax:author>{{post.author.name}}</sax:author>
 <sax:kicker></sax:kicker>
-<sax:header></sax:header>
+<sax:header>{{post.title}}</sax:header>
 <sax:subheader></sax:subheader>
 <sax:byline>By {{post.author.name}}</sax:byline>
 <sax:preface></sax:preface>
@@ -51,9 +51,29 @@ By {{post.author.name}}
 <sax:plaintext></sax:plaintext></sax:nativeboxtext>
 <sax:nativeboxtext boxtype="netheader" nativetexttype="Adobe InCopy CS4 ICML">
 <sax:plaintext></sax:plaintext></sax:nativeboxtext></sax:nativeboxtexts>
-<sax:bodyextent></sax:bodyextent>
-<sax:numberofcharacters></sax:numberofcharacters>
+<sax:bodyextent>7</sax:bodyextent>
+<sax:numberofcharacters>50</sax:numberofcharacters>
 <sax:taxonomyterms/>
 <sax:channels/>
 <sax:multipriorities/>
+{% if print_cms_id != '' %}
+<sax:websetting id="941916892">
+<sax:subcategory></sax:subcategory>
+<sax:webcategory/>
+<sax:keywords></sax:keywords>
+<sax:startpublicationtime></sax:startpublicationtime>
+<sax:stoppublicationtime></sax:stoppublicationtime>
+<sax:factboxarticle></sax:factboxarticle>
+<sax:frontpagedesign></sax:frontpagedesign>
+<sax:listdesign></sax:listdesign>
+<sax:articledesign></sax:articledesign>
+<sax:pbcsextra></sax:pbcsextra>
+<sax:topstory>0</sax:topstory>
+<sax:forum>0</sax:forum>
+<sax:usewebpublicationtime>0</sax:usewebpublicationtime>
+<sax:priorityrotate>0</sax:priorityrotate>
+<sax:multimedia>0</sax:multimedia>
+<sax:storytype>0</sax:storytype>
+</sax:websetting>
+{% endif %}
 </sax:story>
