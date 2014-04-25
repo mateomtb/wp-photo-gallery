@@ -4,7 +4,12 @@
     {% for post in story_feed %}
     {% if post.title %}
         <li>
-            <h5><a href="{{post.category.link}}">{{post.category}}</a></h5>
+            
+            {% if post.category == "Uncategorized" %}
+                <h5><a href="{{post.category.link}}">News</a></h5>
+            {% else %}
+                <h5><a href="{{post.category.link}}">{{post.category}}</a></h5>
+            {% endif %}
             <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
             <div class="meta">
                 <p class="timestamp">{{post.post_date|time_ago}}</p>
