@@ -98,7 +98,7 @@ function global_context($data){
         'is_singular' => is_singular(),
         'template_uri' => get_template_directory_uri(),
         // Ads might be buggy so control with query var for now
-        'all_ads' => $_REQUEST['ads'] !== null ? true : false,
+        'all_ads' => isset($_REQUEST['ads']) ? true : false,
 
         // Environment vars
         'domain' => $domain_bits[1],
@@ -106,7 +106,7 @@ function global_context($data){
         'poll_title' => $poll_title,
         'poll_options' => $poll_options,
         'poll_vote' => $poll_vote,
-        'mode' => 'section',
+        'mode' => '',
 
         // Content vars
         'single_cat_title' => single_cat_title(),
@@ -114,15 +114,20 @@ function global_context($data){
         'menu_main' => new TimberMenu('Main'),
         'menu_hot' => new TimberMenu('Hot Topics'),
         'menu_action' => new TimberMenu('Take Action'),
-        'section' => $cat->slug,
-        'sectionName' => $cat->name,
-        'taxonomy1' => $taxonomy[0] ? $taxonomy[0] : '', 
-        'taxonomy2' => $taxonomy[1] ? $taxonomy[1] : '',
-        'taxonomy3' => $taxonomy[2] ? $taxonomy[2] : '',
-        'taxonomy4' => $taxonomy[3] ? $taxonomy[3] : ''
+        'taxonomy1' => isset($taxonomy[0]) ? $taxonomy[0] : '', 
+        'taxonomy2' => isset($taxonomy[1]) ? $taxonomy[1] : '',
+        'taxonomy3' => isset($taxonomy[2]) ? $taxonomy[2] : '',
+        'taxonomy4' => isset($taxonomy[3]) ? $taxonomy[3] : ''
 
     );
+    if ( get_query_var('cat') != '' ):
+        $data['section'] = $cat->slug;
+        $data['sectionName'] = $cat->name;
+    endif;
     // Data provided here:
+    // We put this here for devs who are looking at this code for the first
+    // time and want to know what site information they have to work with.
+    // These fields / information come from the dfm-wp-data plugin.
     /*
     [site_name] => Silver City Sun News
     [url] => www.scsun-news.com/
@@ -184,7 +189,8 @@ function global_context($data){
     $wLanguage = 'en';  
     $locationKey = '';
 
-    function getCurrentConditions($apiUrl, $locationKey, $wLanguage, $apiKey){
+if ( !function_exists('getCurrentConditions') ):
+    function getCurrentConditions($apiUrl, $locationKey, $wLanguage, $apiKey) {
         $currentConditionsUrl = $apiUrl . '/currentconditions/v1/' . $locationKey . '.json?language=' . $wLanguage . '&apikey=' . $apiKey;
         return $currentConditionsUrl;
     }
@@ -194,7 +200,7 @@ function global_context($data){
         return $forecastUrl;
     }
 
-    function getWeather($apiUrl, $z, $apiKey){
+    function getWeather($apiUrl, $z, $apiKey) {
         $locationUrl = $apiUrl . '/locations/v1/US/search?q=' . $z . '&apiKey=' . $apiKey;
         $locationUrl = file_get_contents($locationUrl);
         $locationUrl = json_decode($locationUrl, true);
@@ -239,9 +245,12 @@ function global_context($data){
         }    
         return 'Denver';
     }
+endif;
 
     $zipCode = $_SESSION['dfm']['zip_code'];
-    $data['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed($context['section'])), true)) ? $mc : null;
+    if ( isset($context) ):
+        $data['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed($context['section'])), true)) ? $mc : null;
+    endif;
     $data['get_weather'] = ($get_weather = getWeather($apiUrl, $zipCode, $apiKey)) ? $get_weather : null;
     $data['get_cw'] = ($gw = json_decode(file_get_contents(getCurrentConditions($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $gw : null;
     $data['get_fc'] = ($fc = json_decode(file_get_contents(getForecasts($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $fc : null;
@@ -429,8 +438,36 @@ if (class_exists('Fieldmanager_Group')) {
             ),
         ) );
         $fm->add_meta_box( 'Article Curation', array( 'post' ) );
-        //var_dump($fm);
        
     });
 
+}
+//include(WP_PLUGIN_DIR . '/DFM-WordPress-Objects/dfm-wordpress-objects.php');
+//dfm_uses_wordpress_object('article', 'source');
+
+
+//DEBUGGING STUFF
+//Add these lines to wp-config.php
+//define('WP_DEBUG', true);
+//define('WP_DEBUG_LOG', true);
+//define('WP_DEBUG_DISPLAY', false);
+
+//You can do things with write_log() like this
+//write_log($awesomearray) the write_log will suss the type you're passing and var_dump out the array to the debug log
+//at webroot/wp-content/debug.log
+//write_log also takes a second, optional parameter: title. If you want a prefix on the log entry pass it a string and that will prefix your log entry.
+//This is a good way to check your log file -> tail -f /path/to/wp-content/debug.log
+if (!function_exists('write_log')) 
+{
+    function write_log ($log, $title = '')  
+    {
+        if ( true === WP_DEBUG ) 
+        {
+            if ( is_array( $log ) || is_object( $log ) ):
+                error_log($title . ': ' . print_r( $log, true ) );
+            else:
+                error_log($title . ': ' . $log);
+            endif;
+        }
+    }
 }

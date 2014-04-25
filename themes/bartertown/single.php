@@ -14,6 +14,7 @@ $post = new TimberPost();
 $context['post'] = $post;
 $context['wp_title'] .= ' - ' . $post->title();
 
+
 // This subhead-specific plugin doesn't yet work.
 if ( function_exists('the_subheading') )
     $context['subhead'] = get_the_subheading();
@@ -61,15 +62,10 @@ if ( class_exists('DFMCollection') ):
     endif;
 endif;
 
-// More article sidebar content
-$poll_id = intval(get_post_custom_values('inarticle_poll', $post->ID));
-if ( $poll_id > 0 ):
-    $context['inarticle_poll'] = TimberHelper::function_wrapper('get_poll', array($poll_id));
-endif;
 
-if ( function_exists('rh_the_revision') ):
-    $context['revisions'] = TimberHelper::function_wrapper('rh_the_revision', array('<h4>', '</h4>'));
-endif;
+//if ( function_exists('rh_the_revision') ):
+//    $context['revisions'] = TimberHelper::function_wrapper('rh_the_revision', array('<h4>', '</h4>'));
+//endif;
 
 
 // Layout-sidebar content
