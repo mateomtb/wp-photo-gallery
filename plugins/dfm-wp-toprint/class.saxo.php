@@ -206,13 +206,22 @@ class SaxoArticle extends DFMToPrintArticle
             include($this->path_prefix . '../timber/timber.php');
         endif;
 
+        $post_content_filtered = str_replace('<p>', '<p class="TX Body">', $post->post_content);
+        $numberofcharacters = strlen($post_content_filtered);
+        $bodyextent = 10;
+        if ( !array_key_exists('print_cms_id', $added_context) ):
+            $numberofcharacters = '';
+            $bodyextent = '';
+        endif;
         $local_context = array(
             'product_id' => 1, // *** HC for now
             //'publication_id' => 974570, // *** HC for now
             'author_print_id' => 944621807, // *** HC for now
             'category_id' => 442202241,
             'statuscode' => 1,
-            'post_content_filtered' => str_replace('<p>', '<p class="TX Body">', $post->post_content),
+            'post_content_filtered' => $post_content_filtered,
+            'numberofcharacters' => $numberofcharacters,
+            'bodyextent' => $bodyextent,
             'post' => new TimberPost($post->ID)
         );
 
