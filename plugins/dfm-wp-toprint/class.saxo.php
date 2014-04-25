@@ -215,19 +215,19 @@ class SaxoArticle extends DFMToPrintArticle
             'post_content_filtered' => str_replace('<p>', '<p class="TX Body">', $post->post_content),
             'post' => new TimberPost($post->ID)
         );
-        $approved_context_keys = array('product_id', 'publication_id', 'category_id', 'print_cms_id');
-        foreach ( $added_context as $key => $value ):
-            if ( !array_key_exists($key, $approved_context_keys) ):
-                continue;
-            endif;
-            $local_context[$key] = $value;
-        endforeach;
 
         $context = Timber::get_context();
         if ( $this->article_state == 'update' ):
             $context['statuscode'] = 2;
             $context['updatedtime'] = date('c');
         endif;
+
+        $approved_context_keys = array('product_id', 'publication_id', 'category_id', 'print_cms_id');
+        foreach ( $added_context as $key => $value ):
+            if ( in_array($key, $approved_context_keys) == TRUE ):
+                $context[$key] = $value;
+            endif;
+        endforeach;
 
         ob_start();
         Timber::render(array($this->article_template), array_merge($context, $local_context));
@@ -331,7 +331,7 @@ if ( function_exists('add_action') ):
     add_action( 'publish_post', 'send_to_saxo' );
     // Wrappers for the other actions we'll need to hook into.
     add_action('before_delete_post', 'remove_from_saxo');
-    //add_action('post_updated', 'send_to_saxo');
+    add_action('post_updated', 'send_to_saxo');
 endif;
 
 // *******************
