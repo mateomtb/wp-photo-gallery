@@ -427,11 +427,7 @@ if (class_exists('Fieldmanager_Group')) {
                     'name' => 'secondary_lead_story',
                     'checked_value' => 'yes'
                     )),
-                'secondary_story' => new Fieldmanager_Checkbox( 'Secondary Story', array(
-                    'name' => 'secondary_story',
-                    'checked_value' => 'yes'
-                    )),
-                'story_feed' => new Fieldmanager_Checkbox( 'Story Feed', array(
+                'story_feed' => new Fieldmanager_Checkbox( 'Breaking News', array(
                     'name' => 'story_feed',
                     'checked_value' => 'yes'
                     )),
