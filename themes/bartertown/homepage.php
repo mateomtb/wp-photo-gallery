@@ -30,52 +30,85 @@ $config = getContentConfigFeed($context['domain'], $context['section']);
 
 // Assign arrays structured as above created from JSON file
 
-// Lead Stories
-$id_array = array();
+// Declare arrays for later use.
+$lead_story_array = array();
+$secondary_lead_story_array = array();
+$related_stories_array = array();
 
 $all_posts = get_posts(array(
     'post_status' => 'publish',
-    'posts_per_page' => -1,
-    'fields' => 'ids'
+    'posts_per_page' => 100,
+    'fields' => 'ids',
+    'orderby' => 'modified'
     )
 );
 
+
+// Pushes post(s) to resepective array. Also adds to $excludeArray to avoid repitition.
+
 if( isset( $all_posts ) && !empty( $all_posts ) ){
-    foreach($all_posts as $p){    
-        $article_curation = get_post_meta($p,"article_curation",true);
+    $lead_in_array = 'lead array!';
+    foreach( $all_posts as $p ){    
+        $article_curation = get_post_meta( $p , "article_curation" , true );
         if( is_string( $article_curation ) === false && $article_curation['lead_story'] !== false ) {
-            array_push($id_array, $p);
+            array_push( $lead_story_array , $p );
+            array_push( $lead_story_array , $lead_in_array );
+            array_push( $excludeArray , $p );
+        }
+        if( is_string( $article_curation ) === false && $article_curation['secondary_lead_story'] !== false  && ! in_array( $p , $excludeArray ) ) {
+            array_push( $secondary_lead_story_array, $p );
+            array_push( $secondary_lead_story_array , $lead_in_array );
+            array_push( $excludeArray , $p );
+        }
+        elseif( is_string( $article_curation ) === false && $article_curation['story_feed'] !== false  && ! in_array( $p , $excludeArray ) ) {
+            array_push( $related_stories_array , $p );
+            array_push( $excludeArray , $p );
         }
     }
 }
 
-// Gets the lead story with the arg of all the posts set to lead_story.
-function get_lead_story( $ids ){
-    if( isset( $ids ) && !empty( $ids ) ){
-        foreach ( $ids as $key => $value) {
-            // Article contains lead story.
-            $meta_values = get_post_meta( $value );
-            $leadStory = Timber::get_post( intval($value) );
-            return $leadStory;
+// Gets the respective story with the arg of all the posts set to respective array.
+// Need to find a better way to check if story is lead or not lead.
+// As of now just adding string to $lead_story_array and checking for existence.
+function get_respective_post( $post_ids ){
+    $storage_Array = array();
+    if( isset( $post_ids ) && !empty( $post_ids ) ){
+        if( in_array( 'lead array!' , $post_ids) ){
+            foreach ( $post_ids as $id ) {          
+                $meta_values = get_post_meta( $id );
+                $leadStory = Timber::get_post( intval( $id ) );
+                return $leadStory;
+                }
+            }
+        if( ! in_array( 'lead array!' , $post_ids) ){
+            foreach ( $post_ids as $id ) {
+                // ^^^ Need conditional logic. This breaks $secondary_lead_story.
+                // Adds all posts to $storage_Array for use in context/twig.
+                $meta_values = get_post_meta( $id );
+                $nonLeadStory = Timber::get_post( intval( $id ) );
+                array_push( $storage_Array , $nonLeadStory );
+            }
+            return $storage_Array;
         }
     }
     else {
-        // lead_story checkbox not checked on any post, grabs most recent
+        // ^^^Need to verify this is accurate
         $args = array( 'numberposts' => '1' );
         $most_recent_article = Timber::get_post( $args );
-        return $most_vrecent_article;
+        return $most_recent_article;
     }
 }
-
 
 $secondaryLeadStory = array_values($config['secondary_lead_story']);
 $relatedStories = array_values($config['related_stories']);
 $secondaryStories = array_values($config['secondary_stories']);
 
-
 // Story feed
 $feedStoryHeading = $config['story_feed_heading'];
 $storyFeeds = array_values($config['story_feed']);
+
+
+$context['story_feed'] = unboltQuery('get_post', $storyFeeds, $context['exclude_posts']);
 
 // Breaking and apocalypse
 $breakingNews = array_values($config['breaking_news']);
@@ -113,7 +146,7 @@ $context['apocalypse'] = unboltQuery('get_posts', $apocalypse, $context['exclude
 if ($context['apocalypse']) {
     // Bring config from above down here for these sorts of stories
     // Lead Story
-    $context['lead_story'] = call_user_func_array("get_lead_story", array( $id_array ));
+    //$context['lead_story'] = call_user_func_array("get_respective_post", array( $lead_story_array ));
 
     // Apoc secondary lead story
     $apocSecondaryLeadStory = array_values($config['apoc_secondary_lead_story']);
@@ -142,22 +175,24 @@ if ($context['apocalypse']) {
 // Normal
 else {
     // Lead story
-    $context['lead_story'] = call_user_func_array("get_lead_story", array( $id_array ));
-    //echo '<pre>'; var_dump($context['lead_story']); echo '</pre>';
+    $context['lead_story'] = call_user_func_array("get_respective_post", array( $lead_story_array ));
+
     // Secondary lead story
-    $context['secondary_lead_story'] = unboltQuery('get_posts', $secondaryLeadStory, $context['exclude_posts']);
+    $context['secondary_lead_story'] = get_respective_post( $secondary_lead_story_array );
+    //$context['secondary_lead_story'] = call_user_func_array("get_respective_post", array( $secondary_lead_story_array ));
+
     // Secondary stories
     $context['secondary_stories'] = array();
     foreach($secondaryStories as $story) {
         //$context['secondary_stories'][] =  Timber::get_post(createWPQueryArray(array_values($story)));
-        $context['secondary_stories'][] = unboltQuery('get_post', array_values($story), $context['exclude_posts']);
+        //$context['secondary_stories'][] = unboltQuery('get_post', array_values($story), $context['exclude_posts']);
     }
     // Story feed small
     $context['story_feed_heading'] = $config['story_feed_heading'];
-    $context['story_feed'] = array();
-    foreach($storyFeeds as $story) {
-        $context['story_feed'][] = unboltQuery('get_post', array_values($story), $context['exclude_posts']);
-    }
+
+    // Breaking Stories, aka Story Feeds
+    $context['story_feed'] = get_respective_post( $related_stories_array );
+    
     // Related stories (only appear if second lead story does not exist)
     $context['related_stories'] = Timber::get_posts(createWPQueryArray($relatedStories));
     $context['related_stories'] = unboltQuery('get_posts', $relatedStories, $context['exclude_posts']);
@@ -166,7 +201,7 @@ else {
 // Section promos
 $context['section_promos'] = array();
 foreach($sectionPromos as $promo) {
-    $context['section_promos'][] = unboltQuery('get_posts', array_values($promo), $context['exclude_posts']);
+   $context['section_promos'][] = unboltQuery('get_posts', array_values($promo), $context['exclude_posts']);
 }
 
 //Eventful
