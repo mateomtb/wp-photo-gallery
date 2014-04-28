@@ -43,13 +43,12 @@ $all_posts = get_posts(array(
     )
 );
 
-
 // Pushes post(s) to resepective array. Also adds to $excludeArray to avoid repitition.
 
 if( isset( $all_posts ) && !empty( $all_posts ) ){
     $lead_in_array = 'lead array!';
     foreach( $all_posts as $p ){    
-        $article_curation = get_post_meta( $p , "article_curation" , true );
+        $article_curation = get_post_meta( $p , 'article_curation' , true );
         if( is_string( $article_curation ) === false && $article_curation['lead_story'] !== false ) {
             array_push( $lead_story_array , $p );
             array_push( $lead_story_array , $lead_in_array );
@@ -67,10 +66,10 @@ if( isset( $all_posts ) && !empty( $all_posts ) ){
     }
 }
 
+function get_respective_post( $post_ids ){
 // Gets the respective story with the arg of all the posts set to respective array.
 // Need to find a better way to check if story is lead or not lead.
 // As of now just adding string to $lead_story_array and checking for existence.
-function get_respective_post( $post_ids ){
     $storage_Array = array();
     if( isset( $post_ids ) && !empty( $post_ids ) ){
         if( in_array( 'lead array!' , $post_ids) ){
@@ -80,7 +79,7 @@ function get_respective_post( $post_ids ){
                 return $leadStory;
                 }
             }
-        if( ! in_array( 'lead array!' , $post_ids) ){
+        if( !in_array( 'lead array!' , $post_ids) ){
             foreach ( $post_ids as $id ) {
                 // ^^^ Need conditional logic. This breaks $secondary_lead_story.
                 // Adds all posts to $storage_Array for use in context/twig.
@@ -214,5 +213,5 @@ endif;
 $context['bottom_line1'] = Timber::get_posts('tag=bottom_line1');
 $context['bottom_line2'] = Timber::get_posts('tag=bottom_line2');
 $context['bottom_line3'] = Timber::get_posts('tag=bottom_line3');
-/* End run queries */
+
 ?>
