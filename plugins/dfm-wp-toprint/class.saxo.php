@@ -215,6 +215,7 @@ class SaxoArticle extends DFMToPrintArticle
         endif;
 
         $post_content_filtered = $this->filter_post_content($post->post_content);
+        $post_title_filtered = str_replace('&nbsp;', ' ', $post->post_title);
         $numberofcharacters = strlen($post_content_filtered);
         $bodyextent = 10;
         if ( !array_key_exists('print_cms_id', $added_context) ):
@@ -228,6 +229,7 @@ class SaxoArticle extends DFMToPrintArticle
             'category_id' => 442202241,
             'statuscode' => 1,
             'post_content_filtered' => $post_content_filtered,
+            'post_title_filtered' => $post_title_filtered,
             'numberofcharacters' => $numberofcharacters,
             'bodyextent' => $bodyextent,
             'post' => new TimberPost($post->ID)
