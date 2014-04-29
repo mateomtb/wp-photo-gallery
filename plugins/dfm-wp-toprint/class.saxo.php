@@ -192,6 +192,14 @@ class SaxoArticle extends DFMToPrintArticle
         return $saxo_cat_lookup[$saxo_cat_name];
     }
 
+    private function filter_post_content($post_content)
+    {
+        // This function takes the blob of wp post content (usually the $post->post_content value)
+        // and gets it ready for Saxotech.
+        $filtered = str_replace("\r\n\r\n", "</p>\n<p class='TX Body'>", $post_content);
+        return '<p class="TX Body">' . $filtered . '</p>';
+    }
+
     public function get_article($post_id=0, $added_context = array())
     {
         // Returns an xml representation of the desired article
@@ -206,28 +214,39 @@ class SaxoArticle extends DFMToPrintArticle
             include($this->path_prefix . '../timber/timber.php');
         endif;
 
+        $post_content_filtered = $this->filter_post_content($post->post_content);
+        $post_title_filtered = str_replace('&nbsp;', ' ', $post->post_title);
+        $numberofcharacters = strlen($post_content_filtered);
+        $bodyextent = 10;
+        if ( !array_key_exists('print_cms_id', $added_context) ):
+            $numberofcharacters = '';
+            $bodyextent = '';
+        endif;
         $local_context = array(
             'product_id' => 1, // *** HC for now
-            'publication_id' => 974570, // *** HC for now
+            //'publication_id' => 974570, // *** HC for now
             'author_print_id' => 944621807, // *** HC for now
             'category_id' => 442202241,
             'statuscode' => 1,
-            'post_content_filtered' => str_replace('<p>', '<p class="TX Body">', $post->post_content),
+            'post_content_filtered' => $post_content_filtered,
+            'post_title_filtered' => $post_title_filtered,
+            'numberofcharacters' => $numberofcharacters,
+            'bodyextent' => $bodyextent,
             'post' => new TimberPost($post->ID)
         );
-        $approved_context_keys = array('product_id', 'publication_id', 'category_id', 'print_cms_id');
-        foreach ( $added_context as $key => $value ):
-            if ( !array_key_exists($key, $approved_context_keys) ):
-                continue;
-            endif;
-            $local_context[$key] = $value;
-        endforeach;
 
         $context = Timber::get_context();
         if ( $this->article_state == 'update' ):
             $context['statuscode'] = 2;
             $context['updatedtime'] = date('c');
         endif;
+
+        $approved_context_keys = array('product_id', 'publication_id', 'category_id', 'print_cms_id');
+        foreach ( $added_context as $key => $value ):
+            if ( in_array($key, $approved_context_keys) == TRUE ):
+                $context[$key] = $value;
+            endif;
+        endforeach;
 
         ob_start();
         Timber::render(array($this->article_template), array_merge($context, $local_context));
@@ -318,10 +337,6 @@ function send_to_saxo($post_id)
 //  string(0) ""
 //}
 
-    // *** initiate curl
-    // *** if this is an article update, get the saxo article id (custom field)
-    // *** send document to saxo
-    // *** if this is a new article, get the saxo article id and store it in a custom field
     // *** Get the response from saxo, let the user know if it failed or succeeded.
     // *** If it failed, print as many relevant details of the failure as possible.
 }
@@ -335,7 +350,7 @@ if ( function_exists('add_action') ):
     add_action( 'publish_post', 'send_to_saxo' );
     // Wrappers for the other actions we'll need to hook into.
     add_action('before_delete_post', 'remove_from_saxo');
-    //add_action('post_updated', 'send_to_saxo');
+    add_action('post_updated', 'send_to_saxo');
 endif;
 
 // *******************
