@@ -45,26 +45,29 @@ $all_posts = get_posts(array(
 );
 
 // Pushes post(s) to resepective array. Also adds to $exclusionArray to avoid repitition.
-
 if( isset( $all_posts ) && !empty( $all_posts ) ){
-    $lead_in_array = 'lead array!';
+    $lead_in_array = 'This is the lead array %%%%5555%%%%!';
     foreach( $all_posts as $p ){    
         $article_curation = get_post_meta( $p , 'article_curation' , true );
         if( is_string( $article_curation ) === false && $article_curation['lead_story'] !== false ) {
             array_push( $lead_story_array , $p );
-            array_push( $lead_story_array , $lead_in_array );
             array_push( $exclusionArray , $p );
-            //write_log($exclusionArray,'EXCLUDE ARRAY ********** ');
         }
         if( is_string( $article_curation ) === false && $article_curation['secondary_lead_story'] !== false  && ! in_array( $p , $exclusionArray ) ) {
-            array_push( $secondary_lead_story_array, $p );
-            array_push( $secondary_lead_story_array , $lead_in_array );
+            array_push( $secondary_lead_story_array, $p );   
             array_push( $exclusionArray , $p );
         }
         elseif( is_string( $article_curation ) === false && $article_curation['story_feed'] !== false  && ! in_array( $p , $exclusionArray ) ) {
             array_push( $related_stories_array , $p );
             array_push( $exclusionArray , $p );
         }
+    }
+    // Add $lead_in_array string to identify arrays that should only have 1 value
+    if( !empty( $lead_story_array )){
+        array_push( $lead_story_array , $lead_in_array );
+    }
+    if ( !empty( $secondary_lead_story_array )) {
+        array_push( $secondary_lead_story_array , $lead_in_array );
     }
 }
 
@@ -74,14 +77,14 @@ function get_respective_post( $post_ids, $exclusionArray ){
 // As of now just adding string to $lead_story_array and checking for existence.
     $storage_Array = array();
     if( isset( $post_ids ) && !empty( $post_ids ) ){
-        if( in_array( 'lead array!' , $post_ids) ){
+        if( in_array( 'This is the lead array %%%%5555%%%%!' , $post_ids) ){
             foreach ( $post_ids as $id ) {          
                 $meta_values = get_post_meta( $id );
                 $leadStory = Timber::get_post( intval( $id ) );
                 return $leadStory;
                 }
             }
-        if( !in_array( 'lead array!' , $post_ids) ){
+        if( !in_array( 'This is the lead array %%%%5555%%%%!' , $post_ids) ){
             foreach ( $post_ids as $id ) {
                 // ^^^ Need conditional logic. This breaks $secondary_lead_story.
                 // Adds all posts to $storage_Array for use in context/twig.
@@ -93,30 +96,20 @@ function get_respective_post( $post_ids, $exclusionArray ){
         }
     }
     else {
+        // Specific to Breaking News for the time. Verifies stories aren't already assign to other array
+        // And places them in left rail.
         $args = get_posts(array( 'numberposts' => 25, 
             'post_status' => 'publish',
             'fields' => 'ids' ));
-           // write_log($exclusionArray,'EXCLUDE 089240524805982058054928250852405248092458524N ');
             foreach ($args as $arg) {
-                //write_log($arg,'ARGS LAKJFDLKSJLDKJLKSDJFLKJ302894503492UTOI3NGFSKMN ');
                 if( !in_array( $arg , $exclusionArray ) ){
-                    //write_log($arg, 'These are in the exclusionArray');
                     $meta_values = get_post_meta( $arg );
                     $breaking_news_posts = Timber::get_post( intval($arg) );
                     array_push( $storage_Array , $breaking_news_posts );
-                    //write_log($breaking_news_posts);
-            }
-            else {
-      
-            }
-        }   
-            $none_selected_array = array_slice( $storage_Array, 0,6);
-            write_log($none_selected_array,'none_selected_array 289034802983402398');
-            
-            return $none_selected_array;        
+                }
+            }    
+            return array_slice( $storage_Array, 0,7);        
         }
-        
-
     }
 
 $secondaryLeadStory = array_values($config['secondary_lead_story']);
@@ -198,7 +191,7 @@ else {
     $context['lead_story'] = call_user_func_array("get_respective_post", array( $lead_story_array ));
 
     // Secondary lead story
-    $context['secondary_lead_story'] = get_respective_post( $secondary_lead_story_array );
+    $context['secondary_lead_story'] = get_respective_post( $secondary_lead_story_array, $exclusionArray );
     //$context['secondary_lead_story'] = call_user_func_array("get_respective_post", array( $secondary_lead_story_array ));
 
     // Secondary stories
