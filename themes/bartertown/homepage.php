@@ -34,6 +34,7 @@ $config = getContentConfigFeed($context['domain'], $context['section']);
 $lead_story_array = array();
 $secondary_lead_story_array = array();
 $related_stories_array = array();
+$exclusionArray = array();
 
 $all_posts = get_posts(array(
     'post_status' => 'publish',
@@ -43,7 +44,7 @@ $all_posts = get_posts(array(
     )
 );
 
-// Pushes post(s) to resepective array. Also adds to $excludeArray to avoid repitition.
+// Pushes post(s) to resepective array. Also adds to $exclusionArray to avoid repitition.
 
 if( isset( $all_posts ) && !empty( $all_posts ) ){
     $lead_in_array = 'lead array!';
@@ -52,21 +53,22 @@ if( isset( $all_posts ) && !empty( $all_posts ) ){
         if( is_string( $article_curation ) === false && $article_curation['lead_story'] !== false ) {
             array_push( $lead_story_array , $p );
             array_push( $lead_story_array , $lead_in_array );
-            array_push( $excludeArray , $p );
+            array_push( $exclusionArray , $p );
+            //write_log($exclusionArray,'EXCLUDE ARRAY ********** ');
         }
-        if( is_string( $article_curation ) === false && $article_curation['secondary_lead_story'] !== false  && ! in_array( $p , $excludeArray ) ) {
+        if( is_string( $article_curation ) === false && $article_curation['secondary_lead_story'] !== false  && ! in_array( $p , $exclusionArray ) ) {
             array_push( $secondary_lead_story_array, $p );
             array_push( $secondary_lead_story_array , $lead_in_array );
-            array_push( $excludeArray , $p );
+            array_push( $exclusionArray , $p );
         }
-        elseif( is_string( $article_curation ) === false && $article_curation['story_feed'] !== false  && ! in_array( $p , $excludeArray ) ) {
+        elseif( is_string( $article_curation ) === false && $article_curation['story_feed'] !== false  && ! in_array( $p , $exclusionArray ) ) {
             array_push( $related_stories_array , $p );
-            array_push( $excludeArray , $p );
+            array_push( $exclusionArray , $p );
         }
     }
 }
 
-function get_respective_post( $post_ids ){
+function get_respective_post( $post_ids, $exclusionArray ){
 // Gets the respective story with the arg of all the posts set to respective array.
 // Need to find a better way to check if story is lead or not lead.
 // As of now just adding string to $lead_story_array and checking for existence.
@@ -91,12 +93,31 @@ function get_respective_post( $post_ids ){
         }
     }
     else {
-        // ^^^Need to verify this is accurate
-        $args = array( 'numberposts' => '1' );
-        $most_recent_article = Timber::get_post( $args );
-        return $most_recent_article;
+        $args = get_posts(array( 'numberposts' => 25, 
+            'post_status' => 'publish',
+            'fields' => 'ids' ));
+           // write_log($exclusionArray,'EXCLUDE 089240524805982058054928250852405248092458524N ');
+            foreach ($args as $arg) {
+                //write_log($arg,'ARGS LAKJFDLKSJLDKJLKSDJFLKJ302894503492UTOI3NGFSKMN ');
+                if( !in_array( $arg , $exclusionArray ) ){
+                    //write_log($arg, 'These are in the exclusionArray');
+                    $meta_values = get_post_meta( $arg );
+                    $breaking_news_posts = Timber::get_post( intval($arg) );
+                    array_push( $storage_Array , $breaking_news_posts );
+                    //write_log($breaking_news_posts);
+            }
+            else {
+      
+            }
+        }   
+            $none_selected_array = array_slice( $storage_Array, 0,6);
+            write_log($none_selected_array,'none_selected_array 289034802983402398');
+            
+            return $none_selected_array;        
+        }
+        
+
     }
-}
 
 $secondaryLeadStory = array_values($config['secondary_lead_story']);
 $relatedStories = array_values($config['related_stories']);
@@ -129,7 +150,7 @@ $priorityQueries = array(
     // We could choose different arrays here that do not include the exclude posts
     // array during their querying if order down below is insufficient
     // for prioritization
-    // Or simply pass an empty array for the $excludeArray
+    // Or simply pass an empty array for the $exclusionArray
 );
 
 /* End config*/
@@ -190,7 +211,7 @@ else {
     $context['story_feed_heading'] = $config['story_feed_heading'];
 
     // Breaking Stories, aka Story Feeds
-    $context['story_feed'] = get_respective_post( $related_stories_array );
+    $context['story_feed'] = get_respective_post( $related_stories_array, $exclusionArray );
     
     // Related stories (only appear if second lead story does not exist)
     $context['related_stories'] = Timber::get_posts(createWPQueryArray($relatedStories));
