@@ -181,8 +181,6 @@ function global_context($data){
         $data['dfm'] = $_SESSION['dfm'] = DFMDataForWP::retrieveRowFromMasterData('domain', $data['domain']);
     }
 
-
-    //declare vars
     $isMetric = false;
     $apiUrl = 'http://apidev.accuweather.com'; 
     $apiKey = '230548dfe5d54776aaaf5a1f2a19b3f5';
@@ -248,9 +246,15 @@ if ( !function_exists('getCurrentConditions') ):
 endif;
 
     $zipCode = $_SESSION['dfm']['zip_code'];
+    if( !isset( $zipCode )){
+        // If $zipCode doesn't exist sets it to Denver zip. Needs to be cleaned up/addressed.
+        $zipCode = '80202';
+    }
     if ( isset($context) ):
         $data['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed($context['section'])), true)) ? $mc : null;
     endif;
+
+    // Assigning global context vars using shorthand if/else statements based on functions declared above.
     $data['get_weather'] = ($get_weather = getWeather($apiUrl, $zipCode, $apiKey)) ? $get_weather : null;
     $data['get_cw'] = ($gw = json_decode(file_get_contents(getCurrentConditions($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $gw : null;
     $data['get_fc'] = ($fc = json_decode(file_get_contents(getForecasts($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $fc : null;
@@ -323,7 +327,7 @@ function getCategoryHierarchy($isHome = false){
 
 // Can move these to a class if more additions are required
 function excludeFilter($posts, &$excludeArray){
-    if ($posts) {
+    if ( is_array( $posts )) {
         foreach ($posts as $post) {
             $excludeArray[] = $post->ID;
         }
@@ -343,11 +347,11 @@ function createWPQueryArray($array, $excludeArray = array()) {
     );  
     */
     return array(
-        'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : 0),
-        'posts_per_page' => ($array[2] ? $array[2] : null),
-        'meta_key' => ($array[3] ? $array[3] : null),
-        'meta_value' => ($array[4] ? $array[4] : null),
-        'tag' => ($array[5] ? $array[5] : null),
+        'category' => (array_key_exists(1, $array) ? get_category_by_slug($array[1])->term_id : 0),
+        'posts_per_page' => (array_key_exists(2, $array) ? $array[2] : null),
+        'meta_key' => (array_key_exists(3, $array) ? $array[3] : null),
+        'meta_value' => (array_key_exists(4, $array) ? $array[4] : null),
+        'tag' => (array_key_exists(5, $array) ? $array[5] : null),
         'post__not_in' => $excludeArray
     );
 }
@@ -357,12 +361,11 @@ function unboltQuery($method, $query, &$excludeArray){
     // of IDs of posts that should be excluded from future get_post(s)() returns
     // without any global declarations
     // Had no luck filtering Timber's get_post(s)() methods
-    //var_dump($query);
     if (is_array($query)) {
         // The query passed should be a specific array
         // based on the json config files
         $query = createWPQueryArray($query, $excludeArray);
-        $posts = call_user_func(array(Timber, $method), $query);
+        $posts = call_user_func(array('Timber', $method), $query);
         if (!$posts && $query['tag'] !== 'apocalypse' && $query['tag'] !== 'breaking_news') {
             // This logic is overly specific and harcoded at the moment
             // Will likely start converting this and related functions into a Class 
@@ -375,13 +378,13 @@ function unboltQuery($method, $query, &$excludeArray){
                 'posts_per_page' => $query['posts_per_page']
             );
             return excludeFilter(
-                call_user_func(array(Timber, $method), $bQuery), 
+                call_user_func(array('Timber', $method), $bQuery), 
                 $excludeArray
             );
         }
     }
     return excludeFilter(
-        call_user_func(array(Timber, $method), $query), 
+        call_user_func(array('Timber', $method), $query), 
         $excludeArray
     );
 }
@@ -392,7 +395,7 @@ function getMediaCenterFeed($section) {
     if ($s = $_SESSION['dfm']) {
         $url = $s['media_center_url'];
         $cat = $section;
-        if (!$cat) {
+        if ( !isset( $cat )) {
             $cat = 'mc_rotator_home___';
         }
         return $url . "rotator?size=responsive&cat=$cat";
@@ -433,7 +436,7 @@ if (class_exists('Fieldmanager_Group')) {
                     )),
             ),
         ) );
-        $fm->add_meta_box( 'Article Curation', array( 'post' ) );
+        $fm->add_meta_box( 'Homepage Curation', array( 'post' ) );
        
     });
 
