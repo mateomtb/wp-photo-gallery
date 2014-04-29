@@ -347,11 +347,11 @@ function createWPQueryArray($array, $excludeArray = array()) {
     );  
     */
     return array(
-        'category' => ($array[1] ? get_category_by_slug($array[1])->term_id : 0),
-        'posts_per_page' => ($array[2] ? $array[2] : null),
-        'meta_key' => ($array[3] ? $array[3] : null),
-        'meta_value' => ($array[4] ? $array[4] : null),
-        'tag' => ($array[5] ? $array[5] : null),
+        'category' => (array_key_exists(1, $array) ? get_category_by_slug($array[1])->term_id : 0),
+        'posts_per_page' => (array_key_exists(2, $array) ? $array[2] : null),
+        'meta_key' => (array_key_exists(3, $array) ? $array[3] : null),
+        'meta_value' => (array_key_exists(4, $array) ? $array[4] : null),
+        'tag' => (array_key_exists(5, $array) ? $array[5] : null),
         'post__not_in' => $excludeArray
     );
 }
@@ -365,7 +365,7 @@ function unboltQuery($method, $query, &$excludeArray){
         // The query passed should be a specific array
         // based on the json config files
         $query = createWPQueryArray($query, $excludeArray);
-        $posts = call_user_func(array(Timber, $method), $query);
+        $posts = call_user_func(array('Timber', $method), $query);
         if (!$posts && $query['tag'] !== 'apocalypse' && $query['tag'] !== 'breaking_news') {
             // This logic is overly specific and harcoded at the moment
             // Will likely start converting this and related functions into a Class 
@@ -378,13 +378,13 @@ function unboltQuery($method, $query, &$excludeArray){
                 'posts_per_page' => $query['posts_per_page']
             );
             return excludeFilter(
-                call_user_func(array(Timber, $method), $bQuery), 
+                call_user_func(array('Timber', $method), $bQuery), 
                 $excludeArray
             );
         }
     }
     return excludeFilter(
-        call_user_func(array(Timber, $method), $query), 
+        call_user_func(array('Timber', $method), $query), 
         $excludeArray
     );
 }
