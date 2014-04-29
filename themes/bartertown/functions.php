@@ -98,7 +98,7 @@ function global_context($data){
         'is_singular' => is_singular(),
         'template_uri' => get_template_directory_uri(),
         // Ads might be buggy so control with query var for now
-        'all_ads' => $_REQUEST['ads'] !== null ? true : false,
+        'all_ads' => isset($_REQUEST['ads']) ? true : false,
 
         // Environment vars
         'domain' => $domain_bits[1],
@@ -114,14 +114,16 @@ function global_context($data){
         'menu_main' => new TimberMenu('Main'),
         'menu_hot' => new TimberMenu('Hot Topics'),
         'menu_action' => new TimberMenu('Take Action'),
-        'section' => $cat->slug,
-        'sectionName' => $cat->name,
-        'taxonomy1' => $taxonomy[0] ? $taxonomy[0] : '', 
-        'taxonomy2' => $taxonomy[1] ? $taxonomy[1] : '',
-        'taxonomy3' => $taxonomy[2] ? $taxonomy[2] : '',
-        'taxonomy4' => $taxonomy[3] ? $taxonomy[3] : ''
+        'taxonomy1' => isset($taxonomy[0]) ? $taxonomy[0] : '', 
+        'taxonomy2' => isset($taxonomy[1]) ? $taxonomy[1] : '',
+        'taxonomy3' => isset($taxonomy[2]) ? $taxonomy[2] : '',
+        'taxonomy4' => isset($taxonomy[3]) ? $taxonomy[3] : ''
 
     );
+    if ( get_query_var('cat') != '' ):
+        $data['section'] = $cat->slug;
+        $data['sectionName'] = $cat->name;
+    endif;
     // Data provided here:
     // We put this here for devs who are looking at this code for the first
     // time and want to know what site information they have to work with.
@@ -246,7 +248,9 @@ if ( !function_exists('getCurrentConditions') ):
 endif;
 
     $zipCode = $_SESSION['dfm']['zip_code'];
-    $data['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed($context['section'])), true)) ? $mc : null;
+    if ( isset($context) ):
+        $data['media_center'] = ($mc = json_decode(file_get_contents(getMediaCenterFeed($context['section'])), true)) ? $mc : null;
+    endif;
     $data['get_weather'] = ($get_weather = getWeather($apiUrl, $zipCode, $apiKey)) ? $get_weather : null;
     $data['get_cw'] = ($gw = json_decode(file_get_contents(getCurrentConditions($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $gw : null;
     $data['get_fc'] = ($fc = json_decode(file_get_contents(getForecasts($apiUrl, $get_weather, $wLanguage, $apiKey)), true)) ? $fc : null;
@@ -399,7 +403,6 @@ function getContentConfigFeed($domain, $section){
     $dir = get_template_directory() . '/home_section_json/';
     $section = $section ? $section : 'home';
     $file = $dir . $domain . '/' . $section . '.json';
-
     if (file_exists($file)) {
         return json_decode(file_get_contents($file), true);
     }
@@ -410,51 +413,9 @@ function getContentConfigFeed($domain, $section){
 
 if (class_exists('Fieldmanager_Group')) {
     
-    // Curation checkboxes
-    // We should probably hide the traditional list of custom fields permanently depending on user
-    // Need to look into moving these into the quick editor as well
 
     add_action('init', function() {
-        // Centerpiece
-        // Account for centerpiece on all section fronts by default (if there's no json config for it)?
-
-        // Story feed
-        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
-            as a story feed item for the relevant category', array(
-            'name' => 'story_feed',
-            'checked_value' => 'yes'
-        ));
-        $fm->add_meta_box('Story feed', array('post'));
-
-
-        /* Apocalypse */
-
-        // Secondary lead story
-        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
-            as an apocalypse secondary lead story', array(
-            'name' => 'apoc_secondary_lead_story',
-            'checked_value' => 'yes'
-        ));
-        $fm->add_meta_box('Apocalypse secondary lead story', array('post'));
-        
-        // Secondary stories
-        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
-            as an apocalypse secondary story for the relevant category', array(
-            'name' => 'apoc_secondary_story',
-            'checked_value' => 'yes'
-        ));
-        $fm->add_meta_box('Apocalypse secondary story', array('post'));
-
-        // Story feed
-        $fm = new Fieldmanager_Checkbox('Click here if you want this post to show 
-            as an apocalypse story feed item for the relevant category', array(
-            'name' => 'apoc_story_feed',
-            'checked_value' => 'yes'
-        ));
-        $fm->add_meta_box('Apocalypse story feed', array('post'));
-
-        /* End apocalypse */
-
+        // Curation checkboxes. We may need to address these names down the road.
         $fm = new Fieldmanager_Group( array(
             'name' => 'article_curation',
             'children' => array(
@@ -466,8 +427,8 @@ if (class_exists('Fieldmanager_Group')) {
                     'name' => 'secondary_lead_story',
                     'checked_value' => 'yes'
                     )),
-                'secondary_story' => new Fieldmanager_Checkbox( 'Secondary Story', array(
-                    'name' => 'secondary_story',
+                'story_feed' => new Fieldmanager_Checkbox( 'Breaking News', array(
+                    'name' => 'story_feed',
                     'checked_value' => 'yes'
                     )),
             ),
@@ -479,6 +440,19 @@ if (class_exists('Fieldmanager_Group')) {
 }
 //include(WP_PLUGIN_DIR . '/DFM-WordPress-Objects/dfm-wordpress-objects.php');
 //dfm_uses_wordpress_object('article', 'source');
+
+
+//DEBUGGING STUFF
+//Add these lines to wp-config.php
+//define('WP_DEBUG', true);
+//define('WP_DEBUG_LOG', true);
+//define('WP_DEBUG_DISPLAY', false);
+
+//You can do things with write_log() like this
+//write_log($awesomearray) the write_log will suss the type you're passing and var_dump out the array to the debug log
+//at webroot/wp-content/debug.log
+//write_log also takes a second, optional parameter: title. If you want a prefix on the log entry pass it a string and that will prefix your log entry.
+//This is a good way to check your log file -> tail -f /path/to/wp-content/debug.log
 if (!function_exists('write_log')) 
 {
     function write_log ($log, $title = '')  

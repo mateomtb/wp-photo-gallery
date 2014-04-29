@@ -13,6 +13,18 @@ terms:
       name: Career change
       description:
       parent: careers
+    entrepreneurship:
+      name: Entrepreneurship
+      description:
+      parent: careers
+    franchising:
+      name: Franchising
+      description:
+      parent: careers
+    green-jobs:
+      name: Green jobs
+      description:
+      parent: careers
     technology:
       name: Technology
       description:
