@@ -86,7 +86,6 @@ function get_respective_post( $post_ids, $exclusionArray ){
             }
         if( !in_array( 'This is the lead array %%%%5555%%%%!' , $post_ids) ){
             foreach ( $post_ids as $id ) {
-                // ^^^ Need conditional logic. This breaks $secondary_lead_story.
                 // Adds all posts to $storage_Array for use in context/twig.
                 $meta_values = get_post_meta( $id );
                 $nonLeadStory = Timber::get_post( intval( $id ) );
