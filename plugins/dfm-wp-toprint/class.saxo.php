@@ -192,6 +192,14 @@ class SaxoArticle extends DFMToPrintArticle
         return $saxo_cat_lookup[$saxo_cat_name];
     }
 
+    private function filter_post_content($post_content)
+    {
+        // This function takes the blob of wp post content (usually the $post->post_content value)
+        // and gets it ready for Saxotech.
+        $filtered = str_replace("\r\n\r\n", "</p>\n<p class='TX Body'>", $post_content);
+        return '<p class="TX Body">' . $filtered . '</p>';
+    }
+
     public function get_article($post_id=0, $added_context = array())
     {
         // Returns an xml representation of the desired article
@@ -206,7 +214,8 @@ class SaxoArticle extends DFMToPrintArticle
             include($this->path_prefix . '../timber/timber.php');
         endif;
 
-        $post_content_filtered = str_replace('<p>', '<p class="TX Body">', $post->post_content);
+        $post_content_filtered = $this->filter_post_content($post->post_content);
+        $post_title_filtered = str_replace('&nbsp;', ' ', $post->post_title);
         $numberofcharacters = strlen($post_content_filtered);
         $bodyextent = 10;
         if ( !array_key_exists('print_cms_id', $added_context) ):
@@ -220,6 +229,7 @@ class SaxoArticle extends DFMToPrintArticle
             'category_id' => 442202241,
             'statuscode' => 1,
             'post_content_filtered' => $post_content_filtered,
+            'post_title_filtered' => $post_title_filtered,
             'numberofcharacters' => $numberofcharacters,
             'bodyextent' => $bodyextent,
             'post' => new TimberPost($post->ID)
