@@ -76,14 +76,59 @@ if( isset( $all_posts ) && !empty( $all_posts ) ){
     }
 }
 
-//write_log($topic_stories_array, 'topic_stories_array');
-
-function get_respective_post( $post_ids, $exclusionArray ){
+function get_respective_post( $post_ids, $exclusionArray, $count ){
 // Gets the respective story with the arg of all the posts set to respective array.
 // Need to find a better way to check if story is lead or not lead.
 // As of now just adding string to $lead_story_array and checking for existence.
     $storage_Array = array();
     if( isset( $post_ids ) && !empty( $post_ids ) ){
+        if( $count === 1 ){
+            foreach ( $post_ids as $id ) {          
+                $meta_values = get_post_meta( $id );
+                $leadStory = Timber::get_post( intval( $id ) );
+                //write_log($leadStory,'INSIDE A LEAD STORY ******************************************');
+                return $leadStory;
+            }
+        }
+        if( $count > 1 ){
+            foreach ($post_ids as $id) {
+                $meta_values = get_post_meta( $id );
+                $posts_in_array = Timber::get_post( intval($id) );
+                array_push( $storage_Array , $posts_in_array ); 
+                array_push( $exclusionArray, $posts_in_array );                 
+            }
+            //write_log($storage_Array,'HERE ARE THE POST IDS OF STORAGE ARRAY');
+            $args = get_posts(array( 'numberposts' => 25, 
+                'post_status' => 'publish',
+                'fields' => 'ids' ));
+                if( $count > count($post_ids) ){
+                    // Checks if total posts to be displayed ($count) is greater than the 
+                    // Amount of posts in array. If count is greater, adds posts to make sure
+                    // All aspects of page have content.
+                    $i = count($post_ids);
+                    foreach( $args as $arg ){
+                        $meta_values = get_post_meta( $arg );
+                        $breaking_news_posts = Timber::get_post( intval($arg) );
+                        if( !in_array( $breaking_news_posts , $exclusionArray ) ){
+                            // Verifies multiple posts won't be on page.
+                            array_push( $storage_Array , $breaking_news_posts );  
+                            $i++;     
+                            if( $i == $count ){
+                                break;
+                            }      
+                        }
+          
+                    }
+                }
+            //write_log($i,'aslkdjflaskjflksdjlfkajdlkjfslkdjl');    
+            return $storage_Array;           
+        }
+    }
+    else{
+        // Not sure if this is necessary.
+    }
+}
+/**
         if( in_array( 'This is the lead array %%%%5555%%%%!' , $post_ids) ){
             foreach ( $post_ids as $id ) {          
                 $meta_values = get_post_meta( $id );
@@ -117,7 +162,7 @@ function get_respective_post( $post_ids, $exclusionArray ){
             return array_slice( $storage_Array, 0,7);        
         }
     }
-
+**/
 $secondaryLeadStory = array_values($config['secondary_lead_story']);
 $relatedStories = array_values($config['related_stories']);
 $secondaryStories = array_values($config['secondary_stories']);
@@ -194,10 +239,11 @@ if ($context['apocalypse']) {
 // Normal
 else {
     // Lead story
-    $context['lead_story'] = call_user_func_array("get_respective_post", array( $lead_story_array ));
+    //$context['lead_story'] = call_user_func_array("get_respective_post", array( $lead_story_array ));
+    $context['lead_story'] = get_respective_post( $lead_story_array, $exclusionArray, 1 );
 
     // Secondary lead story
-    $context['secondary_lead_story'] = get_respective_post( $secondary_lead_story_array, $exclusionArray );
+    $context['secondary_lead_story'] = get_respective_post( $secondary_lead_story_array, $exclusionArray, 1 );
     //$context['secondary_lead_story'] = call_user_func_array("get_respective_post", array( $secondary_lead_story_array ));
 
     // Secondary stories
@@ -206,14 +252,15 @@ else {
         //$context['secondary_stories'][] =  Timber::get_post(createWPQueryArray(array_values($story)));
         //$context['secondary_stories'][] = unboltQuery('get_post', array_values($story), $context['exclude_posts']);
     }
-    $context['topic_stories'] = get_respective_post( $topic_stories_array , $exclusionArray ); 
+    $context['topic_stories'] = get_respective_post( $topic_stories_array , $exclusionArray, 3 ); 
     //write_log($context['topic_stories'], 'INSIDE TOPIC STORIES');
 
     // Story feed small
     $context['story_feed_heading'] = $config['story_feed_heading'];
 
     // Breaking Stories, aka Story Feeds
-    $context['story_feed'] = get_respective_post( $related_stories_array, $exclusionArray );
+    $context['story_feed'] = get_respective_post( $related_stories_array, $exclusionArray, 7 );
+    write_log($context['story_feed'],'DLAKSJFDLKASJDLFKJASDLFKJASDLKFJASDLFKJADSLKJFLSDKJFSDLJSLKDJL24905780294840239840');
     
     // Related stories (only appear if second lead story does not exist)
     $context['related_stories'] = Timber::get_posts(createWPQueryArray($relatedStories));
