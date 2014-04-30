@@ -48,11 +48,10 @@ $all_posts = get_posts(array(
 // Pushes post(s) to resepective array. Also adds to $exclusionArray to avoid repitition.
 // Still need logic to remove from lead and secondary array if more than 1 element is present.
 if( isset( $all_posts ) && !empty( $all_posts ) ){
-    $lead_in_array = 'This is the lead array %%%%5555%%%%!';
     foreach( $all_posts as $p ){    
         $article_curation = get_post_meta( $p , 'article_curation' , true );
         if( isset( $article_curation )){
-        // Have to check for existence or else it throws errors.
+        // Have to check for existence or else it throws warnings.
             if( is_string( $article_curation ) === false && $article_curation['lead_story'] !== false ) {
                 array_push( $lead_story_array , $p );
                 array_push( $exclusionArray , $p );
@@ -71,13 +70,6 @@ if( isset( $all_posts ) && !empty( $all_posts ) ){
             }
         }
 
-    }
-    // Add $lead_in_array string to identify arrays that should only have 1 value
-    if( !empty( $lead_story_array )){
-        array_push( $lead_story_array , $lead_in_array );
-    }
-    if ( !empty( $secondary_lead_story_array )) {
-        array_push( $secondary_lead_story_array , $lead_in_array );
     }
 }
 
