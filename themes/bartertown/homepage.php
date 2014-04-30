@@ -34,6 +34,7 @@ $config = getContentConfigFeed($context['domain'], $context['section']);
 $lead_story_array = array();
 $secondary_lead_story_array = array();
 $related_stories_array = array();
+$topic_stories_array = array();
 $exclusionArray = array();
 
 $all_posts = get_posts(array(
@@ -57,8 +58,12 @@ if( isset( $all_posts ) && !empty( $all_posts ) ){
             array_push( $secondary_lead_story_array, $p );   
             array_push( $exclusionArray , $p );
         }
-        elseif( is_string( $article_curation ) === false && $article_curation['story_feed'] !== false  && ! in_array( $p , $exclusionArray ) ) {
+        if( is_string( $article_curation ) === false && $article_curation['story_feed'] !== false  && ! in_array( $p , $exclusionArray ) ) {
             array_push( $related_stories_array , $p );
+            array_push( $exclusionArray , $p );
+        }
+        if( is_string( $article_curation ) === false && $article_curation['topics_feed'] !== false  && ! in_array( $p , $exclusionArray ) ) {
+            array_push( $topic_stories_array , $p );
             array_push( $exclusionArray , $p );
         }
     }
@@ -70,6 +75,8 @@ if( isset( $all_posts ) && !empty( $all_posts ) ){
         array_push( $secondary_lead_story_array , $lead_in_array );
     }
 }
+
+//write_log($topic_stories_array, 'topic_stories_array');
 
 function get_respective_post( $post_ids, $exclusionArray ){
 // Gets the respective story with the arg of all the posts set to respective array.
@@ -199,6 +206,9 @@ else {
         //$context['secondary_stories'][] =  Timber::get_post(createWPQueryArray(array_values($story)));
         //$context['secondary_stories'][] = unboltQuery('get_post', array_values($story), $context['exclude_posts']);
     }
+    $context['topic_stories'] = get_respective_post( $topic_stories_array , $exclusionArray ); 
+    //write_log($context['topic_stories'], 'INSIDE TOPIC STORIES');
+
     // Story feed small
     $context['story_feed_heading'] = $config['story_feed_heading'];
 
