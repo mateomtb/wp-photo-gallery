@@ -46,8 +46,8 @@ class DFMRequest
 
     private function get_credentials()
     {
-        // Return a "user:password" formatted credentials.
-        $credentials = trim(file_get_contents($this->path_prefix . '.credentials'));
+        // Return a "user:password" formatted credentials. Put .credentials in wp-content.
+        $credentials = trim(file_get_contents(WP_CONTENT_DIR . '/.credentials'));
         if ( $credentials == FALSE || $credentials == '' ):
             die('No .credentials file in dfm-wp plugin directory available.' . "\n");
         endif;
