@@ -4,7 +4,6 @@
     {% for post in story_feed %}
     {% if post.title %}
         <li>
-            
             {% if post.category == "Uncategorized" %}
                 <h5><a href="{{post.category.link}}">News</a></h5>
             {% else %}
