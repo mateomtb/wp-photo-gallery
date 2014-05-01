@@ -1,5 +1,5 @@
 <ul class="secondary-stories">
-    {% for post in topic_stories %}
+    {% for post in topic_stories|slice(0,3) %}
     <li class="col md-4">
         {% if post.category == "Uncategorized" %}
             <h4><a href="{{post.permalink}}">News</a></h4>
