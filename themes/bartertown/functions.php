@@ -434,7 +434,7 @@ if (class_exists('Fieldmanager_Group')) {
                     'name' => 'story_feed',
                     'checked_value' => 'yes'
                     )),
-                'topics_feed' => new Fieldmanager_Checkbox( 'Topics Story', array(
+                'topics_feed' => new Fieldmanager_Checkbox( 'Topics Stories', array(
                     'name' => 'topics_feed',
                     'checked_value' => 'yes'
                     )),
