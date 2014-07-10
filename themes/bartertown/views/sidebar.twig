@@ -1,0 +1,37 @@
+    <section id="right-rail" class="span2">
+        <ul class="widgets">
+            <li class="ad">
+               {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-cube1'} %}
+            </li>
+            <li class="widget">
+               {%include "crowdy.twig"%}
+            </li>
+            {% if dfm.tout_id != "N/A" %}
+            <li class="widget">
+               {%include "toutwidget.twig"%}
+            </li>
+            {% endif %}
+            <li class="ad">
+               {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-cube2'} %}
+            </li>
+            <li class="ad">
+               {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-cube3'} %}
+            </li>
+            <li class="ad">
+                {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-bottomline'} %}
+            </li>
+
+            <li class="widget">
+                {%include "eventful.twig"%}
+            </li>
+            <li class="widget">
+                {%include "ndnwidget.twig"%}
+            </li>
+            <li class="widget">
+                {%include "ownlocal.twig"%}
+            </li>            
+            <li class="widget">
+                {%include "seeclickfix.twig"%}
+            </li>
+        </ul>
+    </section>

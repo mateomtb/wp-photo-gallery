@@ -1,0 +1,8 @@
+                        <ul class="breadcrumb block sm hide-for-phone">
+                            <li><a href="/">Home</a></li>
+                            {% if TimberTerm(post.category.parent).parent %}<li><a href="/{{ TimberTerm(TimberTerm(post.category.parent).parent).slug }}/">{{ TimberTerm(TimberTerm(post.category.parent).parent) }}</a></li>{% endif %}
+                            {% if post.category.parent %}<li><a href="/{{ TimberTerm(post.category.parent).slug }}/">{{ TimberTerm(post.category.parent) }}</a></li>{% endif %}
+                            <li><a href="/{{post.category.slug}}/">{{post.category}}</a></li>
+                            <li class="active">Article</li>
+                        </ul>
+

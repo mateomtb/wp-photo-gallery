@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <div id="above-fold" class="row">
+      <div class="col md-9 md-push-3">
+        <div class="centerpiece">
+            {% include 'home-centerpiece.twig' %}                       
+            {% include 'secondary-stories.twig' %}                                
+
+        </div>
+
+        <div id="most-recent-stories" class="story-feed lg">
+            <h4 class="topic-header">Most Recent</h4>
+                <ul>
+                    {% for post in posts|slice(2, 7) %}
+                        {% include 'tease-sectionmostrecentstory.twig' %}
+                    {% endfor %}
+                </ul>
+        </div> <!-- #most-recent-stories -->
+    </div>
+    <div class="left-rail col md-3 md-pull-9">
+        {% include 'story-feed-small.twig' %}
+{% if columnists %}
+<div class="story-feed sm" id="columnists">
+    <h4 class="topic-header">Opinion</h4>
+        {% include 'columnists.twig' with {count : 0} %}
+        {% include 'columnists.twig' with {count : 1} %}
+        {% include 'columnists.twig' with {count : 2} %}
+</div>
+{% endif %}
+    </div>
+    </div> <!-- #above-fold -->
+
+{% endblock %}

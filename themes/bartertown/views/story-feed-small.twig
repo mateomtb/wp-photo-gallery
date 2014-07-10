@@ -1,0 +1,24 @@
+<div class="story-feed sm">
+    <h4>{{story_feed_heading}}</h4>
+    <ul>
+    {% for post in story_feed %}
+    {% if post.title %}
+        <li>
+            {% if post.category == "Uncategorized" %}
+                <h5><a href="{{post.category.link}}">News</a></h5>
+            {% else %}
+                <h5><a href="{{post.category.link}}">{{post.category}}</a></h5>
+            {% endif %}
+            <h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
+            <div class="meta">
+                <p class="timestamp">{{post.post_date|time_ago}}</p>
+                <p class="comment-bug"><span class="glyphicon glyphicon-comment"></span><span class="sr-only">Comments: </span><a href="{{post.permalink}}">{{post.comment_count}}</a></p>
+            </div>
+        </li>
+    {% endif %}
+    {% endfor %}
+        <li>
+            {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-breaking'} %}
+        </li>
+    </ul>
+</div> <!-- .story-feed-sm -->

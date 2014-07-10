@@ -1,0 +1,76 @@
+<!doctype html>
+<!--[if IE 8]>    <html class="no-js lt-ie9" {{language_attributes}}> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" {{language_attributes}}> <!--<![endif]-->
+
+    <head>
+    <meta charset="{{ bloginfo('charset') }}" />
+    <title>{{wp_title}}</title>
+    <meta name="description" content="{{ bloginfo('description') }}">
+    <link rel="stylesheet" href="{{ stylesheet_uri }}" type="text/css" media="screen" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="pingback" href="{{ bloginfo('pingback_url') }}" />
+    {{function('wp_head')}}
+
+<script type="text/javascript" src='http://an.tacoda.net/an/12503/slf.js'></script>
+<script type="text/javascript" src="http://extras.mnginteractive.com/live/js/tacoda/DartInclude.js"></script>
+<script type="text/javascript" src="http://extras.mnginteractive.com/live/js/tacoda/AccipiterInclude.js"></script>
+<script type="text/javascript" src="http://extras.mnginteractive.com/live/js/otherinc/otherinc.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<!-- Will have to replace with production-ready JS URL. -->
+<script src="http://sandbox.digitalfirstmedia.com/btown/js/bartertown.min.js"></script>
+
+<script type="text/javascript" src="http://local.denverpost.com/common/dfm/dfm-core.js"></script>
+
+<!-- Will have to replace with production-ready CSS URL. -->
+<link rel="stylesheet" href="http://sandbox.digitalfirstmedia.com/btown/css/bartertown.min.css" media="screen"/>
+<link rel="stylesheet" type="text/css" media="all" href="{{bloginfo('stylesheet_url')}}" />
+
+<script type="text/javascript" src="http://local.{{domain}}.com/common/dfm/assets/js/modernizr.js"></script>
+<script type="text/javascript" src="http://local.{{domain}}.com/common/dfm/assets/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="http://local.{{domain}}.com/common/dfm/assets/js/dfm-core-level1.min.js"></script>
+<script type="text/javascript" src="http://local.{{domain}}.com/common/jquery/jquery-cookie-min.js"></script>
+<script type="text/javascript" src="http://ads.digitalfirstmedia.com/save/jivox/jvx_interstitial.js"></script>
+
+<script type="text/javascript">
+    dfm.api("data","siteId",          "{{bloginfo('name')}}");
+    dfm.api("data","siteName",        "{{bloginfo('name')}}");
+    dfm.api("data","siteDomain",      "{{domain}}.com");
+    dfm.api("data","actualDomain",    "www.{{domain}}.com");
+    dfm.api("data","localCommonUrl",  "");
+    dfm.api("data","localAssetsUrl",  "");
+    dfm.api("data","contentId",       "140129737");
+    dfm.api("data","sectionName",     "{{sectionName}}");
+    dfm.api("data","pageId",          "{B2DB5BE6-B751-4899-B5A9-ACDEFF2DB294}");
+    dfm.api("data","pageUrl",         "http://www.{{domain}}.com/general-news/20140123/30-years-ago-the-apple-macintosh-changed-the-world-forever");
+    dfm.api("data","pageVanityUrl",   "http://www.{{domain}}.com/general-news/20140123/30-years-ago-the-apple-macintosh-changed-the-world-forever");
+    dfm.api("data","pageTitle",       "{{post.title}}");
+    dfm.api("data","pageType",        "article");
+    dfm.api("data","abstract",        "{{post.excerpt}}");
+    dfm.api("data","keywords",        "news, Breaking teaking News, LA Daily News Top Story");
+    dfm.api("data","title",           "30 years ago, the Apple Macintosh changed the world forever");
+    dfm.api("data","sectionId",       "General news");
+    dfm.api("data","slug",            "LDN-Z-MAC");
+    dfm.api("data","NetworkID",       "8013");
+    dfm.api("data","Taxonomy1",       "{{taxonomy1}}");
+    dfm.api("data","Taxonomy2",       "{{taxonomy2}}");
+    dfm.api("data","Taxonomy3",       "{{taxonomy3}}");
+    dfm.api("data","Taxonomy4",       "{{taxonomy4}}");
+    dfm.api("data","kv",              "unbolt_test"); // we'll set this to sectionName after testing
+    dfm.api("data","omnitureAccount", "{{domain}}");
+/***** JanRain Log in / registration *****/
+    dfm.api("data","engageAppName", "registration.medianewsgroup.com");
+    dfm.api("data","janrain.settings.capture.appUrl", "https://registration.medianewsgroup.com");
+    dfm.api("data","janrain.settings.capture.redirectUri", "http://"+dfm.api("data","actualDomain")+"/apps/pbcs.dll/section?Category=LOGINEDITPROFILE");
+    dfm.api("data","janrain.settings.capture.clientId", "bucute9zewfa6wfcvghbrjtdzt8jw8rs");
+    dfm.api("data","janrain.settings.capture.appId", "wyqba7czvhyxm4kbu4fgxn989s");
+    dfm.api("data","janrain.settings.captureServer", "https://medianewsgroup.janraincapture.com/");
+    dfm.api("data","janrain.settings.appUrl", "https://registration.medianewsgroup.com");
+    dfm.api("data","janrain.settings.capture.backplaneBusName", "dfm");
+</script>
+{% include 'ads-header.twig' %}
+{% if is_single == false %}
+{#{% include 'ad-call.twig' with {ad_size : 'DFM-adPos-inter'} %}#}
+{% endif %}

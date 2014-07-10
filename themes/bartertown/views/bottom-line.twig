@@ -1,0 +1,93 @@
+<div id="bottom-line">
+    <header>
+        <h4 class="topic-header">The Bottom Line
+            <ul class="share-widget visible-md-up">
+                <li>
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="Like us on Facebook" title="Like us on Facebook" class="fc-webicon facebook" href="{{ dfm.facebook_page }}"></a>
+                </li>
+                <li>
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="Follow us on Twitter @bottomline" title="Follow us on Twitter @bottomline" class="fc-webicon twitter" href="{{ dfm.twitter_page }}"></a>
+                </li>
+                <li>
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="Google Plus" title="Google Plus" class="fc-webicon googleplus" href=""></a>
+                </li>
+                <li>
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="Subscribe to this RSS Feed" title="Subscribe to this RSS Feed" class="fc-webicon rss" href="/rss"></a>
+                </li>
+            </ul> <!-- .share-widget -->
+        </h4>
+    </header>
+    <section class="bottomline-body">
+        <div class="bottomline-list">
+            <ul class="bottomline-items">
+                <li>
+                    {% for post in bottom_line1 %}
+                        {% if loop.first %}
+                            <a href="{{ post.permalink }}"><img src="{{ post.thumbnail.src|resize(400,300) }}" alt=""></a>
+                            <h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
+                            <div class="meta">
+                                <p class="timestamp">{{ post.post_date|time_ago }}</p>
+                                <p class="comment-bug"><span class="glyphicon glyphicon-comment"></span><span class="sr-only">Comments: </span><a href="{{post.permalink}}">{{post.comment_count}}</a></p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}    
+                        <div class="link-list">
+                            <h5>Also in Celebrities</h5>
+                            <ul>
+                                {% for post in bottom_line1|slice(1,4) %}  
+                                    <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+                                {% endfor %}
+                                <li><a class="more" href="">More Celebrities</a></li>
+                            </ul>
+                        </div> <!-- .link-list -->
+                    </li>
+
+                    <li>
+                        {% for post in bottom_line2 %}
+                            {% if loop.first %}
+                                <a href="{{ post.permalink }}"><img src="{{ post.thumbnail.src|resize(400,300) }}" alt=""></a>
+                                <h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
+                                <div class="meta">
+                                    <p class="timestamp">{{ post.post_date|time_ago }}</p>
+                                    <p class="comment-bug"><span class="glyphicon glyphicon-comment"></span><span class="sr-only">Comments: </span><a href="{{post.permalink}}">{{post.comment_count}}</a></p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        <div class="link-list">
+                            <h5>Also in Culture</h5>
+                            <ul>
+                                {% for post in bottom_line2|slice(1,4) %}  
+                                    <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+                                {% endfor %}
+                                <li><a class="more" href="">More Celebrities</a></li>
+                            </ul>
+                        </div> <!-- .link-list -->
+                    </li>
+                    <li>
+                        {% for post in bottom_line3 %}
+                            {% if loop.first %}
+                                <a href="{{ post.permalink }}"><img src="{{ post.thumbnail.src|resize(400,300) }}" alt=""></a>
+                                <h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
+                                <div class="meta">
+                                    <p class="timestamp">{{ post.post_date|time_ago }}</p>
+                                    <p class="comment-bug"><span class="glyphicon glyphicon-comment"></span><span class="sr-only">Comments: </span><a href="{{post.permalink}}">{{post.comment_count}}</a></p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        <div class="link-list">
+                            <h5>Also in Oddities</h5>
+                            <ul>
+                                {% for post in bottom_line3|slice(1,4) %}  
+                                    <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+                                {% endfor %}
+                                <li><a class="more" href="">More Celebrities</a></li>
+                            </ul>
+                        </div> <!-- .link-list -->
+                    </li>
+                </ul>
+        </div> <!-- bottomline-list -->
+        <div class="ad medium-rectangle visible-lg-up">
+            {% include 'ad-call.twig' with {ad_size : 'DFM-adPos-bottomline'}%}
+        </div>
+    </section> <!-- #bottomline-body -->
+</div> <!-- #bottom-line --> 

@@ -1,6 +1,11 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+
+#goofy plugin has .git file in it
+plugins/threewp-broadcast/plainview_sdk/.git
+
+# Icon must ends with two \r.
 Icon
 
 
@@ -13,3 +18,5 @@ Icon
 
 #Files in this folder
 node_modules/*
+#Make sure we ingore subversion .svnignore
+.svnignore

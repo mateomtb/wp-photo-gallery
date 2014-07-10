@@ -1,0 +1,237 @@
+{% if events %}
+<script src="/wp-content/plugins/dfm-wp-eventful/js/eventful.js"></script>
+<div class="thingsToDoIn"><span>Local Events</span></div>
+<div class="eventMenu">
+<div id="featuredEvents" class="activeTab">Most Popular</div>
+<div id="datePickerTab">Pick Dates</div>
+</div>
+<div style="clear:both;"></div>
+
+<div class="rotator">
+{% for event in events %}
+	<div class="eventSlide" style="" title="&nbsp;">
+    	<div style="clear:both;"></div>
+		<div class="imageContainer" style="" title="{{event.title}}"><a href="{{event.permalink}}"><img src="{{event.image}}" width="161" height="161" /></a></div>
+		<div class="eventDescription" style="" title="{{event.title}}">
+			<div class="eventTitle"><a href="{{event.permalink}}" style="font: Times New Roman, serif !important;">{{event.title|excerpt(42)}}</a></div>
+			<div class="eventDate" style="">{{event.start_date}}</div>
+			<div class="eventVenue"><a href="{{event.venue_url}}" style="">{{event.venue_name}}</a></div>						
+			<div class="share" style="">
+				<a href="http://www.facebook.com/sharer.php?u={{event.permalink}}" class="facebook"></a>
+				<a href="http://twitter.com/share?text={{event.title}}&url={{event.permalink}}" class="twitter"></a>
+				<a href="https://plus.google.com/share?url={{event.permalink}}" onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="googlePlus"></a>
+				<a class="email" href="mailto:?subject={{event.title}}&body={{event.permalink}}"></a>
+			</div>					
+	    </div>
+	</div>
+	{% endfor %}
+</div>
+
+<div id="pickadate"></div>
+
+<div class="search">
+    <form id="site-search" action="{{dfm.events_url}}/search" method="get">
+        <input type="text" name="q" id="inp-q" value=""    alt="Search" class="inactive-text"      />
+        <button style="background-color: #9d2e27; background-image: -moz-linear-gradient(center top , #ce5445, #9d2e27); border: 1px solid #9d2e27; text-shadow: 0 -1px 0 #9d2e27; border-radius: 3px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: arial,helvetica,sans-serif; font-size: 9px; font-weight: bold; height: 18px; padding: 0; margin-left:14px; position: relative; text-align: center; text-transform: uppercase; top: 0;     width: 46px; background-clip: padding-box;">
+        <span id="search-button-inner"></span>GO</button>
+    </form>
+    <div class="asLink">&lt; Advanced Search</div>
+</div>
+
+
+<!-- ADVANCED SEARCH -->
+<div class="advancedSearch">
+    <div id="searchHead" class="activeTab">Advanced Search</div>
+    <div style="clear:both;"></div>
+    <form id="form-advanced-search" action="{{dfm.events_url}}/search" method="get">
+        <div id="search-keyword" class="area">
+            <h3>Enter keyword</h3>
+            <label for="inp-q" class=""><span class="field-name" style="margin-left:10px;">Enter keyword</span></label>
+            <input type="text" name="q" id="inp-q" value=""    alt="eg. festivals; art show" class="inactive-text"      /><span class="alert-error"></span><!--</label></li>-->
+        </div>
+        <div id="search-type" class="area">
+            <fieldset id="inp-domain">
+                <span class="field">
+                    <label for="inp-domain-events" class="radio"><input type="radio" name="domain" id="inp-domain-events" value="events" checked="checked" />  Events</label>
+                </span>
+            </fieldset>
+        </div>
+				                  
+        <div id="search-refine" class="area">
+            <!--<h3>Refine search</h3>-->
+            <div class="field-container form-inline">
+                <label for="inp-start_date"><span class="field-name">Pick dates</span></label>
+                <div class="date-picker" id="date-picker-start_date">
+                    <div class="hidden popover empty" id="date-piker-start_date-popover" style="display:none;">
+                    <div class="popbd">
+                        <div class="calendar"></div>
+                        <div class="cleaner"></div>
+                    </div>
+                <!--[if lte IE 7]><iframe class="popover-layer"></iframe><![endif]-->
+                </div>
+                <label for="inp-start_date" class="">
+                    <input type="text"  id="inp-start_date" value=""    alt="mm/dd/yy" class="inactive-text" autocomplete="off"     />
+	            </label>
+            </div>
+        
+            <div class="date-picker" id="date-picker-stop_date">
+                <div class="hidden popover empty" id="date-piker-stop_date-popover" style="display:none;">
+                    <div class="popbd">
+                        <div class="calendar"></div>
+                        <div class="cleaner"></div>
+                    </div>
+                <!--[if lte IE 7]><iframe class="popover-layer"></iframe><![endif]-->
+                </div>
+                <label for="inp-stop_date" class="">
+                    <input type="text" id="inp-stop_date" value=""    alt="mm/dd/yy" class="inactive-text" autocomplete="off"     />
+	            </label>
+                </div>
+            </div>                  				  
+			<div id="startstopdate"></div>			  
+			<div class="field-container form-inline">
+                <label for="inp-sort_order" class="">    
+                    <span class="field-name">Sort by</span>    
+                    <select name="sort_order" id="inp-sort_order" >
+                        <option value="">-- optional --</option>
+                        <option value="Relevance" selected="selected">Relevance</option>
+                        <option value="Date" >Date</option>
+                        <option value="Popularity" >Popularity</option>
+                        <option value="Event" >Alphabetically</option>
+                        <option value="Venue" >Venue Name</option>
+                    </select>
+                </label>
+                <label for="inp-c" class="">
+                    <span class="field-name">Limit to</span>
+                    <select name="c" id="inp-c" >
+                        <option value="">-- optional --</option>
+                        <option value="music" >Concerts &amp; Tour Dates</option>
+                        <option value="conference" >Conferences &amp; Tradeshows</option>
+                        <option value="learning_education" >Education</option>
+                        <option value="family_fun_kids" >Kids &amp; Family</option>
+                        <option value="festivals_parades" >Festivals</option>
+                        <option value="movies_film" >Film</option>
+                        <option value="food" >Food &amp; Wine</option>
+                        <option value="fundraisers" >Fundraising &amp; Charity</option>
+                        <option value="art" >Art Galleries &amp; Exhibits</option>
+                        <option value="support" >Health &amp; Wellness</option>
+                        <option value="books" >Literary &amp; Books</option>
+                        <option value="attractions" >Museums &amp; Attractions</option>
+                        <option value="community" >Neighborhood</option>
+                        <option value="business" >Business &amp; Networking</option>
+                        <option value="singles_social" >Nightlife &amp; Singles</option>
+                        <option value="schools_alumni" >University &amp; Alumni</option>
+                        <option value="clubs_associations" >Organizations &amp; Meetups</option>
+                        <option value="outdoors_recreation" >Outdoors &amp; Recreation</option>
+                        <option value="performing_arts" >Performing Arts</option>
+                        <option value="animals" >Pets</option>
+                        <option value="politics_activism" >Politics &amp; Activism</option>
+                        <option value="sales" >Sales &amp; Retail</option>
+                        <option value="science" >Science</option>
+                        <option value="religion_spirituality" >Religion &amp; Spirituality</option>
+                        <option value="sports" >Sports</option>
+                        <option value="technology" >Technology</option>
+                        <option value="other" >Other &amp; Miscellaneous</option>
+  
+                    </select>
+                </label>
+                        
+            </div>
+        </div>
+        <div class="form-submit">
+            <button tabindex="1" type="Submit" class="bn bn-sz-lg bn-green"><span class="bn-in"></span>Search</button>
+            <!--<p class="form-summary" id="form-summary"/>
+            <p class="progress" />-->
+        </div>
+        <input type="hidden" name="t" value="" id="inp-date-time" />
+    </form>
+    <div class="feLink">&lt; Featured Events</div>
+</div>
+
+<!-- END ADVANCED SEARCH -->
+<div style="clear:both;"></div>
+
+<div class="moreEvents" style="text-align:center!important">
+	<div class="moreEventsButton">
+		<span style="color:#34567c; line-height: 2.8em; font: 11px Arial,Helvetica,sans-serif; font-weight:bold;">More Local Events  <img src="http://webservices.medianewsgroup.com/eventful/images/downArrow.gif" /></span>
+	    <div class="topEight">
+            <ul>
+		        <li><a href="{{dfm.events_url}}/search?cat=music">Concerts</a></li>                             
+		        <li><a href="{{dfm.events_url}}/search?cat=festivals_parades">Festivals</a></li>
+		        <li><a href="{{dfm.events_url}}/search?cat=family_fun_kids">Family</a></li>  
+		        <li><a href="{{dfm.events_url}}/search?cat=singles_social">Nightlife</a></li>
+		        <li><a href="{{dfm.events_url}}/search?cat=performing_arts">Performing arts</a></li> 
+		        <li><a href="{{dfm.events_url}}/search?cat=food">Restaurants</a></li>     
+	    	    <li><a href="{{dfm.events_url}}/search?cat=sports">Sports</a></li>
+            </ul>
+        </div>
+	</div>
+</div>
+
+<script>
+
+   jQuery(document).ready(function() {
+   jQuery('#pickadate').datepicker( {
+       dateFormat: "yymmdd",
+        onSelect: function(date) {
+                   
+           var selectedDate = "{{dfm.events_url}}" + "/search?q=*&when=" + date + "00-" + date + "23&ga_type=events";
+           top.location.href = selectedDate;
+       },
+      selectWeek: true,
+       inline: true,
+      startDate: '01/01/2000',       
+       firstDay: 1
+   });
+       
+});
+
+
+
+
+jQuery('.asLink').click(function() {
+  jQuery('.eventMenu').hide();
+  jQuery('.jshowoff').hide();
+  jQuery('.search').hide();
+  jQuery('#pickadate').hide();
+  jQuery('#searchHead').show();
+  jQuery('.advancedSearch').show();
+});
+
+jQuery('.feLink').click(function() {
+  jQuery('.eventMenu').show();
+  jQuery('.jshowoff').show();
+  jQuery('.search').show();
+  jQuery('#searchHead').hide();
+  jQuery('.advancedSearch').hide();
+});
+
+jQuery('#datePickerTab').click(function() {
+  jQuery('#pickadate').show();
+  jQuery('.jshowoff').hide();  
+  jQuery('#datePickerTab').addClass('activeTab');
+  jQuery('#featuredEvents').removeClass('activeTab');
+});
+
+jQuery('#featuredEvents').click(function() {
+  jQuery('#pickadate').hide();
+  jQuery('.jshowoff').show();   
+  jQuery('#featuredEvents').addClass('activeTab');
+  jQuery('#datePickerTab').removeClass('activeTab');
+});
+
+jQuery('.moreEventsButton').mouseover(function() {
+  jQuery('.topEight').show();
+});
+
+jQuery('.moreEventsButton').mouseout(function() {
+  jQuery('.topEight').hide();
+});
+
+jQuery(window).load(function () {
+  jQuery('.ui-datepicker-prev').removeAttr("title");
+  jQuery('.ui-datepicker-next').removeAttr("title");
+});
+</script>
+
+{% endif %}

@@ -1,0 +1,57 @@
+{% if breaking_news %}
+        {% include 'breaking-alert.twig' %}
+{% endif %}
+<div class="row">
+    <div class="content-well">
+        <div id="above-fold" class="row">
+            {% if apocalypse %}
+                {% include 'apoc-home.twig' %}
+            {% else %}
+            <div class="centerpiece col md-9 md-push-3">
+                {% include 'home-centerpiece.twig' %}
+                {% include 'secondary-stories.twig' %}
+            </div>
+            <div class="left-rail col md-3 md-pull-9">
+                {% include 'story-feed-small.twig' %}
+            </div>
+            {% endif %}
+        </div> <!-- #above-fold -->
+        <div id="middle-row">
+            <div class="col md-3">
+                {% include 'poll.twig' %}
+            </div>
+            <div class="col md-9">
+                {% include 'media-center-widget.twig' %}
+            </div>
+        </div> <!-- #middle-row -->
+        <div id="bottom-row">
+        <div class="col md-12">
+                {% include 'slider-promo.twig' %}
+        </div>
+            <div class="col md-6">
+            {% if most_popular %}
+                {% include 'popular-widget.twig' %}
+                {% include 'section-promo.twig' with {count : 0} %}
+            </div>
+            <div class="col md-6">
+                {% include 'section-promo.twig' with {count : 1} %}
+                {% include 'section-promo.twig' with {count : 2} %}
+            </div>
+            {% else %}
+                {% include 'section-promo.twig' with {count : 0} %}
+                {% include 'section-promo.twig' with {count : 1} %}
+            </div>
+            <div class="col md-6">
+                {% include 'section-promo.twig' with {count : 2} %}
+                {% include 'section-promo.twig' with {count : 3} %}
+            </div>
+            {% endif %}
+        </div><!-- #bottom-row -->
+    </div> <!-- .content-well -->
+    <div class="right-rail">
+        {% include 'sidebar.twig' %}
+    </div> <!-- .right-rail -->
+    <div id="bottom-line">
+        {% include 'bottom-line.twig' %}
+    </div>
+</div>

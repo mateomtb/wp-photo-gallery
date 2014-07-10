@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sax="http://www.saxotech.com/editorial"  targetNamespace="http://www.saxotech.com/editorial" elementFormDefault="qualified">
+ <xs:annotation>
+     <xs:appinfo>
+            Editorial Web Services      </xs:appinfo>
+       <xs:documentation xml:lang="en">
+        The Editorial Web Services XML Schema. Defines types, lists, etc.       </xs:documentation>
+ </xs:annotation>
+    <xs:complexType name="BaseItemType">
+        <xs:sequence>
+           <xs:element name="createdtime" type="xs:dateTime" maxOccurs="1" minOccurs="0" />
+            <xs:element name="createdby" type="sax:InternalResourceType" maxOccurs="1" minOccurs="0" />
+         <xs:element name="updatedtime" type="xs:dateTime" maxOccurs="1" minOccurs="0" />
+            <xs:element name="updatedby" type="sax:InternalResourceType" maxOccurs="1" minOccurs="0" />
+         <xs:element name="site" type="sax:SiteType" />
+          <xs:element name="status" type="sax:StatusType" maxOccurs="1" minOccurs="0" />
+          <xs:element name="category" type="sax:CategoryType" maxOccurs="1" minOccurs="0" />
+          <xs:element name="publication" type="sax:PublicationType" maxOccurs="1" minOccurs="0" />
+            <xs:element name="accesslevel" type="sax:AccessLevelType" maxOccurs="1" minOccurs="0" />
+            <xs:element name="title" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+            <xs:element name="description" nillable="true" type="xs:string" maxOccurs="1" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+   <xs:complexType name="StatusType">
+      <xs:simpleContent>
+          <xs:extension base="xs:string">
+             <xs:attribute name="statuscode" type="xs:int"></xs:attribute>
+               <xs:attribute name="iconuri" type="xs:anyURI" use="optional"></xs:attribute>
+            </xs:extension>
+     </xs:simpleContent>
+ </xs:complexType>
+   <xs:complexType name="CategoryType">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+             <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+            </xs:extension>
+     </xs:simpleContent>
+ </xs:complexType>
+   <xs:complexType name="rolesType">
+       <xs:sequence>
+           <xs:element name="role" type="xs:string" minOccurs="1" maxOccurs="unbounded"></xs:element>
+      </xs:sequence>
+  </xs:complexType>
+   <xs:complexType name="InternalResourceType">
+        <xs:attribute name="uri" type="xs:anyURI"></xs:attribute>
+   </xs:complexType>
+   <!-- ArticleCategory -->
+    <xs:element name="category" type="sax:CategoryListItemType" />
+  <xs:complexType name="CategoryListItemType">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+             <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+                <xs:attribute name="site" type="xs:long" use="required" />
+              <xs:attribute name="id" type="xs:long" use="required" />
+                <xs:attribute name="type" type="xs:long" use="optional" />
+          </xs:extension>
+     </xs:simpleContent>
+ </xs:complexType>
+   <xs:element name="categories" type="sax:CategoryListType" />
+    <xs:complexType name="CategoryListType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="category" type="sax:CategoryListItemType" nillable="true" />
+      </xs:choice>
+    </xs:complexType>
+   <!-- Publication -->
+    <xs:element name="publication" type="sax:PublicationType" nillable="true" />
+    <xs:complexType name="PublicationType">
+     <xs:sequence>
+           <xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+         <xs:element name="date" type="xs:dateTime" maxOccurs="1" minOccurs="0" />
+       </xs:sequence>
+      <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+       <xs:attribute name="uri" type="xs:anyURI" use="required"></xs:attribute>
+    </xs:complexType>
+   <xs:element name="publications" type="sax:PublicationListType" />
+   <xs:complexType name="PublicationListType">
+     <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="publication" type="sax:PublicationType" nillable="true" />
+        </xs:choice>
+    </xs:complexType>
+   <!-- Access Level -->
+   <xs:element name="accesslevel" type="sax:AccessLevelType" />
+    <xs:complexType name="AccessLevelType">
+     <xs:sequence>
+           <xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="0" />
+         <xs:element name="sortOrder" type="xs:string" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+      <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+       <xs:attribute name="uri" type="xs:anyURI" use="required"></xs:attribute>
+    </xs:complexType>
+   <xs:element name="accesslevels" type="sax:AccessLevelListType" />
+   <xs:complexType name="AccessLevelListType">
+     <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="accesslevel" type="sax:AccessLevelType" />
+        </xs:choice>
+    </xs:complexType>
+   <!-- Article aka Story -->
+  <xs:element name="story" type="sax:ArticleListItemType" />
+  <xs:complexType name="ParagraphListType">
+       <xs:sequence>
+           <xs:element name="paragraph" type="xs:string" maxOccurs="unbounded" minOccurs="0" />
+        </xs:sequence>
+  </xs:complexType>
+   <xs:complexType name="NativeBoxChunkListType">
+      <xs:sequence>
+           <xs:element name="chunk" type="xs:string" maxOccurs="unbounded" minOccurs="0" />
+        </xs:sequence>
+  </xs:complexType>
+   <!-- Element can have either text or chunk sub-elements -->
+ <xs:complexType name="NativeBoxTextType">
+       <xs:choice>
+            <xs:element name="xhtml" type="xs:string" maxOccurs="1" minOccurs="0" />
+            <!-- 20130606 WJU Read/Write SMS & NetHeader as ICML (FUSDEV-245) -->
+            <xs:element name="plaintext" type="xs:string" maxOccurs="1" minOccurs="0" />
+            <xs:element name="chunk" type="xs:string" maxOccurs="unbounded" minOccurs="0" />
+        </xs:choice>
+        <xs:attribute name="boxtype" type="xs:string" use="required" />
+     <xs:attribute name="nativetexttype" type="xs:string" use="required" />
+      <xs:attribute name="encoding" type="xs:string" use="required" />
+    </xs:complexType>
+   <!-- Element can have either text or chunk sub-elements -->
+ <xs:complexType name="NativeBoxTextListType">
+       <xs:sequence>
+           <xs:element name="nativeboxtext" type="sax:NativeBoxTextType" maxOccurs="unbounded" minOccurs="0" />
+        </xs:sequence>
+  </xs:complexType>
+   <xs:complexType name="TextElementListType">
+     <xs:sequence>
+           <xs:element name="textelementtype" type="xs:string" maxOccurs="unbounded" minOccurs="0" />
+      </xs:sequence>
+  </xs:complexType>
+   <xs:complexType name="BoxListType">
+     <xs:sequence>
+           <xs:element name="box" type="xs:string" maxOccurs="unbounded" minOccurs="0" />
+      </xs:sequence>
+  </xs:complexType>
+     <!-- 20130610 WJU Read/Write SMS & NetHeader as ICML (FUSDEV-245) -->
+ <xs:complexType name="PlainTextType">
+        <xs:sequence>
+            <xs:element name="plaintext" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="chunk" type="xs:string" maxOccurs="unbounded" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="boxtype" type="xs:string" use="required" />
+        <xs:attribute name="nativetexttype" type="xs:string" use="required" />
+        <xs:attribute name="encoding" type="xs:string" use="required" />
+   </xs:complexType>
+    <xs:complexType name="PlainTextListType">
+        <xs:sequence>
+            <xs:element name="plaintext" type="xs:string" maxOccurs="unbounded" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="type" type="xs:string" use="required" />
+    </xs:complexType>
+  <xs:complexType name="NetHeaderListType">
+        <xs:complexContent>
+            <xs:extension base="sax:PlainTextType" />
+        </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="SmsListType">
+        <xs:complexContent>
+            <xs:extension base="sax:PlainTextType" />
+        </xs:complexContent>
+ </xs:complexType>
+   <xs:element name="stories" type="sax:ArticleListType" />
+    <xs:complexType name="ArticleListItemType">
+     <xs:complexContent>
+         <xs:extension base="sax:BaseItemType">
+              <xs:sequence>
+                   <xs:element name="author" type="xs:string" minOccurs="0" nillable="true" />
+                 <xs:element name="initials" type="xs:string" minOccurs="0" nillable="true" />
+                   <xs:element name="textelementtypes" type="sax:TextElementListType" maxOccurs="1" minOccurs="0" />
+                   <xs:element name="boxes" type="sax:BoxListType" maxOccurs="1" minOccurs="0" />
+                  <xs:element name="kicker" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+                   <xs:element name="header" type="xs:string" minOccurs="0" nillable="true" />
+                 <xs:element name="subheader" type="xs:string" minOccurs="0" nillable="true" />
+                  <xs:element name="byline" type="xs:string" minOccurs="0" nillable="true" />
+                 <xs:element name="preface" type="xs:string" minOccurs="0" nillable="true" />
+                    <xs:element name="paragraphs" type="sax:ParagraphListType" maxOccurs="1" minOccurs="0" />
+                   <xs:element name="nativeboxtexts" type="sax:NativeBoxTextListType" maxOccurs="1" minOccurs="0" />
+                   <xs:element name="netheader" type="sax:NetHeaderListType" maxOccurs="1" minOccurs="0" />
+                    <xs:element name="sms" type="sax:SmsListType" maxOccurs="1" minOccurs="0" />
+                    <!-- linked images -->
+                  <xs:element name="images" type="sax:ImageListType" maxOccurs="unbounded" minOccurs="0" nillable="true" />
+                   <xs:element name="numCaptions" nillable="true" type="xs:integer" maxOccurs="1" minOccurs="0" />
+                 <xs:element name="numCaptionsWithoutPictures" nillable="true" type="xs:integer" maxOccurs="1" minOccurs="0" />
+                    <xs:element name="numChannels" nillable="true" type="xs:integer" maxOccurs="1" minOccurs="0" />
+                    <xs:element name="numMultiPriorities" nillable="true" type="xs:integer" maxOccurs="1" minOccurs="0" />
+                 <xs:element name="captions" type="sax:CaptionListType" maxOccurs="unbounded" minOccurs="0" nillable="true" />
+                   <xs:element name="changed" type="sax:ArticleChangedType" maxOccurs="1" minOccurs="0" nillable="true" />
+                 <xs:element name="keywords"  type="sax:TaxonomyListType" maxOccurs="1" minOccurs="0" nillable="true" />
+                    <xs:element name="onlinepriority" type="sax:PriorityListItemType" maxOccurs="1" minOccurs="0" nillable="true" />
+                 <xs:element name="multipriorities" type="sax:MultiPrioritiesListType" maxOccurs="1" minOccurs="0" />
+                    <xs:element name="channels" type="sax:ChannelsListType" maxOccurs="1" minOccurs="0" />
+                  <xs:element name="numberofcharacters" type="xs:integer" maxOccurs="1" minOccurs="0" />
+                  <xs:element name="bodyextent" type="xs:double" maxOccurs="1" minOccurs="0" />
+                    <xs:element name="netnewscategory" type="xs:long" maxOccurs="1" minOccurs="0" nillable="true" />
+                    <xs:element name="webpreventpublishing" type="xs:long" maxOccurs="1" minOccurs="0" nillable="true" />
+                    <xs:element name="netnewspriority" type="sax:PriorityListItemType" maxOccurs="1" minOccurs="0" nillable="true" />
+                    <xs:element name="webcategory" type="sax:PBCSCategoryListItemType" maxOccurs="1" minOccurs="0" nillable="true" />
+                    <xs:element name="websetting" type="sax:WebSettingsListItemType" maxOccurs="1" minOccurs="0" nillable="true" />
+                    <xs:element name="assigned" type="xs:boolean" maxOccurs="1" minOccurs="0" nillable="true" />
+                    <xs:element name="linkcount" type="xs:long" maxOccurs="1" minOccurs="0" nillable="true" />
+                    <xs:element name="planning" type="sax:PlanElementListType" maxOccurs="1" minOccurs="0" nillable="true" />
+                  <xs:element name="statusname" type="xs:string" minOccurs="0" nillable="true" />
+                    <xs:element name="texttype" type="sax:TextTypeListItemType" maxOccurs="1" minOccurs="0" nillable="true" />
+                   <xs:element name="plaintexts" type="sax:PlainTextListType" maxOccurs="1" minOccurs="0" nillable="true" />
+               </xs:sequence>
+              <xs:attribute name="id" type="xs:long" use="optional" />
+                <xs:attribute name="site" type="xs:long" use="optional" />
+              <xs:attribute name="name" type="xs:string" use="optional" />
+            </xs:extension>
+     </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="ArticleChangedType">
+        <xs:attribute name="content" type="xs:boolean" use="required"></xs:attribute>
+        <xs:attribute name="properties" type="xs:boolean" use="required"></xs:attribute>
+        <xs:attribute name="geometry" type="xs:boolean" use="required"></xs:attribute>
+    </xs:complexType>
+ <xs:complexType name="ArticleListType">
+     <xs:sequence>
+           <xs:element name="story" type="sax:ArticleListItemType" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="pagenumber" type="xs:long" use="optional" />
+        <xs:attribute name="pagesize" type="xs:long" use="optional" />
+      <xs:attribute name="resultcount" type="xs:long" use="optional" />
+   </xs:complexType>
+   <!-- Company -->
+    <xs:element name="company" type="sax:CompanyType" />
+    <xs:complexType name="CompanyType">
+     <xs:sequence>
+           <xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="0" />
+         <xs:element name="version" type="xs:string" maxOccurs="1" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+       <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+   <!-- <xs:element name="companies" type="sax:SiteListType" />
+ <xs:complexType name="CompanyListType">
+ <xs:annotation>
+ <xs:documentation      xml:lang="en">
+ A SiteListType consists of a list of SiteType elements. </xs:documentation>
+ </xs:annotation>
+ <xs:choice minOccurs="0"        maxOccurs="unbounded">
+ <xs:element name="site" type="sax:SiteType" />
+ </xs:choice>
+ </xs:complexType>
+ -->
+    <!-- Site aka Product -->
+   <xs:element name="site" type="sax:SiteType" />
+  <xs:complexType name="SiteType">
+        <xs:sequence>
+           <xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="0" />
+         <xs:element name="phone" type="xs:string" maxOccurs="1" minOccurs="0" />
+            <xs:element name="email" type="xs:string" maxOccurs="1" minOccurs="0" />
+            <xs:element name="website" type="xs:string" maxOccurs="1" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+       <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+   <xs:element name="sites" type="sax:SiteListType" />
+ <xs:complexType name="SiteListType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="site" type="sax:SiteType" />
+      </xs:choice>
+    </xs:complexType>
+   <xs:complexType name="SiteRefType">
+     <xs:simpleContent>
+          <xs:extension base="xs:string">
+             <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+               <xs:attribute name="uri" type="xs:anyURI" use="required"></xs:attribute>
+            </xs:extension>
+     </xs:simpleContent>
+ </xs:complexType>
+   <!-- User -->
+   <xs:element name="user" type="sax:UserItemType" />
+  <xs:complexType name="UserItemType">
+        <xs:sequence>
+           <xs:element name="username" type="xs:string" maxOccurs="1" minOccurs="1"></xs:element>
+          <xs:element name="initials" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true"></xs:element>
+          <xs:element name="password" type="xs:string" maxOccurs="1" minOccurs="0" />
+         <xs:element name="enabled" type="xs:boolean" maxOccurs="1" minOccurs="0" />
+         <xs:element name="site" type="sax:SiteRefType" nillable="true" />
+           <xs:element name="firstnames" type="xs:string" maxOccurs="1" minOccurs="0" />
+           <xs:element name="lastname" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+         <xs:element name="phone" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+            <xs:element name="email" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+            <xs:element name="address" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+          <xs:element name="roles" type="sax:rolesType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="sites" type="sax:SiteListType" minOccurs="0" maxOccurs="1" />
+         <xs:element name="pformat" type="xs:long" maxOccurs="1" minOccurs="0" nillable="true" />
+            <xs:element name="uformat" type="xs:long" maxOccurs="1" minOccurs="0" nillable="true" />
+            <xs:element name="dformat" type="xs:long" maxOccurs="1" minOccurs="0" nillable="true" />
+            <xs:element name="byline" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+           <xs:element name="searchlistorder" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+          <xs:element name="multipriorities" type="sax:DefaultMultiPrioritiesListType" maxOccurs="1" minOccurs="0" nillable="true" />
+         <xs:element name="channelworksets" type="sax:ChannelWorksetListType" maxOccurs="1" minOccurs="0" nillable="true" />
+         <xs:element name="defaultchannels" type="sax:ChannelsListType" maxOccurs="1" minOccurs="0" nillable="true" />
+           <xs:element name="verticalmeasure" type="sax:UserVerticalMeasurement" maxOccurs="1" minOccurs="0" nillable="true" />
+            <xs:element name="userparameters" type="sax:ParameterValues" maxOccurs="1" minOccurs="0" nillable="true" />
+         <xs:element name="storypackagetype" type="xs:long" maxOccurs="1" minOccurs="0" nillable="true" />
+           <xs:element name="photorequesttype" type="xs:long" maxOccurs="1" minOccurs="0" nillable="true" />
+           <xs:element name="defaultcategory" type="sax:CategoryListItemType" maxOccurs="1" minOccurs="0" nillable="true" />
+           <xs:element name="columns" type="sax:ClientColumnListType" maxOccurs="1" minOccurs="0" nillable="true" />
+            <xs:element name="defaulttexttype" type="xs:long" maxOccurs="1" minOccurs="0" nillable="true" />
+            <xs:element name="indesignserver" type="xs:boolean" maxOccurs="1" minOccurs="0" nillable="true" />
+     </xs:sequence>
+      <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+       <xs:attribute name="puid" type="xs:long" use="optional"></xs:attribute>
+     <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+   <xs:element name="users" type="sax:UserListType" />
+ <xs:complexType name="UserListType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="user" type="sax:UserItemType" />
+      </xs:choice>
+    </xs:complexType>
+   <xs:complexType name="ImageType">
+       <xs:complexContent>
+         <xs:extension base="sax:FileContentType">
+               <xs:sequence>
+                   <xs:element name="iptc" type="sax:IptcType" maxOccurs="1" minOccurs="0" nillable="true"></xs:element>
+                   <xs:element name="height" type="xs:float" maxOccurs="1" minOccurs="0" nillable="true"></xs:element>
+                 <xs:element name="width" type="xs:float" maxOccurs="1" minOccurs="0" nillable="true"></xs:element>
+              </xs:sequence>
+              <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+           </xs:extension>
+     </xs:complexContent>
+    </xs:complexType>
+   <xs:element name="images" type="sax:ImageListType" />
+   <xs:complexType name="ImageListType">
+       <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="image" type="sax:ImageType" />
+        </xs:choice>
+    </xs:complexType>
+   <xs:complexType name="CaptionType">
+     <xs:sequence>
+           <xs:element name="paragraph" type="sax:ParagraphListType" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+      <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+       <xs:attribute name="captionnumber" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="pictureid" type="xs:long" use="optional"></xs:attribute>
+    </xs:complexType>
+   <xs:element name="captions" type="sax:CaptionListType" />
+   <xs:complexType name="CaptionListType">
+     <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="caption" type="sax:CaptionType" />
+        </xs:choice>
+    </xs:complexType>
+   <xs:complexType name="KeyValue">
+        <xs:sequence>
+           <xs:element name="key" type="xs:string"></xs:element>
+           <xs:element name="value" type="xs:string"></xs:element>
+     </xs:sequence>
+  </xs:complexType>
+   <xs:complexType name="IptcType">
+        <xs:sequence>
+           <xs:element name="keyvalue" type="sax:KeyValue" minOccurs="0" maxOccurs="unbounded"></xs:element>
+       </xs:sequence>
+  </xs:complexType>
+   <xs:complexType name="MimeType">
+        <xs:sequence>
+           <xs:element name="type" type="xs:string" />
+         <xs:element name="subtype" type="xs:string" />
+      </xs:sequence>
+  </xs:complexType>
+   <xs:complexType name="FileContentType">
+     <xs:complexContent>
+         <xs:extension base="sax:BaseItemType">
+              <xs:sequence>
+                   <xs:element name="filename" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+                 <xs:element name="fileextension" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true"></xs:element>
+                 <xs:element name="mimetype" type="sax:MimeType" maxOccurs="1" minOccurs="0" nillable="true" />
+                  <!-- <xs:element name="filesize" type="xs:long" minOccurs="0" default="0" />
+ -->
+                </xs:sequence>
+          </xs:extension>
+     </xs:complexContent>
+    </xs:complexType>
+   <!-- TextFormat -->
+ <xs:element name="textformat" type="sax:TextFormatListItemType" />
+  <xs:complexType name="TextFormatListItemType">
+      <xs:sequence>
+           <xs:element name="menuname" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+         <xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+         <xs:element name="shortname" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+            <xs:element name="styles" type="sax:StyleListType" maxOccurs="1" minOccurs="0" nillable="true" />
+           <xs:element name="allowedstyles" type="sax:StyleListType" maxOccurs="1" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+       <xs:attribute name="uri" type="xs:anyURI" use="required"></xs:attribute>
+    </xs:complexType>
+   <xs:element name="textformats" type="sax:TextFormatListType" />
+ <xs:complexType name="TextFormatListType">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="category" type="sax:TextFormatListItemType" nillable="true" />
+        </xs:choice>
+    </xs:complexType>
+   <xs:complexType name="StyleListType">
+       <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="style" type="sax:StyleListItemType" nillable="true" />
+        </xs:choice>
+    </xs:complexType>
+   <xs:complexType name="StyleListItemType">
+       <xs:sequence>
+           <xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+         <xs:element name="textelementtype" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+          <xs:element name="textelementtypename" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+          <xs:element name="textelementorder" type="xs:long" maxOccurs="1" minOccurs="0" nillable="true" />
+           <xs:element name="isfirstbodytextformat" type="xs:boolean" maxOccurs="1" minOccurs="0" nillable="true" />
+           <xs:element name="isdefaultparagraphheader" type="xs:boolean" maxOccurs="1" minOccurs="0" nillable="true" />
+            <xs:element name="isforbodybox" type="xs:boolean" maxOccurs="1" minOccurs="0" nillable="true" />
+            <xs:element name="pcfontname" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+           <xs:element name="macfontname" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true" />
+          <xs:element name="pcshortcut" type="sax:ShortcutType" maxOccurs="1" minOccurs="0" nillable="true" />
+            <xs:element name="macshortcut" type="sax:ShortcutType" maxOccurs="1" minOccurs="0" nillable="true" />
+       </xs:sequence>
+      <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+       <!-- <xs:attribute name="uri" type="xs:anyURI" use="required"></xs:attribute>
+ -->
+   </xs:complexType>
+    <xs:complexType name="MultiPrioritiesListType">
+        <xs:sequence>
+            <xs:element name="multipriority" type="sax:MultiPriorityListItemType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MultiPriorityListItemType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" nillable="false" maxOccurs="1" minOccurs="0" />
+            <xs:element name="onlinepriority" type="xs:long" nillable="false" maxOccurs="1" minOccurs="0" />
+            <xs:element name="activefrom" type="xs:date" nillable="false" maxOccurs="1" minOccurs="0" />
+            <xs:element name="activeto" type="xs:date" nillable="false" maxOccurs="1" minOccurs="0" />
+            <xs:element name="ismainprofile" type="xs:int" nillable="false" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="profileid" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="iconuri" type="xs:anyURI" use="optional"></xs:attribute>
+        <xs:attribute name="headericonuri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="ChannelWorksetListType">
+        <xs:sequence>
+            <xs:element name="channelworkset" type="sax:ChannelWorksetListItemType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ChannelWorksetListItemType">
+        <xs:sequence>
+            <xs:element name="channels" type="sax:ChannelsListType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
+        <xs:attribute name="sortOrder" type="xs:long" use="optional"></xs:attribute>
+    </xs:complexType>
+    <xs:element name="channels" type="sax:ChannelsListType" />
+        <xs:complexType name="ChannelsListType">
+        <xs:sequence>
+            <xs:element name="channel" type="sax:ChannelListItemType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ChannelListItemType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="shortname" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="sortOrder" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="disabled" type="xs:int" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="publicussettingid" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="pageprocessorjobid" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="pageprocessorjobtype" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="pageprocessorscheduletype" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="layoutprocessingsettingsid" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="configuration" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="familyid" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="publishstatus" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="statusname" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="mediaid" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="medianame" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="mediashortname" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="mediapublishingchannel" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="mediaisdefault" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+        <xs:attribute name="productid" type="xs:long" use="required"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="required"></xs:attribute>
+        <xs:attribute name="iconuri" type="xs:anyURI" use="optional"></xs:attribute>
+        <xs:attribute name="statusiconuri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+     <xs:complexType name="ShortcutType">
+        <xs:attribute name="meta" type="xs:boolean" use="required"></xs:attribute>
+        <xs:attribute name="shift" type="xs:boolean" use="required"></xs:attribute>
+        <xs:attribute name="control" type="xs:boolean" use="required"></xs:attribute>
+        <xs:attribute name="alt" type="xs:boolean" use="required"></xs:attribute>
+        <xs:attribute name="key" type="xs:string" use="required"></xs:attribute>
+    </xs:complexType>
+    <xs:element name="shortcuts" type="sax:StyleListType" />
+        <xs:complexType name="ShortcutListType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="shortcut" type="sax:StyleListItemType" nillable="true" />
+        </xs:choice>
+    </xs:complexType>
+   <xs:element name="properties" type="sax:VersionProperties" />
+   <xs:complexType name="VersionProperties">
+       <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="property" type="sax:PropertyValue" />
+     </xs:choice>
+    </xs:complexType>
+   <xs:element name="property" type="sax:PropertyValue" />
+ <xs:complexType name="PropertyValue">
+       <xs:simpleContent>
+          <xs:extension base="xs:string">
+             <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
+           </xs:extension>
+     </xs:simpleContent>
+ </xs:complexType>
+    <xs:element name="parameters" type="sax:ParameterValues" />
+    <xs:complexType name="ParameterValues">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="parameter" type="sax:ParameterValue" />
+        </xs:choice>
+    </xs:complexType>
+    <xs:element name="parameter" type="sax:ParameterValue" />
+        <xs:complexType name="ParameterValue">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" maxOccurs="1" minOccurs="0" />
+            <xs:element name="domain" type="xs:string" maxOccurs="1" minOccurs="0" />
+            <xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="0" />
+            <xs:element name="value" type="xs:string" maxOccurs="1" minOccurs="0" />
+            <xs:element name="type" type="xs:string" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+    <xs:element name="taxonomyterms" type="sax:TaxonomyListType" />
+    <xs:complexType name="TaxonomyListType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="term" type="sax:TaxonomyListItemType" />
+        </xs:choice>
+    </xs:complexType>
+    <xs:element name="taxonomyterm" type="sax:TaxonomyListItemType" />
+        <xs:complexType name="TaxonomyListItemType">
+        <xs:sequence>
+            <xs:element name="word" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="iptc" type="xs:string"  nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="deleted" type="xs:integer" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="type"  nillable="true" type="xs:string" maxOccurs="1" minOccurs="0" />
+            <xs:element name="childcount" type="xs:integer" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="children" type="sax:TaxonomyListType" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="level" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="creatortype" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="parentid" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="productid" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+    <xs:element name="error" type="sax:ErrorItemType" />
+        <xs:complexType name="ErrorItemType">
+        <xs:sequence>
+            <xs:element name="message" type="xs:string" nillable="false" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="type" type="xs:string" use="optional"></xs:attribute>
+    </xs:complexType>
+    <xs:element name="multipriorities" type="sax:DefaultMultiPrioritiesListType" />
+    <xs:complexType name="DefaultMultiPrioritiesListType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="multipriority" type="sax:DefaultMultiPrioritiesItemType" />
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="DefaultMultiPrioritiesItemType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" nillable="false" maxOccurs="1" minOccurs="0" />
+            <xs:element name="onlinepriority" type="xs:long" nillable="false" maxOccurs="1" minOccurs="0" />
+            <xs:element name="activefrom" type="xs:date" nillable="false" maxOccurs="1" minOccurs="0" />
+            <xs:element name="activeto" type="xs:date" nillable="false" maxOccurs="1" minOccurs="0" />
+            <xs:element name="ismainprofile" type="xs:int" nillable="false" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="profileid" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="iconuri" type="xs:anyURI" use="optional"></xs:attribute>
+        <xs:attribute name="headericonuri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="UserVerticalMeasurement">
+        <xs:sequence>
+            <xs:element name="shortname" type="xs:string" nillable="false" maxOccurs="1" minOccurs="0" />
+            <xs:element name="inpoints" type="xs:double" nillable="false" maxOccurs="1" minOccurs="0" />
+            <xs:element name="digits" type="xs:integer" nillable="false" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
+    </xs:complexType>
+        <xs:complexType name="WebSettingsListItemType">
+        <xs:sequence>
+            <xs:element name="topstory" type="xs:integer" nillable="false" maxOccurs="1" minOccurs="0" />
+            <xs:element name="startpublicationtime" type="xs:dateTime" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="stoppublicationtime" type="xs:dateTime" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="subcategory" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="keywords" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="notes" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="usewebpublicationtime" type="xs:integer" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="webcategory" type="sax:PBCSCategoryListItemType" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="factboxarticle" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="forum" type="xs:double" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="priorityrotate" type="xs:integer" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="multimedia" type="xs:integer" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="frontpagedesign" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="listdesign" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="articledesign" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="storytype" type="xs:integer" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="keeplastupdatetimestamp" type="xs:integer" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="pbcsextra" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="rating" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+        <xs:element name="webcategories" type="sax:PBCSCategoryListType" />
+        <xs:complexType name="PBCSCategoryListType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="pbcscategory" type="sax:PBCSCategoryListItemType" />
+        </xs:choice>
+    </xs:complexType>
+        <xs:element name="webcategory" type="sax:PBCSCategoryListItemType" />
+        <xs:complexType name="PBCSCategoryListItemType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="description" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="parentname" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+        <xs:attribute name="productid" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+    <xs:element name="onlinepriorities" type="sax:PriorityListType" />
+        <xs:complexType name="PriorityListType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="onlinepriority" type="sax:PriorityListItemType" />
+        </xs:choice>
+    </xs:complexType>
+        <xs:element name="onlinepriority" type="sax:PriorityListItemType" />
+        <xs:complexType name="PriorityListItemType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="priorityorder" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="isdefault" type="xs:integer" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="elementtype" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="color" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="bacspriority" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+        <xs:attribute name="productid" type="xs:long" use="required"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+        <xs:element name="planelements" type="sax:PlanElementListType" />
+        <xs:complexType name="PlanElementListType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="planelement" type="sax:PlanElementListItemType" />
+        </xs:choice>
+    </xs:complexType>
+        <xs:element name="planelement" type="sax:PlanElementListItemType" />
+        <xs:complexType name="PlanElementListItemType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="summary" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="product" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="category" type="sax:CategoryListItemType" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="publication" type="sax:PublicationType" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="priority" type="sax:PriorityListItemType" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="startdatetime" type="xs:dateTime" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="enddatetime" type="xs:dateTime" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="deadlinedatetime" type="xs:dateTime" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="updatedtime" type="xs:dateTime" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="links" type="sax:ElementLinkListType" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="status" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="enabled" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="type" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+        <xs:attribute name="iconuri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+        <xs:element name="links" type="sax:ElementLinkListType" />
+    <xs:complexType name="ElementLinkListType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="link" type="sax:ElementLinkListItemType" />
+        </xs:choice>
+    </xs:complexType>
+        <xs:element name="link" type="sax:ElementLinkListItemType" />
+    <xs:complexType name="ElementLinkListItemType">
+        <xs:sequence>
+            <xs:element name="relid" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="reltype" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="reltypename" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="relplantype" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="relplantypename" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="type" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="parentelementtype" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="ClientColumnListType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="column" type="sax:ClientColumnListItemType" />
+        </xs:choice>
+    </xs:complexType>
+        <xs:complexType name="ClientColumnListItemType">
+      <xs:sequence>
+        <xs:element name="headervalue" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="imageindex" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="state" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="modelindex" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="modelindexversion" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="filtermodelindex" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="canfilter" type="xs:boolean" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="width" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="minwidth" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="weight" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="currentweight" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="height" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="direction" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="originlet" type="xs:long" nillable="true" maxOccurs="1" minOccurs="0" />
+        <xs:element name="showastext" type="xs:boolean" nillable="true" maxOccurs="1" minOccurs="0" />
+      </xs:sequence>
+        <xs:attribute name="column" type="xs:string" use="optional"></xs:attribute>
+    </xs:complexType>
+        <xs:element name="worksets" type="sax:CategoryWorksetListType" />
+    <xs:complexType name="CategoryWorksetListType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="workset" type="sax:CategoryWorksetListItemType" />
+        </xs:choice>
+    </xs:complexType>
+        <xs:element name="workset" type="sax:CategoryWorksetListItemType" />
+    <xs:complexType name="CategoryWorksetListItemType">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="categories" type="sax:CategoryListType" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="site" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
+        <xs:attribute name="separator" type="xs:boolean" use="optional"></xs:attribute>
+        <xs:attribute name="dateworkset" type="xs:boolean" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+        <xs:element name="texttypes" type="sax:TextTypeListType" />
+    <xs:complexType name="TextTypeListType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="texttype" type="sax:TextTypeListItemType" />
+        </xs:choice>
+    </xs:complexType>
+        <xs:element name="texttype" type="sax:TextTypeListItemType" />
+    <xs:complexType name="TextTypeListItemType">
+        <xs:sequence>
+            <xs:element name="preferrednativetexttype" type="sax:NativeTextTypeListItemType" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="canuseaswanted" type="xs:boolean" maxOccurs="1" minOccurs="0" />
+            <xs:element name="tooltip" type="xs:string" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
+        <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+    </xs:complexType>
+        <xs:complexType name="NativeTextTypeListItemType">
+        <xs:sequence>
+            <xs:element name="technicalname" type="xs:string" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long" use="optional"></xs:attribute>
+        <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
+<!--         <xs:attribute name="uri" type="xs:anyURI" use="optional"></xs:attribute>
+ -->
+    </xs:complexType></xs:schema>
