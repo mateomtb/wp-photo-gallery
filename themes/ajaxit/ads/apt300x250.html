@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script language="JavaScript" type="text/javascript" src="http://extras.mnginteractive.com/live/js/tacoda/DartInclude.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://extras.mnginteractive.com/live/js/tacoda/AccipiterInclude.js"></script>
+
+	
+<SCRIPT language="JavaScript" type="text/javascript"><!--
+	document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);	//need to keep this at top
+	var q = document.location.search;
+	getParam = function(arg){
+		if (q.indexOf(arg) >= 0){
+			var pntr = q.indexOf(arg) + arg.length + 1;
+			if (q.indexOf("&", pntr) >= 0){
+				return q.substring(pntr, q.indexOf("&", pntr));
+			}else{
+				return q.substring(pntr, q.length);
+			}
+		}else{
+			return null;
+		}
+	}
+	var tag = getParam('thepagetag');
+	var category = getParam('thepagecat');
+	var brokenstring = category.split("-");
+	var keywordbase = ["mediacenter", tag];
+	
+	var pubid = getParam('id');
+	var sitename = unescape( getParam('stnm') );
+	var contenttopic = getParam('ct');
+	var parentcompany = getParam('pc');
+	
+	//http://10.147.11.50/mediacenter/wp-content/themes/ajaxit/ads/apt728x90.html?thepagetag=home&thepagecat=mc_entertainment-mc_hollywood-mc_movies-mc_music&id=23850269999&nm=www.twincities.com&ct=20337001&pc=jrc
+	
+	//--YAHOO ADS--> //General Information
+	yld_mgr = {};
+	yld_mgr.slots = {};
+	
+	yld_mgr.pub_id="23850269999";
+	if ( (pubid != '') && (pubid != null) ) { yld_mgr.pub_id=pubid;}
+	console.debug('yld_mgr.pub_id= '+ yld_mgr.pub_id);
+	
+	yld_mgr.site_name="www.twincities.com"; 
+	if ( (sitename != '') && (sitename != null) ) {yld_mgr.site_name=sitename;}
+	console.debug('yld_mgr.site_name= '+ yld_mgr.site_name);
+	
+	yld_mgr.container_type="js";
+	yld_mgr.request_type="ac";
+	yld_mgr.clk_dest="_blank";
+	yld_mgr.ad_output_encoding="utf-8";
+	yld_mgr.max_count=3;
+	yld_mgr.content_lang="en-US";
+	yld_mgr.disable_content_send="0";
+	yld_mgr.cstm_sctn_list=["section"];
+	
+	yld_mgr.content_topic_id_list=["20337001"];		//yld_mgr.content_topic_id_list=[ccc];
+	if ( (contenttopic != '') && (contenttopic != null) ) {
+		yld_mgr.content_topic_id_list= [ contenttopic + ''];
+	}
+	console.debug('yld_mgr.content_topic_id_list= '+ yld_mgr.content_topic_id_list);
+	
+    var sectionKeywords = keywordbase.concat(brokenstring);
+	//Custom Content Categories - lower case, comma separated, max 10 categories, a-z, 0-9(category must start with a letter), and underscores are allowed
+    var content_type_list = [""];
+	var reporting_tag_list = [""];//This is the section name
+	//sectionKeywords.push(brokenstring);
+	//alert("keywords " + sectionKeywords);
+
+	//Ad slot configs
+	if ( parentcompany == 'jrc' ) {
+		yld_mgr.slots.adPos9 = {};
+		yld_mgr.slots.adPos9.ad_size_list=["300x250"];
+		yld_mgr.slots.adPos9.ad_delivery_mode="ipatf";
+		yld_mgr.slots.adPos9.ad_marker = "";
+		yld_mgr.slots.adPos9.content_type_list = ["fn_news"];
+	} else {
+		//mngi
+		yld_mgr.slots.adPos9={};
+		yld_mgr.slots.adPos9.ad_size_list=["300x250"];
+		yld_mgr.slots.adPos9.ad_delivery_mode="ipatf";
+		yld_mgr.slots.adPos9.ad_format_list=["Standard Graphical","Rich Media"];
+		yld_mgr.slots.adPos9.cstm_content_cat_list=sectionKeywords;
+		yld_mgr.slots.adPos9.content_type_list=content_type_list;
+		yld_mgr.slots.adPos9.reporting_tag_list=reporting_tag_list;
+		
+	}
+</script>
+<script type="text/javascript" src="http://e.yieldmanager.net/script.js"></script>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+</head>
+
+<body>
+<div class="adElement" id="adPosition14">
+	<script type="text/javascript" language="JavaScript">yld_mgr.place_ad_here("adPos9");</script>
+</div>
+</body>
+</html>

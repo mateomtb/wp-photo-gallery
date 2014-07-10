@@ -1,0 +1,1 @@
+rsync -vaz plugins/ /app/wordpress/mediacenter-national/wp-content/plugins --exclude-from=rsync_exclude.txt

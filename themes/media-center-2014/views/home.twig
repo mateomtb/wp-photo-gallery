@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    {% for post in posts %}
+        {% if loop.index == 1 %}
+    <div class="col sm-4 md-8 lg-6">
+        {% else %}
+    <div class="col sm-2 md-4 lg-3">
+        {% endif %}
+    {% include 'snippet_block_refer.twig' %}
+    </div> <!-- grid stuff -->
+    {% endfor %}
+
+{% endblock %}

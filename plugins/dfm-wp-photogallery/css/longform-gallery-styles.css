@@ -1,0 +1,11 @@
+div.clearit {clear:both;}
+#images {text-align:center; position:block;}
+div.imagecontainer {position:relative;}
+div.imagecontainer img {width:100%;}
+div#images img.copyrightimage {left:0; top:0; position:absolute; }
+div.caption {min-height:38px; height:auto; margin-bottom:10px; margin-top:-5.5px; background-color:#cccccc;}
+div.caption p {text-align:left; padding:4px 10px; font-size:13px; color:#000;}
+div.linkage {line-height:1; width:65px; height:40px; padding-left:10px; float:left; display:inline;}
+div.linkage p {font-size:29px; font-weight:bold; padding-left:0px; margin:0; text-align:center;}
+div.linkage a {color:#000;}
+a.hashy {color: #000; text-decoration: underline;}

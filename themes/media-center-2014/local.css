@@ -1,0 +1,13 @@
+/* Put task-specific CSS, before it's been incorporated into https://github.com/DFMLabs/mc_comps/blob/master/css/media-center.min.css , here.
+
+*/
+.top_leaderboard{position:relative;top:58px;margin-bottom:15px;width:728px;height:90px; margin:0 auto;text-align:center;background:#ffa628;}
+#wrapperdiv{position:relative;top:58px;margin-bottom:15px;width:728px;height:90px; margin:0 auto;text-align:center;background:#ffa628;}
+/*.super-leaderboard{width:960px;height:90px;line-height:90px}*/
+.medium-rectangle{width:300px;height:250px;line-height:250px}
+.ad{display:block;position:relative;margin:0 auto;text-align:center; clear: both;}
+.ad-pos2{margin-bottom:15px; margin-top: 15px; clear: both; min-width: 300px;}
+.medium-rectangle{width:300px;height:250px;line-height:250px;background:#ffa628;}
+.medium-rectangle.responsive{width:100%!important}
+.interstitial{}
+.galleryinterstitial{}

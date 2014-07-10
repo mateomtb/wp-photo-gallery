@@ -1,0 +1,9 @@
+/*============= IE7 specific Olympic styles ============== */
+
+.rotator-image-wrap .rotator-caption-wrap {width:225px!important;max-width:225px;}
+
+.c-wrap-content {position:absolute!important;text-align:left!important;}
+
+.br-profiles .simplepie h4 a IMG {position:relative!important;top:-17px!important;}
+
+#five_sblinks {margin-left:-355px!important;}

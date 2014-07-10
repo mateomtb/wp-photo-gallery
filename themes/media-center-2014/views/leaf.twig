@@ -1,0 +1,18 @@
+<div class="story">
+	<div class="content-well">
+		<div class="story-info">
+			<h5 class="section-name"><a href="{{wpurl}}/category/{{post.category.slug}}/">{{post.category}}</a></h5>
+			<h1>{{post.title}}</h1>
+			<div class="meta">
+				<p>
+				<span class="divider"></span>				
+				</p>				
+			</div> <!-- .meta -->
+			<p>{{post.content}}</p>
+		</div> <!-- .story-info -->		
+	</div> <!-- .content-well -->
+	<div class="ad-well">
+		{% include 'ad.twig' with ad %}
+		{% include 'related.twig' with related %}
+	</div> <!-- .ad-well -->
+</div> <!-- .story -->

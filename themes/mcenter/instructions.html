@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Instructions</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Thad Allender">
+	<link rel="stylesheet" href="library/styles/screen.css" type="text/css" media="screen, projection" />
+	
+	<!-- Date: 2009-05-30 -->
+</head>
+<body style="margin:2em 0">
+	<div class="container">
+ 		<h1>Instructions</h1>
+		<hr />
+		<div class="span-15 colborder">
+		<p>This theme is a one or two column theme that can be used for portfolios, photoblogs, videoblogs, and virtually anything else where you want your content to be front and center.  Here is a brief list of the major features:</p>
+		<ul>
+			<li>Theme options panel to configure homepage design, easy logo insertion, css style over-ride, insert ads and more</li>
+			<li>Automatic thumbnail generator with the ability to override the automated thumbnails</li>
+			<li>Built-in HD video player for self-hosting HD quality video</li>
+			<li>Ability to embed video from YouTube (HD), Vimeo, MetaCafe, Seesmic, Google Video, Revver</li>
+			<li>Three footer widgets</li>
+			<li>Multi-tier drop-down navigation to maximize homepage space</li>
+			<li>Built atop CSS frameworks to speed customization</li>
+			<li>Forward and backward compatibility with previous versions of Wordpress</li>
+			<li>XHML:  This theme has been tested on Firefox, Safari, IE 8, 7, 6.</li>
+		</ul>
+		</div>
+		<div class="span-8 last">
+			<div class="box">
+			<h3>Best Practices</h3>
+				<p>If you want to make changes to how this theme looks and feels, than create a child theme.  Never make changes to the original theme files.  Why?  Because when a new version of this theme is released, all of your changes will be lost when you update.  Plus, making a child theme is incredibly easy.  <a href="http://op111.net/p53">Here is how you do it.</a></p>
+			</div>
+		</div>
+		<hr />
+		<ol>
+		<li class="box">
+			<h3>Installation</h3>
+					<ol>
+						<li>Unzip the folder contained in the archive to your computer</li>
+						<li>Upload the folder and its contents to the themes directory of your blog, located in &quot;wp-content/themes&quot; where WordPress is installed.</li>
+						<li>Change the permissions (aka CHMOD) to the /cache/ folder to 777.  This folder is used to store your custom post thumbnails (more on this later).</li>
+
+						<li>Click on Appearance - Themes menu from the WP admin panel, then select the theme to activate.</li>
+					  <li>Click on View Site at the top of the page.  Bam.  Hot site!</li>
+					</ol>
+		</li>
+			
+		<li class="box">
+			<h3>Media settings</h3>
+		<ol>
+			<li>In Wordpress, click on Media Settings.  Set your thumbnails to 150 x 150.  Set your medium photo size to 590.  Set your large size to 950.</li>
+			<li>This theme will automatically create thumbnails from the images that you upload.  By default, the thumbnail size is 150 x 150.  This can be easily changed, if you know a little bit of CSS.</li>
+			<li>If you plan on self-hosting your own video to use the theme's built-in HD video player, you need to use the Post Thumbnail text field on the Write Post panel and paste the URL to your video thumbnail.  The dimensions of the thumbnail should exactly match the dimensions of the video dimensions that you plug into the Post Video Options panel.</li>
+		</ol>
+		</li>
+		<li class="box">
+			<h3>Homepage</h3>
+			<p>This theme has three homepage design options:</p>
+				<ol>
+					<li>Featured Section - A main post at left, with three earlier posts at right</li>
+					<li>News Section - A tabbed area at left, widgetized middle column, three previous posts at right</li>
+					<li>Blog - A normal tubular list of posts</li>
+				</ol>
+				<br/>
+			<p>Please activate each option and view your new homepage design. Note:  The middle column of the News Section is 100% widgetized, so add whatever you want.  If you want to limit your posts appearing beneath the tabbed area to a specific category, follow these instructions:</p>
+				<ol>
+					<li>Open up library/apps/news.php</li>
+					<li>Add the ID of the category that you want to display on the homepage, like this: cat=3</li>
+					<li>This would cause the homepage thumbnails to only show thumbnails from category 3.</li>
+					<li>The completed code would look like this:<br/><br/>
+						&lt;?php&nbsp;$home_query&nbsp;=&nbsp;new&nbsp;WP_Query(&quot;cat=3&showposts=24&quot;);&nbsp;$i&nbsp;=&nbsp;0;&nbsp;?&gt;
+						
+						<br/><br/>
+					</li>
+					<li>No sure how to find your category ID?  In your Wordpress panel, click on Categories. Put your mouse cursor on the name of the category.  Look on your browser's status bar (typically located at the bottom of your browser).  The ID will be revealed at the end of the URL.</li>
+					<li>Read more about Wordpress' query post feature <a href="http://codex.wordpress.org/Template_Tags/query_posts">here</a>.</li>
+		</ol>
+		</li>
+		<li class="box">
+			<h3>Navigation</h3>
+			<p>The navigation contains a listing of all your pages and posts, your contact info and the search bar. You can set or remove the contact info from the Theme Options panel.  To add/remove pages from the listing, <a href="http://codex.wordpress.org/Template_Tags/wp_list_pages">please see these instructions.</a>  To add/remove specific categories from the listing, <a href="http://codex.wordpress.org/Template_Tags/wp_list_categories">please see these instructions.</a></p>
+		</li>
+		<li class="box">
+			<h3>Video</h3>
+			<p>This theme comes with a custom meta box on the Write Post page that makes adding either self-hosted video in FLV format or video from the following popular video services:
+				<ul>
+					<li>YouTube (HD)</li>
+					<li>Vimeo</li>
+					<li>MetaCafe</li>
+					<li>Seesmic</li>
+					<li>Google Video</li>
+					<li>Revver</li>
+				</ul>
+				<br/>
+			<p>If you plan on using the built-in video player instead of the services listed above, you need to upload the FLV video to your server using either an FTP program (if the file is large) or Wordpress' media upload tool.  Paste the URL to where this FLV exists on your server into the field.  Supply the width and height of the video in pixels in the appropriate fields.  And lastly, you must add a thumbnail for the video (the default image that shows up on the video player.)  To do this, simply upload a photo to the post using the "Add Photo" button.</p>
+		</li>
+		<li class="box">
+			<h3>Widgets</h3>
+					<p>There are a total of four or five widgetized areas on this theme, depending on which options you activate on the Theme Options panel.  Three widgetized areas appear on the bottom and there is one sidebar widget.  If you have activated the New Section, you will then have one additional widgetized area to fill the middle column of your homepage.  You can add and delete widgets by clicking Design - Widgets, from within your Wordpress admin panel.</p>
+		</li>
+		<li class="box">
+			<h3>Advertising</h3>
+			<p>This theme has two built-in spots for advertising:  One in the sidebar, which measures 310 pixels wide, and one underneath the main post, which measures 590 pixels wide.  You can add your adversing code on the Theme Options panel.</p>
+		</li>
+		<li class="box">
+			<h3>Common problems</h3>
+			<p>This theme uses jQuery javascript to do lots of fancy stuff.  If your theme looks broken, than you likely have a plugin that uses a conflicting javascript library.  Deactivate your plugins, one-by-one, to determine which plugin is conflicting with jQuery.</p>
+			<p>Still having trouble?  Consider <a href="http://graphpaperpress.com/members/signup.php">becoming a member of Graph Paper Press</a> so you can get access to our private, well-groomed <a href="http://graphpaperpress.com/support/">support forum</a>, tutorials, and additional themes.</p>
+		</li>
+		<li class="box">
+			<h3>Credits</h3>
+			<ul>
+			<li><a href="http://thadallender.com">Thad Allender</a> is the principal designer/developer.</li>
+			<li><a href="http://nhuja.com">Chandra Maharzan</a> is the genius debugger/developer.</li>
+			<li>Video embedding was adapted from the work of <a href="http://jameslao.com">James Lao</a> and <a href="http://www.press75.com/the-simple-video-embedder-wordpress-plugin/">Jason Schuller</a>.</li>
+			</ul>
+		</li>
+	</ol>	
+	</div>
+</body>
+</html>

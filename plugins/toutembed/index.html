@@ -1,0 +1,342 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Tout POC</title>
+	<script type="text/javascript" src="date.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="jquery.timeago.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="http://photos.denverpost.com/wp-content/themes/mcenter/style.css" />
+	<script>
+
+
+
+
+   var canPlay = false;
+   var v = document.createElement('video');
+   if(v.canPlayType && v.canPlayType('video/mp4').replace(/no/, '')) {
+       canPlay = true;
+   }
+
+
+
+
+
+	var categories = {
+		"New-England-DFM": "vdprrj",
+		"LA-News": "303y25",
+		"Denver-Post": "1m05yp",
+		"Jim-Brady": "m75kvg",
+		"RobynTomlin": "r9gf9l",
+		"DFM-Global": "q33dk8",
+	    	"Yankees": "wrxxni",
+		"NBA": "8472",
+		"Angela-Woodall": "l1jzn4",
+		"MidWest-DFM": "8473",
+	};
+
+$(document).ready(function(){
+	function loadContent() {
+		$('#content').empty();
+		var hash = window.location.hash.split('#')[1];
+		if (typeof(hash) != 'undefined') {
+			hash = hash;
+		} else {
+			hash = 	"DFM-Global";
+		}			
+			var stream = categories[hash];
+			$.getJSON('tout_api_proxy.php?stream=' + stream, function(data) {
+				$.each(data.touts, function(i, touts) {
+					var d1 = new Date(touts.tout.created_at);
+					var touthtml = '';			
+					touthtml += '<div class="tout" id="' + touts.tout.uid + '"><div class="toutuser"><span class="date">';
+					touthtml += jQuery.timeago(d1) + '</span><br /><span class="profile">';
+					touthtml += '<img src="' + touts.tout.user.avatar.profile.http_url + '" class="profileimage" /></span><br />';
+					touthtml += '<a href="http://tout.com/u/' + touts.tout.user.username + '">' + touts.tout.user.friendly_name + '</a></div><div class="toutvideo">';
+
+if(canPlay){
+					touthtml += '<video controls width="512" height="288" poster="' + touts.tout.image.poster.http_url + '" class="video"><source src="' + touts.tout.video.mp4.http_url + '" />Your device does not support HTML5 video.</video>';
+touthtml += '<p>' + touts.tout.text + '</p></div>';
+}
+
+//IF FIREFOX ... 
+else {
+touthtml += '<embed src="https://dftnngj7vho79.cloudfront.net/prod/toutPlayer.swf?autoplay=false&product=embed&website_origin=http://www.tout.com&api_origin=https://api.tout.com&oauth_origin=https://www.tout.com&tout_api_path=/api/v1/touts/' + touts.tout.uid + '&mixpanel_token=8f42d6c99005ef738c46dc8f6350829b" type="application/x-shockwave-flash" width="512" height="388" class="tout-flash-player" id="tout_flash_player_' + touts.tout.uid + '" style="display: block;" bgcolor="#FFFFFF" quality="high" scale="scale" allowfullscreen="true" allowscriptaccess="always" salign="t1" wmode="opaque"></embed>';
+touthtml += '</div>';
+}
+					
+touthtml += '<ul class="share-bar" id="share-bar' + touts.tout.uid + '>';
+touthtml += '<li><strong>Share:</strong></li>';
+touthtml += '<li><a target="_blank" href="http://www.tout.com/m/' + touts.tout.uid + '/share/facebook" id="share_facebook"><img src="//d2cjdr17j9fuin.cloudfront.net/assets/icons/stream_fb_share.gif"></a></li>';
+touthtml += '<li><a target="_blank" href="http://www.tout.com/m/' + touts.tout.uid + '/share/twitter" id="share_twitter"><img src="//d2cjdr17j9fuin.cloudfront.net/assets/icons/stream_tw_share.gif"></a></li>';
+touthtml += '<li><a target="_blank" href="http://www.tout.com/m/' + touts.tout.uid + '/share/google" id="share_googleplus"><img src="//d2cjdr17j9fuin.cloudfront.net/assets/icons/stream_gg_plus.png"></a></li>';
+touthtml += '<li><a target="_blank" href="http://www.tout.com/m/' + touts.tout.uid + '/share/linkedin" id="share_linkedin"><img src="//d2cjdr17j9fuin.cloudfront.net/assets/icons/stream_ln_share.png"></a></li>';
+touthtml += '<li><a target="_blank" href="http://www.tout.com/m/' + touts.tout.uid + '/share/pinterest" id="share_pinterest"><img src="//d2cjdr17j9fuin.cloudfront.net/assets/icons/stream_pn_share.gif"></a></li>';
+touthtml += '<li><a target="_blank" href="http://www.tout.com/m/' + touts.tout.uid + '" id="share_permalink" class=""><img src="//d2cjdr17j9fuin.cloudfront.net/assets/icons/stream_link_share.png" alt="Copy URL"></a></li>';
+touthtml += '<li><a target="_blank" href="#" class="share_embed_code" id="share_embed_code_' + touts.tout.uid + '" class=""><img src="//d2cjdr17j9fuin.cloudfront.net/assets/icons/stream_embed_code_share.png" alt="Copy Embed Code"></a></li>';
+touthtml += '<textarea style="height: 180px;" class="embed_code" id="share_embed_code_' + touts.tout.uid + '">&lt;embed src="https://dftnngj7vho79.cloudfront.net/prod/toutPlayer.swf?autoplay=false&amp;product=embed&amp;website_origin=http://www.tout.com&amp;api_origin=https://api.tout.com&amp;oauth_origin=https://www.tout.com&amp;tout_api_path=/api/v1/touts/' + touts.tout.uid + '&amp;mixpanel_token=8f42d6c99005ef738c46dc8f6350829b" type="application/x-shockwave-flash" width="420" height="388" class="tout-flash-player" id="tout_flash_player_' + touts.tout.uid + '" style="display: block;" bgcolor="#FFFFFF" quality="high" scale="scale" allowfullscreen="true" allowscriptaccess="always" salign="t1" wmode="opaque"&gt;&lt;/embed&gt;</textarea>';
+
+
+touthtml +=  '</ul>';
+
+
+
+
+
+					touthtml += '<br style="clear:both;"/></div>';
+
+
+
+
+					//alert(touthtml);
+					$('#content').append(touthtml);
+				});	
+			});	
+			var contentheader = '<div id="contentheader">&raquo; Showing posts tagged ' + hash + '</div>';
+			$('#content').prepend(contentheader);
+	}
+		
+	loadContent();
+
+	for (var key in categories) {
+	  var touthtml = '';
+	    //alert(key + " -> " + categories[key]);
+		var touthtml = '';
+		$.ajax({
+		  url: 'tout_api_proxy.php?stream=' + categories[key],
+		  dataType: 'json',
+		  async: false,
+		  success: function(data) {
+			touthtml = '<div class="categorybox"><a href="#' + key + '" class="catheader">&raquo; ' + key + '</a><table class="category">';
+			//$('#sidebar').append(catheader);
+			$.each(data.touts, function(i, touts) {
+				var d1 = new Date(touts.tout.created_at);
+				var text = touts.tout.text;
+				var trunctext = jQuery.trim(text).substring(0, 40)
+				    .split(" ").slice(0, -1).join(" ") + " . . . ";
+				touthtml += '<td>';
+				//touthtml += '<li>';
+				touthtml += '<div class="catthumb"><a href="#' + key + '" class="catvid" name="' + touts.tout.uid + '"><img src="' + touts.tout.image.thumbnail.http_url + '" /></a></div><div class="clear">' + trunctext + '<div class="clear"><span class="date">' + d1.toString('MMMM d, yyyy') + '</span>';
+				//touthtml +=  trunctext;
+				touthtml += '</td>';				
+				//$('#sidebar').append(touthtml);
+				return i<2;
+			});	
+			touthtml += '</table></div>';
+			$('#sidebar').append(touthtml);
+		}
+		});	
+	}
+	
+	$( '#sidebar' ).on( 'click', 'a.catheader', function (){
+		$('#content').empty();
+		var hash = $(this).attr('href').split('#')[1];
+		if (hash != '' || hash != undefined) {
+			var stream = categories[hash];
+			$.getJSON('tout_api_proxy.php?stream=' + stream, function(data) {
+				$.each(data.touts, function(i, touts) {
+					var d1 = new Date(touts.tout.created_at);
+					var touthtml = '';			
+					touthtml += '<div class="tout" id="' + touts.tout.uid + '"><div class="toutuser"><span class="date">';
+					touthtml += d1.toString('MMMM d, yyyy') + '</span><br /><span class="profile">';
+					touthtml += '<img src="' + touts.tout.user.avatar.profile.http_url + '" class="profileimage" /></span><br />';
+touthtml += '<a href="http://tout.com/u/' + touts.tout.user.username + '">' + touts.tout.user.friendly_name + '</a></div><div class="toutvideo">';
+					touthtml += '<video controls width="512" height="288" poster="' + touts.tout.image.poster.http_url + '" class="video"><source src="' + touts.tout.video.mp4.http_url + '" />Your device does not support HTML5 video.</video>';
+					touthtml += '<p>' + touts.tout.text + '</p></div>';
+					touthtml += '<br style="clear:both;"/></div>';
+					//alert(touthtml);
+					$('#content').append(touthtml);
+				});	
+			});
+			var contentheader = '<div id="contentheader">&raquo; Showing posts tagged ' + hash + '</div>';
+			$('#content').prepend(contentheader);	
+		} else {
+			//
+				
+		}
+	});	
+	
+	$( '#sidebar' ).on( 'click', 'a.catvid', function (){
+		$('#content').empty();
+		var hash = $(this).attr('href').split('#')[1];
+		var viduid = $(this).attr('name');
+		if (hash != '' || hash != undefined) {
+			var stream = categories[hash];
+			$.getJSON('tout_api_proxy.php?stream=' + stream, function(data) {
+				$.each(data.touts, function(i, touts) {
+					var d1 = new Date(touts.tout.created_at);
+					var touthtml = '';				
+					touthtml += '<div class="tout" id="' + touts.tout.uid + '"><div class="toutuser"><span class="date">';
+					touthtml += d1.toString('MMMM d, yyyy') + '</span><br /><span class="profile">';
+					touthtml += '<img src="' + touts.tout.user.avatar.profile.http_url + '" class="profileimage" /></span><br />';
+touthtml += '<a href="http://tout.com/u/' + touts.tout.user.username + '">' + touts.tout.user.friendly_name + '</a></div><div class="toutvideo">';
+					touthtml += '<video controls width="512" height="288" poster="' + touts.tout.image.poster.http_url + '" class="video"><source src="' + touts.tout.video.mp4.http_url + '" />Your device does not support HTML5 video.</video>';
+					touthtml += '<p>' + touts.tout.text + '</p></div>';
+					touthtml += '<br style="clear:both;"/></div>';
+					//alert(touthtml);
+					$('#content').append(touthtml);
+					window.location.href = '#' + viduid;
+				});	
+			});
+			var contentheader = '<div id="contentheader">&raquo; Showing posts tagged ' + hash + '</div>';
+			$('#content').prepend(contentheader);			
+		} else {
+			//
+				
+		}
+	});		
+})	
+	</script>
+	<style>
+	.category
+	{
+	width: 300px;
+	padding: 10px;
+	}
+	.category td {
+		height:120px;
+		vertical-align:top;
+	}
+	html, body, * {
+	    padding: 0;
+	    margin: 0;
+	}
+	.wrapper {
+	    min-width: 500px;
+	    max-width: 1100px;
+	    margin: 0 auto;
+	}
+	#content {
+	    width: 670px;
+	    float: right;
+	    max-height: 100%;
+		margin-top: 90px;
+		background: #999;   
+	}
+	#overlay {
+	    position: fixed;
+	    top: 0;
+	    width: 100%;
+	    height: 100%;
+	}
+	#overlay .wrapper {
+	    height: 100%;
+	}
+	#sidebar {
+		padding: 5px;
+		/*margin-right: 700px;   = content width + some white space */
+		height: 700px;
+		overflow:hidden;
+		background: #999;
+		margin-top: 90px;
+		float:left;
+		width: 380px;
+	}
+	#sidebar:hover {
+	    overflow-y: scroll;
+	}
+	#sidebar>* {
+	    max-width: 500px; /* leave some space for vertical scrollbar */
+	}		
+	.profile {
+		clear:both;
+	}
+	.date {
+		font-size: 70%; clear:both; color: #42a302;
+	}
+	.profileimage {height: 60px; width: 60px;}
+	.tout {
+	    width: 100%;
+		padding: 10px;
+		border: 2px solid #cfcfcf;
+		background: #efefef;
+	}
+	.toutuser {
+	    float:left;
+	    width:20%;
+	}
+	.toutvideo {
+	    float:left;
+	    width:80%;
+	}
+	.catheader {
+	    font-size: 140%;
+	    font-weight: bold;
+	}
+	.catthumb {
+		width: 84px; 
+		height: 84px; 
+		overflow: hidden;
+		float: left;
+		display: inline-block;
+		border: 1px solid #000;
+	 }
+	 .categorybox {
+		 border-top: 1px solid #000;
+		 margin-bottom: 5px;
+		 background: #e8e8e8;
+		 padding: 3px;
+	 }
+	 .video {
+	 	border: 1px solid #000;
+	 }	 	
+	 .clear {clear:both;}
+	 .header {height: 90px;}
+	 #contentheader {font-size: 170%; font-weight: bold; background: #fff;padding: 5px; width: 680px; border: 2px solid #cfcfcf;}
+.share-bar {margin: 0 auto; padding-top: 8px; width: 245px; }
+.share-bar li {display: inline-block;   list-style: none outside none; margin: 0 1px;}
+.embed_code {display:none;}
+	</style>
+</head>
+
+<body>
+	
+
+	<header class="header">
+		<div id="myhatwrap" class="shadow" style="background-color:#cccccc;">
+		<div id="myhat">
+		<div class="papertitle"><a target="_self" href="http://www.denverpost.com"><img src="http://dfm-ssp.medianewsgroup.com/denverpostphoto/files/2012/07/dpost1.png" alt="http://www.denverpost.com" /></a></div>
+		<div id="search">
+		<img src="http://photos.denverpost.com/wp-content/themes/mcenter/images/search.png" style="float:left; margin-top:2px; margin-right:4px;" />
+			<form method="get" id="searchform" action="http://photos.denverpost.com/">
+				<div>
+					<input type="text" name="s" id="s" value="Search Media Center" onfocus="clearInput('s', 'Search Media Center')" onblur="clearInput('s', 'Search Media Center')" /> 
+				</div>
+			</form>
+		</div>
+		<!-- end my hat -->
+		</div>
+		<!-- end my hat wrap -->	
+	</header>
+	<!--<div id="overlay">-->
+		
+	    <div class="wrapper">
+	        <div id="sidebar">
+
+	        </div>
+		 <div id="content">
+
+		</div>
+	    </div>
+	<!--</div>-->	
+	<div class="wrapper">
+	   
+	</div>
+
+<script>
+
+$(document).ready(function() {
+
+	$("a.share_embed_code").click(function(event) {
+		if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }
+		var textAreaID = "textarea#" + event.currentTarget.id;
+		//alert(textAreaID);
+		$(textAreaID).slideToggle();
+	});
+});
+</script>
+
+
+</body>
+
+</html>

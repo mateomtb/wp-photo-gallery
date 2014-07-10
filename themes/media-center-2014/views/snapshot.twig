@@ -1,0 +1,60 @@
+<img src="{{snapshot_item.fullUrl}}" alt="{{snapshot_item.caption}}">
+<p> {{snapshot_item.caption}}</p>
+
+
+<noscript>
+<h5>Photo navigation</h5>
+<ul>
+{%for galleryItem in galleryJSON.ImageElement%}
+<li><a href="{{post.link}}#!photo_num/{{loop.index}}">{{galleryItem.caption}}</a></li>
+{%endfor%}
+</ul>
+</noscript>
+
+
+
+<div class="story">
+	<div class="content-well">
+		<div class="story-info">
+			<h5 class="section-name"><a href="{{wpurl}}/category/{{post.category.slug}}/">{{post.category}}</a></h5>
+			<h1>{{post.title}}</h1>
+			<div class="meta">
+				<p>
+				<span class="posted-by">
+					Posted by <a href="#">{{post.author}}</a> on <span class="timestamp">{{post.post_date}}</span>
+				</span>
+				<span class="divider"></span>
+				{% include 'tags.twig' %}
+				</p>
+                {% include 'snippet_share_zipper.twig' %}
+			</div> <!-- .meta -->
+			<p>{{post.post_excerpt}}</p>
+		</div> <!-- .story-info -->
+		<ul class="pager plain">
+			{% if post.prev %}
+
+			<li class="prev">
+				<p class="position"><span class="glyphicon glyphicon-chevron-left"></span> Previous Post</p>
+				<p><a href="{{post.prev.link}}">{{post.prev.title}}</a></p>
+			</li>
+			{% endif %}
+			{% if post.next %}
+
+			<li class="next">
+				<p class="position"></span>Next Post<span class="glyphicon glyphicon-chevron-right"></p>
+				<p><a href="{{post.next.link}}">{{post.next.title}}</a></p>
+			</li>
+			{% endif %}
+
+		</ul> <!-- .pager -->
+		<div class="comments" id="comments">
+			comments placeholder here
+            {{ comment_form }}
+		</div>
+	</div> <!-- .content-well -->
+	<div class="ad-well">
+		{% include 'ad.twig' with ad %}
+		{% include 'sidebar.twig' with sidebar %}
+		{% include 'related.twig' with related %}
+	</div> <!-- .ad-well -->
+</div> <!-- .story -->

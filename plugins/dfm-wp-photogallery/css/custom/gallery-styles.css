@@ -1,0 +1,56 @@
+/* Tried to add anything not in core styles here*/
+
+/* IE */
+
+.photo-gallery img {
+	/*width: 100%\9; /* Partial fix for IE (auto sets images to their native width), not ideal in a responsive environment*/
+}
+
+/* End IE */
+
+.photo-gallery .carousel-caption p {
+	color: #FFF;
+}
+
+.photo-gallery .carousel {
+	margin-bottom: 40px;
+}
+
+.photo-gallery .carousel-indicators > li.directional {
+	top: -40px; -
+}
+
+.photo-gallery .carousel-indicators {
+	top: 15px;
+}
+
+@media (min-width: 768px) {
+	.photo-gallery .carousel-indicators {
+		top: -20px;
+	}
+}
+
+.photo-gallery .carousel-caption p span {
+  display: none;
+}
+.photo-gallery .carousel-caption p span.show-cap {
+  display: inline; 
+}
+
+.photo-gallery .carousel-caption p * {
+	margin: 0;
+	padding: 0;
+}
+
+.photo-gallery .error {
+	font-size: 14px;
+}
+
+.photo-gallery .forsale {
+	margin-top: 5px;
+	height: 20px;
+}
+
+.photo-gallery .forsale a {
+	color: #820405!important;
+}

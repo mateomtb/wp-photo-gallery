@@ -1,0 +1,316 @@
+# Translation of the WordPress plugin   by .
+# Copyright (C) 2011 
+# This file is distributed under the same license as the  package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"POT-Creation-Date: 2011-01-16 09:08+0100\n"
+"PO-Revision-Date: 2011-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: DFM_Broadcast_3Base.php:610
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#: DFM_Broadcast.php:65 DFM_Broadcast.php:1689
+msgid "Broadcast"
+msgstr ""
+
+#: DFM_Broadcast.php:168 DFM_Broadcast.php:1656
+#: DFM_Broadcast.php:1674
+msgid "Unlink"
+msgstr ""
+
+#: DFM_Broadcast.php:174 DFM_Broadcast.php:1657
+msgid "Trash"
+msgstr ""
+
+#: DFM_Broadcast.php:178
+msgid "Help"
+msgstr ""
+
+#: DFM_Broadcast.php:183
+msgid "ThreeWP Broadcast groups"
+msgstr ""
+
+#: DFM_Broadcast.php:620
+msgid "Group blogs have been saved."
+msgstr ""
+
+#: DFM_Broadcast.php:627
+msgid "The group name may not be empty!"
+msgstr ""
+
+#: DFM_Broadcast.php:639
+msgid "The group has been created!"
+msgstr ""
+
+#: DFM_Broadcast.php:645
+msgid "You have not created any groups yet."
+msgstr ""
+
+#: DFM_Broadcast.php:651
+msgid "Group"
+msgstr ""
+
+#: DFM_Broadcast.php:660
+msgid "Select/deselect all the blogs in the above group."
+msgstr ""
+
+#: DFM_Broadcast.php:669
+msgid "Save groups"
+msgstr ""
+
+#: DFM_Broadcast.php:675
+msgid "New group name"
+msgstr ""
+
+#: DFM_Broadcast.php:682
+msgid "Create the new group"
+msgstr ""
+
+#: DFM_Broadcast.php:688
+msgid "Your groups"
+msgstr ""
+
+#: DFM_Broadcast.php:700
+msgid "Create a new group"
+msgstr ""
+
+#: DFM_Broadcast.php:714
+msgid "Delete"
+msgstr ""
+
+#: DFM_Broadcast.php:717
+msgid ""
+"To <strong>delete</strong> a group, leave all blogs in that group unmarked "
+"and then save."
+msgstr ""
+
+#: DFM_Broadcast.php:771
+msgid "Link to child post has been removed."
+msgstr ""
+
+#: DFM_Broadcast.php:804
+msgid "All links to child posts have been removed!"
+msgstr ""
+
+#: DFM_Broadcast.php:844
+msgid "The broadcasted child post has been put in the trash."
+msgstr ""
+
+#: DFM_Broadcast.php:858
+msgid "What is Broadcast?"
+msgstr ""
+
+#: DFM_Broadcast.php:861
+msgid "What the Broadcast window looks like"
+msgstr ""
+
+#: DFM_Broadcast.php:865
+msgid ""
+"With Broadcast you can post to several blogs at once. The broadcast window "
+"is first shown at the bottom right on the Add New post/page screen."
+msgstr ""
+
+#: DFM_Broadcast.php:866
+msgid ""
+"The window contains several options and a list of blogs you have access to."
+msgstr ""
+
+#: DFM_Broadcast.php:870
+msgid ""
+"Some settings might be disabled by the site administrator and if you do not "
+"have write access to any blogs, other than this one, the Broadcast window "
+"might not appear."
+msgstr ""
+
+#: DFM_Broadcast.php:874
+msgid ""
+"To use the Broadcast plugin, simply select which blogs you want to broadcast "
+"the post to and then publish the post normally."
+msgstr ""
+
+#: DFM_Broadcast.php:877
+msgid "Options"
+msgstr ""
+
+#: DFM_Broadcast.php:880 DFM_Broadcast.php:985
+msgid "Link this post to its children"
+msgstr ""
+
+#: DFM_Broadcast.php:880
+msgid ""
+"will create a link from this post (the parent) to all the broadcasted posts "
+"(children). Updating the parent will result in all the children being "
+"updated. Links to the children can be removed in the page / post overview."
+msgstr ""
+
+#: DFM_Broadcast.php:884
+msgid "Post overview with unlink options"
+msgstr ""
+
+#: DFM_Broadcast.php:888
+msgid ""
+"When a post is linked to children, the children are overwritten when post is "
+"updated - all the categories, tags and fields (including featured image) are "
+"also overwritten -  and when the parent is trashed or deleted the children "
+"get the same treatment. If you want to keep any children and delete only the "
+"parent, use the unlink links in the post overview. The unlink link below the "
+"post name removes all links and the unlinks to the right remove singular "
+"links."
+msgstr ""
+
+#: DFM_Broadcast.php:892 DFM_Broadcast.php:1000
+msgid "Broadcast categories also"
+msgstr ""
+
+#: DFM_Broadcast.php:892
+msgid "will also try to send the categories together with the post."
+msgstr ""
+
+#: DFM_Broadcast.php:893
+msgid ""
+"In order to be able to broadcast the categories, the selected blogs must "
+"have the same category names (slugs) as this blog, else the posts will be "
+"posted as uncategorized."
+msgstr ""
+
+#: DFM_Broadcast.php:897 DFM_Broadcast.php:1028
+msgid "Broadcast tags also"
+msgstr ""
+
+#: DFM_Broadcast.php:897
+msgid "will also mark the broadcasted posts with the same tags."
+msgstr ""
+
+#: DFM_Broadcast.php:901 DFM_Broadcast.php:1057
+msgid "Broadcast custom fields"
+msgstr ""
+
+#: DFM_Broadcast.php:901
+msgid ""
+"will give the broadcasted posts the same custom fields as the original. Use "
+"this setting to broadcast the featured image."
+msgstr ""
+
+#: DFM_Broadcast.php:904
+msgid "Groups"
+msgstr ""
+
+#: DFM_Broadcast.php:907
+msgid ""
+"If the site administrator allows it you may create groups to quickly select "
+"several blogs at once. To create a group, start by typing a group name in "
+"the text box and pressing the create button."
+msgstr ""
+
+#: DFM_Broadcast.php:911
+msgid "Group setup"
+msgstr ""
+
+#: DFM_Broadcast.php:915
+msgid ""
+"Then select which blogs you want to be automatically selected when you "
+"choose this group when editing a new post. Press the save button when you "
+"are done. Your new group is ready to be used!"
+msgstr ""
+
+#: DFM_Broadcast.php:916
+msgid ""
+"Simply choose it in the dropdown box and the blogs you specified will be "
+"automatically chosen."
+msgstr ""
+
+#: DFM_Broadcast.php:946
+msgid "This post is broadcasted child post. It cannot be broadcasted further."
+msgstr ""
+
+#: DFM_Broadcast.php:984
+msgid ""
+"Create a link to the children, which will be updated when this post is "
+"updated, trashed when this post is trashed, etc."
+msgstr ""
+
+#: DFM_Broadcast.php:1001
+msgid "The categories must have the same name (slug) on the selected blogs."
+msgstr ""
+
+#: DFM_Broadcast.php:1014
+msgid "Create categories automatically"
+msgstr ""
+
+#: DFM_Broadcast.php:1015
+msgid ""
+"The categories will be created if they don't exist on the selected blogs."
+msgstr ""
+
+#: DFM_Broadcast.php:1029
+msgid "The tags must have the same name (slug) on the selected blogs."
+msgstr ""
+
+#: DFM_Broadcast.php:1042
+msgid "Create tags automatically"
+msgstr ""
+
+#: DFM_Broadcast.php:1043
+msgid "The tags will be created if they don't exist on the selected blogs."
+msgstr ""
+
+#: DFM_Broadcast.php:1056
+msgid "Broadcast all the custom fields and the featured image?"
+msgstr ""
+
+#: DFM_Broadcast.php:1072
+msgid "Select blogs in group"
+msgstr ""
+
+#: DFM_Broadcast.php:1073
+msgid "No group selected"
+msgstr ""
+
+#: DFM_Broadcast.php:1141
+msgid "This blog has already been linked."
+msgstr ""
+
+#: DFM_Broadcast.php:1153
+msgid "This blog is required and cannot be unselected."
+msgstr ""
+
+#: DFM_Broadcast.php:1170
+msgid "Broadcast to:"
+msgstr ""
+
+#: DFM_Broadcast.php:1172 DFM_Broadcast.php:1187
+#: DFM_Broadcast.php:1753
+msgid "Select/deselect all"
+msgstr ""
+
+#: DFM_Broadcast.php:1618
+msgid "Shows which blogs have posts linked to this one"
+msgstr ""
+
+#: DFM_Broadcast.php:1618
+msgid "Broadcasted"
+msgstr ""
+
+#: DFM_Broadcast.php:1656
+msgid "Remove links to this broadcasted child"
+msgstr ""
+
+#: DFM_Broadcast.php:1657
+msgid "Put this broadcasted child in the trash"
+msgstr ""
+
+#: DFM_Broadcast.php:1674
+msgid "Remove links to all the broadcasted children"
+msgstr ""

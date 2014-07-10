@@ -1,0 +1,342 @@
+</div><!-- #content -->
+<!-- Asynchronous google analytics; this is the official snippet.
+   -->
+<script>
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '{{google_analytics}}']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+{{powerlinks}}
+
+
+<footer id="site-footer">
+  <div class="container">
+    <div id="ticker" class="moving-feed hidden-sm-down">
+    <h5>Breaking News from <a href="{{function('site_url')}}">
+    {% if dfm.site_name is defined %}
+      {{ dfm.site_name }} 
+    {% else %}
+      Digital First Media
+    {% endif %}</a>:</h5>
+        <ul class="ticker-feed">
+        {% for post in getBreakingArticles %}
+            <li id="" title="{{ post.link }}">
+                <a href="{{ post.link }}">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    <button type="button" class="menu-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".sidenav" data-canvas="body"><span class="glyphicon glyphicon-list"><span class="sr-only">Menu</span></span></button>
+<!--
+    <button type="button" data-container=".filter-toggle" data-toggle="popover" data-placement="auto top" data-header="Filters" data-html="true" data-title="<h4>Filters</h4>" data-content='<ul class="side-nav">
+  <li class="current-filter"><a href="{{function('site_url')}}"><span class="glyphicon glyphicon-chevron-right"></span> Latest stories</a></li>
+  <li><a href="{{function('site_url')}}/?filter=last24hours">Past 24 hours</a></li>
+  <li>By date range: <input type="date" name="bday"></li>
+  <li class="divider"></li>
+  <li><a href="">Most Viewed</a></li>
+  <li><a href="">Most Commented</a></li>
+  <li><a href="">Most Shared</a></li>
+</ul>' class="filter-toggle pull-right"><span class="glyphicon glyphicon-filter"><span class="sr-only">Filter</span></span></button>
+-->
+    <button type="button" data-container=".settings-toggle" data-toggle="popover" data-placement="top" data-header="Settings" data-html="true" data-title="<h4>Settings</h4>" data-content='<ul class="side-nav">
+  <li><a data-toggle="modal" data-target="#login-form" href="" onclick="pressplusload()">Login/Register</a></li>
+<!-- How many of our sites have a ToS?  <li><a href="{{function('site_url')}}/terms-of-service">Terms of service</a></li>-->
+  <li><a href="{{function('site_url')}}/privacypolicy">Privacy Policy</a></li>
+<!-- How many of our sites have a feedback page?  <li><a href="{{function('site_url')}}/feedback">Feedback</a></li> -->
+  <li><a href="{{function('site_url')}}/advertising">Advertising</a></li>
+</ul>' class="settings-toggle pull-right"><span class="glyphicon glyphicon-cog"><span class="sr-only">Settings</span></span></button> 
+  </div> <!-- .container -->
+</footer>
+<script>
+function pressplusload(){
+    jQuery.pressplus.f.pop("plans");
+}
+</script>
+
+<!-- {{signin}} -->
+
+<!-- JAVASCRIPTS -->
+<script src="{{themefolder}}/js/script.min.js"></script>
+<!--[if lt IE 9]>
+  <script src="{{themefolder}}/js/ie.min.js"></script>
+<![endif]-->
+
+<script>
+  //$(document).data('cookiename', '<?php echo COOKIE_NAME; ?>');
+  //$(document).data('baseurl', '<?php echo BASE_URL; ?>');
+  //$(document).data('currenturl', '<?php echo $this_url; ?>');
+</script>
+
+<script id="tickertpl" type="text/x-handlebars-template">
+  <h5>Breaking news from <a href="http://www.{{domain}}.com">{{dfm.site_name}}</a>:</h5>
+  <ul class="ticker-feed">
+  {{articles}}
+    <li id="{{id}}" title="{{link}}">
+      <a href="{{link}}">{{title}}</a>
+    </li>
+  {{articles}}
+  </ul>
+</script>
+
+
+<script>
+
+  // HANDLEBARS HELPERS
+  Handlebars.registerHelper('unless_blank', function(item, block) {
+    return (item && item.replace(/\s/g,"").length) ? block.fn(this) : block.inverse(this);
+  });
+  
+  
+  // PACKERY
+  var container = document.querySelector('#content'),
+      pckryOptions = {
+      // options
+      itemSelector: '.col',
+      isInitLayout: false,
+      gutter: 0
+    },
+    pckry = new Packery(container, pckryOptions),
+    init = true;
+  
+    pckry.on( 'layoutComplete', function() {
+    if (init) {
+      container.className += ' ready';
+      init = false;
+      pckry.layout();
+      setTimeout(isVis, 300); // delay
+    }
+    });
+
+    function isVis() {
+    var win = $(window);
+    var allMods = $('.module');
+
+    // Already visible modules
+    allMods.each(function(i, el) {
+      var el = $(el);
+      if (el.visible(true)) {
+        el.addClass('isVis'); 
+      } 
+    });
+
+    $(window).scroll(function(e) {
+      $('.module').each(function(i, el) {
+        var el = $(el);
+        if (el.visible(true)) {
+          if(!el.hasClass('isVis')) {
+            el.addClass('animated fadeInUp');
+            el.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+              el.removeClass('animated fadeInUp').addClass('isVis')});
+            }
+          }
+        });
+      });
+    }
+    
+    // manually trigger initial layout
+    function setLayout(){ pckry.layout() }
+      setTimeout(setLayout, 900); // delay
+
+  // JQUERY
+  ;(function (window, document, $) {
+  
+    // TICKER STUFF
+    /////////////////////////////////
+    var baseURL = $(document).data('baseurl'),
+        currentURL = $(document).data('currenturl'),
+        currentLatestFeed,
+        currentPage;
+
+    $.ajaxSetup({ cache: false });
+    
+          loadMediaCenter();
+      
+    function loadMediaCenter(xmlFeed) {
+      var source, template, html;
+      var $target = $('#ticker');
+      //xF = (xmlFeed == undefined) ? baseURL + '/inc/feed_dp.php?feed=dp-news-breaking' : xmlFeed;
+      //xF = (xmlFeed == undefined) ? baseURL + '/assets/feed.json' : xmlFeed;
+      //currentPage = xF;
+      //var jqxhr = $.getJSON(xF, function(data) {
+        source  = $("#tickertpl").html(),
+        template = Handlebars.compile(source);
+        //html = template(data);
+        $target.html(html); // add to zone 1
+        //console.log(data);
+      //}); 
+      //jqxhr.complete(function() {
+        //console.log('complete');
+        setTimeout(loadNewsFeed, 1000);
+      //});
+    }
+    
+    function loadNewsFeed(xmlFeed) {
+      var source, template, html;
+      var $target = $('#ticker');
+      //xF = (xmlFeed == undefined) ? baseURL + '/inc/feed_dp.php?feed=dp-news-breaking' : xmlFeed;
+      //xF = (xmlFeed == undefined) ? baseURL + '/assets/feed.json' : xmlFeed;
+      //currentLatestFeed = xF;
+      
+      //var jqxhr = $.getJSON(xF, function(data) {
+        source  = $("#tickertpl").html(),
+        template = Handlebars.compile(source);
+        //html = template(data);
+        $target.html(html); // add to zone 1
+      //}); 
+      //jqxhr.complete(function() {
+        setTimeout(tickerGo, 1000);
+      //});//getJSON
+    }
+    
+    var $ticker = $('#ticker'),
+        containerPos = 0,
+        currentIndex = 0,
+        $tickerContainer,
+        items,
+        totalItems,
+        currentItem,
+        init = true;
+    
+    function tickerGo() {
+      if(init) {
+        $tickerContainer = $ticker.find('ul');
+        items = $ticker.find('li');
+        totalItems = items.length;
+        currentItem = $(items[currentIndex]);
+        init = false;
+      }
+      $ticker.find('li.active').removeClass('active');
+      currentItem.addClass('active');
+      setTimeout(moveTicker, 7000);
+    }
+    
+    function moveTicker() {
+      currentIndex ++;
+      containerPos = (containerPos - 48); 
+      currentItem = $(items[currentIndex]);
+      $tickerContainer.css({'top' : containerPos + 'px'});
+      if(currentIndex == (totalItems)) {
+        setTimeout(resetTicker, 500);
+      } else {
+        setTimeout(tickerGo, 500);
+      }
+    }
+    
+    function resetTicker() {
+      containerPos = 0;
+      currentIndex = 0;
+      currentItem = $(items[currentIndex]);
+      $ticker.find('li.active').removeClass('active');
+      $tickerContainer.css({'visiblity' : 'hidden'});
+      setTimeout(reloadTicker, 500);
+    }
+    function reloadTicker(){
+      $tickerContainer.css({
+        'visiblity' : 'visible',
+        'top' : '0'
+      });
+      loadNewsFeed(currentLatestFeed);
+    }
+    
+    // Footer toggles
+    $('.settings-toggle').click(function(){
+      $(this).toggleClass('active')
+      if($('#global-nav').hasClass('active')) {
+        $('#global-nav').removeClass('active');
+      }
+      if($('.filter-toggle .popover').is(':visible')) {
+        $('.filter-toggle').popover('hide').removeClass('active');
+      }
+    });
+    $('.filter-toggle').click(function(){
+      $(this).toggleClass('active');
+      if($('#global-nav').hasClass('active')) {
+        $('#global-nav').removeClass('active');
+      }
+      if($('.settings-toggle .popover').is(':visible')) {
+        $('.settings-toggle').popover('hide').removeClass('active');
+      }
+    });
+    
+    
+    // menu toggle
+    $('.menu-toggle').click(function(){
+      if($(this).hasClass('active')) {
+        $('.subnav').removeClass('activated');
+      }
+      $(this).toggleClass('active');
+      });
+      
+      $('.arrow-subnav').click(function(e){
+        e.stopPropagation();
+        var subnav = $(e.target.parentNode.children[2]);
+        subnav.addClass('activated');
+        subnav.find('.back').click(function(e){
+          e.preventDefault();
+          subnav.removeClass('activated');
+        });
+      });
+
+    // reset everything on resize
+    $(window).resize(function(){
+      $('.settings-toggle').removeClass('active');
+      $('.filter-toggle').removeClass('active');
+      $('.menu-toggle').removeClass('active');
+      $('[data-toggle=popover]').popover('hide');
+    });
+    
+    // hide popover on modal showing
+    $('#login-form').on('show.bs.modal', function () {
+     $('[data-toggle=popover]').popover('hide');
+    });
+    
+    // share toggles
+    var $shareToggles = $('#content').find($('.share-toggle')),
+        $headerShareToggle = $('#site-header').find($('.share-toggle')),
+        $headerSearchToggle = $('#site-header').find($('.search-toggle'));
+    
+    $.each($shareToggles, function() {
+      $(this).on('click', function(e){
+        e.preventDefault();
+        $(this).parent().parent().toggleClass('active');
+      });
+    });
+    $headerShareToggle.on('click', function(e){
+          $('#site-header').toggleClass('share-active').removeClass('search-active');
+    });
+    $headerSearchToggle.on('click', function(e){
+      $('#site-header').toggleClass('search-active').removeClass('share-active');
+      setTimeout(function(){
+      ($('#site-header').hasClass('search-active')) ? $('#search-field').focus() :  $('#search-field').blur();
+    }, 250);
+    });
+    
+    // tooltips
+    $('.share-tools').tooltip({
+        selector: "[data-toggle=tooltip]",
+        placement: 'bottom',
+        container: "body",
+        delay: { show: 500, hide: 0 }
+      });
+  
+      // popover
+      $("[data-toggle=popover]").popover();
+  
+    }(this, document, window.jQuery||window.Zepto));
+    
+</script>
+{{wp_footer}} 
+
+
+
+</body>
+</html>

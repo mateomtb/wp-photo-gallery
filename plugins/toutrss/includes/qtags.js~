@@ -1,0 +1,13 @@
+/* Adding Quicktag buttons to the editor Wordpress ver. 3.3 and above
+    * - Button HTML ID (required)
+    * - Button display, value="" attribute (required)
+    *   * - Opening Tag (required)
+    *   * - Closing Tag (required)
+    *   * - Access key, accesskey="" attribute for the button (optional)
+    *   * - Title, title="" attribute (optional)
+    *   * - Priority/position on bar, 1-9 = first, 11-19 = second, 21-29 = third, etc. (optional)
+    *   */
+	QTags.addButton( 'mc_smugMug', '[insertSmugmug]', '[insertSmugmug]' );
+	QTags.addButton( 'insertVidDPO', 'Denver Post Video', '[insertVidDPO vidid=&quot;', '&quot;/]' );
+	QTags.addButton( 'insertVidMerc', 'Mercury News Video', '[insertVidMerc vidid=&quot;', '&quot;/]' );
+	QTags.addButton( 'insertVidTC', 'Twin Cities Video', '[insertVidTC vidid=&quot;', '&quot;/]' );

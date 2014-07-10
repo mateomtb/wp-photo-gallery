@@ -1,0 +1,98 @@
+<!-- Start: GPT Sync -->
+<script type='text/javascript'>
+ // Load GPT
+ var googletag = googletag || {};
+ googletag.cmd = googletag.cmd || [];
+ (function(){
+   var gads = document.createElement('script');
+   gads.async = true;
+   var useSSL = 'https:' == document.location.protocol;
+   gads.src = (useSSL ? 'https:' : 'http:') +
+       '//www.googletagservices.com/tag/js/gpt.js';
+   var node = document.getElementsByTagName('script')[0];
+   node.parentNode.insertBefore(gads, node);
+   })();
+ googletag.cmd.push(function() {
+    //predefined slots
+    //Adslot 1 declaration//
+    {% if is_home %}
+    var slot1= googletag.defineSlot('/8013/{{domain_with_tld}}/media-center/home', [[300,250]],'cube1').setTargeting('pos',['Cube1_RRail_ATF']).addService(googletag.pubads());
+    {% elseif is_single %}
+    var slot1= googletag.defineSlot('/8013/{{domain_with_tld}}/media-center/single', [[300,250]],'cube1').setTargeting('pos',['Cube1_RRail_ATF']).addService(googletag.pubads());
+    {% endif %}
+
+    //Adslot 2 declaration
+    var slot2= googletag.defineSlot('/8013/{{domain_with_tld}}/media-center/{{slash_cats}}', [[728,90]],'top_leaderboard').setTargeting('pos',['top_leaderboard']).addService(googletag.pubads());
+
+    //Adslot 3 declaration
+    var slot3= googletag.defineSlot('/8013/{{domain_with_tld}}/media-center/{{slash_cats}}', [[300,250]],'cube2').setTargeting('pos',['Cube2_RRail_mid']).addService(googletag.pubads());
+
+    //Adslot 4 declaration
+    var slot4= googletag.defineSlot('/8013/{{domain_with_tld}}/media-center/{{slash_cats}}', [[1,1]],'mc_interstitial').setTargeting('pos',['mc_interstitial']).addService(googletag.pubads());
+    googletag.pubads().setTargeting('kv',['yolo']);
+     // Infinite scroll requires SRA
+    googletag.pubads().enableSingleRequest();
+
+    // Disable initial load, we will use refresh() to fetch ads.
+    // Calling this function means that display() calls just
+    // register the slot as ready, but do not fetch ads for it.
+    googletag.pubads().disableInitialLoad();
+
+    // Enable services
+    googletag.enableServices();
+ });
+ // Function to generate unique names for slots
+ var nextSlotId = 1;
+ function generateNextSlotName() {
+   var id = nextSlotId++;
+   return 'adslot' + id;
+ }
+// set cubeCount for recurring cube
+var cubeCount = 1;
+//loadAd is called for recurring ads -- slogallery and infinitescoll
+ function loadAd(targetDiv, slotType) {
+   //console.log(targetDiv);
+   // Generate next slot name
+   var slotName = generateNextSlotName();
+   //console.log(slotName);
+   // Create a div for the slot
+   var slotDiv = document.createElement('div');
+   slotDiv.id = slotName; // Id must be the same as slotName
+    slotDiv.style.zIndex="99999";
+
+
+   var wrapperDiv = document.getElementById(targetDiv);
+   wrapperDiv.appendChild(slotDiv);
+
+   // Define the slot itself, call display() to
+   // register the div and refresh() to fetch ad.
+   //console.log('loadAD');
+   googletag.cmd.push(function() {
+    switch(slotType) {
+    case 'gallery':
+        var slot = googletag.defineSlot('/8013/{{domain_with_tld}}/media-center/{{slash_cats}}', [[728, 90]], slotName).setTargeting('pos',['mc_intestitial']).addService(googletag.pubads());
+        slotDiv.style.width="728px";
+        slotDiv.style.height="90px";
+        slotDiv.style.backgroundColor="#ffa628";
+        slotDiv.style.top="160px";
+        slotDiv.style.marginTop="-90px";
+        slotDiv.style.marginLeft="auto";
+        slotDiv.style.marginRight="auto";
+        slotDiv.style.textAlign="center";
+        break;
+    case 'infinitescroll':
+        var slot = googletag.defineSlot('/8013/{{domain_with_tld}}/media-center/{{slash_cats}}', [[300,250]],slotName).setTargeting('pos',['Cube1_RRail_ATF']).addService(googletag.pubads());
+        break;
+    }
+    googletag.pubads().setTargeting('kv',['home']);
+
+     // Display has to be called before
+     // refresh and after the slot div is in the page.
+     googletag.display(slotName);
+     googletag.pubads().refresh([slot]);
+   });
+ }
+
+</script>
+
+<!-- End: GPT -->

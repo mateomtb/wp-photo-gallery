@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
+<head id="{{meta_headid}}" data-template-set="html5-reset-wordpress-theme">
+
+  <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="{{charset}}">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <!--[if IE ]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+
+    {% if is_search %}
+    <meta name="robots" content="noindex, nofollow" />
+    {% endif %}
+
+    <title>{{function('wp_title', '|', TRUE, 'right' )}}</title>
+
+    <meta name="title" content="{{pagetitle}}">
+
+    <meta name="description" content="{{description}}" />
+    <!--Google will often use this as its description of your page/site. Make it good.-->
+
+    {% if meta_author %}
+    <meta name="author" content="'{{meta_author}}'" />
+    {% endif %}
+
+    {% if meta_google %}
+    <meta name="google-site-verification" content="'{{meta_google}}'" />
+    {% endif %}
+
+    {% if is_singular %}
+    <meta name="fragment" content="!" />
+    {% endif %}
+
+    <meta name="Copyright" content="Copyright &copy; {{dfm.site_name}} {{copyright_year}}. All Rights Reserved.">
+
+    {% if meta_viewport %}
+    <meta name="viewport" content="'{{meta_viewport}}'" />
+            <!--  Mobile Viewport Fix
+                j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag 
+                device-width : Occupy full width of the screen in its current orientation
+                initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
+                maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width
+                -->
+    {% endif %}
+
+
+    {% if head_favicon %}
+    <link rel="shortcut icon" href="'{{head_favicon}}'" />
+            <!-- This is the traditional favicon.
+            - size: 16x16 or 32x32
+            - transparency is OK
+            - see wikipedia for info on browser support: http://mky.be/favicon/ -->
+    {% endif %}
+
+    {% if head_apple_touch_icon %}
+
+    <link rel="apple-touch-icon" href="'{{head_apple_touch_icon}}'">
+    <!-- The is the icon for iOS Web Clip.
+            - size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for iPhone4 retina display (IMHO, just go ahead and use the biggest one)
+            - To prevent iOS from applying its styles to the icon name it thusly: apple-touch-icon-precomposed.png
+            - Transparency is not recommended (iOS will put a black BG behind the icon) -->
+    {% endif %}
+
+
+    <link rel="stylesheet" href="{{template_uri}}/style.min.css" />
+    <link rel="stylesheet" href="{{template_uri}}/local.css" />
+
+    <!-- Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="{{template_uri}}/js/lib/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Application-specific meta tags -->
+    {% if head_apple_touch_icon %}
+
+    <!-- Windows 8 -->
+    <meta name="application-name" content="'.of_get_option("meta_app_win_name").'" />
+    <meta name="msapplication-TileColor" content="'.of_get_option("meta_app_win_color").'" />
+    <meta name="msapplication-TileImage" content="'.of_get_option("meta_app_win_image").'" />
+    {% endif %}
+
+    {% if head_apple_touch_icon %}
+    <!-- Twitter -->
+    <meta name="twitter:card" content="'.of_get_option("meta_app_twt_card").'" />
+    <meta name="twitter:site" content="'.of_get_option("meta_app_twt_site").'" />
+    <meta name="twitter:title" content="'.of_get_option("meta_app_twt_title").'">
+    <meta name="twitter:description" content="'.of_get_option("meta_app_twt_description").'" />
+    <meta name="twitter:url" content="'.of_get_option("meta_app_twt_url").'" />
+    {% endif %}
+
+    {% if head_apple_touch_icon %}
+
+    <!-- Facebook -->
+    <meta property="og:title" content="'.of_get_option("meta_app_fb_title").'" />
+    <meta property="og:description" content="'.of_get_option("meta_app_fb_description").'" />
+    <meta property="og:url" content="'.of_get_option("meta_app_fb_url").'" />
+    <meta property="og:image" content="'.of_get_option("meta_app_fb_image").'" />
+    {% endif %}
+
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+    <link rel="pingback" href="{{pingback_url}}" />
+
+    {{function('wp_head')}}
+
+    <meta charset="utf-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="author" href="{{dfm.media_center_url}}/humans.txt" />
+    <meta name="dcterms.rightsHolder" content="Property name here" />
+    <meta name="dcterms.dateCopyrighted" content="{{copyright_year}}" />
+    <meta name="description" content="" />
+    <link rel="canonical" href="{{dfm.media_center_url}}" />
+
+
+    <!-- ICONS -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#222222">
+
+    <!-- iOS apps -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Media Center">
+
+    <!-- MODERNIZER -->
+    <script src="{{template_uri}}/js/lib/modernizr.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700|Oxygen:400,300,700|Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- GPT AD TAGS -->
+    <script type="text/javascript" src="http://local.denverpost.com/common/dfm/dfm-core.js"></script>
+{% include 'adtags.twig' %}
+
+
+    <!--INFINITE SCROLL -->
+    {% if is_archive %}
+
+    <script type="text/javascript">
+    var count = 2;  
+    var total = {{posts|length}};  
+    $(window).scroll(function(){  
+        if  ($(window).scrollTop() == $(document).height() - $(window).height()){  
+            if (count > total){  
+        return false;  
+            }else{  
+                loadArticle(count);  
+            }  
+            count++; 
+        }  
+    });   
+            function loadArticle(pageNumber){    
+                    $.ajax({
+                        url: "{{wpurl}}/wp-admin/admin-ajax.php",
+                        type:'POST',
+                        data: "{{archivequery}}&action=infinite_scroll&paged="+ pageNumber + '&loop_file=archive', 
+                        success: function(html){
+                            $("#content").append(html);
+                        }
+                    });
+                return false;
+            }
+    </script>
+{% endif %}
+<!--INFINITE SCROLL -->
+
+</head>
+<body class="{% if is_subtopic %}subtopic-page {% endif %}{% if is_home %}blog-homepage{% endif %}{% if is_singular %}article-page{% endif %}">
+{% include 'omniture.twig' %}
+
+{% if menu_main %}
+      <nav id="main-menu" class="sidenav default fixed-left offcanvas" role="navigation">
+        <span class="sidenav-brand">Menu</span>
+        <ul class="nav sidenav-nav">
+{% for item in menu_main.get_items %}
+
+            <li>
+                <span class="arrow-subnav glyphicon glyphicon-chevron-left"></span>
+                <a onclick="window.location='{{item.url}}';" href="{{item.url}}">{{item.title}}</a>
+                <ul class="subnav">
+                    <li class="back"><a>Back <span style="pointer-events: none;" class="pull-right arrow glyphicon glyphicon-chevron-right"></span></a></li>
+{% if item.children %}
+
+{% for subitem in item.children %}
+
+                    <li><a onclick="window.location='{{subitem.url}}';" href="{{subitem.url}}">{{subitem.title}}</a></li>
+{% endfor %}
+{% endif %}
+               </ul>
+            </li>
+{% endfor %}
+        </ul>
+      </nav>
+{% endif %}
+
+<header id="site-header" role="banner">
+  <div class="container">
+    <a class="branding" href="{{wpurl}}"><img src="http://www.americanhomecomings.com/wp-content/themes/ahtheme/images/logos/16px/{{domain_short}}.png" alt="{{dfm.site_name}} Media Center" /></a>
+    <div id="share-global" class="share-zipper hidden-touch">
+        <div class="drawer">
+            <ul class="share-tools">
+                <li data-toggle="tooltip" data-placement="bottom" data-original-title="Visit {{dfm.site_name}} Media Center on Facebook" title="Visit {{dfm.site_name}} Media Center on Facebook"><a class="fc-webicon facebook large" href="{{dfm.facebook_page}}"><span class="sr-only">Facebook</span></a></li>
+                <li data-toggle="tooltip" data-placement="bottom" data-original-title="Follow us at @{{dfm.twitter_short_name}} on Twitter" title="Follow us at @{{dfm.twitter_short_name}} on Twitter"><a class="fc-webicon twitter large" href="{{dfm.twitter_page}}"><span class="sr-only">Twitter</span></a></li>
+                {% if dfm.google_ != 'N/A' %}
+                <li data-toggle="tooltip" data-placement="bottom" data-original-title="Follow us on Google Plus" title="Follow us on Google Plus" ><a class="fc-webicon googleplus large" href="{{dfm.google_}}"><span class="sr-only">Google Plus</span></a></li>
+                {% endif %}
+            </ul> <!-- .share-tools -->
+        </div> <!-- .drawer -->
+        <button class="share-toggle"><span class="glyphicon glyphicon-share-alt"><span class="sr-only">Share</span></span></button>
+    </div> <!-- #share-global -->
+    <div id="global-search" class="search-zipper">
+        <div class="drawer">
+            <form id="site-search" action="{{wpurl}}#" class="search-bar" role="search">
+                <input type="text" name="s" id="search-field"/>
+            </form>
+        </div>
+        <button class="search-toggle"><span class="glyphicon glyphicon-search"><span class="sr-only">Search</span></span></button>
+    </div> <!-- #search-global -->
+  </div> <!-- .container -->
+</header>
+<div id="top_leaderboard" class="top_leaderboard">
+			  <script>
+          googletag.cmd.push(function() {
+          googletag.display('top_leaderboard');
+          googletag.pubads().refresh();
+        });
+        </script>
+</div>
+<div id="content" class="{% if is_home %}container-packery{% elseif is_archive or is_search %}category-page container{% else %}container{% endif %}"><!-- #content -->

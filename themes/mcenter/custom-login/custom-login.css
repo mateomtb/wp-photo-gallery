@@ -1,0 +1,15 @@
+
+
+/* Custom Login Styles */
+ 
+html {background:#ccc url(../images/pbd-body.jpg) 0 0 repeat-x;}	/* Page background. Can't use the body tag for this! */
+h1 a {	/* Title image (The "WordPress Logo"). Remember to update the height and width your image's dimensions */
+background:url(http://photos.denverpost.com/mediacenter/wp-content/themes/gridline2/images/mcenter.png) 0 0 no-repeat;
+width:294px;
+height:19px;
+margin-left:14px;
+} 
+ 
+body.login {border-top-color:#820405;}	/* Top bar background color */
+.login p#backtoblog a:link, .login p#backtoblog a:visited {color:#17272d;}	/* Link effects in top bar */
+.login p#backtoblog a:hover, .login p#backtoblog a:active {color:#17272d;text-decoration:underline;}	/* Rollover link effects in top bar */

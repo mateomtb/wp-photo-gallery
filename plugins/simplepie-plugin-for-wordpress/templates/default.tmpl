@@ -1,0 +1,10 @@
+<div class="simplepie">
+	{IF_ERROR_BEGIN}<p class="error">{ERROR_MESSAGE}</p>{IF_ERROR_END}
+
+	<h3><a href="{FEED_PERMALINK}">{FEED_TITLE}</a></h3>
+	<ul>
+		{ITEM_LOOP_BEGIN}
+		<li><strong><a href="{ITEM_PERMALINK}">{ITEM_TITLE}</a> <span class="date" style="display:none;">{ITEM_DATE}</span></strong><span style="display:none;">{TRUNCATE_ITEM_DESCRIPTION}<span></li>
+		{ITEM_LOOP_END}
+	</ul>
+</div>

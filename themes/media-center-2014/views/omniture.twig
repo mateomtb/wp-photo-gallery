@@ -1,0 +1,129 @@
+{% if dfm.company|lower == 'jrc' %}
+		<div id="omniture" style="display:none;">
+			<!-- SiteCatalyst code version: H.17.
+			Copyright 1997-2005 Omniture, Inc. More info available at
+			http://www.omniture.com -->
+			<script>
+				var tag = '{{omni_page_tag}}';
+				var category = '{{omni_parent_cat}}';
+				var title = '{{omni_page_title}}';
+				var s_account= '{{dfm.omniture_account}}';
+			</script>
+		
+			<script src="{{omni_url}}"></script>
+		
+			<script>
+				// You may give each page an identifying name, server, and channel on
+				// the next lines.
+				function omniTrack(params, total){
+					if (params && total) {
+						var imgnumber = 'image_number_' + params + '_of_' + total;
+					}
+					s.pageName="{{function('get_bloginfo','name')}}";
+					s.server="{{domain_with_tld}}";
+					s.channel="media center {{is_mobile_string}}";
+					s.pageType="";
+					s.prop1= category;
+					s.prop2="Media Center {{is_mobile_string}}| " + tag + " | " + category + " | " + title;
+					s.prop3="";
+					s.prop4="";
+					// Gallery prop
+					(imgnumber) ? s.prop5="Media Center {{is_mobile_string}}/ " + tag + " / "
+						+ category +" / " + title + " / " + imgnumber : s.prop5="";
+					// End gallery prop
+					s.prop6="{{is_mobile}}";
+					s.prop7= title;
+					s.prop8="";
+					s.prop9="viewmode=default";
+		
+					/* E-commerce Variables */
+					s.campaign="";
+					s.state="";
+					s.zip="";
+					s.events="event1";
+					s.products="";
+					s.purchaseID="";
+					s.eVar1="";
+					s.eVar2="";
+					s.eVar3="";
+					s.eVar4="{{function('get_bloginfo','name')}} /";
+					s.eVar5="";
+		
+					/* Hierarchy Variables */
+					s.hier1="Journal Register,{{dfm.site_name}},{{domain_with_tld}},media center {{is_mobile_string}},";
+						+ category + ",{{function('get_bloginfo','name')}} /,,";
+					s.hier2="Journal Register,media center {{is_mobile_string}},{{dfm.site_name}},{{domain_with_tld}}" 
+						+ category + ",{{function('get_bloginfo','name')}} /,,";
+					/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+					var s_code=s.t();if(s_code)document.write(s_code)//-->
+			};
+			</script>
+		</div>
+{% elseif dfm.company|lower == 'mng' %}
+		<div id="omniture" style="display:none;">
+			<script type="text/javascript">
+				var tag = '{{omni_page_tag}}';
+				var category = '{{omni_parent_cat}}';
+				var title = '{{omni_page_title}}';
+				var s_account= '{{dfm.omniture_account}}';
+			</script>
+			<script type="text/javascript" src="http://extras.mnginteractive.com/live/js/omniture/SiteCatalystCode_H_17.js"></script>
+			<script type="text/javascript" src="http://extras.mnginteractive.com/live/js/omniture/OmnitureHelper.js"></script>
+			<script type="text/javascript">
+				function omniTrack(params, total){
+					if (params && total) {
+						var imgnumber = 'image_number_' + params + '_of_' + total;
+					}
+					s.pageName="Media Center {{is_mobile_string}}: " + tag + ": " + category + ": " + title + ": " // this is your page name.
+					s.channel="Media Center {{is_mobile_string}}"; 
+					s.prop1="Media Center {{is_mobile_string}}"; 
+					s.prop2="Media Center {{is_mobile_string}}/ " + tag;
+					s.prop3="Media Center {{is_mobile_string}}/ " + tag + " / " + category;
+					s.prop4="Media Center {{is_mobile_string}}/ " + tag + " / " + category + " / " + title;
+					// Gallery prop
+					(imgnumber) ? s.prop5="Media Center {{is_mobile_string}}/ " + tag + " / " 
+						+ category +" / " + title + " / " + imgnumber : s.prop5="";
+					// End gallery prop
+                    {% if is_mobile %}
+					s.prop6="{{is_mobile}}";
+                    {% endif %}
+					s.prop9=getCiQueryString("SOURCE");
+					s.eVar2=getCiQueryString("SOURCE");
+
+					/* E-commerce Variables */
+
+					s.campaign=getCiQueryString("EADID")+getCiQueryString("CREF");
+					s.events="event1";
+					s.eVar4=s.pageName;
+
+					/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+					var s_code=s.t();if(s_code)document.write(s_code)//-->
+				};
+		</script>
+
+</div>
+{% elseif dfm.company|lower == 'admin' %}
+		<script>
+			function omniTrack(){
+				// Do nothing
+			};
+		</script>
+{% endif %}
+
+
+
+
+{% if is_single and is_video %}
+<!--
+	// Do nothing
+	// Fire Omniture tracking on every page besides photo galleries
+	// Gallery code on desktop and mobile handles Omniture itself
+	// "[insert" is a reference to WP shortcodes to hook gallery creation
+	// BCvideo occurs for Brightcove video posts where we do want Omniture to fire
+	// Vid is from the Denver Post
+-->
+{% else %}
+	<script>
+		omniTrack(); 
+	</script>
+{% endif %}

@@ -1,0 +1,52 @@
+/* -----------------------------------------------------------------------
+
+   Blueprint CSS Framework 0.7.1
+   http://blueprintcss.googlecode.com
+
+   * Copyright (c) 2007-2008. See LICENSE for more info.
+   * See README for instructions on how to use Blueprint.
+   * For credits and origins, see AUTHORS.
+   * This is a compressed file. See the sources in the 'src' directory.
+
+----------------------------------------------------------------------- */
+
+/* ie.css */
+body {text-align:center;}
+.container {text-align:left;}
+* html .column, * html div.span-1, * html div.span-2, 
+* html div.span-3, * html div.span-4, * html div.span-5, 
+* html div.span-6, * html div.span-7, * html div.span-8, 
+* html div.span-9, * html div.span-10, * html div.span-11, 
+* html div.span-12, * html div.span-13, * html div.span-14, 
+* html div.span-15, * html div.span-16, * html div.span-17, 
+* html div.span-18, * html div.span-19, * html div.span-20, 
+* html div.span-21, * html div.span-22, * html div.span-23, 
+* html div.span-24 { overflow-x: hidden; }
+* html legend {margin:-18px -8px 16px 0;padding:0;}
+ol {margin-left:2em;}
+sup {vertical-align:text-top;}
+sub {vertical-align:text-bottom;}
+html>body p code {*white-space:normal;}
+hr {margin:-8px auto 11px;}
+.hatad img {margin-left:10px; margin-top:15px;}
+
+
+
+.sf-menu {background:url(../../images/ie_nav_grad.png) center top repeat-x!important;margin:6px 0 0 0!important;}
+.sf-menu UL.children {margin:-20px 0 0 22px!important;}
+.rotator-caption-wrap {background:url(../../images/1x1.png) center top repeat!important;}
+
+.sf-menu a:active, .sf-menu a:hover {background:transparent!important;}
+
+.sf-menu li {background:transparent;}
+.sf-menu li.olympics {background:url(../../images/olygrad.png) repeat-x!important; color:#444!important;}
+
+#mpav {border-top:1px solid #CFCFCF!important;}
+
+
+
+.c-wrap-content {text-align:left!important;}
+
+li.olympics UL{background:#222!important;}
+ul.sf-menu li.olympics:hover UL {position:absolute;left:-565px;top:55px!important;width:700px;min-height:200px!important;height:auto!important;border:solid #333 1px;background:#222!important;display:block;}
+ul.sf-menu li.olympics:hover UL LI{display:block!important;float:left!important;background:#222!important;width:auto!important;position:relative!important;text-align:center!important;padding-bottom:0!important;margin-bottom:25px!important;}

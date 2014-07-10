@@ -1,0 +1,26 @@
+<ul class="stats">
+	<li><span class="glyphicon glyphicon-comment"></span><a href="#comments">Comments ({{post.comment_count}})</a></li>
+	<li><span class="glyphicon glyphicon-thumbs-up"></span><a href="http://www.facebook.com/sharer.php?u={{post.permalink}}">Like ({{fblikes}})</a></li>
+	<li><span class="glyphicon glyphicon-retweet"></span><a href="http://twitter.com/share?url={{post.permalink}}&text={{post.title}}&via={{twitter_short_name}}" target="_blank">Retweet ({{tweets}})</a></li>
+	<li><span class="glyphicon glyphicon-envelope"></span><a href="mailto:?Subject={{post.title}}">Email</a></li>
+	<li><span class="glyphicon glyphicon-bookmark"></span><a href="Javascript:bookmark()">Bookmark</a></li>
+	<li><span class="icon-rss"></span><a href="http://photos.{{dfm.domain}}.com/feed/">Subscribe to RSS</a></li>
+</ul>
+
+<script>
+/*  BOOKMARK THE PAGE  */
+function bookmark()
+{
+	if ((navigator.appName == 'Microsoft Internet Explorer') && (parseInt(navigator.appVersion) >= 4))
+	{
+		window.external.AddFavorite(window.location,document.title);
+	}
+	else
+	{
+		alert('Bookmark {{title}} (CTRL-D)');
+	}
+}
+</script>
+
+
+

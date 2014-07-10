@@ -1,0 +1,349 @@
+# DFM Activity Monitor
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DFM Activity Monitor\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-10-10 07:44+0200\n"
+"PO-Revision-Date: 2011-10-10 07:44+0200\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: DFM_Activity_Monitor.php:848
+msgid "%user_login_with_link% "
+msgstr ""
+
+#: DFM_Activity_Monitor.php:719
+#, php-format
+msgid "%user_login_with_link% created"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:705
+#, php-format
+msgid "%user_login_with_link% deleted"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:803
+msgid "%user_login_with_link% deleted %post_title_with_link% on %blog_name_with_link%"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:657
+msgid "%user_login_with_link% has reset the password on %blog_name_with_link%"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:587
+msgid "%user_login_with_link% logged in to %blog_name_with_link%"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:632
+msgid "%user_login_with_link% logged out from %blog_name_with_link%"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:774
+msgid "%user_login_with_link% trashed %post_title_with_link% on %blog_name_with_link%"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:606
+msgid "%user_login_with_link% tried to log in to %blog_name_with_link%"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:787
+msgid "%user_login_with_link% untrashed %post_title_with_link% on %blog_name_with_link%"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:761
+msgid "%user_login_with_link% updated %post_title_with_link% on %blog_name_with_link%"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:643
+msgid "%user_login_with_link% wanted a new password from %blog_name_with_link%"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:745
+msgid "%user_login_with_link% wrote %post_title_with_link% on %blog_name_with_link%"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1203
+msgid "A new page or post has been published."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:233
+msgid "Activities"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1623
+msgid "Activity"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:190 DFM_Activity_Monitor.php:212
+msgid "Activity Monitor"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:525
+msgid "Also select all activities that log sensitive information"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:390 DFM_Activity_Monitor.php:533
+#: DFM_Activity_Monitor.php:1515
+msgid "Apply"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:503
+msgid "Can be converted to a post."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:921
+msgid "Clear the user's activity list completely"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1170
+msgid "Comment was approved."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1167
+msgid "Comment was deleted."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1158
+msgid "Comment was held back."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1155
+msgid "Comment was reapproved."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1152
+msgid "Comment was reset."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1161
+msgid "Comment was spammed."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1164
+msgid "Comment was trashed."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:909
+msgid "Crop the activity list down to this amount of rows"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1508
+msgid "Delete"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:524
+msgid "Deselect all"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:526
+msgid "Deselect all activities that log sensitive information"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:323
+msgid "Display this amount of activities per page"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:875
+msgid "Failed logins"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:675
+msgid "First name"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:677 DFM_Activity_Monitor.php:685
+#, php-format
+msgid "From \"<em>%s</em>\" to \"<em>%s</em>\""
+msgstr ""
+
+#: DFM_Activity_Monitor.php:588 DFM_Activity_Monitor.php:608
+#: DFM_Activity_Monitor.php:644 DFM_Activity_Monitor.php:658
+msgid "IP"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:312
+msgid "Keep at most this amount of activities in the database"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:683
+msgid "Last name"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:873 DFM_Activity_Monitor.php:994
+msgid "Latest login"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:951
+msgid "Login statistics"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:500
+msgid "Logs sensitive information."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1177
+msgid "Logs the password the user tried to login with."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:335
+msgid "Maximum length of passwords to show when logging failed logins. Set to 0 to disable logging of failed passwords."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1196
+msgid "New password was requested"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:983
+msgid "No login data available"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1507
+msgid "Nothing"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:225
+msgid "Overview"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:672
+msgid "Password"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:672
+msgid "Password changed"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:334
+msgid "Password length"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:607 DFM_Activity_Monitor.php:613
+#: DFM_Activity_Monitor.php:614
+msgid "Password tried"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1199
+msgid "Password was reset"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1202
+msgid "Post published"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:343
+msgid "Post types"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1217
+msgid "Post was deleted"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1211
+msgid "Post was trashed"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1214
+msgid "Post was untrashed"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1208
+msgid "Post was updated"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:877
+msgid "Reset passwords"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:876
+msgid "Retrieved passwords"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:522
+msgid "Save marked activities"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:523
+msgid "Select all"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1534
+msgid "Selected"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:230
+msgid "Settings"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:874
+msgid "Successful logins"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1494
+#, php-format
+msgid "The selected activities have been deleted! %sReload this page%s."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1622
+msgid "Time"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:236
+msgid "Uninstall"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:864
+msgid "User activity"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:589 DFM_Activity_Monitor.php:609
+#: DFM_Activity_Monitor.php:645 DFM_Activity_Monitor.php:659
+msgid "User agent"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1190
+msgid "User deleted (network)"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1193
+msgid "User deleted (single)"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1173
+msgid "User login"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1176
+msgid "User login failed"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1181
+msgid "User logout"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1187
+msgid "User profile updated"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1184
+msgid "User registration"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:951
+msgid "Various login statistics about the user"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:344
+msgid "Which type of post types to log."
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1505
+msgid "With the selected actions do:"
+msgstr ""
+
+#: DFM_Activity_Monitor.php:1079
+msgid "no title"
+msgstr ""

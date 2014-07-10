@@ -1,0 +1,10 @@
+<div class="simplepie">
+	{IF_ERROR_BEGIN}<p class="error">{ERROR_MESSAGE}</p>{IF_ERROR_END}
+
+	{ITEM_LOOP_BEGIN}
+		<h4>
+		<a href="{ITEM_PERMALINK}"><img src="{ITEM_ENCLOSURE_LINK}" height="85" width="85" alt="{ITEM_TITLE}" style="border:0;"></a>
+		<a href="{ITEM_PERMALINK}">{ITEM_TITLE}</a></h4>
+		{ITEM_ENCLOSURE_EMBED}
+	{ITEM_LOOP_END}
+</div>

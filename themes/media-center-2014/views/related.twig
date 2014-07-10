@@ -1,0 +1,18 @@
+<div class="related-posts">
+	<h4>Related Posts</h4>
+	<ul class="sm-block-grid-2">
+	{% for post in posts %}
+		<li>
+			<a href="{{post.permalink}}">
+            {% if post.thumbnail %}
+
+			<img src="{{post.thumbnail.src('related-thumbnail')}}">
+            {% endif %}
+			<div class="quick-info">
+				<h4>{{post.title}}</h4>
+			</div>
+			</a>
+		</li>
+	{% endfor %}
+	</ul>
+</div> <!-- .related-posts -->

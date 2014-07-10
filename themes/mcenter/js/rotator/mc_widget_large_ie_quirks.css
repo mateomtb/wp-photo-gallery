@@ -1,0 +1,30 @@
+/* Styles to make the rotator look normal on NGPS pages due to quirks mode rendering in IE */
+
+#mc-widget-container-large {
+	width:471px!important; 
+}
+#mc-widget-container-large .three-image .slide .was-figure {
+	width: 150px!important;
+}
+#mc-widget-container-large .carousel .slide {
+	border: none!important;
+}
+#mc-widget-container-large .carousel-inner {
+	background: #f6f6f6!important;
+}
+#mc-widget-container-large .three-image .carousel-control {
+	margin-top:-25px!important;
+}
+#mc-widget-container-large .three-image {
+	width:471px!important;
+}
+#mc-widget-container-large .three-image .carousel-control.right {
+	right: -26px!important;
+}
+#mc-widget-container-large .slide .was-figure {
+	margin-left: 4px!important;
+}
+#mc-widget-container-large .top-story {
+	width: 471px!important;
+	overflow: hidden!important;
+}

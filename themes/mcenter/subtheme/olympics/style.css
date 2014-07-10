@@ -1,0 +1,578 @@
+/* Subtheme-specific css goes here */
+
+/*
+============
+From library/nav/css/superfish.css  | THESE STYLES ARE REDECLARED FOR OLYMPICS NAVBAR
+============
+*/
+.sf-menu {
+	margin:0; /* margin-bottom:	1em; */
+	width:100%;
+	background: #333; /* for non-css3 browsers */
+	background: -webkit-gradient(linear, left top, left bottom, from(#555555), to(#222222)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #555555,  #222222); /* for firefox 3.6+ */ 
+	position:relative;
+	z-index:888888;
+	height:55px!important;
+}
+
+.sf-menu a, .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+	letter-spacing: 1px;
+}
+
+.sf-menu li {background:transparent;padding:12px;}
+.sf-menu li:hover{background:#222222;}
+.sf-menu li a:hover{background:transparent;}
+
+.sf-menu li li {
+	background:#222222;
+	top:20px;
+	position:relative;
+}
+
+
+
+.sf-menu li li:hover{background:#444444;!important;}
+.sf-menu li li a:focus,
+.sf-menu li li a:active {
+background:#000;
+}
+
+/*styles for 3rd tier sub-menu items */
+.sf-menu li li li {background:#222222;}
+.sf-menu li li li:hover{background:#444444;!important;}
+.sf-menu li li li a:focus,
+.sf-menu li li li a:active {
+background:#000;
+}
+
+
+
+
+
+
+.sf-sub-indicator {
+	background:url('../../images/arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
+}
+
+
+
+/*** disabling the shadow png - NOT NEEDED ***/
+.sf-shadow ul {
+	position:absolute;
+	z-index:888888;
+    background:none!important;
+    -moz-border-radius-bottomleft: 0!important;
+	-moz-border-radius-topright: 0!important;
+	-webkit-border-top-right-radius: 0!important;
+	-webkit-border-bottom-left-radius: 0!important;
+}
+
+.sf-menu a:active, .sf-menu a:focus {background:transparent!important;}
+
+.sf-menu li.olympics {
+background: -webkit-gradient(linear, left top, left bottom, from(#2894f9), to(#0646c2))!important; /* for webkit browsers */
+background: -moz-linear-gradient(top,  #2894f9,  #0646c2)!important; /* for firefox 3.6+ */ 
+}
+
+li.olympics UL{background:#222!important;visibility:inherit!important;}
+
+
+ul.sf-menu li.olympics:hover UL {position:absolute!important;left:-565px!important;top:55px!important;width:700px!important;min-height:115px!important;height:auto!important;border:solid #333 1px;background:#222!important;display:block!important;}
+ul.sf-menu li.olympics:hover UL LI{display:block!important;float:left!important;background:#222!important;width:auto!important;position:relative!important;text-align:center!important;padding-bottom:0!important;margin-bottom:25px!important;}
+ul.sf-menu li.olympics:hover UL LI a, ul.sf-menu li.olympics:hover UL LI a:hover{display:block!important;}
+
+ul.sf-menu li.olympics LI{top:5px!important;}
+
+.sf-menu UL.children {margin:-20px 0 0 22px!important;}
+
+
+/*
+============
+From style.css
+============
+*/
+
+body {color:#333;padding-top:10px;background: #333 url(../../images/oly-bg-main.jpg) center top no-repeat;}
+.container {background: #FFFFFF!important; width:1010px; min-height:auto; height:auto; margin:0 auto 0px; padding-top:5px;opacity:0.85; filter:alpha(opacity=85);}
+.container-inner {margin:25px auto 0 auto; min-height:1700px;}
+#top {background: #000; padding:0 0px 0px 0px;}  /*background: #fff; width:965px;margin:0 auto;padding:0px 0px 1px 25px;color:#666 */
+#top a {color:#fff}
+#top table {margin-bottom:0px!important;} 
+#masthead {padding:15px 0; margin:0px; overflow:hidden; height:auto; } /*display:block;clear:both;padding-top:8px;margin-top:20px */
+.span-8 H3 {font-weight:bold!important;}
+/* temp disabled 
+#footer-wrap {background: #ccc url(../../images/oly-bg-footer-wrap.gif) center top no-repeat; padding-top:250px; z-index:1000px;}
+#footer {background: #fff url(../../images/oly-bg-footer.gif) no-repeat center 250px; width:985px; margin:0 auto;color:#999;text-align:left;
+padding:270px 12px 25px 13px;
+margin-top:-250px;
+opacity:0.85;
+filter:alpha(opacity=85);
+-moz-box-shadow:		0 249px 10px #000000;
+-webkit-box-shadow:	0 249px 10px #000000;
+box-shadow:				0 249px 10px #000000;}
+
+*/
+
+/*
+#footer-wrap {background: #ccc url(../../images/oly-bg-footer-wrap.gif) center top no-repeat;height:475px;position:relative;}
+#footer-wrap {height:550px;position:relative;background:transparent!important;margin:0;padding:0;bottom:0;}
+#footer {background:#CFCFCF;bottom:0!important;height:250px;margin:0;padding:0;position:absolute;width:100%;}
+*/
+
+
+#c-footer-wrap {position:relative!important;width:100%!important;height:550px!important;background:url(../../images/oly-bg-footer-wrap.gif) repeat-x scroll center top #CCCCCC;}
+#c-footer {position:relative;width:100%;height:550px;}
+.c-footer-top {position:relative;top:0;margin:0 auto!important;width:1010px;height:250px;background:#FFF;opacity:0.85; filter:alpha(opacity=85);}
+.c-footer-bottom {position:relative;margin:0 auto!important;width:1010px;height:300px;background:#CCC;}
+.c-footer-ad {position:relative;margin:0 auto!important;width:728px;height:90px;padding-top:40px;top:0;}
+.c-footer-content {position:relative;width:100%;height:100px;margin-top:50px;padding:0;}
+.c-wrap-content {width:250px;position:relative;left:140px;top:0px;}
+   .box-shadow {
+      -moz-box-shadow: 0 5px 8px #222;
+      -webkit-box-shadow: 0 5px 4px #222;
+      box-shadow: 0 5px 8px #222;
+      zoom: 1;
+      filter:
+
+          progid:DXImageTransform.Microsoft.Shadow(color=#444444,direction=-90,strength=5),
+          progid:DXImageTransform.Microsoft.Shadow(color=#444444,direction=90,strength=5);
+
+          
+    }
+    body:last-child .box-shadow {
+      /* Remove filter from IE9 */
+      filter: none;
+    }
+
+
+
+#BREAKING {
+height:500px;
+max-height:500px;
+width:1010px;
+background:#555;
+margin:0 auto!important;
+position:relative;
+overflow:hidden;
+}
+
+#BREAKING .BREAKING-HEADLINE{
+position:relative;
+top:0;
+width:100%;
+height:60px;
+max-height:60px;
+overflow:hidden;
+white-space:nowrap;
+background:#000;
+text-align:center;
+z-index:100;
+opacity:0.75;
+filter:alpha(opacity=75);
+}
+
+#BREAKING .BREAKING-HEADLINE span{display:block;padding:10px;white-space:nowrap;}
+
+#BREAKING .BREAKING-HEADLINE h3{
+font-family:Times,Georgia,Sans-Serif!important;
+color:#FFF!important;
+font-size:34px!important;
+}
+
+#BREAKING .BREAKING-IMAGE{
+position:absolute;
+z-index:1;
+top:0;
+height:500px;
+max-height:500px;
+overflow:hidden;
+}
+
+#BREAKING .BREAKING-NEWS-ARTICLES{
+width:100%;
+min-height:100px;
+max-height:140px;
+height:auto;
+overflow:hidden;
+background:#000;
+position:absolute;
+z-index:100;
+bottom:0!important;
+opacity:0.75;
+filter:alpha(opacity=75);
+}
+
+#BREAKING .BREAKING-NEWS-ARTICLES .BNA-LEFT{
+width:50%;
+min-height:100px;
+height:auto;
+position:relative;
+float:left;
+text-align:center;
+}
+
+#BREAKING .BREAKING-NEWS-ARTICLES .BNA-RIGHT{
+width:50%;
+min-height:100px;
+height:auto;
+position:relative;
+float:right;
+text-align:center;
+}
+
+.BNA-LEFT span{margin:20px 0 15px 25px!important;text-align:left!important;display:block!important;}
+.BNA-LEFT span h3{color:#FFFFFF!important;}
+
+
+.BNA-RIGHT .BNA-HEADER2{font-size:18px;color:#FFF;text-transform:uppercase;font-family:arial,verdana,sans-serif;font-weight:bold;margin:10px 0 0 0;display:block;float:left;}
+.BNA-RIGHT #BNA-LIST{
+list-style-type:square!important;
+color:red!important;
+text-align:left;
+font-size:12px;
+float:left;
+}
+
+
+/*========================================  HOMEPAGE PHOTO-ROTATOR STYLES ============================================== */
+
+
+#rotator {
+	width:590px;
+	height:550px;
+	overflow:hidden;
+	background:transparent;
+	margin-bottom:15px;
+	display:block;
+	position:relative;
+}
+/*
+Old caption code with transparency
+#rotator ul li .rotator-caption-wrap {
+	position: absolute;
+	padding:20px;
+	background:#000;
+	top:0;
+	left:0;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.6);	
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}*/
+#rotator ul li .rotator-caption-wrap-new {
+	position:relative;
+	top:5px;
+
+}
+#rotator ul li .rotator-caption-wrap-new p {
+	color:#000!important;
+	font-family: "PT Serif", "Georgia", "Times New Roman", Times, serif;
+	font-weight:bold;
+	margin: auto;
+	padding: auto;
+	line-height:1.5;
+	font-size:15px;
+}
+#rotator ul li .rotator-image-wrap {
+	margin:0;
+	padding:0;
+	position:relative;
+}
+#rotator ul {
+	margin:0;
+	padding:0;
+	position:relative;
+	list-style: none;
+}
+#rotator ul li {
+	margin:0;
+	padding:0;
+	position: absolute;
+	line-height: 20px;
+	width:590px;
+	float:left;
+	display:inline;
+	top: 0;
+	left: 0;
+}
+#rotator ul li.active {
+	z-index:10;
+	display:inline;
+	top: 0;
+}
+#rotator .rotator-caption-wrap p a {	
+	color: #FF0000;	
+	position:relative;
+}
+#rotator ul li .rotator-image-wrap img {
+	position: relative;
+	height:400px;
+	width:590px;
+	float:right;
+	right: 0;
+	top: 0;
+	z-index: -1;
+	overflow:hidden;
+}
+#rotator h2 {
+	font-family: Georgia;
+	color:  black;
+	font-size: 2.5em;
+	line-height: 1.2;
+	margin-bottom: 5px;
+}
+#rotator h2 a {
+	color: black;
+}
+#rotator ul {
+	list-style-type:none;
+}
+
+/* temp styles for disabling default footer elements */
+#footer h3, #footer .quiet {display:none;}
+#search {margin-left:50px; padding:12px 0 6px; text-align:left; float:left; width:200px;}
+
+/* comment form styling */
+
+#respond {margin:30px 0 0 20px; padding:10px 0 0 0; width:640px;}
+#commentform{ margin-bottom: 0;}	
+.span-24 p.postmetadata {float:none!important;width:auto!important;}
+
+/* tab at the top for the ad */
+#myhatwrap {background:#cdcdcd !important;}
+
+#myhat ul.property-links {margin:15px 0 0 25px; float:left;}
+#myhat .property-links li {padding:0 3px 0 0;display:inline; border-right:1px solid #78233a; list-style:none; }
+#myhat .property-links li.last {border-right:0; }
+#myhat .property-links a {font:bold 12px arial; color:#fff; text-decoration:none; text-transform:uppercase;}
+
+.papertitle {padding:10px 0 0 10px; }
+
+.shadow {
+	-moz-box-shadow: 2px 2px 2px #333;
+	-webkit-box-shadow: 2px 2px 2px #333;
+	box-shadow: 2px 2px 2px #333;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#333')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#333');
+}
+
+/*======================================== RIGHT RAIL INCLUDE STYLES ============================================== */
+
+.sbrightrail h3{display:none!important;}
+
+h3.preventries {margin-top:20px;}
+.mod_box {margin-bottom:15px;}
+.view-all-gallery-categories { text-align:center; margin-bottom:10px; display:block; }
+
+.athlete-profiles { margin:0 0 15px 0; display:block; overflow:hidden; border-top:1px solid #ddd; padding:8px 0 8px 0; }
+.athlete-profiles .poweredby { color:#666; margin:0 0 10px 0; }
+.athlete-profiles .athlete { background:#333; padding:0; margin:0 0 10px 0; overflow:hidden; }
+.athlete-profiles .athlete a { color:#fff; text-decoration:none; display:block; }
+.athlete-profiles .athlete img { float:left; margin:0 13px 0 0; }
+.athlete-profiles .athlete a.name { font:normal 16px georgia; margin:13px 0 0 0; }
+.athlete-profiles .athlete a.country { font:normal 10px arial; text-transform:uppercase; }
+.athlete-profiles .athlete a.event { font:normal 10px arial; text-transform:uppercase; }
+
+.br-profiles .simplepie h4 {margin-bottom:7px;height:85px;display:block;background:#333;}
+
+.br-profiles .simplepie h4 a {top:17px;color:#FFF;position:relative;}
+
+
+.todays-olympic-highlights { margin:0 0 15px 0; display:block; overflow:hidden; border-top:1px solid #ddd; border-bottom: 1px solid #DDD; padding: 18px 0 0 0; }
+.todays-olympic-highlights h2 { font:normal 30px georgia; margin:0 0 13px 0; display:block; }
+.todays-olympic-highlights .highlight-block { padding:0; margin:0 0 10px 0; overflow:hidden; font:normal 12px/19px arial; color:#000; }
+.todays-olympic-highlights .highlight-block a { color:#852316; text-decoration:none; }
+.todays-olympic-highlights .highlight-block img { float:left; margin:0 13px 0 0; height: 75px; width: 75px; }
+.todays-olympic-highlights .highlight-block h3 {margin:10px 0 5px 0; color: #000;}
+.todays-olympic-highlights .highlight-block h3 a {color: #000}
+.todays-olympic-highlights .blurb { margin:0; }
+
+.latest-olympic-galleries { margin:0 0 15px 0; display:block; overflow:hidden; padding: 18px 0 0 0; width:600px; min-height:450px!important;}
+.latest-olympic-galleries h2 { font:normal 30px georgia; margin:0 0 13px 0; display:block; }
+.latest-olympic-galleries .gallery-block { width:181px; float:left; margin:0 19px 0 0; overflow:hidden; font:normal 12px/19px arial; color:#000; min-height:400px;}
+.latest-olympic-galleries .gallery-block a { color:#852316; text-decoration:none; }
+.latest-olympic-galleries .gallery-block img { margin:0 0 13px 0; }
+.latest-olympic-galleries .right { width:181px; float:left; border-right:0; padding:00; margin:0; }
+
+
+/*======================================== SINGLE CATEGORY TEMPLATE STYLES ============================================== */
+
+
+#single-cat-section{}
+.single-cat-highlights { margin:0 0 15px 0; display:block; overflow:hidden; border-top:1px solid #ddd; padding: 18px 0 0 0; }
+.single-cat-highlights h2 { font:normal 36px georgia; margin:0 0 20px 0; display:block; }
+.single-cat-highlights .highlight-block { padding-bottom:15px; margin:0 0 10px 0; overflow:hidden; font:normal 12px/19px arial; color:#000; margin:0 0 50px 0; border-bottom:1px solid #CCC;}
+.single-cat-highlights .highlight-block a { color:#852316; text-decoration:none; }
+.single-cat-highlights .highlight-block img { float:left; margin:0 13px 0 0; width:100px!important;height:100px!important;}
+.single-cat-highlights .blurb { margin:10px 0 0 0; }
+
+
+.time-tags {position:relative;width:100%;height:auto;margin-top:30px;font-size:11px;text-align:right;}
+.time-tags .time {}
+.time-tags .tags {padding-left:12px;}
+
+#single-cat-paging {position:relative;width:100%;height:auto;padding0;font-size:18px;text-align:center;font-family:georgia;}
+
+#single-cat-paging .older {width:50%;height:auto;float:left;}
+#single-cat-paging .newer {width:50%;height:auto;float:right;}
+
+
+/*======================================== ALL CATEGORIES TEMPLATE STYLES ============================================== */
+
+#all-cat-section {}
+.all-cat-highlights { margin:0 0 15px 0; display:block; overflow:hidden; /*border-top:1px solid #ddd;*/ padding: 18px 0 0 0; }
+.all-cat-highlights h2 { font:normal 36px georgia; margin:0 0 20px 0; display:block; }
+
+.cat-left-column {width:50%;height:auto;position:relative;float:left;}
+.cat-right-column {width:50%;height:auto;position:relative;float:right;}
+.cat-left-column UL, .cat-right-column UL {list-style-type:none!important;margin:0!important;padding:0!important;}
+.cat-left-column UL LI, .cat-right-column UL LI {display:block;padding:0;width:100%;height:auto;min-height:35px;line-height:1.3em;}
+
+.squared {
+width: 90px;
+height: 90px;
+background:orange;
+display:none!important;
+position:relative;
+float:left;
+}
+
+
+.squared-text {
+display:block;
+position:relative;
+width:50%;
+height:auto;
+line-height:1.3em;
+float:right;
+font-size:18px;
+font-family:Georgia,Sans-Serif,Times;
+color:#222;
+height:auto;
+float:left;
+padding:15px 0 0 15px;
+white-space:wrap;
+} 
+
+
+.trans-1{background:#eea064;}
+.trans-2{background:#efa765;}
+.trans-3{background:#f0b068;}
+.trans-4{background:#f1b86a;}
+.trans-5{background:#f2bf6c;}
+.trans-6{background:#f3c76e;}
+
+
+/*======================================== GALLERY TEMPLATE STYLES ==============================================*/
+
+
+
+/*=========================================== STYLING FOR BLEACHER REPORT TOP STORIES REGION BELOW GALLEY SLIDER =================================================*/
+
+
+#top_stories_bleacher {
+height:320px;
+position:relative;
+margin-bottom:30px;
+padding-bottom:15px;
+}
+
+#top_stories_bleacher .top_stories_left {width:600px;height:320px;max-height:320px;overflow:hidden;margin:0;padding:0;float:left;position:relative;}
+#top_stories_bleacher .top_stories_right {width:350px;height:320px;max-height:320px;margin:0;padding:0;float:right;position:relative;}
+
+.top_stories_left .top_stories_head {
+
+width:100%;
+height:auto;
+height:40px;
+position:relative;
+text-transform:uppercase;
+text-align:left;
+font-family:arial,verdana,sans-serif;
+font-size:18px;
+font-weight:bold;
+color:#555;
+white-space:nowrap;
+
+}
+
+.top_stories_left .top_stories_head span {color:#990000!important;}
+.top_stories_left .top_stories_img {width:240px;height:320px;position:relative;float:left;margin:0;}
+.top_stories_left .top_stories_img IMG {width:190px;height:127px;display:block;padding:0 50px 20px 0;}
+.top_stories_left .top_stories_img SPAN {display:block;height:auto;max-width:190px;width:190px;font-size:14px;font-family:Arial,Verdana,Sans-Serif;color:#990000;}
+.top_stories_left .top_stories_list {width:360px;height:auto;position:relative;margin:0;padding:0;float:right;}
+.top_stories_left .top_stories_list UL {list-style-type:square!important;width:auto;text-align:left;margin-left:30px;;height:auto;font-size:14px;font-family:Arial,Verdana,Sans-Serif;color:#990000;}
+.top_stories_left .top_stories_list UL LI {padding:8px 0;}
+
+/*----- MORE PHOTOS & VIDEOS STYLING (GALLERY TEMPLATE) -----*/
+
+
+#mpav h3.sub {font-size:28px;border-top:solid 1px #EEE;padding-top:30px;border-bottom:0!important;}
+#mpav .latest-olympic-galleries {width:auto!important;border-top:1px solid #DDDDDD!important;}
+#mpav .latest-olympic-galleries .gallery-block {width:170px!important;}
+UL.yml {margin:0!important;padding:0!important;}
+UL.yml li {width:165px!important;height:375px!important;border-right:solid 2px #EEE;margin:10px!important;}
+.previouswrapper {height:auto;}
+UL.yml .previouswrapper {height:auto!important;margin-bottom:25px;overflow:hidden;}
+UL.yml .previouswrapper IMG {width:165px;height:145px;margin-bottom:15px;}
+
+
+
+.container-inner.olympics {
+	border:none;
+}
+
+.container-inner.olympics .span-15 {
+	border: none;
+}
+ 
+.container-inner.olympics .span-15 .sub {
+	border: none;
+}
+.single-cat-highlights.olympics {
+	border: none;
+}
+/*======================================== Olympics Article Styles ============================================== */
+
+ 
+
+.container-inner #olympics-article-container {
+	width: 600px;
+	float:left;
+	position:relative;
+	display:block;
+}
+
+
+.container-inner #olympics-rightrail {
+	float:right;
+	position:relative;
+	display:block
+	}
+	
+#olympics-article-container p img {position:relative;float:left;padding:15px 15px 8px 0;/*max-width:350px;max-height:400px;*/}
+
+#olympics-article-container p img {height:350px;width:auto;}
+#olympics-article-container p img {height:auto;width:350px;}
+
+#olympics-article-container .entryposted {margin-top:90px!important;}
+
+#olympics-article-container #five_sblinks {position:relative;float:left;margin:40px 0 20px 0;}
+
+#respond p textarea {width:560px!important;}
+
+.span-24 .the_author, .span-15 .the_author {font-size:18px;font-style:italic;font-family:Times, Sans-Serif, Georgia;margin-bottom:0!important;}
+.span-24 .the_author span, .span-15 .the_author span {color:#820405;font-weight:bold;}
+/*======================================= Olymipcs Single Category Styles ======================================== */
+
+.single-cat-highlights.olympics h2 {
+	border:none;
+}
+
+.span-15.olympics {
+	border: none;
+}
+

@@ -1,0 +1,277 @@
+<?php
+/* 
+Plugin Name: Slideshowpro Insert Album TEST
+Plugin URI: 
+Version: v1.00
+Author: mateo leyba
+Description: Dynamicaly passes Slideshow Pro Director CMS gallery to a pre made swf/slideshow 
+Copyright 2009 mateo leyba  (email : mleyba [a t ] denverpost DOT com)
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+*/
+
+function ssp_headfies() {
+//This is for permalinks feature in ssp. Anything in this section will load in the head tag
+	echo '<script type="text/javascript">
+<!--
+function flashPutHref(href) { location.href = href; }
+-->
+</script>';
+
+
+//css in case you need to mess with the slideshow div
+//echo '<link rel="stylesheet" type="text/css" href="' . get_settings('siteurl') . '/wp-content/plugins/ssp-slideshow/css/ssp-insertslideshow.css" media="screen" />';
+
+//My current theme already loads swfobject, if yours doesn't uncomment this secion to load it from the plugin folder.
+/*
+    $url = get_settings('siteurl');
+	echo '<script type="text/javascript" src="' . $url . '/wp-content/plugins/ssp-slideshow/js/swfobject.js"></script>';
+*/	
+}
+
+add_action('wp_head', 'ssp_headfies');
+
+function sspx_init() {
+	
+	
+	function addShow($atts) {
+	
+	
+	//example of user input, this is what you put in your post body. [insertslideshow xml="77583397001"]
+		extract(shortcode_atts(array(
+			'xml' => 'no id',
+		), $atts));
+	
+		//var_dump($xml);
+			
+			//the path to the slideshow pro swf to load
+			$swffilepath = get_settings('siteurl') . '/wp-content/plugins/ssp-slideshow/swfs/externalxml.swf';
+
+			
+			//Set file type to Director
+			$xmlfiletypetoflash = 'Director';
+		
+			
+			//Gather the necessary info to create a link to the catagory view. This is basically the "gallery" of all the albums in a specific catagory
+			//Get the catagory name for this post
+			#$category_name = get_the_category($post->ID);
+			
+			// Get the ID of a given category
+    		#$category_id = get_cat_ID($category_name[0]->cat_name);
+
+    		// Get the URL of this category
+   			 #$category_link = get_category_link( $category_id );
+
+			
+
+			//global $post;
+			
+			//var_dump(isset($xmlfiletoflash));
+			//var_dump($xmlfiletoflash);
+			
+			ob_start();
+			
+			?>
+          
+	
+            <script type="text/javascript">
+            var flashvars = {
+			initialURL: escape(document.location),  //permalink value
+			xmlfile: "<?php echo $xml?>",  //file path
+			xmlfiletype: "<?php echo $xmlfiletypetoflash?>" //file type I'm using Director
+			};
+            var params = {};
+			params.allowfullscreen = "true";
+			params.allowscriptaccess = "always";
+			var attributes = {};
+			attributes.id = "slideshow";
+			swfobject.embedSWF("<?php echo $swffilepath?>", "slideshow", "950", "590", "9.0.0", false, flashvars, params,  attributes);
+			</script>   
+                	
+	
+		
+		
+          <div id="slideshow">
+     			 <p>Alternative content</p>
+    		</div>
+			
+			<?php
+			
+			
+			 $data = ob_get_contents();
+			ob_end_clean();
+				
+			
+   				return $data;
+			
+		
+
+        }
+
+function addShowjava($atts) {
+	
+	
+	//example of user input, this is what you put in your post body. [insertslideshowjava xml="77583397001" api="reverb, captured, dp, seen"]
+		extract(shortcode_atts(array(
+			'xml' => 'no id',
+			'api' => 'none',
+		), $atts));
+		
+		$album_id = explode("=", $xml);
+		//var_dump($album_id[1]);
+	
+		//var_dump($xml);   [insertSlideshowjava xml="http://dpphoto.slideshowpro.com/images.php?album=113795"]
+			
+			// Director config
+/*---------------Start Director Setup ------------------------*/
+    # Include DirectorAPI class file
+	# and create a new instance of the class
+	# Be sure to have entered your API key and path in the DirectorPHP.php file.
+	require_once(THEMELIB . '/classes/DirectorPHP.php');
+	
+	switch ($api) {
+    case "dp":
+        $director = new Director('hosted-ec5968d1bc7bc366d67ef8a87fd69909', 'dpphoto.slideshowpro.com');
+        break;
+    case "captured":
+        $director = new Director('hosted-4f77020e8274f637f878c2224c753770', 'denverpost.slideshowpro.com');
+        break;
+	case "seen":
+        $director = new Director('hosted-4f77020e8274f637f878c2224c753770', 'denverpost.slideshowpro.com');
+        break;
+    case "reverb":
+	//echo "reverb";
+        $director = new Director('hosted-9c9cf54218f185433472b1e031a9b8c3', 'reverb.slideshowpro.com');
+        break;
+	case "newmc":
+        $director = new Director('hosted-5f1907e0ef82c8203250bd7ac2733f0c', 'mcenter.slideshowpro.com');
+        break;
+    default:
+       $director = new Director('hosted-ec5968d1bc7bc366d67ef8a87fd69909', 'dpphoto.slideshowpro.com');
+}	
+
+	# When your application is live, it is a good idea to enable caching.
+
+	# You need to provide a string specific to this page and a time limit 
+
+	# for the cache. Note that in most cases, Director will be able to ping
+
+	# back to clear the cache for you after a change is made, so don't be 
+
+	# afraid to set the time limit to a high number.
+
+	# 
+
+	$director->cache->set('thisismediacenter03', '+30 minutes');
+
+
+
+	# What sizes do we want?
+
+	$director->format->add(array('name' => 'thumb', 'width' => '50', 'height' => '50', 'crop' => 1, 'quality' => 75, 'sharpening' => 1));
+
+	$director->format->add(array('name' => 'large', 'width' => '900', 'height' => '540', 'crop' => 0, 'quality' => 95, 'sharpening' => 1));
+	
+	$director->format->add(array('name' => 'pictopia', 'width' => '400', 'height' => '450', 'crop' => 0, 'quality' => 95, 'sharpening' => 1));
+
+	
+
+	# We can also request the album preview at a certain size
+
+	$director->format->preview(array('width' => '100', 'height' => '50', 'crop' => 1, 'quality' => 85, 'sharpening' => 1));
+
+
+
+	# Make API call using get_album method. Replace "1" with the numerical ID for your album
+
+	$album = $director->album->get($album_id[1]);
+
+
+
+	# Set images variable for easy access
+
+	$contents = $album->contents[0];
+	$total_images = count($contents);
+	//var_dump ($contents[0]);
+	
+	
+	
+	
+
+			
+			ob_start();
+			$makemeunique = explode (" ", microtime()); 
+			?>
+				<!-- Start Advanced Gallery Html Containers -->
+                <div class="clear"></div>
+                				<div id="gallery" class="content">
+                					<div class="slideshow-container">
+						<div id="loading" class="loader"></div>
+						<div id="slideshow" class="slideshow"></div>
+					</div>
+                    
+                    <div id="controls" class="controls"></div>
+					
+				</div>
+               
+                <div class="navcontainer">
+                <div id="caption" class="caption-container"></div>
+				<div id="thumbs" class="navigation">
+					<ul class="thumbs noscript">
+                    
+                    <?php foreach ($contents as $image): ?>
+                    
+				<li>
+					<a class="thumb" name="name here" href="<?php echo $image->large->url ?>" title="title">
+                    <img src="<?php echo $image->thumb->url ?>" width="<?php echo $image->thumb->width ?>" height="<?php echo $image->thumb->height ?>" alt="<?php echo $album->name; ?>" />
+                    </a>
+                    <div class="caption">
+                    <div class="pictopia"><?php if ($image->title == forsale){ ?><a href="http://gallery.pictopia.com/denverpost/e/?photo_name=<?php echo $makemeunique[1] . $image->src ?>&t_url=<?php echo $image->pictopia->url ?>">Buy This Photo</a> <?php } ?></div>
+								<div class="image-title"><?php echo $image->seq . " of " . $total_images ?>  </div><div class="clear"></div>
+								<div class="image-desc"><?php echo $image->caption ?></div><div class="clear"></div>
+							</div>
+                </li>            
+
+		<?php endforeach ?>
+				
+                    </ul>
+                 </div>
+                 </div>
+					
+			<?php
+			
+			
+			 $data = ob_get_contents();
+			ob_end_clean();
+				
+			
+   				return $data;
+			
+		
+
+        }
+
+   
+add_shortcode('insertSlideshow', 'addshow');
+add_shortcode('insertSlideshowjava', 'addshowjava');
+
+
+}	
+         
+add_action('plugins_loaded', 'sspx_init');
+	
+
+?>

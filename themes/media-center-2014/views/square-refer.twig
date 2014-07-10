@@ -1,0 +1,41 @@
+{# square-refer.twig #}
+{% extends "index.twig" %}
+{% block squares %}
+{% if loop.index == 3 %}
+<div class="ad ad-pos2">
+<div id="cube1">
+<script>
+// Call display() to register the slot as ready
+// and refresh() to fetch an ad.
+googletag.cmd.push(function() {
+googletag.display('cube1');
+googletag.pubads().refresh();
+});
+</script>
+</div>
+</div>
+{% elseif loop.index == 6 %}
+<div class="ad ad-pos2">
+<div id="cube2">
+<script>
+// Call display() to register the slot as ready
+// and refresh() to fetch an ad.
+googletag.cmd.push(function() {
+googletag.display('cube2');
+googletag.pubads().refresh();
+});
+</script>
+</div>
+</div>
+{% else %}
+<div class="block-refer">
+		<a href="{{post.permalink}}"><img src="{{post.thumbnail.src('featured-thumbnail')}}" alt="" /></a>
+		<h3><a href="{{post.permalink}}">{{post.title}}</a></h3>
+		<div class="excerpt"><p>{{post.post_excerpt}}</p></div>
+		<div class="meta">
+			<p><span class="category">In <a href="{{post.category.link}}">{{post.category}}</a></span><span class="timestamp">{{post.post_date|time_ago}}</span></p>
+                {% include 'snippet_share_zipper.twig' %}
+		</div> <!-- .meta -->
+	</div> <!-- .block-refer -->
+{% endif %}
+{% endblock %}

@@ -1,0 +1,146 @@
+{% if type == 'traditional' %}
+
+{{post.content}}
+<noscript>
+<h5>Photo navigation</h5>
+<ul>
+{%for galleryItem in galleryJSON.ImageElement%}
+<li><a href="{{post.link}}#!photo_num/{{loop.index}}">{{galleryItem.caption}}</a></li>
+{%endfor%}
+</ul>
+</noscript>
+
+<div class="story">
+	<div class="content-well">
+		<div class="story-info">
+			<h5 class="section-name"><a href="{{wpurl}}/category/{{post.category.slug}}/">{{post.category}}</a></h5>
+			<h1>{{post.title}}</h1>
+			<div class="meta">
+				<p>
+				<span class="posted-by">
+					Posted by <a href="#">{{post.author}}</a> on <span class="timestamp">{{post.post_date}}</span>
+				</span>
+				<span class="divider"></span>
+				{% include 'tags.twig' %}
+                {{editlink}}
+				</p>
+                {% include 'snippet_share_zipper.twig' %}
+			</div> <!-- .meta -->
+			<p>{{post.post_excerpt}}</p>
+		</div> <!-- .story-info -->
+		<ul class="pager plain">
+			{% if post.prev %}
+
+			<li class="prev">
+				<p class="position"><span class="glyphicon glyphicon-chevron-left"></span> Previous Post</p>
+				<p><a href="{{post.prev.link}}">{{post.prev.title}}</a></p>
+			</li>
+			{% endif %}
+			{% if post.next %}
+
+			<li class="next">
+				<p class="position"></span>Next Post<span class="glyphicon glyphicon-chevron-right"></p>
+				<p><a href="{{post.next.link}}">{{post.next.title}}</a></p>
+			</li>
+			{% endif %}
+
+		</ul> <!-- .pager -->
+		<div class="comments" id="comments">
+            {{ comment_form }}
+		</div>
+	</div> <!-- .content-well -->
+	<div class="ad-well">
+		<div class="ad ad-pos2">
+		<div id="cube1">
+		<script>
+		// Call display() to register the slot as ready
+		// and refresh() to fetch an ad.
+		googletag.cmd.push(function() {
+		googletag.display('cube1');
+		googletag.pubads().refresh();
+		});
+		</script>
+		</div>
+		</div>
+		{% include 'sidebar.twig' with sidebar %}
+		{% include 'related.twig' with related %}
+		<div class="ad ad-pos2">
+		<div id="cube2">
+		<script>
+		// Call display() to register the slot as ready
+		// and refresh() to fetch an ad.
+		googletag.cmd.push(function() {
+		googletag.display('cube2');
+		googletag.pubads().refresh();
+		});
+		</script>
+		</div>
+		</div>
+		{% include 'sidebar.twig' with sidebar %}
+		{% include 'related.twig' with related %}
+	</div> <!-- .ad-well -->
+</div> <!-- .story -->
+
+
+
+{% elseif type == 'scrollable' %}
+
+<div class="story">
+	<header>
+		<div class="content-well">
+			<h3 class="blog-name">{{dfm.site_name}} Photo Blog</h3>
+			<p class="lead">{{tagline}}</p>
+			<div class="story-info">
+			    <h5 class="section-name"><a href="{{wpurl}}/category/{{post.category.slug}}/">{{post.category}}</a></h5>
+				<h1>{{post.title}}</h1>
+				<p>{{post.post_excerpt}}</p>
+			</div> <!-- .story-info -->
+			<div class="meta">
+				<p>
+				<span class="posted-by">
+					Posted by <a href="#">{{post.author}}</a> on <span class="timestamp">{{post.post_date}}</span>
+				</span>
+				<span class="divider"></span>
+				{% include 'tags.twig' %}
+                {{editlink}}
+				</p>
+                {% include 'snippet_share_zipper.twig' %}
+			</div> <!-- .meta -->
+		</div> <!-- .content-well -->
+		<div class="ad-well">
+			{% include 'ad.twig' with ad %}
+			{% include 'sidebar.twig' with sidebar %}
+		</div>
+	</header>
+	{{post.content}}
+	<footer>
+		<div class="ad-well">
+			{% include 'ad.twig' with ad %}
+			{% include 'related.twig' with related %}
+		</div>
+		<div class="content-well">
+		<ul class="pager plain">
+			{% if post.prev %}
+
+			<li class="prev">
+				<p class="position"><span class="glyphicon glyphicon-chevron-left"></span> Previous Post</p>
+				<p><a href="{{post.prev.link}}">{{post.prev.title}}</a></p>
+			</li>
+			{% endif %}
+			{% if post.next %}
+
+			<li class="next">
+				<p class="position"></span>Next Post<span class="glyphicon glyphicon-chevron-right"></p>
+				<p><a href="{{post.next.link}}">{{post.next.title}}</a></p>
+			</li>
+			{% endif %}
+
+		</ul> <!-- .pager -->
+			<div class="comments" id="comments">
+                {{ comment_form }}
+			</div>
+		</div>
+	</footer>
+</div> <!-- .story -->
+
+{% endif %}
